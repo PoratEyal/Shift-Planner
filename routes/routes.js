@@ -3,7 +3,8 @@ const router = express.Router()
 const Role = require('../models/role')
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
-const { ObjectId } = require('mongodb')
+const mongoose = require('mongoose')
+const { parse } = require('dotenv')
 
 // create role
 router.post('/', async(req, res) => {
@@ -24,16 +25,16 @@ router.post('/addUser', async (req, res) => {
         const salt = await bcrypt.genSalt();
         const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
-        // const role = new Role({
-        //   name: "developer"
-        // });
+        //const roleTmp = mongoose.mongo.ObjectId(req.body.role);
+        var ObjectId = require('mongodb').ObjectId;
 
         const user = new User({
         fullName: req.body.fullName,
         username: req.body.username,
         password: hashedPassword,
-        role: req.body.role
+        role: ObjectId(req.body.role)
         });
+        console.log(ObjectId(req.body.role))
         const newUser = await user.save();
         res.status(201).json(newUser)
         } catch(err) {
