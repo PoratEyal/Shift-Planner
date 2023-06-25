@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
-const {User, Role} = require('../models/db');
-const { model } = require('mongoose');
+const Role = require('../models/role');
 
+// create role
 router.post('/addRule', (req, res) => {
     const role = new Role({
         name: req.body.name
