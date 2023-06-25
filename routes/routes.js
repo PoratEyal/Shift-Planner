@@ -3,17 +3,16 @@ const router = express.Router()
 const Role = require('../models/role');
 
 // create role
-router.post('/addRule', (req, res) => {
+router.post('/', async(req, res) => {
     const role = new Role({
         name: req.body.name
     })
-    role.save()
-    .then(data => {
-        res.json(data)
-    })
-    .catch(error => {
-        res.json(error)
-    })
+    try{
+        const newRole = await role.save();
+        res.status(201).json(newRole)
+    } catch(err) {
+        res.status(400).json({messege: err.messege})
+    }
 })
 
 module.exports = router
