@@ -2,5 +2,17 @@ POST http://localhost:3001/app
 Content-Type: application/json
 
 {
-    "name":"maneger"
+    "name":"devolper"
+}
+
+###
+
+POST http://localhost:3001/app/addUser
+Content-Type: application/json
+
+{
+    "fullName":"ofrk",
+    "username":"ofek1",
+    "password":"nba",
+    "role":"6498721496fff2972b9d4a2f"
 }
