@@ -1,8 +1,8 @@
-POST http://localhost:3001/app
+POST http://localhost:3001/app/addRole
 Content-Type: application/json
 
 {
-    "name":"devolper"
+    "name":"Shift Manager"
 }
 
 ###
@@ -11,8 +11,8 @@ POST http://localhost:3001/app/addUser
 Content-Type: application/json
 
 {
-    "fullName":"nba",
-    "username":"ofek1",
+    "fullName":"כוכבה",
+    "username":"שביט",
     "password":"nba",
-    "role":"649851fdf84cbd0787d4c020"
+    "role":"cleaner"
 }

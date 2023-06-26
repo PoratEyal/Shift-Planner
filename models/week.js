@@ -5,14 +5,14 @@ const weekSchema = new mongoose.Schema({
       type: Number,
       required: true
     },
-    startDate: {
-      type: Date,
-      required: true,
-    },
-    endtDate: {
-        type: Date,
-        required: true,
-    },
+    // startDate: {
+    //   type: Date,
+    //   required: true,
+    // },
+    // endtDate: {
+    //     type: Date,
+    //     required: true,
+    // },
     day: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Day'

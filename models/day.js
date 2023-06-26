@@ -5,6 +5,10 @@ const daySchema = new mongoose.Schema({
       type: String,
       required: true
     },
+    // date: {
+    //   type:date,
+    //   required: true
+    // },
     shift: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Shift'
