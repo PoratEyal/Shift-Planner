@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const shiftSchema = new mongoose.Schema({
-  shiftId: {
-    type: String,
-    required: true,
-  },
   description: {
     type: String,
     required: true,
@@ -18,8 +14,8 @@ const shiftSchema = new mongoose.Schema({
     required: true,
   },
   workers: [{
-    type: Schema.Types.ObjectId,
-    ref: 'User',
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
   }]
 });
 

@@ -7,12 +7,40 @@ Content-Type: application/json
 
 ###
 
+GET http://localhost:3001/app/getRoles
+Content-Type: application/json
+
+###
+
+
 POST http://localhost:3001/app/addUser
 Content-Type: application/json
 
 {
-    "fullName":"כוכבה",
-    "username":"שביט",
-    "password":"nba",
+    "fullName":"edi",
+    "username":"tiny",
+    "password":"12345",
     "role":"cleaner"
+}
+
+###
+
+GET http://localhost:3001/app/getUsers
+Content-Type: application/json
+
+###
+
+DELETE http://localhost:3001/app/deleteUser/6499809621bb443b8ff70fd0
+
+
+###
+
+POST http://localhost:3001/app/addShift
+Content-Type: application/json
+
+{
+    "description": "משמרת חג",
+    "startTime": "6:00",
+    "endTime": "10:00",
+    "workers": ["jhon"]
 }
