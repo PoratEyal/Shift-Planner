@@ -17,6 +17,7 @@ Content-Type: application/json
 
 ### delete role (delete)
 DELETE http://localhost:3001/app/deleteRole/649851fdf84cbd0787d4c020
+Content-Type: application/json
 
 ### put Role
 
@@ -49,10 +50,15 @@ Content-Type: application/json
 ###
 
 DELETE http://localhost:3001/app/deleteUser/6499809621bb443b8ff70fd0
+Content-Type: application/json
 
 
 ###
 
+
+
+### ------------------shift Actions------
+### Add Shift
 POST http://localhost:3001/app/addShift
 Content-Type: application/json
 
@@ -63,9 +69,35 @@ Content-Type: application/json
     "workers": ["jhon"]
 }
 
-###
+### get All Shifts
+GET http://localhost:3001/app/getShifts
+Content-Type: application/json
+
+### get shift by id
+GET http://localhost:3001/app/getShiftById/6499d143ddfa4c42dc7600cc
+Content-Type: application/json
 
 
+### delete shift
+DELETE http://localhost:3001/app/deleteShift/6499d143ddfa4c42dc7600cc
+Content-Type: application/json
+
+### update shift
+PUT http://localhost:3001/app/updateShift
+Content-Type: application/json
+
+{
+    "_id": "649af12b13cbaa41a90ab937",
+    "description": "TEST2",
+    "startTime": "8:00",
+    "endTime": "23:00",
+    "workers": []
+}
+
+
+
+
+### --------------days actions--------
 POST http://localhost:3001/app/addDay
 Content-Type: application/json
 

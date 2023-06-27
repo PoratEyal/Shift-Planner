@@ -8,7 +8,6 @@ const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const { parse } = require('dotenv');
 const path = require('path');
-const rootDir = require('../util/path');
 
 // ---------------------------- ROLE funcs ---------------------------------------
 
@@ -169,10 +168,57 @@ router.post('/addShift', async (req, res) => {
     } catch(err) {
         res.status(400).json({messege: err.messege})
     }
-})
+});
+
+router.get('/getShifts', async (req, res) => {
+    try{
+        const shifts = await Shift.find();
+        res.status(201).json(shifts)  
+    } catch(err){
+        res.status(400).json({message: err.message})
+    }
+});
+
+router.get('/getShiftById/:id', async (req, res) => {
+    try{
+        const id = req.params.id
+        const shift = await Shift.findById(id);
+        res.status(201).json(shift)  
+    } catch(err){
+        res.status(400).json({message: err.message})
+    }
+});
+
+router.delete('/deleteShift/:id', async (req, res) => {
+    try{
+        const id = req.params.id;
+        const shift = await Shift.findOneAndDelete(id);
+        res.status(202).json(shift);
+    } catch(err){
+        res.status(400).json({message: err.message});
+    }
+});
+
+router.put('/updateShift', async (req, res) => {
+    try{
+    const shift = new Shift({
+        _id: req.body._id,
+        description: req.body.description,
+        startTime: req.body.startTime,
+        endTime: req.body.endTime,
+        workers: req.body.workers
+    });
+    const oldShift = await Shift.findOneAndUpdate(shift._id, shift);
+    res.status(202).json(oldShift);
+    }catch(err){
+        res.status(400).json({message: err.message});
+    }
+});
 
 
-// ---------------------------- SHIFT funcs ---------------------------------------
+
+
+// ---------------------------- Days funcs ---------------------------------------
 
 // create/post Day
 router.post('/addDay', async (req, res) => {
@@ -192,9 +238,13 @@ router.post('/addDay', async (req, res) => {
     }
 })
 
-router.use('/', (req, res) => {
-    res.sendFile(path.join(rootDir, "views", "homePage.html"))
-});
+
+
+
+
+// router.use('/', (req, res) => {
+//     res.sendFile(path.join(rootDir, "views", "homePage.html"))
+// });
 
 
 module.exports = router
