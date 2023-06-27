@@ -102,6 +102,23 @@ router.get('/getUsers', async (req, res) => {
         res.status(400).json({messege: err.messege})
     }
 });
+//login
+router.get('/login', async (req, res) => {
+    await User.find({username: req.body.username}).then(user => {        
+         bcrypt.compare(req.body.password, user.password).then((result) => {
+                 if(result === true){
+                    res.status(200).json(user);
+                 }
+                 else{
+                    res.status(400);
+                 }
+             });
+        })
+        .catch(err => {
+            res.status(404).json({message: err});
+        });
+    });
+
 //delete user by id
 router.delete('/deleteUser/:id', async (req, res) => {
     try {
@@ -124,13 +141,12 @@ try {
     
     //const salt = await bcrypt.genSalt();
     bcrypt.hash(req.body.password, 10).then(async (hash) => {
-        const updatedUser = req.body;
+        let updatedUser = req.body;
+        updatedUser.password = hash;
         const user = await User.findOneAndUpdate(updatedUser._id, updatedUser);
         user ? res.status(202).json(user) : res.status(404).json({ error: 'User not found' });
     });
-    // bcrypt.compare(req.body.password, user.password).then((result) => {
-    //     console.log(result);
-    // });
+    
 } catch (err) {
 
     console.error(err);
