@@ -1,12 +1,14 @@
-const express = require('express')
-const router = express.Router()
-const Role = require('../models/role')
-const User = require('../models/user')
-const Shift = require('../models/shift')
-const Day = require('../models/day')
-const bcrypt = require('bcrypt')
-const mongoose = require('mongoose')
-const { parse } = require('dotenv')
+const express = require('express');
+const router = express.Router();
+const Role = require('../models/role');
+const User = require('../models/user');
+const Shift = require('../models/shift');
+const Day = require('../models/day');
+const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
+const { parse } = require('dotenv');
+const path = require('path');
+const rootDir = require('../util/path');
 
 // ---------------------------- ROLE funcs ---------------------------------------
 
@@ -28,7 +30,7 @@ router.get('/getRoles', async (req, res) => {
     try {
       const roles = await Role.find({}, 'name');
       const roleNames = roles.map((role) => role.name);
-      res.status(201).json(roleNames)  
+      res.status(200).json(roleNames)  
     } catch (err) {
       res.status(400).json({messege: err.messege})
     }
@@ -148,7 +150,9 @@ router.post('/addDay', async (req, res) => {
     }
 })
 
-
+router.use('/', (req, res) => {
+    res.sendFile(path.join(rootDir, "views", "homePage.html"))
+});
 
 
 module.exports = router
