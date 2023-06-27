@@ -29,13 +29,55 @@ router.post('/addRole', async(req, res) => {
 router.get('/getRoles', async (req, res) => {
     try {
       const roles = await Role.find({}, 'name');
-      const roleNames = roles.map((role) => role.name);
+      const roleNames = roles.map((role) => role);
       res.status(200).json(roleNames)  
     } catch (err) {
       res.status(400).json({messege: err.messege})
     }
 });
+//get role by id
+router.get('/getRoleWithId/:id', async (req, res) => {
+    try {
+      const { id } = req.params;
 
+      const role = await Role.findById(id);
+      //const roleNames = roles.map((role) => role);
+      res.status(200).json(role)  
+    } catch (err) {
+      res.status(400).json({messege: err.messege})
+    }
+});
+
+router.delete('/deleteRole/:id', async (req, res) => {
+    try {
+      const { id } = req.params;
+  
+      const deletedRole = await Role.findByIdAndDelete(id);
+  
+      if (!deletedRole) {
+        return res.status(404).json({ error: 'Role not found' });
+      }
+  
+      res.json({ message: 'Role deleted successfully' });
+    } catch (err) {
+        res.status(400).json({messege: err.messege})
+    }
+  });
+
+
+router.put('/putRole', async (req, res) =>{
+    try{
+        const role = new Role({
+            _id: req.body._id,
+            name: req.body.name
+        });
+        const putRole = await Role.findOneAndUpdate(role._id, role);
+ 
+        res.status(200).json(putRole)
+    } catch(err){
+        res.status(400).json({message: err.message})
+    }
+});
 
 // ---------------------------- USER funcs ---------------------------------------
 

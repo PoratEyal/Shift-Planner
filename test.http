@@ -1,17 +1,35 @@
+### roles actions:
+###Add (post)
 POST http://localhost:3001/app/addRole
 Content-Type: application/json
 
 {
-    "name":"Shift Manager"
+    "name":"Manager"
 }
 
-###
-
+###get all (get)
 GET http://localhost:3001/app/getRoles
 Content-Type: application/json
 
-###
+### get by id
+GET http://localhost:3001/app/getRoleWithId/649aa0cbb82a5343f4550bed
+Content-Type: application/json
 
+### delete role (delete)
+DELETE http://localhost:3001/app/deleteRole/649851fdf84cbd0787d4c020
+
+### put Role
+
+PUT http://localhost:3001/app/putRole
+Content-Type: application/json
+
+{ 
+    "_id": "649aa0cbb82a5343f4550bed",
+     "name": "test" 
+}
+
+
+### users actions
 
 POST http://localhost:3001/app/addUser
 Content-Type: application/json
