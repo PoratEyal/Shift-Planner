@@ -115,10 +115,30 @@ POST http://localhost:3001/app/addDay
 Content-Type: application/json
 
 {
-    "name":"רביעי",
-    "shifts": ["6499d143ddfa4c42dc7600cc","6499d28cddfa4c42dc7600d1"]
+    "name":"testing other code",
+    "shifts": []
 }
 
 ###
 GET http://localhost:3001/app/getDays
 Content-Type: application/json 
+
+
+###
+GET http://localhost:3001/app/getDay/649b33527747ae58985fde2f
+Content-Type: application/json 
+
+###
+
+DELETE  http://localhost:3001/app/deleteDay/649b3b1d03090efd399eced8
+Content-Type: application/json 
+
+###
+PUT http://localhost:3001/app/editDay
+Content-Type: application/json
+
+{
+    "_id": "649b3c2e18f3287977da1009",
+    "name": "רביעי",
+    "shifts": []
+}

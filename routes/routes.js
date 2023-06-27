@@ -9,7 +9,8 @@ const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const { parse } = require('dotenv');
 const path = require('path');
-
+const bodyParser = require('body-parser');
+router.use(bodyParser.json());
 // ---------------------------- ROLE funcs ---------------------------------------
 // create/POST role
 router.post('/addRole', async(req, res) => {
@@ -62,10 +63,7 @@ router.delete('/deleteRole/:id', async (req, res) => {
   });
 router.put('/putRole', async (req, res) =>{
     try{
-        const role = new Role({
-            _id: req.body._id,
-            name: req.body.name
-        });
+        const role = req.body;
         const putRole = await Role.findOneAndUpdate(role._id, role);
  
         res.status(200).json(putRole)
@@ -126,14 +124,7 @@ try {
     
     //const salt = await bcrypt.genSalt();
     bcrypt.hash(req.body.password, 10).then(async (hash) => {
-        const updatedUser = new User({
-            _id: req.body._id,
-            fullName: req.body.fullName,
-            username: req.body.username,
-            job: req.body.job,
-            password: hash,
-            role: req.body.role
-        });
+        const updatedUser = req.body;
         const user = await User.findOneAndUpdate(updatedUser._id, updatedUser);
         user ? res.status(202).json(user) : res.status(404).json({ error: 'User not found' });
     });
@@ -200,13 +191,7 @@ router.delete('/deleteShift/:id', async (req, res) => {
 //edit shift
 router.put('/updateShift', async (req, res) => {
     try{
-    const shift = new Shift({
-        _id: req.body._id,
-        description: req.body.description,
-        startTime: req.body.startTime,
-        endTime: req.body.endTime,
-        workers: req.body.workers
-    });
+    const shift = req.body;
     const oldShift = await Shift.findOneAndUpdate(shift._id, shift);
     res.status(202).json(oldShift);
     }catch(err){
@@ -217,39 +202,60 @@ router.put('/updateShift', async (req, res) => {
 // ---------------------------- Days funcs ---------------------------------------
 // create/post Day
 router.post('/addDay', async (req, res) => {
-    try {
-        const shifts = await Shift.find({_id: req.body.shifts});
-        for(let i = 0; i < shifts.length; i++){
-            shifts[i] = shifts[i]._doc
-        }
-
-        console.log(shifts);
-
-        const day = new Day({
-            name: req.body.name,
-            shifts: shifts
-        });
-        //console.log(typeof(shifts));
-        const newDay = await day.save();
-        res.status(201).json(newDay);
-    } catch(err) {
+    Day.create(req.body).then((obj) => {
+        res.status(201).json(obj);
+    }).catch(err =>{
         res.status(400).json({messege: err._messege});
-    }
+    });
 });
-
 //get days
 router.get('/getDays', async (req, res) => {
-    try{
-        const days = await Day.find();
+    await Day.find()
+    .then(days =>{
         res.status(200).json(days);
-    } catch (err){
+    })
+    .catch(err => {
         res.status.json({message: err.message});
+    });
+});
+//get one day
+router.get('/getDay/:id', async (req, res) => {
+    await Day.findById(req.params.id)
+    .then(day => {
+        if(day){
+            res.status(200).json(day)
+         }else { 
+            throw new Error("no such day was found");
+        }
+    })
+    .catch(err => {
+    res.status(400).json({message: err.Error});
+    });
+});
+//delete day
+router.delete('/deleteDay/:id', async (req, res) => {
+    try{
+        const id = req.params.id;
+        const deleted = await Day.findOneAndDelete(id);
+        res.status(202).json(deleted);
+    }catch(err){
+        res.status(400).json({message: err._messege})
     }
+});
+//edit day
+router.put('/editDay', async (req, res) => {
+    try{
+        let reqBody = req.body;
+        const oldDay = await Day.findByIdAndUpdate(reqBody._id, reqBody);
+        res.status(200).json(oldDay);
+    }catch(err){
+        res.status(400).json({message: err._messege});
+    }
+
 });
 
 
-
-
+//------------------------------Week funcs --------------------------------------------
 
 
 
