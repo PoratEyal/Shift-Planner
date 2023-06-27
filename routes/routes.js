@@ -3,6 +3,7 @@ const router = express.Router()
 const Role = require('../models/role')
 const User = require('../models/user')
 const Shift = require('../models/shift')
+const Day = require('../models/day')
 const bcrypt = require('bcrypt')
 const mongoose = require('mongoose')
 const { parse } = require('dotenv')
@@ -121,6 +122,27 @@ router.post('/addShift', async (req, res) => {
         })
         const newShift = await shift.save()
         res.status(201).json(newShift)
+    } catch(err) {
+        res.status(400).json({messege: err.messege})
+    }
+})
+
+
+// ---------------------------- SHIFT funcs ---------------------------------------
+
+// create/post Day
+router.post('/addDay', async (req, res) => {
+    try {
+        const shifts = await Shift.find({description: req.body.shifts})
+        console.log(shifts)
+
+        const day = new Day({
+            name: req.body.name,
+            shifts: shifts
+        })
+        console.log(typeof(shifts))
+        const newDay = await day.save()
+        res.status(201).json(newDay)
     } catch(err) {
         res.status(400).json({messege: err.messege})
     }

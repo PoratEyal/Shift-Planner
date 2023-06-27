@@ -44,3 +44,14 @@ Content-Type: application/json
     "endTime": "10:00",
     "workers": ["jhon"]
 }
+
+###
+
+
+POST http://localhost:3001/app/addDay
+Content-Type: application/json
+
+{
+    "name":"שלישי",
+    "shifts": ["משמרת חג","משמרת ערב"]
+}

@@ -5,13 +5,10 @@ const daySchema = new mongoose.Schema({
       type: String,
       required: true
     },
-    // date: {
-    //   type:date,
-    //   required: true
-    // },
-    shift: {
+    shifts: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Shift'
+      ref: 'Shift',
+      required: true
     }
   });
 
