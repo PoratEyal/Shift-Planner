@@ -102,6 +102,6 @@ POST http://localhost:3001/app/addDay
 Content-Type: application/json
 
 {
-    "name":"שלישי",
+    "name":"רביעי",
     "shifts": ["משמרת חג","משמרת ערב"]
 }
