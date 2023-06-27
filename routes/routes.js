@@ -4,13 +4,13 @@ const Role = require('../models/role');
 const User = require('../models/user');
 const Shift = require('../models/shift');
 const Day = require('../models/day');
-const bcrypt = require('bcrypt');
+const job = require('../models/job');
+const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const { parse } = require('dotenv');
 const path = require('path');
 
 // ---------------------------- ROLE funcs ---------------------------------------
-
 // create/POST role
 router.post('/addRole', async(req, res) => {
     const role = new Role({
@@ -22,8 +22,7 @@ router.post('/addRole', async(req, res) => {
     } catch(err) {
         res.status(400).json({messege: err.messege})
     }
-})
-
+});
 //gets all the roles
 router.get('/getRoles', async (req, res) => {
     try {
@@ -46,7 +45,6 @@ router.get('/getRoleWithId/:id', async (req, res) => {
       res.status(400).json({messege: err.messege})
     }
 });
-
 router.delete('/deleteRole/:id', async (req, res) => {
     try {
       const { id } = req.params;
@@ -62,8 +60,6 @@ router.delete('/deleteRole/:id', async (req, res) => {
         res.status(400).json({messege: err.messege})
     }
   });
-
-
 router.put('/putRole', async (req, res) =>{
     try{
         const role = new Role({
@@ -79,7 +75,6 @@ router.put('/putRole', async (req, res) =>{
 });
 
 // ---------------------------- USER funcs ---------------------------------------
-
 // create/POST user
 router.post('/addUser', async (req, res) => {
     try {
@@ -99,8 +94,7 @@ router.post('/addUser', async (req, res) => {
         } catch(err) {
             res.status(400).json({messege: err.messege})
         }
-})
-
+});
 //gets all the users
 router.get('/getUsers', async (req, res) => {
     try {
@@ -110,7 +104,6 @@ router.get('/getUsers', async (req, res) => {
         res.status(400).json({messege: err.messege})
     }
 });
-
 //delete user by id
 router.delete('/deleteUser/:id', async (req, res) => {
     try {
@@ -127,29 +120,35 @@ router.delete('/deleteUser/:id', async (req, res) => {
         res.status(400).json({messege: err.messege})
     }
   });
-
-// edit user - - - - - - - didnt checked yet
-router.put('/editUser/:id', async (req, res) => {
+// edit user 
+router.put('/editUser', (req, res) => {
 try {
-    const { id } = req.params;
-    const updatedUser = req.body;
-
-    const user = await User.findByIdAndUpdate(id, updatedUser, { new: true });
-
-    if (!user) {
-    return res.status(404).json({ error: 'User not found' });
-    }
-
-    res.json(user);
+    
+    //const salt = await bcrypt.genSalt();
+    bcrypt.hash(req.body.password, 10).then(async (hash) => {
+        const updatedUser = new User({
+            _id: req.body._id,
+            fullName: req.body.fullName,
+            username: req.body.username,
+            job: req.body.job,
+            password: hash,
+            role: req.body.role
+        });
+        const user = await User.findOneAndUpdate(updatedUser._id, updatedUser);
+        user ? res.status(202).json(user) : res.status(404).json({ error: 'User not found' });
+    });
+    // bcrypt.compare(req.body.password, user.password).then((result) => {
+    //     console.log(result);
+    // });
 } catch (err) {
+
     console.error(err);
     res.status(500).json({ error: 'Internal server error' });
 }
+
 });
 
-
 // ---------------------------- SHIFT funcs ---------------------------------------
-
 // create/post shift
 router.post('/addShift', async (req, res) => {
     try {
@@ -169,7 +168,7 @@ router.post('/addShift', async (req, res) => {
         res.status(400).json({messege: err.messege})
     }
 });
-
+//get all shifts
 router.get('/getShifts', async (req, res) => {
     try{
         const shifts = await Shift.find();
@@ -178,7 +177,7 @@ router.get('/getShifts', async (req, res) => {
         res.status(400).json({message: err.message})
     }
 });
-
+//get one shift
 router.get('/getShiftById/:id', async (req, res) => {
     try{
         const id = req.params.id
@@ -188,7 +187,7 @@ router.get('/getShiftById/:id', async (req, res) => {
         res.status(400).json({message: err.message})
     }
 });
-
+//delete shift
 router.delete('/deleteShift/:id', async (req, res) => {
     try{
         const id = req.params.id;
@@ -198,7 +197,7 @@ router.delete('/deleteShift/:id', async (req, res) => {
         res.status(400).json({message: err.message});
     }
 });
-
+//edit shift
 router.put('/updateShift', async (req, res) => {
     try{
     const shift = new Shift({
@@ -215,36 +214,47 @@ router.put('/updateShift', async (req, res) => {
     }
 });
 
-
-
-
 // ---------------------------- Days funcs ---------------------------------------
-
 // create/post Day
 router.post('/addDay', async (req, res) => {
     try {
-        const shifts = await Shift.find({description: req.body.shifts})
-        console.log(shifts)
+        const shifts = await Shift.find({_id: req.body.shifts});
+        for(let i = 0; i < shifts.length; i++){
+            shifts[i] = shifts[i]._doc
+        }
+
+        console.log(shifts);
 
         const day = new Day({
             name: req.body.name,
             shifts: shifts
-        })
-        console.log(typeof(shifts))
-        const newDay = await day.save()
-        res.status(201).json(newDay)
+        });
+        //console.log(typeof(shifts));
+        const newDay = await day.save();
+        res.status(201).json(newDay);
     } catch(err) {
-        res.status(400).json({messege: err.messege})
+        res.status(400).json({messege: err._messege});
     }
-})
+});
+
+//get days
+router.get('/getDays', async (req, res) => {
+    try{
+        const days = await Day.find();
+        res.status(200).json(days);
+    } catch (err){
+        res.status.json({message: err.message});
+    }
+});
 
 
 
 
 
-// router.use('/', (req, res) => {
-//     res.sendFile(path.join(rootDir, "views", "homePage.html"))
-// });
+
+
+
+
 
 
 module.exports = router

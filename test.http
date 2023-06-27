@@ -1,4 +1,4 @@
-### roles actions:
+### ----------------------roles actions-------------------------
 ###Add (post)
 POST http://localhost:3001/app/addRole
 Content-Type: application/json
@@ -30,7 +30,7 @@ Content-Type: application/json
 }
 
 
-### users actions
+### ---------------users actions--------------
 
 POST http://localhost:3001/app/addUser
 Content-Type: application/json
@@ -54,7 +54,20 @@ Content-Type: application/json
 
 
 ###
+PUT http://localhost:3001/app/editUser
+Content-Type: application/json
 
+{
+    "_id": "649996fddaf1f5a72ab17020",
+    "fullName": "edward",
+    "username": "grunseid",
+    "password": "1234",
+    "job": {
+        "_id": "",
+        "name": "manager"
+        },
+    "role": ""
+}
 
 
 ### ------------------shift Actions------
@@ -103,5 +116,9 @@ Content-Type: application/json
 
 {
     "name":"רביעי",
-    "shifts": ["משמרת חג","משמרת ערב"]
+    "shifts": ["6499d143ddfa4c42dc7600cc","6499d28cddfa4c42dc7600d1"]
 }
+
+###
+GET http://localhost:3001/app/getDays
+Content-Type: application/json 

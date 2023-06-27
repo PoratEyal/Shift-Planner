@@ -5,11 +5,11 @@ const daySchema = new mongoose.Schema({
       type: String,
       required: true
     },
-    shifts: {
+    shifts: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Shift',
       required: true
-    }
+    }]
   });
 
 // Create the shift model
