@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import ManagerHomePage from './component/maneger_home_page'
 import styles from '../src/styles/App.module.css';
-import maneger_home_page from '../src/component/maneger_home_page';
 
 const App = () => {
 
@@ -98,8 +98,8 @@ const App = () => {
 
   return (
     <div>
-      <maneger_home_page/>
-      <h1>Registration Form</h1>
+      <ManagerHomePage></ManagerHomePage>
+       <h1>Registration Form</h1>
       <form onSubmit={handleSubmit}>
 
         <div>
@@ -137,7 +137,7 @@ const App = () => {
 
         <button type="submit">Submit</button>
 
-      </form>
+      </form> 
     </div>
   );
   
