@@ -71,27 +71,50 @@ router.put('/putRole', async (req, res) =>{
         res.status(400).json({message: err.message})
     }
 });
+//-----------------------------job funcs -------------------------------------
+router.post('/addJob', (req, res) => {
+    job.create(req.body).then(job => {
+        res.status(201).json(job);
+    })
+    .catch(err =>{
+        res.status(400).json(err.message);
+    });
+});
 
 // ---------------------------- USER funcs ---------------------------------------
 // create/POST user
 router.post('/addUser', async (req, res) => {
-    try {
+    // try {
         const salt = await bcrypt.genSalt();
-        const hashedPassword = await bcrypt.hash(req.body.password, salt);
+        const hashedPassword = await bcrypt.hash(req.body.password, salt).then((password) =>{
+            let user = req.body;
+            user.password = password;
+            
+            Role.findOne({name: user.role}).then((role) => {
+                user.role = role._doc._id;
 
-        const role = await Role.findOne({name: req.body.role})
+                job.findOne({name: user.job}).then(job => {
+                    user.job = job._doc._id
+                    User.create(user).then(user => {
+                        res.status(201).json(user);
+                    }).catch(err => {
+                        
+                        res.status(400).json({messege: err.messege})
+                    });
+                });
+            });
+        });
 
-        const user = new User({
-            fullName: req.body.fullName,
-            username: req.body.username,
-            password: hashedPassword,
-            role: role._id
-        })
-        const newUser = await user.save()
-        res.status(201).json(newUser)
-        } catch(err) {
-            res.status(400).json({messege: err.messege})
-        }
+
+        // const user = new User({
+        //     fullName: req.body.fullName,
+        //     username: req.body.username,
+        //     password: hashedPassword,
+        //     role: role._id
+        // // })
+        // const newUser = await user.save()
+        // } catch(err) {
+        // }
 });
 //gets all the users
 router.get('/getUsers', async (req, res) => {
@@ -104,7 +127,7 @@ router.get('/getUsers', async (req, res) => {
 });
 //login
 router.get('/login', async (req, res) => {
-    await User.find({username: req.body.username}).then(user => {        
+    await User.findOne({username: req.body.username}).then(user => {        
          bcrypt.compare(req.body.password, user.password).then((result) => {
                  if(result === true){
                     res.status(200).json(user);
@@ -143,8 +166,13 @@ try {
     bcrypt.hash(req.body.password, 10).then(async (hash) => {
         let updatedUser = req.body;
         updatedUser.password = hash;
-        const user = await User.findOneAndUpdate(updatedUser._id, updatedUser);
-        user ? res.status(202).json(user) : res.status(404).json({ error: 'User not found' });
+        const user = await User.findByIdAndUpdate({_id: updatedUser._id}, updatedUser).then(user => {
+
+            res.status(202).json(user); 
+        }).catch(err => {
+
+            res.status(404).json({ error: err.message });
+        }); 
     });
     
 } catch (err) {

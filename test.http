@@ -29,6 +29,14 @@ Content-Type: application/json
      "name": "test" 
 }
 
+###----------------job functions -------------
+POST http://localhost:3001/app/addJob
+Content-Type: application/json
+
+{
+    "name": "admin"
+}
+
 
 ### ---------------users actions--------------
 
@@ -37,9 +45,10 @@ Content-Type: application/json
 
 {
     "fullName":"edi",
-    "username":"tiny",
-    "password":"12345",
-    "role":"cleaner"
+    "username":"test2",
+    "password":"1234",
+    "role":"Shift Manager",
+    "job": "admin"
 }
 
 ###
@@ -49,7 +58,18 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3001/app/deleteUser/6499809621bb443b8ff70fd0
+GET http://localhost:3001/app/login
+Content-Type: application/json
+
+{
+    "username": "grunseid",
+    "password": "1234"
+}
+
+
+###
+DELETE http://localhost:3001/app/deleteUser/649c0e639c641ffe2fd02ebd
+
 Content-Type: application/json
 
 
@@ -58,7 +78,7 @@ PUT http://localhost:3001/app/editUser
 Content-Type: application/json
 
 {
-    "_id": "649996fddaf1f5a72ab17020",
+    "_id": "649c0acef2038c754d329940",
     "fullName": "edward",
     "username": "grunseid",
     "password": "1234",
@@ -66,7 +86,8 @@ Content-Type: application/json
         "_id": "",
         "name": "manager"
         },
-    "role": ""
+    "role": "649995cc7c1cb8f8928a5b24",
+    "job": "649c08040834b0d306adef45"
 }
 
 
