@@ -1,6 +1,7 @@
 import React from 'react';
 import ManagerHomePage from './component/maneger/maneger_home_page'
 import Login from '../src/component/all/login'
+import UserManagment from '../src/component/maneger/userManagement'
 
 const App = () => {
 
@@ -20,8 +21,9 @@ const App = () => {
   // }, []);
 
   return <div>
-        <ManagerHomePage></ManagerHomePage>
+        {/* <ManagerHomePage></ManagerHomePage> */}
         {/* <Login></Login> */}
+        <UserManagment></UserManagment>
     </div>
   
 }
