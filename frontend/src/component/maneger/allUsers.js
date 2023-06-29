@@ -5,6 +5,7 @@ import styles from '../maneger/allUsers.module.css'
 const AllUsers = (props) => {
     
     const [users, setUsers] = useState([])
+    const [userDeleted, setUserDelted] = useState(false)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -32,16 +33,31 @@ const AllUsers = (props) => {
         };
 
         fetchData();
-    }, []);
+    }, [userDeleted]);
+
+    const deleteUser = async (userId) => {
+        try {
+            await axios.delete(`http://localhost:3001/app/deleteUser/${userId}`)
+              .then(response => {
+                console.log(response.data.message);
+                setUserDelted(true)
+              })
+              .catch(error => {
+                console.log(error.response.data.error);
+              });
+          } catch (error) {
+            console.log(error.message);
+          }
+    }
     
     return <div>
         {users.map((user) => (
         <div key={user._id} className={styles.user_container}>
             <div>
-                <button className={styles.btn}>Delete</button>
+                <button className={styles.btn} onClick={() => deleteUser(user._id)}>Delete</button>
             </div>
             <div>
-            <label>:name</label><label className={styles.p}>{user.fullName}&nbsp;</label>
+            <p className={styles.p}>{user.fullName}</p>
             </div>
         </div>
         ))}
