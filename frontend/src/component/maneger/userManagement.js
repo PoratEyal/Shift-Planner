@@ -2,6 +2,7 @@ import styles from '../maneger/userManagment.module.css'
 import React, { useState } from 'react';
 import axios from 'axios';
 import AllUsers from '../maneger/allUsers'
+import AddRole from '../maneger/addRole'
 
 const UserManagement = () => {
 
@@ -122,7 +123,8 @@ const UserManagement = () => {
                 </div>
                 
                 <div id="create-role" className={styles.createRole}>
-                    <h2>יצירת תפקיד</h2>
+                    <h2 className={styles.h2}>יצירת תפקיד</h2>
+                    <AddRole></AddRole>
                 </div>
 
             </div>

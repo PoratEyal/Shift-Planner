@@ -12,7 +12,6 @@ const AllUsers = (props) => {
         try {
             const response = await axios.get("http://localhost:3001/app/getUsers");
             setUsers(response.data);
-            console.log(response.data);
         } catch (error) {
             console.error(error);
         }
@@ -26,7 +25,6 @@ const AllUsers = (props) => {
         try {
             const response = await axios.get("http://localhost:3001/app/getUsers");
             setUsers(response.data);
-            console.log(response.data);
         } catch (error) {
             console.error(error);
         }
@@ -54,7 +52,10 @@ const AllUsers = (props) => {
         {users.map((user) => (
         <div key={user._id} className={styles.user_container}>
             <div>
-                <button className={styles.btn} onClick={() => deleteUser(user._id)}>Delete</button>
+                <button className={styles.btn} onClick={() => {
+                    deleteUser(user._id);
+                    setUserDelted(false);
+                }}>Delete</button>
             </div>
             <div>
             <p className={styles.p}>{user.fullName}</p>
