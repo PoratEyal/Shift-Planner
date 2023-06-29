@@ -4,7 +4,7 @@ import React from 'react';
 const login = () => {
   return (
     <div className={styles.container_div}>
-      <form>
+      <form className={styles.form}>
         <label className={styles["login-text"]}>כניסה למערכת</label>
   
         <div>
@@ -38,7 +38,7 @@ const login = () => {
           </div>
         </div>
   
-        <button type="submit">התחברות</button>
+        <button className={styles.btn} type="submit">התחברות</button>
   
         {/* <div className={styles.register}>
           <button className={styles["register-btn"]}>להרשמה לחצו כאן</button>

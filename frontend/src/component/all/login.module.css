@@ -11,7 +11,7 @@ body {
     margin-top:90px;
   }
   
-  form {
+  .form {
     margin-right: 10px;
     width: 250px;
     height: 300px;
@@ -38,7 +38,7 @@ body {
   }
   
   /* buttons - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-  button {
+  .btn {
   margin-top: 30px;
   max-width: 260px;
   display: flex;
@@ -60,7 +60,7 @@ body {
   width: 400px;
   justify-content: center;
   }
-  button:hover {
+  .btn:hover {
   transform: scale(1.02);
   }
   

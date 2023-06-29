@@ -1,6 +1,7 @@
 import styles from '../maneger/userManagment.module.css'
 import React, { useState } from 'react';
 import axios from 'axios';
+import AllUsers from '../maneger/allUsers'
 
 const UserManagement = () => {
 
@@ -48,7 +49,7 @@ const UserManagement = () => {
           fullName: fullName,
           username: username,
           password: password,
-          role: "cleaner"
+          role: "Shift Manager"
         }
         console.log('Form submitted:', { fullName, username, password });
         axios.post("http://localhost:3001/app/addUser", newUser)
@@ -69,48 +70,52 @@ const UserManagement = () => {
             <div className={styles.container}>
 
                 <div id="create-user" className={styles.createUser}>
-                    <h2>יצירת משתמש</h2>
+                    <h2 className={styles.h2}>יצירת משתמש</h2>
                     
                     <form className={styles.userForm} onSubmit={handleSubmit}>
-                        <div>
-                          <label htmlFor="fullName">Full Name:</label>
-                          <input
-                              type="text"
-                              id="fullName"
-                              value={fullName}
-                              onChange={(e) => setFullName(e.target.value)}
-                              required
-                          />
-                        </div>
+                      <div className={styles.formGroup}>
+                        <input
+                          className={styles.input}
+                          type="text"
+                          id="fullName"
+                          value={fullName}
+                          onChange={(e) => setFullName(e.target.value)}
+                          required
+                        />
+                        <label className={styles.label_fullname} htmlFor="fullName">שם מלא</label>
+                      </div>
 
-                        <div>
-                          <label htmlFor="username">Username:</label>
-                          <input
-                              type="text"
-                              id="username"
-                              value={username}
-                              onChange={(e) => setUsername(e.target.value)}
-                              required
-                          />
-                        </div>
+                      <div className={styles.formGroup}>
+                        <input
+                          className={styles.input}
+                          type="text"
+                          id="username"
+                          value={username}
+                          onChange={(e) => setUsername(e.target.value)}
+                          required
+                        />
+                        <label className={styles.label_username} htmlFor="username">שם משתמש</label>
+                      </div>
 
-                        <div>
-                          <label htmlFor="password">Password:</label>
-                          <input
-                              type="password"
-                              id="password"
-                              value={password}
-                              onChange={(e) => setPassword(e.target.value)}
-                              required
-                          />
-                        </div>
+                      <div className={styles.formGroup}>
+                        <input
+                          className={styles.input}
+                          type="password"
+                          id="password"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          required
+                        />
+                        <label className={styles.label_password} htmlFor="password">סיסמה</label>
+                      </div>
 
-                        <button type="submit">Submit</button>
-                    </form> 
+                      <button className={styles.btn} type="submit">יצירה</button>
+                    </form>
                 </div>
 
                 <div id="users" className={styles.users}>
-                    <h2>משתמשים</h2>
+                    <h2 className={styles.h2}>משתמשים</h2>
+                    <AllUsers></AllUsers>
                 </div>
                 
                 <div id="create-role" className={styles.createRole}>
