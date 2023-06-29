@@ -34,7 +34,7 @@ POST http://localhost:3001/app/addJob
 Content-Type: application/json
 
 {
-    "name": "admin"
+    "name": "user"
 }
 
 

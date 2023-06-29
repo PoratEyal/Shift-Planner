@@ -1,5 +1,5 @@
 import styles from '../maneger/userManagment.module.css'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import AllUsers from '../maneger/allUsers'
 
@@ -8,6 +8,7 @@ const UserManagement = () => {
     const [fullName, setFullName] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [userAdded, setUserAdded] = useState(false)
 
     const NavigationBar = () => {
         const handleClick = (event, targetId) => {
@@ -49,12 +50,14 @@ const UserManagement = () => {
           fullName: fullName,
           username: username,
           password: password,
-          role: "Shift Manager"
+          role: "Shift Manager",
+          job: "user"
         }
         console.log('Form submitted:', { fullName, username, password });
         axios.post("http://localhost:3001/app/addUser", newUser)
         .then((response) => {
           console.log('Form submitted successfully:', response.data);
+          setUserAdded(true);
           setFullName('');
           setUsername('');
           setPassword('');
@@ -109,13 +112,13 @@ const UserManagement = () => {
                         <label className={styles.label_password} htmlFor="password">סיסמה</label>
                       </div>
 
-                      <button className={styles.btn} type="submit">יצירה</button>
+                      <button className={styles.btn} onClick={() => setUserAdded(false)} type="submit">יצירה</button>
                     </form>
                 </div>
 
                 <div id="users" className={styles.users}>
                     <h2 className={styles.h2}>משתמשים</h2>
-                    <AllUsers></AllUsers>
+                    <AllUsers added={userAdded}></AllUsers>
                 </div>
                 
                 <div id="create-role" className={styles.createRole}>

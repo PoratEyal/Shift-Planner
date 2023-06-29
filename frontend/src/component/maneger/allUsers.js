@@ -2,9 +2,23 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from '../maneger/allUsers.module.css'
 
-const AllUsers = () => {
+const AllUsers = (props) => {
     
     const [users, setUsers] = useState([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+        try {
+            const response = await axios.get("http://localhost:3001/app/getUsers");
+            setUsers(response.data);
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+        };
+
+        fetchData();
+    }, [props.added]);
 
     useEffect(() => {
         const fetchData = async () => {

@@ -107,17 +107,6 @@ router.post('/addUser', async (req, res) => {
                 });
             });
         });
-
-
-        // const user = new User({
-        //     fullName: req.body.fullName,
-        //     username: req.body.username,
-        //     password: hashedPassword,
-        //     role: role._id
-        // // })
-        // const newUser = await user.save()
-        // } catch(err) {
-        // }
 });
 
 //gets all the users
