@@ -1,5 +1,5 @@
 import styles from '../maneger/userManagment.module.css'
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import AllUsers from '../maneger/allUsers'
 

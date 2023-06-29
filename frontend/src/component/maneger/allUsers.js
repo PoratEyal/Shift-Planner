@@ -41,7 +41,7 @@ const AllUsers = (props) => {
                 <button className={styles.btn}>Delete</button>
             </div>
             <div>
-                <p className={styles.p}>{user.fullName}&nbsp;:שם מלא</p>
+            <label>:name</label><label className={styles.p}>{user.fullName}&nbsp;</label>
             </div>
         </div>
         ))}
