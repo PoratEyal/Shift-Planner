@@ -1,0 +1,26 @@
+.user_container{
+    width: 270px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background-color: rgb(244, 247, 250);
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn{
+    background-color: rgba(255, 0, 0, 0.563);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 60px;
+    margin-left: 10px;
+}
+
+.p{
+    font-size: 16px;
+    margin-right: 10px;
+}

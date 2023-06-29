@@ -1,0 +1,37 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+}
+
+.h1{
+  margin-top: 50px;
+  color: white;
+  margin-bottom: 10px;
+  font-size: 40px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.btn{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 20px;
+  font-size: 25px;
+  padding: 25px;
+  border-radius: 20px;
+  background-image: linear-gradient(144deg,#c677fe,  15%,#ffffff);
+  background: rgba(255, 255, 255, 0.821);
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 5px solid rgb(97, 59, 163);
+  width: 500px;
+  transition: 0.3s;
+}
+.btn:hover{
+  cursor: pointer;
+  background: rgba(229, 229, 229, 0.821);
+}
+

@@ -44,8 +44,8 @@ POST http://localhost:3001/app/addUser
 Content-Type: application/json
 
 {
-    "fullName":"edi",
-    "username":"test2",
+    "fullName":"אייל פורת",
+    "username":"מנש ",
     "password":"1234",
     "role":"Shift Manager",
     "job": "admin"
