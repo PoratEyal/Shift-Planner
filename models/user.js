@@ -22,6 +22,9 @@ const userSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'job',
       required: true
+    },
+    token:{
+      type: String
     }
   });
 

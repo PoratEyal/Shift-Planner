@@ -10,6 +10,9 @@ const mongoose = require('mongoose');
 const { parse } = require('dotenv');
 const path = require('path');
 const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
+
+
 router.use(bodyParser.json());
 // ---------------------------- ROLE funcs ---------------------------------------
 // create/POST role
@@ -25,7 +28,7 @@ router.post('/addRole', async(req, res) => {
     }
 });
 //gets all the roles
-router.get('/getRoles', async (req, res) => {
+router.get('/getRoles', authenticateToken, async (req, res) => {
     try {
       const roles = await Role.find({}, 'name');
       const roleNames = roles.map((role) => role);
@@ -126,10 +129,12 @@ router.get('/getUsers', async (req, res) => {
     }
 });
 //login
-router.get('/login', async (req, res) => {
+router.post('/login', async (req, res) => {
     await User.findOne({username: req.body.username}).then(user => {        
          bcrypt.compare(req.body.password, user.password).then((result) => {
                  if(result === true){
+                    const accessToken = jwt.sign(user.toJSON(), process.env.ACCESS_TOKEN_SECRET);
+                    user.token = accessToken;
                     res.status(200).json(user);
                  }
                  else{
@@ -141,7 +146,6 @@ router.get('/login', async (req, res) => {
             res.status(404).json({message: err});
         });
     });
-
 //delete user by id
 router.delete('/deleteUser/:id', async (req, res) => {
     try {
@@ -302,7 +306,18 @@ router.put('/editDay', async (req, res) => {
 //------------------------------Week funcs --------------------------------------------
 
 
+//-----------------------functions------------------
+function authenticateToken(req, res, next){
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    if(token === null) return res.sendStatus(401);
 
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+        if(err) return res.sendStatus(403);
+        req.user = user;
+        next();
+    });
+}
 
 
 

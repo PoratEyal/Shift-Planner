@@ -9,7 +9,7 @@ Content-Type: application/json
 
 ###get all (get)
 GET http://localhost:3001/app/getRoles
-Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInuycCI6IkpXVCJ9.eyJfaWQiOiI2NDljMGFjZWYyMDM4Yzc1NGQzMjk5NDAiLCJmdWxsTmFtZSI6ImVkd2FyZCIsInVzZXJuYW1lIjoiZ3J1bnNlaWQiLCJwYXNzd29yZCI6IiQyYSQxMCRFM3JudEhVVksxUmtWdW1zbVpTbHMuR1pwei9aQXl1WC5RQTIxZHhSYkpLQWF1YWtmTWNUMiIsInJvbGUiOiI2NDk5OTVjYzdjMWNiOGY4OTI4YTViMjQiLCJqb2IiOiI2NDljMDgwNDA4MzRiMGQzMDZhZGVmNDUiLCJfX3YiOjAsImlhdCI6MTY4ODAzMjE4N30.qDgdyFYdy_bcxcopccXiF5FKGvUlQn3ZcLLBt-LxYpg
 
 ### get by id
 GET http://localhost:3001/app/getRoleWithId/649aa0cbb82a5343f4550bed
@@ -58,7 +58,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3001/app/login
+POST http://localhost:3001/app/login
 Content-Type: application/json
 
 {
