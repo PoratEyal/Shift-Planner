@@ -6,9 +6,9 @@ import ManagerHomePage from '../src/component/maneger/maneger_home_page'
 const App = () => {
 
   return <div>
-        {/* <ManagerHomePage></ManagerHomePage> */}
+        <ManagerHomePage></ManagerHomePage>
         {/* <Login></Login> */}
-        <UserManagment></UserManagment>
+        {/* <UserManagment></UserManagment> */}
     </div>
   
 }
