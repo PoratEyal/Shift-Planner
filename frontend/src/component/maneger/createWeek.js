@@ -1,12 +1,30 @@
-import React from 'react';
-import Sunday from '../maneger/days/sunday'
-import Monday from '../maneger/days/monday'
-
+import React, { useEffect, useState } from 'react';
+import Day from './day';
+import axios from 'axios';
 const CreateWeek = () => {
+    const[week, setWeek] = useState([]);
 
+    useEffect(()=>{
+        getDays();
+    }, []);
+
+
+    const getDays = async () => {
+        await axios.get("http://localhost:3001/app/getDays").then((response) => {
+            //console.log(response.data);
+            const newWeek = response.data
+            setWeek(newWeek);
+        });}
+
+    
     return <React.Fragment>
-        <Sunday></Sunday>
-        <Monday></Monday>
+        <div>
+            {
+                 week.map((day) => {
+                    return <Day day={day} key={day._id}></Day>
+                })
+            }
+        </div>
     </React.Fragment>
 }
 

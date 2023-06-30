@@ -10,7 +10,7 @@ const Sunday = () => {
     // create shift and added the _id of her to sunday day
     const addShift = async () => {
         const newShift = {
-          description: "7 משמרת בדיקה",
+          description: "אדי משמרת בדיקה",
           startTime: "6:00",
           endTime: "13:00",
           workers: []
