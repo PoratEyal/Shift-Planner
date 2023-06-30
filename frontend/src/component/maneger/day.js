@@ -42,13 +42,10 @@ const Day = (props) => {
       
         try {
           const response = await axios.post("http://localhost:3001/app/addShift", newShift);
-          
-      
           const updatedSunday = {
             ...day,
             shifts: [...day.shifts, response.data._id]
           };
-      
           await axios.put("http://localhost:3001/app/editDay", updatedSunday);
           //console.log(updatedSunday);
           setDayChanged(true)
@@ -79,7 +76,7 @@ const Day = (props) => {
         <div className={styles.day_container}>
             <h2 className={styles.h2}>{day.name}</h2>
             {
-                [...dayShifts].map((shift) => {return <Shift shift={shift} key={shift._id}></Shift>})///problem
+                [...dayShifts].map((shift) => {return shift ? <Shift shift={shift} key={shift._id}></Shift>: null})
             }
 
             <button

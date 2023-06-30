@@ -3,14 +3,17 @@ import UserManagment from '../src/component/maneger/userManagement'
 import Login from '../src/component/all/login'
 import ManagerHomePage from '../src/component/maneger/maneger_home_page'
 import CreateWeek from './component/maneger/createWeek';
-
+import { BrowserRouter } from 'react-router-dom';
 const App = () => {
 
   return <React.Fragment>
         {/* <Login></Login> */}
-        {/* <ManagerHomePage></ManagerHomePage> */}
+  <BrowserRouter>
+
+        <ManagerHomePage></ManagerHomePage> 
+  </BrowserRouter>
         {/* <UserManagment></UserManagment> */}
-        <CreateWeek></CreateWeek>
+        {/* <CreateWeek></CreateWeek> */}
     </React.Fragment>
 }
 
