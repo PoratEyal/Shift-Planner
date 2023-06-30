@@ -1,6 +1,7 @@
 body {
-    background: rgb(5, 6, 45);
     background-image: linear-gradient(144deg,#5A27ED, #C66BF0,#C48CF3, #5A27ED);
+    background-image: linear-gradient(144deg,#11062f, #360b4a,#3b274b, #31225d);
+    background-image: linear-gradient(144deg,#c084ea, #e6cff0,#cacaca, #a188ec);
     background-attachment: fixed;
     display: flex;
     flex-direction: column;

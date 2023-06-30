@@ -137,7 +137,7 @@ POST http://localhost:3001/app/addDay
 Content-Type: application/json
 
 {
-    "name":"testing other code",
+    "name":"רביעי",
     "shifts": []
 }
 
@@ -152,7 +152,7 @@ Content-Type: application/json
 
 ###
 
-DELETE  http://localhost:3001/app/deleteDay/649b3b1d03090efd399eced8
+DELETE  http://localhost:3001/app/deleteDay/649ebf8086d5ecb147f51df2
 Content-Type: application/json 
 
 ###
@@ -161,6 +161,6 @@ Content-Type: application/json
 
 {
     "_id": "649b3c2e18f3287977da1009",
-    "name": "רביעי",
+    "name": "ראשון",
     "shifts": []
 }
