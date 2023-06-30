@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import styles from '../maneger/allUsers.module.css'
+import styles from '../userManegment/allUsers.module.css'
 
 const AllUsers = (props) => {
     
@@ -48,21 +48,36 @@ const AllUsers = (props) => {
           }
     }
     
-    return <div>
-        {users.map((user) => (
-        <div key={user._id} className={styles.user_container}>
-            <div>
-                <button className={styles.btn} onClick={() => {
-                    deleteUser(user._id);
-                    setUserDelted(false);
-                }}>Delete</button>
+    return (
+        <div>
+          {users.length === 0 ? (
+            <div className={styles['three-body']}>
+            <div className={styles['three-body__dot']}></div>
+            <div className={styles['three-body__dot']}></div>
+            <div className={styles['three-body__dot']}></div>
             </div>
-            <div>
-            <p className={styles.p}>{user.fullName}</p>
-            </div>
+          ) : (
+            users.map((user) => (
+              <div key={user._id} className={styles.user_container}>
+                <div>
+                  <button
+                    className={styles.btn}
+                    onClick={() => {
+                      deleteUser(user._id);
+                      setUserDelted(false);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </div>
+                <div>
+                  <p className={styles.p}>{user.fullName}</p>
+                </div>
+              </div>
+            ))
+          )}
         </div>
-        ))}
-  </div>
+      );
 }
 
 export default AllUsers

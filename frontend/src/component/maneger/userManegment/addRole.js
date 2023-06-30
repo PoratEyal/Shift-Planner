@@ -1,5 +1,5 @@
 import React, {useState } from 'react'
-import styles from '../maneger/addRole.module.css'
+import styles from '../userManegment/addRole.module.css'
 import axios from 'axios';
 
 const AddRole = () => {

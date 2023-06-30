@@ -27,7 +27,7 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 5px solid rgb(97, 59, 163);
-  width: 500px;
+  width: 310px;
   transition: 0.3s;
 }
 .btn:hover{

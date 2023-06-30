@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 const Shift = (props) => {
-    const [shift, setShift] = useState(props.shift);
 
+    const [shift, setShift] = useState(props.shift);
 
     return <div style={{borderStyle:"solid"}}>
         <p>{shift.description}</p>
@@ -13,7 +13,6 @@ const Shift = (props) => {
            shift.workers ? shift.workers.map((worker) => {return <p>worker</p>}) : null
         }
     </div>
-
 }
 
 export default Shift
