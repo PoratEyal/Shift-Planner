@@ -70,7 +70,14 @@ const Day = (props) => {
         <div className={styles.day_container}>
             <h2 className={styles.h2}>{day.name}</h2>
             {
-                [...dayShifts].map((shift) => {return shift ? <Shift shift={shift} key={shift._id}></Shift> : null})
+                [...dayShifts].length === 0 ? (
+                    <div className={styles['three-body']}>
+                    <div className={styles['three-body__dot']}></div>
+                    <div className={styles['three-body__dot']}></div>
+                    <div className={styles['three-body__dot']}></div>
+                    </div>
+                  ) : (
+                [...dayShifts].map((shift) => {return shift ? <Shift shift={shift} key={shift._id}></Shift> : null}))
             }
 
             <button
