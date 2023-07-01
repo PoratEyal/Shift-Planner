@@ -43,7 +43,6 @@ const Day = (props) => {
           setDayShifts(shifts);
         })
         .catch((error) => {
-          // Handle the error
         });
     }, []);
       
@@ -51,9 +50,9 @@ const Day = (props) => {
 // create shift and added the _id of her to day
 const addShift = async () => {
     const newShift = {
-        description: "אדי משמרת בדיקה",
-        startTime: "6:00",
-        endTime: "13:00",
+        description: "משמרת ערב רביעי",
+        startTime: "13:00",
+        endTime: "20:00",
         workers: []
     };
 
@@ -106,7 +105,7 @@ return <div>
                 setDayChanged(false);
             }}
         >
-            Add Shift
+            הוסף משמרת
         </button>
     </div>
 </div>
