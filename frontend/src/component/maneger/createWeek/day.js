@@ -80,9 +80,6 @@ useEffect(() => {
     fetchData();
 }, [dayChanged]);
 
-useEffect(() => {
-}, [day]);
-
 return <div>
     <div className={styles.day_container}>
         <h2 className={styles.h2}>{day.name}</h2>
