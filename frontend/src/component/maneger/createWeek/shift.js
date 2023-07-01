@@ -1,17 +1,17 @@
 import React, { useState } from "react";
+import styles from '../createWeek/createWeek.module.css'
 
 const Shift = (props) => {
 
     const [shift, setShift] = useState(props.shift);
 
-    return <div style={{borderStyle:"solid"}}>
+    return <div className={styles.shift}>
         <p>{shift.description}</p>
-        <p>{shift.startTime}</p>
-        <p>{shift.endTime}</p>
-        <p>workers:</p>
+        <p>משעה - {shift.startTime} עד {shift.endTime}</p>
+        {/* <p>workers:</p>
         {
            shift.workers ? shift.workers.map((worker) => {return <p>worker</p>}) : null
-        }
+        } */}
     </div>
 }
 
