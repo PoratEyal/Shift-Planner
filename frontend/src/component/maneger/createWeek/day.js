@@ -17,9 +17,7 @@ const Day = (props) => {
               axios.get(`http://localhost:3001/app/getShiftById/${shiftId}`)
             );
       
-            axios
-              .all(shiftRequests)
-              .then((responses) => {
+            axios.all(shiftRequests).then((responses) => {
                 shifts = responses.map((response) => response.data);
                 resolve(shifts);
               })

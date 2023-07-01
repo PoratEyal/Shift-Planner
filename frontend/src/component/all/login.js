@@ -13,7 +13,7 @@ const Login = () => {
         e.preventDefault();
         axios.post("http://localhost:3001/app/login", {username: username, password: password}).then((response) => {
           const user = response.data;
-          navigate();
+          navigate("/HomePage");
           localStorage.setItem("token", user.token);
           localStorage.setItem("user", JSON.stringify(user));
         }).catch((err) =>{
