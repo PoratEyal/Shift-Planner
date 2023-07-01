@@ -1,10 +1,11 @@
 import styles from '../all/login.module.css'
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
 
   return (
     <div className={styles.container_div}>
@@ -12,6 +13,7 @@ const Login = () => {
         e.preventDefault();
         axios.post("http://localhost:3001/app/login", {username: username, password: password}).then((response) => {
           const user = response.data;
+          navigate();
           localStorage.setItem("token", user.token);
           localStorage.setItem("user", JSON.stringify(user));
         }).catch((err) =>{

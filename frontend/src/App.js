@@ -7,13 +7,13 @@ import CreateWeek from '../src/component/maneger/createWeek/createWeek';
 
 const App = () => {
   return <React.Fragment>
-     <Login></Login>
-{/*       
+     {/* <Login></Login> */}
+   
       <Routes>
           <Route path="/" element={<ManagerHomePage />} />
           <Route path="/userManagment" element={<UserManagement />} />
           <Route path="/createNewWeek" element={<CreateWeek />} />
-      </Routes> */}
+      </Routes>
 
     </React.Fragment>
 };
