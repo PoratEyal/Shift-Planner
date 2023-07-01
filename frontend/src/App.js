@@ -8,14 +8,14 @@ import UserHomePage from '../src/component/workers/User_home_page'
 
 const App = () => {
   return <React.Fragment>
-     {/* <Login></Login> */}
-     <UserHomePage></UserHomePage>
+     {/* <Login></Login>
+     <UserHomePage></UserHomePage> */}
    
-      {/* <Routes>
+      <Routes>
           <Route path="/" element={<ManagerHomePage />} />
           <Route path="/userManagment" element={<UserManagement />} />
           <Route path="/createNewWeek" element={<CreateWeek />} />
-      </Routes> */}
+      </Routes>
 
     </React.Fragment>
 };
