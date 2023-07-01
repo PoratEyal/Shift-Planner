@@ -6,6 +6,7 @@ const AllUsers = (props) => {
     
     const [users, setUsers] = useState([])
     const [userDeleted, setUserDelted] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -24,7 +25,8 @@ const AllUsers = (props) => {
         const fetchData = async () => {
         try {
             const response = await axios.get("http://localhost:3001/app/getUsers");
-            setUsers(response.data);
+            setUsers(response.data)
+            setLoading(true)
         } catch (error) {
             console.error(error);
         }
@@ -50,7 +52,7 @@ const AllUsers = (props) => {
     
     return (
         <div>
-          {users.length === 0 ? (
+          {!loading ? (
             <div className={styles['three-body']}>
             <div className={styles['three-body__dot']}></div>
             <div className={styles['three-body__dot']}></div>
