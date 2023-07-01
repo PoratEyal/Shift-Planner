@@ -45,8 +45,8 @@ Authorization: Bearer user.token
 Content-Type: application/json
 
 {
-    "fullName":"אייל פורת",
-    "username":"מנש ",
+    "fullName":"edi",
+    "username":"grunseid",
     "password":"1234",
     "role":"Shift Manager",
     "job": "admin"

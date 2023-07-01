@@ -1,15 +1,28 @@
 import styles from '../all/login.module.css'
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
+const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-const login = () => {
+
   return (
     <div className={styles.container_div}>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={(e) => {
+        e.preventDefault();
+        axios.post("http://localhost:3001/app/login", {username: username, password: password}).then((response) => {
+          const user = response.data;
+          localStorage.setItem("token", user.token);
+          localStorage.setItem("user", JSON.stringify(user));
+        }).catch((err) =>{
+          console.log(err);
+        })
+      }}>
         <label className={styles["login-text"]}>כניסה למערכת</label>
   
         <div>
           <div className={styles["wave-group"]}>
-            <input required type="text" className={styles.input} />
+            <input required type="text" className={styles.input} onChange={(e) => {setUsername(e.target.value)}}/>
             <span className={styles.bar}></span>
             <label className={styles.label}>
               <span className={styles["label-char"]} style={{ "--index": 7 }}>ש</span>
@@ -26,7 +39,7 @@ const login = () => {
   
         <div>
           <div className={styles["wave-group"]}>
-            <input required type="text" className={styles.input} />
+            <input required type="password" className={styles.input} onChange={(e) => {setPassword(e.target.value)}}/>
             <span className={styles.bar}></span>
             <label className={styles.label}>
               <span className={styles["label-char"]} style={{ "--index": 4 }}>ה</span>
@@ -49,4 +62,4 @@ const login = () => {
   );
 }
 
-export default login;
+export default Login;
