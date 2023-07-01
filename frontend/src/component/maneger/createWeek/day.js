@@ -7,8 +7,7 @@ const Day = (props) => {
 
     const [day, setDay] = useState(props.day);
     const [dayShifts, setDayShifts] = useState([]);
-    const [loading, setLoading] = useState(false)
-
+    const [loading, setLoading] = useState(false);
     const getShifts = () => {
         return new Promise((resolve, reject) => {
             let shifts = [];
@@ -44,8 +43,13 @@ const Day = (props) => {
             });
     }, []);
     useEffect(()=>{
-        console.log("day changed");
-    }, [day])
+        getShifts()
+            .then((shifts) => {
+                setDayShifts(shifts);
+            })
+            .catch((error) => {
+            });
+    },[day]);
 
     // create shift and added the _id of her to day
     const addShift = () => {
@@ -59,11 +63,10 @@ const Day = (props) => {
         try {
             
             axios.post("http://localhost:3001/app/addShift", newShift).then((response) => {
-                const updatedShifts = [...day.shifts, response.data._id];
+                let updatedShifts = [...day.shifts, response.data._id];
                 const updatedDay = { ...day, shifts: updatedShifts };
-                
-                axios.put("http://localhost:3001/app/editDay", updatedDay);
                 setDay(updatedDay);
+                axios.put("http://localhost:3001/app/editDay", updatedDay);
                 props.getDays();
             });
         } catch (error) {
@@ -82,9 +85,8 @@ const Day = (props) => {
                         <div className={styles['three-body__dot']}></div>
                     </div>
                 ) : (
-                    dayShifts.map((shift) => { return shift ? <Shift shift={shift} key={shift._id}></Shift> : null }))
+                    dayShifts.map((shift) => {return shift ? <Shift shift={shift} key={shift._id}></Shift> : null }))
             }
-
             <button
                 className={styles.btn}
                 onClick={() => {

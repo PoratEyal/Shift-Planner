@@ -12,8 +12,8 @@ const CreateWeek = () => {
 
     const getDays = () => {
          axios.get("http://localhost:3001/app/getDays").then((response) => {
-            const newWeek = response.data
-            setWeek(newWeek);
+           
+            setWeek(response.data);
         });}
 
     
