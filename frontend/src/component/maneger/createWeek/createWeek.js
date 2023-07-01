@@ -10,8 +10,8 @@ const CreateWeek = () => {
         getDays();
     }, []);
 
-    const getDays = async () => {
-        await axios.get("http://localhost:3001/app/getDays").then((response) => {
+    const getDays = () => {
+         axios.get("http://localhost:3001/app/getDays").then((response) => {
             const newWeek = response.data
             setWeek(newWeek);
         });}
@@ -21,7 +21,7 @@ const CreateWeek = () => {
         <div>
             {
                  week.map((day) => {
-                    return <Day day={day} key={day._id}></Day>
+                    return <Day day={day} key={day._id} getDays={getDays}></Day>
                 })
             }
         </div>
