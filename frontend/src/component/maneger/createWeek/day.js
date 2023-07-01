@@ -19,8 +19,7 @@ const Day = (props) => {
               axios.get(`http://localhost:3001/app/getShiftById/${shiftId}`)
             );
       
-            axios
-              .all(shiftRequests)
+            axios.all(shiftRequests)
               .then((responses) => {
                 shifts = responses.map((response) => response.data);
                 setLoading(false)
@@ -36,17 +35,17 @@ const Day = (props) => {
             resolve(shifts);
           }
         });
-      };
+    };
       
-      useEffect(() => {
-        getShifts()
-          .then((shifts) => {
-            setDayShifts(shifts);
-          })
-          .catch((error) => {
-            // Handle the error
-          });
-      }, []);
+    useEffect(() => {
+      getShifts()
+        .then((shifts) => {
+          setDayShifts(shifts);
+        })
+        .catch((error) => {
+          // Handle the error
+        });
+    }, []);
       
 
 // create shift and added the _id of her to day
@@ -85,8 +84,6 @@ useEffect(() => {
     fetchData();
 }, [dayChanged]);
 
-useEffect(() => {
-}, [day]);
 
 return <div>
     <div className={styles.day_container}>
