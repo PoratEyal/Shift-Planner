@@ -11,11 +11,19 @@ const UserManagement = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [userAdded, setUserAdded] = useState(false);
+    const [selectedRole, setRole] = useState("");
     const [roles, setRoles] = useState([]);
 
 
     useEffect(() => {
-      //axios.get()
+
+      const token = localStorage.getItem("token");
+      const config= {
+        headers: {Authorization: `Bearer ${token}`}
+      }
+      axios.get('http://localhost:3001/app/getRoles', config).then((response) => {
+        setRoles(response.data);
+      }).catch((err) => {console.log(err)});
     }, []);
 
     const NavigationBar = () => {
@@ -58,7 +66,7 @@ const UserManagement = () => {
           fullName: fullName,
           username: username,
           password: password,
-          role: "Shift Manager",
+          role: selectedRole,
           job: "user"
         }
         console.log('Form submitted:', { fullName, username, password });
@@ -90,6 +98,7 @@ const UserManagement = () => {
                           type="text"
                           id="fullName"
                           value={fullName}
+                          
                           onChange={(e) => setFullName(e.target.value)}
                           required
                         />
@@ -119,6 +128,21 @@ const UserManagement = () => {
                         />
                         <label className={styles.label_password} htmlFor="password">סיסמה</label>
                       </div>
+
+                      <div className={styles.formGroup}>
+                        <select className={styles.input} onChange={
+                          (e) => {
+                            setRole(e.target.value)
+                            }
+                          }>
+                          {
+                            roles.map(role => {return <option value={role._id}>{role.name}</option>})
+                          }
+                        </select>
+                      </div>
+
+
+
 
                       <button className={styles.btn} onClick={() => setUserAdded(false)} type="submit">יצירה</button>
                     </form>

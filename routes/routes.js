@@ -93,7 +93,7 @@ router.post('/addUser', async (req, res) => {
             let user = req.body;
             user.password = password;
             
-            Role.findOne({name: user.role}).then((role) => {
+            Role.findOne({_id: user.role}).then((role) => {
                 user.role = role._doc._id;
 
                 job.findOne({name: user.job}).then(job => {
