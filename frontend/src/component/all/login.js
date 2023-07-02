@@ -1,24 +1,34 @@
 import styles from '../all/login.module.css'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Roles from './Roles';
+//import LogNav from './LoginNav';
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+
+  useEffect(() => {
+    let isAuth = localStorage.getItem("isAuth");
+    if(isAuth && isAuth !== null){
+      const user = JSON.parse(localStorage.getItem("user"));          
+      Roles.checkUserRole(user.job) ? navigate('/managerHomePage') : navigate('/HomePage');
+    }
+  }, []);
   return (
     <div className={styles.container_div}>
       <form className={styles.form} onSubmit={(e) => {
         e.preventDefault();
         axios.post("http://localhost:3001/app/login", {username: username, password: password}).then((response) => {
           const user = response.data;
-
-          Roles.checkUserRole(user.job) ? navigate('/managerHomePage') : navigate('/HomePage');
           localStorage.setItem("token", user.token);
           localStorage.setItem("user", JSON.stringify(user));
+          localStorage.setItem("isAuth", true);
+          Roles.checkUserRole(user.job) ? navigate('/managerHomePage') : navigate('/HomePage');
+          navigate.replace();
         }).catch((err) =>{
           console.log(err);
         })

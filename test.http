@@ -46,10 +46,10 @@ Content-Type: application/json
 
 {
     "fullName":"edi",
-    "username":"grunseid",
+    "username":"ffff",
     "password":"1234",
     "role":"Shift Manager",
-    "job": "admin"
+    "job": "user"
 }
 
 ###
