@@ -115,6 +115,23 @@ ul.navbar li a:hover {
     font-size: 16px;
     margin-left: 40px;
 }
+.label_role{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    margin-left: 30px;
+}
+
+.select{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+    margin-right: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    width: 175px;
+}
 
 .input{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

@@ -29,6 +29,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .buttons{
@@ -115,6 +116,21 @@ transform: scale(1.02);
 .addShift_btn:hover {
     transform: scale(1.02);
     }
+
+.btn_delete{
+    background-color: rgba(255, 0, 0, 0.684);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 9px;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+}
+
+.shift_name{
+    margin-bottom: -5px;
+}
 
 
 

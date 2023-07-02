@@ -134,7 +134,7 @@ const UserManagement = () => {
             </div>
 
             <div className={styles.formGroup}>
-              <select className={styles.input} onChange={
+              <select className={styles.select} onChange={
                 (e) => {
                   setRole(e.target.value)
                 }
@@ -143,19 +143,20 @@ const UserManagement = () => {
                   roles.map(role => { return <option value={role._id} key={role._id}>{role.name}</option> })
                 }
               </select>
+              <label className={styles.label_role}>תפקיד</label>
             </div>
 
-
-
-
             <button className={styles.btn} onClick={() => setUserAdded(false)} type="submit">יצירה</button>
+
           </form>
         </div>
+
 
         <div id="users" className={styles.users}>
           <h2 className={styles.h2}>משתמשים</h2>
           <AllUsers added={userAdded}></AllUsers>
         </div>
+
 
         <div id="create-role" className={styles.createRole}>
           <h2 className={styles.h2}>יצירת תפקיד</h2>

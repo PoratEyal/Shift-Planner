@@ -21,9 +21,9 @@ const Shift = (props) => {
     }
 
     return <div className={styles.shift}>
-        <p>{shift.description}</p>
+        <p className={styles.shift_name}>{shift.description}</p>
         <p>משעה - {shift.startTime} עד {shift.endTime}</p>
-        <button onClick={deleteShift}>מחיקת משמרת</button>
+        <button className={styles.btn_delete} onClick={deleteShift}>מחיקת משמרת</button>
         {/* <p>workers:</p>
         {
            shift.workers ? shift.workers.map((worker) => {return <p>worker</p>}) : null
