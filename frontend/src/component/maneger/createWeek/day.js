@@ -47,6 +47,7 @@ const Day = (props) => {
     .catch((error) => {
     });
     };
+    
     useEffect(() => {
         getShifts()
             .then((shifts) => {

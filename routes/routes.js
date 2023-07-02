@@ -229,14 +229,14 @@ router.delete('/deleteShift/:id', async (req, res) => {
 });
 //edit shift
 router.put('/updateShift', async (req, res) => {
-    try{
-    const shift = req.body;
-    const oldShift = await Shift.findOneAndUpdate(shift._id, shift);
-    res.status(202).json(oldShift);
-    }catch(err){
-        res.status(400).json({message: err.message});
+    try {
+      const shift = req.body;
+      const oldShift = await Shift.findOneAndUpdate({ _id: shift._id }, shift);
+      res.status(202).json(oldShift);
+    } catch (err) {
+      res.status(400).json({ message: err.message });
     }
-});
+  });
 
 // ---------------------------- Days funcs ---------------------------------------
 // create/post Day

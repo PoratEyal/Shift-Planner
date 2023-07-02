@@ -66,6 +66,32 @@
 transform: scale(1.02);
 }
 
+.add_btn{
+    margin: 10px;
+    margin-top: 0px;
+    display: flex;
+    padding: 0.8rem 2.4rem;
+    font-size: 1.275rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    gap: 0.75rem;
+    color: rgb(65, 63, 63);
+    background-color: #fff;
+    cursor: pointer;
+    transition: all .6s ease;
+    width: 230px;
+    justify-content: center;
+}
+.add_btn:hover {
+    transform: scale(1.02);
+    }
+
 .addShift{
     width: 280px;
     font-size: 1.2em;
@@ -116,6 +142,17 @@ transform: scale(1.02);
 .addShift_btn:hover {
     transform: scale(1.02);
     }
+
+
+.workers_list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+    
+.workers_list p {
+    margin-left: 40px;
+}
+
 
 .btn_delete{
     background-color: rgba(255, 0, 0, 0.684);

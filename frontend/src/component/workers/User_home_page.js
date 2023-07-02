@@ -8,9 +8,10 @@ const UserHomePage = () => {
     const fullName = data.fullName;
 
     return <div className={styles.container}>
-        <h1 className={styles.h1}>{fullName} ברוך הבא</h1>
-        <Link to="/aaa"><button className={styles.btn}>משמרות נוכחיות</button></Link>
-        <Link to="/aa"><button className={styles.btn}>משמרות לשבוע הבא</button></Link>
+        <h1 className={styles.h1}>שלום, {fullName}</h1>
+        <Link to="/aaa"><button className={styles.btn}>צפיה במשמרות נוכחיות</button></Link>
+        <Link to="/chooseShifts"><button className={styles.btn}>בחירת משמרות לשבוע הבא</button></Link>
+        <Link to="/a"><button className={styles.btn}>הגדרות משתמש</button></Link>
 
         <Outlet />
     </div>

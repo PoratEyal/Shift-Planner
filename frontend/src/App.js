@@ -5,21 +5,24 @@ import Login from '../src/component/all/login';
 import ManagerHomePage from '../src/component/maneger/maneger_home_page';
 import CreateWeek from '../src/component/maneger/createWeek/createWeek';
 import UserHomePage from './component/workers/User_home_page';
+import ChooseShifts from './component/workers/chooseShifts/chooseShifts';
 
 
 const App = () => {
   return <React.Fragment>
-      {/* <Login></Login>  */}
-      {/* <CreateWeek></CreateWeek> */}
-
       <Routes>
+        {/* - - - - - - - -login - - - - - - -  */}
         <Route path="/" element={<Login/>} />
+
+         {/* - - - - - - - -maneger - - - - - - -  */}
         <Route path='/managerHomePage' element={<ManagerHomePage/>}></Route>
         <Route path="/userManagment" element={<UserManagement />} />
         <Route path="/createNewWeek" element={<CreateWeek />} />
         <Route path='/HomePage' element={<UserHomePage/>}></Route>
-      </Routes>
 
+         {/* - - - - - - - -workers - - - - - - -  */}
+        <Route path='/chooseShifts' element={<ChooseShifts/>}></Route>
+      </Routes>
     </React.Fragment>
 };
 
