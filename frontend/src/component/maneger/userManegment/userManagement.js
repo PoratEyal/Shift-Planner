@@ -20,7 +20,6 @@ const UserManagement = () => {
   }, []);
 
   const getRoles = () => {
-
     const token = localStorage.getItem("token");
     const config = {
       headers: { Authorization: `Bearer ${token}` }
