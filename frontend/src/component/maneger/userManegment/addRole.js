@@ -14,6 +14,7 @@ const AddRole = (props) => {
             await axios.post("http://localhost:3001/app/addRole", newRole)
               .then(response => {
                 console.log(response.data);
+                setRole('')
                 props.roleAdded();
               })
               .catch(error => {
