@@ -2,7 +2,7 @@ import React, {useState } from 'react'
 import styles from '../userManegment/addRole.module.css'
 import axios from 'axios';
 
-const AddRole = () => {
+const AddRole = (props) => {
     
     const [role, setRole] = useState('');
 
@@ -14,6 +14,7 @@ const AddRole = () => {
             await axios.post("http://localhost:3001/app/addRole", newRole)
               .then(response => {
                 console.log(response.data);
+                props.roleAdded();
               })
               .catch(error => {
                 console.log(error.response.data.error);
