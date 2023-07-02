@@ -7,16 +7,16 @@ import CreateWeek from '../src/component/maneger/createWeek/createWeek';
 import UserHomePage from './component/workers/User_home_page';
 const App = () => {
   return <React.Fragment>
-     {/* <Login></Login>  */}
-      <CreateWeek></CreateWeek>
-       {/* <Routes>
-        
-          <Route path="/" element={<Login/>} />
-          <Route path='/managerHomePage' element={<ManagerHomePage/>}></Route>
-          <Route path="/userManagment" element={<UserManagement />} />
-          <Route path="/createNewWeek" element={<CreateWeek />} />
-          <Route path='/HomePage' element={<UserHomePage/>}></Route>
-      </Routes> */}
+      {/* <Login></Login>  */}
+      {/* <CreateWeek></CreateWeek> */}
+
+      <Routes>
+        <Route path="/" element={<Login/>} />
+        <Route path='/managerHomePage' element={<ManagerHomePage/>}></Route>
+        <Route path="/userManagment" element={<UserManagement />} />
+        <Route path="/createNewWeek" element={<CreateWeek />} />
+        <Route path='/HomePage' element={<UserHomePage/>}></Route>
+      </Routes>
 
     </React.Fragment>
 };
