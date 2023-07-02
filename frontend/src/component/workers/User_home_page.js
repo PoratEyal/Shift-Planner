@@ -12,6 +12,8 @@ const UserHomePage = () => {
         <Link to="/aaa"><button className={styles.btn}>צפיה במשמרות נוכחיות</button></Link>
         <Link to="/chooseShifts"><button className={styles.btn}>בחירת משמרות לשבוע הבא</button></Link>
         <Link to="/a"><button className={styles.btn}>הגדרות משתמש</button></Link>
+        <Link to="/login"><button className={styles.btn} onClick={() => {localStorage.clear()}}>הגדרות משתמש</button></Link>
+
 
         <Outlet />
     </div>
