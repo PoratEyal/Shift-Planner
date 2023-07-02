@@ -3,13 +3,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Roles from './Roles';
-//import LogNav from './LoginNav';
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
+  
 
   useEffect(() => {
     let isAuth = localStorage.getItem("isAuth");
@@ -17,6 +16,7 @@ const Login = () => {
       const user = JSON.parse(localStorage.getItem("user"));          
       Roles.checkUserRole(user.job) ? navigate('/managerHomePage') : navigate('/HomePage');
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div className={styles.container_div}>
@@ -28,7 +28,6 @@ const Login = () => {
           localStorage.setItem("user", JSON.stringify(user));
           localStorage.setItem("isAuth", true);
           Roles.checkUserRole(user.job) ? navigate('/managerHomePage') : navigate('/HomePage');
-          navigate.replace();
         }).catch((err) =>{
           console.log(err);
         })

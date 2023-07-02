@@ -79,16 +79,12 @@ PUT http://localhost:3001/app/editUser
 Content-Type: application/json
 
 {
-    "_id": "649c0acef2038c754d329940",
-    "fullName": "edward",
-    "username": "grunseid",
+    "_id": "64a1697eb592d696715c9037",
+    "fullName": "דימה",
+    "username": "דימה",
     "password": "1234",
-    "job": {
-        "_id": "",
-        "name": "manager"
-        },
     "role": "649995cc7c1cb8f8928a5b24",
-    "job": "649c08040834b0d306adef45"
+    "job": "649d571b70f2c12b782d204f"
 }
 
 
