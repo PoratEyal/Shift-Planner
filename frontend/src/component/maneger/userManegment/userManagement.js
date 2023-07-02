@@ -15,7 +15,7 @@ const UserManagement = () => {
 
 
     useEffect(() => {
-      axios.get()
+      //axios.get()
     }, []);
 
     const NavigationBar = () => {
