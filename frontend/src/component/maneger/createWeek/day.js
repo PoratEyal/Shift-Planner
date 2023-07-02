@@ -40,6 +40,13 @@ const Day = (props) => {
         });
     };
 
+    const updateShifts = () => {
+       getShifts().then((shifts) => {
+        setDayShifts(shifts);
+    })
+    .catch((error) => {
+    });
+    };
     useEffect(() => {
         getShifts()
             .then((shifts) => {
@@ -138,7 +145,7 @@ const Day = (props) => {
                         <div className={styles['three-body__dot']}></div>
                     </div>
                 ) : (
-                    dayShifts.map((shift) => {return shift ? <Shift getSifts={getShifts} shift={shift} key={shift._id}></Shift> : null }))
+                    dayShifts.map((shift) => {return shift ? <Shift getShifts={updateShifts} shift={shift} key={shift._id}></Shift> : null }))
             }
 
             <div className={styles.buttons}>

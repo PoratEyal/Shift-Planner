@@ -10,7 +10,7 @@ const Shift = (props) => {
         try {
             await axios.delete(`http://localhost:3001/app/deleteShift/${shift._id}`)
               .then(response => {
-                props.getSifts()
+                props.getShifts()
               })
               .catch(error => {
                 console.log(error.response.data.error);
