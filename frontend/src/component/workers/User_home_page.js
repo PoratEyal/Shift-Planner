@@ -1,6 +1,6 @@
 import styles from '../maneger/maneger_home_page.module.css'
 import React from 'react'
-import { Link, Outlet, Route, Routes } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const UserHomePage = () => {
 

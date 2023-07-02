@@ -55,7 +55,10 @@ const Day = (props) => {
             })
             .catch((error) => {
             });
-    }, []);
+            
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    , []);
 
     useEffect(()=>{
         getShifts()
@@ -64,6 +67,7 @@ const Day = (props) => {
             })
             .catch((error) => {
             });
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     },[day]);
 
     // create morning shift and added the _id of her to day

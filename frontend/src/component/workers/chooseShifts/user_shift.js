@@ -22,7 +22,8 @@ const UserShift = (props) => {
             console.log(updtaedShift)
             await axios.put('http://localhost:3001/app/updateShift', updtaedShift)
               .then(response => {
-                props.getShifts()
+                setShift(updtaedShift)
+                props.getShifts();
               })
               .catch(error => {
                 console.log(error.response.data.error);

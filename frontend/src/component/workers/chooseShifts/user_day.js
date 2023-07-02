@@ -5,7 +5,7 @@ import Shift from '../chooseShifts/user_shift'
 
 const UserDay = (props) => {
 
-    const [day, setDay] = useState(props.day);
+    const [day] = useState(props.day);
     const [dayShifts, setDayShifts] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -50,6 +50,8 @@ const UserDay = (props) => {
             })
             .catch((error) => {
             });
+            
+// eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(()=>{
@@ -59,6 +61,7 @@ const UserDay = (props) => {
             })
             .catch((error) => {
             });
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     },[day]);
 
     return <div>
