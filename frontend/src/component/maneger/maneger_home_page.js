@@ -2,16 +2,19 @@ import styles from '../maneger/maneger_home_page.module.css'
 import React, { useEffect } from 'react'
 import { Link, Outlet} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+
 const ManagerHomePage = () => {
     const navigate = useNavigate();
     let data = {};
     let fullName = "";
+
+    const StorageData = JSON.parse(localStorage.getItem("user"));
+    fullName = StorageData.fullName;
     
     useEffect(() => {
         const StorageData = JSON.parse(localStorage.getItem("user"));
         if(StorageData){
             data = StorageData;
-            fullName = data.fullName;
         }
         else{
             navigate('/');
