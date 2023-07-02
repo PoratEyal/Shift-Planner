@@ -1,15 +1,22 @@
 import styles from '../userManegment/userManagment.module.css'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import AllUsers from '../userManegment/allUsers'
 import AddRole from '../userManegment/addRole'
 
 const UserManagement = () => {
 
-    const [fullName, setFullName] = useState('')
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const [userAdded, setUserAdded] = useState(false)
+  
+    const [fullName, setFullName] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [userAdded, setUserAdded] = useState(false);
+    const [roles, setRoles] = useState([]);
+
+
+    useEffect(() => {
+      axios.get()
+    }, []);
 
     const NavigationBar = () => {
         const handleClick = (event, targetId) => {
