@@ -138,7 +138,7 @@ const Day = (props) => {
                         <div className={styles['three-body__dot']}></div>
                     </div>
                 ) : (
-                    dayShifts.map((shift) => {return shift ? <Shift shift={shift} key={shift._id}></Shift> : null }))
+                    dayShifts.map((shift) => {return shift ? <Shift getSifts={getShifts} shift={shift} key={shift._id}></Shift> : null }))
             }
 
             <div className={styles.buttons}>

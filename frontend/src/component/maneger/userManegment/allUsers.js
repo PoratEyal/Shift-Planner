@@ -69,7 +69,7 @@ const AllUsers = (props) => {
                       setUserDelted(false);
                     }}
                   >
-                    Delete
+                    מחיקה
                   </button>
                 </div>
                 <div>
