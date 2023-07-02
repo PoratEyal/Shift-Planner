@@ -4,6 +4,7 @@ const Role = require('../models/role');
 const User = require('../models/user');
 const Shift = require('../models/shift');
 const Day = require('../models/day');
+const Week = require('../models/week');
 const job = require('../models/job');
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
@@ -294,6 +295,33 @@ router.put('/editDay', async (req, res) => {
 
 
 //------------------------------Week funcs --------------------------------------------
+router.get('/getWeekByName/:name', async(req, res) => {
+    try{
+        const name = req.params.name;
+        const week = await Week.findOne({name: name});
+        res.status(200).json(week);
+    }catch(err){
+        res.status(400).json(err);
+    }
+});
+router.post('/addWeek', async (req,res) => {
+    Week.create(req.body).then((obj) => {
+        res.status(201).json(obj);
+    }).catch(err =>{
+        res.status(400).json({messege: err._messege});
+    });
+});
+
+router.put('/editWeek', async (req, res) => {
+    try{
+        let reqBody = req.body;
+        const oldWeek = await Week.findOne(reqBody._id, reqBody);
+        res.status(200).json(oldWeek);
+    }catch(err){
+        res.status(400).json({message: err._messege});
+    }
+
+});
 
 
 //-----------------------functions------------------
