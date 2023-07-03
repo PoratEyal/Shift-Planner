@@ -12,6 +12,7 @@ const WorkerList = (props) => {
         workers.map(worker => {
             axios.get(`http://localhost:3001/app/getUserById/${worker}`)
                 .then(response => {
+                    setLoading(true)
                     const fullName = response.data.fullName;
                     setWorkerNames(prevWorkerNames => [...prevWorkerNames, fullName]);
                 })
@@ -23,11 +24,13 @@ const WorkerList = (props) => {
     
     return (
         <div className={styles.workers_list}>
-          {loading ? (
-            <div className={styles['three-body']}>
-              <div className={styles['three-body__dot']}></div>
-              <div className={styles['three-body__dot']}></div>
-              <div className={styles['three-body__dot']}></div>
+          {!loading ? (
+            <div className={styles.loadingWorkers}>
+              <div className={styles['three-body']}>
+                <div className={styles['three-body__dot']}></div>
+                <div className={styles['three-body__dot']}></div>
+                <div className={styles['three-body__dot']}></div>
+              </div>
             </div>
           ) : (
             workerNames.map((name, index) => (

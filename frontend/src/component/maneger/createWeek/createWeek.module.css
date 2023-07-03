@@ -172,7 +172,10 @@ transform: scale(1.02);
     margin-bottom: -5px;
 }
 
-
+.loadingWorkers{
+    margin: 15px;
+    margin-left: 120px;
+}
 
 
 .three-body {
