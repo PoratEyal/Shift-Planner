@@ -221,7 +221,7 @@ router.get('/getShiftById/:id', async (req, res) => {
 router.delete('/deleteShift/:id', async (req, res) => {
     try{
         const id = req.params.id;
-        const shift = await Shift.findOneAndDelete(id);
+        const shift = await Shift.findByIdAndDelete(id);
         res.status(202).json(shift);
     } catch(err){
         res.status(400).json({message: err.message});
