@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom';
 const ManagerHomePage = () => {
     const navigate = useNavigate();
     let data = {};
-    let fullName = "";
+    const StorageData = JSON.parse(localStorage.getItem("user"));
+    const fullName = StorageData.fullName
 
     useEffect(() => {
         const StorageData = JSON.parse(localStorage.getItem("user"));
