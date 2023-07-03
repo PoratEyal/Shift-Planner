@@ -280,3 +280,35 @@ transform: scale(1.02);
      opacity: 0.8;
     }
    }
+
+
+.workers_list_delete{
+    border-top: 1px solid rgba(79, 79, 79, 0.417);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.names{
+    margin: 15px;
+}
+
+.nameAndDelete{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn_delete{
+    margin: 15px;
+    background-color: rgba(255, 0, 0, 0.684);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 9px;
+}
+
+.loadingWorkers_manger_page{
+    margin: 15px;
+}

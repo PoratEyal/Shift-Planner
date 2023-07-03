@@ -25,7 +25,7 @@ const ManagerHomePage = () => {
 
         <div className={styles.container}>
             <h1 className={styles.h1}>שלום, {fullName}</h1>
-            <Link to="/"><button className={styles.btn}>משמרות נוכחיות</button></Link> 
+            <Link to="/currentWeekShifts"><button className={styles.btn}>משמרות נוכחיות</button></Link> 
             <Link to="/createNewWeek"><button className={styles.btn}>משמרות לשבוע הבא</button></Link> 
             <Link to="/userManagment"><button className={styles.btn}>ניהול עובדים</button></Link>
             <Outlet />

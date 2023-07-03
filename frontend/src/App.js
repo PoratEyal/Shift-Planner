@@ -6,7 +6,8 @@ import ManagerHomePage from '../src/component/maneger/maneger_home_page';
 import CreateWeek from '../src/component/maneger/createWeek/createWeek';
 import UserHomePage from './component/workers/User_home_page';
 import ChooseShifts from './component/workers/chooseShifts/chooseShifts';
-import UserSetings from './component/workers/userSettings/userSettings'
+import UserSetings from './component/workers/userSettings/userSettings';
+import CurrentWeekShifts from './component/maneger/current week shifts/currentWeekShifts';
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <Route path='/managerHomePage' element={<ManagerHomePage/>}></Route>
         <Route path="/userManagment" element={<UserManagement />} />
         <Route path="/createNewWeek" element={<CreateWeek />} />
+        <Route path="/currentWeekShifts" element={<CurrentWeekShifts />} />
         <Route path='/HomePage' element={<UserHomePage/>}></Route>
 
          {/* - - - - - - - -workers - - - - - - -  */}
