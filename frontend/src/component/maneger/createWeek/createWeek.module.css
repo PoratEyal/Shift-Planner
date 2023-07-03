@@ -147,10 +147,13 @@ transform: scale(1.02);
 .workers_list {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-top: 0px;
+    width: 100%;
+    border-top: 1px solid rgba(79, 79, 79, 0.417);
 }
     
 .workers_list p {
-    margin-left: 40px;
+    margin-left: 0px;
 }
 
 

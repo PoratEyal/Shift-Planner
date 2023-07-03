@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from '../../maneger/createWeek/createWeek.module.css'
 import axios from 'axios';
+import WorkerList from "./workersList";
 
 const UserShift = (props) => {
 
@@ -9,8 +10,6 @@ const UserShift = (props) => {
     const fullName = data.fullName;
 
     const addWorkerToShift = async () => {
-
-        console.log(fullName)
         try {
             const updtaedShift = {
                 _id: shift._id,
@@ -19,7 +18,7 @@ const UserShift = (props) => {
                 endTime: shift.endTime,
                 workers: [...shift.workers, data]
             }
-            console.log(updtaedShift)
+            console.log(updtaedShift.workers);
             await axios.put('http://localhost:3001/app/updateShift', updtaedShift)
               .then(response => {
                 setShift(updtaedShift)
@@ -36,13 +35,7 @@ const UserShift = (props) => {
     return <div className={styles.shift}>
         <p className={styles.shift_name}>{shift.description}</p>
         <p>משעה - {shift.startTime} עד {shift.endTime}</p>
-        <div className={styles.workers_list}>
-            {shift.workers
-            ? shift.workers.map((worker, index) => (
-            <p key={index}>{fullName} •</p>
-            ))
-            : null}
-        </div>
+        <WorkerList workers={shift.workers}></WorkerList>
         <button onClick={addWorkerToShift} className={styles.add_btn}>הוסף את עצמך</button>
     </div>
 }

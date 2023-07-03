@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     width: auto;
+    margin-top: -30px;
 }
 
 .h1{
@@ -32,6 +33,31 @@
 }
 .btn:hover{
   cursor: pointer;
-  background: rgba(229, 229, 229, 0.821);
+  transform: scale(1.02);
+}
+
+.allPage{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: end;
+}
+.signout{
+  margin: 6px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 16px;
+  border-radius: 7px;
+  padding: 4px;
+  background-image: linear-gradient(144deg,#c677fe,  15%,#ffffff);
+  background: rgba(255, 255, 255, 0.821);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: 0.3s;
+  border: 2px solid rgb(97, 59, 163);
+}
+.signout:hover{
+  cursor: pointer;
+  transform: scale(1.02);
 }
 

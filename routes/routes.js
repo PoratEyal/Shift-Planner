@@ -119,6 +119,16 @@ router.get('/getUsers', async (req, res) => {
         res.status(400).json({messege: err.messege})
     }
 });
+//gets id and return user
+router.get('/getUserById/:id', async (req, res) => {
+    try{
+        const id = req.params.id
+        const user = await User.findById(id);
+        res.status(201).json(user)  
+    } catch(err){
+        res.status(400).json({message: err.message})
+    }
+});
 //login
 router.post('/login', async (req, res) => {
     await User.findOne({username: req.body.username}).then(user => {        
