@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../createWeek/createWeek.module.css'
 import axios from 'axios'
-import Shift from '../current week shifts/maneger_shift'
+import Shift from './maneger_shift'
 
 const ManegerDay = (props) => {
 
@@ -50,7 +50,6 @@ const ManegerDay = (props) => {
             })
             .catch((error) => {
             });
-            
     }, []);
 
     useEffect(()=>{

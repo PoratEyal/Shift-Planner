@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from '../createWeek/createWeek.module.css'
 import axios from 'axios';
 import ManegerWorkerList from '../current week shifts/maneger_workerList'
@@ -11,7 +11,7 @@ const MamegerShifts = (props) => {
     return <div className={styles.shift}>
         <p className={styles.shift_name}>{shift.description}</p>
         <p>משעה - {shift.startTime} עד {shift.endTime}</p>
-        <ManegerWorkerList workers={shift.workers}></ManegerWorkerList>
+        <ManegerWorkerList workers={shift.availableWorkers}></ManegerWorkerList>
     </div>
 }
 
