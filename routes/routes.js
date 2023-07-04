@@ -334,8 +334,10 @@ router.get('/getNextWeek', async(req, res) => {
 });
 router.get('/getCurrentWeek', async(req, res) => {
     try{
-        const week = await Week.findOne({name: "CurrentWeek"});
-        res.status(200).json(week);
+        const week = await Week.findOne({name: "CurrentWeek"}).then((response => {
+
+            res.status(200).json(response);
+        }))
     }catch(err){
         res.status(400).json(err);
     }

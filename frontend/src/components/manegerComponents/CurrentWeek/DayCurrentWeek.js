@@ -8,30 +8,35 @@ const DayCurrentWeek = (props) => {
     const [day] = useState(props.day);
     const [dayShifts, setDayShifts] = useState([]);
     const [loading, setLoading] = useState(false);
-
+    let currDay = {};
     const getShifts = () => {
         return new Promise((resolve, reject) => {
             let shifts = [];
             setLoading(true)
-            if (day.shifts.length > 0) {
-                const shiftRequests = day.shifts.map((shiftId) =>
-                    axios.get(`http://localhost:3001/app/getShiftById/${shiftId}`)
-                );
 
-                axios.all(shiftRequests).then((responses) => {
-                    shifts = responses.map((response) => response.data);
+            axios.get(`http://localhost:3001/app/getDay/${day}`).then((response) => {
+                currDay = response.data;
+                console.log(currDay);
+                if (currDay.shifts.length > 0) {
+                    const shiftRequests = currDay.shifts.map((shiftId) =>
+                        axios.get(`http://localhost:3001/app/getShiftById/${shiftId}`)
+                    );
+    
+                    axios.all(shiftRequests).then((responses) => {
+                        shifts = responses.map((response) => response.data);
+                        setLoading(false)
+                        resolve(shifts);
+                    })
+                        .catch((error) => {
+                            console.error(error);
+                            setLoading(false)
+                            reject(error);
+                        });
+                } else {
                     setLoading(false)
                     resolve(shifts);
-                })
-                    .catch((error) => {
-                        console.error(error);
-                        setLoading(false)
-                        reject(error);
-                    });
-            } else {
-                setLoading(false)
-                resolve(shifts);
-            }
+                }
+            });
         });
     };
 
@@ -52,19 +57,19 @@ const DayCurrentWeek = (props) => {
             });
     }, []);
 
-    useEffect(()=>{
-        getShifts()
-            .then((shifts) => {
-                setDayShifts(shifts);
-            })
-            .catch((error) => {
-            });
-    },[day]);
+    // useEffect(()=>{
+    //     getShifts()
+    //         .then((shifts) => {
+    //             setDayShifts(shifts);
+    //         })
+    //         .catch((error) => {
+    //         });
+    // },[day]);
 
     return <div>
         <div className={styles.day_container}>
 
-            <h2 className={styles.h2}>{day.name}</h2>
+            <h2 className={styles.h2}>{currDay.name}</h2>
             {
                 loading ? (
                     <div className={styles['three-body']}>
