@@ -12,7 +12,7 @@ const UserShift = (props) => {
 
 
   useEffect(() => {
-    if(shift.availableWorkers.includes(data._id)){
+    if(shift.availableWorkers.includes(data._id) || shift.workers.includes(data._id)){
       setAdded(true);
     }
   }, [])
@@ -30,8 +30,14 @@ const UserShift = (props) => {
   }
   const removeWorkerFromShift = () => {
     const updtaedShift = {...shift};
-    const userIndex = shift.availableWorkers.indexOf(data._id);
-    updtaedShift.availableWorkers.splice(userIndex, 1);
+    if(shift.availableWorkers.includes(data._id)){
+      const userIndex = shift.availableWorkers.indexOf(data._id);
+      updtaedShift.availableWorkers.splice(userIndex, 1);
+    }
+    else if(shift.workers.includes(data._id)){
+      const userIndex = shift.workers.indexOf(data._id);
+      updtaedShift.workers.splice(userIndex, 1);
+    }
     setAdded(false);
     axios.put('http://localhost:3001/app/updateShift', updtaedShift)
       .then(response => {
