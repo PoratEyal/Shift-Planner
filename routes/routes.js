@@ -303,6 +303,15 @@ router.put('/editDay', async (req, res) => {
 
 });
 
+router.delete('/deleteShiftFromDay/:shiftId', (req, res) => {
+    Day.updateOne({shifts: req.params.shiftId}, {$pull:{shifts: req.params.shiftId}})
+        .then((result) => {
+            res.status(200).json(result);
+        }).catch((err) => {
+            res.status(400).json(err);
+        });
+});
+
 
 //------------------------------Week funcs --------------------------------------------
 router.get('/getWeekByName/:name', async(req, res) => {

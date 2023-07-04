@@ -19,7 +19,9 @@ const Shift = (props) => {
               .then(response => {
 
                 console.log(response.data)
-                props.getShifts()
+                axios.delete(`http://localhost:3001/app/deleteShiftFromDay/${shift._id}`).then(() =>{
+                  props.getShifts();
+                })
               })
               .catch(error => {
                 console.log(error.response.data.error);

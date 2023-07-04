@@ -41,13 +41,13 @@ const Day = (props) => {
     };
 
     const updateShifts = () => {
-       getShifts().then((shifts) => {
-        setDayShifts(shifts);
-    })
-    .catch((error) => {
-    });
+        getShifts().then((shifts) => {
+            setDayShifts(shifts);
+        })
+            .catch((error) => {
+            });
     };
-    
+
     useEffect(() => {
         getShifts()
             .then((shifts) => {
@@ -55,23 +55,24 @@ const Day = (props) => {
             })
             .catch((error) => {
             });
-            
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    , []);
 
-    useEffect(()=>{
+    }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        , []);
+
+    useEffect(() => {
         getShifts()
             .then((shifts) => {
                 setDayShifts(shifts);
             })
             .catch((error) => {
             });
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[day]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [day]);
 
     // create morning shift and added the _id of her to day
     const addMorningShift = () => {
+        updateShifts();
         const newShift = {
             description: "משמרת בוקר",
             startTime: "7:00",
@@ -80,9 +81,16 @@ const Day = (props) => {
         };
 
         try {
-            
+
             axios.post("http://localhost:3001/app/addShift", newShift).then((response) => {
-                let updatedShifts = [...day.shifts, response.data._id];
+                let updatedShifts = [];
+
+                if (dayShifts) {
+                    dayShifts.map(shift => {
+                        updatedShifts.push(shift._id);
+                    })
+                }
+                updatedShifts.push(response.data._id)
                 const updatedDay = { ...day, shifts: updatedShifts };
                 setDay(updatedDay);
                 axios.put("http://localhost:3001/app/editDay", updatedDay);
@@ -95,6 +103,7 @@ const Day = (props) => {
 
     // create evnig shift and added the _id of her to day
     const addEvningShift = () => {
+        updateShifts();
         const newShift = {
             description: "משמרת ערב",
             startTime: "15:00",
@@ -103,7 +112,7 @@ const Day = (props) => {
         };
 
         try {
-            
+
             axios.post("http://localhost:3001/app/addShift", newShift).then((response) => {
                 let updatedShifts = [...day.shifts, response.data._id];
                 const updatedDay = { ...day, shifts: updatedShifts };
@@ -126,7 +135,7 @@ const Day = (props) => {
         };
 
         try {
-            
+
             axios.post("http://localhost:3001/app/addShift", newShift).then((response) => {
                 let updatedShifts = [...day.shifts, response.data._id];
                 const updatedDay = { ...day, shifts: updatedShifts };
@@ -150,14 +159,15 @@ const Day = (props) => {
                         <div className={styles['three-body__dot']}></div>
                     </div>
                 ) : (
-                    dayShifts.map((shift) => {return shift ? <Shift getShifts={updateShifts} shift={shift} key={shift._id}></Shift> : null }))
+                    dayShifts.map((shift) => { return shift ? <Shift getShifts={updateShifts} shift={shift} key={shift._id}></Shift> : null }))
             }
 
             <div className={styles.buttons}>
                 <button
                     className={styles.btn}
                     onClick={() => {
-                        addMorningShift()}
+                        addMorningShift()
+                    }
                     }
                 >
                     הוסף משמרת בוקר
@@ -166,10 +176,11 @@ const Day = (props) => {
                 <button
                     className={styles.btn}
                     onClick={() => {
-                        addEvningShift()}
+                        addEvningShift()
+                    }
                     }
                 >
-                     הוסף משמרת ערב
+                    הוסף משמרת ערב
                 </button>
 
                 <button
@@ -181,7 +192,7 @@ const Day = (props) => {
                     הוסף משמרת
                 </button>
             </div>
-            
+
             {clickAddShift && (
                 <div className={styles.addShift}>
                     <input onChange={(e) => setShiftName(e.target.value)} value={shiftName} className={styles.input} type="text" placeholder="שם משמרת" />
@@ -194,7 +205,7 @@ const Day = (props) => {
                             addShift()
                             setClickAddShift(!clickAddShift)
                         }}
-                        >הוסף
+                    >הוסף
                     </button>
                 </div>
             )}
