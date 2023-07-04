@@ -7,6 +7,7 @@ const ManegerWorkerList = (props) => {
     const [workers, setWorkers] = useState(props.workers)
     const [workerNames, setWorkerNames] = useState([]);
     const [loading, setLoading] = useState(false)
+    const [chosen, setChosen] = useState('בחירה')
 
     useEffect(() => {
         workers.map(worker => {
@@ -23,7 +24,7 @@ const ManegerWorkerList = (props) => {
         setLoading(true)
     }, []);
 
-    const deleteUserName = (fullname) => {
+    const choseWorker = (fullname) => {
       console.log(fullname)
     }
     
@@ -40,7 +41,7 @@ const ManegerWorkerList = (props) => {
           ) : (
             workerNames.map((name, index) => (
               <div key={index} className={styles.nameAndDelete}>
-                <button onClick={() => deleteUserName(name)} className={styles.btn_delete}>מחיקת עובד</button>
+                <button onClick={() => choseWorker(name)} className={styles.btn_chose}>{chosen}</button>
                 <p className={styles.names}>{name}</p>
               </div>
             ))
