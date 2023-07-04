@@ -16,6 +16,10 @@ const shiftSchema = new mongoose.Schema({
   workers: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
+  }],
+  availableWorkers: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
   }]
 });
 

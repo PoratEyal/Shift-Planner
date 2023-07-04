@@ -8,9 +8,6 @@ const ManagerHomePage = () => {
     let data = {};
     const [fullname, setName]= useState("");
 
-    //const StorageData = JSON.parse(localStorage.getItem("user"));
-    //const fullName = StorageData.fullName
-
     useEffect(() => {
         const StorageData = JSON.parse(localStorage.getItem("user"));
         if(StorageData){
