@@ -1,4 +1,4 @@
-import styles from '../maneger/maneger_home_page.module.css'
+import styles from '../manegerComponents/maneger_home_page.module.css'
 import React, { useEffect, useState } from 'react'
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ const UserHomePage = () => {
             navigate('/');
         }
 
-    }, [])
+    }, []) 
     return <div className={styles.allPage}>
         <Link to="/"><button className={styles.signout} onClick={() => {localStorage.clear()}}>התנתק</button></Link>
 

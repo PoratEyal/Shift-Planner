@@ -1,12 +1,10 @@
-import styles from '../userManegment/userManagment.module.css'
+import styles from './userManagment.module.css'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import AllUsers from '../userManegment/allUsers'
-import AddRole from '../userManegment/addRole'
+import AllUsers from './AllUsers'
+import AddRole from './AddRole'
 
 const UserManagement = () => {
-
-
   const [fullName, setFullName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');

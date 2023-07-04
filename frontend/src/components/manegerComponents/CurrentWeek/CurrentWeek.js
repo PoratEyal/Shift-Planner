@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Day from './user_day'
 import axios from 'axios';
+import DayCurrentWeek from './DayCurrentWeek'
 
-const ChooseShifts = () => {
+const CurrentWeek = () => {
     
     const[week, setWeek] = useState([]);
 
@@ -19,11 +19,11 @@ const ChooseShifts = () => {
         <div>
             {
                 week.map((day) => {
-                    return <Day day={day} key={day._id} getDays={getDays}></Day>
+                    return <DayCurrentWeek day={day} key={day._id} getDays={getDays}></DayCurrentWeek>
                 })
             }
         </div>
     </React.Fragment>
 }
 
-export default ChooseShifts;
+export default CurrentWeek;

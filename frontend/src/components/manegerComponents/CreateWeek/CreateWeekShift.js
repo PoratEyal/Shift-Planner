@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import styles from '../createWeek/createWeek.module.css'
+import styles from './createWeek.module.css'
 import axios from 'axios';
 
-const Shift = (props) => {
+const CreateWeekShift = (props) => {
 
     const [shift, setShift] = useState(props.shift);
 
@@ -38,4 +38,4 @@ const Shift = (props) => {
     </div>
 }
 
-export default Shift
+export default CreateWeekShift

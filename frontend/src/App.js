@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import UserManagement from '../src/component/maneger/userManegment/userManagement';
-import Login from '../src/component/all/login';
-import ManagerHomePage from '../src/component/maneger/maneger_home_page';
-import CreateWeek from '../src/component/maneger/createWeek/createWeek';
-import UserHomePage from './component/workers/User_home_page';
-import ChooseShifts from './component/workers/chooseShifts/chooseShifts';
-import UserSetings from './component/workers/userSettings/userSettings';
-import CurrentWeekShifts from './component/maneger/current week shifts/currentWeekShifts';
+import UserManagement from '../src/components/manegerComponents/UserManegment/UserManagement';
+import Login from '../src/components/publics/login';
+import ManagerHomePage from '../src/components/manegerComponents/ManagerHomePage';
+import CreateWeek from '../src/components/manegerComponents/CreateWeek/createWeek';
+import UserHomePage from './components/workersComponents/UserHomePage';
+import ChooseShifts from './components/workersComponents/chooseShifts/ChooseShifts';
+import UserSetings from './components/workersComponents/userSettings/userSettings';
+import CurrentWeekShifts from './components/manegerComponents/CurrentWeek/CurrentWeek';
 
 
 const App = () => {

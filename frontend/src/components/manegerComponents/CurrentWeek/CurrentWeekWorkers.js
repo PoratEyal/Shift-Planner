@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import styles from '../createWeek/createWeek.module.css'
+import styles from '../CreateWeek/createWeek.module.css'
 
-const ManegerWorkerList = (props) => {
+const CurrentWeekWorkers = (props) => {
     
     const [workers, setWorkers] = useState(props.workers)
     const [availableWorkers, setAvailableWorkers] = useState(props.availableWorkers)
@@ -77,4 +77,4 @@ const ManegerWorkerList = (props) => {
       
 }
 
-export default ManegerWorkerList;
+export default CurrentWeekWorkers;

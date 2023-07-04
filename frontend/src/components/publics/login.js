@@ -1,4 +1,4 @@
-import styles from '../all/login.module.css'
+import styles from '../publics/login.module.css'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';

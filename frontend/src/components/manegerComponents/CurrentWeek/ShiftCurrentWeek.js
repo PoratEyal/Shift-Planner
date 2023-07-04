@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import styles from '../createWeek/createWeek.module.css'
+import styles from '../CreateWeek/createWeek.module.css'
 import axios from 'axios';
-import ManegerWorkerList from '../current week shifts/maneger_workerList'
+import CurrentWeekWorkers from './CurrentWeekWorkers'
 
-const MamegerShifts = (props) => {
+const ShiftCurrentWeek = (props) => {
 
     const [shift, setShift] = useState(props.shift);
     //const data = JSON.parse(localStorage.getItem("user"));
@@ -59,8 +59,8 @@ const MamegerShifts = (props) => {
     return <div className={styles.shift}>
         <p className={styles.shift_name}>{shift.description}</p>
         <p>משעה - {shift.startTime} עד {shift.endTime}</p>
-        <ManegerWorkerList removeWorkerShift={removeWorkerShift} addWorkerShift={addWorkerShift} workers={shift.workers} availableWorkers={shift.availableWorkers}></ManegerWorkerList>
+        <CurrentWeekWorkers removeWorkerShift={removeWorkerShift} addWorkerShift={addWorkerShift} workers={shift.workers} availableWorkers={shift.availableWorkers}></CurrentWeekWorkers>
     </div>
 }
 
-export default MamegerShifts
+export default ShiftCurrentWeek

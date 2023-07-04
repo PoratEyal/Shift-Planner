@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import styles from '../../maneger/createWeek/createWeek.module.css'
+import styles from '../../manegerComponents/CreateWeek/createWeek.module.css'
 import axios from 'axios'
-import Shift from '../chooseShifts/user_shift'
+import UserShift from './UserShift'
 
 const UserDay = (props) => {
 
@@ -76,7 +76,7 @@ const UserDay = (props) => {
                         <div className={styles['three-body__dot']}></div>
                     </div>
                 ) : (
-                    dayShifts.map((shift) => {return shift ? <Shift getShifts={updateShifts} shift={shift} key={shift._id}></Shift> : null }))
+                    dayShifts.map((shift) => {return shift ? <UserShift getShifts={updateShifts} shift={shift} key={shift._id}></UserShift> : null }))
             }
 
         </div>

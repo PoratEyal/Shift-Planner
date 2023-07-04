@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import styles from '../createWeek/createWeek.module.css'
+import styles from '../CreateWeek/createWeek.module.css'
 import axios from 'axios'
-import Shift from './maneger_shift'
+import ShiftCurrentWeek from './ShiftCurrentWeek'
 
-const ManegerDay = (props) => {
+const DayCurrentWeek = (props) => {
 
     const [day] = useState(props.day);
     const [dayShifts, setDayShifts] = useState([]);
@@ -73,7 +73,7 @@ const ManegerDay = (props) => {
                         <div className={styles['three-body__dot']}></div>
                     </div>
                 ) : (
-                    dayShifts.map((shift) => {return shift ? <Shift getShifts={updateShifts} shift={shift} key={shift._id}></Shift> : null }))
+                    dayShifts.map((shift) => {return shift ? <ShiftCurrentWeek getShifts={updateShifts} shift={shift} key={shift._id}></ShiftCurrentWeek> : null }))
             }
 
         </div>
@@ -81,4 +81,4 @@ const ManegerDay = (props) => {
 
 }
 
-export default ManegerDay
+export default DayCurrentWeek

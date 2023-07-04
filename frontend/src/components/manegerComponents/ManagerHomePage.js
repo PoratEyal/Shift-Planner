@@ -1,4 +1,4 @@
-import styles from '../maneger/maneger_home_page.module.css'
+import styles from '../manegerComponents/maneger_home_page.module.css'
 import React, { useEffect, useState } from 'react'
 import { Link, Outlet} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';

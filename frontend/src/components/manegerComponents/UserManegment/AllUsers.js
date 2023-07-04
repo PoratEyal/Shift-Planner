@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import styles from '../userManegment/allUsers.module.css'
+import styles from './allUsers.module.css'
 
 const AllUsers = (props) => {
     

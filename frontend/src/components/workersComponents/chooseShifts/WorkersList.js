@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import styles from '../../maneger/createWeek/createWeek.module.css'
+import styles from '../../manegerComponents/CreateWeek/createWeek.module.css'
 
 const WorkerList = (props) => {
     

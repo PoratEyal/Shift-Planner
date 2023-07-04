@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../createWeek/createWeek.module.css'
+import styles from '../CreateWeek/createWeek.module.css'
 import axios from 'axios'
-import Shift from '../createWeek/shift';
+import Shift from './CreateWeekShift';
 
-const Day = (props) => {
+const CreateWeekDay = (props) => {
 
     const [day, setDay] = useState(props.day);
     const [dayShifts, setDayShifts] = useState([]);
@@ -215,4 +215,4 @@ const Day = (props) => {
 
 }
 
-export default Day
+export default CreateWeekDay
