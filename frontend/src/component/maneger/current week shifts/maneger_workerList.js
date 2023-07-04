@@ -10,22 +10,22 @@ const ManegerWorkerList = (props) => {
     const [availableWorkersArr, setAvailableWorkersArr] = useState([]);
     const [workersArr, setWorkersArr] = useState([]);
 
-    const [loading, setLoading] = useState(false)
+    // i added this state to change it from true to false 
+    // every time the person clicked on the buttons but doesnt work yet
+    const [updatedWorkers, setUpdatedWorkers] = useState(false)
 
     // get all the workers
     useEffect(() => {
       workers.map(worker => {
             axios.get(`http://localhost:3001/app/getUserById/${worker}`)
                 .then(response => {
-                    setLoading(true)
                     const worker = response.data;
-                    setWorkersArr(prevWorkerNames => [...prevWorkerNames, worker]);
+                    setWorkersArr(prevWorker => [...prevWorker, worker]);
                 })
                 .catch(error => {
                     console.error(error);
                 });
         });
-        setLoading(true)
     }, []);
 
     // get all the available workers
@@ -33,25 +33,26 @@ const ManegerWorkerList = (props) => {
       availableWorkers.map(worker => {
             axios.get(`http://localhost:3001/app/getUserById/${worker}`)
                 .then(response => {
-                    setLoading(true)
                     const worker = response.data;
-                    setAvailableWorkersArr([...availableWorkersArr, worker])
+                    setAvailableWorkersArr(prevWorker => [...prevWorker, worker])
                   })
                 .catch(error => {
                     console.error(error);
                 });
         });
-        setLoading(true)
+  
     }, []);
 
     const choseWorker = (id) => {
       console.log(id)
       props.addWorkerShift(id)
+      setUpdatedWorkers(!updatedWorkers)
     }
 
     const removeWorker = (id) => {
       console.log(id)
       props.removeWorkerShift(id)
+      setUpdatedWorkers(!updatedWorkers)
     }
     
     return (
