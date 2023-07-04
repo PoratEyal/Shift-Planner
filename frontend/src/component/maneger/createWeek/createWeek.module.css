@@ -300,9 +300,18 @@ transform: scale(1.02);
     align-items: center;
 }
 
-.btn_delete{
+.btn_chose{
     margin: 15px;
-    background-color: rgba(255, 0, 0, 0.684);
+    background-color: rgba(144, 144, 144, 0.684);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 9px;
+}
+
+.btn_chosen{
+    margin: 15px;
+    background-color: rgba(31, 181, 17, 0.684);
     color: white;
     border: none;
     border-radius: 5px;
