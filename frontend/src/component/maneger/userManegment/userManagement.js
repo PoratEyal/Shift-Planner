@@ -158,7 +158,7 @@ const UserManagement = () => {
 
 
         <div id="create-role" className={styles.createRole}>
-          <h2 className={styles.h2}>יצירת תפקיד</h2>
+          <h2 className={styles.h2}>תפקידים</h2>
           <AddRole roleAdded={getRoles}></AddRole>
         </div>
 
