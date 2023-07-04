@@ -11,7 +11,7 @@ const ChooseShifts = () => {
     }, []);
 
     const getDays = () => {
-         axios.get("http://localhost:3001/app/getDays").then((response) => {
+         axios.get("http://localhost:3001/app/getNextWeek").then((response) => {
             setWeek(response.data);
     });}
     

@@ -12,6 +12,7 @@ const { parse } = require('dotenv');
 const path = require('path');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
+const functions = require('../functions');
 
 
 router.use(bodyParser.json());
@@ -323,6 +324,31 @@ router.get('/getWeekByName/:name', async(req, res) => {
         res.status(400).json(err);
     }
 });
+router.get('/getNextWeek', async(req, res) => {
+    try{
+        const week = await Week.findOne({name: "NextWeek"});
+        res.status(200).json(week);
+    }catch(err){
+        res.status(400).json(err);
+    }
+});
+router.get('/getCurrentWeek', async(req, res) => {
+    try{
+        const week = await Week.findOne({name: "CurrentWeek"});
+        res.status(200).json(week);
+    }catch(err){
+        res.status(400).json(err);
+    }
+});
+
+
+router.get('/testWeekCreating', (req, res) => {
+    functions();
+    res.status(200);
+});
+
+
+
 router.post('/addWeek', async (req,res) => {
     Week.create(req.body).then((obj) => {
         res.status(201).json(obj);
