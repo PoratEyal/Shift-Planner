@@ -325,3 +325,35 @@ transform: scale(1.02);
 .loadingWorkers_manger_page{
     margin: 15px;
 }
+
+
+.all{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.containerMenu {
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  .bar1, .bar2, .bar3 {
+    border-radius: 3px;
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  .change .bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+  }
+  
+  .change .bar2 {opacity: 0;}
+  
+  .change .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+  }

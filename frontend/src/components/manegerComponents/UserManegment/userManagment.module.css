@@ -1,10 +1,15 @@
+.sticky {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+
 ul{
-    margin-top: 5px;
+    margin-top: 15px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    /* margin-right: 8px; */
 }
 
 ul.navbar {
@@ -14,7 +19,7 @@ ul.navbar {
     margin-right: 20px;
     padding: 0;
     overflow: hidden;
-    background-color: #270d4266;
+    background-color: #270d427f;
     border-radius: 10px;
 }
 
@@ -30,6 +35,7 @@ ul.navbar li a {
 }
 
 ul.navbar li a:hover {
+    cursor: pointer;
 }
 
 .container{
