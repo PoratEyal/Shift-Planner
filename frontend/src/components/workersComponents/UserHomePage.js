@@ -17,11 +17,14 @@ const UserHomePage = () => {
 
     }, []) 
     
-    return <div className={styles.allPage}>
-        <Link to="/"><button className={styles.signout} onClick={() => {localStorage.clear()}}>התנתק</button></Link>
+    return <div className={styles.all}>
+
+        <div className={styles.upperContainer}>
+            <Link to="/"><button className={styles.signout} onClick={() => {localStorage.clear()}}>התנתק</button></Link>
+            <h1 className={styles.h1}>שלום, {fullName}</h1>
+        </div>
 
         <div className={styles.container}>
-            <h1 className={styles.h1}>שלום, {fullName}</h1>
             <Link to="/CurrentWeek"><button className={styles.btn}>צפיה במשמרות נוכחיות</button></Link>
             <Link to="/chooseShifts"><button className={styles.btn}>בחירת משמרות לשבוע הבא</button></Link>
             <Link to="/userSettings"><button className={styles.btn}>הגדרות משתמש</button></Link>
