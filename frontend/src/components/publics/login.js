@@ -67,10 +67,6 @@ const Login = () => {
   
         <button className={styles.btn} type="submit">התחברות</button>
   
-        {/* <div className={styles.register}>
-          <button className={styles["register-btn"]}>להרשמה לחצו כאן</button>
-          <label>אין עדיין חשבון?</label>
-        </div> */}
       </form>
     </div>
   );
