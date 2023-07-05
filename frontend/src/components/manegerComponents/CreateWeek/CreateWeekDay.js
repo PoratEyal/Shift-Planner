@@ -79,10 +79,13 @@ const CreateWeekDay = (props) => {
             endTime: "15:00",
             workers: []
         };
-
+        const reqBody = {
+            newShift: newShift,
+            dayId: day._id
+        }
         try {
 
-            axios.post("http://localhost:3001/app/addShift", newShift).then((response) => {
+            axios.put("http://localhost:3001/app/addShiftToDay", reqBody).then((response) => {
                 let updatedShifts = [];
 
                 if (dayShifts) {

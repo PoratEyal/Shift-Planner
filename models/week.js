@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Day = require('./day');
 const weekSchema = new mongoose.Schema({
     name: {
       type: String,
@@ -8,10 +9,8 @@ const weekSchema = new mongoose.Schema({
       type: Boolean,
       default: false 
     },
-    day: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Day'
-    }]
+    day: [Day.schema]
+    
 });
 const Week = mongoose.model('Week', weekSchema);
 module.exports = Week;

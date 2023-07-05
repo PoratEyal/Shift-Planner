@@ -3,30 +3,22 @@ import Day from './CreateWeekDay';
 import axios from 'axios';
 
 const CreateWeek = () => {
-    const [week, setWeek] = useState(null);
 
+    const[week, setWeek] = useState(null);
     const getDays = () => {
-        axios.get("http://localhost:3001/app/getNextWeek").then((response) => {
-            console.log(response.data);
+         axios.get("http://localhost:3001/app/getNextWeek").then((response) => {
             setWeek(response.data);
         });
-        console.log(week);
+        
     }
-
-    useEffect(() => {
-        axios.get("http://localhost:3001/app/getNextWeek").then((response) => {
-            console.log(response.data);
-            setWeek(response.data);
-        });
+    useEffect(()=>{
+        getDays();
     }, []);
-
     return <React.Fragment>
         <div>
             {
-                week ? week.day.map((day) => {
-                    axios.get(`http://localhost:3001/app/getDay/${day}`).then((response) => {
-                        return <Day day={response.data} key={response.data._id} getDays={getDays}></Day>
-                    })
+                 week ? week.day.map((day) => {
+                    return <Day day={day} key={day._id} getDays={getDays}></Day>
                 }) : null
             }
         </div>

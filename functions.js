@@ -13,7 +13,7 @@ function CreateWeek(){
         const day = days[index];
         return Day.create({ name: day, shifts: [] })
           .then(newDay => {
-            newWeek.day.push(newDay._id);
+            newWeek.day.push(newDay);
             return newDay.save().then(() => {
                 saveNextDay(index + 1);
             });

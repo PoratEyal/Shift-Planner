@@ -4,7 +4,7 @@ import DayCurrentWeek from './DayCurrentWeek'
 
 const CurrentWeek = () => {
     
-    const[week, setWeek] = useState({});
+    const[week, setWeek] = useState(null);
 const getDays = () => {
         console.log("in get week");
          axios.get("http://localhost:3001/app/getCurrentWeek").then((response) => {
@@ -29,7 +29,7 @@ const getDays = () => {
                 //     return <div>{day}</div>//<DayCurrentWeek day={day} key={day._id} getDays={getDays}></DayCurrentWeek>
                 // }) 
                week ?  week.day.map((day) => {
-                    return <DayCurrentWeek day={day} key={day} getDays={getDays}></DayCurrentWeek>
+                    return <DayCurrentWeek day={day} key={day._id} getDays={getDays}></DayCurrentWeek>
                 }) : null
             }
         </div>
