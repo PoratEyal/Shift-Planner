@@ -11,17 +11,17 @@
   justify-content: space-between;
   align-items: center;
   background-color: rgb(255, 255, 255);
-  border-bottom: 4px solid rgb(214, 214, 214);
+  border-bottom: 1.5px solid rgb(214, 214, 214);
   padding: 9px;
   margin-top: 0px;
   width: 110%;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .h1{
-  color: #2e866d;
+  color: #2b9275;
   margin-top: 5px;
-  margin-right: 15px;
+  margin-right: 20px;
   margin-bottom: 10px;
   font-size: 30px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -31,11 +31,11 @@
   margin: 6px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 16px;
-  border-radius: 7px;
+  border-radius: 5px;
   width: 80px;
   padding: 6px;
   color: white;
-  background-image: linear-gradient(144deg,#7623b1,  15%,#38a787);
+  background-image: linear-gradient(144deg,#66acbf,#31a78e);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
@@ -61,20 +61,20 @@
 
 .btn{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin: 20px;
   font-size: 26px;
   padding: 25px;
   height: 130px;
   border-radius: 20px;
-  background-image: linear-gradient(144deg,#7623b1,  15%,#38a787);
+  background-image: linear-gradient(144deg,#66acbf,#31a78e);
   color: white;
-  border-radius: 16px;
+  border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: none;
-  width: 320px;
+  width: 340px;
   transition: 0.3s;
+  margin-bottom: 30px;
 }
 .btn:hover{
   cursor: pointer;
