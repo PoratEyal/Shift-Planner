@@ -298,17 +298,11 @@ router.put('/addShiftToDay', (req, res) => {
     const body = req.body;
     const dayId = body.dayId;
     const shift = body.newShift;
-    // Week.findOne({"day._id": dayId}).then((doc) => {
-    //     // if(err){
-    //     //     console.log(err);
-    //     //     return;
-    //     // }
-    //     const day = doc.day;
-    //     console.log(day);
-    // });
     Week.findOneAndUpdate({"day._id": dayId, "day._id": dayId}, {$push: {"day.$.shifts": shift}}, {returnOriginal: true})
-        .then(response => {console.log(response); res.status(200).send()});
-})
+        .then(response => {
+            res.status(200).json(response);
+        });
+});
 
 
 

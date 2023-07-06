@@ -93,7 +93,7 @@ const CreateWeekDay = (props) => {
                         updatedShifts.push(shift._id);
                     })
                 }
-                updatedShifts.push(response.data._id)
+                updatedShifts.push(response.data._id);
                 const updatedDay = { ...day, shifts: updatedShifts };
                 setDay(updatedDay);
                 axios.put("http://localhost:3001/app/editDay", updatedDay);
