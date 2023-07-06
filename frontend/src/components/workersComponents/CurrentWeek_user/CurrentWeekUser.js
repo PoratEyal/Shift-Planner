@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Day from './CurrentDayser'
 import styles from './currentWeekUser.module.css';
+import { BiSolidHome } from "react-icons/bi";
+import { useNavigate } from 'react-router-dom';
 
 const CurrentWeekUser = () => {
 
+    const navigate = useNavigate();
     const[week, setWeek] = useState(null);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const getDays = () => {
              axios.get("http://localhost:3001/app/getCurrentWeek").then((response) => {
@@ -20,26 +22,19 @@ const CurrentWeekUser = () => {
 
     }, []);
 
-    const handleMenuClick = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
-    return <React.Fragment>
-        <div className={styles.all}>
-
-        <div className={`${styles.containerMenu} ${isMenuOpen ? styles.change : ''}`} onClick={handleMenuClick}>
-            <div className={styles.bar1}></div>
-            <div className={styles.bar2}></div>
-            <div className={styles.bar3}></div>
+    return <div className={styles.all}>
+            <div className={styles.nav_container}>
+                <button onClick={() => navigate('/HomePage')}><BiSolidHome></BiSolidHome></button>
+                <p>צפיה בשבוע הנוכחי</p>
+            </div>
+            <div className={styles.container}>
+                {
+                week ?  week.day.map((day) => {
+                        return <Day day={day} key={day._id}></Day>
+                    }) : null
+                }
+            </div>
         </div>
-
-            {
-               week ?  week.day.map((day) => {
-                    return <Day day={day} key={day._id}></Day>
-                }) : null
-            }
-        </div>
-    </React.Fragment>
 }
 
 export default CurrentWeekUser

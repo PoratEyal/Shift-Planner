@@ -12,15 +12,14 @@
   align-items: center;
   padding: 9px;
   margin-top: 0px;
-  width: 110%;
+  width: 120%;
   margin-bottom: 50px;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 14px;
+  background-color: #332891e1;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 14px;
 }
 
 .h1{
-  color: #2b9275;
-  color: black;
+  color: white;
   margin-top: 5px;
   margin-right: 20px;
   margin-bottom: 10px;
@@ -31,11 +30,11 @@
 
 .signout{
   font-size: 30px;
-  background-color: white;
+  background-color: #33289100;
   border: none;
   margin-top: 3px;
   margin-left: 10px;
-  color: #332891e1;
+  color: white;
 }
 .signout:hover{
   cursor: pointer;
@@ -63,8 +62,9 @@
   border: none;
   width: 335px;
   transition: 0.3s;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
   border-radius: 16px;
+  font-weight: 600;
 }
 .btn:hover{
   cursor: pointer;
@@ -83,6 +83,7 @@
   transition: 0.3s;
   margin-bottom: 30px;
   border-radius: 16px;
+  font-weight: 600;
 }
 .btn1:hover{
   cursor: pointer;

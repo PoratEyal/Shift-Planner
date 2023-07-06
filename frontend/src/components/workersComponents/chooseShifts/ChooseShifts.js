@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import UserDay from './UserDay'
 import axios from 'axios';
+import { BiSolidHome } from "react-icons/bi";
+import { useNavigate } from 'react-router-dom';
+import styles from '../../manegerComponents/CreateWeek/createWeek.module.css'
 
 const ChooseShifts = () => {
 
+    const navigate = useNavigate();
     const [week, setWeek] = useState(null);
 
     const getDays = () => {
@@ -16,7 +20,12 @@ const ChooseShifts = () => {
         getDays();
     }, []);
     return <React.Fragment>
-        <div>
+        <div className={styles.nav_container}>
+            <button onClick={() => navigate('/HomePage')}><BiSolidHome></BiSolidHome></button>
+            <p>בחירת משמרות לשבוע הבא</p>
+        </div>
+
+        <div className={styles.container}>
             {
                week ?  week.day.map((day) => {console.log(day);
                     return <UserDay day={day} key={day._id} getDays={getDays}></UserDay>
