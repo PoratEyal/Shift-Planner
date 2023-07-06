@@ -4,20 +4,20 @@ import axios from 'axios';
 
 const CreateWeek = () => {
 
-    const[week, setWeek] = useState(null);
+    const [week, setWeek] = useState(null);
     const getDays = () => {
-         axios.get("http://localhost:3001/app/getNextWeek").then((response) => {
+        axios.get("http://localhost:3001/app/getNextWeek").then((response) => {
             setWeek(response.data);
-        });
-        
+        }).catch(err => console.log(err));;
+
     }
-    useEffect(()=>{
+    useEffect(() => {
         getDays();
     }, []);
     return <React.Fragment>
         <div>
             {
-                 week ? week.day.map((day) => {
+                week ? week.day.map((day) => {
                     return <Day day={day} key={day._id} getDays={getDays}></Day>
                 }) : null
             }

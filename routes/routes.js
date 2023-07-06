@@ -292,6 +292,30 @@ router.delete('/deleteDay/:id', async (req, res) => {
         res.status(400).json({message: err._messege})
     }
 });
+//edit day
+router.put('/editDay', async (req, res) => {
+    try{
+        let reqBody = req.body;
+        const oldDay = await Day.findByIdAndUpdate(reqBody._id, reqBody);
+        res.status(200).json(oldDay);
+    }catch(err){
+        res.status(400).json({message: err._messege});
+    }
+
+});
+
+router.delete('/deleteShiftFromDay/:shiftId', (req, res) => {
+    Day.updateOne({shifts: req.params.shiftId}, {$pull:{shifts: req.params.shiftId}})
+        .then((result) => {
+            res.status(200).json(result);
+        }).catch((err) => {
+            res.status(400).json(err);
+        });
+});
+
+
+
+
 //add shift to day
 router.put('/addShiftToDay', (req, res) => {
     //console.log("in request")
@@ -322,26 +346,29 @@ router.put('/deleteShiftFromDay', (req, res) => {
             res.status(200).json(response);
         });
 });
+router.put('/addWorkerToAvial', (req,res) => {
+    const body = req.body;
+    const dayId = body.dayId;
+    const shiftId = body.shiftId;
+    const workerId = body.workerId;
 
-//edit day
-router.put('/editDay', async (req, res) => {
-    try{
-        let reqBody = req.body;
-        const oldDay = await Day.findByIdAndUpdate(reqBody._id, reqBody);
-        res.status(200).json(oldDay);
-    }catch(err){
-        res.status(400).json({message: err._messege});
-    }
-
+    Week.findOneAndUpdate({ "day._id": dayId, "day.shifts._id": shiftId },
+    { $push: { "day.$.shifts.$[elem].availableWorkers": workerId } },
+    { arrayFilters: [{ "elem._id": shiftId }] }).then(response => {
+        res.status(200).json(response);
+    });
 });
+router.put('/delWorkerToAvial', (req,res) => {
+    const body = req.body;
+    const dayId = body.dayId;
+    const shiftId = body.shiftId;
+    const workerId = body.workerId;
 
-router.delete('/deleteShiftFromDay/:shiftId', (req, res) => {
-    Day.updateOne({shifts: req.params.shiftId}, {$pull:{shifts: req.params.shiftId}})
-        .then((result) => {
-            res.status(200).json(result);
-        }).catch((err) => {
-            res.status(400).json(err);
-        });
+    Week.findOneAndUpdate({ "day._id": dayId, "day.shifts._id": shiftId },
+    { $pull: { "day.$.shifts.$[elem].availableWorkers": workerId } },
+    { arrayFilters: [{ "elem._id": shiftId }] }).then(response => {
+        res.status(200).json(response);
+    });
 });
 
 
@@ -373,6 +400,9 @@ router.get('/getCurrentWeek', async(req, res) => {
         res.status(400).json(err);
     }
 });
+
+
+
 
 
 router.get('/testWeekCreating', (req, res) => {

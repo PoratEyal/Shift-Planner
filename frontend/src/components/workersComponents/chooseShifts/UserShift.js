@@ -12,36 +12,37 @@ const UserShift = (props) => {
 
 
   useEffect(() => {
-    if(shift.availableWorkers.includes(data._id) || shift.workers.includes(data._id)){
+    if (shift.availableWorkers.includes(data._id) || shift.workers.includes(data._id)) {
       setAdded(true);
     }
   }, [])
   const addWorkerToShift = () => {
     setAdded(true);
     const updtaedShift = { ...props.shift, availableWorkers: [...shift.availableWorkers, data] }
-    //console.log(updtaedShift.workers);
-    axios.put('http://localhost:3001/app/updateShift', updtaedShift)
+    const reqBody = {
+      dayId: props.dayId,
+      shiftId: shift._id,
+      workerId: data._id
+    }
+    axios.put('http://localhost:3001/app/addWorkerToAvial', reqBody)
       .then(response => {
-        setShift(updtaedShift);
+        console.log(response);
       })
       .catch(error => {
         console.log(error.response.data.error);
       });
   }
   const removeWorkerFromShift = () => {
-    const updtaedShift = {...shift};
-    if(shift.availableWorkers.includes(data._id)){
-      const userIndex = shift.availableWorkers.indexOf(data._id);
-      updtaedShift.availableWorkers.splice(userIndex, 1);
-    }
-    else if(shift.workers.includes(data._id)){
-      const userIndex = shift.workers.indexOf(data._id);
-      updtaedShift.workers.splice(userIndex, 1);
-    }
     setAdded(false);
-    axios.put('http://localhost:3001/app/updateShift', updtaedShift)
+    //const updtaedShift = { ...props.shift, availableWorkers: [...shift.availableWorkers, data] }
+    const reqBody = {
+      dayId: props.dayId,
+      shiftId: shift._id,
+      workerId: data._id
+    }
+    axios.put('http://localhost:3001/app/delWorkerToAvial', reqBody)
       .then(response => {
-        setShift(updtaedShift);        
+        console.log(response);
       })
       .catch(error => {
         console.log(error.response.data.error);
@@ -52,12 +53,10 @@ const UserShift = (props) => {
     <p className={styles.shift_name}>{shift.description}</p>
     <p>משעה - {shift.startTime} עד {shift.endTime}</p>
     {/* <WorkerList workers={shift.workers}></WorkerList> */}
-
-
     {
       added ? <button onClick={removeWorkerFromShift} className={styles.add_btn}>הסר</button> : <button onClick={addWorkerToShift} className={styles.add_btn}>הוסף את עצמך</button>
     }
-    
+
   </div>
 }
 

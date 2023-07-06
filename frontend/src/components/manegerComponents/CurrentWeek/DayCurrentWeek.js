@@ -6,20 +6,16 @@ import ShiftCurrentWeek from './ShiftCurrentWeek'
 const DayCurrentWeek = (props) => {
 
     const [day] = useState(props.day);
-    const [dayShifts, setDayShifts] = useState([]);
+    const [dayShifts, setDayShifts] = useState(props.day.shifts);
     const [loading, setLoading] = useState(false);
 
     const getShifts = () => {
         return new Promise((resolve, reject) => {
             let shifts = [];
             setLoading(true)
-            if (day.shifts.length > 0) {
-                const shiftRequests = day.shifts.map((shiftId) =>
-                    axios.get(`http://localhost:3001/app/getShiftById/${shiftId}`)
-                );
-
-                axios.all(shiftRequests).then((responses) => {
-                    shifts = responses.map((response) => response.data);
+            if (day.shifts.length >= 0) {
+                axios.get(`http://localhost:3001/app/getShiftsOfDay/${day._id}`).then((response) => {
+                    shifts = response.data;
                     setLoading(false)
                     resolve(shifts);
                 })
@@ -43,22 +39,8 @@ const DayCurrentWeek = (props) => {
      });
      };
 
-    useEffect(() => {
-        getShifts()
-            .then((shifts) => {
-                setDayShifts(shifts);
-            })
-            .catch((error) => {
-            });
-    }, []);
-
     useEffect(()=>{
-        getShifts()
-            .then((shifts) => {
-                setDayShifts(shifts);
-            })
-            .catch((error) => {
-            });
+        updateShifts();
     },[day]);
 
     return <div>
