@@ -1,6 +1,5 @@
 .sticky {
-    position: fixed;
-    top: 0;
+    position: sticky;
     z-index: 999;
 }
 
@@ -10,16 +9,18 @@ ul{
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    position: fixed;
+    top: 0;
 }
 
 ul.navbar {
     list-style-type: none;
     margin: 10;
-    margin-left: 10px;
+    margin-left: 12px;
     margin-right: 20px;
     padding: 0;
     overflow: hidden;
-    background-color: #270d427f;
+    background: #332891ce;
     border-radius: 10px;
 }
 
@@ -39,7 +40,7 @@ ul.navbar li a:hover {
 }
 
 .container{
-    margin-top: -10px;
+    margin-top: 70px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -103,7 +104,7 @@ ul.navbar li a:hover {
 }
 
 .h2{
-    margin-top: -15px;
+    margin-top: -10px;
 }
 
 .label_fullname{
@@ -165,8 +166,8 @@ ul.navbar li a:hover {
     border-radius: 0.5rem;
     border: 1px solid rgba(0, 0, 0, 0.25);
     gap: 0.75rem;
-    color: rgb(65, 63, 63);
-    background-color: #fff;
+    color: white;
+    background: #332891e1;
     cursor: pointer;
     transition: all .6s ease;
     width: 400px;

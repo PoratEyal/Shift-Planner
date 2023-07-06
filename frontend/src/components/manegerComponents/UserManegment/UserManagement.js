@@ -98,9 +98,9 @@ const UserManagement = () => {
   };
 
   return (
-    <div>
+    <div className={styles.all_container}>
 
-      <div className={` ${isScrolled ? styles.sticky : ''}`}>
+      <div className={`${isScrolled ? styles.sticky : ''}`}>
         <NavigationBar />
       </div>
 

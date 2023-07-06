@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './addRole.module.css';
 import axios from 'axios';
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 const AddRole = (props) => {
   const [role, setRole] = useState('');
@@ -66,7 +67,7 @@ const AddRole = (props) => {
     <div className={styles.container}>
       {roles.map(role => (
         <div className={styles.roles} key={role._id}>
-          <button onClick={() => deleteRole(role._id)} className={styles.delete_btn}>מחיקה</button>
+          <button onClick={() => deleteRole(role._id)} className={styles.delete_btn}><RiDeleteBin6Line></RiDeleteBin6Line></button>
           <label className={styles.label}>{role.name}</label>
         </div>
       ))}
