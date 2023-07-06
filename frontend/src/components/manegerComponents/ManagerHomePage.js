@@ -30,9 +30,12 @@ const ManagerHomePage = () => {
 
         <div className={styles.container}>
             <Link to="/currentWeekShifts">
-            <button className={styles.btn}>משמרות נוכחיות</button>
+            <button className={styles.btn}>צפיה בשבוע נוכחי</button>
             </Link>
-            <Link to="/createNewWeek"><button className={styles.btn}>משמרות לשבוע הבא</button></Link> 
+            <Link to="/currentWeekShifts">
+            <button className={styles.btn}>בחירת עובדים לשבוע הבא</button>
+            </Link>
+            <Link to="/createNewWeek"><button className={styles.btn}>בנית משמרות לשבוע הבא</button></Link> 
             <Link to="/userManagment"><button className={styles.btn1}>ניהול עובדים</button></Link>
             <Outlet />
         </div>
