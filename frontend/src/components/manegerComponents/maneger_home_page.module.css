@@ -51,6 +51,7 @@
     justify-content: center;
     width: auto;
     margin-top: -10px;
+    margin-right: 10px;
 }
 
 .btn{
@@ -62,7 +63,7 @@
   background-color: #332891e1;
   color: rgb(255, 255, 255);
   border: none;
-  width: 345px;
+  width: 335px;
   transition: 0.3s;
   margin-bottom: 30px;
   border-radius: 25px;
@@ -80,7 +81,7 @@
   background-color: #332891e1;
   color: rgb(255, 255, 255);
   border: none;
-  width: 345px;
+  width: 335px;
   transition: 0.3s;
   margin-bottom: 30px;
   border-radius: 25px;
