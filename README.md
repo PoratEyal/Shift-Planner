@@ -1,1 +1,1 @@
-# edi-project
+# Shift Management System
