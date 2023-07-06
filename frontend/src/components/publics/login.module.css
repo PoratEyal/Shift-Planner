@@ -35,7 +35,7 @@ body {
     font-weight: bold;
     margin-top: 5px;
     margin-bottom: 40px;
-    color: #14935c;
+    color: #332891e1;
   }
   
   /* buttons - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -61,7 +61,7 @@ body {
   transition: all .6s ease;
   width: 400px;
   justify-content: center;
-  background-image: linear-gradient(144deg,#b679e5,#2dcc87);
+  background-color: #332891e1;
   }
   .btn:hover {
   transform: scale(1.02);
@@ -129,7 +129,7 @@ body {
     width: 0;
     bottom: 0px;
     position: absolute;
-    background: #31a78e;
+    background: #332891e1;
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
