@@ -55,7 +55,7 @@ const DayCurrentWeek = (props) => {
                         <div className={styles['three-body__dot']}></div>
                     </div>
                 ) : (
-                    dayShifts.map((shift) => {return shift ? <ShiftCurrentWeek getShifts={updateShifts} shift={shift} key={shift._id}></ShiftCurrentWeek> : null }))
+                    dayShifts.map((shift) => {return shift ? <ShiftCurrentWeek getShifts={updateShifts} shift={shift} dayId={day._id} key={shift._id}></ShiftCurrentWeek> : null }))
             }
 
         </div>

@@ -6,54 +6,47 @@ import CurrentWeekWorkers from './CurrentWeekWorkers'
 const ShiftCurrentWeek = (props) => {
 
     const [shift, setShift] = useState(props.shift);
-    //const data = JSON.parse(localStorage.getItem("user"));
+
+
+
 
     const addWorkerShift = (workerId) => {
         const index = shift.availableWorkers.findIndex(x => x === workerId)
-        const arrTmp = [...shift.availableWorkers]
-        arrTmp.splice(index, 1)
-        console.log(arrTmp)
-        const newShift = {
-            _id: shift._id,
-            description: shift.description,
-            startTime: shift.startTime,
-            endTime: shift.endTime,
-            workers: [...shift.workers, workerId],
-            availableWorkers: arrTmp
-        }
-        try {
-            axios.put("http://localhost:3001/app/updateShift", newShift)
-            .then((response) => {
-                console.log(response.data)
-                //window.location.reload();
-            });
-        } catch (error) {
-            console.log(error.message);
-        }
+        shift.availableWorkers.splice(index, 1);
+        shift.workers.push(workerId);
 
+        const reqBody = {
+            dayId: props.dayId,
+            shiftId: shift._id,
+            workerId: workerId
+        }
+        axios.put("http://localhost:3001/app/addWorkerToWorkrs", reqBody)
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error.message);
+            });
     }
+
 
     const removeWorkerShift = (workerId) => {
         const index = shift.workers.findIndex(x => x === workerId)
-        const arrTmp = [...shift.workers]
-        arrTmp.splice(index, 1)
-        const newShift = {
-            _id: shift._id,
-            description: shift.description,
-            startTime: shift.startTime,
-            endTime: shift.endTime,
-            workers: arrTmp,
-            availableWorkers: [...shift.availableWorkers, workerId]
+        shift.workers.splice(index, 1);
+        shift.availableWorkers.push(workerId);
+
+        const reqBody = {
+            dayId: props.dayId,
+            shiftId: shift._id,
+            workerId: workerId
         }
-        try {
-            axios.put("http://localhost:3001/app/updateShift", newShift)
+        axios.put("http://localhost:3001/app/removeWorkerFromWorkrs", reqBody)
             .then((response) => {
                 console.log(response.data)
-                //window.location.reload();
+            })
+            .catch((error) => {
+                console.log(error.message);
             });
-        } catch (error) {
-            console.log(error.message);
-        }
     }
 
     return <div className={styles.shift}>

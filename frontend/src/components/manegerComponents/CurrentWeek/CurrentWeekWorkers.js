@@ -26,11 +26,7 @@ const CurrentWeekWorkers = (props) => {
                     console.error(error);
                 });
         });
-    }, []);
-
-    // get all the available workers
-    useEffect(() => {
-      availableWorkers.map(worker => {
+        availableWorkers.map(worker => {
             axios.get(`http://localhost:3001/app/getUserById/${worker}`)
                 .then(response => {
                     const worker = response.data;
@@ -40,9 +36,8 @@ const CurrentWeekWorkers = (props) => {
                     console.error(error);
                 });
         });
-  
-    }, []);
 
+    }, []);
     const choseWorker = (id) => {
       console.log(id)
       props.addWorkerShift(id)
