@@ -47,30 +47,33 @@ const UserManagement = () => {
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
         window.scrollTo({
-          top: targetElement.offsetTop - 150,
+          top: targetElement.offsetTop - 90,
           behavior: 'smooth',
         });
       }
     };
 
     return (
-      <ul className={styles.navbar}>
-        <li>
-          <a href="#create-role" className={styles.x} onClick={(e) => handleClick(e, 'create-role')}>
-            יצירת תפקיד
-          </a>
-        </li>
-        <li>
-          <a href="#users" className={styles.x} onClick={(e) => handleClick(e, 'users')}>
-            משתמשים
-          </a>
-        </li>
-        <li>
-          <a href="#create-user" className={styles.x} onClick={(e) => handleClick(e, 'create-user')}>
-            יצירת משתמש
-          </a>
-        </li>
-      </ul>
+      <div className={styles.nav_container}>
+        <ul className={styles.navbar}>
+          <li>
+            <a href="#create-role" className={styles.x} onClick={(e) => handleClick(e, 'create-role')}>
+              יצירת תפקיד
+            </a>
+          </li>
+          <li>
+            <a href="#users" className={styles.x} onClick={(e) => handleClick(e, 'users')}>
+              משתמשים
+            </a>
+          </li>
+          <li>
+            <a href="#create-user" className={styles.x} onClick={(e) => handleClick(e, 'create-user')}>
+              יצירת משתמש
+            </a>
+          </li>
+        </ul>
+      </div>
+
     );
   }
 
@@ -98,9 +101,9 @@ const UserManagement = () => {
   };
 
   return (
-    <div>
+    <div className={styles.all_container}>
 
-      <div className={` ${isScrolled ? styles.sticky : ''}`}>
+      <div className={`${isScrolled ? styles.sticky : ''}`}>
         <NavigationBar />
       </div>
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from './allUsers.module.css'
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 const AllUsers = (props) => {
     
@@ -69,7 +70,7 @@ const AllUsers = (props) => {
                       setUserDelted(false);
                     }}
                   >
-                    מחיקה
+                    <RiDeleteBin6Line></RiDeleteBin6Line>
                   </button>
                 </div>
                 <div>

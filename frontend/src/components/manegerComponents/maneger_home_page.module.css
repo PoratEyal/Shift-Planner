@@ -10,18 +10,16 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* border-bottom: 1.5px solid rgb(214, 214, 214); */
   padding: 9px;
   margin-top: 0px;
-  width: 110%;
+  width: 120%;
   margin-bottom: 50px;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #332891e1;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 14px;
 }
 
 .h1{
-  color: #2b9275;
-  color: black;
+  color: white;
   margin-top: 5px;
   margin-right: 20px;
   margin-bottom: 10px;
@@ -32,11 +30,11 @@
 
 .signout{
   font-size: 30px;
-  background-color: white;
+  background-color: #33289100;
   border: none;
   margin-top: 3px;
   margin-left: 10px;
-  color: #332891e1;
+  color: white;
 }
 .signout:hover{
   cursor: pointer;
@@ -58,14 +56,15 @@
   font-size: 26px;
   padding: 25px;
   height: 100px;
-  /* background-image: linear-gradient(144deg,#a0e6ff 5%,#02457A); */
+  /* background-image: linear-gradient(144deg,#59609b 5%,#332891e1); */
   background-color: #332891e1;
   color: rgb(255, 255, 255);
   border: none;
-  width: 345px;
+  width: 335px;
   transition: 0.3s;
-  margin-bottom: 30px;
-  border-radius: 25px;
+  margin-bottom: 35px;
+  border-radius: 16px;
+  font-weight: 600;
 }
 .btn:hover{
   cursor: pointer;
@@ -80,10 +79,11 @@
   background-color: #332891e1;
   color: rgb(255, 255, 255);
   border: none;
-  width: 345px;
+  width: 335px;
   transition: 0.3s;
   margin-bottom: 30px;
-  border-radius: 25px;
+  border-radius: 16px;
+  font-weight: 600;
 }
 .btn1:hover{
   cursor: pointer;

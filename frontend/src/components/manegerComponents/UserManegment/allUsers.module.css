@@ -11,13 +11,23 @@
 }
 
 .btn{
-    background-color: rgba(255, 0, 0, 0.684);
-    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(205, 205, 205, 0);
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 5px;
-    padding: 9px;
-    font-size: 16px;
-    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    margin-left: 5px;
+    transition: 0.3s;
+}
+.btn:hover{
+    color: rgba(255, 0, 0, 0.684);
+    cursor: pointer;
 }
 
 .p{

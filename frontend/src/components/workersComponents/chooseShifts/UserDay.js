@@ -47,12 +47,10 @@ const UserDay = (props) => {
             })
             .catch((error) => {
             });
-            // eslint-disable-next-line react-hooks/exhaustive-deps
     },[day]);
 
     return <div>
         <div className={styles.day_container}>
-
             <h2 className={styles.h2}>{day.name}</h2>
             { 
                 loading ? (

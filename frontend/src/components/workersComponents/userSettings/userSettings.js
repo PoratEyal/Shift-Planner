@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import styles from '../userSettings/UserSetings.module.css';
 import axios from 'axios';
+import { BiSolidHome } from "react-icons/bi";
+import { useNavigate } from 'react-router-dom';
 
 const UserSettings = () => {
+
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isEmpty, setIsEmpty] = useState(false); // New state variable
@@ -41,27 +45,35 @@ const UserSettings = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.h2}>שינוי משתמש</h2>
+    <div>
+      <div className={styles.nav_container}>
+        <button onClick={() => navigate('/HomePage')}><BiSolidHome></BiSolidHome></button>
+        <p>שינוי שם משתמש או סיסמה</p>
+      </div>
 
-      <input
-        className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
-        placeholder="שם-משתמש"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
+      <div className={styles.container}>
+        <h2 className={styles.h2}>שינוי משתמש</h2>
 
-      <input
-        className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
-        placeholder="סיסמה"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <input
+          className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
+          placeholder="שם-משתמש"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
 
-      <button onClick={changeUser} className={styles.btn}>
-        לחץ לשינוי
-      </button>
+        <input
+          className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
+          placeholder="סיסמה"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <button onClick={changeUser} className={styles.btn}>
+          לחץ לשינוי
+        </button>
+      </div>
     </div>
+
   );
 };
 
