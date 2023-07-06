@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { Route, Routes } from 'react-router-dom';
 import UserManagement from '../src/components/manegerComponents/UserManegment/UserManagement';
 import Login from '../src/components/publics/login';
@@ -10,8 +10,8 @@ import UserSetings from './components/workersComponents/userSettings/userSetting
 import CurrentWeekShifts from './components/manegerComponents/CurrentWeek/CurrentWeek';
 import CurrentWeekUser from './components/workersComponents/CurrentWeek_user/CurrentWeekUser';
 
-
 const App = () => {
+
   return <React.Fragment>
       <Routes>
         {/* - - - - - - - -login - - - - - - -  */}
