@@ -8,6 +8,7 @@ import UserHomePage from './components/workersComponents/UserHomePage';
 import ChooseShifts from './components/workersComponents/chooseShifts/ChooseShifts';
 import UserSetings from './components/workersComponents/userSettings/userSettings';
 import CurrentWeekShifts from './components/manegerComponents/CurrentWeek/CurrentWeek';
+import CurrentWeekUser from './components/workersComponents/CurrentWeek_user/CurrentWeekUser';
 
 
 const App = () => {
@@ -24,8 +25,10 @@ const App = () => {
         <Route path='/HomePage' element={<UserHomePage/>}></Route>
 
          {/* - - - - - - - -workers - - - - - - -  */}
+        <Route path='/CurrentWeek' element={<CurrentWeekUser/>}></Route>
         <Route path='/chooseShifts' element={<ChooseShifts/>}></Route>
         <Route path='/userSettings' element={<UserSetings/>}></Route>
+
       </Routes>
     </React.Fragment>
 };

@@ -11,7 +11,20 @@ const UserManagement = () => {
   const [userAdded, setUserAdded] = useState(false);
   const [selectedRole, setRole] = useState("");
   const [roles, setRoles] = useState([]);
+  const [isScrolled, setIsScrolled] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      setIsScrolled(scrollTop > 0);
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+  
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     getRoles();
@@ -34,7 +47,7 @@ const UserManagement = () => {
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
         window.scrollTo({
-          top: targetElement.offsetTop,
+          top: targetElement.offsetTop - 150,
           behavior: 'smooth',
         });
       }
@@ -86,8 +99,17 @@ const UserManagement = () => {
 
   return (
     <div>
-      <NavigationBar />
+
+      <div className={` ${isScrolled ? styles.sticky : ''}`}>
+        <NavigationBar />
+      </div>
+
       <div className={styles.container}>
+
+        <div id="users" className={styles.users}>
+          <h2 className={styles.h2}>משתמשים</h2>
+          <AllUsers added={userAdded}></AllUsers>
+        </div>
 
         <div id="create-user" className={styles.createUser}>
           <h2 className={styles.h2}>יצירת משתמש</h2>
@@ -148,13 +170,6 @@ const UserManagement = () => {
           </form>
         </div>
 
-
-        <div id="users" className={styles.users}>
-          <h2 className={styles.h2}>משתמשים</h2>
-          <AllUsers added={userAdded}></AllUsers>
-        </div>
-
-
         <div id="create-role" className={styles.createRole}>
           <h2 className={styles.h2}>תפקידים</h2>
           <AddRole roleAdded={getRoles}></AddRole>
@@ -166,3 +181,5 @@ const UserManagement = () => {
 }
 
 export default UserManagement
+
+
