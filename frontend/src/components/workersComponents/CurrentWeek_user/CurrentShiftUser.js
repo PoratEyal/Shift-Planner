@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from './currentWeekUser.module.css';
+import { BiSolidWinkSmile } from "react-icons/bi";
 
 const CurrentShiftUser = (props) => {
 
@@ -10,17 +11,19 @@ const CurrentShiftUser = (props) => {
     useEffect(() => {
         const newdata = JSON.parse(localStorage.getItem("user"));
         setUserId(newdata._id);
-
-        if (shift.workers.includes(userId)) {
-            setAddClass(true)
+    
+        if (shift.workers.includes(newdata._id)) {
+            setAddClass(true);
+        } else {
+            setAddClass(false);
         }
-    }, [])
+    }, [shift, userId]);
 
     return (
         <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`}>
             <p className={styles.shift_name}>{shift.description}</p>
             <p>משעה - {shift.startTime} עד {shift.endTime}</p>
-            {addClass ? <p>משמרת נעימה</p> : null}
+            {addClass ? <h3><BiSolidWinkSmile className={styles.icon}></BiSolidWinkSmile><label>&nbsp;משמרת נעימה</label></h3> : null}
         </div>
     );
 }
