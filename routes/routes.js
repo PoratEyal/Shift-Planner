@@ -305,6 +305,23 @@ router.put('/addShiftToDay', (req, res) => {
 });
 
 
+router.get('/getShiftsOfDay/:dayId', (req, res) => {
+    Week.findOne({"day._id": req.params.dayId},{"day.$": 1})
+        .then(response => {
+            res.status(200).json(response.day[0].shifts);
+    }) 
+});
+
+
+router.put('/deleteShiftFromDay', (req, res) => {
+    const body = req.body;
+    const dayId = body.dayId;
+    const shift = body.shiftId;
+    Week.findOneAndUpdate({"day._id": dayId, "day._id": dayId}, {$pull: {"day.$.shifts": {_id: shift}}}, {returnOriginal: true})
+        .then(response => {
+            res.status(200).json(response);
+        });
+});
 
 //edit day
 router.put('/editDay', async (req, res) => {

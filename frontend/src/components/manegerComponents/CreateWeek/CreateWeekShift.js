@@ -6,30 +6,14 @@ const CreateWeekShift = (props) => {
 
     const [shift, setShift] = useState(props.shift);
 
-
-    // useEffect(() => {
-    //   console.log("name: "+shift.description +"id: " +shift._id);
-    // },[])
-
-    const deleteShift = async () => {
-        try {
-
-          console.log(shift._id)
-            await axios.delete(`http://localhost:3001/app/deleteShift/${shift._id}`)
-              .then(response => {
-
-                console.log(response.data)
-                axios.delete(`http://localhost:3001/app/deleteShiftFromDay/${shift._id}`).then(() =>{
-                  props.getShifts();
-                })
-              })
-              .catch(error => {
-                console.log(error.response.data.error);
-              });
-          } catch (error) {
-            console.log(error.message);
-          }
+    const deleteShift = () => {
+      console.log(shift._id);
+     props.deleteShift(shift._id);  
     }
+
+
+
+
 
     return <div className={styles.shift}>
         <p className={styles.shift_name}>{shift.description}</p>
