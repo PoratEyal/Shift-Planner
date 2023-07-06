@@ -125,14 +125,15 @@ const CreateWeekDay = (props) => {
             workers: []
         };
 
+        const reqBody = {
+            newShift: newShift,
+            dayId: day._id
+        }
         try {
 
-            axios.post("http://localhost:3001/app/addShift", newShift).then((response) => {
-                let updatedShifts = [...day.shifts, response.data._id];
-                const updatedDay = { ...day, shifts: updatedShifts };
+            axios.put("http://localhost:3001/app/addShiftToDay", reqBody).then((response) => {
+                const updatedDay = response.data.day.find(d => d._id === day._id);
                 setDay(updatedDay);
-                axios.put("http://localhost:3001/app/editDay", updatedDay);
-                props.getDays();
             });
         } catch (error) {
             console.log(error.message);
