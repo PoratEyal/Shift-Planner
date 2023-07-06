@@ -39,13 +39,11 @@ const CurrentWeekWorkers = (props) => {
 
     }, []);
     const choseWorker = (id) => {
-      console.log(id)
       props.addWorkerShift(id)
       setUpdatedWorkers(!updatedWorkers)
     }
 
     const removeWorker = (id) => {
-      console.log(id)
       props.removeWorkerShift(id)
       setUpdatedWorkers(!updatedWorkers)
     }

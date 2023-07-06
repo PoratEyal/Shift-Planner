@@ -7,14 +7,7 @@ const ShiftCurrentWeek = (props) => {
 
     const [shift, setShift] = useState(props.shift);
 
-
-
-
     const addWorkerShift = (workerId) => {
-        const index = shift.availableWorkers.findIndex(x => x === workerId)
-        shift.availableWorkers.splice(index, 1);
-        shift.workers.push(workerId);
-
         const reqBody = {
             dayId: props.dayId,
             shiftId: shift._id,
@@ -23,6 +16,7 @@ const ShiftCurrentWeek = (props) => {
         axios.put("http://localhost:3001/app/addWorkerToWorkrs", reqBody)
             .then((response) => {
                 console.log(response.data);
+                props.setDay(response.data);
             })
             .catch((error) => {
                 console.log(error.message);
@@ -31,10 +25,6 @@ const ShiftCurrentWeek = (props) => {
 
 
     const removeWorkerShift = (workerId) => {
-        const index = shift.workers.findIndex(x => x === workerId)
-        shift.workers.splice(index, 1);
-        shift.availableWorkers.push(workerId);
-
         const reqBody = {
             dayId: props.dayId,
             shiftId: shift._id,
@@ -42,7 +32,7 @@ const ShiftCurrentWeek = (props) => {
         }
         axios.put("http://localhost:3001/app/removeWorkerFromWorkrs", reqBody)
             .then((response) => {
-                console.log(response.data)
+                props.setDay(response.data);
             })
             .catch((error) => {
                 console.log(error.message);

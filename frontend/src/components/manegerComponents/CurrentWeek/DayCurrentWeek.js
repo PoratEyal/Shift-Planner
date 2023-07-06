@@ -5,7 +5,7 @@ import ShiftCurrentWeek from './ShiftCurrentWeek'
 
 const DayCurrentWeek = (props) => {
 
-    const [day] = useState(props.day);
+    const [day, setDay] = useState(props.day);
     const [dayShifts, setDayShifts] = useState(props.day.shifts);
     const [loading, setLoading] = useState(false);
 
@@ -55,7 +55,7 @@ const DayCurrentWeek = (props) => {
                         <div className={styles['three-body__dot']}></div>
                     </div>
                 ) : (
-                    dayShifts.map((shift) => {return shift ? <ShiftCurrentWeek getShifts={updateShifts} shift={shift} dayId={day._id} key={shift._id}></ShiftCurrentWeek> : null }))
+                    dayShifts.map((shift) => {return shift ? <ShiftCurrentWeek getShifts={updateShifts} shift={shift} dayId={day._id} key={shift._id} setDay={setDay}></ShiftCurrentWeek> : null }))
             }
 
         </div>
