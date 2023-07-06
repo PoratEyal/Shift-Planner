@@ -1,14 +1,24 @@
 .all_container{
-    margin-left: 5px;
+    margin-left: 10px;
+    position: relative;
 }
 
-.sticky {
-    position: sticky;
+.nav_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: #403796;
+    top: 0;
+    left: 0;
+    width: 100%;
+    position:fixed;
     z-index: 999;
 }
 
 ul{
-    margin-top: 15px;
+    margin-top: 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -24,7 +34,7 @@ ul.navbar {
     margin-right: 20px;
     padding: 0;
     overflow: hidden;
-    background: #332891ce;
+    background: #33289100;
     border-radius: 10px;
 }
 
@@ -44,7 +54,7 @@ ul.navbar li a:hover {
 }
 
 .container{
-    margin-top: 70px;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;

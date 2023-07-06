@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { Link, Outlet} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { BiLogOut } from "react-icons/bi";
-import { BsFillCalendarWeekFill } from "react-icons/bs";
 
 const ManagerHomePage = () => {
     const navigate = useNavigate();
@@ -23,6 +22,7 @@ const ManagerHomePage = () => {
 
 
     return <div className={styles.all}>
+        
         <div className={styles.upperContainer}>
             <Link to="/"><button className={styles.signout} onClick={() => {localStorage.clear()}}><BiLogOut></BiLogOut></button></Link>
             <h1 className={styles.h1}>שלום {fullname}</h1>

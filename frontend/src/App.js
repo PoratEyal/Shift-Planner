@@ -22,9 +22,9 @@ const App = () => {
         <Route path="/userManagment" element={<UserManagement />} />
         <Route path="/createNewWeek" element={<CreateWeek />} />
         <Route path="/currentWeekShifts" element={<CurrentWeekShifts />} />
-        <Route path='/HomePage' element={<UserHomePage/>}></Route>
 
          {/* - - - - - - - -workers - - - - - - -  */}
+         <Route path='/HomePage' element={<UserHomePage/>}></Route>
         <Route path='/CurrentWeek' element={<CurrentWeekUser/>}></Route>
         <Route path='/chooseShifts' element={<ChooseShifts/>}></Route>
         <Route path='/userSettings' element={<UserSetings/>}></Route>
