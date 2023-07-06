@@ -22,7 +22,7 @@ const CreateWeek = () => {
         <div>
             <div className={styles.nav_container}>
                 <button onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
-                <p>בנית משמרות לשבוע הבא</p>
+                <p>בניית משמרות לשבוע הבא</p>
             </div>
 
             <div className={styles.container}>
@@ -32,6 +32,15 @@ const CreateWeek = () => {
                     }) : null
                 }
             </div>
+            
+
+
+
+            
+            {
+            /* need to add button to save the week for the workers <div className={styles.container}>
+                <button></button>
+            </div> */}
         </div>
     </React.Fragment>
 }
