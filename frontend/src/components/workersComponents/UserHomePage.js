@@ -1,6 +1,7 @@
 import styles from '../manegerComponents/maneger_home_page.module.css'
 import React, { useEffect, useState } from 'react'
 import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { BiLogOut } from "react-icons/bi";
 
 const UserHomePage = () => {
     const navigate = useNavigate();
@@ -20,7 +21,7 @@ const UserHomePage = () => {
     return <div className={styles.all}>
 
         <div className={styles.upperContainer}>
-            <Link to="/"><button className={styles.signout} onClick={() => {localStorage.clear()}}>התנתק</button></Link>
+            <Link to="/"><button className={styles.signout} onClick={() => {localStorage.clear()}}><BiLogOut></BiLogOut></button></Link>
             <h1 className={styles.h1}>שלום, {fullName}</h1>
         </div>
 

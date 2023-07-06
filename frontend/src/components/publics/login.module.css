@@ -35,7 +35,7 @@ body {
     font-weight: bold;
     margin-top: 5px;
     margin-bottom: 40px;
-    color: #1c836d;
+    color: #14935c;
   }
   
   /* buttons - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -61,7 +61,7 @@ body {
   transition: all .6s ease;
   width: 400px;
   justify-content: center;
-  background-image: linear-gradient(144deg,#66acbf,#31a78e);
+  background-image: linear-gradient(144deg,#b679e5,#2dcc87);
   }
   .btn:hover {
   transform: scale(1.02);

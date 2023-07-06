@@ -10,8 +10,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(255, 255, 255);
-  border-bottom: 1.5px solid rgb(214, 214, 214);
+  /* border-bottom: 1.5px solid rgb(214, 214, 214); */
   padding: 9px;
   margin-top: 0px;
   width: 110%;
@@ -20,6 +19,7 @@
 
 .h1{
   color: #2b9275;
+  color: black;
   margin-top: 5px;
   margin-right: 20px;
   margin-bottom: 10px;
@@ -28,23 +28,16 @@
 }
 
 .signout{
-  margin: 6px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 16px;
-  border-radius: 5px;
-  width: 80px;
-  padding: 6px;
-  color: white;
-  background-image: linear-gradient(144deg,#66acbf,#31a78e);
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  transition: 0.3s;
+  font-size: 30px;
+  background-color: white;
   border: none;
-  margin-left: 20px;
+  margin-top: 3px;
+  margin-left: 10px;
+  color: #888888;
 }
 .signout:hover{
   cursor: pointer;
+  color: black;
   transform: scale(1.02);
 }
 
@@ -63,18 +56,19 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 26px;
   padding: 25px;
-  height: 130px;
-  border-radius: 20px;
-  background-image: linear-gradient(144deg,#66acbf,#31a78e);
+  height: 120px;
+  background-image: linear-gradient(144deg,#a84de1c6,#2dcc87c9);
   color: white;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: none;
-  width: 340px;
+  width: 345px;
   transition: 0.3s;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  border-radius: 35px;
 }
 .btn:hover{
   cursor: pointer;

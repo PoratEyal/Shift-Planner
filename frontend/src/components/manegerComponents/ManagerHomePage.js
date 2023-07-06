@@ -2,6 +2,7 @@ import styles from '../manegerComponents/maneger_home_page.module.css'
 import React, { useEffect, useState } from 'react'
 import { Link, Outlet} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { BiLogOut } from "react-icons/bi";
 
 const ManagerHomePage = () => {
     const navigate = useNavigate();
@@ -21,9 +22,8 @@ const ManagerHomePage = () => {
 
 
     return <div className={styles.all}>
-
         <div className={styles.upperContainer}>
-            <Link to="/"><button className={styles.signout} onClick={() => {localStorage.clear()}}>התנתק</button></Link>
+            <Link to="/"><button className={styles.signout} onClick={() => {localStorage.clear()}}><BiLogOut></BiLogOut></button></Link>
             <h1 className={styles.h1}>שלום, {fullname}</h1>
         </div>
 
