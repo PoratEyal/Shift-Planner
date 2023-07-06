@@ -47,7 +47,7 @@ const UserManagement = () => {
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
         window.scrollTo({
-          top: targetElement.offsetTop - 150,
+          top: targetElement.offsetTop - 90,
           behavior: 'smooth',
         });
       }
