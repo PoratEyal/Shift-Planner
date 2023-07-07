@@ -9,6 +9,7 @@ import ChooseShifts from './components/workersComponents/chooseShifts/ChooseShif
 import UserSetings from './components/workersComponents/userSettings/userSettings';
 import CurrentWeekShifts from './components/manegerComponents/CurrentWeek/CurrentWeek';
 import CurrentWeekUser from './components/workersComponents/CurrentWeek_user/CurrentWeekUser';
+import SeeCurrentWeek from './components/manegerComponents/SeeCurrentWeek/SeeCurrentWeek';
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/userManagment" element={<UserManagement />} />
         <Route path="/createNewWeek" element={<CreateWeek />} />
         <Route path="/currentWeekShifts" element={<CurrentWeekShifts />} />
+        <Route path="/SeeCurrentWeekShifts" element={<SeeCurrentWeek />} />
 
          {/* - - - - - - - -workers - - - - - - -  */}
          <Route path='/HomePage' element={<UserHomePage/>}></Route>

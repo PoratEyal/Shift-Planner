@@ -29,7 +29,7 @@ const ManagerHomePage = () => {
         </div>
 
         <div className={styles.container}>
-            <Link to="/currentWeekShifts">
+            <Link to="/SeeCurrentWeekShifts">
             <button className={styles.btn}>צפיה בשבוע נוכחי</button>
             </Link>
             <Link to="/currentWeekShifts">

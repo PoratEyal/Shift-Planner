@@ -18,9 +18,29 @@ const CreateWeek = () => {
         }).catch(err => console.log(err));;
 
     }
+
     useEffect(() => {
-        getDays();
+        getDays()
     }, []);
+
+    // still dont work. the put not working and usestate every time canceled
+    const editWeek = async () => {
+        const updatedWeek = {
+            name:week.name,
+            visible:true,
+            day:week.day
+        }
+        console.log(updatedWeek)
+        try {
+            await axios.put("http://localhost:3001/app/editWeek", updatedWeek)
+            .then((response) => {
+                console.log(response.data)
+                setWeekVisivble(true)
+            });
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
 
     const publishWeek = () => {
         Swal.fire({
@@ -38,8 +58,7 @@ const CreateWeek = () => {
                 '',
                 'success'
               )
-              week.visible = true
-              setWeekVisivble(true)
+              editWeek()
               console.log(week)
             }
           })
