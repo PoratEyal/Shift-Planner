@@ -3,8 +3,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import AllUsers from './AllUsers'
 import AddRole from './AddRole'
+import { BiSolidHome } from "react-icons/bi";
+import { useNavigate } from 'react-router-dom';
 
 const UserManagement = () => {
+
+  const navigate = useNavigate();
+
   const [fullName, setFullName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -56,6 +61,9 @@ const UserManagement = () => {
     return (
       <div className={styles.nav_container}>
         <ul className={styles.navbar}>
+          <li>
+            <button onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
+          </li>
           <li>
             <a href="#create-role" className={styles.x} onClick={(e) => handleClick(e, 'create-role')}>
               יצירת תפקיד

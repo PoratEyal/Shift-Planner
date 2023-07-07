@@ -30,8 +30,6 @@ ul{
 ul.navbar {
     list-style-type: none;
     margin: 10;
-    margin-left: 10px;
-    margin-right: 20px;
     padding: 0;
     overflow: hidden;
     background: #33289100;
@@ -39,7 +37,7 @@ ul.navbar {
 }
 
 ul.navbar li a {
-    font-size: 17.1px;
+    font-size: 17px;
     font-weight: bold;
     display: block;
     color: #ffffff;
@@ -47,6 +45,14 @@ ul.navbar li a {
     padding: 14px 16px;
     text-decoration: none;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+ul.navbar li button {
+    margin-left: 10px;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #41379600;
+    border: none;
+    margin-top: 5px;
 }
 
 ul.navbar li a:hover {
