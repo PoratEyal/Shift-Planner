@@ -25,7 +25,7 @@ const CurrentWeek = () => {
                 <p>בחירת עובדים לשבוע הבא</p>
             </div>
 
-            <div className={styles.container}>
+            <div style={{ marginTop: '70px' }} className={styles.container}>
                 {
                     week ? week.day.map((day) => {
                         return <DayCurrentWeek day={day} key={day._id} getDays={getDays}></DayCurrentWeek>
