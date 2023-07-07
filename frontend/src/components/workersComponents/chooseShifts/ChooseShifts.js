@@ -25,13 +25,12 @@ const ChooseShifts = () => {
             <p>בחירת משמרות לשבוע הבא</p>
         </div>
 
-        <div className={styles.container}>
-            {
-               week ?  week.day.map((day) => {console.log(day);
-                    return <UserDay day={day} key={day._id} getDays={getDays}></UserDay>
-                }) : null
-            }
+        <div style={{ marginTop: '70px' }} className={styles.container}>
+            {week ? week.day.map((day) => {
+                return <UserDay day={day} key={day._id} getDays={getDays} />;
+            }) : null}
         </div>
+
     </React.Fragment>
 }
 

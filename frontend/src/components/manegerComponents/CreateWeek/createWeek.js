@@ -10,6 +10,7 @@ const CreateWeek = () => {
 
     const navigate = useNavigate();
     const [week, setWeek] = useState(null);
+    const [weekVisivble, setWeekVisivble] = useState(false)
 
     const getDays = () => {
         axios.get("http://localhost:3001/app/getNextWeek").then((response) => {
@@ -38,6 +39,7 @@ const CreateWeek = () => {
                 'success'
               )
               week.visible = true
+              setWeekVisivble(true)
               console.log(week)
             }
           })
@@ -50,17 +52,21 @@ const CreateWeek = () => {
                 <p>בניית משמרות לשבוע הבא</p>
             </div>
 
-            <div className={styles.publish_div}>
+            {!weekVisivble ? <div className={styles.publish_div}>
                 <button onClick={publishWeek} className={styles.addShift_btn}>פרסם שבוע</button>
+            </div> : 
+            <div className={styles.published_div}>
+                <button visible='false' className={styles._btn}>השבוע פורסם</button>
             </div>
+            }
 
-            <div>
+            {!weekVisivble ? <div>
                 {
                     week ? week.day.map((day) => {
                         return <Day day={day} key={day._id} getDays={getDays}></Day>
                     }) : null
                 }
-            </div>
+            </div> : null}
         </div>
     </React.Fragment>
 }
