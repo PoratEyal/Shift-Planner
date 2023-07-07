@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './addRole.module.css';
 import axios from 'axios';
 import { RiDeleteBin6Line } from "react-icons/ri";
+import Swal from 'sweetalert2';
 
 const AddRole = (props) => {
   const [role, setRole] = useState('');
@@ -49,19 +50,37 @@ const AddRole = (props) => {
   };
 
   const deleteRole = async (roleId) => {
-    try {
-        await axios
-          .delete(`http://localhost:3001/app/deleteRole/${roleId}`)
-          .then(response => {
-            console.log(response.data);
-          })
-          .catch(error => {
-            console.log(error.response.data.error);
-          });
-      } catch (error) {
-        console.log(error.message);
+    Swal.fire({
+      title: 'האם אתה בטוח שברצונך למחוק את התפקיד',
+      icon: 'warning',
+      showCancelButton: true,
+      cancelButtonText: 'ביטול',
+      confirmButtonColor: '#332891e1',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'מחיקה'
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'התפקיד נמחק',
+          '',
+          'success'
+        );
+        try {
+          await axios
+            .delete(`http://localhost:3001/app/deleteRole/${roleId}`)
+            .then(response => {
+              // Handle response if needed
+            })
+            .catch(error => {
+              console.log(error.response.data.error);
+            });
+        } catch (error) {
+          console.log(error.message);
+        }
       }
-  }
+    });
+  };
+  
 
   return (
     <div className={styles.container}>

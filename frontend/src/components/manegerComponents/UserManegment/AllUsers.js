@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from './allUsers.module.css'
 import { RiDeleteBin6Line } from "react-icons/ri";
+import Swal from 'sweetalert2';
 
 const AllUsers = (props) => {
     
@@ -37,10 +38,24 @@ const AllUsers = (props) => {
     }, [userDeleted]);
 
     const deleteUser = async (userId) => {
+      Swal.fire({
+        title: 'האם אתה בטוח שברצונך למחוק את המשתמש',
+        icon: 'warning',
+        showCancelButton: true,
+        cancelButtonText: 'ביטול',
+        confirmButtonColor: '#332891e1',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'מחיקה'
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'המשתמש נמחק',
+            '',
+            'success'
+          );
         try {
             await axios.delete(`http://localhost:3001/app/deleteUser/${userId}`)
               .then(response => {
-                console.log(response.data.message);
                 setUserDelted(true)
               })
               .catch(error => {
@@ -49,6 +64,8 @@ const AllUsers = (props) => {
           } catch (error) {
             console.log(error.message);
           }
+        }
+      });
     }
     
     return (
