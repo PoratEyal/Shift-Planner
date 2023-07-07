@@ -45,10 +45,10 @@ Authorization: Bearer user.token
 Content-Type: application/json
 
 {
-    "fullName":"edi",
-    "username":"ffff",
+    "fullName":"עומר",
+    "username":"עומריקו",
     "password":"1234",
-    "role":"Shift Manager",
+    "role":"64a7d10d0606ff97cf2796dd",
     "job": "user"
 }
 

@@ -13,6 +13,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const functions = require('../functions');
+const { Job } = require('node-schedule');
 
 
 router.use(bodyParser.json());
@@ -89,26 +90,25 @@ router.post('/addJob', (req, res) => {
 // ---------------------------- USER funcs ---------------------------------------
 // create/POST user
 router.post('/addUser', async (req, res) => {
-    // try {
-    const salt = await bcrypt.genSalt();
-    const hashedPassword = await bcrypt.hash(req.body.password, salt).then((password) => {
+    try {
+        const salt = await bcrypt.genSalt();
+        const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
         let user = req.body;
-        user.password = password;
+        user.password = hashedPassword;
 
-        Role.findOne({ _id: user.role }).then((role) => {
-            user.role = role._doc._id;
+        const role = await Role.findOne({ _id: user.role });
+        user.role = role._doc._id;
 
-            job.findOne({ name: user.job }).then(job => {
-                user.job = job._doc._id
-                User.create(user).then(user => {
-                    res.status(201).json(user);
-                }).catch(err => {
+        const jobRes = await job.findOne({ name: user.job });
+        user.job = jobRes._doc._id;
 
-                    res.status(400).json({ messege: err.messege })
-                });
-            });
-        });
-    });
+        const createdUser = await User.create(user);
+
+        res.status(201).json(createdUser);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
 });
 
 //gets all the users

@@ -15,7 +15,7 @@ const UserManagement = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollTop = document.documentElement.scrollTop;
       setIsScrolled(scrollTop > 0);
     };
   
@@ -86,10 +86,10 @@ const UserManagement = () => {
       role: selectedRole,
       job: "user"
     }
-    console.log('Form submitted:', { fullName, username, password });
+    //console.log('Form submitted:', { fullName, username, password, selectedRole});
     axios.post("http://localhost:3001/app/addUser", newUser)
       .then((response) => {
-        console.log('Form submitted successfully:', response.data);
+        //console.log('Form submitted successfully:', response.data);
         setUserAdded(true);
         setFullName('');
         setUsername('');
