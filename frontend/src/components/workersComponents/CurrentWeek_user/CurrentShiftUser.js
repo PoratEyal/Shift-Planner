@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from './currentWeekUser.module.css';
 import { BiSolidWinkSmile } from "react-icons/bi";
+import WorkersCurrentWeek from "./WorkersCurrentWeek";
 
 const CurrentShiftUser = (props) => {
 
-    const [shift, setShift] = useState(props.shift);
+    const [shift] = useState(props.shift);
     const [userId, setUserId] = useState("");
     const [addClass, setAddClass] = useState(false)
 
@@ -23,6 +24,7 @@ const CurrentShiftUser = (props) => {
         <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`}>
             <p className={styles.shift_name}>{shift.description}</p>
             <p>משעה - {shift.startTime} עד {shift.endTime}</p>
+            <WorkersCurrentWeek workers={shift.workers}></WorkersCurrentWeek>
             {addClass ? <h3><BiSolidWinkSmile className={styles.icon}></BiSolidWinkSmile><label>&nbsp;משמרת נעימה</label></h3> : null}
         </div>
     );

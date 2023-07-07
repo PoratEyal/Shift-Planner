@@ -10,7 +10,8 @@ import UserSetings from './components/workersComponents/userSettings/userSetting
 import CurrentWeekShifts from './components/manegerComponents/CurrentWeek/CurrentWeek';
 import CurrentWeekUser from './components/workersComponents/CurrentWeek_user/CurrentWeekUser';
 import SeeCurrentWeek from './components/manegerComponents/SeeCurrentWeek/SeeCurrentWeek';
-
+//import ProtectedRoute from '../ProtectedRoute';
+import ProtectedRoute from './components/ProtectedRoute';
 const App = () => {
 
   return <React.Fragment>
@@ -19,17 +20,19 @@ const App = () => {
         <Route path="/" element={<Login/>} />
 
          {/* - - - - - - - -maneger - - - - - - -  */}
-        <Route path='/managerHomePage' element={<ManagerHomePage/>}></Route>
-        <Route path="/userManagment" element={<UserManagement />} />
-        <Route path="/createNewWeek" element={<CreateWeek />} />
-        <Route path="/currentWeekShifts" element={<CurrentWeekShifts />} />
-        <Route path="/SeeCurrentWeekShifts" element={<SeeCurrentWeek />} />
+
+         
+        <Route path='/managerHomePage' element={<ProtectedRoute component={ManagerHomePage} role="admin"/>}></Route>
+        <Route path="/userManagment" element={<ProtectedRoute component={UserManagement} role="admin"/>} />
+        <Route path="/createNewWeek" element={<ProtectedRoute component={CreateWeek} role="admin"/>} />
+        <Route path="/currentWeekShifts" element={<ProtectedRoute component={CurrentWeekShifts} role="admin"/>} />
+        <Route path="/SeeCurrentWeekShifts" element={<ProtectedRoute component={SeeCurrentWeek} role="admin"/>} />
 
          {/* - - - - - - - -workers - - - - - - -  */}
-         <Route path='/HomePage' element={<UserHomePage/>}></Route>
-        <Route path='/CurrentWeek' element={<CurrentWeekUser/>}></Route>
-        <Route path='/chooseShifts' element={<ChooseShifts/>}></Route>
-        <Route path='/userSettings' element={<UserSetings/>}></Route>
+         <Route path='/HomePage' element={<ProtectedRoute component={UserHomePage} role="user"/>}></Route>
+        <Route path='/CurrentWeek' element={<ProtectedRoute component={CurrentWeekUser} role="user"/>}></Route>
+        <Route path='/chooseShifts' element={<ProtectedRoute component={ChooseShifts} role="user"/>}></Route>
+        <Route path='/userSettings' element={<ProtectedRoute component={UserSetings} role="user"/>}></Route>
 
       </Routes>
     </React.Fragment>

@@ -10,11 +10,12 @@ const CreateWeek = () => {
 
     const navigate = useNavigate();
     const [week, setWeek] = useState(null);
-    const [weekVisivble, setWeekVisivble] = useState(false)
+    const [weekVisivble, setWeekVisivble] = useState(null);
 
     const getDays = () => {
         axios.get("http://localhost:3001/app/getNextWeek").then((response) => {
             setWeek(response.data);
+            setWeekVisivble(response.data.visible);
         }).catch(err => console.log(err));;
 
     }
@@ -30,7 +31,7 @@ const CreateWeek = () => {
             visible:true,
             day:week.day
         }
-        console.log(updatedWeek)
+        //console.log(updatedWeek)
         try {
             await axios.put("http://localhost:3001/app/editWeek", updatedWeek)
             .then((response) => {
@@ -64,6 +65,28 @@ const CreateWeek = () => {
           })
     }
 
+    const editNewWeek = () => {
+        Swal.fire({
+            title: 'האם אתה בטוח שברצונך לעדכן את השבוע',
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText : 'ביטול',
+            confirmButtonColor: '#332891e1',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'עדכן'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'השבוע התעדכן',
+                '',
+                'success'
+              )
+              editWeek()
+              console.log(week)
+            }
+          })
+    }
+
     return <React.Fragment>
         <div className={styles.container}>
             <div className={styles.nav_container}>
@@ -75,17 +98,17 @@ const CreateWeek = () => {
                 <button onClick={publishWeek} className={styles.addShift_btn}>פרסם שבוע</button>
             </div> : 
             <div className={styles.published_div}>
-                <button visible='false' className={styles._btn}>השבוע פורסם</button>
+                <button visible='false' className={styles._btn} onClick={editNewWeek}>עדכן שבוע</button>
             </div>
             }
 
-            {!weekVisivble ? <div>
+            { <div>
                 {
                     week ? week.day.map((day) => {
                         return <Day day={day} key={day._id} getDays={getDays}></Day>
                     }) : null
                 }
-            </div> : null}
+            </div>}
         </div>
     </React.Fragment>
 }

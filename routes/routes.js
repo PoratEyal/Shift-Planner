@@ -130,6 +130,28 @@ router.get('/getUserById/:id', async (req, res) => {
         res.status(400).json({ message: err.message })
     }
 });
+router.get('/GetUserRole', authenticateToken, (req,res) => {
+    
+
+
+    if(req.user.job === '649c08040834b0d306adef45'){
+        const resRole = {
+            job: "admin"
+        }
+        return res.status(200).json(resRole);
+    } 
+    else if(req.user.job === '649d571b70f2c12b782d204f'){
+        const resRole = {
+            job: "user"
+        }
+        return res.status(200).json(resRole);
+    }
+    else{
+        return res.sendStatus(403);
+    }
+});
+
+
 //login
 router.post('/login', async (req, res) => {
     await User.findOne({ username: req.body.username }).then(user => {
@@ -188,6 +210,9 @@ router.put('/editUser', (req, res) => {
     }
 
 });
+
+
+
 
 // ---------------------------- SHIFT funcs ---------------------------------------
 // create/post shift
@@ -473,7 +498,7 @@ router.post('/addWeek', async (req, res) => {
 router.put('/editWeek', async (req, res) => {
     try {
         let reqBody = req.body;
-        const oldWeek = await Week.findOne(reqBody._id, reqBody);
+        const oldWeek = await Week.findOneAndUpdate(reqBody._id, reqBody);
         res.status(200).json(oldWeek);
     } catch (err) {
         res.status(400).json({ message: err._messege });
@@ -492,6 +517,7 @@ function authenticateToken(req, res, next) {
         if (err) return res.sendStatus(403);
         req.user = user;
         next();
+        
     });
 }
 

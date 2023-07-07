@@ -11,7 +11,7 @@ const SeeCurrentWeek = () => {
     const [week, setWeek] = useState(null);
 
     const getDays = () => {
-        axios.get("http://localhost:3001/app/getNextWeek").then((response) => {
+        axios.get("http://localhost:3001/app/getCurrentWeek").then((response) => {
             setWeek(response.data);
         }).catch(err => console.log(err));
     }
@@ -25,7 +25,7 @@ const SeeCurrentWeek = () => {
         <div>
             <div className={styles.nav_container}>
                 <button onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
-                <p>בחירת עובדים לשבוע הבא</p>
+                <p>צפייה בשבוע הנוכחי</p>
             </div>
 
             <div style={{ marginTop: '70px' }} className={styles.container}>
