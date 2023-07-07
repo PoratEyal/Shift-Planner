@@ -1,19 +1,32 @@
 import React, { useEffect, useState } from "react";
 import styles from './createWeek.module.css'
-import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const CreateWeekShift = (props) => {
 
     const [shift, setShift] = useState(props.shift);
 
     const deleteShift = () => {
-      console.log(shift._id);
-     props.deleteShift(shift._id);  
+        Swal.fire({
+            title: 'האם אתה בטוח שברצונך למחוק את המשמרת',
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText : 'ביטול',
+            confirmButtonColor: '#332891e1',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'מחיקה'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'המשמרת נמחקה',
+                '',
+                'success'
+              )
+              props.deleteShift(shift._id);
+            }
+          })
+
     }
-
-
-
-
 
     return <div className={styles.shift}>
         <p className={styles.shift_name}>{shift.description}</p>
