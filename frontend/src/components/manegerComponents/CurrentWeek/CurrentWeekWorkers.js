@@ -10,8 +10,6 @@ const CurrentWeekWorkers = (props) => {
     const [availableWorkersArr, setAvailableWorkersArr] = useState([]);
     const [workersArr, setWorkersArr] = useState([]);
 
-    // i added this state to change it from true to false 
-    // every time the person clicked on the buttons but doesnt work yet
     const [updatedWorkers, setUpdatedWorkers] = useState(false)
 
     // get all the workers
@@ -38,6 +36,7 @@ const CurrentWeekWorkers = (props) => {
         });
 
     }, []);
+
     const choseWorker = (id) => {
       props.addWorkerShift(id)
       setUpdatedWorkers(!updatedWorkers)

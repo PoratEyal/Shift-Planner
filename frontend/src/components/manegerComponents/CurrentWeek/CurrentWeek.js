@@ -15,7 +15,6 @@ const CurrentWeek = () => {
         }).catch(err => console.log(err));
     }
     useEffect(() => {
-        console.log("in use Effect");
         getDays();
 
     }, []);
