@@ -46,7 +46,7 @@ const UserHomePage = () => {
 
         <div className={styles.upperContainer}>
             <Link to="/"><button className={styles.signout} onClick={() => {localStorage.clear()}}><BiLogOut></BiLogOut></button></Link>
-            <h1 className={styles.h1}>שלום, {fullName}</h1>
+            <h1 className={styles.h1}>שלום {fullName}</h1>
         </div>
 
         <div className={styles.container}>
