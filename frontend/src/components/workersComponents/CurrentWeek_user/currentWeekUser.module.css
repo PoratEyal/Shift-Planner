@@ -4,7 +4,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 55px;
+    height: 60px;
     background-color: #413796;
     background-color: #2977bc;
     top: 0;
@@ -138,7 +138,7 @@
 }
 
 .worksHer{
-    border: 3px solid rgba(30, 157, 30, 0.784);
+    border: 2px solid rgb(48, 174, 48);
 }
 
 .buttons{
