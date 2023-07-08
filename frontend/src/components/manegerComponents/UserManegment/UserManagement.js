@@ -18,22 +18,8 @@ const UserManagement = () => {
   const [roles, setRoles] = useState([]);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = document.documentElement.scrollTop;
-      setIsScrolled(scrollTop > 0);
-    };
-  
-    window.addEventListener('scroll', handleScroll);
-  
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
-  useEffect(() => {
-    getRoles();
-  }, []);
+  const [activeElement, setActiveElement] = useState(0);
 
   const getRoles = () => {
     const token = localStorage.getItem("token");
@@ -44,17 +30,115 @@ const UserManagement = () => {
       setRoles(response.data);
     }).catch((err) => { console.log(err) });
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newUser = {
+      fullName: fullName,
+      username: username,
+      password: password,
+      role: selectedRole,
+      job: "user"
+    }
+    //console.log('Form submitted:', { fullName, username, password, selectedRole});
+    axios.post("http://localhost:3001/app/addUser", newUser)
+      .then((response) => {
+        //console.log('Form submitted successfully:', response.data);
+        setUserAdded(true);
+        setFullName('');
+        setUsername('');
+        setPassword('');
+      })
+      .catch((error) => {
+        console.error('An error occurred:', error);
+      });
+  };
+
+  const childElements = [
+    <div id="users" className={styles.users}>
+      <h2 className={styles.h2}>משתמשים</h2>
+      <AllUsers added={userAdded}></AllUsers>
+    </div>,
+    <div id="create-user" className={styles.createUser}>
+      <h2 className={styles.h2}>יצירת משתמש</h2>
+
+      <form className={styles.userForm} onSubmit={handleSubmit}>
+        <div className={styles.formGroup}>
+          <input
+            className={styles.input}
+            type="text"
+            id="fullName"
+            value={fullName}
+
+            onChange={(e) => setFullName(e.target.value)}
+            required
+          />
+          <label className={styles.label_fullname} htmlFor="fullName">שם מלא</label>
+        </div>
+
+        <div className={styles.formGroup}>
+          <input
+            className={styles.input}
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+          <label className={styles.label_username} htmlFor="username">שם משתמש</label>
+        </div>
+
+        <div className={styles.formGroup}>
+          <input
+            className={styles.input}
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <label className={styles.label_password} htmlFor="password">סיסמה</label>
+        </div>
+
+        <div className={styles.formGroup}>
+          <select className={styles.select} onChange={
+            (e) => {
+              setRole(e.target.value)
+            }
+          }>
+            {
+              roles.map(role => { return <option value={role._id} key={role._id}>{role.name}</option> })
+            }
+          </select>
+          <label className={styles.label_role}>תפקיד</label>
+        </div>
+
+        <button className={styles.btn} onClick={() => setUserAdded(false)} type="submit">יצירה</button>
+
+      </form>
+    </div>,
+    <div id="create-role" className={styles.createRole}>
+      <h2 className={styles.h2}>תפקידים</h2>
+      <AddRole roleAdded={getRoles}></AddRole>
+    </div>
+  ]
+
+  useEffect(() => {
+    getRoles();
+  }, []);
+
+
 
   const NavigationBar = () => {
     const handleClick = (event, targetId) => {
       event.preventDefault();
-
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 90,
-          behavior: 'smooth',
-        });
+      if (targetId === "users") {
+        setActiveElement(0);
+      }
+      else if(targetId === "create-user"){
+        setActiveElement(1)
+      }
+      else if(targetId === "create-role"){
+        setActiveElement(2)
       }
     };
 
@@ -85,28 +169,7 @@ const UserManagement = () => {
     );
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newUser = {
-      fullName: fullName,
-      username: username,
-      password: password,
-      role: selectedRole,
-      job: "user"
-    }
-    //console.log('Form submitted:', { fullName, username, password, selectedRole});
-    axios.post("http://localhost:3001/app/addUser", newUser)
-      .then((response) => {
-        //console.log('Form submitted successfully:', response.data);
-        setUserAdded(true);
-        setFullName('');
-        setUsername('');
-        setPassword('');
-      })
-      .catch((error) => {
-        console.error('An error occurred:', error);
-      });
-  };
+
 
   return (
     <div className={styles.all_container}>
@@ -115,77 +178,10 @@ const UserManagement = () => {
         <NavigationBar />
       </div>
 
-      <div className={styles.container}>
-
-        <div id="users" className={styles.users}>
-          <h2 className={styles.h2}>משתמשים</h2>
-          <AllUsers added={userAdded}></AllUsers>
-        </div>
-
-        <div id="create-user" className={styles.createUser}>
-          <h2 className={styles.h2}>יצירת משתמש</h2>
-
-          <form className={styles.userForm} onSubmit={handleSubmit}>
-            <div className={styles.formGroup}>
-              <input
-                className={styles.input}
-                type="text"
-                id="fullName"
-                value={fullName}
-
-                onChange={(e) => setFullName(e.target.value)}
-                required
-              />
-              <label className={styles.label_fullname} htmlFor="fullName">שם מלא</label>
-            </div>
-
-            <div className={styles.formGroup}>
-              <input
-                className={styles.input}
-                type="text"
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-              />
-              <label className={styles.label_username} htmlFor="username">שם משתמש</label>
-            </div>
-
-            <div className={styles.formGroup}>
-              <input
-                className={styles.input}
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-              <label className={styles.label_password} htmlFor="password">סיסמה</label>
-            </div>
-
-            <div className={styles.formGroup}>
-              <select className={styles.select} onChange={
-                (e) => {
-                  setRole(e.target.value)
-                }
-              }>
-                {
-                  roles.map(role => { return <option value={role._id} key={role._id}>{role.name}</option> })
-                }
-              </select>
-              <label className={styles.label_role}>תפקיד</label>
-            </div>
-
-            <button className={styles.btn} onClick={() => setUserAdded(false)} type="submit">יצירה</button>
-
-          </form>
-        </div>
-
-        <div id="create-role" className={styles.createRole}>
-          <h2 className={styles.h2}>תפקידים</h2>
-          <AddRole roleAdded={getRoles}></AddRole>
-        </div>
-
+      <div className={styles.container} id='options'>
+        {
+          childElements[activeElement]
+        }
       </div>
     </div>
   );
