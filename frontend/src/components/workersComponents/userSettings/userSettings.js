@@ -29,10 +29,11 @@ const UserSettings = () => {
       await axios
         .put('http://localhost:3001/app/editUser', updatedUser)
         .then((response) => {
-          console.log(response.data);
           setUsername('');
           setPassword('');
           setIsEmpty(false);
+          localStorage.clear();
+          navigate('/');
         })
         .catch((error) => {
           console.error('An error occurred:', error);

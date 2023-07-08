@@ -39,6 +39,7 @@ const ManagerHomePage = () => {
             </Link>
             <Link to="/createNewWeek"><button className={styles.btn}>בנית משמרות לשבוע הבא</button></Link> 
             <Link to="/userManagment"><button className={styles.btn1}>ניהול עובדים</button></Link>
+            <Link to='/managerSettings'><button className={styles.btn1}>ערוך משתמש</button></Link>
             <Outlet />
         </div>
     </div>

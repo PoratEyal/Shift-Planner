@@ -154,7 +154,7 @@ router.get('/GetUserRole', authenticateToken, (req,res) => {
 
 //login
 router.post('/login', async (req, res) => {
-    await User.findOne({ username: req.body.username }).then(user => {
+    await User.findOne({ username: `${req.body.username}` }).then(user => {
         bcrypt.compare(req.body.password, user.password).then((result) => {
             if (result === true) {
                 const accessToken = jwt.sign(user.toJSON(), process.env.ACCESS_TOKEN_SECRET);

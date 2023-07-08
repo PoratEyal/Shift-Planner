@@ -10,6 +10,8 @@ import UserSetings from './components/workersComponents/userSettings/userSetting
 import CurrentWeekShifts from './components/manegerComponents/CurrentWeek/CurrentWeek';
 import CurrentWeekUser from './components/workersComponents/CurrentWeek_user/CurrentWeekUser';
 import SeeCurrentWeek from './components/manegerComponents/SeeCurrentWeek/SeeCurrentWeek';
+import ManagerSettings from './components/manegerComponents/managerSettings/managerSettings';
+
 //import ProtectedRoute from '../ProtectedRoute';
 import ProtectedRoute from './components/ProtectedRoute';
 const App = () => {
@@ -27,6 +29,7 @@ const App = () => {
         <Route path="/createNewWeek" element={<ProtectedRoute component={CreateWeek} role="admin"/>} />
         <Route path="/currentWeekShifts" element={<ProtectedRoute component={CurrentWeekShifts} role="admin"/>} />
         <Route path="/SeeCurrentWeekShifts" element={<ProtectedRoute component={SeeCurrentWeek} role="admin"/>} />
+        <Route path='/managerSettings' element={<ProtectedRoute component={ManagerSettings} role="admin"/>}/>
 
          {/* - - - - - - - -workers - - - - - - -  */}
          <Route path='/HomePage' element={<ProtectedRoute component={UserHomePage} role="user"/>}></Route>
