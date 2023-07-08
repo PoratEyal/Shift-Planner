@@ -23,6 +23,10 @@ const userSchema = new mongoose.Schema({
       ref: 'job',
       required: true
     },
+    manager:{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    },
     token:{
       type: String
     }
