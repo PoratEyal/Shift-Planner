@@ -25,7 +25,7 @@ const CurrentWeekUser = () => {
     }, [])
 
     const getDays = () => {
-             axios.get("http://localhost:3001/app/getNextWeek").then((response) => {
+             axios.get("http://localhost:3001/app/getCurrentWeek").then((response) => {
                 setWeek(response.data);
                 setWeekVisible(response.data.visible)
         }).catch(err=> console.log(err));
