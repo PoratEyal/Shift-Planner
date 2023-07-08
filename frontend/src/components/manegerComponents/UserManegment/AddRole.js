@@ -7,7 +7,8 @@ import Swal from 'sweetalert2';
 const AddRole = (props) => {
   const [role, setRole] = useState('');
   const [roles, setRoles] = useState([]);
-  const [clicked, setClicked] = useState(false)
+  const [clicked, setClicked] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const addRole = async () => {
     const newRole = {
@@ -43,6 +44,7 @@ const AddRole = (props) => {
       .get('http://localhost:3001/app/getRoles', config)
       .then((response) => {
         setRoles(response.data);
+        setLoading(true);
       })
       .catch((err) => {
         console.log(err);
@@ -80,35 +82,44 @@ const AddRole = (props) => {
       }
     });
   };
-  
+
 
   return (
     <div className={styles.container}>
-      {roles.map(role => (
+      {!loading ? (
+        <div className={styles['three-body']}>
+          <div className={styles['three-body__dot']}></div>
+          <div className={styles['three-body__dot']}></div>
+          <div className={styles['three-body__dot']}></div>
+        </div>
+      ) : (roles.map(role => (
         <div className={styles.roles} key={role._id}>
           <button onClick={() => deleteRole(role._id)} className={styles.delete_btn}><RiDeleteBin6Line></RiDeleteBin6Line></button>
           <label className={styles.label}>{role.name}</label>
         </div>
-      ))}
+      ))
 
-    <button onClick={() => setClicked(!clicked)} className={styles.btn}>הוסף תפקיד</button>
+      )
+      }
+      <button onClick={() => setClicked(!clicked)} className={styles.btn}>הוסף תפקיד</button>
 
-    {clicked ? (
-    <div>
-        <input
-        className={styles.input}
-        type="text"
-        value={role}
-        onChange={(e) => setRole(e.target.value)}
-        placeholder='תפקיד'
-        />
+      {clicked ? (
         <div>
-        <button onClick={addRole} className={styles.btn}>הוסף</button>
+          <input
+            className={styles.input}
+            type="text"
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            placeholder='תפקיד'
+          />
+          <div>
+            <button onClick={addRole} className={styles.btn}>הוסף</button>
+          </div>
         </div>
-    </div>
-    ) : null}
+      ) : null}
 
     </div>
-  )}
+  )
+}
 
 export default AddRole;

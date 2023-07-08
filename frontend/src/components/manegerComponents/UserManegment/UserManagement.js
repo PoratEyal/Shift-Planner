@@ -16,9 +16,6 @@ const UserManagement = () => {
   const [userAdded, setUserAdded] = useState(false);
   const [selectedRole, setRole] = useState("");
   const [roles, setRoles] = useState([]);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-
   const [activeElement, setActiveElement] = useState(0);
 
   const getRoles = () => {
@@ -174,7 +171,7 @@ const UserManagement = () => {
   return (
     <div className={styles.all_container}>
 
-      <div className={`${isScrolled ? styles.sticky : ''}`}>
+      <div >
         <NavigationBar />
       </div>
 

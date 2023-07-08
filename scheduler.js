@@ -1,4 +1,6 @@
 const schedule = require('node-schedule');
+const Week = require('./models/week');
+const createWeek = require('./functions');
 
 // Define the schedule rule for running the function at the start of Sunday
 const scheduleRule = new schedule.RecurrenceRule();
@@ -13,6 +15,14 @@ const job = schedule.scheduleJob(scheduleRule, yourFunction);
 function yourFunction() {
   console.log('Function called at the start of Sunday!');
   // Place your code here to be executed at the start of Sunday
+  Week.updateOne({name: "CurrentWeek"}, {name: "DataWeek"}).then((response) => {
+    console.log(response);
+    Week.updateOne({name: "NextWeek"}, {name: "CurrentWeek"}).then((response)=> {
+      console.log(response);
+      createWeek();
+    });
+  });
+
 }
 
 
