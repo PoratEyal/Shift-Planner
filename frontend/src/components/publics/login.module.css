@@ -34,7 +34,7 @@
   font-weight: bold;
   margin-top: 5px;
   margin-bottom: 40px;
-  color: #332891e1;
+  color: #2977bc;
 }
 
 /* buttons - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -60,7 +60,7 @@ cursor: pointer;
 transition: all .6s ease;
 width: 400px;
 justify-content: center;
-background-color: #332891e1;
+background-color: #2977bc;
 }
 .btn:hover {
 transform: scale(1.02);
@@ -128,7 +128,7 @@ transform: scale(1.02);
   width: 0;
   bottom: 0px;
   position: absolute;
-  background: #332891e1;
+  background: #2977bc;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
