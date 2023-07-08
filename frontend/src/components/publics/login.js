@@ -11,8 +11,8 @@ const Login = () => {
 
   useEffect(() => {
     let isAuth = localStorage.getItem("isAuth");
-    if(isAuth && isAuth !== null){
-      const user = JSON.parse(localStorage.getItem("user"));          
+    if (isAuth && isAuth !== null) {
+      const user = JSON.parse(localStorage.getItem("user"));
       Roles.checkUserRole(user.job) ? navigate('/managerHomePage') : navigate('/CurrentWeek');
     }
   }, []);
@@ -22,21 +22,21 @@ const Login = () => {
       <div className={styles.container_div}>
         <form className={styles.form} onSubmit={(e) => {
           e.preventDefault();
-          axios.post("http://localhost:3001/app/login", {username: username, password: password}).then((response) => {
+          axios.post("http://localhost:3001/app/login", { username: username, password: password }).then((response) => {
             const user = response.data;
             localStorage.setItem("token", user.token);
             localStorage.setItem("user", JSON.stringify(user));
             localStorage.setItem("isAuth", true);
             Roles.checkUserRole(user.job) ? navigate('/managerHomePage') : navigate('/CurrentWeek');
-          }).catch((err) =>{
+          }).catch((err) => {
             console.log(err);
           })
         }}>
           <label className={styles["login-text"]}>כניסה למערכת</label>
-    
+
           <div>
             <div className={styles["wave-group"]}>
-              <input required type="text" className={styles.input} onChange={(e) => {setUsername(e.target.value)}}/>
+              <input required type="text" className={styles.input} onChange={(e) => { setUsername(e.target.value) }} />
               <span className={styles.bar}></span>
               <label className={styles.label}>
                 <span className={styles["label-char"]} style={{ "--index": 7 }}>ש</span>
@@ -50,10 +50,10 @@ const Login = () => {
               </label>
             </div>
           </div>
-    
+
           <div>
             <div className={styles["wave-group"]}>
-              <input required type="password" className={styles.input} onChange={(e) => {setPassword(e.target.value)}}/>
+              <input required type="password" className={styles.input} onChange={(e) => { setPassword(e.target.value) }} />
               <span className={styles.bar}></span>
               <label className={styles.label}>
                 <span className={styles["label-char"]} style={{ "--index": 4 }}>ה</span>
@@ -64,10 +64,11 @@ const Login = () => {
               </label>
             </div>
           </div>
-    
+          <a href='/forgotPassword'>שכחתי סיסמה</a>
           <button className={styles.btn} type="submit">התחברות</button>
-    
+
         </form>
+
       </div>
     </div>
 
