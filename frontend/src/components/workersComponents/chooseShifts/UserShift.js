@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from '../../manegerComponents/CreateWeek/createWeek.module.css'
+import styles from './chooseShifts.module.css'
 import axios from 'axios';
 
 const UserShift = (props) => {

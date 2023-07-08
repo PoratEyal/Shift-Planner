@@ -3,7 +3,7 @@ import UserDay from './UserDay'
 import axios from 'axios';
 import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
-import styles from '../../manegerComponents/CreateWeek/createWeek.module.css'
+import styles from './chooseShifts.module.css'
 
 const ChooseShifts = () => {
 
