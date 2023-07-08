@@ -10,8 +10,6 @@ const ManagerHomePage = () => {
     const [fullname, setName]= useState("");
 
     useEffect(() => {
-
-        console.log("in managegrhome component")
         const StorageData = JSON.parse(localStorage.getItem("user"));
         if(StorageData){
             data = StorageData;
