@@ -217,6 +217,10 @@
     margin-bottom: -5px;
 }
 
+.shift_data_p{
+    margin: 12px
+}
+
 .loadingWorkers{
     margin: 15px;
     margin-left: 120px;

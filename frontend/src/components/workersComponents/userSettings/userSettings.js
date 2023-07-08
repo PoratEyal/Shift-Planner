@@ -48,7 +48,7 @@ const UserSettings = () => {
   return (
     <div>
       <div className={styles.nav_container}>
-        <button onClick={() => navigate('/HomePage')}><BiSolidHome></BiSolidHome></button>
+        <button onClick={() => navigate('/CurrentWeek')}><BiSolidHome></BiSolidHome></button>
         <p>שינוי שם משתמש או סיסמה</p>
       </div>
 

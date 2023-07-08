@@ -1,9 +1,8 @@
 .nav_container{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    height: 60px;
+    height: 55px;
     background-color: #403796;
     top: 0;
     left: 0;
@@ -16,20 +15,58 @@
     font-weight: 600;
 }
 
-.nav_container p{
-    margin-right: 18px;
-}
 .nav_container button{
     font-size: 25px;
     color: white;
     background-color: #41379600;
     border:none;
     margin-left: 10px;
-    margin-top: 3px;
+}
+
+.chose_shift_div{
+    margin-top: -2px;
+    margin-left: 80px;
+}
+
+.chose_shift_btn{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    background-color: #150d5a;
+    transition: 0.3s;
+    font-weight: 500;
+    color: white;
+    background-color: #150d5a00;
+    margin-bottom: 5px;
+    transition: 0.3s;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .chose_shift_btn:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+  }
+.chose_shift_btn_lock{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    background-color: #150d5a;
+    transition: 0.3s;
+    font-weight: 500;
+    color: rgb(222, 220, 220);
+    background-color: #150d5a00;
+    margin-bottom: 5px;
+    transition: 0.3s;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+.chose_shift_btn:hover{
+    cursor: pointer;
+    transform: scale(1.02);
 }
 
 .container{
-    margin-top: 80px;
+    margin-top: 60px;
 }
 
 .day_container{
@@ -51,6 +88,7 @@
 
 .h2{
     margin-top: -15px;
+    margin-bottom: 0px;
 }
 
 .shift{
@@ -208,7 +246,19 @@ transform: scale(1.02);
 }
 
 .shift_name{
-    margin-bottom: -5px;
+    margin: 10px;
+}
+
+.workers_showList{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: end;
+    margin-top: 0px;
+    width: 100%;
+    border-top: 1px solid rgba(79, 79, 79, 0.417);
+}
+.workers_showList > :last-child {
+    grid-column-start: 2;
 }
 
 .loadingWorkers{
@@ -370,6 +420,7 @@ transform: scale(1.02);
 }
 
 .shift h3{
+    margin-top: 0px;
     display: flex;
     flex-direction: row;
     justify-content: center;

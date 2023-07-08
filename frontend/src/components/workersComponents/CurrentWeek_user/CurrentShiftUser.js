@@ -22,10 +22,9 @@ const CurrentShiftUser = (props) => {
 
     return (
         <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`}>
-            <p className={styles.shift_name}>{shift.description}</p>
-            <p>משעה - {shift.startTime} עד {shift.endTime}</p>
+            <p className={styles.shift_name}>{shift.description}: {shift.startTime} - {shift.endTime}</p>
             <WorkersCurrentWeek workers={shift.workers}></WorkersCurrentWeek>
-            {addClass ? <h3><BiSolidWinkSmile className={styles.icon}></BiSolidWinkSmile><label>&nbsp;משמרת נעימה</label></h3> : null}
+            {/* {addClass ? <h3><BiSolidWinkSmile className={styles.icon}></BiSolidWinkSmile><label>&nbsp;משמרת נעימה</label></h3> : null} */}
         </div>
     );
 }

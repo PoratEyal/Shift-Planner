@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from '../../manegerComponents/CreateWeek/createWeek.module.css'
 import axios from 'axios';
-import WorkerList from "./WorkersList";
 
 const UserShift = (props) => {
 
@@ -9,13 +8,12 @@ const UserShift = (props) => {
   const data = JSON.parse(localStorage.getItem("user"));
   const [added, setAdded] = useState(false);
 
-
-
   useEffect(() => {
     if (shift.availableWorkers.includes(data._id) || shift.workers.includes(data._id)) {
       setAdded(true);
     }
   }, [])
+
   const addWorkerToShift = () => {
     setAdded(true);
     const updtaedShift = { ...props.shift, availableWorkers: [...shift.availableWorkers, data] }
@@ -50,9 +48,7 @@ const UserShift = (props) => {
   }
 
   return <div className={styles.shift}>
-    <p className={styles.shift_name}>{shift.description}</p>
-    <p>משעה - {shift.startTime} עד {shift.endTime}</p>
-    {/* <WorkerList workers={shift.workers}></WorkerList> */}
+    <p className={styles.shift_data_p}>{shift.description}: {shift.startTime} - {shift.endTime}</p>
     {
       added ? <button onClick={removeWorkerFromShift} className={styles.add_btn}>הסר</button> : <button onClick={addWorkerToShift} className={styles.add_btn}>הוסף את עצמך</button>
     }

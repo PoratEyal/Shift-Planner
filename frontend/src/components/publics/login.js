@@ -8,16 +8,15 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  
 
   useEffect(() => {
     let isAuth = localStorage.getItem("isAuth");
     if(isAuth && isAuth !== null){
       const user = JSON.parse(localStorage.getItem("user"));          
-      Roles.checkUserRole(user.job) ? navigate('/managerHomePage') : navigate('/HomePage');
+      Roles.checkUserRole(user.job) ? navigate('/managerHomePage') : navigate('/CurrentWeek');
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.container_div}>
@@ -28,7 +27,7 @@ const Login = () => {
             localStorage.setItem("token", user.token);
             localStorage.setItem("user", JSON.stringify(user));
             localStorage.setItem("isAuth", true);
-            Roles.checkUserRole(user.job) ? navigate('/managerHomePage') : navigate('/HomePage');
+            Roles.checkUserRole(user.job) ? navigate('/managerHomePage') : navigate('/CurrentWeek');
           }).catch((err) =>{
             console.log(err);
           })
