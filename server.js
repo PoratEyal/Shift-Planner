@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const routesUrls = require('./routes/routes');
 const cors = require('cors');
-
+require('./scheduler');
 
 // database area
 mongoose.connect(process.env.DATABASE_ACCESS, { useNewUrlParser: true });
@@ -21,4 +21,3 @@ app.use(cors());
 app.use('/app', routesUrls);
 app.listen(3001, () => console.log("server is runing..."));
 
-require('./scheduler');
