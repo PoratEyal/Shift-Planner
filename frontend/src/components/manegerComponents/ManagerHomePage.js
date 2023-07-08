@@ -4,6 +4,7 @@ import { Link, Outlet} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { BiLogOut } from "react-icons/bi";
 import { BiUserCircle } from "react-icons/bi";
+import Swal from 'sweetalert2';
 
 const ManagerHomePage = () => {
     const navigate = useNavigate();
@@ -21,11 +22,29 @@ const ManagerHomePage = () => {
         }
     }, [])
 
+    const signout = () => {
+        Swal.fire({
+            title: 'האם אתה רוצה להתנתק',
+            text: "",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'ביטול',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'כן'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              localStorage.clear()
+              navigate('./')
+            }
+          })
+    }
+
 
     return <React.Fragment>
         <div className={styles.upperContainer}>
             <div className={styles.nav_buttons}>
-                <Link to="/"><button className={styles.signout} onClick={() => {localStorage.clear()}}><BiLogOut></BiLogOut></button></Link>
+                <Link to="/"><button className={styles.signout} onClick={signout}><BiLogOut></BiLogOut></button></Link>
                 <Link to="/managerSettings"><button className={styles.user_settings}><BiUserCircle></BiUserCircle></button></Link>
                 <Link to="/userManagment"><button className={styles.user_managment_btn}>ניהול עובדים</button></Link>
             </div>
