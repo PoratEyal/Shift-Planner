@@ -57,14 +57,14 @@ const UserSettings = () => {
 
         <input
           className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
-          placeholder="שם משתמש חדש"
+          placeholder="שם משתמש"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
 
         <input
           className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
-          placeholder="סיסמה חדשה"
+          placeholder="סיסמה"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

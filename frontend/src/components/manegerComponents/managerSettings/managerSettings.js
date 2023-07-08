@@ -12,7 +12,6 @@ import { useNavigate } from 'react-router-dom';
 const ManagerSettings = () => {
 
     const navigate = useNavigate();
-    //const [username, setUsername] = useState('');
     
     const username = useRef();
     const [password, setPassword] = useState('');
@@ -57,15 +56,15 @@ const ManagerSettings = () => {
         <div>
             <div className={styles.nav_container}>
                 <button onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
-                <p>שינוי שם משתמש או סיסמה</p>
+                <p>פרופיל משתמש</p>
             </div>
 
             <div className={styles.container}>
-                <h2 className={styles.h2}>שינוי משתמש</h2>
+                <h2 className={styles.h2}>שינוי פרטי משתמש</h2>
 
                 <input
                     className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
-                    placeholder="שם-משתמש"
+                    placeholder="שם משתמש"
                     //value={username.current.value}
                     ref={username}
                 />
@@ -78,7 +77,7 @@ const ManagerSettings = () => {
                 />
 
                 <button onClick={changeUser} className={styles.btn}>
-                    לחץ לשינוי
+                    אישור
                 </button>
             </div>
         </div>
