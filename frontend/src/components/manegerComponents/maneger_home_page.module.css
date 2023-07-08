@@ -1,35 +1,62 @@
-.all{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .upperContainer{
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 9px;
-  margin-top: 0px;
-  width: 120%;
-  margin-bottom: 50px;
-  background-color: #332891e1;
+  height: 55px;
+  width: 100vw;
+  margin-bottom: 40px;
+  background-color: #2977bc;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 14px;
+}
+
+.nav_buttons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .h1{
   color: white;
-  margin-top: 5px;
-  margin-right: 20px;
-  margin-bottom: 10px;
-  font-size: 25px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  margin-top: 17px;
+  font-size: 20px;
+  text-align: right;
+  direction: rtl;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
   font-weight: 600;
 }
 
+.user_managment_btn{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 16px;
+  width: 110px;
+  background-color: #150d5a00;
+  transition: 0.3s;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  margin-bottom: 5px;
+  transition: 0.3s;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(255, 255, 255);
+  margin-right: 30px;
+}
+.user_managment_btn:hover{
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
 .signout{
-  font-size: 30px;
+  font-size: 25px;
   background-color: #33289100;
   border: none;
   margin-top: 3px;
@@ -42,12 +69,12 @@
 }
 
 .user_settings{
-  font-size: 30px;
+  font-size: 25px;
   background-color: #33289100;
   border: none;
   margin-top: 3px;
-  margin-right: 50px;
   color: white;
+  margin-right: 5px;
 }
 .user_settings:hover{
   cursor: pointer;
@@ -68,36 +95,16 @@
   font-size: 26px;
   padding: 25px;
   height: 100px;
-  /* background-image: linear-gradient(144deg,#59609b 5%,#332891e1); */
-  background-color: #332891e1;
+  background-color: #1b5f9b;
   color: rgb(255, 255, 255);
   border: none;
   width: 335px;
   transition: 0.3s;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
   border-radius: 16px;
   font-weight: 600;
 }
 .btn:hover{
-  cursor: pointer;
-  transform: scale(1.02);
-}
-
-.btn1{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 26px;
-  padding: 25px;
-  height: 100px;
-  background-color: #332891e1;
-  color: rgb(255, 255, 255);
-  border: none;
-  width: 335px;
-  transition: 0.3s;
-  margin-bottom: 30px;
-  border-radius: 16px;
-  font-weight: 600;
-}
-.btn1:hover{
   cursor: pointer;
   transform: scale(1.02);
 }
