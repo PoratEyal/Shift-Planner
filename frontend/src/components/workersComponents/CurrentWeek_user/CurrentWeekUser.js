@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Day from './CurrentDayser'
 import styles from './currentWeekUser.module.css';
-import { BiSolidHome } from "react-icons/bi";
 import { BiLogOut } from "react-icons/bi";
 import { BiUserCircle } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
@@ -14,6 +13,16 @@ const CurrentWeekUser = () => {
     const navigate = useNavigate();
     const[week, setWeek] = useState(null);
     const [weekVisible, setWeekVisible] = useState(null);
+    let data = {};
+    const [fullname, setName]= useState("");
+
+    useEffect(() => {
+        const StorageData = JSON.parse(localStorage.getItem("user"));
+        if(StorageData){
+            data = StorageData;
+            setName(data.fullName);
+        }
+    }, [])
 
     const getDays = () => {
              axios.get("http://localhost:3001/app/getNextWeek").then((response) => {
@@ -49,13 +58,16 @@ const CurrentWeekUser = () => {
             
             <div className={styles.upperContainer}>
                 <div className={styles.nav_container}>
-                    <button onClick={() => navigate('/CurrentWeek')}><BiSolidHome></BiSolidHome></button>
-                    <Link to="/"><button onClick={signout} className={styles.signout}><BiLogOut></BiLogOut></button></Link>
-                    <Link to="/userSettings"><button className={styles.user_settings}><BiUserCircle></BiUserCircle></button></Link>
+                    <div className={styles.title_div}>
+                        <p className={styles.ellipsis}>שלום&nbsp;{fullname}</p>
+                    </div>
 
-                    <div className={styles.chose_shift_div}>
+                    <div className={styles.other_icons_div}>
                         {weekVisible ? <Link to="/chooseShifts"><button className={styles.chose_shift_btn}>בחירת משמרות</button></Link> :
                         <Link to="/chooseShifts"><button className={styles.chose_shift_btn_lock}>בחירת משמרות</button></Link>}
+
+                        <Link to="/userSettings"><button className={styles.user_settings}><BiUserCircle></BiUserCircle></button></Link>
+                        <Link to="/"><button onClick={signout} className={styles.signout}><BiLogOut></BiLogOut></button></Link>
                     </div>
                 </div>
             </div>

@@ -49,28 +49,28 @@ const UserSettings = () => {
     <div>
       <div className={styles.nav_container}>
         <button onClick={() => navigate('/CurrentWeek')}><BiSolidHome></BiSolidHome></button>
-        <p>שינוי שם משתמש או סיסמה</p>
+        <p>פרופיל משתמש</p>
       </div>
 
       <div className={styles.container}>
-        <h2 className={styles.h2}>שינוי משתמש</h2>
+        <h2 className={styles.h2}>שינוי פרטי משתמש</h2>
 
         <input
           className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
-          placeholder="שם-משתמש"
+          placeholder="שם משתמש חדש"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
 
         <input
           className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
-          placeholder="סיסמה"
+          placeholder="סיסמה חדשה"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
 
         <button onClick={changeUser} className={styles.btn}>
-          לחץ לשינוי
+          אישור
         </button>
       </div>
     </div>
