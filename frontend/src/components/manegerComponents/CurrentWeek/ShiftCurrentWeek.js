@@ -30,7 +30,7 @@ const ShiftCurrentWeek = (props) => {
             shiftId: shift._id,
             workerId: workerId
         }
-        axios.put("http://localhost:3001/app/removeWorkerFromWorkrs", reqBody)
+        axios.put("http://localhost:3001/app/WorkersToAvail", reqBody)
             .then((response) => {
                 props.setDay(response.data);
             })

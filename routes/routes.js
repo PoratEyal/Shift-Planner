@@ -448,7 +448,30 @@ router.put('/removeWorkerFromWorkrs', (req, res) => {
             console.log(err);
         });
 });
+router.put('/WorkersToAvail', (req, res) => {
+    const body = req.body;
+    const dayId = body.dayId;
+    const shiftId = body.shiftId;
+    const workerId = body.workerId;
 
+    Week.findOneAndUpdate(
+        { "day._id": dayId, "day.shifts._id": shiftId },
+        {
+            $pull: { "day.$.shifts.$[elem].workers": workerId },
+            $push: { "day.$.shifts.$[elem].availableWorkers": workerId }
+        },
+        { arrayFilters: [{ "elem._id": shiftId }], projection: { "day.$": 1 } })
+        .then(() => {
+            Week.findOne({ "day._id": dayId }, { "day.$": 1 }).then(response => {
+                if (response && response.day && response.day.length > 0) {
+                    res.status(200).json(response.day[0]);
+                }
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+});
 //------------------------------Week funcs --------------------------------------------
 router.get('/getWeekByName/:name', async (req, res) => {
     try {
