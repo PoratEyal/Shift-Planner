@@ -130,23 +130,23 @@ router.get('/getUserById/:id', async (req, res) => {
         res.status(400).json({ message: err.message })
     }
 });
-router.get('/GetUserRole', authenticateToken, (req,res) => {
-    
+router.get('/GetUserRole', authenticateToken, (req, res) => {
 
 
-    if(req.user.job === '649c08040834b0d306adef45'){
+
+    if (req.user.job === '649c08040834b0d306adef45') {
         const resRole = {
             job: "admin"
         }
         return res.status(200).json(resRole);
-    } 
-    else if(req.user.job === '649d571b70f2c12b782d204f'){
+    }
+    else if (req.user.job === '649d571b70f2c12b782d204f') {
         const resRole = {
             job: "user"
         }
         return res.status(200).json(resRole);
     }
-    else{
+    else {
         return res.sendStatus(403);
     }
 });
@@ -390,9 +390,9 @@ router.put('/delWorkerToAvial', (req, res) => {
     const workerId = body.workerId;
 
     Week.findOneAndUpdate({ "day._id": dayId, "day.shifts._id": shiftId },
-        { $pull: { "day.$.shifts.$[elem].availableWorkers": workerId },
-        $pull: { "day.$.shifts.$[elem].workers": workerId } 
-    },
+        {
+            $pull: { "day.$.shifts.$[elem].availableWorkers": workerId }
+        },
         { arrayFilters: [{ "elem._id": shiftId }] }).then(response => {
             res.status(200).json(response);
         });
@@ -434,7 +434,7 @@ router.put('/removeWorkerFromWorkrs', (req, res) => {
         { "day._id": dayId, "day.shifts._id": shiftId },
         {
             $pull: { "day.$.shifts.$[elem].workers": workerId },
-            $push: { "day.$.shifts.$[elem].availableWorkers": workerId }
+            //$push: { "day.$.shifts.$[elem].availableWorkers": workerId }
         },
         { arrayFilters: [{ "elem._id": shiftId }], projection: { "day.$": 1 } })
         .then(() => {
@@ -487,10 +487,10 @@ router.get('/testWeekCreating', (req, res) => {
     res.status(200);
 });
 
-router.put('/setNextWeekVisible', (req,res) => {
-    Week.findOneAndUpdate({name: "NextWeek"}, {visible: "true"}).then(response =>{
+router.put('/setNextWeekVisible', (req, res) => {
+    Week.findOneAndUpdate({ name: "NextWeek" }, { visible: "true" }).then(response => {
         res.status(200).json(response);
-    }).catch(err => {console.log(err)})
+    }).catch(err => { console.log(err) })
 })
 
 
@@ -506,7 +506,7 @@ router.post('/addWeek', async (req, res) => {
 router.put('/editWeek', async (req, res) => {
     try {
         let reqBody = req.body;
-        const oldWeek = await Week.findOneAndUpdate({_id: reqBody._id}, reqBody);
+        const oldWeek = await Week.findOneAndUpdate({ _id: reqBody._id }, reqBody);
         res.status(200).json(oldWeek);
     } catch (err) {
         res.status(400).json({ message: err._messege });
@@ -525,7 +525,7 @@ function authenticateToken(req, res, next) {
         if (err) return res.sendStatus(403);
         req.user = user;
         next();
-        
+
     });
 }
 

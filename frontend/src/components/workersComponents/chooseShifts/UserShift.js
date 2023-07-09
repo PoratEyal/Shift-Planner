@@ -45,6 +45,15 @@ const UserShift = (props) => {
       .catch(error => {
         console.log(error.response.data.error);
       });
+      if(shift.workers.includes(data._id)){
+        axios.put('http://localhost:3001/app/removeWorkerFromWorkrs', reqBody)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error.response.data.error);
+      });
+      }
   }
 
   return <div className={styles.shift}>
