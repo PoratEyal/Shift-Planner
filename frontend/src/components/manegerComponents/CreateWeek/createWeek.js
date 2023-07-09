@@ -19,18 +19,14 @@ const CreateWeek = () => {
         }).catch(err => console.log(err));;
 
     }
-
     useEffect(() => {
         getDays()
     }, []);
-
-    // still dont work. the put not working and usestate every time canceled
     const editWeek = async () => {
         const updatedWeek = {
             ...week,
             visible:true
         }
-        //console.log(updatedWeek)
         try {
             await axios.put("http://localhost:3001/app/editWeek", updatedWeek)
             .then((response) => {
@@ -63,29 +59,6 @@ const CreateWeek = () => {
             }
           })
     }
-
-    const editNewWeek = () => {
-        Swal.fire({
-            title: 'האם אתה בטוח שברצונך לעדכן את השבוע',
-            icon: 'warning',
-            showCancelButton: true,
-            cancelButtonText : 'ביטול',
-            confirmButtonColor: '#2977bc',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'עדכן'
-          }).then((result) => {
-            if (result.isConfirmed) {
-              Swal.fire(
-                'השבוע התעדכן',
-                '',
-                'success'
-              )
-              editWeek()
-              console.log(week)
-            }
-          })
-    }
-
     return <React.Fragment>
         <div className={styles.container}>
             <div className={styles.nav_container}>
@@ -97,7 +70,7 @@ const CreateWeek = () => {
                 <button onClick={publishWeek} className={styles.addShift_btn}>פרסם שבוע</button>
             </div> : 
             <div className={styles.published_div}>
-                <button visible='false' className={styles._btn} onClick={editNewWeek}>עדכן שבוע</button>
+                <button visible='false' className={styles._btn}>עדכן שבוע</button>
             </div>
             }
 
