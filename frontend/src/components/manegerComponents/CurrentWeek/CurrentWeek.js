@@ -22,7 +22,7 @@ const CurrentWeek = () => {
         <div>
             <div className={styles.nav_container}>
                 <button onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
-                <p>בחירת עובדים לשבוע הבא</p>
+                <p>הקצאת משמרות לשבוע הבא</p>
             </div>
 
             <div style={{ marginTop: '70px' }} className={styles.container}>

@@ -91,7 +91,7 @@ const CreateWeek = () => {
         <div className={styles.container}>
             <div className={styles.nav_container}>
                 <button onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
-                <p>בניית משמרות לשבוע הבא</p>
+                <p>יצירת משמרות לשבוע הבא</p>
             </div>
 
             {!weekVisivble ? <div className={styles.publish_div}>
