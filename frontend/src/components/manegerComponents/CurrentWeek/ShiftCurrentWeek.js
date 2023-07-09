@@ -40,8 +40,7 @@ const ShiftCurrentWeek = (props) => {
     }
 
     return <div className={styles.shift}>
-        <p className={styles.shift_name}>{shift.description}</p>
-        <p>משעה - {shift.startTime} עד {shift.endTime}</p>
+        <p className={styles.shift_description}>{shift.description}: {shift.startTime} - {shift.endTime}</p>
         <CurrentWeekWorkers removeWorkerShift={removeWorkerShift} addWorkerShift={addWorkerShift} workers={shift.workers} availableWorkers={shift.availableWorkers}></CurrentWeekWorkers>
     </div>
 }

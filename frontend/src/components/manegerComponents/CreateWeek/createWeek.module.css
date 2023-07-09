@@ -55,6 +55,7 @@
 
 .h2{
     margin-top: -15px;
+    margin-bottom: 5px;
 }
 
 .shift{
@@ -214,8 +215,8 @@
     background-color: rgba(255, 0, 0, 0.604);
 }
 
-.shift_name{
-    margin-bottom: -5px;
+.shift_description{
+    margin-bottom: 15px;
 }
 
 .shift_data_p{
