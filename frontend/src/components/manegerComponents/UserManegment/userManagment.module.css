@@ -59,6 +59,30 @@ ul.navbar li a:hover {
     cursor: pointer;
 }
 
+.addUser_btn {
+    z-index: 1000;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #2977bc;
+    color: white;
+    border: 1.5px solid white;
+    border-radius: 50px;
+    font-size: 40px;
+    width: 60px;
+    height: 60px;
+    transition: 0.3s;
+}
+
+.addUser_btn:hover{
+    cursor: pointer;
+    background-color: #2889df;
+}
+
 .container{
     margin-top: 60px;
     display: flex;

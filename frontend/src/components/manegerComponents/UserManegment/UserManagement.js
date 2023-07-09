@@ -5,6 +5,7 @@ import AllUsers from './AllUsers'
 import AddRole from './AddRole'
 import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
+import { AiOutlineUserAdd } from "react-icons/ai";
 
 const UserManagement = () => {
 
@@ -17,6 +18,19 @@ const UserManagement = () => {
   const [selectedRole, setRole] = useState("");
   const [roles, setRoles] = useState([]);
   const [activeElement, setActiveElement] = useState(0);
+
+  const handleClick = (event, targetId) => {
+    event.preventDefault();
+    if (targetId === "users") {
+      setActiveElement(0);
+    }
+    else if(targetId === "create-user"){
+      setActiveElement(1)
+    }
+    else if(targetId === "create-role"){
+      setActiveElement(2)
+    }
+  };
 
   const getRoles = () => {
     const token = localStorage.getItem("token");
@@ -45,6 +59,7 @@ const UserManagement = () => {
         setFullName('');
         setUsername('');
         setPassword('');
+        setActiveElement(0)
       })
       .catch((error) => {
         console.error('An error occurred:', error);
@@ -56,6 +71,7 @@ const UserManagement = () => {
       <h2 className={styles.h2}>משתמשים</h2>
       <AllUsers added={userAdded}></AllUsers>
     </div>,
+
     <div id="create-user" className={styles.createUser}>
       <h2 className={styles.h2}>יצירת משתמש</h2>
 
@@ -114,6 +130,7 @@ const UserManagement = () => {
 
       </form>
     </div>,
+
     <div id="create-role" className={styles.createRole}>
       <h2 className={styles.h2}>תפקידים</h2>
       <AddRole roleAdded={getRoles}></AddRole>
@@ -124,21 +141,7 @@ const UserManagement = () => {
     getRoles();
   }, []);
 
-
   const NavigationBar = () => {
-    const handleClick = (event, targetId) => {
-      event.preventDefault();
-      if (targetId === "users") {
-        setActiveElement(0);
-      }
-      else if(targetId === "create-user"){
-        setActiveElement(1)
-      }
-      else if(targetId === "create-role"){
-        setActiveElement(2)
-      }
-    };
-
     return (
       <div className={styles.nav_container}>
         <ul className={styles.navbar}>
@@ -150,11 +153,11 @@ const UserManagement = () => {
                תפקידים
             </a>
           </li>
-          <li>
+          {/* <li>
             <a href="#create-user" className={styles.x} onClick={(e) => handleClick(e, 'create-user')}>
               יצירת משתמש
             </a>
-          </li>
+          </li> */}
           <li>
             <a href="#users" className={styles.x} onClick={(e) => handleClick(e, 'users')}>
               משתמשים
@@ -165,8 +168,6 @@ const UserManagement = () => {
 
     );
   }
-
-
 
   return (
     <div className={styles.all_container}>
@@ -180,6 +181,8 @@ const UserManagement = () => {
           childElements[activeElement]
         }
       </div>
+
+      <button onClick={(e) => handleClick(e, 'create-user')} className={styles.addUser_btn}><AiOutlineUserAdd></AiOutlineUserAdd></button>
     </div>
   );
 }
