@@ -7,11 +7,13 @@ import { BiUserCircle } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import ChooseShifts from '../chooseShifts/ChooseShifts';
 
 const CurrentWeekUser = () => {
 
     const navigate = useNavigate();
     const[week, setWeek] = useState(null);
+    const [nextWeek ,setNextWeek] = useState(null);
     const [weekVisible, setWeekVisible] = useState(null);
     let data = {};
     const [fullname, setName]= useState("");
@@ -27,14 +29,18 @@ const CurrentWeekUser = () => {
     const getDays = () => {
              axios.get("http://localhost:3001/app/getCurrentWeek").then((response) => {
                 setWeek(response.data);
-                setWeekVisible(response.data.visible)
+                //setWeekVisible(response.data.visible)
         }).catch(err=> console.log(err));
+
+        axios.get("http://localhost:3001/app/getNexttWeek").then((response) => {
+            setNextWeek(response.data);
+            setWeekVisible(response.data.visible)
+    }).catch(err=> console.log(err));
     }
         
     useEffect(()=>{
         getDays();
-
-    }, [weekVisible]);
+    }, []);
 
     const signout = () => {
         Swal.fire({
@@ -54,6 +60,15 @@ const CurrentWeekUser = () => {
           })
     }
 
+
+    const ChooseShiftsHandler = () => {
+        weekVisible ? navigate("/chooseShifts") 
+        : Swal.fire({
+            title: 'טרם פורסמו משמרות',
+            icon: 'warning'
+          })
+    }
+
     return <div className={styles.all}>
             
             <div className={styles.upperContainer}>
@@ -63,8 +78,8 @@ const CurrentWeekUser = () => {
                     </div>
 
                     <div className={styles.other_icons_div}>
-                        {weekVisible ? <Link to="/chooseShifts"><button className={styles.chose_shift_btn}>בחירת משמרות</button></Link> :
-                        <Link to="/chooseShifts"><button className={styles.chose_shift_btn_lock}>בחירת משמרות</button></Link>}
+                       <button className={styles.chose_shift_btn} onClick={() => {ChooseShiftsHandler()}}>בחירת משמרות</button> 
+                        
 
                         <Link to="/userSettings"><button className={styles.user_settings}><BiUserCircle></BiUserCircle></button></Link>
                         <Link to="/"><button onClick={signout} className={styles.signout}><BiLogOut></BiLogOut></button></Link>
