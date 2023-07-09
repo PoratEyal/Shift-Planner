@@ -43,9 +43,9 @@ const AllUsers = (props) => {
         icon: 'warning',
         showCancelButton: true,
         cancelButtonText: 'ביטול',
-        confirmButtonColor: '#332891e1',
+        confirmButtonColor: '#2977bc',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'מחיקה'
+        confirmButtonText: 'אישור'
       }).then(async (result) => {
         if (result.isConfirmed) {
           Swal.fire(
