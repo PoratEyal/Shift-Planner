@@ -26,7 +26,7 @@ const ChooseShifts = () => {
         </div>
 
         <div style={{ marginTop: '70px' }} className={styles.container}>
-            {week ? week.day.map((day) => {
+            {week && week.visible ? week.day.map((day) => {
                 return <UserDay day={day} key={day._id} getDays={getDays} />;
             }) : null}
         </div>
