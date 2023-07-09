@@ -27,6 +27,7 @@ const UserManagement = () => {
       setRoles(response.data);
     }).catch((err) => { console.log(err) });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const newUser = {
@@ -124,7 +125,6 @@ const UserManagement = () => {
   }, []);
 
 
-
   const NavigationBar = () => {
     const handleClick = (event, targetId) => {
       event.preventDefault();
@@ -147,17 +147,17 @@ const UserManagement = () => {
           </li>
           <li>
             <a href="#create-role" className={styles.x} onClick={(e) => handleClick(e, 'create-role')}>
-              יצירת תפקיד
-            </a>
-          </li>
-          <li>
-            <a href="#users" className={styles.x} onClick={(e) => handleClick(e, 'users')}>
-              משתמשים
+               תפקידים
             </a>
           </li>
           <li>
             <a href="#create-user" className={styles.x} onClick={(e) => handleClick(e, 'create-user')}>
               יצירת משתמש
+            </a>
+          </li>
+          <li>
+            <a href="#users" className={styles.x} onClick={(e) => handleClick(e, 'users')}>
+              משתמשים
             </a>
           </li>
         </ul>

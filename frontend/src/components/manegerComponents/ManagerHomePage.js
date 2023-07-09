@@ -54,13 +54,12 @@ const ManagerHomePage = () => {
 
         <div className={styles.container}>
             <Link to="/SeeCurrentWeekShifts">
-            <button className={styles.btn}>צפיה בשבוע נוכחי</button>
+            <button className={styles.btn}>הצג משמרות נוכחיות</button>
             </Link>
+            <Link to="/createNewWeek"><button className={styles.btn}>יצירת משמרות לשבוע הבא</button></Link> 
             <Link to="/currentWeekShifts">
-            <button className={styles.btn}>בחירת עובדים לשבוע הבא</button>
+            <button className={styles.btn}>הקצאת משמרות לשבוע הבא</button>
             </Link>
-            <Link to="/createNewWeek"><button className={styles.btn}>בנית משמרות לשבוע הבא</button></Link> 
-
             <Outlet />
         </div>
     </React.Fragment>
