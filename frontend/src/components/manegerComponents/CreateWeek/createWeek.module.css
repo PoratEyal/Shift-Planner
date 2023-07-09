@@ -427,7 +427,7 @@
     gap: 0.75rem;
     color: rgb(255, 255, 255);
     background-color: rgb(46, 181, 29);
-    border: 2px solid rgb(46, 181, 29);
+    border: none;
     transition: all .6s ease;
     width: 320px;
     justify-content: center;
