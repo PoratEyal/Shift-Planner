@@ -390,7 +390,9 @@ router.put('/delWorkerToAvial', (req, res) => {
     const workerId = body.workerId;
 
     Week.findOneAndUpdate({ "day._id": dayId, "day.shifts._id": shiftId },
-        { $pull: { "day.$.shifts.$[elem].availableWorkers": workerId } },
+        { $pull: { "day.$.shifts.$[elem].availableWorkers": workerId },
+        $pull: { "day.$.shifts.$[elem].workers": workerId } 
+    },
         { arrayFilters: [{ "elem._id": shiftId }] }).then(response => {
             res.status(200).json(response);
         });
