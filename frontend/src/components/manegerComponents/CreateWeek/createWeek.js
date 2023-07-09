@@ -66,7 +66,7 @@ const CreateWeek = () => {
                 <button onClick={publishWeek} className={styles.addShift_btn}>פרסם שבוע</button>
             </div> : 
             <div className={styles.published_div}>
-                <button visible='false' className={styles._btn}>עדכן שבוע</button>
+                <button visible='false' className={styles._btn}>רשאי לבצע עדכון משמרות</button>
             </div>
             }
 
