@@ -352,16 +352,18 @@
 
 .btn_chose{
     margin: 15px;
-    background-color: rgba(144, 144, 144, 0.684);
+    background-color: rgba(54, 189, 36, 0.787);
     color: white;
     border: none;
     border-radius: 5px;
     padding: 9px;
+    width: 60px;
 }
 
 .btn_chosen{
+    width: 60px;
     margin: 15px;
-    background-color: rgba(31, 181, 17, 0.684);
+    background-color: rgba(230, 58, 20, 0.838);
     color: white;
     border: none;
     border-radius: 5px;
