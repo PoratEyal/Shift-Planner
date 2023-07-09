@@ -127,7 +127,7 @@ const UserManagement = () => {
           <label className={styles.label_role}>תפקיד</label>
         </div>
 
-        <button className={styles.btn} onClick={() => setUserAdded(false)} type="submit">יצירה</button>
+        <button className={styles.btn} onClick={() => setUserAdded(false)} type="submit">אישור</button>
 
       </form>
     </div>,
