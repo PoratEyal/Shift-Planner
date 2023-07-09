@@ -18,6 +18,7 @@ const UserManagement = () => {
   const [selectedRole, setRole] = useState("");
   const [roles, setRoles] = useState([]);
   const [activeElement, setActiveElement] = useState(0);
+  const [addLine, setAddLine] = useState(false)
 
   const handleClick = (event, targetId) => {
     event.preventDefault();
@@ -68,7 +69,7 @@ const UserManagement = () => {
 
   const childElements = [
     <div id="users" className={styles.users}>
-      <h2 className={styles.h2}>משתמשים</h2>
+      {/* <h2 className={styles.h2}>משתמשים</h2> */}
       <AllUsers added={userAdded}></AllUsers>
     </div>,
 
@@ -132,7 +133,7 @@ const UserManagement = () => {
     </div>,
 
     <div id="create-role" className={styles.createRole}>
-      <h2 className={styles.h2}>תפקידים</h2>
+      {/* <h2 className={styles.h2}>תפקידים</h2> */}
       <AddRole roleAdded={getRoles}></AddRole>
     </div>
   ]
@@ -153,11 +154,6 @@ const UserManagement = () => {
                תפקידים
             </a>
           </li>
-          {/* <li>
-            <a href="#create-user" className={styles.x} onClick={(e) => handleClick(e, 'create-user')}>
-              יצירת משתמש
-            </a>
-          </li> */}
           <li>
             <a href="#users" className={styles.x} onClick={(e) => handleClick(e, 'users')}>
               משתמשים
@@ -165,7 +161,6 @@ const UserManagement = () => {
           </li>
         </ul>
       </div>
-
     );
   }
 
