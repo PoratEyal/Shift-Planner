@@ -23,12 +23,8 @@ const CreateWeek = () => {
         getDays()
     }, []);
     const editWeek = async () => {
-        const updatedWeek = {
-            ...week,
-            visible:true
-        }
         try {
-            await axios.put("http://localhost:3001/app/editWeek", updatedWeek)
+            await axios.put("http://localhost:3001/app/setNextWeekVisible")
             .then((response) => {
                 console.log(response.data)
                 setWeekVisivble(true)

@@ -485,6 +485,12 @@ router.get('/testWeekCreating', (req, res) => {
     res.status(200);
 });
 
+router.put('/setNextWeekVisible', (req,res) => {
+    Week.findOneAndUpdate({name: "NextWeek"}, {visible: "true"}).then(response =>{
+        res.status(200).json(response);
+    }).catch(err => {console.log(err)})
+})
+
 
 
 router.post('/addWeek', async (req, res) => {
