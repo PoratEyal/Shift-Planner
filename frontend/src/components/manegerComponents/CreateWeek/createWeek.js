@@ -28,8 +28,7 @@ const CreateWeek = () => {
     const editWeek = async () => {
         const updatedWeek = {
             ...week,
-            visible:true,
-            
+            visible:true
         }
         //console.log(updatedWeek)
         try {

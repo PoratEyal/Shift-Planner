@@ -18,7 +18,8 @@ const CurrentWeekUser = () => {
     let data = {};
     const [fullname, setName]= useState("");
 
-    useEffect(() => {
+    useEffect(() => { 
+        getDays();
         const StorageData = JSON.parse(localStorage.getItem("user"));
         if(StorageData){
             data = StorageData;
@@ -32,15 +33,11 @@ const CurrentWeekUser = () => {
                 //setWeekVisible(response.data.visible)
         }).catch(err=> console.log(err));
 
-        axios.get("http://localhost:3001/app/getNexttWeek").then((response) => {
+        axios.get("http://localhost:3001/app/getNextWeek").then((response) => {
             setNextWeek(response.data);
             setWeekVisible(response.data.visible)
     }).catch(err=> console.log(err));
     }
-        
-    useEffect(()=>{
-        getDays();
-    }, []);
 
     const signout = () => {
         Swal.fire({
