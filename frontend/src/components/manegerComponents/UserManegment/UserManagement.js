@@ -18,17 +18,22 @@ const UserManagement = () => {
   const [selectedRole, setRole] = useState("");
   const [roles, setRoles] = useState([]);
   const [activeElement, setActiveElement] = useState(0);
-  const [addLine, setAddLine] = useState(false)
+  const [hideCreateBtn, setHideCreateBtn] = useState(false)
+
+  const [addLineRules, setAddLineRules] = useState(false)
+  const [addLineUsers, setAddLineUsers] = useState(true)
 
   const handleClick = (event, targetId) => {
     event.preventDefault();
     if (targetId === "users") {
       setActiveElement(0);
+      setHideCreateBtn(false)
     }
     else if(targetId === "create-user"){
       setActiveElement(1)
     }
     else if(targetId === "create-role"){
+      setHideCreateBtn(true)
       setActiveElement(2)
     }
   };
@@ -150,12 +155,18 @@ const UserManagement = () => {
             <button onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
           </li>
           <li>
-            <a href="#create-role" className={styles.x} onClick={(e) => handleClick(e, 'create-role')}>
-               תפקידים
+            <a
+              href="#create-role"
+              className={`${styles.a} ${addLineRules && styles.addLine}`}
+              onClick={(e) => {handleClick(e, 'create-role'); setAddLineRules(true); setAddLineUsers(false)}}>
+              תפקידים
             </a>
           </li>
           <li>
-            <a href="#users" className={styles.x} onClick={(e) => handleClick(e, 'users')}>
+            <a
+              href="#users"
+              className={`${styles.a} ${addLineUsers && styles.addLine}`}
+              onClick={(e) => {handleClick(e, 'users'); setAddLineRules(false); setAddLineUsers(true)}}>
               משתמשים
             </a>
           </li>
@@ -177,7 +188,7 @@ const UserManagement = () => {
         }
       </div>
 
-      <button onClick={(e) => handleClick(e, 'create-user')} className={styles.addUser_btn}><AiOutlineUserAdd></AiOutlineUserAdd></button>
+      {!hideCreateBtn ? <button onClick={(e) => handleClick(e, 'create-user')} className={styles.addUser_btn}><AiOutlineUserAdd></AiOutlineUserAdd></button> : null}
     </div>
   );
 }
