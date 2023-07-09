@@ -48,10 +48,12 @@ const AllUsers = (props) => {
         confirmButtonText: 'אישור'
       }).then(async (result) => {
         if (result.isConfirmed) {
-          Swal.fire(
-            'המשתמש נמחק',
-            '',
-            'success'
+          Swal.fire({
+            title: 'המשתמש נמחק',
+            icon: 'success',
+            confirmButtonColor: '#2977bc',
+            confirmButtonText: 'אישור'
+          }
           );
         try {
             await axios.delete(`http://localhost:3001/app/deleteUser/${userId}`)

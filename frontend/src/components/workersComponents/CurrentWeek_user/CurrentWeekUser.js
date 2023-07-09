@@ -62,7 +62,8 @@ const CurrentWeekUser = () => {
         weekVisible ? navigate("/chooseShifts") 
         : Swal.fire({
             title: 'טרם פורסמו משמרות',
-            icon: 'warning'
+            icon: 'warning',
+            confirmButtonColor: '#2977bc'
           })
     }
 

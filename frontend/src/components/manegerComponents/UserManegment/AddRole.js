@@ -62,11 +62,12 @@ const AddRole = (props) => {
       confirmButtonText: 'אישור'
     }).then(async (result) => {
       if (result.isConfirmed) {
-        Swal.fire(
-          'התפקיד נמחק',
-          '',
-          'success'
-        );
+        Swal.fire({
+          title: 'התפקיד נמחק',
+          icon: 'success',
+          confirmButtonColor: '#2977bc',
+          confirmButtonText: 'אישור'
+      });
         try {
           await axios
             .delete(`http://localhost:3001/app/deleteRole/${roleId}`)

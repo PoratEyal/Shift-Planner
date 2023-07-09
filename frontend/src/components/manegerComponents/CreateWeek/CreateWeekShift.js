@@ -12,16 +12,17 @@ const CreateWeekShift = (props) => {
             icon: 'warning',
             showCancelButton: true,
             cancelButtonText : 'ביטול',
-            confirmButtonColor: '#332891e1',
+            confirmButtonColor: '#2977bc',
             cancelButtonColor: '#d33',
             confirmButtonText: 'מחיקה'
           }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire(
-                'המשמרת נמחקה',
-                '',
-                'success'
-              )
+              Swal.fire({
+                title: 'המשמרת נמחקה',
+                icon: 'success',
+                confirmButtonColor: '#2977bc',
+                confirmButtonText: 'אישור'
+              })
               props.deleteShift(shift._id);
             }
           })
