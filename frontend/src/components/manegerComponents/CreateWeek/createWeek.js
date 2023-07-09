@@ -27,9 +27,9 @@ const CreateWeek = () => {
     // still dont work. the put not working and usestate every time canceled
     const editWeek = async () => {
         const updatedWeek = {
-            name:week.name,
+            ...week,
             visible:true,
-            day:week.day
+            
         }
         //console.log(updatedWeek)
         try {

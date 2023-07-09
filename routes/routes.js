@@ -498,7 +498,7 @@ router.post('/addWeek', async (req, res) => {
 router.put('/editWeek', async (req, res) => {
     try {
         let reqBody = req.body;
-        const oldWeek = await Week.findOneAndUpdate(reqBody._id, reqBody);
+        const oldWeek = await Week.findOneAndUpdate({_id: reqBody._id}, reqBody);
         res.status(200).json(oldWeek);
     } catch (err) {
         res.status(400).json({ message: err._messege });
