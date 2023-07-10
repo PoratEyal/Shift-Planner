@@ -6,7 +6,7 @@ const WorkerList = (props) => {
     
     const [workers, setWorkers] = useState(props.workers)
     const [workerNames, setWorkerNames] = useState([]);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(null)
 
     useEffect(() => {
         workers.map(worker => {

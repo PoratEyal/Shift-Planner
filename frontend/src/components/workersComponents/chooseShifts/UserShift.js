@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from './chooseShifts.module.css'
 import axios from 'axios';
+import WorkerList from './WorkersList'
 
 const UserShift = (props) => {
 
@@ -30,6 +31,7 @@ const UserShift = (props) => {
         console.log(error.response.data.error);
       });
   }
+
   const removeWorkerFromShift = () => {
     setAdded(false);
     //const updtaedShift = { ...props.shift, availableWorkers: [...shift.availableWorkers, data] }
@@ -58,9 +60,16 @@ const UserShift = (props) => {
 
   return <div className={styles.shift}>
     <p className={styles.shift_data_p}>{shift.description}: {shift.startTime} - {shift.endTime}</p>
+    
     {
-      added ? <button onClick={removeWorkerFromShift} className={styles.add_btn}>הסר</button> : <button onClick={addWorkerToShift} className={styles.add_btn}>הוסף את עצמך</button>
-    }
+  !props.weekPublished ? (
+    added ? (
+      <button onClick={removeWorkerFromShift} className={styles.add_btn}>הסר</button>
+    ) : (
+      <button onClick={addWorkerToShift} className={styles.add_btn}>הוסף את עצמך</button>
+    )
+  ) : <WorkerList workers={shift.workers}></WorkerList>
+}
 
   </div>
 }
