@@ -1,4 +1,5 @@
 import axios from 'axios';
+import React from 'react';
 import { useEffect, useState } from 'react';
 import styles from '../CreateWeek/createWeek.module.css'
 
@@ -34,7 +35,6 @@ const CurrentWeekWorkers = (props) => {
                     console.error(error);
                 });
         });
-
     }, []);
 
     const choseWorker = (id) => {
@@ -47,8 +47,8 @@ const CurrentWeekWorkers = (props) => {
       setUpdatedWorkers(!updatedWorkers)
     }
     
-    return (
-      <div className={styles.workers_list_delete}>
+    return <React.Fragment>
+      {!props.weekPublished ? <div className={styles.workers_list_delete}>
 
         {workersArr.map((worker, index) => (
             <div key={index} className={styles.nameAndDelete}>
@@ -64,9 +64,16 @@ const CurrentWeekWorkers = (props) => {
             </div>
           ))}
 
-      </div>
-    );
-      
+        </div>
+        : 
+        <div className={styles.workers_showList}>
+          {workersArr.map((worker, index) => (
+              <div key={index} className={styles.nameAndDelete}>
+                <p className={styles.names}>{worker.fullName}&nbsp; •</p>
+              </div>
+            ))}
+        </div>}
+      </React.Fragment>
 }
 
 export default CurrentWeekWorkers;
