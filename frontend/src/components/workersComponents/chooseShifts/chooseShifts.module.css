@@ -467,3 +467,6 @@
 .workers_showList > :last-child {
     grid-column-start: 2;
 }
+.workers_showList p{
+    margin-right: 15px;
+}
