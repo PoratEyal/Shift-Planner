@@ -58,7 +58,7 @@ const CreateWeek = () => {
     return <React.Fragment>
         <div className={styles.container}>
             <div className={styles.nav_container}>
-                <button onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
+                <button className={styles.home_btn} onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
                 <p>יצירת משמרות לשבוע הבא</p>
             </div>
 

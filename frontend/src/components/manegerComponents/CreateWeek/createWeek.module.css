@@ -359,6 +359,11 @@
     border-radius: 5px;
     padding: 9px;
     width: 60px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn_chose:hover{
+    background-color: rgba(29, 134, 15, 0.787);
 }
 
 .btn_chosen{
@@ -369,6 +374,11 @@
     border: none;
     border-radius: 5px;
     padding: 9px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn_chosen:hover{
+    background-color: rgba(196, 48, 15, 0.956);
 }
 
 .loadingWorkers_manger_page{
@@ -443,4 +453,8 @@
 }
 .workers_showList > :last-child {
     grid-column-start: 2;
+}
+
+.home_btn{
+    cursor: pointer;
 }
