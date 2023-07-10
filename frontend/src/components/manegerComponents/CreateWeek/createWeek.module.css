@@ -375,7 +375,7 @@
     border-radius: 5px;
     padding: 9px;
     cursor: pointer;
-    transition: 0.3s;
+    
 }
 .btn_chosen:hover{
     background-color: rgba(196, 48, 15, 0.956);

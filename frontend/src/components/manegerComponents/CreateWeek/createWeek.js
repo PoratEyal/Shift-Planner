@@ -11,17 +11,20 @@ const CreateWeek = () => {
     const navigate = useNavigate();
     const [week, setWeek] = useState(null);
     const [weekVisivble, setWeekVisivble] = useState(null);
+    const [weekPublished, setWeekPublished] = useState(null)
 
     const getDays = () => {
         axios.get("http://localhost:3001/app/getNextWeek").then((response) => {
             setWeek(response.data);
             setWeekVisivble(response.data.visible);
-        }).catch(err => console.log(err));;
-
+            setWeekPublished(response.data.publishScheduling)
+        }).catch(err => console.log(err));
     }
+
     useEffect(() => {
         getDays()
     }, []);
+
     const editWeek = async () => {
         try {
             await axios.put("http://localhost:3001/app/setNextWeekVisible")
@@ -34,9 +37,21 @@ const CreateWeek = () => {
         }
     }
 
+    const editPublishSchedule = async () => {
+        try {
+            await axios.put("http://localhost:3001/app/setNextWeekPublished")
+            .then((response) => {
+                setWeekPublished(true)
+                console.log(response.data)
+            });
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
     const publishWeek = () => {
         Swal.fire({
-            title: 'האם אתה בטוח שברצונך לפרסם את השבוע',
+            title: 'האם אתה בטוח שברצונך לפרסם את המשמרות לשבוע הבא',
             icon: 'warning',
             showCancelButton: true,
             cancelButtonText : 'ביטול',
@@ -46,7 +61,7 @@ const CreateWeek = () => {
           }).then((result) => {
             if (result.isConfirmed) {
               Swal.fire(
-                'השבוע פורסם',
+                'המשמרות פורסמו',
                 '',
                 'success'
               )
@@ -55,6 +70,29 @@ const CreateWeek = () => {
             }
           })
     }
+
+    const publishSchedule= () => {
+        Swal.fire({
+            title: 'האם אתה בטוח שברצונך לפרסם את השיבוצים לשבוע הבא',
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText : 'ביטול',
+            confirmButtonColor: '#2977bc',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'פרסם'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'השיבוצים פורסמו',
+                '',
+                'success'
+              )
+              editPublishSchedule()
+              console.log(week)
+            }
+          })
+    }
+
     return <React.Fragment>
         <div className={styles.container}>
             <div className={styles.nav_container}>
@@ -63,20 +101,24 @@ const CreateWeek = () => {
             </div>
 
             {!weekVisivble ? <div className={styles.publish_div}>
-                <button onClick={publishWeek} className={styles.addShift_btn}>פרסם שבוע</button>
+                <button onClick={publishWeek} className={styles.addShift_btn}>פרסם משמרות</button>
             </div> : 
-            <div className={styles.published_div}>
-                <button visible='false' className={styles._btn}>רשאי לבצע עדכון משמרות</button>
+            !weekPublished ? <div className={styles.publish_div}>
+                <button onClick={publishSchedule} className={styles.addShift_btn}>פרסם שבוע סופי</button>
             </div>
-            }
+            : 
+            <div className={styles.published_div}>
+                <button onClick={publishSchedule} visible='false'>השבוע פורסם</button>
+            </div>}
 
-            { <div>
+            {!weekPublished ? <div>
                 {
                     week ? week.day.map((day) => {
                         return <Day day={day} key={day._id} getDays={getDays}></Day>
                     }) : null
                 }
-            </div>}
+            </div> : null}
+
         </div>
     </React.Fragment>
 }
