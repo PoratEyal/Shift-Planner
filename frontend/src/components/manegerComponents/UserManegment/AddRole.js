@@ -11,6 +11,9 @@ const AddRole = (props) => {
   const [loading, setLoading] = useState(false);
 
   const addRole = async () => {
+    if(role === ''){
+      return
+    }
     const newRole = {
       name: role
     };
