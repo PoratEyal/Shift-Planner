@@ -62,6 +62,7 @@ ul.navbar li button {
     background-color: #41379600;
     border: none;
     margin-top: 5px;
+    cursor: pointer;
 }
 
 .addUser_btn {
