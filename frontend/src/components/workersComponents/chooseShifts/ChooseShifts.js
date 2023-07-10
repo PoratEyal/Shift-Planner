@@ -29,7 +29,7 @@ const ChooseShifts = () => {
         </div>
 
         {weekPublished ? <div className={styles.messege}>
-            <p>השבוע פורסם, אלו המשמרות הסופיות</p>   
+            <p>השבוע פורסם, אלו המשמרות לשבוע הבא</p>   
         </div> : null}
 
         <div style={{ marginTop: '70px' }} className={styles.container}>
