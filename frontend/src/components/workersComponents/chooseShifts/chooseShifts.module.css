@@ -470,3 +470,7 @@
 .workers_showList p{
     margin-right: 15px;
 }
+
+.worksHer{
+    border: 2px solid rgb(48, 174, 48);
+}

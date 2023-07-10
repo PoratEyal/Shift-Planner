@@ -8,10 +8,14 @@ const UserShift = (props) => {
   const [shift, setShift] = useState(props.shift);
   const data = JSON.parse(localStorage.getItem("user"));
   const [added, setAdded] = useState(false);
+  const [addClass, setAddClass] = useState(false)
 
   useEffect(() => {
     if (shift.availableWorkers.includes(data._id) || shift.workers.includes(data._id)) {
       setAdded(true);
+    }
+    if (shift.workers.includes(data._id)){
+      setAddClass(true)
     }
   }, [])
 
@@ -58,7 +62,7 @@ const UserShift = (props) => {
       }
   }
 
-  return <div className={styles.shift}>
+  return <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`}>
     <p className={styles.shift_data_p}>{shift.description}: {shift.startTime} - {shift.endTime}</p>
     
     {
