@@ -112,6 +112,7 @@ const AddRole = (props) => {
             value={role}
             onChange={(e) => setRole(e.target.value)}
             placeholder='תפקיד'
+            required
           />
           <div>
             <button onClick={addRole} className={styles.btn}>הוסף</button>
