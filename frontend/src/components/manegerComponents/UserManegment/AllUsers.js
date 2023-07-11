@@ -13,7 +13,7 @@ const AllUsers = (props) => {
     useEffect(() => {
         const fetchData = async () => {
         try {
-            const response = await axios.get("http://localhost:3001/app/getUsers");
+            const response = await axios.get(`${process.env.REACT_APP_URL}/getUsers`);
             setUsers(response.data);
         } catch (error) {
             console.error(error);
@@ -26,7 +26,7 @@ const AllUsers = (props) => {
     useEffect(() => {
         const fetchData = async () => {
         try {
-            const response = await axios.get("http://localhost:3001/app/getUsers");
+            const response = await axios.get(`${process.env.REACT_APP_URL}/getUsers`);
             setUsers(response.data)
             setLoading(true)
         } catch (error) {
@@ -56,7 +56,7 @@ const AllUsers = (props) => {
           }
           );
         try {
-            await axios.delete(`http://localhost:3001/app/deleteUser/${userId}`)
+            await axios.delete(`${process.env.REACT_APP_URL}/deleteUser/${userId}`)
               .then(response => {
                 setUserDelted(true)
               })

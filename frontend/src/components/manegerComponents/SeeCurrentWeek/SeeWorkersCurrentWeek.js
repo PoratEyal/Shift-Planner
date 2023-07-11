@@ -11,7 +11,7 @@ const SeeWorkersCurrentWeek = (props) => {
     // get all the workers
     useEffect(() => {
       workers.map(worker => {
-            axios.get(`http://localhost:3001/app/getUserById/${worker}`)
+            axios.get(`${process.env.REACT_APP_URL}/getUserById/${worker}`)
                 .then(response => {
                     const worker = response.data;
                     setWorkersArr(prevWorker => [...prevWorker, worker]);

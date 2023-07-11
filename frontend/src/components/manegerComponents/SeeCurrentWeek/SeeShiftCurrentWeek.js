@@ -9,7 +9,6 @@ const SeeShiftCurrentWeek = (props) => {
 
     return <div className={styles.shift}>
         <p className={styles.shift_description}>{shift.description}: {shift.startTime} - {shift.endTime}</p>
-        {/* <p>{shift.startTime} - {shift.endTime}</p> */}
         <CurrentWeekWorkers workers={shift.workers}></CurrentWeekWorkers>
     </div>
 }
