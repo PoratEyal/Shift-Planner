@@ -48,7 +48,7 @@ const CurrentWeekWorkers = (props) => {
     }
     
     return <React.Fragment>
-      {!props.weekPublished ? <div className={styles.workers_list_delete}>
+      <div className={styles.workers_list_delete}>
 
         {workersArr.map((worker, index) => (
             <div key={index} className={styles.nameAndDelete}>
@@ -65,14 +65,14 @@ const CurrentWeekWorkers = (props) => {
           ))}
 
         </div>
-        : 
-        <div className={styles.workers_showList}>
+        
+        {/* <div className={styles.workers_showList}>
           {workersArr.map((worker, index) => (
               <div key={index} className={styles.nameAndDelete}>
                 <p className={styles.names}>{worker.fullName}&nbsp; •</p>
               </div>
             ))}
-        </div>}
+        </div> */}
       </React.Fragment>
 }
 
