@@ -27,7 +27,7 @@ const UserSettings = () => {
       console.log(updatedUser);
 
       await axios
-        .put('http://localhost:3001/app/editUser', updatedUser)
+        .put(`${process.env.REACT_APP_URL}/editUser`, updatedUser)
         .then((response) => {
           setUsername('');
           setPassword('');
