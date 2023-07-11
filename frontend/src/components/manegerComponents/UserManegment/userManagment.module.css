@@ -15,34 +15,41 @@
     width: 100%;
     position:fixed;
     z-index: 999;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-ul{
-    margin-top: 5px;
+.navbar{
+    margin-top:15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    top: 0;
+    list-style-type: none;
+    width: 98%;
+    margin-right: 30px;
+}
+
+.a_div{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    position: fixed;
-    top: 0;
 }
 
-ul.navbar {
-    list-style-type: none;
-    margin: 10;
-    padding: 0;
-    overflow: hidden;
-    background: #33289100;
-    border-radius: 10px;
+.btnHome_div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .a{
+    margin: 10px;
     font-size: 22px;
     font-weight: bold;
-    display: block;
     color: #ffffff;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 100;
@@ -55,13 +62,10 @@ ul.navbar {
 }
 
 ul.navbar li button {
-    margin-right: 120px;
-    margin-left: 15px;
     font-size: 25px;
     color: #ffffff;
     background-color: #41379600;
     border: none;
-    margin-top: 5px;
     cursor: pointer;
 }
 
@@ -77,11 +81,12 @@ ul.navbar li button {
     background-color: #2977bc;
     color: white;
     border: 1.5px solid white;
-    border-radius: 50px;
+    border-radius: 30px;
     font-size: 40px;
     width: 60px;
     height: 60px;
     transition: 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .addUser_btn:hover{
@@ -90,7 +95,7 @@ ul.navbar li button {
 }
 
 .container{
-    margin-top: 60px;
+    margin-top: 70px;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -14,30 +14,7 @@
     z-index: 999;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
-}
-
-.other_icons_div{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    align-items: center;
-}
-
-.signout{
-    font-size: 25px;
-    color: white;
-    background-color: #41379600;
-    border:none;
-    margin-left: 10px;
-    margin-top: 2px;
-}
-.user_settings{
-    font-size: 25px;
-    color: white;
-    background-color: #41379600;
-    border:none;
-    margin-left: 7px;
-    margin-top: 2px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .title_div{
@@ -52,8 +29,32 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 140px;
+    max-width: 110px;
     font-weight: 600;
+}
+
+.other_icons_div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.signout{
+    font-size: 25px;
+    color: white;
+    background-color: #41379600;
+    border:none;
+    margin-left: 8px;
+    margin-top: 2px;
+}
+.user_settings{
+    font-size: 25px;
+    color: white;
+    background-color: #41379600;
+    border:none;
+    margin-left: 7px;
+    margin-top: 2px;
 }
 
 .chose_shift_btn{
@@ -74,28 +75,9 @@
   }
   .chose_shift_btn:hover{
     cursor: pointer;
-    transform: scale(1.02);
 }
-.chose_shift_btn_lock{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 16px;
-    width: 110px;
-    background-color: #150d5a00;
-    transition: 0.3s;
-    font-weight: 500;
-    color: rgb(207, 207, 207);
-    margin-bottom: 5px;
-    transition: 0.3s;
-    border: none;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid rgb(207, 207, 207);
-    margin-left: 12px;
-}
-.chose_shift_btn:hover{
-    cursor: pointer;
-    transform: scale(1.02);
-}
+
+
 
 .container{
     margin-top: 60px;
@@ -112,7 +94,7 @@
     width: 280px;
     margin: 20px;
     background: rgba(255, 255, 255, 0.704);
-    border-radius: 20px;
+    border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);

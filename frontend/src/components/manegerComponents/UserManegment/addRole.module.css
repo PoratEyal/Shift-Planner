@@ -54,10 +54,11 @@ transform: scale(1.02);
 .roles{
     width: 250px;
     border: 1px solid rgba(0, 0, 0, 0.25);
+    border: none;
     border-radius: 10px;
-    background-color: rgb(232, 237, 243);
+    background-color: rgb(229, 233, 236);
     margin: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
     padding: 3px;
     display: flex;
     flex-direction: row;

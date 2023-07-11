@@ -49,7 +49,7 @@ const ManagerHomePage = () => {
                 <Link to="/userManagment"><button className={styles.user_managment_btn}>ניהול משתמשים</button></Link>
             </div>
 
-            <h1 className={styles.h1}>שלום {fullname}</h1>
+            <h1 className={styles.h1}>{fullname}</h1>
         </div>
 
         <div className={styles.container}>

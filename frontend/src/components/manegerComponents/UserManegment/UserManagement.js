@@ -153,25 +153,30 @@ const UserManagement = () => {
     return (
       <div className={styles.nav_container}>
         <ul className={styles.navbar}>
-          <li>
-            <button onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
-          </li>
-          <li>
-            <a
-              href="#create-role"
-              className={`${styles.a} ${addLineRules && styles.addLine}`}
-              onClick={(e) => {handleClick(e, 'create-role'); setAddLineRules(true); setAddLineUsers(false)}}>
-              תפקידים
-            </a>
-          </li>
-          <li>
-            <a
-              href="#users"
-              className={`${styles.a} ${addLineUsers && styles.addLine}`}
-              onClick={(e) => {handleClick(e, 'users'); setAddLineRules(false); setAddLineUsers(true)}}>
-              משתמשים
-            </a>
-          </li>
+          <div className={styles.btnHome_div}>
+            <li>
+              <button onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
+            </li>
+          </div>
+
+          <div className={styles.a_div}>
+            <li>
+              <a
+                href="#create-role"
+                className={`${styles.a} ${addLineRules && styles.addLine}`}
+                onClick={(e) => {handleClick(e, 'create-role'); setAddLineRules(true); setAddLineUsers(false)}}>
+                תפקידים
+              </a>
+            </li>
+            <li>
+              <a
+                href="#users"
+                className={`${styles.a} ${addLineUsers && styles.addLine}`}
+                onClick={(e) => {handleClick(e, 'users'); setAddLineRules(false); setAddLineUsers(true)}}>
+                משתמשים
+              </a>
+            </li>
+          </div>
         </ul>
       </div>
     );
