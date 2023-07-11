@@ -7,6 +7,7 @@ const scheduleRule = new schedule.RecurrenceRule();
 scheduleRule.dayOfWeek = 0; // Sunday (0)
 scheduleRule.hour = 0;      // 00:00 (midnight)
 scheduleRule.minute = 0;    // 00 minutes
+scheduleRule.tz = 'Asia/Jerusalem';
 
 // Schedule the function to run at the start of every Sunday
 const job = schedule.scheduleJob(scheduleRule, yourFunction);
@@ -24,5 +25,3 @@ function yourFunction() {
   });
 
 }
-
-
