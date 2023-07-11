@@ -19,7 +19,7 @@ const CreateWeekDay = (props) => {
             let shifts = [];
             setLoading(true)
             if (day.shifts.length >= 0) {
-                axios.get(`http://localhost:3001/app/getShiftsOfDay/${day._id}`).then((response) => {
+                axios.get(`${process.env.REACT_APP_URL}/getShiftsOfDay/${day._id}`).then((response) => {
                     shifts = response.data;
                     setLoading(false)
                     resolve(shifts);
@@ -43,13 +43,10 @@ const CreateWeekDay = (props) => {
             .catch((error) => {
             });
     };
+
     useEffect(() => {
         updateShifts();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [day]);
-
-
-
 
     const deleteShift = (id) =>{
         const reqBody = {
@@ -58,14 +55,11 @@ const CreateWeekDay = (props) => {
         }
         console.log(day._id);
         console.log(id);
-        axios.put("http://localhost:3001/app/deleteShiftFromDay", reqBody).then(response =>{
+        axios.put(`${process.env.REACT_APP_URL}/deleteShiftFromDay`, reqBody).then(response =>{
             console.log(response);
             updateShifts();
         })
     }
-
-
-
 
 
     // create morning shift and added the _id of her to day
@@ -81,7 +75,7 @@ const CreateWeekDay = (props) => {
             newShift: newShift,
             dayId: day._id
         }
-        axios.put("http://localhost:3001/app/addShiftToDay", reqBody)
+        axios.put(`${process.env.REACT_APP_URL}/addShiftToDay`, reqBody)
             .then((response) => {
                 const updatedDay = response.data.day.find(d => d._id === day._id);
                 setDay(updatedDay);
@@ -107,7 +101,7 @@ const CreateWeekDay = (props) => {
         }
         try {
 
-            axios.put("http://localhost:3001/app/addShiftToDay", reqBody).then((response) => {
+            axios.put(`${process.env.REACT_APP_URL}/addShiftToDay`, reqBody).then((response) => {
                 const updatedDay = response.data.day.find(d => d._id === day._id);
                 setDay(updatedDay);
             });
@@ -131,7 +125,7 @@ const CreateWeekDay = (props) => {
         }
         try {
 
-            axios.put("http://localhost:3001/app/addShiftToDay", reqBody).then((response) => {
+            axios.put(`${process.env.REACT_APP_URL}/addShiftToDay`, reqBody).then((response) => {
                 const updatedDay = response.data.day.find(d => d._id === day._id);
                 setDay(updatedDay);
             });

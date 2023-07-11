@@ -14,7 +14,7 @@ const CreateWeek = () => {
     const [weekPublished, setWeekPublished] = useState(null)
 
     const getDays = () => {
-        axios.get("http://localhost:3001/app/getNextWeek").then((response) => {
+        axios.get(`${process.env.REACT_APP_URL}/getNextWeek`).then((response) => {
             setWeek(response.data);
             setWeekVisivble(response.data.visible);
             setWeekPublished(response.data.publishScheduling)
@@ -27,7 +27,7 @@ const CreateWeek = () => {
 
     const editWeek = async () => {
         try {
-            await axios.put("http://localhost:3001/app/setNextWeekVisible")
+            await axios.put(`${process.env.REACT_APP_URL}/setNextWeekVisible`)
             .then((response) => {
                 console.log(response.data)
                 setWeekVisivble(true)
@@ -39,7 +39,7 @@ const CreateWeek = () => {
 
     const editPublishSchedule = async () => {
         try {
-            await axios.put("http://localhost:3001/app/setNextWeekPublished")
+            await axios.put(`${process.env.REACT_APP_URL}/setNextWeekPublished`)
             .then((response) => {
                 setWeekPublished(true)
                 console.log(response.data)
