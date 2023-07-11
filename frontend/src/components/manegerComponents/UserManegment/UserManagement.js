@@ -20,6 +20,10 @@ const UserManagement = () => {
   const [activeElement, setActiveElement] = useState(0);
   const [addLine, setAddLine] = useState(false)
 
+
+
+  const data = JSON.parse(localStorage.getItem("user"));
+
   const handleClick = (event, targetId) => {
     event.preventDefault();
     if (targetId === "users") {
@@ -50,6 +54,7 @@ const UserManagement = () => {
       username: username,
       password: password,
       role: selectedRole,
+      manager: data._id,
       job: "user"
     }
     //console.log('Form submitted:', { fullName, username, password, selectedRole});
