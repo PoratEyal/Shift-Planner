@@ -30,7 +30,7 @@ const CreateWeekShift = (props) => {
     }
 
     return <div className={styles.shift}>
-        <p className={styles.shift_description}>{shift.description}&nbsp;: {shift.startTime} - {shift.endTime}</p>
+        <p className={styles.shift_description}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
         <button className={styles.btn_delete} onClick={deleteShift}>מחיקת משמרת</button>
     </div>
 }

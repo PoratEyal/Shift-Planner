@@ -47,7 +47,7 @@
     padding: 20px;
     width: 280px;
     margin: 20px;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.966);
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     backdrop-filter: blur(5px);
@@ -64,8 +64,8 @@
     font-size: 1.2em;
     border: none;
     border-radius: 10px;
-    border: 1px solid rgb(171, 171, 171);
-    background-color: rgba(228, 229, 234, 0.696);
+    border: 1px solid rgba(101, 101, 101, 0.25);
+    background-color: rgba(231, 234, 238, 0.533);
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -202,8 +202,8 @@
 
 
 .btn_delete{
-    color: white;
-    background-color: rgba(148, 138, 138, 0.841);
+    color: rgb(0, 0, 0);
+    background-color: rgba(209, 209, 209, 0.752);
     border: none;
     border-radius: 5px;
     padding: 9px;
@@ -215,7 +215,7 @@
 .btn_delete:hover{
     cursor: pointer;
     color: white;
-    background-color: rgba(177, 11, 11, 0.817);
+    background-color: rgba(202, 21, 21, 0.751);
 }
 
 .shift_description{
@@ -346,6 +346,7 @@
 
 .names{
     margin: 15px;
+    margin-right: 20px;
 }
 
 .nameAndDelete{
@@ -453,7 +454,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: end;
-    margin-top: 0px;
+    margin-top: 5px;
     width: 100%;
     border-top: 1px solid rgba(79, 79, 79, 0.417);
 }

@@ -63,7 +63,7 @@ const UserShift = (props) => {
   }
 
   return <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`}>
-    <p className={styles.shift_data_p}>{shift.description}&nbsp;: {shift.startTime} - {shift.endTime}</p>
+    <p className={styles.shift_data_p}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
     
     {
   !props.weekPublished ? (

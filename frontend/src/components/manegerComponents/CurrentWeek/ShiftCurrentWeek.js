@@ -40,7 +40,7 @@ const ShiftCurrentWeek = (props) => {
     }
 
     return <div className={styles.shift}>
-        <p className={styles.shift_description}>{shift.description}&nbsp;: {shift.startTime} - {shift.endTime}</p>
+        <p className={styles.shift_description}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
         <CurrentWeekWorkers
             weekPublished={props.weekPublished}
             removeWorkerShift={removeWorkerShift}
