@@ -29,7 +29,7 @@ const WorkersCurrentWeek = (props) => {
       <div className={styles.workers_showList}>
         {workersArr.map((worker, index) => (
             <div key={index} className={styles.nameAndDelete}>
-              <p className={styles.names}>{worker.fullName}&nbsp; •</p>
+              <p className={styles.names}>{worker.fullName}</p>
             </div>
           ))}
       </div>

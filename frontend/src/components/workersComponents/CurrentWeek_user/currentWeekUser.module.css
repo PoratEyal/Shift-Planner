@@ -108,15 +108,18 @@
 .shift{
     width: 280px;
     font-size: 1.2em;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    background-color: rgb(244, 247, 250);
+    border: 1px solid rgba(101, 101, 101, 0.25);
+    background-color: rgba(231, 234, 238, 0.533);
     margin: 10px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+}
+.shift:hover{
+    cursor: pointer;
 }
 
 .worksHer{
@@ -261,6 +264,7 @@ transform: scale(1.02);
 
 .shift_name{
     margin: 10px;
+    margin-right: 15px;
 }
 
 .workers_showList{
@@ -394,6 +398,7 @@ transform: scale(1.02);
 
 .names{
     margin: 15px;
+    text-overflow: ellipsis;
 }
 
 .nameAndDelete{

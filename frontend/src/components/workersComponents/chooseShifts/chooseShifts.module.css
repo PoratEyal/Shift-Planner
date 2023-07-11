@@ -87,9 +87,9 @@
 .shift{
     width: 280px;
     font-size: 1.2em;
-    border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    background-color: rgb(244, 247, 250);
+    border: 1px solid rgba(101, 101, 101, 0.25);
+    background-color: rgba(231, 234, 238, 0.533);
     margin: 10px;
     display: flex;
     flex-direction: column;
