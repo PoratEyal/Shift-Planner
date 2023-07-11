@@ -26,7 +26,7 @@ const CurrentWeekWorkers = (props) => {
                 });
         });
         availableWorkers.map(worker => {
-            axios.get(`http://localhost:3001/app/getUserById/${worker}`)
+            axios.get(`${process.env.REACT_APP_URL}/getUserById/${worker}`)
                 .then(response => {
                     const worker = response.data;
                     setAvailableWorkersArr(prevWorker => [...prevWorker, worker])
