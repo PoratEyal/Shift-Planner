@@ -72,13 +72,11 @@ const CurrentWeekUser = () => {
             <div className={styles.upperContainer}>
                 <div className={styles.nav_container}>
                     <div className={styles.title_div}>
-                        <p className={styles.ellipsis}>שלום&nbsp;{fullname}</p>
+                        <p className={styles.ellipsis}>{fullname}</p>
                     </div>
 
                     <div className={styles.other_icons_div}>
                        <button className={styles.chose_shift_btn} onClick={() => {ChooseShiftsHandler()}}>בחירת משמרות</button> 
-                        
-
                         <Link to="/userSettings"><button className={styles.user_settings}><BiUserCircle></BiUserCircle></button></Link>
                         <Link to="/"><button onClick={signout} className={styles.signout}><BiLogOut></BiLogOut></button></Link>
                     </div>
