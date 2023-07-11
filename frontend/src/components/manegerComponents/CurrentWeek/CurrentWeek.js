@@ -30,13 +30,13 @@ const CurrentWeek = () => {
             </div>
 
             {weekPublished ? <div className={styles.messege}>
-                <p> השבוע פורסם, לא ניתן יותר לבחור עובדים</p>   
+                <p> השבוע פורסם</p>   
             </div> : null}
 
             <div style={{ marginTop: '70px' }} className={styles.container}>
                 {
                     week ? week.day.map((day) => {
-                        return <DayCurrentWeek weekPublished={weekPublished} day={day} key={day._id} getDays={getDays}></DayCurrentWeek>
+                        return <DayCurrentWeek  day={day} key={day._id} getDays={getDays}></DayCurrentWeek>
                     }) : null
                 }
             </div>
