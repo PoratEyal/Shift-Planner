@@ -28,12 +28,12 @@ const CurrentWeekUser = () => {
     }, [])
 
     const getDays = () => {
-             axios.get("http://localhost:3001/app/getCurrentWeek").then((response) => {
+             axios.get(`${process.env.REACT_APP_URL}/getCurrentWeek`).then((response) => {
                 setWeek(response.data);
                 //setWeekVisible(response.data.visible)
         }).catch(err=> console.log(err));
 
-        axios.get("http://localhost:3001/app/getNextWeek").then((response) => {
+        axios.get(`${process.env.REACT_APP_URL}/getNextWeek`).then((response) => {
             setNextWeek(response.data);
             setWeekVisible(response.data.visible)
     }).catch(err=> console.log(err));

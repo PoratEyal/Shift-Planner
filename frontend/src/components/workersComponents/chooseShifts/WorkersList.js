@@ -10,7 +10,7 @@ const WorkerList = (props) => {
 
     useEffect(() => {
         workers.map(worker => {
-            axios.get(`http://localhost:3001/app/getUserById/${worker}`)
+            axios.get(`${process.env.REACT_APP_URL}/getUserById/${worker}`)
                 .then(response => {
                     setLoading(true)
                     const fullName = response.data.fullName;
