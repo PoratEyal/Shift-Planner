@@ -14,7 +14,7 @@ const UserShift = (props) => {
     if (shift.availableWorkers.includes(data._id) || shift.workers.includes(data._id)) {
       setAdded(true);
     }
-    if (shift.workers.includes(data._id)){
+    if (shift.workers.includes(data._id) && shift.publishScheduling === true){
       setAddClass(true)
     }
   }, [])
