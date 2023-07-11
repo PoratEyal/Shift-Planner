@@ -1,8 +1,8 @@
 .user_container{
     width: 270px;
-    border: 1px solid rgba(0, 0, 0, 0.25);
+    border: none;
     border-radius: 10px;
-    background-color: rgb(244, 247, 250);
+    background-color: rgb(229, 233, 236);
     margin: 10px;
     display: flex;
     flex-direction: row;
