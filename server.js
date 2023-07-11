@@ -19,5 +19,5 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors());
 app.use('/app', routesUrls);
-app.listen(3001, () => console.log("server is runing..."));
+app.listen(process.env.PORT || 3001, () => console.log("server is runing..."));
 
