@@ -8,8 +8,8 @@ const SeeShiftCurrentWeek = (props) => {
     const [shift, setShift] = useState(props.shift);
 
     return <div className={styles.shift}>
-        <p className={styles.shift_name}>{shift.description}</p>
-        <p>משעה - {shift.startTime} עד {shift.endTime}</p>
+        <p className={styles.shift_description}>{shift.description}: {shift.startTime} - {shift.endTime}</p>
+        {/* <p>{shift.startTime} - {shift.endTime}</p> */}
         <CurrentWeekWorkers workers={shift.workers}></CurrentWeekWorkers>
     </div>
 }

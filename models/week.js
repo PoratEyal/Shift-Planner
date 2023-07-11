@@ -9,6 +9,10 @@ const weekSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
     },
+    publishScheduling: {
+      type: Boolean,
+      default: false 
+    },
     visible: {
       type: Boolean,
       default: false 

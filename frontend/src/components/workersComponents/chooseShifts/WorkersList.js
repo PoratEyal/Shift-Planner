@@ -6,7 +6,7 @@ const WorkerList = (props) => {
     
     const [workers, setWorkers] = useState(props.workers)
     const [workerNames, setWorkerNames] = useState([]);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(null)
 
     useEffect(() => {
         workers.map(worker => {
@@ -22,24 +22,13 @@ const WorkerList = (props) => {
         });
     }, []);
     
-    return (
-        <div className={styles.workers_list}>
-          {!loading ? (
-            <div className={styles.loadingWorkers}>
-              <div className={styles['three-body']}>
-                <div className={styles['three-body__dot']}></div>
-                <div className={styles['three-body__dot']}></div>
-                <div className={styles['three-body__dot']}></div>
-              </div>
-            </div>
-          ) : (
+    return <div className={styles.workers_showList}>
+          {
             workerNames.map((name, index) => (
               <p key={index}>{name} •</p>
             ))
-          )}
+          }
         </div>
-      );
-      
 }
 
 export default WorkerList;

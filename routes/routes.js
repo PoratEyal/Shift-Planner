@@ -516,6 +516,12 @@ router.put('/setNextWeekVisible', (req, res) => {
     }).catch(err => { console.log(err) })
 })
 
+router.put('/setNextWeekPublished', (req, res) => {
+    Week.findOneAndUpdate({ name: "NextWeek" }, { publishScheduling: "true" }).then(response => {
+        res.status(200).json(response);
+    }).catch(err => { console.log(err) })
+})
+
 
 
 router.post('/addWeek', async (req, res) => {

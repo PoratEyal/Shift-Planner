@@ -55,6 +55,7 @@
 
 .h2{
     margin-top: -15px;
+    margin-bottom: 5px;
 }
 
 .shift{
@@ -214,8 +215,8 @@
     background-color: rgba(255, 0, 0, 0.604);
 }
 
-.shift_name{
-    margin-bottom: -5px;
+.shift_description{
+    margin-bottom: 15px;
 }
 
 .shift_data_p{
@@ -352,20 +353,32 @@
 
 .btn_chose{
     margin: 15px;
-    background-color: rgba(144, 144, 144, 0.684);
+    background-color: rgba(54, 189, 36, 0.787);
     color: white;
     border: none;
     border-radius: 5px;
     padding: 9px;
+    width: 60px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn_chose:hover{
+    background-color: rgba(29, 134, 15, 0.787);
 }
 
 .btn_chosen{
+    width: 60px;
     margin: 15px;
-    background-color: rgba(31, 181, 17, 0.684);
+    background-color: rgba(230, 58, 20, 0.838);
     color: white;
     border: none;
     border-radius: 5px;
     padding: 9px;
+    cursor: pointer;
+    
+}
+.btn_chosen:hover{
+    background-color: rgba(196, 48, 15, 0.956);
 }
 
 .loadingWorkers_manger_page{
@@ -422,9 +435,9 @@
     border-radius: 0.5rem;
     border: 1px solid rgba(0, 0, 0, 0.25);
     gap: 0.75rem;
-    color: rgb(46, 181, 29);
-    background-color: #ffffffe1;
-    border: 2px solid rgb(46, 181, 29);
+    color: rgb(255, 255, 255);
+    background-color: rgb(46, 181, 29);
+    border: none;
     transition: all .6s ease;
     width: 320px;
     justify-content: center;
@@ -440,4 +453,33 @@
 }
 .workers_showList > :last-child {
     grid-column-start: 2;
+}
+
+.home_btn{
+    cursor: pointer;
+}
+
+.messege{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 10px;
+    font-size: 18px;
+    line-height: 1.25rem;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    gap: 0.75rem;
+    color: rgb(255, 255, 255);
+    background-color: rgb(46, 181, 29);
+    border: none;
+    transition: all .6s ease;
+    width: 300px;
+    height: 40px;
+    justify-content: center;
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: -70px;
 }

@@ -4,7 +4,7 @@ const Day = require('./models/day');
 const { response } = require('express');
 function CreateWeek(){
     const days = ['ראשון', 'שני', "שלישי", "רביעי", "חמישי", "שישי", "שבת"];
-    Week.create({ name: 'NextWeek', visible: false, day: [] })
+    Week.create({ name: 'NextWeek', visible: false, publishScheduling:false, day: [] })
     .then(newWeek => {
       const saveNextDay = index => {
         if (index >= days.length) {

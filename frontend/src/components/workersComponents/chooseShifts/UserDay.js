@@ -60,7 +60,7 @@ const UserDay = (props) => {
                         <div className={styles['three-body__dot']}></div>
                     </div>
                 ) : (
-                    dayShifts.map((shift) => {return shift ? <UserShift getShifts={updateShifts} shift={shift} dayId={day._id} key={shift._id}></UserShift> : null }))
+                    dayShifts.map((shift) => {return shift ? <UserShift weekPublished={props.weekPublished} getShifts={updateShifts} shift={shift} dayId={day._id} key={shift._id}></UserShift> : null }))
             }
 
         </div>

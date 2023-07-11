@@ -24,7 +24,7 @@ const SeeCurrentWeek = () => {
     return <React.Fragment>
         <div>
             <div className={styles.nav_container}>
-                <button onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
+                <button className={styles.home_btn} onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
                 <p>צפייה בשבוע הנוכחי</p>
             </div>
 

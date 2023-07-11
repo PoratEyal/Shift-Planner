@@ -11,6 +11,9 @@ const AddRole = (props) => {
   const [loading, setLoading] = useState(false);
 
   const addRole = async () => {
+    if(role === ''){
+      return
+    }
     const newRole = {
       name: role
     };
@@ -112,6 +115,7 @@ const AddRole = (props) => {
             value={role}
             onChange={(e) => setRole(e.target.value)}
             placeholder='תפקיד'
+            required
           />
           <div>
             <button onClick={addRole} className={styles.btn}>הוסף</button>
