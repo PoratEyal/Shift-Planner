@@ -47,7 +47,7 @@ const UserManagement = () => {
     const config = {
       headers: { Authorization: `Bearer ${token}` }
     }
-    axios.get('http://localhost:3001/app/getRoles', config).then((response) => {
+    axios.get(`${process.env.REACT_APP_URL}/getRoles`, config).then((response) => {
       setRoles(response.data);
     }).catch((err) => { console.log(err) });
   };
@@ -62,10 +62,8 @@ const UserManagement = () => {
       manager: data._id,
       job: "user"
     }
-    //console.log('Form submitted:', { fullName, username, password, selectedRole});
-    axios.post("http://localhost:3001/app/addUser", newUser)
+    axios.post(`${process.env.REACT_APP_URL}/app/addUser`, newUser)
       .then((response) => {
-        //console.log('Form submitted successfully:', response.data);
         setUserAdded(true);
         setFullName('');
         setUsername('');
@@ -79,7 +77,6 @@ const UserManagement = () => {
 
   const childElements = [
     <div id="users" className={styles.users}>
-      {/* <h2 className={styles.h2}>משתמשים</h2> */}
       <AllUsers added={userAdded}></AllUsers>
     </div>,
 
