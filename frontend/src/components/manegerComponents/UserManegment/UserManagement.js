@@ -62,7 +62,7 @@ const UserManagement = () => {
       manager: data._id,
       job: "user"
     }
-    axios.post(`${process.env.REACT_APP_URL}/app/addUser`, newUser)
+    axios.post(`${process.env.REACT_APP_URL}/addUser`, newUser)
       .then((response) => {
         setUserAdded(true);
         setFullName('');
