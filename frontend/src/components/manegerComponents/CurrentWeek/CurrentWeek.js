@@ -12,7 +12,7 @@ const CurrentWeek = () => {
     const [weekPublished, setWeekPublished] = useState(null)
 
     const getDays = () => {
-        axios.get("http://localhost:3001/app/getNextWeek").then((response) => {
+        axios.get(`${process.env.REACT_APP_URL}/getNextWeek`).then((response) => {
             setWeek(response.data);
             setWeekPublished(response.data.publishScheduling)
         }).catch(err => console.log(err));

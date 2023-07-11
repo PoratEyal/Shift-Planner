@@ -1,13 +1,8 @@
 import { useRef, useState } from 'react';
-//import styles from '../userSettings/UserSetings.module.css';
-
 import styles from '../managerSettings/managerSetings.module.css'
-
 import axios from 'axios';
 import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
-
-
 
 const ManagerSettings = () => {
 
@@ -33,7 +28,7 @@ const ManagerSettings = () => {
             console.log(updatedUser);
 
             await axios
-                .put('http://localhost:3001/app/editUser', updatedUser)
+                .put(`${process.env.REACT_APP_URL}/editUser`, updatedUser)
                 .then((response) => {
                     console.log(response.data);
                     setPassword('');

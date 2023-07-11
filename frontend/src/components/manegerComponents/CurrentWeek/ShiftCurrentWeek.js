@@ -13,7 +13,7 @@ const ShiftCurrentWeek = (props) => {
             shiftId: shift._id,
             workerId: workerId
         }
-        axios.put("http://localhost:3001/app/addWorkerToWorkrs", reqBody)
+        axios.put(`${process.env.REACT_APP_URL}/addWorkerToWorkrs`, reqBody)
             .then((response) => {
                 console.log(response.data);
                 props.setDay(response.data);
@@ -30,7 +30,7 @@ const ShiftCurrentWeek = (props) => {
             shiftId: shift._id,
             workerId: workerId
         }
-        axios.put("http://localhost:3001/app/WorkersToAvail", reqBody)
+        axios.put(`${process.env.REACT_APP_URL}/WorkersToAvail`, reqBody)
             .then((response) => {
                 props.setDay(response.data);
             })
