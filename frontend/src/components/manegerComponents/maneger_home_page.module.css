@@ -21,23 +21,24 @@
 .h1{
   color: white;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin-right: 20px;
+  margin-right: 15px;
   margin-bottom: 15px;
-  margin-top: 17px;
+  margin-top: 12px;
   font-size: 20px;
   text-align: right;
   direction: rtl;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 140px;
   font-weight: 600;
+  text-overflow: ellipsis;
+  max-width: 110px;
 }
 
 .user_managment_btn{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 16px;
-  width: 110px;
+  width: 130px;
   background-color: #150d5a00;
   transition: 0.3s;
   font-weight: 500;
@@ -48,7 +49,6 @@
   padding: 5px;
   border-radius: 5px;
   border: 1px solid rgb(255, 255, 255);
-  margin-right: 30px;
 }
 .user_managment_btn:hover{
   cursor: pointer;
@@ -60,7 +60,7 @@
   background-color: #33289100;
   border: none;
   margin-top: 3px;
-  margin-left: 10px;
+  margin-left: 5px;
   color: white;
 }
 .signout:hover{

@@ -15,6 +15,7 @@
     width: 100%;
     position:fixed;
     z-index: 999;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .navbar{
@@ -80,11 +81,12 @@ ul.navbar li button {
     background-color: #2977bc;
     color: white;
     border: 1.5px solid white;
-    border-radius: 50px;
+    border-radius: 30px;
     font-size: 40px;
     width: 60px;
     height: 60px;
     transition: 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .addUser_btn:hover{
@@ -93,7 +95,7 @@ ul.navbar li button {
 }
 
 .container{
-    margin-top: 60px;
+    margin-top: 70px;
     display: flex;
     flex-direction: column;
     justify-content: center;
