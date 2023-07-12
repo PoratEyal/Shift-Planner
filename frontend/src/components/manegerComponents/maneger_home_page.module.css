@@ -91,29 +91,28 @@
 .btn{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 18px;
+  font-size: 23px;
   padding: 25px;
-  height: 90px;
+  height: 100px;
   background-color: #2977bc;
   color: rgb(255, 255, 255);
   border: none;
-  width: 310px;
+  width: 350px;
   transition: 0.3s;
   margin-bottom: 25px;
   border-radius: 16px;
   font-weight: 600;
-  text-align: right;
 }
 .btn:hover{
   cursor: pointer;
   transform: scale(1.02);
 }
 
-.icon_div{
-  margin-right: 15px;
+.text_div{
+  margin-right: -5px;
 }
 
 .icon{
@@ -186,16 +185,13 @@
       width: 280px;
       height:80px;
       text-align: end;
-      font-size: 15px;
-  }
-  .info_inside_btn_div{
-    margin-right: -10px;
+      font-size: 17px;
   }
 }
 @media only screen and (min-width: 400px) and (max-width: 540px) {
   .btn{
-      width: 300px;
+      width: 320px;
       text-align: end;
-      font-size: 17px;
+      font-size: 20px;
   }
 }

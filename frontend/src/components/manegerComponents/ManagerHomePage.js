@@ -62,7 +62,7 @@ const ManagerHomePage = () => {
                     <div className={styles.icon_div}>
                         {<AiOutlineSchedule className={styles.icon}></AiOutlineSchedule>} 
                     </div>
-                    <div>
+                    <div className={styles.text_div}>
                         הצג משמרות נוכחיות  
                     </div>
                 </button>
@@ -73,7 +73,7 @@ const ManagerHomePage = () => {
                     <div className={styles.icon_div}>
                         {<IoIosCreate className={styles.icon}></IoIosCreate>}
                     </div>
-                    <div>
+                    <div className={styles.text_div}>
                         יצירת משמרות לשבוע הבא
                     </div>
                 </button>
@@ -84,7 +84,7 @@ const ManagerHomePage = () => {
                     <div className={styles.icon_div}>
                         {<AiOutlineUsergroupAdd className={styles.icon3}></AiOutlineUsergroupAdd>}
                     </div>
-                    <div>
+                    <div className={styles.text_div}>
                         הקצאת משמרות לשבוע הבא
                     </div>
                 </button>
