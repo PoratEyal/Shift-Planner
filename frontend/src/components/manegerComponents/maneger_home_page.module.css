@@ -89,7 +89,10 @@
 }
 
 .btn{
-  text-align: end;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 18px;
   padding: 25px;
@@ -97,25 +100,29 @@
   background-color: #2977bc;
   color: rgb(255, 255, 255);
   border: none;
-  width: 300px;
+  width: 310px;
   transition: 0.3s;
   margin-bottom: 25px;
   border-radius: 16px;
   font-weight: 600;
+  text-align: right;
 }
 .btn:hover{
   cursor: pointer;
   transform: scale(1.02);
 }
+
+.icon_div{
+  margin-right: 15px;
+}
+
 .icon{
-  margin-right: 10px;
   font-size: 40px;
   rotate: -20deg;
   margin-top: -10px;
   margin-bottom: -10px;
 }
 .icon3{
-  margin-right: 10px;
   font-size: 40px;
   margin-top: -10px;
   margin-bottom: -10px;
@@ -163,4 +170,32 @@
   border: 2px solid white;
   cursor: pointer;
   transform: scale(1.02);
+}
+
+
+@media only screen and (min-width: 0px) and (max-width: 314px) {
+  .btn{
+      width: 220px;
+      height:80px;
+      text-align: end;
+      font-size: 15px;margin-bottom: 20px;
+  }
+}
+@media only screen and (min-width: 315px) and (max-width: 399px) {
+  .btn{
+      width: 280px;
+      height:80px;
+      text-align: end;
+      font-size: 15px;
+  }
+  .info_inside_btn_div{
+    margin-right: -10px;
+  }
+}
+@media only screen and (min-width: 400px) and (max-width: 540px) {
+  .btn{
+      width: 300px;
+      text-align: end;
+      font-size: 17px;
+  }
 }

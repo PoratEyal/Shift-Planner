@@ -59,24 +59,33 @@ const ManagerHomePage = () => {
         <div className={styles.container}>
             <Link to="/SeeCurrentWeekShifts">
                 <button className={styles.btn}>
+                    <div className={styles.icon_div}>
+                        {<AiOutlineSchedule className={styles.icon}></AiOutlineSchedule>} 
+                    </div>
                     <div>
-                        {<AiOutlineSchedule className={styles.icon}></AiOutlineSchedule>} הצג משמרות נוכחיות
+                        הצג משמרות נוכחיות  
                     </div>
                 </button>
             </Link>
 
             <Link to="/createNewWeek">
                 <button className={styles.btn}>
+                    <div className={styles.icon_div}>
+                        {<IoIosCreate className={styles.icon}></IoIosCreate>}
+                    </div>
                     <div>
-                    {<IoIosCreate className={styles.icon}></IoIosCreate>} יצירת משמרות לשבוע הבא 
+                        יצירת משמרות לשבוע הבא
                     </div>
                 </button>
             </Link> 
 
             <Link to="/currentWeekShifts">
                 <button className={styles.btn}>
+                    <div className={styles.icon_div}>
+                        {<AiOutlineUsergroupAdd className={styles.icon3}></AiOutlineUsergroupAdd>}
+                    </div>
                     <div>
-                        {<AiOutlineUsergroupAdd className={styles.icon3}></AiOutlineUsergroupAdd>} הקצאת משמרות לשבוע הבא
+                        הקצאת משמרות לשבוע הבא
                     </div>
                 </button>
             </Link>
