@@ -176,7 +176,7 @@
 }
 
 
-@media only screen and (min-width: 0px) and (max-width: 314px) {
+@media only screen and (min-width: 0px) and (max-width: 339px) {
   .btn{
       width: 220px;
       height:80px;
@@ -184,17 +184,17 @@
       font-size: 15px;margin-bottom: 20px;
   }
 }
-@media only screen and (min-width: 315px) and (max-width: 399px) {
+@media only screen and (min-width: 340px) and (max-width: 399px) {
   .btn{
-      width: 280px;
-      height:80px;
+      width: 310px;
+      height:90px;
       text-align: end;
       font-size: 17px;
   }
 }
 @media only screen and (min-width: 400px) and (max-width: 540px) {
   .btn{
-      width: 320px;
+      width: 340px;
       text-align: end;
       font-size: 20px;
   }
