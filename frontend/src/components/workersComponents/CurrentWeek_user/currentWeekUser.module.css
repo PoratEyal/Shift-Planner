@@ -108,8 +108,8 @@
 .shift{
     width: 280px;
     font-size: 1.2em;
-    border: 1px solid rgba(101, 101, 101, 0.25);
-    background-color: rgba(231, 234, 238, 0.92);
+    border: 1px solid rgba(101, 101, 101, 0.245);
+    background-color: rgba(231, 234, 238, 0.332);
     margin: 10px;
     border-radius: 10px;
     display: flex;
@@ -243,7 +243,7 @@ transform: scale(1.02);
     grid-template-columns: 1fr 1fr;
     margin-top: 0px;
     width: 100%;
-    border-top: 1px solid rgba(79, 79, 79, 0.417);
+    border-top: 1px solid rgba(101, 101, 101, 0.245);
 }
     
 .workers_list p {
@@ -273,7 +273,7 @@ transform: scale(1.02);
     justify-items: end;
     margin-top: 0px;
     width: 100%;
-    border-top: 1px solid rgba(79, 79, 79, 0.417);
+    border-top: 1px solid rgba(101, 101, 101, 0.245);
 }
 .workers_showList > :last-child {
     grid-column-start: 2;
@@ -390,7 +390,7 @@ transform: scale(1.02);
 
 
 .workers_list_delete{
-    border-top: 1px solid rgba(79, 79, 79, 0.417);
+    border-top: 1px solid rgba(101, 101, 101, 0.245);
     width: 100%;
     display: flex;
     flex-direction: column;

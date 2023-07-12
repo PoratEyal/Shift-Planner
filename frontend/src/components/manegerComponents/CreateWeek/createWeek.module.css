@@ -64,15 +64,14 @@
     font-size: 1.2em;
     border: none;
     border-radius: 10px;
-    border: 1px solid rgba(101, 101, 101, 0.25);
-    background-color: rgba(231, 234, 238, 0.533);
+    border: 1px solid rgba(101, 101, 101, 0.245);
+    background-color: rgba(231, 234, 238, 0.332);
     margin: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 1px 2px -13px; */
 }
 
 .buttons{
@@ -193,7 +192,7 @@
     grid-template-columns: 1fr 1fr;
     margin-top: 0px;
     width: 100%;
-    border-top: 1px solid rgba(79, 79, 79, 0.417);
+    border-top: 1px solid rgba(101, 101, 101, 0.245);
 }
     
 .workers_list p {
@@ -202,8 +201,8 @@
 
 
 .btn_delete{
-    color: rgb(0, 0, 0);
-    background-color: rgba(209, 209, 209, 0.752);
+    color: rgba(16, 16, 16, 0.989);
+    background-color: rgba(209, 209, 209, 0.56);
     border: none;
     border-radius: 5px;
     padding: 9px;
@@ -215,7 +214,7 @@
 .btn_delete:hover{
     cursor: pointer;
     color: white;
-    background-color: rgba(202, 21, 21, 0.751);
+    background-color: rgba(231, 18, 18, 0.673);
 }
 
 .shift_description{
@@ -338,14 +337,14 @@
 
 
 .workers_list_delete{
-    border-top: 1px solid rgba(79, 79, 79, 0.417);
+    border-top: 1px solid rgba(101, 101, 101, 0.245);
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .names{
-    margin: 15px;
+    margin: 10px;
     margin-right: 20px;
 }
 
@@ -451,12 +450,13 @@
 }
 
 .workers_showList{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: end;
-    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
     width: 100%;
-    border-top: 1px solid rgba(79, 79, 79, 0.417);
+    margin-top: 5px;
+    border-top: 1px solid rgba(101, 101, 101, 0.245);
 }
 .workers_showList > :last-child {
     grid-column-start: 2;
