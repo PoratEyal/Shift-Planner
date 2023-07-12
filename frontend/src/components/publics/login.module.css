@@ -37,6 +37,11 @@
   margin-bottom: 30px;
   color: #2977bc;
 }
+@media  (max-width:320px)  {
+  .login-text {
+    font-size: 25px;
+  }
+}
 
 /* buttons - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .btn {
