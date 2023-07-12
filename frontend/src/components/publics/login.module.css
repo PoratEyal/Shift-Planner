@@ -71,7 +71,7 @@ background-color: #2977bc;
 
 /* inputs - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-input.input{
+input .input{
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
