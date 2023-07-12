@@ -32,7 +32,7 @@ const Login = () => {
             console.log(err);
           })
         }}>
-          <h1 className={styles["login-text"]}>כניסה למערכת</h1>
+          <h1 className={styles["login-text"]}>כניסה</h1>
 
           <div>
             <div className={styles["wave-group"]}>
