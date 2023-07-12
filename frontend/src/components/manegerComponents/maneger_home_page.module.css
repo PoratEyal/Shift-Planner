@@ -115,6 +115,10 @@
   margin-right: -5px;
 }
 
+.link{
+  text-decoration: none;
+}
+
 .icon{
   font-size: 40px;
   rotate: -20deg;

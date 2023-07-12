@@ -57,7 +57,7 @@ const ManagerHomePage = () => {
         </div>
 
         <div className={styles.container}>
-            <Link to="/SeeCurrentWeekShifts">
+            <Link className={styles.link} to="/SeeCurrentWeekShifts">
                 <button className={styles.btn}>
                     <div className={styles.icon_div}>
                         {<AiOutlineSchedule className={styles.icon}></AiOutlineSchedule>} 
@@ -68,7 +68,7 @@ const ManagerHomePage = () => {
                 </button>
             </Link>
 
-            <Link to="/createNewWeek">
+            <Link className={styles.link} to="/createNewWeek">
                 <button className={styles.btn}>
                     <div className={styles.icon_div}>
                         {<IoIosCreate className={styles.icon}></IoIosCreate>}
@@ -79,7 +79,7 @@ const ManagerHomePage = () => {
                 </button>
             </Link> 
 
-            <Link to="/currentWeekShifts">
+            <Link className={styles.link} to="/currentWeekShifts">
                 <button className={styles.btn}>
                     <div className={styles.icon_div}>
                         {<AiOutlineUsergroupAdd className={styles.icon3}></AiOutlineUsergroupAdd>}
