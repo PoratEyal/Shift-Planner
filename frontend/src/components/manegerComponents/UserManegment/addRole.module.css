@@ -200,7 +200,7 @@ transform: scale(1.02);
         width: 220px;
     }
 } */
-@media only screen and (min-width: 0px) and (max-width: 767px) {
+/* @media only screen and (min-width: 0px) and (max-width: 767px) {
     .roles{
         width: 230px;
     }
@@ -210,4 +210,4 @@ transform: scale(1.02);
     .input{
         width: 220px;
     }
-}
+} */
