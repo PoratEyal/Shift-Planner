@@ -70,6 +70,11 @@
     padding: 5px;
     margin-left: 12px;
     border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
     border-right: 1.5px solid white;
     border-left: 1.5px solid white;
 }
