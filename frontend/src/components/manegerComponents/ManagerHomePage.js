@@ -24,7 +24,7 @@ const ManagerHomePage = () => {
 
     const signout = () => {
         Swal.fire({
-            title: 'האם אתה רוצה להתנתק',
+            title: 'האם ברצונכם להתנתק',
             text: "",
             icon: 'warning',
             showCancelButton: true,

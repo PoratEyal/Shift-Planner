@@ -87,7 +87,6 @@ ul.navbar li button {
     display: grid;
     place-items: center;
 }
-
 .addUser_btn:hover{
     cursor: pointer;
     background-color: #2889df;
@@ -232,3 +231,53 @@ ul.navbar li button {
 transform: scale(1.02);
 }
 
+
+
+@media only screen and (max-width: 480px) {
+    .addUser_btn{
+        bottom: 25px;
+        right: 15px;
+    }
+    .users{
+        width: 220px;
+    }
+    .createUser{
+        width: 210px;
+    }
+    .createRole{
+        width: 220px;
+    }
+    .input{
+        width: 110px;
+    }
+    .select{
+        width: 120px;
+    }
+    .btn{
+        width: 210px;
+    }
+}
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+    .addUser_btn{
+        bottom: 25px;
+        right: 15px;
+    }
+    .users{
+        width: 220px;
+    }
+    .createUser{
+        width: 220px;
+    }
+    .createRole{
+        width: 220px;
+    }
+    .input{
+        width: 120px;
+    }
+    .select{
+        width: 135px;
+    }
+    .btn{
+        width: 220px;
+    }
+}
