@@ -4,7 +4,11 @@ import { Link, Outlet} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { BiLogOut } from "react-icons/bi";
 import { BiUserCircle } from "react-icons/bi";
+import { AiOutlineSchedule } from "react-icons/ai";
+import { IoIosCreate } from "react-icons/io";
+import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import Swal from 'sweetalert2';
+
 
 const ManagerHomePage = () => {
     const navigate = useNavigate();
@@ -24,7 +28,7 @@ const ManagerHomePage = () => {
 
     const signout = () => {
         Swal.fire({
-            title: 'האם אתה רוצה להתנתק',
+            title: 'האם ברצונכם להתנתק',
             text: "",
             icon: 'warning',
             showCancelButton: true,
@@ -46,20 +50,46 @@ const ManagerHomePage = () => {
             <div className={styles.nav_buttons}>
                 <Link to="/"><button className={styles.signout} onClick={signout}><BiLogOut></BiLogOut></button></Link>
                 <Link to="/managerSettings"><button className={styles.user_settings}><BiUserCircle></BiUserCircle></button></Link>
-                <Link to="/userManagment"><button className={styles.user_managment_btn}>ניהול משתמשים</button></Link>
+                <Link to="/userManagment"><button className={styles.user_managment_btn}>עובדים</button></Link>
             </div>
 
             <h1 className={styles.h1}>{fullname}</h1>
         </div>
 
         <div className={styles.container}>
-            <Link to="/SeeCurrentWeekShifts">
-            <button className={styles.btn}>הצג משמרות נוכחיות</button>
+            <Link className={styles.link} to="/SeeCurrentWeekShifts">
+                <button className={styles.btn}>
+                    <div className={styles.icon_div}>
+                        {<AiOutlineSchedule className={styles.icon}></AiOutlineSchedule>} 
+                    </div>
+                    <div className={styles.text_div}>
+                        הצג משמרות נוכחיות  
+                    </div>
+                </button>
             </Link>
-            <Link to="/createNewWeek"><button className={styles.btn}>יצירת משמרות לשבוע הבא</button></Link> 
-            <Link to="/currentWeekShifts">
-            <button className={styles.btn}>הקצאת משמרות לשבוע הבא</button>
+
+            <Link className={styles.link} to="/createNewWeek">
+                <button className={styles.btn}>
+                    <div className={styles.icon_div}>
+                        {<IoIosCreate className={styles.icon}></IoIosCreate>}
+                    </div>
+                    <div className={styles.text_div}>
+                        יצירת משמרות לשבוע הבא
+                    </div>
+                </button>
+            </Link> 
+
+            <Link className={styles.link} to="/currentWeekShifts">
+                <button className={styles.btn}>
+                    <div className={styles.icon_div}>
+                        {<AiOutlineUsergroupAdd className={styles.icon3}></AiOutlineUsergroupAdd>}
+                    </div>
+                    <div className={styles.text_div}>
+                        הקצאת משמרות לשבוע הבא
+                    </div>
+                </button>
             </Link>
+
             <Outlet />
         </div>
     </React.Fragment>

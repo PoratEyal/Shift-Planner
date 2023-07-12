@@ -12,7 +12,7 @@
     padding: 5px;
     border-radius: 5px;
     border: none;
-    margin-bottom: 10px;
+    margin-bottom: -2px;
     border: 1px solid rgba(0, 0, 0, 0.25);
     width: 250px;
     text-align: right;
@@ -188,3 +188,26 @@ transform: scale(1.02);
      opacity: 0.8;
     }
    }
+
+/* @media only screen and (max-width: 480px) {
+    .roles{
+        width: 225px;
+    }
+    .btn{
+        width: 230px;
+    }
+    .input{
+        width: 220px;
+    }
+} */
+/* @media only screen and (min-width: 0px) and (max-width: 767px) {
+    .roles{
+        width: 230px;
+    }
+    .btn{
+        width: 230px;
+    }
+    .input{
+        width: 220px;
+    }
+} */

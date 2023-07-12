@@ -8,7 +8,7 @@ const SeeShiftCurrentWeek = (props) => {
     const [shift, setShift] = useState(props.shift);
 
     return <div className={styles.shift}>
-        <p className={styles.shift_description}>{shift.description}&nbsp;: {shift.startTime} - {shift.endTime}</p>
+        <p className={styles.shift_description}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
         <CurrentWeekWorkers workers={shift.workers}></CurrentWeekWorkers>
     </div>
 }

@@ -23,7 +23,7 @@ const CurrentShiftUser = (props) => {
 
     return (
         <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`} onClick={() => {setShow(!showWorkers)}}>
-            <p className={styles.shift_name}>{shift.description}&nbsp;: {shift.startTime} - {shift.endTime}</p>
+            <p className={styles.shift_name}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
             {showWorkers ? <WorkersCurrentWeek workers={shift.workers}></WorkersCurrentWeek> : null}
         </div>
     );
