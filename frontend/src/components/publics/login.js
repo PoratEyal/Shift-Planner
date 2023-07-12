@@ -23,7 +23,7 @@ const Login = () => {
       <div className={styles.container_div}>
         <form className={styles.form} onSubmit={(e) => {
           e.preventDefault();
-          axios.post(`http://localhost:3001/app/login`, { username: username, password: password }).then((response) => {
+          axios.post(`${process.env.REACT_APP_URL}/login`, { username: username, password: password }).then((response) => {
             if(response.status === 200){
             const user = response.data;
             localStorage.setItem("token", user.token);
