@@ -458,18 +458,18 @@
 }
 
 .workers_showList{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: end;
+    direction: ltr;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
     margin-top: 0px;
     width: 100%;
     border-top: 1px solid rgba(101, 101, 101, 0.245);
 }
-.workers_showList > :last-child {
-    grid-column-start: 2;
-}
 .workers_showList p{
-    margin-right: 30px;
+    margin: 8px;
+    margin-right: 20px;
 }
 
 .worksHer{

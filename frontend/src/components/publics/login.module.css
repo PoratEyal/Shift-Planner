@@ -13,7 +13,7 @@
 .form {
   margin-right: 10px;
   width: 250px;
-  height: 300px;
+  height: 270px;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -29,43 +29,33 @@
 }
 
 .login-text {
+  text-align: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 40px;
   font-weight: bold;
   margin-top: 5px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   color: #2977bc;
 }
 
 /* buttons - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .btn {
-margin-top: 30px;
-max-width: 260px;
-display: flex;
+margin-top: 10px;
 padding: 1rem 2.4rem;
 font-size: 1.275rem;
-line-height: 1.25rem;
 font-weight: 700;
 text-align: center;
-text-transform: uppercase;
-vertical-align: middle;
-align-items: center;
 border-radius: 0.5rem;
-border: 1px solid rgba(0, 0, 0, 0.25);
-gap: 0.75rem;
-color: rgb(65, 63, 63);
+border: none;
 color: white;
-background-color: #fff;
 cursor: pointer;
 transition: all .6s ease;
-width: 400px;
-justify-content: center;
+width: 260px;
 background-color: #2977bc;
 }
 .btn:hover {
-transform: scale(1.02);
+  background-color: #1487eb;
 }
-
 
 /* inputs - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .wave-group {
