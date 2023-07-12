@@ -189,7 +189,7 @@ transform: scale(1.02);
     }
    }
 
-@media only screen and (max-width: 480px) {
+/* @media only screen and (max-width: 480px) {
     .roles{
         width: 225px;
     }
@@ -199,8 +199,8 @@ transform: scale(1.02);
     .input{
         width: 220px;
     }
-}
-@media only screen and (min-width: 481px) and (max-width: 767px) {
+} */
+@media only screen and (min-width: 0px) and (max-width: 767px) {
     .roles{
         width: 230px;
     }

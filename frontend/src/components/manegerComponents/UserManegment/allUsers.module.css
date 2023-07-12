@@ -139,12 +139,12 @@
    }
 
 
-@media only screen and (max-width: 480px) {
+/* @media only screen and (max-width: 480px) {
     .user_container{
         width: 230px;
     }
-}
-@media only screen and (min-width: 481px) and (max-width: 767px) {
+} */
+@media only screen and (min-width: 0px) and (max-width: 767px) {
     .user_container{
         width: 230px;
     }
