@@ -1,62 +1,42 @@
-.nav_container{
-    direction: rtl;
+.upperContainer{
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     height: 55px;
-    background-color: #413796;
+    width: 100vw;
+    margin-bottom: 60px;
     background-color: #2977bc;
-    top: 0;
-    left: 0;
-    width: 100%;
-    position:fixed;
-    z-index: 999;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: white;
-}
-
-.other_icons_div{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 14px;
+  }
+  
+  .nav_buttons{
     display: flex;
     flex-direction: row;
     align-items: center;
-    align-items: center;
-}
-
-.signout{
-    font-size: 25px;
+    justify-content: space-evenly;
+    width: 50vw;
+    max-width: 300px;
+  }
+  
+  .h1{
     color: white;
-    background-color: #41379600;
-    border:none;
-    margin-left: 10px;
-    margin-top: 2px;
-}
-.user_settings{
-    font-size: 25px;
-    color: white;
-    background-color: #41379600;
-    border:none;
-    margin-left: 7px;
-    margin-top: 2px;
-}
-
-.title_div{
-    margin-right: 10px;
-}
-
-.ellipsis{
-    margin-top: 17px;
-    font-size: 19px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    font-size: 20px;
     text-align: right;
     direction: rtl;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 140px;
     font-weight: 600;
-}
-
-.chose_shift_btn{
+    text-overflow: ellipsis;
+    max-width: 110px;
+  }
+  
+  .user_managment_btn{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 16px;
     width: 110px;
@@ -66,39 +46,58 @@
     color: rgb(255, 255, 255);
     margin-bottom: 5px;
     transition: 0.3s;
+    padding: 2px;
     border: none;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid rgb(255, 255, 255);
-    margin-left: 12px;
-  }
-  .chose_shift_btn:hover{
-    cursor: pointer;
-    transform: scale(1.02);
-}
-.chose_shift_btn_lock{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 16px;
-    width: 110px;
-    background-color: #150d5a00;
-    transition: 0.3s;
-    font-weight: 500;
-    color: rgb(207, 207, 207);
+    border-right: 1.5px solid white;
+    border-left: 1.5px solid white;
+    margin:0;
+    padding: 0;
     margin-bottom: 5px;
-    transition: 0.3s;
-    border: none;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid rgb(207, 207, 207);
-    margin-left: 12px;
-}
-.chose_shift_btn:hover{
+  }
+  .user_managment_btn:hover{
     cursor: pointer;
     transform: scale(1.02);
-}
+  }
+  
+  .signout{
+    font-size: 25px;
+    background-color: #33289100;
+    border: none;
+    margin-top: 3px;
+    color: white;
+    margin:0;
+    padding: 0;
+  }
+  .signout:hover{
+    cursor: pointer;
+  }
+  
+  .user_settings{
+    font-size: 25px;
+    background-color: #33289100;
+    border: none;
+    margin-top: 3px;
+    color: white;
+    margin-right: 5px;
+    margin:0;
+    padding: 0;
+  }
+  .user_settings:hover{
+    cursor: pointer;
+  }
+
+
+
+
+
+
 
 .container{
-    margin-top: 60px;
+    margin-top: -50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .day_container{
@@ -111,8 +110,8 @@
     padding: 20px;
     width: 280px;
     margin: 20px;
-    background: rgba(255, 255, 255, 0.704);
-    border-radius: 20px;
+    background: rgb(255, 255, 255);
+    border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
@@ -126,15 +125,18 @@
 .shift{
     width: 280px;
     font-size: 1.2em;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    background-color: rgb(244, 247, 250);
+    border: 1px solid rgba(101, 101, 101, 0.245);
+    background-color: rgba(231, 234, 238, 0.332);
     margin: 10px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+}
+.shift:hover{
+    cursor: pointer;
 }
 
 .worksHer{
@@ -258,7 +260,7 @@ transform: scale(1.02);
     grid-template-columns: 1fr 1fr;
     margin-top: 0px;
     width: 100%;
-    border-top: 1px solid rgba(79, 79, 79, 0.417);
+    border-top: 1px solid rgba(101, 101, 101, 0.245);
 }
     
 .workers_list p {
@@ -279,18 +281,21 @@ transform: scale(1.02);
 
 .shift_name{
     margin: 10px;
+    margin-right: 15px;
 }
 
 .workers_showList{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: end;
-    margin-top: 0px;
+    direction: ltr;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
     width: 100%;
-    border-top: 1px solid rgba(79, 79, 79, 0.417);
+    border-top: 1px solid rgba(101, 101, 101, 0.245);
 }
-.workers_showList > :last-child {
-    grid-column-start: 2;
+.workers_showList p{
+    margin: 8px;
+    margin-right: 20px;
 }
 
 .loadingWorkers{
@@ -404,7 +409,7 @@ transform: scale(1.02);
 
 
 .workers_list_delete{
-    border-top: 1px solid rgba(79, 79, 79, 0.417);
+    border-top: 1px solid rgba(101, 101, 101, 0.245);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -412,6 +417,7 @@ transform: scale(1.02);
 
 .names{
     margin: 15px;
+    text-overflow: ellipsis;
 }
 
 .nameAndDelete{

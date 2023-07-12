@@ -13,7 +13,7 @@ const WorkersCurrentWeek = (props) => {
     // get all the workers
     useEffect(() => {
       workers.map(worker => {
-            axios.get(`http://localhost:3001/app/getUserById/${worker}`)
+            axios.get(`${process.env.REACT_APP_URL}/getUserById/${worker}`)
                 .then(response => {
                     const worker = response.data;
                     setWorkersArr(prevWorker => [...prevWorker, worker]);
@@ -29,7 +29,7 @@ const WorkersCurrentWeek = (props) => {
       <div className={styles.workers_showList}>
         {workersArr.map((worker, index) => (
             <div key={index} className={styles.nameAndDelete}>
-              <p className={styles.names}>{worker.fullName}&nbsp; •</p>
+              <p className={styles.names}>{worker.fullName}&nbsp;•</p>
             </div>
           ))}
       </div>

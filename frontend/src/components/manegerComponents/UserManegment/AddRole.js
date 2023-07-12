@@ -19,7 +19,7 @@ const AddRole = (props) => {
     };
     try {
       await axios
-        .post("http://localhost:3001/app/addRole", newRole)
+        .post(`${process.env.REACT_APP_URL}/addRole`, newRole)
         .then(response => {
           console.log(response.data);
           setRole('');
@@ -44,7 +44,7 @@ const AddRole = (props) => {
       headers: { Authorization: `Bearer ${token}` }
     };
     axios
-      .get('http://localhost:3001/app/getRoles', config)
+      .get(`${process.env.REACT_APP_URL}/getRoles`, config)
       .then((response) => {
         setRoles(response.data);
         setLoading(true);
@@ -73,7 +73,7 @@ const AddRole = (props) => {
       });
         try {
           await axios
-            .delete(`http://localhost:3001/app/deleteRole/${roleId}`)
+            .delete(`${process.env.REACT_APP_URL}/deleteRole/${roleId}`)
             .then(response => {
               // Handle response if needed
             })

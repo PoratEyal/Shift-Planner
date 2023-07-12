@@ -1,4 +1,5 @@
 .container{
+    direction: ltr;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,6 +22,7 @@
     color: white;
     font-size: 25px;
     font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .nav_container p{
@@ -46,8 +48,8 @@
     padding: 20px;
     width: 280px;
     margin: 20px;
-    background: rgba(255, 255, 255, 0.704);
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.966);
+    border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
@@ -61,9 +63,10 @@
 .shift{
     width: 280px;
     font-size: 1.2em;
-    border: 1px solid rgba(0, 0, 0, 0.25);
+    border: none;
     border-radius: 10px;
-    background-color: rgb(244, 247, 250);
+    border: 1px solid rgba(101, 101, 101, 0.245);
+    background-color: rgba(231, 234, 238, 0.332);
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -190,7 +193,7 @@
     grid-template-columns: 1fr 1fr;
     margin-top: 0px;
     width: 100%;
-    border-top: 1px solid rgba(79, 79, 79, 0.417);
+    border-top: 1px solid rgba(101, 101, 101, 0.245);
 }
     
 .workers_list p {
@@ -199,8 +202,8 @@
 
 
 .btn_delete{
-    background-color: rgba(215, 215, 215, 0.642);
-    color: rgb(0, 0, 0);
+    color: rgba(16, 16, 16, 0.989);
+    background-color: rgba(209, 209, 209, 0.56);
     border: none;
     border-radius: 5px;
     padding: 9px;
@@ -212,10 +215,11 @@
 .btn_delete:hover{
     cursor: pointer;
     color: white;
-    background-color: rgba(255, 0, 0, 0.604);
+    background-color: rgba(231, 18, 18, 0.673);
 }
 
 .shift_description{
+    font-size: 1.1em;
     margin-bottom: 15px;
 }
 
@@ -334,14 +338,16 @@
 
 
 .workers_list_delete{
-    border-top: 1px solid rgba(79, 79, 79, 0.417);
+    direction: ltr;
+    border-top: 1px solid rgba(101, 101, 101, 0.245);
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .names{
-    margin: 15px;
+    margin: 10px;
+    margin-right: 20px;
 }
 
 .nameAndDelete{
@@ -361,6 +367,7 @@
     width: 60px;
     cursor: pointer;
     transition: 0.3s;
+    font-size: 15px;
 }
 .btn_chose:hover{
     background-color: rgb(30, 144, 14);
@@ -375,6 +382,7 @@
     border-radius: 5px;
     padding: 9px;
     cursor: pointer;
+    font-size: 15px;
     
 }
 .btn_chosen:hover{
@@ -444,12 +452,14 @@
 }
 
 .workers_showList{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: end;
-    margin-top: 0px;
+    direction: ltr;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
     width: 100%;
-    border-top: 1px solid rgba(79, 79, 79, 0.417);
+    margin-top: 5px;
+    border-top: 1px solid rgba(101, 101, 101, 0.245);
 }
 .workers_showList > :last-child {
     grid-column-start: 2;
@@ -480,6 +490,6 @@
     height: 40px;
     justify-content: center;
     text-align: center;
-    margin-top: 70px;
+    margin-top: 80px;
     margin-bottom: -70px;
 }

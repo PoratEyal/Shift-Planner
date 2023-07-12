@@ -1,8 +1,8 @@
 .user_container{
     width: 270px;
-    border: 1px solid rgba(0, 0, 0, 0.25);
+    border: none;
     border-radius: 10px;
-    background-color: rgb(244, 247, 250);
+    background-color: rgb(229, 233, 236);
     margin: 10px;
     display: flex;
     flex-direction: row;
@@ -137,4 +137,16 @@
      opacity: 0.8;
     }
    }
+
+
+/* @media only screen and (max-width: 480px) {
+    .user_container{
+        width: 230px;
+    }
+} */
+/* @media only screen and (min-width: 0px) and (max-width: 767px) {
+    .user_container{
+        width: 230px;
+    }
+} */
    

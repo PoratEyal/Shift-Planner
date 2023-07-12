@@ -15,40 +15,46 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  width: 40vw;
+  max-width: 300px;
 }
 
 .h1{
   color: white;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin-right: 20px;
+  margin-right: 15px;
   margin-bottom: 15px;
-  margin-top: 17px;
+  margin-top: 10px;
   font-size: 20px;
   text-align: right;
   direction: rtl;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 140px;
   font-weight: 600;
+  text-overflow: ellipsis;
+  max-width: 110px;
 }
 
 .user_managment_btn{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 16px;
-  width: 110px;
+  width: 70px;
   background-color: #150d5a00;
   transition: 0.3s;
   font-weight: 500;
   color: rgb(255, 255, 255);
   margin-bottom: 5px;
   transition: 0.3s;
+  padding: 2px;
+  /* border: 1px solid rgb(255, 255, 255); */
   border: none;
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid rgb(255, 255, 255);
-  margin-right: 30px;
+  border-right: 1.5px solid white;
+  border-left: 1.5px solid white;
+  margin:0;
+  padding: 0;
+  margin-bottom: 5px;
 }
 .user_managment_btn:hover{
   cursor: pointer;
@@ -60,12 +66,12 @@
   background-color: #33289100;
   border: none;
   margin-top: 3px;
-  margin-left: 10px;
   color: white;
+  margin:0;
+  padding: 0;
 }
 .signout:hover{
   cursor: pointer;
-  transform: scale(1.02);
 }
 
 .user_settings{
@@ -75,10 +81,11 @@
   margin-top: 3px;
   color: white;
   margin-right: 5px;
+  margin:0;
+  padding: 0;
 }
 .user_settings:hover{
   cursor: pointer;
-  transform: scale(1.02);
 }
 
 .container{
@@ -91,14 +98,18 @@
 }
 
 .btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 26px;
+  font-size: 23px;
   padding: 25px;
   height: 100px;
-  background-color: #1b5f9b;
+  background-color: #2977bc;
   color: rgb(255, 255, 255);
   border: none;
-  width: 335px;
+  width: 350px;
   transition: 0.3s;
   margin-bottom: 25px;
   border-radius: 16px;
@@ -108,6 +119,27 @@
   cursor: pointer;
   transform: scale(1.02);
 }
+
+.text_div{
+  margin-right: -5px;
+}
+
+.link{
+  text-decoration: none;
+}
+
+.icon{
+  font-size: 40px;
+  rotate: -20deg;
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+.icon3{
+  font-size: 40px;
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+
 
 .closed_btn{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -150,4 +182,29 @@
   border: 2px solid white;
   cursor: pointer;
   transform: scale(1.02);
+}
+
+
+@media only screen and (min-width: 0px) and (max-width: 339px) {
+  .btn{
+      width: 220px;
+      height:80px;
+      text-align: end;
+      font-size: 15px;margin-bottom: 20px;
+  }
+}
+@media only screen and (min-width: 340px) and (max-width: 399px) {
+  .btn{
+      width: 310px;
+      height:90px;
+      text-align: end;
+      font-size: 17px;
+  }
+}
+@media only screen and (min-width: 400px) and (max-width: 540px) {
+  .btn{
+      width: 340px;
+      text-align: end;
+      font-size: 20px;
+  }
 }

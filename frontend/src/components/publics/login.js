@@ -7,6 +7,7 @@ import Roles from './Roles';
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [notValid, setNotValid] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,17 +23,23 @@ const Login = () => {
       <div className={styles.container_div}>
         <form className={styles.form} onSubmit={(e) => {
           e.preventDefault();
-          axios.post("http://localhost:3001/app/login", { username: username, password: password }).then((response) => {
+          axios.post(`${process.env.REACT_APP_URL}/login`, { username: username, password: password }).then((response) => {
+            if(response.status === 200){
             const user = response.data;
             localStorage.setItem("token", user.token);
             localStorage.setItem("user", JSON.stringify(user));
             localStorage.setItem("isAuth", true);
             Roles.checkUserRole(user.job) ? navigate('/managerHomePage') : navigate('/CurrentWeek');
-          }).catch((err) => {
-            console.log(err);
+            }
+            else{
+              setNotValid(true);
+            }
+
+          }).catch(() => {
           })
         }}>
-          <label className={styles["login-text"]}>כניסה למערכת</label>
+          
+          <h1 className={styles["login-text"]}>כניסה למערכת</h1>
 
           <div>
             <div className={styles["wave-group"]}>
@@ -64,7 +71,9 @@ const Login = () => {
               </label>
             </div>
           </div>
-
+          {
+            notValid ? <p>שם משתמש או סיסמא שגויים</p> : null
+          }
           {/* <a href='/forgotPassword'>שכחתי סיסמה</a> */}
           
           <button className={styles.btn} type="submit">התחברות</button>

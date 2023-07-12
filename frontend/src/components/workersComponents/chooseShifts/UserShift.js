@@ -27,7 +27,7 @@ const UserShift = (props) => {
       shiftId: shift._id,
       workerId: data._id
     }
-    axios.put('http://localhost:3001/app/addWorkerToAvial', reqBody)
+    axios.put(`${process.env.REACT_APP_URL}/addWorkerToAvial`, reqBody)
       .then(response => {
         console.log(response);
       })
@@ -44,7 +44,7 @@ const UserShift = (props) => {
       shiftId: shift._id,
       workerId: data._id
     }
-    axios.put('http://localhost:3001/app/delWorkerToAvial', reqBody)
+    axios.put(`${process.env.REACT_APP_URL}/delWorkerToAvial`, reqBody)
       .then(response => {
         console.log(response);
       })
@@ -52,7 +52,7 @@ const UserShift = (props) => {
         console.log(error.response.data.error);
       });
       if(shift.workers.includes(data._id)){
-        axios.put('http://localhost:3001/app/removeWorkerFromWorkrs', reqBody)
+        axios.put(`${process.env.REACT_APP_URL}/removeWorkerFromWorkrs`, reqBody)
       .then(response => {
         console.log(response);
       })
@@ -63,7 +63,7 @@ const UserShift = (props) => {
   }
 
   return <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`}>
-    <p className={styles.shift_data_p}>{shift.description}: {shift.startTime} - {shift.endTime}</p>
+    <p className={styles.shift_data_p}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
     
     {
   !props.weekPublished ? (

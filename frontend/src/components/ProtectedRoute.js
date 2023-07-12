@@ -16,7 +16,7 @@ function ProtectedRoute({ component: Component, role }) {
           const config = {
             headers: { Authorization: `Bearer ${token}` }
           };
-          const response = await axios.get('http://localhost:3001/app/GetUserRole', config);
+          const response = await axios.get(`${process.env.REACT_APP_URL}/GetUserRole`, config);
           const user = response.data;
           if (user) {
             setUserRole(user.job);

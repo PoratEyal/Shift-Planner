@@ -9,11 +9,11 @@ const AllUsers = (props) => {
     const [users, setUsers] = useState([])
     const [userDeleted, setUserDelted] = useState(false)
     const [loading, setLoading] = useState(false)
-
+    const localUser = JSON.parse(localStorage.getItem("user"));
     useEffect(() => {
         const fetchData = async () => {
         try {
-            const response = await axios.get("http://localhost:3001/app/getUsers");
+            const response = await axios.get(`${process.env.REACT_APP_URL}/getUsers`);
             setUsers(response.data);
         } catch (error) {
             console.error(error);
@@ -26,7 +26,7 @@ const AllUsers = (props) => {
     useEffect(() => {
         const fetchData = async () => {
         try {
-            const response = await axios.get("http://localhost:3001/app/getUsers");
+            const response = await axios.get(`${process.env.REACT_APP_URL}/getUsers`);
             setUsers(response.data)
             setLoading(true)
         } catch (error) {
@@ -56,7 +56,7 @@ const AllUsers = (props) => {
           }
           );
         try {
-            await axios.delete(`http://localhost:3001/app/deleteUser/${userId}`)
+            await axios.delete(`${process.env.REACT_APP_URL}/deleteUser/${userId}`)
               .then(response => {
                 setUserDelted(true)
               })
@@ -80,6 +80,8 @@ const AllUsers = (props) => {
             </div>
           ) : (
             users.map((user) => (
+
+              (user._id !== localUser._id) ?
               <div key={user._id} className={styles.user_container}>
                 <div>
                   <button
@@ -96,6 +98,7 @@ const AllUsers = (props) => {
                   <p className={styles.p}>{user.fullName}</p>
                 </div>
               </div>
+              : null
             ))
           )}
         </div>

@@ -10,7 +10,7 @@ const WorkerList = (props) => {
 
     useEffect(() => {
         workers.map(worker => {
-            axios.get(`http://localhost:3001/app/getUserById/${worker}`)
+            axios.get(`${process.env.REACT_APP_URL}/getUserById/${worker}`)
                 .then(response => {
                     setLoading(true)
                     const fullName = response.data.fullName;
@@ -25,7 +25,7 @@ const WorkerList = (props) => {
     return <div className={styles.workers_showList}>
           {
             workerNames.map((name, index) => (
-              <p key={index}>{name} •</p>
+              <p key={index}>{name}&nbsp;•</p>
             ))
           }
         </div>

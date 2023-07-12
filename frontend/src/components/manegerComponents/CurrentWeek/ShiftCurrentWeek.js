@@ -6,6 +6,8 @@ import CurrentWeekWorkers from './CurrentWeekWorkers'
 const ShiftCurrentWeek = (props) => {
 
     const [shift, setShift] = useState(props.shift);
+    
+    const [showWorkers, setShow] = useState(true);
 
     const addWorkerShift = (workerId) => {
         const reqBody = {
@@ -39,15 +41,15 @@ const ShiftCurrentWeek = (props) => {
             });
     }
 
-    return <div className={styles.shift}>
-        <p className={styles.shift_description}>{shift.description}: {shift.startTime} - {shift.endTime}</p>
-        <CurrentWeekWorkers
+    return <div className={styles.shift} onClick={() => {setShow(!showWorkers)}}>
+        <p className={styles.shift_description}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
+        {showWorkers ?<CurrentWeekWorkers
             weekPublished={props.weekPublished}
             removeWorkerShift={removeWorkerShift}
             addWorkerShift={addWorkerShift}
             workers={shift.workers}
             availableWorkers={shift.availableWorkers}>   
-        </CurrentWeekWorkers>
+        </CurrentWeekWorkers> : null}
     </div>
 }
 

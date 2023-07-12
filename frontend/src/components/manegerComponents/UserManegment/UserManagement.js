@@ -47,7 +47,7 @@ const UserManagement = () => {
     const config = {
       headers: { Authorization: `Bearer ${token}` }
     }
-    axios.get('http://localhost:3001/app/getRoles', config).then((response) => {
+    axios.get(`${process.env.REACT_APP_URL}/getRoles`, config).then((response) => {
       setRoles(response.data);
     }).catch((err) => { console.log(err) });
   };
@@ -62,10 +62,8 @@ const UserManagement = () => {
       manager: data._id,
       job: "user"
     }
-    //console.log('Form submitted:', { fullName, username, password, selectedRole});
-    axios.post("http://localhost:3001/app/addUser", newUser)
+    axios.post(`${process.env.REACT_APP_URL}/addUser`, newUser)
       .then((response) => {
-        //console.log('Form submitted successfully:', response.data);
         setUserAdded(true);
         setFullName('');
         setUsername('');
@@ -79,7 +77,6 @@ const UserManagement = () => {
 
   const childElements = [
     <div id="users" className={styles.users}>
-      {/* <h2 className={styles.h2}>משתמשים</h2> */}
       <AllUsers added={userAdded}></AllUsers>
     </div>,
 
@@ -143,7 +140,6 @@ const UserManagement = () => {
     </div>,
 
     <div id="create-role" className={styles.createRole}>
-      {/* <h2 className={styles.h2}>תפקידים</h2> */}
       <AddRole roleAdded={getRoles}></AddRole>
     </div>
   ]
@@ -156,25 +152,30 @@ const UserManagement = () => {
     return (
       <div className={styles.nav_container}>
         <ul className={styles.navbar}>
-          <li>
-            <button onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
-          </li>
-          <li>
-            <a
-              href="#create-role"
-              className={`${styles.a} ${addLineRules && styles.addLine}`}
-              onClick={(e) => {handleClick(e, 'create-role'); setAddLineRules(true); setAddLineUsers(false)}}>
-              תפקידים
-            </a>
-          </li>
-          <li>
-            <a
-              href="#users"
-              className={`${styles.a} ${addLineUsers && styles.addLine}`}
-              onClick={(e) => {handleClick(e, 'users'); setAddLineRules(false); setAddLineUsers(true)}}>
-              משתמשים
-            </a>
-          </li>
+          <div className={styles.btnHome_div}>
+            <li>
+              <button onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
+            </li>
+          </div>
+
+          <div className={styles.a_div}>
+            <li>
+              <a
+                href="#create-role"
+                className={`${styles.a} ${addLineRules && styles.addLine}`}
+                onClick={(e) => {handleClick(e, 'create-role'); setAddLineRules(true); setAddLineUsers(false)}}>
+                תפקידים
+              </a>
+            </li>
+            <li>
+              <a
+                href="#users"
+                className={`${styles.a} ${addLineUsers && styles.addLine}`}
+                onClick={(e) => {handleClick(e, 'users'); setAddLineRules(false); setAddLineUsers(true)}}>
+                משתמשים
+              </a>
+            </li>
+          </div>
         </ul>
       </div>
     );

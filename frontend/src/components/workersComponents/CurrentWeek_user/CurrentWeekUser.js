@@ -28,12 +28,12 @@ const CurrentWeekUser = () => {
     }, [])
 
     const getDays = () => {
-             axios.get("http://localhost:3001/app/getCurrentWeek").then((response) => {
+             axios.get(`${process.env.REACT_APP_URL}/getCurrentWeek`).then((response) => {
                 setWeek(response.data);
                 //setWeekVisible(response.data.visible)
         }).catch(err=> console.log(err));
 
-        axios.get("http://localhost:3001/app/getNextWeek").then((response) => {
+        axios.get(`${process.env.REACT_APP_URL}/getNextWeek`).then((response) => {
             setNextWeek(response.data);
             setWeekVisible(response.data.visible)
     }).catch(err=> console.log(err));
@@ -41,7 +41,7 @@ const CurrentWeekUser = () => {
 
     const signout = () => {
         Swal.fire({
-            title: 'האם אתה רוצה להתנתק',
+            title: 'האם ברצונכם להתנתק',
             text: "",
             icon: 'warning',
             showCancelButton: true,
@@ -67,22 +67,16 @@ const CurrentWeekUser = () => {
           })
     }
 
-    return <div className={styles.all}>
-            
+    return <React.Fragment>
+
             <div className={styles.upperContainer}>
-                <div className={styles.nav_container}>
-                    <div className={styles.title_div}>
-                        <p className={styles.ellipsis}>שלום&nbsp;{fullname}</p>
-                    </div>
-
-                    <div className={styles.other_icons_div}>
-                       <button className={styles.chose_shift_btn} onClick={() => {ChooseShiftsHandler()}}>בחירת משמרות</button> 
-                        
-
-                        <Link to="/userSettings"><button className={styles.user_settings}><BiUserCircle></BiUserCircle></button></Link>
-                        <Link to="/"><button onClick={signout} className={styles.signout}><BiLogOut></BiLogOut></button></Link>
-                    </div>
+                <div className={styles.nav_buttons}>
+                    <Link to="/"><button className={styles.signout} onClick={signout}><BiLogOut></BiLogOut></button></Link>
+                    <Link to="/userSettings"><button className={styles.user_settings}><BiUserCircle></BiUserCircle></button></Link>
+                    <button className={styles.user_managment_btn} onClick={() => {ChooseShiftsHandler()}}>בחירת משמרות</button>
                 </div>
+
+                <h1 className={styles.h1}>{fullname}</h1>
             </div>
 
             <div className={styles.container}>
@@ -93,7 +87,7 @@ const CurrentWeekUser = () => {
                 }
             </div>
 
-        </div>
+        </React.Fragment>
 }
 
 export default CurrentWeekUser
