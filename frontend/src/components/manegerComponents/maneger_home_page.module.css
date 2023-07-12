@@ -51,6 +51,8 @@
   border: none;
   border-right: 1.5px solid white;
   border-left: 1.5px solid white;
+  margin:0;
+  padding: 0;
 }
 .user_managment_btn:hover{
   cursor: pointer;
@@ -63,6 +65,8 @@
   border: none;
   margin-top: 3px;
   color: white;
+  margin:0;
+  padding: 0;
 }
 .signout:hover{
   cursor: pointer;
@@ -75,6 +79,8 @@
   margin-top: 3px;
   color: white;
   margin-right: 5px;
+  margin:0;
+  padding: 0;
 }
 .user_settings:hover{
   cursor: pointer;
