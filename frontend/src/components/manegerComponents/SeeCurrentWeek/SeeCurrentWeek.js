@@ -11,7 +11,7 @@ const SeeCurrentWeek = () => {
     const [week, setWeek] = useState(null);
 
     const getDays = () => {
-        axios.get("http://localhost:3001/app/getCurrentWeek").then((response) => {
+        axios.get(`${process.env.REACT_APP_URL}/getCurrentWeek`).then((response) => {
             setWeek(response.data);
         }).catch(err => console.log(err));
     }
