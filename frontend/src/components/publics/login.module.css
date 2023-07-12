@@ -12,7 +12,7 @@
 
 .form {
   margin-right: 10px;
-  width: 250px;
+  width: 220px;
   height: 270px;
   padding: 30px;
   display: flex;
@@ -31,7 +31,7 @@
 .login-text {
   text-align: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 40px;
+  font-size: 35px;
   font-weight: bold;
   margin-top: 5px;
   margin-bottom: 30px;
@@ -50,7 +50,7 @@ border: none;
 color: white;
 cursor: pointer;
 transition: all .6s ease;
-width: 260px;
+width: 230px;
 background-color: #2977bc;
 }
 .btn:hover {
@@ -71,7 +71,7 @@ background-color: #2977bc;
   border: none;
   border-bottom: 1px solid #000000;
   background: transparent;
-  width: 230px;
+  width: 200px;
   text-align: right; /* Added text-align property */
 }
 
