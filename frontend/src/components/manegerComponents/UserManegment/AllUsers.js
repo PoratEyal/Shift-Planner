@@ -9,7 +9,7 @@ const AllUsers = (props) => {
     const [users, setUsers] = useState([])
     const [userDeleted, setUserDelted] = useState(false)
     const [loading, setLoading] = useState(false)
-
+    const localUser = JSON.parse(localStorage.getItem("user"));
     useEffect(() => {
         const fetchData = async () => {
         try {
@@ -80,6 +80,8 @@ const AllUsers = (props) => {
             </div>
           ) : (
             users.map((user) => (
+
+              (user._id !== localUser._id) ?
               <div key={user._id} className={styles.user_container}>
                 <div>
                   <button
@@ -96,6 +98,7 @@ const AllUsers = (props) => {
                   <p className={styles.p}>{user.fullName}</p>
                 </div>
               </div>
+              : null
             ))
           )}
         </div>
