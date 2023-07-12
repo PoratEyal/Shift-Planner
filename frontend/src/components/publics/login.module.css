@@ -70,6 +70,16 @@ background-color: #2977bc;
 }
 
 /* inputs - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+input.input{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
 .wave-group {
   position: relative;
   margin-bottom: 30px;
