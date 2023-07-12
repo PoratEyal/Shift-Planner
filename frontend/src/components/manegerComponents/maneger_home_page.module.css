@@ -15,7 +15,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  width: 40vw;
   max-width: 40vw;
 }
 
@@ -53,6 +54,7 @@
   border-left: 1.5px solid white;
   margin:0;
   padding: 0;
+  margin-bottom: 5px;
 }
 .user_managment_btn:hover{
   cursor: pointer;
