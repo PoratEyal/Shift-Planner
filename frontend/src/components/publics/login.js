@@ -72,9 +72,8 @@ const Login = () => {
             </div>
           </div>
           {
-            notValid ? <p>שם משתמש או סיסמא שגויים</p> : null
+            notValid ? <p className={styles.validation_p}>שם משתמש או סיסמא שגויים</p> : null
           }
-          {/* <a href='/forgotPassword'>שכחתי סיסמה</a> */}
           
           <button className={styles.btn} type="submit">התחברות</button>
 

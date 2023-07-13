@@ -34,7 +34,7 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 30px;
   font-weight: bold;
-  margin-top: 5px;
+  margin-top: -10px;
   margin-bottom: 30px;
   color: #2977bc;
 }
@@ -44,15 +44,10 @@
     font-size: 28px;
   }
 }
-@media only screen and (min-width: 481px) and (max-width: 767px) {
-  .login-text{
-    color: brown;
-  }
-}
 
 /* buttons - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .btn {
-margin-top: 10px;
+margin-top: 20px;
 padding: 1rem 2.4rem;
 font-size: 1.275rem;
 font-weight: 700;
@@ -71,15 +66,6 @@ background-color: #2977bc;
 
 /* inputs - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-input .input{
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  border: none;
-  outline: none;
-  background-color: transparent;
-}
-
 .wave-group {
   position: relative;
   margin-bottom: 30px;
@@ -88,13 +74,15 @@ input .input{
 .wave-group .input {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 18px;
-  padding: 10px 5px 10px 10px; /* Updated padding values */
+  padding: 10px 5px 10px 10px;
   display: block;
   border: none;
   border-bottom: 1px solid #000000;
   background: transparent;
   width: 200px;
-  text-align: right; /* Added text-align property */
+  text-align: right; 
+  appearance: none; 
+  -webkit-appearance: none; 
 }
 
 .wave-group .input:focus {
@@ -159,6 +147,13 @@ input .input{
   width: 50%;
 }
 
+.validation_p{
+  position: absolute;
+  margin-top: 110px;
+  font-size: 1.1em;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: red;
+}
 
 
 
