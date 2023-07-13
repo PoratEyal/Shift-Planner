@@ -81,7 +81,7 @@ const UserManagement = () => {
     </div>,
 
     <div id="create-user" className={styles.createUser}>
-      <h2 className={styles.h2}>יצירת משתמש</h2>
+      <h2 className={styles.h2}>הוספת עובד</h2>
 
       <form className={styles.userForm} onSubmit={handleSubmit}>
         <div className={styles.formGroup}>
