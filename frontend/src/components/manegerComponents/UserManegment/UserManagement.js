@@ -172,7 +172,7 @@ const UserManagement = () => {
                 href="#users"
                 className={`${styles.a} ${addLineUsers && styles.addLine}`}
                 onClick={(e) => {handleClick(e, 'users'); setAddLineRules(false); setAddLineUsers(true)}}>
-                משתמשים
+                עובדים
               </a>
             </li>
           </div>

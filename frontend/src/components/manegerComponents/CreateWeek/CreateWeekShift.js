@@ -8,7 +8,7 @@ const CreateWeekShift = (props) => {
 
     const deleteShift = () => {
         Swal.fire({
-            title: 'האם אתה בטוח שברצונך למחוק את המשמרת',
+            title: 'האם ברצונך למחוק את המשמרת',
             icon: 'warning',
             showCancelButton: true,
             cancelButtonText : 'ביטול',
@@ -21,7 +21,7 @@ const CreateWeekShift = (props) => {
                 title: 'המשמרת נמחקה',
                 icon: 'success',
                 confirmButtonColor: '#2977bc',
-                confirmButtonText: 'אישור'
+                confirmButtonText: 'סגירה'
               })
               props.deleteShift(shift._id);
             }

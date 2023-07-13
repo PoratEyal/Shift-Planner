@@ -35,7 +35,7 @@ const ManagerHomePage = () => {
             cancelButtonText: 'ביטול',
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'כן'
+            confirmButtonText: 'אישור'
           }).then((result) => {
             if (result.isConfirmed) {
               localStorage.clear()
@@ -63,7 +63,7 @@ const ManagerHomePage = () => {
                         {<AiOutlineSchedule className={styles.icon}></AiOutlineSchedule>} 
                     </div>
                     <div className={styles.text_div}>
-                        הצג משמרות נוכחיות  
+                          סידור עבודה לשבוע הנוכחי  
                     </div>
                 </button>
             </Link>
@@ -85,7 +85,7 @@ const ManagerHomePage = () => {
                         {<AiOutlineUsergroupAdd className={styles.icon3}></AiOutlineUsergroupAdd>}
                     </div>
                     <div className={styles.text_div}>
-                        הקצאת משמרות לשבוע הבא
+                        שיבוץ עובדים לשבוע הבא
                     </div>
                 </button>
             </Link>

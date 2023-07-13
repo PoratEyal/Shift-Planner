@@ -48,7 +48,7 @@ const CurrentWeekUser = () => {
             cancelButtonText: 'ביטול',
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'כן'
+            confirmButtonText: 'אישור'
           }).then((result) => {
             if (result.isConfirmed) {
               localStorage.clear()
@@ -73,10 +73,10 @@ const CurrentWeekUser = () => {
                 <div className={styles.nav_buttons}>
                     <Link to="/"><button className={styles.signout} onClick={signout}><BiLogOut></BiLogOut></button></Link>
                     <Link to="/userSettings"><button className={styles.user_settings}><BiUserCircle></BiUserCircle></button></Link>
-                    <button className={styles.user_managment_btn} onClick={() => {ChooseShiftsHandler()}}>בחירת משמרות</button>
+                    <button className={styles.user_managment_btn} onClick={() => {ChooseShiftsHandler()}}>&nbsp;שבוע הבא&nbsp;</button>
                 </div>
 
-                <h1 className={styles.h1}>{fullname}</h1>
+                <h1 className={styles.h1}>שבוע נוכחי</h1>
             </div>
 
             <div className={styles.container}>

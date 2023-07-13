@@ -39,7 +39,7 @@ const AllUsers = (props) => {
 
     const deleteUser = async (userId) => {
       Swal.fire({
-        title: 'האם אתה בטוח שברצונך למחוק את המשתמש',
+        title: 'האם ברצונך למחוק את המשתמש',
         icon: 'warning',
         showCancelButton: true,
         cancelButtonText: 'ביטול',
@@ -52,7 +52,7 @@ const AllUsers = (props) => {
             title: 'המשתמש נמחק',
             icon: 'success',
             confirmButtonColor: '#2977bc',
-            confirmButtonText: 'אישור'
+            confirmButtonText: 'סגירה'
           }
           );
         try {

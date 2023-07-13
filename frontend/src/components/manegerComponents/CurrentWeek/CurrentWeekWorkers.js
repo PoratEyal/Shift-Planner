@@ -52,7 +52,7 @@ const CurrentWeekWorkers = (props) => {
 
         {workersArr.map((worker, index) => (
             <div key={index} className={styles.nameAndDelete}>
-              <button onClick={() => removeWorker(worker._id)} className={styles.btn_chosen}>הסר</button>
+              <button onClick={() => removeWorker(worker._id)} className={styles.btn_chosen}>הסרה</button>
               <p className={styles.names}>{worker.fullName}</p>
             </div>
           ))}

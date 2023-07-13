@@ -56,7 +56,7 @@ const AddRole = (props) => {
 
   const deleteRole = async (roleId) => {
     Swal.fire({
-      title: 'האם אתה בטוח שברצונך למחוק את התפקיד',
+      title: 'האם ברצונך למחוק את התפקיד',
       icon: 'warning',
       showCancelButton: true,
       cancelButtonText: 'ביטול',
@@ -69,7 +69,7 @@ const AddRole = (props) => {
           title: 'התפקיד נמחק',
           icon: 'success',
           confirmButtonColor: '#2977bc',
-          confirmButtonText: 'אישור'
+          confirmButtonText: 'סגירה'
       });
         try {
           await axios
@@ -105,7 +105,7 @@ const AddRole = (props) => {
 
       )
       }
-      <button onClick={() => setClicked(!clicked)} className={styles.btn}>הוסף תפקיד</button>
+      <button onClick={() => setClicked(!clicked)} className={styles.btn}>הוספת תפקיד</button>
 
       {clicked ? (
         <div>
@@ -118,7 +118,7 @@ const AddRole = (props) => {
             required
           />
           <div>
-            <button onClick={addRole} className={styles.btn}>הוסף</button>
+            <button onClick={addRole} className={styles.btn}>אישור</button>
           </div>
         </div>
       ) : null}

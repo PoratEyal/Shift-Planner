@@ -25,7 +25,7 @@ const SeeCurrentWeek = () => {
         <div>
             <div className={styles.nav_container}>
                 <button className={styles.home_btn} onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
-                <p>צפייה בשבוע הנוכחי</p>
+                <p>סידור עבודה לשבוע הנוכחי</p>
             </div>
 
             <div style={{ marginTop: '70px' }} className={styles.container}>

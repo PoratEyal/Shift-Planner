@@ -51,20 +51,20 @@ const CreateWeek = () => {
 
     const publishWeek = () => {
         Swal.fire({
-            title: 'האם אתה בטוח שברצונך לפרסם את המשמרות לשבוע הבא',
+            title: 'האם ברצונך לפרסם את המשמרות לשבוע הבא',
             icon: 'warning',
             showCancelButton: true,
             cancelButtonText : 'ביטול',
             confirmButtonColor: '#2977bc',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'פרסם'
+            confirmButtonText: 'פרסום'
           }).then((result) => {
             if (result.isConfirmed) {
               Swal.fire({
                 title: 'המשמרות פורסמו',
                 icon: 'success',
                 confirmButtonColor: '#2977bc',
-                confirmButtonText: 'אישור'
+                confirmButtonText: 'סגירה'
             })
               editWeek()
               console.log(week)
@@ -74,20 +74,20 @@ const CreateWeek = () => {
 
     const publishSchedule= () => {
         Swal.fire({
-            title: 'האם אתה בטוח שברצונך לפרסם את השיבוצים לשבוע הבא',
+            title: 'האם ברצונך לפרסם את השיבוצים לשבוע הבא',
             icon: 'warning',
             showCancelButton: true,
             cancelButtonText : 'ביטול',
             confirmButtonColor: '#2977bc',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'פרסם'
+            confirmButtonText: 'פרסום'
           }).then((result) => {
             if (result.isConfirmed) {
               Swal.fire({
                 title: 'השיבוצים פורסמו',
                 icon: 'success',
                 confirmButtonColor: '#2977bc',
-                confirmButtonText: 'אישור'
+                confirmButtonText: 'סגירה'
             })
               editPublishSchedule()
               console.log(week)
