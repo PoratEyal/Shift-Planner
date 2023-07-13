@@ -1,14 +1,9 @@
-html{
-    width: webkit-fill-available;
-}
-
 body {
-    background: linear-gradient(rgb(255, 255, 255) 60%, #2977bc90);
+    background: linear-gradient(rgb(255, 255, 255) 70%, #2977bc8a);
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 0;
-    width: webkit-fill-available;
 }
