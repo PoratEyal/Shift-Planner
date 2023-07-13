@@ -45,11 +45,11 @@ Authorization: Bearer user.token
 Content-Type: application/json
 
 {
-    "fullName":"עומר",
-    "username":"עומריקו",
-    "password":"1234",
+    "fullName":"לירון צורדקר",
+    "username":"liron",
+    "password":"liron12345",
     "role":"64a7d10d0606ff97cf2796dd",
-    "job": "user"
+    "job": "admin"
 }
 
 ### get user by id
