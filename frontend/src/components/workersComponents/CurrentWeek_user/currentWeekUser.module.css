@@ -1,23 +1,26 @@
-.upperContainer{
+.upperContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height: 55px;
     width: 100vw;
-    margin-bottom: 60px;
     background-color: #2977bc;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 14px;
+    z-index: 999;
   }
   
-  .nav_buttons{
+  .nav_buttons {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     width: 55vw;
     max-width: 300px;
-  }
+}
   
   .h1{
     color: white;
@@ -93,7 +96,7 @@
 
 
 .container{
-    margin-top: -50px;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
