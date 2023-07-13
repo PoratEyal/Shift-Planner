@@ -76,7 +76,7 @@ background-color: #2977bc;
   font-size: 18px;
   padding: 10px 5px 10px 10px;
   display: block;
-  border: none;
+  border: 1px solid transparent;;
   border-bottom: 1px solid #000000;
   background: transparent;
   width: 200px;
