@@ -25,7 +25,9 @@ const WorkerList = (props) => {
     return <div className={styles.workers_showList}>
           {
             workerNames.map((name, index) => (
-              <p key={index}>{name}&nbsp;•</p>
+              <div key={index} className={styles.nameAndDelete}>
+                <p className={styles.names}>{name}&nbsp;•</p>
+              </div>
             ))
           }
         </div>
