@@ -123,13 +123,20 @@ router.get('/getUsers', async (req, res) => {
 //gets id and return user
 router.get('/getUserById/:id', async (req, res) => {
     try {
-        const id = req.params.id
-        const user = await User.findById(id);
-        res.status(201).json(user)
+      const id = req.params.id;
+      const user = await User.findById(id);
+  
+      if (!user) {
+        // User doesn't exist, return a response indicating that the user was not found
+        return res.status(404).json({ message: "User not found" });
+      }
+  
+      res.status(200).json(user);
     } catch (err) {
-        res.status(400).json({ message: err.message })
+      res.status(400).json({ message: err.message });
     }
 });
+  
 router.get('/GetUserRole', authenticateToken, (req, res) => {
 
 

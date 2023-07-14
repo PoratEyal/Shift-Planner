@@ -83,6 +83,7 @@ background-color: #2977bc;
   text-align: right; 
   appearance: none; 
   -webkit-appearance: none; 
+  direction: rtl;
 }
 
 .wave-group .input:focus {

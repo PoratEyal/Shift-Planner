@@ -101,6 +101,7 @@ ul.navbar li button {
     justify-content: center;
     align-items: center;
     margin-right: 10px;
+    margin-bottom: 30px;
 }
 
 .createRole{
@@ -184,6 +185,7 @@ ul.navbar li button {
 }
 
 .select{
+    direction: rtl;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 16px;
     padding: 5px;
@@ -197,6 +199,7 @@ ul.navbar li button {
 }
 
 .input{
+    direction: rtl;
     text-align: right;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 16px;

@@ -11,24 +11,27 @@ const SeeWorkersCurrentWeek = (props) => {
     // get all the workers
     useEffect(() => {
       workers.map(worker => {
-            axios.get(`${process.env.REACT_APP_URL}/getUserById/${worker}`)
-                .then(response => {
-                    const worker = response.data;
-                    setWorkersArr(prevWorker => [...prevWorker, worker]);
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        });
+        axios
+          .get(`${process.env.REACT_APP_URL}/getUserById/${worker}`)
+          .then(response => {
+            const workerData = response.data;
+            if (workerData && workerData.fullName) {
+              setWorkersArr(prevWorkers => [...prevWorkers, workerData]);
+            }
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      });
     }, []);
     
     return (
       <div className={styles.workers_showList}>
         {workersArr.map((worker, index) => (
-            <div key={index} className={styles.nameAndDelete}>
-              <p className={styles.names}>{worker.fullName}&nbsp;•</p>
-            </div>
-          ))}
+          <div key={index} className={styles.nameAndDelete}>
+            {worker.fullName && <p className={styles.names}>{worker.fullName}&nbsp;•</p>}
+          </div>
+        ))}
       </div>
     );
       

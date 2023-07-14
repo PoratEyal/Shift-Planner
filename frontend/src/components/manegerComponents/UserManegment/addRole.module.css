@@ -6,6 +6,7 @@
 }
 
 .input{
+    direction: rtl;
     margin-top: 15px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 16px;
@@ -89,7 +90,7 @@ transform: scale(1.02);
 .three-body {
     --uib-size: 35px;
     --uib-speed: 0.8s;
-    --uib-color: #5D3FD3;
+    --uib-color: #2977bc;
     position: relative;
     display: inline-block;
     height: var(--uib-size);

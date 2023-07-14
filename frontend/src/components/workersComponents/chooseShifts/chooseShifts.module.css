@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 40px;
 }
 
 .nav_container{
@@ -148,6 +149,7 @@
     transition: all .6s ease;
     width: 230px;
     justify-content: center;
+    margin-left: 25px;
 }
 .add_btn:hover {
     transform: scale(1.02);

@@ -6,34 +6,36 @@ import styles from './currentWeekUser.module.css';
 
 const WorkersCurrentWeek = (props) => {
     
-    const [workers] = useState(props.workers)
-
-    const [workersArr, setWorkersArr] = useState([]);
-
-    // get all the workers
-    useEffect(() => {
-      workers.map(worker => {
-            axios.get(`${process.env.REACT_APP_URL}/getUserById/${worker}`)
-                .then(response => {
-                    const worker = response.data;
-                    setWorkersArr(prevWorker => [...prevWorker, worker]);
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-            
-              });
-    }, []);
-    
-    return (
-      <div className={styles.workers_showList}>
-        {workersArr.map((worker, index) => (
-            <div key={index} className={styles.nameAndDelete}>
-              <p className={styles.names}>{worker.fullName}&nbsp;•</p>
-            </div>
-          ))}
-      </div>
-    );
+  const [workers] = useState(props.workers);
+  const [workersArr, setWorkersArr] = useState([]);
+  
+  // get all the workers
+  useEffect(() => {
+    workers.forEach(workerId => {
+      axios
+        .get(`${process.env.REACT_APP_URL}/getUserById/${workerId}`)
+        .then(response => {
+          const fetchedWorker = response.data;
+          if (fetchedWorker && fetchedWorker.fullName) {
+            setWorkersArr(prevWorkers => [...prevWorkers, fetchedWorker]);
+          }
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    });
+  }, [workers]);
+  
+  return (
+    <div className={styles.workers_showList}>
+      {workersArr.map((worker, index) => (
+        <div key={index} className={styles.nameAndDelete}>
+          {worker.fullName && <p className={styles.names}>{worker.fullName}&nbsp;•</p>}
+        </div>
+      ))}
+    </div>
+  );
+  
       
 }
 

@@ -63,6 +63,7 @@
     margin-bottom: 10px;
     width: 80%;
     border: 1px solid rgba(0, 0, 0, 0.25);
+    direction: rtl;
 }
 
 .emptyInput {
