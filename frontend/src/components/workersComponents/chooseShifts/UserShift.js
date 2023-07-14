@@ -9,15 +9,17 @@ const UserShift = (props) => {
   const data = JSON.parse(localStorage.getItem("user"));
   const [added, setAdded] = useState(false);
   const [addClass, setAddClass] = useState(false);
-  const [showWorkers, setShow] = useState(true);
+  const [showWorkers, setShow] = useState(false);
 
 
   useEffect(() => {
     if (shift.availableWorkers.includes(data._id) || shift.workers.includes(data._id)) {
       setAdded(true);
+      //
     }
     if (shift.workers.includes(data._id) && props.weekPublished === true){
       setAddClass(true)
+      setShow(!showWorkers);
     }
   }, [])
 
