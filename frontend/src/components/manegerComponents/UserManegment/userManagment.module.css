@@ -80,12 +80,13 @@ ul.navbar li button {
     background-color: #2977bc;
     color: white;
     border: 1.5px solid white;
-    font-size: 40px;
+    font-size: 41px;
     transition: 0.3s;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 150%;
+    border-radius: 300%;
     display: flex;
     justify-content: center;
+    flex-direction: row;
     align-items: center;
 }
 .addUser_btn:hover{
