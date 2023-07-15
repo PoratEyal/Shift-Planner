@@ -110,6 +110,15 @@ router.post('/addUser', async (req, res) => {
         res.status(400).json({ message: err.message });
     }
 });
+router.get(`/getAllWorkers`, (req, res) =>{
+    User.find({job: '649d571b70f2c12b782d204f'}).then(data =>{
+        res.status(200).json(data)
+        console.log(data);
+    }).catch(err =>{
+        console.log(err);
+    });
+});
+
 
 //gets all the users
 router.get('/getUsers', async (req, res) => {
