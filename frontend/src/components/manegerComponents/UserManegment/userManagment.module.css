@@ -79,14 +79,14 @@ ul.navbar li button {
     color: white;
     border: 1.5px solid white;
     font-size: 40px;
-    width: 60px;
-    height: 60px;
     transition: 0.3s;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 600%;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 60px;
+    height: 60px;
 }
 .addUser_btn:hover{
     cursor: pointer;
