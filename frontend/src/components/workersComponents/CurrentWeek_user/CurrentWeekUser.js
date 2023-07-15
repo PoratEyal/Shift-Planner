@@ -52,7 +52,7 @@ const CurrentWeekUser = () => {
           }).then((result) => {
             if (result.isConfirmed) {
               localStorage.clear()
-              navigate('./')
+              navigate('/')
             }
           })
     }
