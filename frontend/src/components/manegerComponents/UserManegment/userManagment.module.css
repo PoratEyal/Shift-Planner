@@ -79,6 +79,7 @@ ul.navbar li button {
     right: 10px;
     background-color: #2977bc;
     color: white;
+    border: none;
     border: 1.5px solid white;
     font-size: 41px;
     transition: 0.3s;
@@ -91,7 +92,6 @@ ul.navbar li button {
 }
 .addUser_btn:hover{
     cursor: pointer;
-    background-color: #2889df;
 }
 
 .container{
