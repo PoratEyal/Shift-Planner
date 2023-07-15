@@ -193,8 +193,11 @@ const UserManagement = () => {
           childElements[activeElement]
         }
       </div>
-
-      {!hideCreateBtn ? <button onClick={(e) => handleClick(e, 'create-user')} className={styles.addUser_btn}><AiOutlineUserAdd></AiOutlineUserAdd></button> : null}
+      
+      <div onClick={(e) => handleClick(e, 'create-user')}>
+        {!hideCreateBtn ? <img src='addUser.png'  className={styles.addUser_btn}></img> : null}
+      </div>
+      
     </div>
   );
 }

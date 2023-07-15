@@ -63,6 +63,7 @@ const UserSettings = () => {
         />
 
         <input
+          type='password'
           className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
           placeholder="סיסמה"
           value={password}
