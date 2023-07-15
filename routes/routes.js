@@ -14,6 +14,7 @@ const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const functions = require('../functions');
 const { Job } = require('node-schedule');
+const ObjectId = mongoose.Types.ObjectId;
 
 
 router.use(bodyParser.json());
@@ -110,8 +111,14 @@ router.post('/addUser', async (req, res) => {
         res.status(400).json({ message: err.message });
     }
 });
-router.get(`/getAllWorkers`, (req, res) =>{
-    User.find({job: '649d571b70f2c12b782d204f'}).then(data =>{
+router.post(`/getAllWorkers`, (req, res) =>{
+
+    const shiftWorkers = req.body;
+    console.log("before log");
+    console.log(shiftWorkers.workers);
+    console.log("after log");
+    const convertedArr = shiftWorkers.workers.map(id => new ObjectId(id))
+    User.find({_id: { $nin: convertedArr}, job: '649d571b70f2c12b782d204f'}, {_id:1, fullName:1}).then(data =>{
         res.status(200).json(data)
         console.log(data);
     }).catch(err =>{

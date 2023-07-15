@@ -10,7 +10,8 @@ const ShiftCurrentWeek = (props) => {
     const [shift, setShift] = useState(props.shift);
     
     const [showWorkers, setShow] = useState(true);
-
+    const [addNewWorker, setNewWorker] = useState(false);
+    const [newWorkers, setWorkers] = useState(null);
     const addWorkerShift = (workerId) => {
         const reqBody = {
             dayId: props.dayId,
@@ -27,24 +28,18 @@ const ShiftCurrentWeek = (props) => {
             });
     }
     const specialAdding = () => {
-        axios.get(`${process.env.REACT_APP_URL}/getAllWorkers`).then(response => {
+
+        const reqBody ={
+            workers: [...shift.workers, ...shift.availableWorkers]
+        }
+        axios.post(`${process.env.REACT_APP_URL}/getAllWorkers`, reqBody).then(response => {
             console.log(response.data);
-            Swal.fire({
-                title: 'האם ברצונכם להתנתק',
-                text: "",
-                icon: 'warning',
-                showCancelButton: true,
-                cancelButtonText: 'ביטול',
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'אישור'
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  //localStorage.clear()
-                  //navigate('./')
-                }
-              })
-        })
+            setWorkers(response.data);
+        }).then(() => {
+            setNewWorker(true);
+        }).catch(err => {
+            console.log(err)
+        });
     }
 
 
@@ -63,7 +58,11 @@ const ShiftCurrentWeek = (props) => {
             });
     }
 
-    return <div className={styles.shift} >
+
+    const optionSelectedHandler = (event) => {
+        addWorkerShift(event.target.value);
+    }
+    return <div><div className={styles.shift} >
         <div onClick={() => {setShow(!showWorkers)}}>
         <p className={styles.shift_description}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
         </div>
@@ -75,6 +74,22 @@ const ShiftCurrentWeek = (props) => {
             availableWorkers={shift.availableWorkers}>   
         </CurrentWeekWorkers> : null}
         <button onClick={() => {specialAdding()}}>+</button>
+        {addNewWorker ? (
+         newWorkers ?
+         <select 
+         onChange={(e) => optionSelectedHandler(e)}>
+        
+            {newWorkers.map(elem => {
+                return <option value={elem._id}>{elem.fullName}</option>
+            })}
+
+        </select> 
+         : null)
+        : null}
+    </div>
+    
+    
+    
     </div>
 }
 
