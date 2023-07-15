@@ -25,7 +25,10 @@ const ChooseShifts = () => {
     return <React.Fragment>
         <div className={styles.nav_container}>
             <button onClick={() => navigate('/CurrentWeek')}><BiSolidHome></BiSolidHome></button>
-            <p>בחירת משמרות לשבוע הבא</p>
+
+            {weekPublished ? <p>צפיה  במשמרות לשבוע הבא</p>
+            :
+            <p>בחירת משמרות לשבוע הבא</p>}
         </div>
 
         {weekPublished ? <div className={styles.messege}>
