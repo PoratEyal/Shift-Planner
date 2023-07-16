@@ -84,13 +84,13 @@ const UserManagement = () => {
       <h2 className={styles.h2}>הוספת עובד</h2>
 
       <form className={styles.userForm} onSubmit={handleSubmit}>
+
         <div className={styles.formGroup}>
           <input
             className={styles.input}
             type="text"
             id="fullName"
             value={fullName}
-
             onChange={(e) => setFullName(e.target.value)}
             required
           />
@@ -103,7 +103,13 @@ const UserManagement = () => {
             type="text"
             id="username"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => {
+              const inputUsername = e.target.value;
+              const alphanumericRegex = /^[a-zA-Z0-9]*$/;
+              if (alphanumericRegex.test(inputUsername)) {
+                setUsername(inputUsername);
+              }
+            }}
             required
           />
           <label className={styles.label_username} htmlFor="username">שם משתמש</label>
@@ -117,6 +123,7 @@ const UserManagement = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            minLength={5}
           />
           <label className={styles.label_password} htmlFor="password">סיסמה</label>
         </div>
