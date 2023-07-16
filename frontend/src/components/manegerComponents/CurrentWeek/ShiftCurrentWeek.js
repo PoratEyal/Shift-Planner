@@ -81,8 +81,8 @@ const ShiftCurrentWeek = (props) => {
                         : null}
                     </div>
 
-                    <div>
-                        <button className={styles.plus_btn} onClick={() => {specialAdding()}}>+</button>
+                    <div onClick={() => {specialAdding()}}>
+                        <img className={styles.plus_btn} src="addWorker.png"></img>
                     </div>
                 </div>
 
