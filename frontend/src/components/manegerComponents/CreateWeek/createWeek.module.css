@@ -76,6 +76,39 @@
     overflow: hidden;
 }
 
+.plus_btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 55px;
+    right: 25px;
+    border-radius: 6px;
+    width: 15px;
+    height: 15px;
+    border: 1px solid rgba(101, 101, 101, 0.245);
+    color: rgba(101, 101, 101, 0.889);
+    cursor: pointer;
+    transition: 0.3s;
+}
+.plus_btn:hover{
+    border: 1px solid rgba(50, 50, 50, 0.827);
+    color: rgb(46, 46, 46);
+}
+.select_choose_worker{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    direction: rtl;
+    border-radius: 7px;
+    padding: 3px;
+    border: 1px solid rgba(101, 101, 101, 0.245);
+    margin-top: 5px;
+    margin-right: 170px;
+}
+.select_choose_worker:optional{
+    cursor: pointer;
+}
+
 .buttons{
     display: flex;
     flex-direction: row;
