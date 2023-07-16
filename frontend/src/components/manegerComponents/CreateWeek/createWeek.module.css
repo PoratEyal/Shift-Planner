@@ -76,6 +76,38 @@
     overflow: hidden;
 }
 
+.addWroker_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 270px;
+    margin-bottom: -15px;
+}
+.plus_btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    width: 15px;
+    height: 15px;
+    color: rgba(101, 101, 101, 0.889);
+    cursor: pointer;
+    margin-top: 5px;
+}
+.select_choose_worker{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    direction: rtl;
+    border-radius: 7px;
+    padding: 3px;
+    margin-top: 5px;
+    border: 1px solid rgba(101, 101, 101, 0.245);
+    margin-bottom: 5px;
+}
+.select_choose_worker:optional{
+    cursor: pointer;
+}
+
 .buttons{
     display: flex;
     flex-direction: row;

@@ -8,10 +8,10 @@ import Swal from 'sweetalert2';
 const ShiftCurrentWeek = (props) => {
 
     const [shift, setShift] = useState(props.shift);
-    
     const [showWorkers, setShow] = useState(true);
     const [addNewWorker, setNewWorker] = useState(false);
     const [newWorkers, setWorkers] = useState(null);
+
     const addWorkerShift = (workerId) => {
         const reqBody = {
             dayId: props.dayId,
@@ -27,6 +27,7 @@ const ShiftCurrentWeek = (props) => {
                 console.log(error.message);
             });
     }
+
     const specialAdding = () => {
 
         const reqBody ={
@@ -41,7 +42,6 @@ const ShiftCurrentWeek = (props) => {
             console.log(err)
         });
     }
-
 
     const removeWorkerShift = (workerId) => {
         const reqBody = {
@@ -58,38 +58,46 @@ const ShiftCurrentWeek = (props) => {
             });
     }
 
-
     const optionSelectedHandler = (event) => {
         addWorkerShift(event.target.value);
     }
-    return <div><div className={styles.shift} >
-        <div onClick={() => {setShow(!showWorkers)}}>
-        <p className={styles.shift_description}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
-        </div>
-        {showWorkers ?<CurrentWeekWorkers
-            weekPublished={props.weekPublished}
-            removeWorkerShift={removeWorkerShift}
-            addWorkerShift={addWorkerShift}
-            workers={shift.workers}
-            availableWorkers={shift.availableWorkers}>   
-        </CurrentWeekWorkers> : null}
-        <button onClick={() => {specialAdding()}}>+</button>
-        {addNewWorker ? (
-         newWorkers ?
-         <select 
-         onChange={(e) => optionSelectedHandler(e)}>
-        
-            {newWorkers.map(elem => {
-                return <option value={elem._id}>{elem.fullName}</option>
-            })}
 
-        </select> 
-         : null)
-        : null}
-    </div>
-    
-    
-    
+    return <div>
+        <div className={styles.shift} >
+            <div onClick={() => {setShow(!showWorkers)}}>
+                <div className={styles.addWroker_div}>
+                    <div>
+                        {addNewWorker ? (
+                        newWorkers ?
+                        <select className={styles.select_choose_worker}
+                        onChange={(e) => optionSelectedHandler(e)}>
+                        
+                            {newWorkers.map(elem => {
+                                return <option key={elem._id} value={elem._id}>{elem.fullName}</option>
+                            })}
+
+                        </select> 
+                        : null)
+                        : null}
+                    </div>
+
+                    <div onClick={() => {specialAdding()}}>
+                        <img className={styles.plus_btn} src="addWorker.png"></img>
+                    </div>
+                </div>
+
+                <p className={styles.shift_description}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
+            </div>
+
+            {showWorkers ?<CurrentWeekWorkers
+                weekPublished={props.weekPublished}
+                removeWorkerShift={removeWorkerShift}
+                addWorkerShift={addWorkerShift}
+                workers={shift.workers}
+                availableWorkers={shift.availableWorkers}>   
+            </CurrentWeekWorkers> : null}
+
+        </div>
     </div>
 }
 
