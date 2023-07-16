@@ -65,20 +65,26 @@ const ShiftCurrentWeek = (props) => {
     return <div>
         <div className={styles.shift} >
             <div onClick={() => {setShow(!showWorkers)}}>
+                <div className={styles.addWroker_div}>
+                    <div>
+                        {addNewWorker ? (
+                        newWorkers ?
+                        <select className={styles.select_choose_worker}
+                        onChange={(e) => optionSelectedHandler(e)}>
+                        
+                            {newWorkers.map(elem => {
+                                return <option key={elem._id} value={elem._id}>{elem.fullName}</option>
+                            })}
 
-                <button className={styles.plus_btn} onClick={() => {specialAdding()}}>+</button>
-                {addNewWorker ? (
-                newWorkers ?
-                <select className={styles.select_choose_worker}
-                onChange={(e) => optionSelectedHandler(e)}>
-                
-                    {newWorkers.map(elem => {
-                        return <option value={elem._id}>{elem.fullName}</option>
-                    })}
+                        </select> 
+                        : null)
+                        : null}
+                    </div>
 
-                </select> 
-                : null)
-                : null}
+                    <div>
+                        <button className={styles.plus_btn} onClick={() => {specialAdding()}}>+</button>
+                    </div>
+                </div>
 
                 <p className={styles.shift_description}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
             </div>
