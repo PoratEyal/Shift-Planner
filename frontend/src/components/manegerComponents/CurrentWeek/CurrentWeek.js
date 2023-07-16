@@ -4,6 +4,7 @@ import DayCurrentWeek from './DayCurrentWeek'
 import styles from '../CreateWeek/createWeek.module.css'
 import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const CurrentWeek = () => {
 
@@ -22,16 +23,55 @@ const CurrentWeek = () => {
         getDays();
     }, [weekPublished]);
 
+    const publishSchedule= () => {
+        Swal.fire({
+            title: 'האם ברצונך לפרסם את השיבוצים לשבוע הבא',
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText : 'ביטול',
+            confirmButtonColor: '#2977bc',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'פרסום'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: 'השיבוצים פורסמו',
+                icon: 'success',
+                confirmButtonColor: '#2977bc',
+                confirmButtonText: 'סגירה'
+            })
+              editPublishSchedule()
+              console.log(week)
+            }
+          })
+    }
+    const editPublishSchedule = async () => {
+        try {
+            await axios.put(`${process.env.REACT_APP_URL}/setNextWeekPublished`)
+            .then((response) => {
+                setWeekPublished(true)
+                console.log(response.data)
+            });
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
     return <React.Fragment>
         <div>
             <div className={styles.nav_container}>
                 <button className={styles.home_btn} onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
                 <p>שיבוץ עובדים לשבוע הבא</p>
             </div>
+            
 
-            {weekPublished ? <div className={styles.messege}>
+            {
+                !weekPublished ? <div className={styles.publish_div}>
+                <button onClick={publishSchedule} className={styles.addShift_btn}>פרסם שבוע סופי</button>
+            </div>
+            : <div className={styles.messege}>
                 <p>השבוע פורסם</p>   
-            </div> : null}
+            </div>}
 
             <div style={{ marginTop: '70px' }} className={styles.container}>
                 {

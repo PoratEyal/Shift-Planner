@@ -37,17 +37,7 @@ const CreateWeek = () => {
         }
     }
 
-    const editPublishSchedule = async () => {
-        try {
-            await axios.put(`${process.env.REACT_APP_URL}/setNextWeekPublished`)
-            .then((response) => {
-                setWeekPublished(true)
-                console.log(response.data)
-            });
-        } catch (error) {
-            console.log(error.message);
-        }
-    }
+    
 
     const publishWeek = () => {
         Swal.fire({
@@ -72,28 +62,7 @@ const CreateWeek = () => {
           })
     }
 
-    const publishSchedule= () => {
-        Swal.fire({
-            title: 'האם ברצונך לפרסם את השיבוצים לשבוע הבא',
-            icon: 'warning',
-            showCancelButton: true,
-            cancelButtonText : 'ביטול',
-            confirmButtonColor: '#2977bc',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'פרסום'
-          }).then((result) => {
-            if (result.isConfirmed) {
-              Swal.fire({
-                title: 'השיבוצים פורסמו',
-                icon: 'success',
-                confirmButtonColor: '#2977bc',
-                confirmButtonText: 'סגירה'
-            })
-              editPublishSchedule()
-              console.log(week)
-            }
-          })
-    }
+    
 
     return <React.Fragment>
         <div className={styles.container}>
@@ -105,21 +74,21 @@ const CreateWeek = () => {
             {!weekVisivble ? <div className={styles.publish_div}>
                 <button onClick={publishWeek} className={styles.addShift_btn}>פרסם משמרות</button>
             </div> : 
-            !weekPublished ? <div className={styles.publish_div}>
-                <button onClick={publishSchedule} className={styles.addShift_btn}>פרסם שבוע סופי</button>
-            </div>
-            : 
+            
+             
             <div className={styles.published_div}>
                 <button visible='false'>השבוע פורסם</button>
             </div>}
 
-            {!weekPublished ? <div>
+            {/* {!weekPublished ?  */}
+            <div>
                 {
                     week ? week.day.map((day) => {
                         return <Day day={day} key={day._id} getDays={getDays}></Day>
                     }) : null
                 }
-            </div> : null}
+            </div>
+            {/* //  : null} */}
 
         </div>
     </React.Fragment>
