@@ -34,7 +34,7 @@ const CurrentWeekWorkers = (props) => {
           .get(`${process.env.REACT_APP_URL}/getUserById/${worker}`)
           .then(response => {
             const workerData = response.data;
-            if (workerData && workerData.fullName) {
+            if (workerData && workerData.fullName && !(workers.includes(workerData._id))) {
               setAvailableWorkersArr(prevWorkers => [...prevWorkers, workerData]);
             }
           })
@@ -68,6 +68,7 @@ const CurrentWeekWorkers = (props) => {
           ))}
     
           {availableWorkersArr.map((worker, index) => (
+            
             <div key={index} className={styles.nameAndDelete}>
               <button onClick={() => choseWorker(worker._id)} className={styles.btn_chose}>
                 בחירה

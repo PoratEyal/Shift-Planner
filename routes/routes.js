@@ -434,7 +434,7 @@ router.put('/addWorkerToWorkrs', (req, res) => {
     Week.findOneAndUpdate({ "day._id": dayId, "day.shifts._id": shiftId },
         {
             $push: { "day.$.shifts.$[elem].workers": workerId },
-            $pull: { "day.$.shifts.$[elem].availableWorkers": workerId }
+            // $pull: { "day.$.shifts.$[elem].availableWorkers": workerId }
         },
         { arrayFilters: [{ "elem._id": shiftId }], projection: { "day.$": 1 } })
         .then(() => {
@@ -484,7 +484,7 @@ router.put('/WorkersToAvail', (req, res) => {
         { "day._id": dayId, "day.shifts._id": shiftId },
         {
             $pull: { "day.$.shifts.$[elem].workers": workerId },
-            $push: { "day.$.shifts.$[elem].availableWorkers": workerId }
+            //$push: { "day.$.shifts.$[elem].availableWorkers": workerId }
         },
         { arrayFilters: [{ "elem._id": shiftId }], projection: { "day.$": 1 } })
         .then(() => {
