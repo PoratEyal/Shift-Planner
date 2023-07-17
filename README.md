@@ -48,24 +48,30 @@ To run Shift Planner locally, follow these steps:
 
 ## Usage
 
-1. Create a user account and log in to the Shift Planner application.
+1. Log in to the Shift Planner application as a manager.
 
-2. As a manager, you have access to additional features such as creating shifts, viewing current shifts, and assigning workers.
+2. As a manager, you have access to additional features such as creating and deleting users and roles.
 
-3. Create shifts for the current week or the next week by specifying the shift details such as date, time, and position.
+3. Create user accounts for workers and assign them appropriate roles.
 
-4. Assign workers to shifts by selecting the appropriate users from the available list.
+4. Create shifts for the current week or the next week by specifying the shift details such as date, time, and position.
 
-5. View the shifts for the current week and the next week in the calendar view.
+5. Publish the shifts to make them visible to all workers.
 
-## License
+6. As a worker, log in to the Shift Planner application.
 
-[Specify the license under which the Shift Planner application is distributed.]
+7. View the published shifts and choose the shifts you want to work by adding yourself to them.
 
-## Acknowledgements
+8. As a manager, review the shifts where workers have added themselves.
 
-[List any acknowledgements or credits for external resources, libraries, or tutorials used in the project.]
+9. Choose workers for each shift based on their availability or other criteria. You can either select the workers who have added themselves or choose different workers.
+
+10. Once you have finalized the worker assignments, publish the week to notify all workers of their assigned shifts.
+
+11. As a worker, view the published week to see the shifts where you have been assigned.
+
+Note: Only the manager has the ability to create and delete users and roles, create shifts, publish shifts, choose workers for shifts, and publish the week. Workers can only view the published shifts, add themselves to shifts, and view their assigned shifts after the manager has published the week.
 
 ## Contact
 
-If you have any questions or inquiries, feel free to contact [your-name] at [your-email].
+If you have any questions or inquiries, feel free to contact Eyal porat at eyal1.porat@gmail.com and Edi Grunseid at edgru99@gmail.com.
