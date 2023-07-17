@@ -1,4 +1,4 @@
-Shift Planner
+#Shift Planner
 Shift Planner is a web-based application that allows users to manage and view their shifts for the current week and the next week. The application is built with Node.js, Express.js for the backend, and React.js for the frontend.
 
 Features
