@@ -127,6 +127,16 @@ router.post(`/getAllWorkers`, (req, res) =>{
 });
 
 
+router.post('/getMyWorkers', (req, res) => {
+    const job = req.body.job;
+    User.find({manager: new ObjectId(job)}).then(data => {
+        res.status(200).json(data);
+    }).catch(err => {
+        console.error(err);
+    });
+});
+
+
 //gets all the users
 router.get('/getUsers', async (req, res) => {
     try {
