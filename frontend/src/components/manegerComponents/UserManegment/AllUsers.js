@@ -10,8 +10,7 @@ const AllUsers = (props) => {
     const [userDeleted, setUserDelted] = useState(false)
     const [loading, setLoading] = useState(false)
     const localUser = JSON.parse(localStorage.getItem("user"));
-    useEffect(() => {
-        const fetchData =  () => {
+    const fetchData =  () => {
           const body = {
             job: localUser._id
           }
@@ -26,21 +25,13 @@ const AllUsers = (props) => {
         
 
       }
+    
+    
+    useEffect(() => {
       fetchData();
   }, [props.added]);
 
-    useEffect(() => {
-      const body = {
-        job: localUser._id
-      }
-        const fetchData = () => {
-            axios.post(`${process.env.REACT_APP_URL}/getMyWorkers`, body).then((response) =>{
-              setUsers(response.data)
-              setLoading(true);
-            }).catch( (error)=> {
-            console.error(error);
-        });
-      }
+    useEffect(() => {  
       fetchData();
   }, [userDeleted]);
 
