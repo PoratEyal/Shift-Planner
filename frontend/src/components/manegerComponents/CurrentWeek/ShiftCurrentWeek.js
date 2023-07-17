@@ -9,9 +9,8 @@ const ShiftCurrentWeek = (props) => {
 
     const [shift, setShift] = useState(props.shift);
     const [showWorkers, setShow] = useState(true);
-    const [newWorkers, setWorkers] = useState(null);
 
-    const selectRef = useRef(null)
+    
 
     const addWorkerShift = (workerId) => {
         const reqBody = {
@@ -29,15 +28,15 @@ const ShiftCurrentWeek = (props) => {
             });
     }
     useEffect(() => {
-        const reqBody = {
-            workers: [...shift.workers, ...shift.availableWorkers]
-        }
-        axios.post(`${process.env.REACT_APP_URL}/getAllWorkers`, reqBody).then(response => {
-            console.log(response.data);
-            setWorkers(response.data);
-        }).catch(err => {
-            console.log(err)
-        });
+        // const reqBody = {
+        //     workers: [...shift.workers, ...shift.availableWorkers]
+        // }
+        // axios.post(`${process.env.REACT_APP_URL}/getAllWorkers`, reqBody).then(response => {
+            
+        //     setWorkers(response.data);
+        // }).catch(err => {
+        //     console.log(err)
+        // });
 
     }, [])
 
@@ -74,25 +73,9 @@ const ShiftCurrentWeek = (props) => {
             </CurrentWeekWorkers> : null}
 
 
-            <div className={styles.addWroker_div}>
-                {(
-                    newWorkers ?
-                        <select className={styles.select_choose_worker} ref={selectRef}>
+           
 
-                            {
-                                newWorkers.map((elem, index) => {
-                                    return <option key={index} value={elem._id} selected={index === 0}>{elem.fullName}</option>
-                                })
-                            }
-
-                        </select>
-                        : null)
-                }
-            </div>
-
-            <div onClick={() => { addWorkerShift( selectRef.current.value) }}>
-                <img className={styles.plus_btn} src="addWorker.png"></img>
-            </div>
+            
         </div>
     </div>
 }

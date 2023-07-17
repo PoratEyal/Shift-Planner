@@ -13,7 +13,10 @@ const AllUsers = (props) => {
     useEffect(() => {
         const fetchData = async () => {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_URL}/getUsers`);
+          const body = {
+            job: localUser._id
+          }
+            const response = await axios.post(`${process.env.REACT_APP_URL}/getMyWorkers`, body);
             setUsers(response.data);
         } catch (error) {
             console.error(error);
@@ -24,9 +27,14 @@ const AllUsers = (props) => {
     }, [props.added]);
 
     useEffect(() => {
+
+      
+      const body = {
+        job: localUser._id
+      }
         const fetchData = async () => {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_URL}/getUsers`);
+            const response = await axios.post(`${process.env.REACT_APP_URL}/getMyWorkers`);
             setUsers(response.data)
             setLoading(true)
         } catch (error) {
