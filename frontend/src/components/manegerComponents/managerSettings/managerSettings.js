@@ -73,7 +73,7 @@ const ManagerSettings = () => {
         <input
         type="password"
         className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
-        placeholder="סיסמה"
+        placeholder="סיסמה בעלת 5 תווים לפחות"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         minLength={5}

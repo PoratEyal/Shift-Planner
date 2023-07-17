@@ -13,6 +13,11 @@ const UserSettings = () => {
   const userData = JSON.parse(localStorage.getItem('user'));
 
   const changeUser = async () => {
+    if (password.length < 5) {
+      setIsEmpty(true);
+      return
+    }
+
     if (username.trim() !== '' && password.trim() !== '') {
       setIsEmpty(false); // Reset isEmpty state
       const updatedUser = {
@@ -59,15 +64,23 @@ const UserSettings = () => {
           className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
           placeholder="שם משתמש"
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={(e) => {
+            const inputUsername = e.target.value;
+            const alphanumericRegex = /^[a-zA-Z0-9]*$/;
+            if (alphanumericRegex.test(inputUsername)) {
+              setUsername(inputUsername);
+            }
+          }}
         />
 
         <input
           type='password'
           className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
-          placeholder="סיסמה"
+          placeholder="סיסמה בעלת 5 תווים לפחות"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          minLength={5}
+          required
         />
 
         <button onClick={changeUser} className={styles.btn}>
