@@ -57,7 +57,7 @@ const ShiftCurrentWeek = (props) => {
     }
 
 
-    return <div>
+    return <div style={{backgroundColor: "green"}}>
         <div className={styles.shift} >
             <div onClick={() => { setShow(!showWorkers) }}>
 
