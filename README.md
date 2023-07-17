@@ -1,82 +1,100 @@
-#Shift Planner
+# Shift Planner
+
 Shift Planner is a web-based application that allows users to manage and view their shifts for the current week and the next week. The application is built with Node.js, Express.js for the backend, and React.js for the frontend.
 
-Features
-User-friendly interface for managing and viewing shifts
-Create and manage shifts for the current and next week
-Assign workers to shifts
-Create and manage user accounts
-Define user roles and permissions
-Technologies Used
-Backend: Node.js, Express.js
-Frontend: React.js
-Database: [Specify the database technology used, if applicable]
-Other dependencies: [List any additional dependencies or libraries used]
-Installation
+## Features
+
+- User-friendly interface for managing and viewing shifts
+- Create and manage shifts for the current and next week
+- Assign workers to shifts
+- Create and manage user accounts
+- Define user roles and permissions
+
+## Technologies Used
+
+- Backend: Node.js, Express.js
+- Frontend: React.js
+- Database: [Specify the database technology used, if applicable]
+- Other dependencies: [List any additional dependencies or libraries used]
+
+## Installation
+
 To run Shift Planner locally, follow these steps:
 
-Clone the repository:
+1. Clone the repository:
 
-bash
-Copy code
-git clone https://github.com/[your-username]/shift-planner.git
-Navigate to the project directory:
+   ```bash
+   git clone https://github.com/[your-username]/shift-planner.git
+   ```
 
-bash
-Copy code
-cd shift-planner
-Install the dependencies:
+2. Navigate to the project directory:
 
-bash
-Copy code
-npm install
-Start the development server:
+   ```bash
+   cd shift-planner
+   ```
 
-bash
-Copy code
-npm start
-Open your browser and visit http://localhost:3000 to access the application.
+3. Install the dependencies:
 
-Usage
-Create a user account and log in to the Shift Planner application.
+   ```bash
+   npm install
+   ```
 
-As a manager, you have access to additional features such as creating shifts, viewing current shifts, and assigning workers.
+4. Start the development server:
 
-Create shifts for the current week or the next week by specifying the shift details such as date, time, and position.
+   ```bash
+   npm start
+   ```
 
-Assign workers to shifts by selecting the appropriate users from the available list.
+5. Open your browser and visit `http://localhost:3000` to access the application.
 
-View the shifts for the current week and the next week in the calendar view.
+## Usage
 
-Contributing
-Contributions to Shift Planner are welcome! If you encounter any issues or have suggestions for improvements, please open an issue on the GitHub repository. To contribute code, follow these steps:
+1. Create a user account and log in to the Shift Planner application.
 
-Fork the repository.
+2. As a manager, you have access to additional features such as creating shifts, viewing current shifts, and assigning workers.
 
-Create a new branch:
+3. Create shifts for the current week or the next week by specifying the shift details such as date, time, and position.
 
-bash
-Copy code
-git checkout -b feature/your-feature-name
-Make your changes and commit them:
+4. Assign workers to shifts by selecting the appropriate users from the available list.
 
-bash
-Copy code
-git commit -m "Add your commit message"
-Push your changes to the forked repository:
+5. View the shifts for the current week and the next week in the calendar view.
 
-bash
-Copy code
-git push origin feature/your-feature-name
-Open a pull request on the main repository.
+## Contributing
+
+Contributions to Shift Planner are welcome! If you encounter any issues or have suggestions for improvements, please open an issue on the [GitHub repository](https://github.com/[your-username]/shift-planner/issues). To contribute code, follow these steps:
+
+1. Fork the repository.
+
+2. Create a new branch:
+
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+3. Make your changes and commit them:
+
+   ```bash
+   git commit -m "Add your commit message"
+   ```
+
+4. Push your changes to the forked repository:
+
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+5. Open a pull request on the main repository.
 
 Please ensure your code follows the existing code style and includes appropriate tests.
 
-License
+## License
+
 [Specify the license under which the Shift Planner application is distributed.]
 
-Acknowledgements
+## Acknowledgements
+
 [List any acknowledgements or credits for external resources, libraries, or tutorials used in the project.]
 
-Contact
+## Contact
+
 If you have any questions or inquiries, feel free to contact [your-name] at [your-email].
