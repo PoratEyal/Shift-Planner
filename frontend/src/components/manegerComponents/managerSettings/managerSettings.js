@@ -13,7 +13,7 @@ const ManagerSettings = () => {
 
   const changeUser = async () => {
     if (password.length < 5) {
-        setIsEmpty(false);
+        setIsEmpty(true);
         return
     }
 
