@@ -14,8 +14,7 @@ Shift Planner is a web-based application that allows users to manage and view th
 
 - Backend: Node.js, Express.js
 - Frontend: React.js
-- Database: [Specify the database technology used, if applicable]
-- Other dependencies: [List any additional dependencies or libraries used]
+- Database: MongoDB
 
 ## Installation
 
@@ -45,7 +44,7 @@ To run Shift Planner locally, follow these steps:
    npm start
    ```
 
-5. Open your browser and visit `http://localhost:3000` to access the application.
+5. Open your browser and visit `http://localhost:3001` to access the application.
 
 ## Usage
 
@@ -58,34 +57,6 @@ To run Shift Planner locally, follow these steps:
 4. Assign workers to shifts by selecting the appropriate users from the available list.
 
 5. View the shifts for the current week and the next week in the calendar view.
-
-## Contributing
-
-Contributions to Shift Planner are welcome! If you encounter any issues or have suggestions for improvements, please open an issue on the [GitHub repository](https://github.com/[your-username]/shift-planner/issues). To contribute code, follow these steps:
-
-1. Fork the repository.
-
-2. Create a new branch:
-
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-
-3. Make your changes and commit them:
-
-   ```bash
-   git commit -m "Add your commit message"
-   ```
-
-4. Push your changes to the forked repository:
-
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-
-5. Open a pull request on the main repository.
-
-Please ensure your code follows the existing code style and includes appropriate tests.
 
 ## License
 
