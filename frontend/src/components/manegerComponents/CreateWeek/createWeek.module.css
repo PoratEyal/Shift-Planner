@@ -219,7 +219,7 @@
 }
 .addShift_btn:hover {
     transform: scale(1.02);
-    }
+}
 
 
 .workers_list {
@@ -460,6 +460,35 @@
 
 .loadingWorkers_manger_page{
     margin: 15px;
+}
+.first_publish_div{
+    margin-top: 90px;
+}
+.first_addShift_btn{
+    margin: 10px;
+    margin-top: -10px;
+    display: flex;
+    padding: 0.8rem 2.4rem;
+    font-size: 1.275rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    gap: 0.75rem;
+    color: rgb(65, 63, 63);
+    background-color: #2977bc;
+    color: white;
+    cursor: pointer;
+    transition: all .6s ease;
+    width: 320px;
+    justify-content: center;
+}
+.first_addShift_btn:hover {
+    transform: scale(1.02);
 }
 
 .publish_div{

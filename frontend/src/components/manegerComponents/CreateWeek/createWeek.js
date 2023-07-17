@@ -71,8 +71,8 @@ const CreateWeek = () => {
                 <p>יצירת משמרות לשבוע הבא</p>
             </div>
 
-            {!weekVisivble ? <div className={styles.publish_div}>
-                <button onClick={publishWeek} className={styles.addShift_btn}>פרסם משמרות</button>
+            {!weekVisivble ? <div className={styles.first_publish_div}>
+                <button onClick={publishWeek} className={styles.first_addShift_btn}>פרסם משמרות</button>
             </div> : 
             
              
