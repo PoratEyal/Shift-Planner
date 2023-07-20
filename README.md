@@ -16,36 +16,6 @@ Shift Planner is a web-based application that allows users to manage and view th
 - Frontend: React.js
 - Database: MongoDB
 
-## Installation
-
-To run Shift Planner locally, follow these steps:
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/[your-username]/shift-planner.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd shift-planner
-   ```
-
-3. Install the dependencies:
-
-   ```bash
-   npm install
-   ```
-
-4. Start the development server:
-
-   ```bash
-   npm start
-   ```
-
-5. Open your browser and visit `http://localhost:3001` to access the application.
-
 ## Usage
 
 1. Log in to the Shift Planner application as a manager.
@@ -75,5 +45,6 @@ Note: Only the manager has the ability to create and delete users and roles, cre
 ## Contact
 
 If you have any questions or inquiries, feel free to contact Eyal porat at eyal1.porat@gmail.com and Edi Grunseid at edgru99@gmail.com.
+
 <img width="1235" alt="Screenshot 2023-07-20 160843" src="https://github.com/PoratEyal/Shift-Planner/assets/134833213/a40a300a-d900-48c9-9f87-29847fd28d93">
 
