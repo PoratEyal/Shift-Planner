@@ -25,16 +25,12 @@ const AllUsers = (props) => {
         
 
       }
-    
-    
     useEffect(() => {
       fetchData();
-  }, [props.added]);
-
+    }, [props.added]);
     useEffect(() => {  
       fetchData();
-  }, [userDeleted]);
-
+    }, [userDeleted]);
     const deleteUser = async (userId) => {
       Swal.fire({
         title: 'האם ברצונך למחוק את המשתמש',
@@ -67,7 +63,6 @@ const AllUsers = (props) => {
         }
       });
     }
-    
     return (
         <div>
           {!loading ? (
