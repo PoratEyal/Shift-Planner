@@ -102,7 +102,7 @@ router.post('/addUser', async (req, res) => {
         user.role = role._doc._id;
 
         const jobRes = await job.findOne({ name: user.job });
-        user.job = jobRes._id;
+        user.job = jobRes._doc._id;
 
         const createdUser = await User.create(user);
 
