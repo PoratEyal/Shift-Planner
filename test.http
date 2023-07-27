@@ -34,7 +34,7 @@ POST http://localhost:3001/app/addJob
 Content-Type: application/json
 
 {
-    "name": "user"
+    "name": "admin"
 }
 
 
@@ -45,13 +45,12 @@ Authorization: Bearer user.token
 Content-Type: application/json
 
 {
-    "fullName":"לירון צורדקר",
-    "username":"liron",
-    "password":"liron12345",
-    "role":"64a7d10d0606ff97cf2796dd",
+    "fullName":"אדי",
+    "username":"edi",
+    "password":"12345",
+    "role": "64c259be933a450465d6b28e",
     "job": "admin"
 }
-
 ### get user by id
 GET http://localhost:3001/app/getUserById/64a7e06013b2c9b7c22e7506
 Content-Type: application/json

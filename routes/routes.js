@@ -102,7 +102,7 @@ router.post('/addUser', async (req, res) => {
         user.role = role._doc._id;
 
         const jobRes = await job.findOne({ name: user.job });
-        user.job = jobRes._doc._id;
+        user.job = jobRes._id;
 
         const createdUser = await User.create(user);
 
@@ -112,7 +112,6 @@ router.post('/addUser', async (req, res) => {
     }
 });
 router.post(`/getAllWorkers`, (req, res) =>{
-
     const shiftWorkers = req.body;
     console.log("before log");
     console.log(shiftWorkers.workers);
@@ -167,13 +166,13 @@ router.get('/GetUserRole', authenticateToken, (req, res) => {
 
 
 
-    if (req.user.job === '649c08040834b0d306adef45') {
+    if (req.user.job === '649c08040834b0d306adef45' || req.user.job === "64c259551a5f2d4dca3424bb") {
         const resRole = {
             job: "admin"
         }
         return res.status(200).json(resRole);
     }
-    else if (req.user.job === '649d571b70f2c12b782d204f') {
+    else if (req.user.job === '649d571b70f2c12b782d204f' || req.user.job === "64c2594b1a5f2d4dca3424b9") {
         const resRole = {
             job: "user"
         }
