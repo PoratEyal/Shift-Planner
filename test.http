@@ -1,0 +1,186 @@
+### ----------------------roles actions-------------------------
+###Add (post)
+POST http://localhost:3001/app/addRole
+Content-Type: application/json
+
+{
+    "name":"Manager"
+}
+
+###get all (get)
+GET http://localhost:3001/app/getRoles
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDljMGFjZWYyMDM4Yzc1NGQzMjk5NDAiLCJmdWxsTmFtZSI6ImVkd2FyZCIsInVzZXJuYW1lIjoiZ3J1bnNlaWQiLCJwYXNzd29yZCI6IiQyYSQxMCRFM3JudEhVVksxUmtWdW1zbVpTbHMuR1pwei9aQXl1WC5RQTIxZHhSYkpLQWF1YWtmTWNUMiIsInJvbGUiOiI2NDk5OTVjYzdjMWNiOGY4OTI4YTViMjQiLCJqb2IiOiI2NDljMDgwNDA4MzRiMGQzMDZhZGVmNDUiLCJfX3YiOjAsImlhdCI6MTY4ODAzNDY1OX0.k9mXZqSmBIVBd9rs5vDaSXpEnzx-H4hopGloZuz5eZk
+
+### get by id
+GET http://localhost:3001/app/getRoleWithId/649aa0cbb82a5343f4550bed
+Content-Type: application/json
+
+### delete role (delete)
+DELETE http://localhost:3001/app/deleteRole/649851fdf84cbd0787d4c020
+Content-Type: application/json
+
+### put Role
+
+PUT http://localhost:3001/app/putRole
+Content-Type: application/json
+
+{ 
+    "_id": "649aa0cbb82a5343f4550bed",
+     "name": "test" 
+}
+
+###----------------job functions -------------
+POST http://localhost:3001/app/addJob
+Content-Type: application/json
+
+{
+    "name": "admin"
+}
+
+
+### ---------------users actions--------------
+
+POST http://localhost:3001/app/addUser
+Authorization: Bearer user.token
+Content-Type: application/json
+
+{
+    "fullName":"אדי",
+    "username":"edi",
+    "password":"12345",
+    "role": "64c259be933a450465d6b28e",
+    "job": "admin"
+}
+### get user by id
+GET http://localhost:3001/app/getUserById/64a7e06013b2c9b7c22e7506
+Content-Type: application/json
+
+###
+
+GET http://localhost:3001/app/getUsers
+Content-Type: application/json
+
+###
+
+POST http://localhost:3001/app/login
+Content-Type: application/json
+
+{
+    "username": "grunseid",
+    "password": "1234"
+}
+
+
+###
+DELETE http://localhost:3001/app/deleteUser/649c0e639c641ffe2fd02ebd
+
+Content-Type: application/json
+
+
+###
+PUT http://localhost:3001/app/editUser
+Content-Type: application/json
+
+{
+    "_id": "64a1697eb592d696715c9037",
+    "fullName": "דימה",
+    "username": "דימה",
+    "password": "1234",
+    "role": "649995cc7c1cb8f8928a5b24",
+    "job": "649d571b70f2c12b782d204f"
+}
+
+
+### ------------------shift Actions------
+### Add Shift
+POST http://localhost:3001/app/addShift
+Content-Type: application/json
+
+{
+    "description": "משמרת חג",
+    "startTime": "6:00",
+    "endTime": "10:00",
+    "workers": ["jhon"]
+}
+
+### get All Shifts
+GET http://localhost:3001/app/getShifts
+Content-Type: application/json
+
+### get shift by id
+GET http://localhost:3001/app/getShiftById/6499d143ddfa4c42dc7600cc
+Content-Type: application/json
+
+
+### delete shift
+DELETE http://localhost:3001/app/deleteShift/6499d143ddfa4c42dc7600cc
+Content-Type: application/json
+
+### update shift
+PUT http://localhost:3001/app/updateShift
+Content-Type: application/json
+
+{
+    "_id": "649af12b13cbaa41a90ab937",
+    "description": "TEST2",
+    "startTime": "8:00",
+    "endTime": "23:00",
+    "workers": []
+}
+
+
+
+
+### --------------days actions--------
+POST http://localhost:3001/app/addDay
+Content-Type: application/json
+
+{
+    "name":"בדיקה בדיקה בדיקה",
+    "shifts": []
+}
+
+###
+GET http://localhost:3001/app/getDays
+Content-Type: application/json 
+
+
+###
+GET http://localhost:3001/app/getDay/649b33527747ae58985fde2f
+Content-Type: application/json 
+
+###
+
+DELETE  http://localhost:3001/app/deleteDay/649ebf8086d5ecb147f51df2
+Content-Type: application/json 
+
+###
+PUT http://localhost:3001/app/editDay
+Content-Type: application/json
+
+{
+    "_id": "649b3c2e18f3287977da1009",
+    "name": "ראשון",
+    "shifts": []
+}
+
+
+###---------------week requests---------
+
+
+POST http://localhost:3001/app/addWeek
+Content-Type: application/json
+
+{
+    "name": "NextWeek",
+    "visible": false,
+    "publishScheduling": false,
+    "day":[
+
+    ] 
+}
+
+###
+GET http://localhost:3001/app/testWeekCreating
+Content-Type: application/json
+
