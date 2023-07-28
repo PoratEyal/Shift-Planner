@@ -117,7 +117,6 @@ userRouter.get('/GetUserRole', authenticateToken, (req, res) => {
 //login
 userRouter.post('/login', async (req, res) => {
     await User.findOne({ username: `${req.body.username}` }).then(user => {
-        console.log("in findone");
         bcrypt.compare(req.body.password, user.password).then((result) => {
             if (result === true) {
                 const accessToken = jwt.sign(user.toJSON(), process.env.ACCESS_TOKEN_SECRET);
