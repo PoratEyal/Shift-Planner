@@ -11,17 +11,19 @@ const CurrentWeek = () => {
     const navigate = useNavigate();
     const [week, setWeek] = useState(null);
     const [weekPublished, setWeekPublished] = useState(null)
+    const [weekVisible, setWeekVisible] = useState(null)
 
     const getDays = () => {
         axios.get(`${process.env.REACT_APP_URL}/getNextWeek`).then((response) => {
             setWeek(response.data);
             setWeekPublished(response.data.publishScheduling)
+            setWeekVisible(response.data.visible)
         }).catch(err => console.log(err));
     }
 
     useEffect(() => {
         getDays();
-    }, [weekPublished]);
+    }, [weekPublished, weekVisible]);
 
     const publishSchedule= () => {
         Swal.fire({
@@ -45,6 +47,7 @@ const CurrentWeek = () => {
             }
           })
     }
+
     const editPublishSchedule = async () => {
         try {
             await axios.put(`${process.env.REACT_APP_URL}/setNextWeekPublished`)
@@ -63,15 +66,17 @@ const CurrentWeek = () => {
                 <button className={styles.home_btn} onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
                 <p>שיבוץ עובדים לשבוע הבא</p>
             </div>
-            
 
-            {
-                !weekPublished ? <div className={styles.publish_div}>
+            {weekVisible && !weekPublished ? 
+            <div className={styles.publish_div}>
                 <button onClick={publishSchedule} className={styles.addShift_btn}>פרסם שבוע סופי</button>
             </div>
-            : <div className={styles.messege}>
+            : null}
+
+            {weekPublished ? 
+            <div className={styles.messege}>
                 <p>השבוע פורסם</p>   
-            </div>}
+            </div>: null}
 
             <div style={{ marginTop: '70px' }} className={styles.container}>
                 {
