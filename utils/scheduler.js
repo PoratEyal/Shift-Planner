@@ -1,5 +1,5 @@
 const schedule = require('node-schedule');
-const Week = require('./models/week');
+const Week = require('../models/week');
 const createWeek = require('./functions');
 
 // Define the schedule rule for running the function at the start of Sunday

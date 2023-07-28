@@ -1,6 +1,6 @@
 
-const Week = require('./models/week');
-const Day = require('./models/day');
+const Week = require('../models/week');
+const Day = require('../models/day');
 const { response } = require('express');
 function CreateWeek(){
     const days = ['ראשון', 'שני', "שלישי", "רביעי", "חמישי", "שישי", "שבת"];

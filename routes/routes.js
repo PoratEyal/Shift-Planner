@@ -12,7 +12,7 @@ const { parse } = require('dotenv');
 const path = require('path');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
-const functions = require('../functions');
+const functions = require('../utils/functions');
 const { Job } = require('node-schedule');
 const ObjectId = mongoose.Types.ObjectId;
 
