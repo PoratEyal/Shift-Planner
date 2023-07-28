@@ -90,19 +90,17 @@ const CurrentWeekWorkers = (props) => {
         ))}
       </div>
       
-      {/* {newWorkers && newWorkers.length > 0 ? ( */}
-          <div className={styles.add_specific_worker_div}>
-              <div>
-                <button onClick={() => { choseWorker(selectRef.current.value) }} className={styles.add_specific_worker_btn}>הוספה</button>
-              </div>
-
-              <select className={styles.add_specific_worker_select} ref={selectRef} defaultValue={null}>
-                {newWorkers.map((elem, index) => (
-                  <option key={index} value={elem._id}>{elem.fullName}</option>
-                ))}
-              </select>
+      <div className={styles.add_specific_worker_div}>
+          <div>
+            <button onClick={() => { choseWorker(selectRef.current.value) }} className={styles.add_specific_worker_btn}>הוספה</button>
           </div>
-      {/* ) : null} */}
+
+          <select className={styles.add_specific_worker_select} ref={selectRef}>
+            {newWorkers.map((elem, index) => (
+              <option key={index} value={elem._id}>{elem.fullName}</option>
+            ))}
+          </select>
+      </div>
 
     </React.Fragment>
   );
