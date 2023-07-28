@@ -10,38 +10,37 @@ const AllUsers = (props) => {
     const [userDeleted, setUserDelted] = useState(false)
     const [loading, setLoading] = useState(false)
     const localUser = JSON.parse(localStorage.getItem("user"));
+
     useEffect(() => {
-        const fetchData = async () => {
+      const fetchData = async () => {
+      try {
+        const body = {
+          job: localUser._id
+        }
+        const response = await axios.post(`${process.env.REACT_APP_URL}/getMyWorkers`, body);
+        setUsers(response.data);
+      } catch (error) {
+          console.error(error);
+      }
+      };
+
+      fetchData();
+    }, [props.added]);
+
+    useEffect(() => {
+      const fetchData = async () => {
         try {
           const body = {
             job: localUser._id
           }
-            const response = await axios.post(`${process.env.REACT_APP_URL}/getMyWorkers`, body);
-            setUsers(response.data);
+          const response = await axios.post(`${process.env.REACT_APP_URL}/getMyWorkers`, body);
+          setUsers(response.data);
+          setLoading(true)
         } catch (error) {
             console.error(error);
         }
         };
-
-        fetchData();
-    }, [props.added]);
-
-    useEffect(() => {
-
-      
-      const body = {
-        job: localUser._id
-      }
-        const fetchData = async () => {
-        try {
-            const response = await axios.post(`${process.env.REACT_APP_URL}/getMyWorkers`);
-            setUsers(response.data)
-            setLoading(true)
-        } catch (error) {
-            console.error(error);
-        }
-        };
-
+  
         fetchData();
     }, [userDeleted]);
 
