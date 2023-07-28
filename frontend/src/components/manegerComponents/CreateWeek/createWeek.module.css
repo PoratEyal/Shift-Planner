@@ -432,7 +432,7 @@
 .add_specific_worker_btn{
     width: 60px;
     margin: 15px;
-    background-color: rgba(55, 37, 33, 0.595);
+    background-color: rgba(165, 165, 165, 0.88);
     color: white;
     border: none;
     border-radius: 5px;
@@ -443,7 +443,7 @@
     margin-right: 30px;
 }
 .add_specific_worker_btn:hover{
-    background-color: rgba(55, 37, 33, 0.755);
+    background-color: rgb(153, 153, 153);
 }
 .add_specific_worker_select{
     margin: 10px;
