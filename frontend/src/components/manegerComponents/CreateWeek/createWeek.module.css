@@ -1,3 +1,7 @@
+:root{
+    --main-color: #2977bc;
+}
+
 .container{
     direction: ltr;
     display: flex;
@@ -13,7 +17,7 @@
     justify-content: space-between;
     align-items: center;
     height: 60px;
-    background-color: #2977bc;
+    background-color: var(--main-color);
     top: 0;
     left: 0;
     width: 100%;
@@ -132,7 +136,7 @@
     border-radius: 0.5rem;
     border: 1px solid rgba(0, 0, 0, 0.25);
     gap: 0.75rem;
-    background-color: #2977bc;
+    background-color: var(--main-color);
     color: white;
     cursor: pointer;
     transition: 0.3s;
@@ -210,7 +214,7 @@
     border: 1px solid rgba(0, 0, 0, 0.25);
     gap: 0.75rem;
     color: rgb(65, 63, 63);
-    background-color: #2977bc;
+    background-color: var(--main-color);
     color: white;
     cursor: pointer;
     transition: all .6s ease;
@@ -270,7 +274,7 @@
 .three-body {
     --uib-size: 35px;
     --uib-speed: 0.8s;
-    --uib-color: #2977bc;
+    --uib-color: var(--main-color);
     position: relative;
     display: inline-block;
     height: var(--uib-size);
@@ -483,7 +487,7 @@
     border: 1px solid rgba(0, 0, 0, 0.25);
     gap: 0.75rem;
     color: rgb(65, 63, 63);
-    background-color: #2977bc;
+    background-color: var(--main-color);
     color: white;
     cursor: pointer;
     transition: all .6s ease;
@@ -516,7 +520,7 @@
     border: 1px solid rgba(0, 0, 0, 0.25);
     gap: 0.75rem;
     color: rgb(65, 63, 63);
-    background-color: #2977bc;
+    background-color: var(--main-color);
     color: white;
     cursor: pointer;
     transition: all .6s ease;
