@@ -456,6 +456,9 @@
     width: 150px;
     text-align: right;
     direction: rtl;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .loadingWorkers_manger_page{

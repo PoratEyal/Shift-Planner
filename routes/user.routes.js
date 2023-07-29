@@ -42,14 +42,14 @@ userRouter.post('/addUser', async (req, res) => {
     }
 });
 
-// get all workers/Get user                      ??????????????????????????????????????????
+// get all workers/Get user   - - - - - - - in prodaction need to change the job id to the job of the current database user id !!!
 userRouter.post(`/getAllWorkers`, (req, res) =>{
     const shiftWorkers = req.body;
     console.log("before log");
     console.log(shiftWorkers.workers);
     console.log("after log");
     const convertedArr = shiftWorkers.workers.map(id => new ObjectId(id))
-    User.find({_id: { $nin: convertedArr}, job: '649d571b70f2c12b782d204f'}, {_id:1, fullName:1}).then(data =>{
+    User.find({_id: { $nin: convertedArr}, job: '64c2594b1a5f2d4dca3424b9'}, {_id:1, fullName:1}).then(data =>{
         res.status(200).json(data)
         console.log(data);
     }).catch(err =>{

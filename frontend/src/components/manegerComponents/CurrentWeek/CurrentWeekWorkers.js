@@ -95,7 +95,8 @@ const CurrentWeekWorkers = (props) => {
             <button onClick={() => { choseWorker(selectRef.current.value) }} className={styles.add_specific_worker_btn}>הוספה</button>
           </div>
 
-          <select className={styles.add_specific_worker_select} ref={selectRef}>
+          <select className={styles.add_specific_worker_select} ref={selectRef} defaultValue="">
+            <option value="" disabled>בחר עובד</option>
             {newWorkers.map((elem, index) => (
               <option key={index} value={elem._id}>{elem.fullName}</option>
             ))}
