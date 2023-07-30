@@ -5,7 +5,8 @@ import AllUsers from './AllUsers'
 import AddRole from './AddRole'
 import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
-import { AiOutlineUserAdd } from "react-icons/ai";
+import { ManagerContext } from '../ManagerHomePage' 
+import { useContext } from 'react';
 
 const UserManagement = () => {
 
@@ -23,7 +24,9 @@ const UserManagement = () => {
   const [addLineRules, setAddLineRules] = useState(false)
   const [addLineUsers, setAddLineUsers] = useState(true)
 
-  const data = JSON.parse(localStorage.getItem("user"));
+  //context
+  const managerContext = useContext(ManagerContext);
+  const managerId = managerContext.getUser();
 
   const handleClick = (event, targetId) => {
     event.preventDefault();
@@ -57,7 +60,7 @@ const UserManagement = () => {
       username: username,
       password: password,
       role: selectedRole,
-      manager: data._id,
+      manager: managerId,
       job: "user"
     }
     axios.post(`${process.env.REACT_APP_URL}/addUser`, newUser)
@@ -75,7 +78,7 @@ const UserManagement = () => {
 
   const childElements = [
     <div id="users" className={styles.users}>
-      <AllUsers added={userAdded}></AllUsers>
+      <AllUsers managerId={managerId} added={userAdded}></AllUsers>
     </div>,
 
     <div id="create-user" className={styles.createUser}>
@@ -140,7 +143,7 @@ const UserManagement = () => {
     </div>,
 
     <div id="create-role" className={styles.createRole}>
-      <AddRole roleAdded={getRoles}></AddRole>
+      <AddRole managerId={managerId} roleAdded={getRoles}></AddRole>
     </div>
   ]
 

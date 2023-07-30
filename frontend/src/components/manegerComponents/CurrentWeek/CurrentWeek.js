@@ -5,6 +5,8 @@ import styles from '../CreateWeek/createWeek.module.css'
 import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { ManagerContext } from '../ManagerHomePage' 
+import { useContext } from 'react';
 
 const CurrentWeek = () => {
 
@@ -12,6 +14,9 @@ const CurrentWeek = () => {
     const [week, setWeek] = useState(null);
     const [weekPublished, setWeekPublished] = useState(null)
     const [weekVisible, setWeekVisible] = useState(null)
+
+    const managerContext = useContext(ManagerContext);
+    const managerId = managerContext.getUser();
 
     const getDays = () => {
         axios.get(`${process.env.REACT_APP_URL}/getNextWeek`).then((response) => {
@@ -81,7 +86,7 @@ const CurrentWeek = () => {
             <div style={{ marginTop: '70px' }} className={styles.container}>
                 {
                     week ? week.day.map((day) => {
-                        return <DayCurrentWeek  day={day} key={day._id} getDays={getDays}></DayCurrentWeek>
+                        return <DayCurrentWeek  day={day} key={day._id} getDays={getDays} managerId={managerId}></DayCurrentWeek>
                     }) : null
                 }
             </div>

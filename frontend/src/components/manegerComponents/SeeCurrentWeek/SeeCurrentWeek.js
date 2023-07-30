@@ -4,11 +4,16 @@ import DayCurrentWeek from './SeeDayCurrentWeek'
 import styles from '../CreateWeek/createWeek.module.css'
 import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
+import { ManagerContext } from '../ManagerHomePage' 
+import { useContext } from 'react';
 
 const SeeCurrentWeek = () => {
 
     const navigate = useNavigate();
     const [week, setWeek] = useState(null);
+
+    const managerContext = useContext(ManagerContext);
+    const managerId = managerContext.getUser();
 
     const getDays = () => {
         axios.get(`${process.env.REACT_APP_URL}/getCurrentWeek`).then((response) => {
@@ -18,7 +23,6 @@ const SeeCurrentWeek = () => {
 
     useEffect(() => {
         getDays();
-
     }, []);
     
     return <React.Fragment>
@@ -31,7 +35,7 @@ const SeeCurrentWeek = () => {
             <div style={{ marginTop: '70px' }} className={styles.container}>
                 {
                     week ? week.day.map((day) => {
-                        return <DayCurrentWeek day={day} key={day._id} getDays={getDays}></DayCurrentWeek>
+                        return <DayCurrentWeek managerId={managerId} day={day} key={day._id} getDays={getDays}></DayCurrentWeek>
                     }) : null
                 }
             </div>

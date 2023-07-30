@@ -5,6 +5,8 @@ import styles from '../CreateWeek/createWeek.module.css'
 import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { ManagerContext } from '../ManagerHomePage' 
+import { useContext } from 'react';
 
 const CreateWeek = () => {
 
@@ -12,6 +14,9 @@ const CreateWeek = () => {
     const [week, setWeek] = useState(null);
     const [weekVisivble, setWeekVisivble] = useState(null);
     const [weekPublished, setWeekPublished] = useState(null)
+
+    const managerContext = useContext(ManagerContext);
+    const managerId = managerContext.getUser();
 
     const getDays = () => {
         axios.get(`${process.env.REACT_APP_URL}/getNextWeek`).then((response) => {
@@ -22,7 +27,7 @@ const CreateWeek = () => {
     }
 
     useEffect(() => {
-        getDays()
+        getDays();
     }, []);
 
     const editWeek = async () => {
@@ -36,8 +41,6 @@ const CreateWeek = () => {
             console.log(error.message);
         }
     }
-
-    
 
     const publishWeek = () => {
         Swal.fire({
@@ -62,8 +65,6 @@ const CreateWeek = () => {
           })
     }
 
-    
-
     return <React.Fragment>
         <div className={styles.container}>
             <div className={styles.nav_container}>
@@ -84,7 +85,7 @@ const CreateWeek = () => {
             <div>
                 {
                     week ? week.day.map((day) => {
-                        return <Day day={day} key={day._id} getDays={getDays}></Day>
+                        return <Day day={day} key={day._id} getDays={getDays} managerId={managerId}></Day>
                     }) : null
                 }
             </div>

@@ -9,7 +9,7 @@ const SeeShiftCurrentWeek = (props) => {
 
     return <div className={styles.shift} onClick={() => {setShow(!showWorkers)}}>
         <p className={styles.shift_description}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
-        { showWorkers ?<CurrentWeekWorkers workers={shift.workers}></CurrentWeekWorkers> : null }
+        { showWorkers ?<CurrentWeekWorkers managerId={props.managerId} workers={shift.workers}></CurrentWeekWorkers> : null }
     </div>
 }
 

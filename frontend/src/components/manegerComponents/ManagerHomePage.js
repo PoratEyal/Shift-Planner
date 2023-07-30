@@ -1,5 +1,5 @@
 import styles from '../manegerComponents/maneger_home_page.module.css'
-import React, { useEffect, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import { Link, Outlet} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { BiLogOut } from "react-icons/bi";
@@ -10,12 +10,26 @@ import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import Swal from 'sweetalert2';
 import axios from 'axios';
 
+export const ManagerContext = createContext({
+    getUser: () => {
+      const user = localStorage.getItem('user');
+      const userData = JSON.parse(user);
+      return userData._id;
+    },
+});
 
 const ManagerHomePage = () => {
+
     const navigate = useNavigate();
     let data = {};
     const [fullname, setName] = useState("");
     const [weekVisible, setWeekVisible] = useState(false);
+
+    const getUser = () => {
+        const user = localStorage.getItem('user');
+        const userData = JSON.parse(user);
+        return userData._id;
+      };
 
     useEffect(() => {
         const StorageData = JSON.parse(localStorage.getItem("user"));
@@ -63,7 +77,7 @@ const ManagerHomePage = () => {
       };
 
 
-    return <React.Fragment>
+    return <ManagerContext.Provider value={{getUser}}>
         <div className={styles.upperContainer}>
             <div className={styles.nav_buttons}>
                 <Link to="/"><button className={styles.signout} onClick={signout}><BiLogOut></BiLogOut></button></Link>
@@ -109,7 +123,7 @@ const ManagerHomePage = () => {
 
             <Outlet />
         </div>
-    </React.Fragment>
+    </ManagerContext.Provider>
 }
 
 export default ManagerHomePage;
