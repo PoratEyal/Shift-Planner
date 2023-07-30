@@ -1,3 +1,7 @@
+:root{
+    --main-color: #2977bc;
+}
+
 .container{
     direction: ltr;
     display: flex;
@@ -13,7 +17,7 @@
     justify-content: space-between;
     align-items: center;
     height: 60px;
-    background-color: #2977bc;
+    background-color: var(--main-color);
     top: 0;
     left: 0;
     width: 100%;
@@ -132,7 +136,7 @@
     border-radius: 0.5rem;
     border: 1px solid rgba(0, 0, 0, 0.25);
     gap: 0.75rem;
-    background-color: #2977bc;
+    background-color: var(--main-color);
     color: white;
     cursor: pointer;
     transition: 0.3s;
@@ -210,7 +214,7 @@
     border: 1px solid rgba(0, 0, 0, 0.25);
     gap: 0.75rem;
     color: rgb(65, 63, 63);
-    background-color: #2977bc;
+    background-color: var(--main-color);
     color: white;
     cursor: pointer;
     transition: all .6s ease;
@@ -219,7 +223,7 @@
 }
 .addShift_btn:hover {
     transform: scale(1.02);
-    }
+}
 
 
 .workers_list {
@@ -270,7 +274,7 @@
 .three-body {
     --uib-size: 35px;
     --uib-speed: 0.8s;
-    --uib-color: #2977bc;
+    --uib-color: var(--main-color);
     position: relative;
     display: inline-block;
     height: var(--uib-size);
@@ -417,18 +421,87 @@
     padding: 9px;
     cursor: pointer;
     font-size: 15px;
-    
+    transition: 0.3s;
 }
 .btn_chosen:hover{
     background-color: rgba(196, 48, 15, 0.956);
 }
 
+.add_specific_worker_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.add_specific_worker_btn{
+    width: 60px;
+    margin: 15px;
+    background-color: rgba(165, 165, 165, 0.88);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 9px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+    margin-right: 30px;
+}
+.add_specific_worker_btn:hover{
+    background-color: rgb(153, 153, 153);
+}
+.add_specific_worker_select{
+    margin: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    width: 150px;
+    text-align: right;
+    direction: rtl;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
 .loadingWorkers_manger_page{
     margin: 15px;
+}
+.first_publish_div{
+    margin-top: 90px;
+}
+.first_addShift_btn{
+    margin: 10px;
+    margin-top: -10px;
+    display: flex;
+    padding: 0.8rem 2.4rem;
+    font-size: 1.275rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    gap: 0.75rem;
+    color: rgb(65, 63, 63);
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+    transition: all .6s ease;
+    width: 320px;
+    justify-content: center;
+}
+.first_addShift_btn:hover {
+    transform: scale(1.02);
 }
 
 .publish_div{
     margin-top: 90px;
+    margin-left: 10px;
+    margin-bottom: -70px;
 }
 
 .publish_div button{
@@ -447,7 +520,7 @@
     border: 1px solid rgba(0, 0, 0, 0.25);
     gap: 0.75rem;
     color: rgb(65, 63, 63);
-    background-color: #2977bc;
+    background-color: var(--main-color);
     color: white;
     cursor: pointer;
     transition: all .6s ease;

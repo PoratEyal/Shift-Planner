@@ -21,6 +21,7 @@
     margin-right: 18px;
 }
 .nav_container button{
+    cursor: pointer;
     font-size: 25px;
     color: white;
     background-color: #41379600;
@@ -64,6 +65,9 @@
     width: 80%;
     border: 1px solid rgba(0, 0, 0, 0.25);
     direction: rtl;
+}
+.input::placeholder {
+    font-size: 18px;
 }
 
 .emptyInput {

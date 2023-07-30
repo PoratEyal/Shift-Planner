@@ -1,20 +1,20 @@
 import axios from 'axios';
-import React, { useRef } from 'react';
-import { useEffect, useState } from 'react';
-import styles from '../CreateWeek/createWeek.module.css'
+import React, { useRef, useEffect, useState } from 'react';
+import styles from '../CreateWeek/createWeek.module.css';
 
 const CurrentWeekWorkers = (props) => {
-
-  const [workers, setWorker] = useState(props.workers)
-  const [availableWorkers, setAvailableWorkers] = useState(props.availableWorkers)
-  const [newWorkers, setWorkers] = useState(null);
+  const [workers, setWorker] = useState(props.workers);
+  const [availableWorkers, setAvailableWorkers] = useState(props.availableWorkers);
+  const [newWorkers, setNewWorkers] = useState([]); // Initialize newWorkers as an empty array
 
   const [availableWorkersArr, setAvailableWorkersArr] = useState([]);
   const [workersArr, setWorkersArr] = useState([]);
 
-  const [updatedWorkers, setUpdatedWorkers] = useState(false)
+  const [updatedWorkers, setUpdatedWorkers] = useState(false);
 
   const selectRef = useRef(null);
+
+  // get all the workers
   useEffect(() => {
     workers.map(worker => {
       axios
@@ -82,7 +82,6 @@ const CurrentWeekWorkers = (props) => {
         ))}
 
         {availableWorkersArr.map((worker, index) => (
-
           <div key={index} className={styles.nameAndDelete}>
             <button onClick={() => choseWorker(worker._id)} className={styles.btn_chose}>
               בחירה
@@ -90,29 +89,23 @@ const CurrentWeekWorkers = (props) => {
             {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
           </div>
         ))}
+      </div>
+      
+      <div className={styles.add_specific_worker_div}>
+          <div>
+            <button onClick={() => { choseWorker(selectRef.current.value) }} className={styles.add_specific_worker_btn}>הוספה</button>
+          </div>
 
+          <select className={styles.add_specific_worker_select} ref={selectRef} defaultValue="">
+            <option value="" disabled>בחר עובד</option>
+            {newWorkers.map((elem, index) => (
+              <option key={index} value={elem._id}>{elem.fullName}</option>
+            ))}
+          </select>
       </div>
 
-      <div className={styles.addWroker_div}>
-        {(
-          newWorkers ?
-            <select className={styles.select_choose_worker} ref={selectRef}>
-
-              {
-                newWorkers.map((elem, index) => {
-                  return <option key={index} value={elem._id} selected={index === 0}>{elem.fullName}</option>
-                })
-              }
-
-            </select>
-            : null)
-        }
-        <div onClick={() => { choseWorker(selectRef.current.value) }}>
-          <img className={styles.plus_btn} src="addWorker.png"></img>
-        </div>
-      </div>
     </React.Fragment>
   );
-}
+};
 
 export default CurrentWeekWorkers;

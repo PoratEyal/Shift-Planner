@@ -8,12 +8,14 @@ import { AiOutlineSchedule } from "react-icons/ai";
 import { IoIosCreate } from "react-icons/io";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 
 const ManagerHomePage = () => {
     const navigate = useNavigate();
     let data = {};
-    const [fullname, setName]= useState("");
+    const [fullname, setName] = useState("");
+    const [weekVisible, setWeekVisible] = useState(false);
 
     useEffect(() => {
         const StorageData = JSON.parse(localStorage.getItem("user"));
@@ -24,7 +26,11 @@ const ManagerHomePage = () => {
         else{
             navigate('/');
         }
-    }, [])
+
+        axios.get(`${process.env.REACT_APP_URL}/getNextWeek`).then((response) => {
+            setWeekVisible(response.data.visible)
+        }).catch(err=> console.log(err));
+    }, [weekVisible])
 
     const signout = () => {
         Swal.fire({
@@ -43,6 +49,18 @@ const ManagerHomePage = () => {
             }
           })
     }
+
+    const handleClick = (event) => {
+        if (!weekVisible) {
+          // If weekVisible is false, show an alert and prevent navigation
+          event.preventDefault();
+          Swal.fire({
+            title: 'ברגע שיפורסמו המשמרות תוכלו להכנס לעמוד: שיבוץ עובדים',
+            icon: 'warning',
+            confirmButtonColor: '#2977bc'
+          });
+        }
+      };
 
 
     return <React.Fragment>
@@ -79,16 +97,15 @@ const ManagerHomePage = () => {
                 </button>
             </Link> 
 
-            <Link className={styles.link} to="/currentWeekShifts">
+            <Link className={styles.link} to="/currentWeekShifts" onClick={handleClick}>
                 <button className={styles.btn}>
                     <div className={styles.icon_div}>
-                        {<AiOutlineUsergroupAdd className={styles.icon3}></AiOutlineUsergroupAdd>}
+                    {<AiOutlineUsergroupAdd className={styles.icon3}></AiOutlineUsergroupAdd>}
                     </div>
-                    <div className={styles.text_div}>
-                        שיבוץ עובדים לשבוע הבא
-                    </div>
+                    <div className={styles.text_div}>שיבוץ עובדים לשבוע הבא</div>
                 </button>
             </Link>
+
 
             <Outlet />
         </div>

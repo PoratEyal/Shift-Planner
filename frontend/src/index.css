@@ -1,5 +1,6 @@
 body {
-    background: linear-gradient(rgb(255, 255, 255) 70%, #2977bc8a);
+    /* background: linear-gradient(rgb(255, 255, 255) 70%, #2977bc8a); */
+    background-color: white;
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
