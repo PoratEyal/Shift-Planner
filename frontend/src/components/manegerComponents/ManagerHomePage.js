@@ -41,7 +41,8 @@ const ManagerHomePage = () => {
             navigate('/');
         }
 
-        axios.get(`${process.env.REACT_APP_URL}/getNextWeek`).then((response) => {
+        axios.get(`${process.env.REACT_APP_URL}/getNextWeek/${getUser()}`)
+        .then((response) => {
             setWeekVisible(response.data.visible)
         }).catch(err=> console.log(err));
     }, [weekVisible])

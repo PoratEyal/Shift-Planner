@@ -19,7 +19,8 @@ const CreateWeek = () => {
     const managerId = managerContext.getUser();
 
     const getDays = () => {
-        axios.get(`${process.env.REACT_APP_URL}/getNextWeek`).then((response) => {
+        axios.get(`${process.env.REACT_APP_URL}/getNextWeek/${managerId}`)
+        .then((response) => {
             setWeek(response.data);
             setWeekVisivble(response.data.visible);
             setWeekPublished(response.data.publishScheduling)
@@ -32,7 +33,7 @@ const CreateWeek = () => {
 
     const editWeek = async () => {
         try {
-            await axios.put(`${process.env.REACT_APP_URL}/setNextWeekVisible`)
+            await axios.put(`${process.env.REACT_APP_URL}/setNextWeekVisible/${managerId}`)
             .then((response) => {
                 console.log(response.data)
                 setWeekVisivble(true)

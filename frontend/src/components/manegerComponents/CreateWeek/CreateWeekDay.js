@@ -14,28 +14,32 @@ const CreateWeekDay = (props) => {
     const [shiftEndTime, SetshiftEndTime] = useState('')
     const [clickAddShift, setClickAddShift] = useState(false)
 
+    // get the sifts of the day
     const getShifts = () => {
         return new Promise((resolve, reject) => {
+            setLoading(true);
             let shifts = [];
-            setLoading(true)
+    
             if (day.shifts.length >= 0) {
-                axios.get(`${process.env.REACT_APP_URL}/getShiftsOfDay/${day._id}`).then((response) => {
-                    shifts = response.data;
-                    setLoading(false)
-                    resolve(shifts);
-                })
+                axios.get(`${process.env.REACT_APP_URL}/getShiftsOfDay/${props.managerId}/${day._id}`)
+                    .then((response) => {
+                        shifts = response.data;
+                        setLoading(false);
+                        resolve(shifts);
+                    })
                     .catch((error) => {
                         console.error(error);
-                        setLoading(false)
+                        setLoading(false);
                         reject(error);
                     });
             } else {
-                setLoading(false)
+                setLoading(false);
                 resolve(shifts);
             }
         });
     };
 
+    // put he data from getShifts func into dayShifts state
     const updateShifts = () => {
         getShifts().then((shifts) => {
             setDayShifts(shifts);
@@ -46,21 +50,19 @@ const CreateWeekDay = (props) => {
 
     useEffect(() => {
         updateShifts();
-    }, [day]);
+    }, [day], [dayShifts]);
 
+    // delete shift
     const deleteShift = (id) =>{
         const reqBody = {
             dayId: day._id,
             shiftId: id
         }
-        console.log(day._id);
-        console.log(id);
-        axios.put(`${process.env.REACT_APP_URL}/deleteShiftFromDay`, reqBody).then(response =>{
-            console.log(response);
+        axios.put(`${process.env.REACT_APP_URL}/deleteShiftFromDay/${props.managerId}`, reqBody)
+        .then(response =>{
             updateShifts();
         })
     }
-
 
     // create morning shift and added the _id of her to day
     const addMorningShift = () => {
@@ -75,7 +77,7 @@ const CreateWeekDay = (props) => {
             newShift: newShift,
             dayId: day._id
         }
-        axios.put(`${process.env.REACT_APP_URL}/addShiftToDay`, reqBody)
+        axios.put(`${process.env.REACT_APP_URL}/addShiftToDay/${props.managerId}`, reqBody)
             .then((response) => {
                 const updatedDay = response.data.day.find(d => d._id === day._id);
                 setDay(updatedDay);
@@ -88,7 +90,6 @@ const CreateWeekDay = (props) => {
 
     // create evnig shift and added the _id of her to day
     const addEvningShift = () => {
-        //updateShifts();
         const newShift = {
             description: "משמרת ערב",
             startTime: "15:00",
@@ -101,7 +102,8 @@ const CreateWeekDay = (props) => {
         }
         try {
 
-            axios.put(`${process.env.REACT_APP_URL}/addShiftToDay`, reqBody).then((response) => {
+            axios.put(`${process.env.REACT_APP_URL}/addShiftToDay/${props.managerId}`, reqBody)
+            .then((response) => {
                 const updatedDay = response.data.day.find(d => d._id === day._id);
                 setDay(updatedDay);
             });
@@ -125,7 +127,7 @@ const CreateWeekDay = (props) => {
         }
         try {
 
-            axios.put(`${process.env.REACT_APP_URL}/addShiftToDay`, reqBody).then((response) => {
+            axios.put(`${process.env.REACT_APP_URL}/addShiftToDay/${props.managerId}`, reqBody).then((response) => {
                 const updatedDay = response.data.day.find(d => d._id === day._id);
                 setDay(updatedDay);
             });
