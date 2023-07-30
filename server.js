@@ -7,7 +7,6 @@ require('dotenv').config();
 const cors = require('cors');
 require('./utils/scheduler');
 
-const routesUrls = require('./routes/routes');
 
 const routeDay = require('./routes/day.routes');
 const routeJob = require('./routes/job.routes');
