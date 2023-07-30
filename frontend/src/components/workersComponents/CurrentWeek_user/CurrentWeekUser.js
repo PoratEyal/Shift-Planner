@@ -20,30 +20,32 @@ const CurrentWeekUser = () => {
 
     const navigate = useNavigate();
     const[week, setWeek] = useState(null);
-    const [nextWeek ,setNextWeek] = useState(null);
     const [weekVisible, setWeekVisible] = useState(null);
 
+    // return the manager Id of the current user
     const getUser = () => {
         const user = localStorage.getItem('user');
         const userData = JSON.parse(user);
         return userData.manager;
     };
 
+    // get days of the current week
+    // get if nextWeek is visible or not
+    const getDays = () => {
+        axios.get(`${process.env.REACT_APP_URL}/getCurrentWeek`).then((response) => {
+           setWeek(response.data);
+        }).catch(err=> console.log(err));
+
+        axios.get(`${process.env.REACT_APP_URL}/getNextWeek`).then((response) => {
+        setWeekVisible(response.data.visible)
+        }).catch(err=> console.log(err));
+    }
+
     useEffect(() => { 
         getDays();
     }, [])
 
-    const getDays = () => {
-             axios.get(`${process.env.REACT_APP_URL}/getCurrentWeek`).then((response) => {
-                setWeek(response.data);
-        }).catch(err=> console.log(err));
-
-        axios.get(`${process.env.REACT_APP_URL}/getNextWeek`).then((response) => {
-            setNextWeek(response.data);
-            setWeekVisible(response.data.visible)
-    }).catch(err=> console.log(err));
-    }
-
+    // signout func
     const signout = () => {
         Swal.fire({
             title: 'האם ברצונכם להתנתק',
@@ -62,6 +64,7 @@ const CurrentWeekUser = () => {
           })
     }
 
+    // if next week isnt visible threw alert
     const ChooseShiftsHandler = () => {
         weekVisible ? navigate("/chooseShifts") 
         : Swal.fire({
@@ -72,7 +75,6 @@ const CurrentWeekUser = () => {
     }
 
     return <UserContext.Provider value={{getUser}}>
-
             <div className={styles.upperContainer}>
                 <div className={styles.nav_buttons}>
                     <Link to="/"><button className={styles.signout} onClick={signout}><BiLogOut></BiLogOut></button></Link>
@@ -90,8 +92,7 @@ const CurrentWeekUser = () => {
                     }) : null
                 }
             </div>
-
-        </UserContext.Provider>
+    </UserContext.Provider>
 }
 
 export default CurrentWeekUser
