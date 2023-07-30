@@ -81,7 +81,6 @@ const CreateWeek = () => {
                 <button visible='false'>השבוע פורסם</button>
             </div>}
 
-            {/* {!weekPublished ?  */}
             <div>
                 {
                     week ? week.day.map((day) => {
@@ -89,7 +88,6 @@ const CreateWeek = () => {
                     }) : null
                 }
             </div>
-            {/* //  : null} */}
 
         </div>
     </React.Fragment>

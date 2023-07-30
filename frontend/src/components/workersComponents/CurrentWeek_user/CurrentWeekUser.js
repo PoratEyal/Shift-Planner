@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import Day from './CurrentDayser'
 import styles from './currentWeekUser.module.css';
@@ -7,7 +7,14 @@ import { BiUserCircle } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import ChooseShifts from '../chooseShifts/ChooseShifts';
+
+export const UserContext = createContext({
+    getUser: () => {
+      const user = localStorage.getItem('user');
+      const userData = JSON.parse(user);
+      return userData.manager;
+    },
+});
 
 const CurrentWeekUser = () => {
 
@@ -15,22 +22,20 @@ const CurrentWeekUser = () => {
     const[week, setWeek] = useState(null);
     const [nextWeek ,setNextWeek] = useState(null);
     const [weekVisible, setWeekVisible] = useState(null);
-    let data = {};
-    const [fullname, setName]= useState("");
+
+    const getUser = () => {
+        const user = localStorage.getItem('user');
+        const userData = JSON.parse(user);
+        return userData.manager;
+    };
 
     useEffect(() => { 
         getDays();
-        const StorageData = JSON.parse(localStorage.getItem("user"));
-        if(StorageData){
-            data = StorageData;
-            setName(data.fullName);
-        }
     }, [])
 
     const getDays = () => {
              axios.get(`${process.env.REACT_APP_URL}/getCurrentWeek`).then((response) => {
                 setWeek(response.data);
-                //setWeekVisible(response.data.visible)
         }).catch(err=> console.log(err));
 
         axios.get(`${process.env.REACT_APP_URL}/getNextWeek`).then((response) => {
@@ -57,7 +62,6 @@ const CurrentWeekUser = () => {
           })
     }
 
-
     const ChooseShiftsHandler = () => {
         weekVisible ? navigate("/chooseShifts") 
         : Swal.fire({
@@ -67,7 +71,7 @@ const CurrentWeekUser = () => {
           })
     }
 
-    return <React.Fragment>
+    return <UserContext.Provider value={{getUser}}>
 
             <div className={styles.upperContainer}>
                 <div className={styles.nav_buttons}>
@@ -82,12 +86,12 @@ const CurrentWeekUser = () => {
             <div className={styles.container}>
                 {
                 week ?  week.day.map((day) => {
-                        return <Day day={day} key={day._id}></Day>
+                        return <Day managerId={getUser()} day={day} key={day._id}></Day>
                     }) : null
                 }
             </div>
 
-        </React.Fragment>
+        </UserContext.Provider>
 }
 
 export default CurrentWeekUser
