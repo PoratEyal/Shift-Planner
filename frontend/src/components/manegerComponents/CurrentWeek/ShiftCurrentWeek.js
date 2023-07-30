@@ -10,6 +10,7 @@ const ShiftCurrentWeek = (props) => {
 
     const addWorkerShift = (workerId) => {
         const reqBody = {
+            //managerId: props.managerId,
             dayId: props.dayId,
             shiftId: shift._id,
             workerId: workerId
@@ -26,6 +27,7 @@ const ShiftCurrentWeek = (props) => {
 
     const removeWorkerShift = (workerId) => {
         const reqBody = {
+            //managerId: props.managerId,
             dayId: props.dayId,
             shiftId: shift._id,
             workerId: workerId
@@ -42,8 +44,6 @@ const ShiftCurrentWeek = (props) => {
     return <div>
         <div className={styles.shift} >
             <div onClick={() => { setShow(!showWorkers) }}>
-
-
                 <p className={styles.shift_description}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
             </div>
 
@@ -55,7 +55,6 @@ const ShiftCurrentWeek = (props) => {
                 workers={shift.workers}
                 availableWorkers={shift.availableWorkers}>
             </CurrentWeekWorkers> : null}
-    
         </div>
     </div>
 }

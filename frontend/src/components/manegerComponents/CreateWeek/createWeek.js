@@ -18,6 +18,7 @@ const CreateWeek = () => {
     const managerContext = useContext(ManagerContext);
     const managerId = managerContext.getUser();
 
+    // get all the days in the week (from the specific manager)
     const getDays = () => {
         axios.get(`${process.env.REACT_APP_URL}/getNextWeek/${managerId}`)
         .then((response) => {
@@ -31,6 +32,7 @@ const CreateWeek = () => {
         getDays();
     }, []);
 
+    // set next week to visible
     const editWeek = async () => {
         try {
             await axios.put(`${process.env.REACT_APP_URL}/setNextWeekVisible/${managerId}`)
@@ -43,6 +45,7 @@ const CreateWeek = () => {
         }
     }
 
+    // show alert, if the manager select "yes" - week becomes visible
     const publishWeek = () => {
         Swal.fire({
             title: 'האם ברצונך לפרסם את המשמרות לשבוע הבא',
@@ -61,7 +64,6 @@ const CreateWeek = () => {
                 confirmButtonText: 'סגירה'
             })
               editWeek()
-              console.log(week)
             }
           })
     }

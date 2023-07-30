@@ -28,8 +28,7 @@ const ManagerSettings = () => {
         job: userData.job,
       };
 
-      await axios
-        .put(`${process.env.REACT_APP_URL}/editUser`, updatedUser)
+      await axios.put(`${process.env.REACT_APP_URL}/editUser`, updatedUser)
         .then((response) => {
           setPassword('');
           setIsEmpty(false);
