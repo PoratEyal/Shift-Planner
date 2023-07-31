@@ -44,16 +44,15 @@ const CurrentWeekWorkers = (props) => {
         });
     });
 
-    const user = localStorage.getItem("user");
     const reqBody = {
       workers: [...workers, ...availableWorkers],
-      manager: user._id
+      manager: props.managerId
     };
 
     axios
       .post(`${process.env.REACT_APP_URL}/getAllWorkers`, reqBody)
       .then(response => {
-        setNewWorkers(response.data); // Update the newWorkers state here
+        setNewWorkers(response.data);
       })
       .catch(err => {
         console.log(err);

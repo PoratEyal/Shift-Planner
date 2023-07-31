@@ -76,7 +76,7 @@ const UserShift = (props) => {
     ) : (
       <button onClick={addWorkerToShift} className={styles.add_btn}>הוספה</button>
     )
-  ) : ( showWorkers ? <div><WorkerList workers={shift.workers}></WorkerList></div> : null)
+  ) : ( showWorkers ? <div><WorkerList managerId={props.managerId} workers={shift.workers}></WorkerList></div> : null)
 }
 
   </div>

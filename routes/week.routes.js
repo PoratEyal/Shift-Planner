@@ -18,7 +18,6 @@ const ObjectId = mongoose.Types.ObjectId;
 
 weekRouter.use(bodyParser.json());
 
-
 // get week by his name
 weekRouter.get('/getWeekByName/:name', async (req, res) => {
     try {
@@ -29,18 +28,25 @@ weekRouter.get('/getWeekByName/:name', async (req, res) => {
         res.status(400).json(err);
     }
 });
-weekRouter.get('/getNextWeek', async (req, res) => {
+
+// good func !!!!!!!!!
+// get nextWeek for the specific managerId
+weekRouter.get('/getNextWeek/:managerId', async (req, res) => {
     try {
-        const week = await Week.findOne({ name: "NextWeek" });
+        const managerId = req.params.managerId;
+        const week = await Week.findOne({ name: "NextWeek", ofManager: managerId });
         res.status(200).json(week);
     } catch (err) {
         res.status(400).json(err);
     }
 });
-weekRouter.get('/getCurrentWeek', async (req, res) => {
-    try {
-        const week = await Week.findOne({ name: "CurrentWeek" }).then((response => {
 
+// good func !!!!!!!!!
+// get current Week for the specific managerId
+weekRouter.get('/getCurrentWeek/:managerId', async (req, res) => {
+    try {
+        const managerId = req.params.managerId;
+        const week = await Week.findOne({ name: "CurrentWeek", ofManager: managerId }).then((response => {
             res.status(200).json(response);
         }))
     } catch (err) {
@@ -54,16 +60,20 @@ weekRouter.get('/testWeekCreating', (req, res) => {
     res.status(200);
 });
 
+// good func !!!!!!!!!
 // set nextWeek to visible
-weekRouter.put('/setNextWeekVisible', (req, res) => {
-    Week.findOneAndUpdate({ name: "NextWeek" }, { visible: "true" }).then(response => {
+weekRouter.put('/setNextWeekVisible/:managerId', (req, res) => {
+    const managerId = req.params.managerId;
+    Week.findOneAndUpdate({ name: "NextWeek" , ofManager: managerId}, { visible: "true" }).then(response => {
         res.status(200).json(response);
     }).catch(err => { console.log(err) })
 })
 
+// good func !!!!!!!!!
 // set nextWeek to published
-weekRouter.put('/setNextWeekPublished', (req, res) => {
-    Week.findOneAndUpdate({ name: "NextWeek" }, { publishScheduling: "true" }).then(response => {
+weekRouter.put('/setNextWeekPublished/:managerId', (req, res) => {
+    const managerId = req.params.managerId;
+    Week.findOneAndUpdate({ name: "NextWeek" , ofManager: managerId}, { publishScheduling: "true" }).then(response => {
         res.status(200).json(response);
     }).catch(err => { console.log(err) })
 })

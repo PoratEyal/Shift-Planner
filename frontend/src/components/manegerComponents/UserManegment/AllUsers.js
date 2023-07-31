@@ -9,13 +9,13 @@ const AllUsers = (props) => {
     const [users, setUsers] = useState([])
     const [userDeleted, setUserDelted] = useState(false)
     const [loading, setLoading] = useState(false)
-    const localUser = JSON.parse(localStorage.getItem("user"));
+    const managerId = props.managerId;
 
     useEffect(() => {
       const fetchData = async () => {
       try {
         const body = {
-          job: localUser._id
+          job: managerId
         }
         const response = await axios.post(`${process.env.REACT_APP_URL}/getMyWorkers`, body);
         setUsers(response.data);
@@ -31,7 +31,7 @@ const AllUsers = (props) => {
       const fetchData = async () => {
         try {
           const body = {
-            job: localUser._id
+            job: managerId
           }
           const response = await axios.post(`${process.env.REACT_APP_URL}/getMyWorkers`, body);
           setUsers(response.data);
@@ -88,7 +88,7 @@ const AllUsers = (props) => {
           ) : (
             users.map((user) => (
 
-              (user._id !== localUser._id) ?
+              (user._id !== managerId) ?
               <div key={user._id} className={styles.user_container}>
                 <div>
                   <button

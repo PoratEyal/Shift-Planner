@@ -3,13 +3,19 @@ import UserDay from './UserDay'
 import axios from 'axios';
 import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
-import styles from './chooseShifts.module.css'
+import styles from './chooseShifts.module.css';
+import { UserContext } from '../CurrentWeek_user/CurrentWeekUser' 
+import { useContext } from 'react';
 
 const ChooseShifts = () => {
 
     const navigate = useNavigate();
     const [week, setWeek] = useState(null);
     const [weekPublished, setWeekPublished] = useState(null)
+
+    //context
+    const userContext = useContext(UserContext);
+    const managerId = userContext.getUser();
 
     const getDays = () => {
         axios.get(`${process.env.REACT_APP_URL}/getNextWeek`).then((response) => {
@@ -37,10 +43,9 @@ const ChooseShifts = () => {
 
         <div style={{ marginTop: '70px' }} className={styles.container}>
             {week && week.visible ? week.day.map((day) => {
-                return <UserDay weekPublished={weekPublished} day={day} key={day._id} getDays={getDays} />;
+                return <UserDay managerId={managerId} weekPublished={weekPublished} day={day} key={day._id} getDays={getDays} />;
             }) : null}
         </div>
-
     </React.Fragment>
 }
 

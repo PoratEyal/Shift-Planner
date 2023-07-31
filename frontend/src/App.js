@@ -12,6 +12,7 @@ import SeeCurrentWeek from './components/manegerComponents/SeeCurrentWeek/SeeCur
 import ManagerSettings from './components/manegerComponents/managerSettings/managerSettings';
 import ForgotPassword from './components/publics/forgotPassword';
 import ProtectedRoute from './components/ProtectedRoute';
+
 const App = () => {
 
   return <React.Fragment>
