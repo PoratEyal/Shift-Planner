@@ -21,8 +21,25 @@ db.once('open', () => console.log('connected to Database...'))
 // app area
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(cors());
-//app.use('/app', routesUrls);
+var allowedDomains = process.env.ALLOWED_DOMAINS.split(", ");
+app.use(cors({
+    origin: function (origin, callback) {
+        // bypass the requests with no origin (like curl requests, mobile apps, etc )
+        if (!origin) return callback(null, true);
+     
+        if (allowedDomains.indexOf(origin) === -1) {
+          var msg = `This site ${origin} does not have an access. Only specific domains are allowed to access it.`;
+          return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+      }
+}));
+
+
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+  });
 app.use('/app', routeDay);
 app.use('/app', routeJob);
 app.use('/app', routeRole);
