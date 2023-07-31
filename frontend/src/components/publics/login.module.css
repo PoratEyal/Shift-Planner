@@ -26,8 +26,8 @@
 }
 
 .blueBack{
-  border-top-left-radius: 20vw;
-  border-top-right-radius: 20vw;
+  border-top-left-radius: 30vw;
+  border-top-right-radius: 30vw;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -42,7 +42,7 @@
 /* buttons - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .btn {
   position: absolute;
-  bottom: 120px;
+  bottom: 110px;
   z-index: 1;
   margin-top:40px;
   padding: 17px;
@@ -54,7 +54,6 @@
   color: rgba(66, 64, 64, 0.889);
   color: #648ef8;
   cursor: pointer;
-  transition: all .6s ease;
   width: 260px;
   background-color: #ffffff;
 }
