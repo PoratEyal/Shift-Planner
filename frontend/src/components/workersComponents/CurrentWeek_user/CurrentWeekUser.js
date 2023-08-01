@@ -22,7 +22,7 @@ const CurrentWeekUser = () => {
     const[week, setWeek] = useState(null);
     const [weekVisible, setWeekVisible] = useState(null);
 
-    // return the manager Id of the current user
+    // return the manager Id of the current user (context func)
     const getUser = () => {
         const user = localStorage.getItem('user');
         const userData = JSON.parse(user);
@@ -32,11 +32,14 @@ const CurrentWeekUser = () => {
     // get days of the current week
     // get if nextWeek is visible or not
     const getDays = () => {
-        axios.get(`${process.env.REACT_APP_URL}/getCurrentWeek`).then((response) => {
+        const body = {
+            managerId: getUser()
+        }
+        axios.post(`${process.env.REACT_APP_URL}/getCurrentWeek`, body).then((response) => {
            setWeek(response.data);
         }).catch(err=> console.log(err));
 
-        axios.get(`${process.env.REACT_APP_URL}/getNextWeek`).then((response) => {
+        axios.post(`${process.env.REACT_APP_URL}/getNextWeek`, body).then((response) => {
         setWeekVisible(response.data.visible)
         }).catch(err=> console.log(err));
     }

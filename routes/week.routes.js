@@ -17,11 +17,11 @@ weekRouter.get('/getWeekByName/:name', async (req, res) => {
     }
 });
 
-// good func !!!!!!!!!
+// new good func !!!!!!!!!
 // get nextWeek for the specific managerId
 weekRouter.post('/getNextWeek', async (req, res) => {
     try {
-        const managerId = req.body.id;
+        const managerId = req.body.managerId;
         const week = await Week.findOne({ name: "NextWeek", ofManager: managerId });
         res.status(200).json(week);
     } catch (err) {
@@ -29,11 +29,11 @@ weekRouter.post('/getNextWeek', async (req, res) => {
     }
 });
 
-// good func !!!!!!!!!
+// new good func !!!!!!!!!
 // get current Week for the specific managerId
-weekRouter.get('/getCurrentWeek/:managerId', async (req, res) => {
+weekRouter.post('/getCurrentWeek', async (req, res) => {
     try {
-        const managerId = req.params.managerId;
+        const managerId = req.body.managerId;
         const week = await Week.findOne({ name: "CurrentWeek", ofManager: managerId }).then((response => {
             res.status(200).json(response);
         }))

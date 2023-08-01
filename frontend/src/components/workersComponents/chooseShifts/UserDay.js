@@ -14,7 +14,11 @@ const UserDay = (props) => {
             let shifts = [];
             setLoading(true)
             if (day.shifts.length >= 0) {
-                axios.get(`${process.env.REACT_APP_URL}/getShiftsOfDay/${day._id}`).then((response) => {
+                const body = {
+                    dayId: day._id,
+                    managerId: props.managerId
+                }
+                axios.post('${process.env.REACT_APP_URL}/getShiftsOfDay', body).then((response) => {
                     shifts = response.data;
                     setLoading(false)
                     resolve(shifts);
