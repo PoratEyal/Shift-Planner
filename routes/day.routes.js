@@ -42,9 +42,9 @@ dayRouter.put('/addShiftToDay/:managerId', (req, res) => {
 
 // working !!!!!!!!!!!!!!!
 // get all the shifts from specific day - get dayId and managerId
-dayRouter.get('/getShiftsOfDay/:managerId/:dayId', (req, res) => {
-    const managerId = req.params.managerId;
-    const dayId = req.params.dayId;
+dayRouter.get('/getShiftsOfDay', (req, res) => {
+    const managerId = req.body.managerId;
+    const dayId = req.body.dayId;
     Week.findOne({ "day._id": dayId, ofManager:managerId }, { "day.$": 1 })
         .then(response => {
             res.status(200).json(response.day[0].shifts);

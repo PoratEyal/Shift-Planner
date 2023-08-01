@@ -8,9 +8,13 @@ const WorkerList = (props) => {
     const [workerNames, setWorkerNames] = useState([]);
     const [loading, setLoading] = useState(null)
 
+    // get the user fullname and shows him in the list of the workers for this shift
     useEffect(() => {
         workers.map(worker => {
-            axios.get(`${process.env.REACT_APP_URL}/getUserById/${worker}`)
+            const body = {
+              worker: worker
+            }
+            axios.post(`${process.env.REACT_APP_URL}/getUserById`, body)
                 .then(response => {
                     setLoading(true)
                     const fullName = response.data.fullName;
