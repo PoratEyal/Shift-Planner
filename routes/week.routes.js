@@ -17,7 +17,6 @@ weekRouter.get('/getWeekByName/:name', async (req, res) => {
     }
 });
 
-// new good func !!!!!!!!!
 // get nextWeek for the specific managerId
 weekRouter.post('/getNextWeek', async (req, res) => {
     try {
@@ -48,7 +47,6 @@ weekRouter.get('/testWeekCreating', (req, res) => {
     res.status(200);
 });
 
-// good func !!!!!!!!!
 // set nextWeek to visible
 weekRouter.put('/setNextWeekVisible', (req, res) => {
     const managerId = req.body.id;
@@ -57,10 +55,9 @@ weekRouter.put('/setNextWeekVisible', (req, res) => {
     }).catch(err => { console.log(err) })
 })
 
-// good func !!!!!!!!!
 // set nextWeek to published
-weekRouter.put('/setNextWeekPublished/:managerId', (req, res) => {
-    const managerId = req.params.managerId;
+weekRouter.put('/setNextWeekPublished', (req, res) => {
+    const managerId = req.body.id;
     Week.findOneAndUpdate({ name: "NextWeek" , ofManager: managerId}, { publishScheduling: "true" }).then(response => {
         res.status(200).json(response);
     }).catch(err => { console.log(err) })
