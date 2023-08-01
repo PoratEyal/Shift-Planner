@@ -25,6 +25,10 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.homeBtn{
+    cursor: pointer;
+}
+
 .nav_container p{
     font-size: 22px;
     margin-right: 18px;
@@ -92,6 +96,11 @@
     border: 1px solid rgba(101, 101, 101, 0.245);
     background-color: rgba(231, 234, 238, 0.41);
     margin: 10px;
+}
+
+.no_shifts_message{
+    margin-top: 5px;
+    font-size: 1.3em;
 }
 
 .buttons{

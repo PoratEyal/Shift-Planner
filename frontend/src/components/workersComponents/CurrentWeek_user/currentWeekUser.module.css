@@ -143,6 +143,11 @@
     cursor: pointer;
 }
 
+.no_shifts_message{
+    margin-top: 5px;
+    font-size: 1.3em;
+}
+
 .worksHer{
     border: 2px solid rgb(48, 174, 48);
 }

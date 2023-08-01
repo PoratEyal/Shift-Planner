@@ -15,7 +15,7 @@
 }
 
 .container_div {
-  margin-top:40px;
+  margin-top:50px;
 }
 
 .form {
@@ -42,7 +42,7 @@
 /* buttons - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .btn {
   position: absolute;
-  bottom: 110px;
+  bottom: 125px;
   z-index: 1;
   margin-top:40px;
   padding: 17px;

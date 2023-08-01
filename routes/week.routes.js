@@ -28,7 +28,6 @@ weekRouter.post('/getNextWeek', async (req, res) => {
     }
 });
 
-// new good func !!!!!!!!!
 // get current Week for the specific managerId
 weekRouter.post('/getCurrentWeek', async (req, res) => {
     try {

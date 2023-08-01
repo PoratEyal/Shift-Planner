@@ -20,7 +20,7 @@ const ChooseShifts = () => {
     // get the days of the week - from the specific manager
     const getDays = () => {
         const body = {
-            managerId: managerId
+            id: managerId
         }
         axios.post(`${process.env.REACT_APP_URL}/getNextWeek`, body).then((response) => {
             setWeek(response.data);
@@ -34,7 +34,7 @@ const ChooseShifts = () => {
 
     return <React.Fragment>
         <div className={styles.nav_container}>
-            <button onClick={() => navigate('/CurrentWeek')}><BiSolidHome></BiSolidHome></button>
+            <button className={styles.homeBtn} onClick={() => navigate('/CurrentWeek')}><BiSolidHome></BiSolidHome></button>
 
             {weekPublished ? <p>צפיה  במשמרות לשבוע הבא</p>
             :

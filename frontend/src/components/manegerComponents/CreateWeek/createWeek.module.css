@@ -263,6 +263,10 @@
     margin-bottom: 15px;
 }
 
+.no_shifts_messge{
+    font-size: 1.3em;
+}
+
 .shift_data_p{
     margin: 12px
 }
