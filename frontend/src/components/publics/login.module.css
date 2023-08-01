@@ -53,6 +53,7 @@
   border: none;
   color: rgba(66, 64, 64, 0.889);
   color: #648ef8;
+  transition: 0.3s;
   cursor: pointer;
   width: 260px;
   background-color: #ffffff;
@@ -172,11 +173,12 @@
 @media only screen and (min-width: 480px) {
   .container{
     margin-top: 100px;
-    border: 2px solid rgba(171, 160, 160, 0.644);
     overflow: hidden;
     position: relative;
     width: 380px;
     border-radius: 15px;
+    /* border: 2px solid rgb(210, 209, 209); */
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   }
   .blueBack{
     border-top-left-radius: 140px;
