@@ -21,7 +21,7 @@ weekRouter.get('/getWeekByName/:name', async (req, res) => {
 // get nextWeek for the specific managerId
 weekRouter.post('/getNextWeek', async (req, res) => {
     try {
-        const managerId = req.body.managerId;
+        const managerId = req.body.id;
         const week = await Week.findOne({ name: "NextWeek", ofManager: managerId });
         res.status(200).json(week);
     } catch (err) {
