@@ -16,11 +16,15 @@ const CurrentWeek = () => {
     const [weekVisible, setWeekVisible] = useState(null)
 
     const managerContext = useContext(ManagerContext);
-    const managerId = managerContext.getUser();
+    
 
     // get all the days in the week (from the specific manager)
     const getDays = () => {
-        axios.get(`${process.env.REACT_APP_URL}/getNextWeek/${managerId}`)
+        const managerId = managerContext.getUser();
+        const reqbody = {
+            id: managerId
+        }
+        axios.post(`${process.env.REACT_APP_URL}/getNextWeek`, reqbody)
         .then((response) => {
             setWeek(response.data);
             setWeekPublished(response.data.publishScheduling)

@@ -1,20 +1,8 @@
 const express = require('express');
 const weekRouter = express.Router();
-const Role = require('../models/role');
-const User = require('../models/user');
-const Shift = require('../models/shift');
-const Day = require('../models/day');
 const Week = require('../models/week');
-const job = require('../models/job');
-const bcrypt = require('bcrypt');
-const mongoose = require('mongoose');
-const { parse } = require('dotenv');
-const path = require('path');
 const bodyParser = require('body-parser');
-const jwt = require('jsonwebtoken');
 const functions = require('../utils/functions');
-const { Job } = require('node-schedule');
-const ObjectId = mongoose.Types.ObjectId;
 
 weekRouter.use(bodyParser.json());
 
@@ -31,9 +19,9 @@ weekRouter.get('/getWeekByName/:name', async (req, res) => {
 
 // good func !!!!!!!!!
 // get nextWeek for the specific managerId
-weekRouter.get('/getNextWeek/:managerId', async (req, res) => {
+weekRouter.post('/getNextWeek', async (req, res) => {
     try {
-        const managerId = req.params.managerId;
+        const managerId = req.body.id;
         const week = await Week.findOne({ name: "NextWeek", ofManager: managerId });
         res.status(200).json(week);
     } catch (err) {
@@ -97,7 +85,5 @@ weekRouter.put('/editWeek', async (req, res) => {
         res.status(400).json({ message: err._messege });
     }
 });
-
-
 
 module.exports = weekRouter

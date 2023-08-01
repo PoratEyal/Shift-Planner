@@ -40,8 +40,11 @@ const ManagerHomePage = () => {
         else{
             navigate('/');
         }
-
-        axios.get(`${process.env.REACT_APP_URL}/getNextWeek/${getUser()}`)
+        const managerId = getUser();
+        const reqBody = {
+            id: managerId
+        }
+        axios.post(`${process.env.REACT_APP_URL}/getNextWeek`, reqBody)
         .then((response) => {
             setWeekVisible(response.data.visible)
         }).catch(err=> console.log(err));
