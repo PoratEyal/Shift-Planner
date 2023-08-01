@@ -9,6 +9,7 @@ const CurrentShiftUser = (props) => {
     const [userId, setUserId] = useState("");
     const [addClass, setAddClass] = useState(false)
     const [showWorkers, setShow] = useState(false);
+    
     useEffect(() => {
         const newdata = JSON.parse(localStorage.getItem("user"));
         setUserId(newdata._id);

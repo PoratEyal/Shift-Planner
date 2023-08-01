@@ -12,7 +12,7 @@ const WorkerList = (props) => {
     useEffect(() => {
         workers.map(worker => {
             const body = {
-              worker: worker
+              id: worker
             }
             axios.post(`${process.env.REACT_APP_URL}/getUserById`, body)
                 .then(response => {

@@ -12,8 +12,10 @@ const WorkersCurrentWeek = (props) => {
   // get all the workers
   useEffect(() => {
     workers.forEach(workerId => {
-      axios
-        .get(`${process.env.REACT_APP_URL}/getUserById/${workerId}`)
+      const body = {
+        id: workerId
+      }
+      axios.post(`${process.env.REACT_APP_URL}/getUserById`, body)
         .then(response => {
           const fetchedWorker = response.data;
           if (fetchedWorker && fetchedWorker.fullName) {
