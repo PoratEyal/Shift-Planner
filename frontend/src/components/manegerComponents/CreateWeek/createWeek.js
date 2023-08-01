@@ -34,15 +34,14 @@ const CreateWeek = () => {
 
     // set next week to visible
     const editWeek = async () => {
-        try {
+        
             await axios.put(`${process.env.REACT_APP_URL}/setNextWeekVisible/${managerId}`)
             .then((response) => {
                 console.log(response.data)
                 setWeekVisivble(true)
-            });
-        } catch (error) {
+            }).catch ((error) => {
             console.log(error.message);
-        }
+        });
     }
 
     // show alert, if the manager select "yes" - week becomes visible
