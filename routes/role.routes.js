@@ -22,6 +22,7 @@ roleRouter.use(bodyParser.json());
 // create/POST role
 roleRouter.post('/addRole', async (req, res) => {
     const role = new Role({
+        manager: req.body.manager,
         name: req.body.name
     })
     try {
@@ -32,9 +33,10 @@ roleRouter.post('/addRole', async (req, res) => {
     }
 });
 //gets all the roles
-roleRouter.get('/getRoles', authenticateToken, async (req, res) => {
+roleRouter.post('/getRoles', authenticateToken, async (req, res) => {
     try {
-        const roles = await Role.find({}, 'name');
+        const managerId = req.body.managerId; 
+        const roles = await Role.find({manager: managerId}, 'name');
         const roleNames = roles.map((role) => role);
         res.status(200).json(roleNames)
     } catch (err) {

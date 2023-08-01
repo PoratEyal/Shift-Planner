@@ -10,7 +10,7 @@ const ShiftCurrentWeek = (props) => {
 
     const addWorkerShift = (workerId) => {
         const reqBody = {
-            //managerId: props.managerId,
+            managerId: props.managerId,
             dayId: props.dayId,
             shiftId: shift._id,
             workerId: workerId
@@ -27,7 +27,7 @@ const ShiftCurrentWeek = (props) => {
 
     const removeWorkerShift = (workerId) => {
         const reqBody = {
-            //managerId: props.managerId,
+            managerId: props.managerId,
             dayId: props.dayId,
             shiftId: shift._id,
             workerId: workerId

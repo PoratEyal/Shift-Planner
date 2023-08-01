@@ -1,20 +1,28 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import styles from '../CreateWeek/createWeek.module.css'
 import axios from 'axios'
 import ShiftCurrentWeek from './SeeShiftCurrentWeek'
+import { ManagerContext } from '../ManagerHomePage'
 
 const SeeDayCurrentWeek = (props) => {
 
     const [day, setDay] = useState(props.day);
     const [dayShifts, setDayShifts] = useState(props.day.shifts);
     const [loading, setLoading] = useState(false);
+    const managerContext = useContext(ManagerContext);
 
     const getShifts = () => {
         return new Promise((resolve, reject) => {
             let shifts = [];
             setLoading(true)
+
+            
             if (day.shifts.length >= 0) {
-                axios.get(`${process.env.REACT_APP_URL}/getShiftsOfDay/${day._id}`).then((response) => {
+                const reqBody = {
+                    managerId: managerContext.getUser(),
+                    dayId: day._id
+                }
+                axios.post(`${process.env.REACT_APP_URL}/getShiftsOfDay`, reqBody).then((response) => {
                     shifts = response.data;
                     setLoading(false)
                     resolve(shifts);

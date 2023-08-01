@@ -1,20 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import styles from './addRole.module.css';
 import axios from 'axios';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import Swal from 'sweetalert2';
+import { ManagerContext } from '../ManagerHomePage';
+
 
 const AddRole = (props) => {
   const [role, setRole] = useState('');
   const [roles, setRoles] = useState([]);
   const [clicked, setClicked] = useState(false);
   const [loading, setLoading] = useState(false);
+  const managerContext = useContext(ManagerContext);
+
 
   const addRole = async () => {
     if(role === ''){
       return
     }
     const newRole = {
+      manager: managerContext.getUser(),
       name: role
     };
     try {
@@ -43,8 +48,11 @@ const AddRole = (props) => {
     const config = {
       headers: { Authorization: `Bearer ${token}` }
     };
+    const reqbody ={
+      managerId: managerContext.getUser()
+    }
     axios
-      .get(`${process.env.REACT_APP_URL}/getRoles`, config)
+      .post(`${process.env.REACT_APP_URL}/getRoles`, reqbody ,config)
       .then((response) => {
         setRoles(response.data);
         setLoading(true);
@@ -74,9 +82,7 @@ const AddRole = (props) => {
         try {
           await axios
             .delete(`${process.env.REACT_APP_URL}/deleteRole/${roleId}`)
-            .then(response => {
-              // Handle response if needed
-            })
+            .then(() => {})
             .catch(error => {
               console.log(error.response.data.error);
             });

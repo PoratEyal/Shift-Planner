@@ -58,10 +58,11 @@ const CreateWeekDay = (props) => {
     // delete shift
     const deleteShift = (id) =>{
         const reqBody = {
+            managerId: props.managerId,
             dayId: day._id,
             shiftId: id
         }
-        axios.put(`${process.env.REACT_APP_URL}/deleteShiftFromDay/${props.managerId}`, reqBody)
+        axios.put(`${process.env.REACT_APP_URL}/deleteShiftFromDay/`, reqBody)
         .then(response =>{
             updateShifts();
         })
@@ -77,10 +78,11 @@ const CreateWeekDay = (props) => {
             workers: []
         };
         const reqBody = {
+            managerId: props.managerId,
             newShift: newShift,
             dayId: day._id
         }
-        axios.put(`${process.env.REACT_APP_URL}/addShiftToDay/${props.managerId}`, reqBody)
+        axios.put(`${process.env.REACT_APP_URL}/addShiftToDay`, reqBody)
             .then((response) => {
                 const updatedDay = response.data.day.find(d => d._id === day._id);
                 setDay(updatedDay);
@@ -100,12 +102,13 @@ const CreateWeekDay = (props) => {
             workers: []
         };
         const reqBody = {
+            managerId: props.managerId,
             newShift: newShift,
             dayId: day._id
         }
         try {
 
-            axios.put(`${process.env.REACT_APP_URL}/addShiftToDay/${props.managerId}`, reqBody)
+            axios.put(`${process.env.REACT_APP_URL}/addShiftToDay`, reqBody)
             .then((response) => {
                 const updatedDay = response.data.day.find(d => d._id === day._id);
                 setDay(updatedDay);
@@ -125,12 +128,13 @@ const CreateWeekDay = (props) => {
         };
 
         const reqBody = {
+            managerId: props.managerId,
             newShift: newShift,
             dayId: day._id
         }
         try {
 
-            axios.put(`${process.env.REACT_APP_URL}/addShiftToDay/${props.managerId}`, reqBody).then((response) => {
+            axios.put(`${process.env.REACT_APP_URL}/addShiftToDay`, reqBody).then((response) => {
                 const updatedDay = response.data.day.find(d => d._id === day._id);
                 setDay(updatedDay);
             });

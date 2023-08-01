@@ -43,7 +43,7 @@ const CreateWeek = () => {
         const reqBody = {
             id: managerId
         }
-            await axios.put(`${process.env.REACT_APP_URL}/setNextWeekVisible/${managerId}`)
+            await axios.put(`${process.env.REACT_APP_URL}/setNextWeekVisible`, reqBody)
             .then((response) => {
                 console.log(response.data)
                 setWeekVisivble(true)

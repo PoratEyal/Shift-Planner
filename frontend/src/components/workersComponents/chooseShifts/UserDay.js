@@ -18,7 +18,7 @@ const UserDay = (props) => {
                     dayId: day._id,
                     managerId: props.managerId
                 }
-                axios.post('${process.env.REACT_APP_URL}/getShiftsOfDay', body).then((response) => {
+                axios.post(`${process.env.REACT_APP_URL}/getShiftsOfDay`, body).then((response) => {
                     shifts = response.data;
                     setLoading(false)
                     resolve(shifts);

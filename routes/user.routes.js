@@ -75,9 +75,9 @@ userRouter.post('/getMyWorkers', (req, res) => {
 // });
 
 //gets id and return user
-userRouter.get('/getUserById/:id', async (req, res) => {
+userRouter.post('/getUserById', async (req, res) => {
     try {
-      const id = req.params.id;
+      const id = req.body.id;
       const user = await User.findById(id);
   
       if (!user) {

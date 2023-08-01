@@ -48,7 +48,10 @@ const UserManagement = () => {
     const config = {
       headers: { Authorization: `Bearer ${token}` }
     }
-    axios.get(`${process.env.REACT_APP_URL}/getRoles`, config).then((response) => {
+    const reqBody = {
+      managerId: managerId
+    }
+    axios.post(`${process.env.REACT_APP_URL}/getRoles`, reqBody, config).then((response) => {
       setRoles(response.data);
     }).catch((err) => { console.log(err) });
   };
@@ -64,7 +67,7 @@ const UserManagement = () => {
       job: "user"
     }
     axios.post(`${process.env.REACT_APP_URL}/addUser`, newUser)
-      .then((response) => {
+      .then(() => {
         setUserAdded(true);
         setFullName('');
         setUsername('');

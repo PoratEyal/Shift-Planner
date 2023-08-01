@@ -21,8 +21,8 @@ dayRouter.use(bodyParser.json());
 
 // working one !!!!!!!!!!!!
 //add shift to day
-dayRouter.put('/addShiftToDay/:managerId', (req, res) => {
-    const managerId = req.params.managerId;
+dayRouter.put('/addShiftToDay', (req, res) => {
+    const managerId = req.body.managerId;
     const body = req.body;
     const dayId = body.dayId;
     const shift = body.newShift;
@@ -57,8 +57,8 @@ dayRouter.post('/getShiftsOfDay', (req, res) => {
 
 // working !!!!!!!!!!!!!!!
 // delete shift from day
-dayRouter.put('/deleteShiftFromDay/:managerId', (req, res) => {
-    const managerId = req.params.managerId;
+dayRouter.put('/deleteShiftFromDay/', (req, res) => {
+    const managerId = req.body.managerId;
     const body = req.body;
     const dayId = body.dayId;
     const shift = body.shiftId;
