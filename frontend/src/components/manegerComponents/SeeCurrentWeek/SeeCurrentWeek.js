@@ -16,7 +16,10 @@ const SeeCurrentWeek = () => {
     const managerId = managerContext.getUser();
 
     const getDays = () => {
-        axios.get(`${process.env.REACT_APP_URL}/getCurrentWeek`).then((response) => {
+        const reqBody = {
+            managerId: managerId
+        }
+        axios.post(`${process.env.REACT_APP_URL}/getCurrentWeek`, reqBody).then((response) => {
             setWeek(response.data);
         }).catch(err => console.log(err));
     }

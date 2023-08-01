@@ -15,7 +15,11 @@ const DayCurrentWeek = (props) => {
             let shifts = [];
             setLoading(true)
             if (day.shifts.length >= 0) {
-                axios.get(`${process.env.REACT_APP_URL}/getShiftsOfDay/${props.managerId}/${day._id}`)
+                const reqBody= {
+                    managerId: props.managerId,
+                    dayId: day._id
+                }
+                axios.post(`${process.env.REACT_APP_URL}/getShiftsOfDay`, reqBody)
                 .then((response) => {
                     shifts = response.data;
                     setLoading(false)

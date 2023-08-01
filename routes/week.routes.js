@@ -50,8 +50,8 @@ weekRouter.get('/testWeekCreating', (req, res) => {
 
 // good func !!!!!!!!!
 // set nextWeek to visible
-weekRouter.put('/setNextWeekVisible/:managerId', (req, res) => {
-    const managerId = req.params.managerId;
+weekRouter.put('/setNextWeekVisible', (req, res) => {
+    const managerId = req.body.id;
     Week.findOneAndUpdate({ name: "NextWeek" , ofManager: managerId}, { visible: "true" }).then(response => {
         res.status(200).json(response);
     }).catch(err => { console.log(err) })

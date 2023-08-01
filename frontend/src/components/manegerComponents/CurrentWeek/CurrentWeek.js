@@ -16,6 +16,7 @@ const CurrentWeek = () => {
     const [weekVisible, setWeekVisible] = useState(null)
 
     const managerContext = useContext(ManagerContext);
+    const managerId = managerContext.getUser();
     
 
     // get all the days in the week (from the specific manager)
@@ -63,7 +64,11 @@ const CurrentWeek = () => {
     // set next week to published
     const editPublishSchedule = async () => {
         try {
-            await axios.put(`${process.env.REACT_APP_URL}/setNextWeekPublished/${managerId}`)
+            const managerId = managerContext.getUser();
+        const reqbody = {
+            id: managerId
+        }
+            await axios.put(`${process.env.REACT_APP_URL}/setNextWeekPublished`, reqbody)
             .then((response) => {
                 setWeekPublished(true)
                 console.log(response.data)

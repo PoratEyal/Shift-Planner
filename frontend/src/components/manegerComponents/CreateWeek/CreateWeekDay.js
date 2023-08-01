@@ -19,9 +19,12 @@ const CreateWeekDay = (props) => {
         return new Promise((resolve, reject) => {
             setLoading(true);
             let shifts = [];
-    
+            const reqBody = {
+                managerId: props.managerId,
+                dayId: day._id
+            }
             if (day.shifts.length >= 0) {
-                axios.get(`${process.env.REACT_APP_URL}/getShiftsOfDay/${props.managerId}/${day._id}`)
+                axios.post(`${process.env.REACT_APP_URL}/getShiftsOfDay`, reqBody)
                     .then((response) => {
                         shifts = response.data;
                         setLoading(false);

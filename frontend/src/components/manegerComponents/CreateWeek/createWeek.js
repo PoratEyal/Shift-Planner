@@ -16,11 +16,12 @@ const CreateWeek = () => {
     const [weekPublished, setWeekPublished] = useState(null)
 
     const managerContext = useContext(ManagerContext);
+    const managerId = managerContext.getUser();
     
 
     // get all the days in the week (from the specific manager)
     const getDays = () => {
-
+        const managerId = managerContext.getUser();
         const reqBody = {
             id: managerId
         }
