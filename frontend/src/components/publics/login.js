@@ -18,9 +18,12 @@ const Login = () => {
     }
   }, []);
 
-  return (
-    <div className={styles.container}>
+  return <div className={styles.container}>
+
+    <div className={styles.logo}></div>
+
       <div className={styles.container_div}>
+
         <form className={styles.form} onSubmit={(e) => {
           e.preventDefault();
           axios.post(`${process.env.REACT_APP_URL}/login`, { username: username, password: password }).then((response) => {
@@ -38,8 +41,6 @@ const Login = () => {
           }).catch(() => {
           })
         }}>
-          
-          <h1 className={styles["login-text"]}>כניסה למערכת</h1>
 
           <div>
             <div className={styles["wave-group"]}>
@@ -77,12 +78,12 @@ const Login = () => {
           
           <button className={styles.btn} type="submit">התחברות</button>
 
+          <div className={styles.blueBack}></div>
+          
         </form>
 
       </div>
     </div>
-
-  );
 }
 
 export default Login;
