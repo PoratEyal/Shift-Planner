@@ -64,6 +64,22 @@
 }
 
 /* inputs - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.password_div{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.show_password{
+  color: rgba(86, 86, 86, 0.663);
+  cursor: pointer;
+  font-size: 30px;
+  position: absolute;
+  top: 15px;
+  left: 10px;
+}
 
 .input{
   direction: rtl;
@@ -74,7 +90,6 @@
   border-radius: 10px;
   border: 1.5px solid rgba(128, 128, 128, 0.405);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; */
 }
 .input::placeholder{
   color: #2e2e2e87;
@@ -217,10 +232,14 @@
   .input{
     margin-top: -10px;
   }
+  .show_password{
+    top: 5px;
+    left: 10px;
+  }
 }
 
 
-@media only screen and (min-height: 800px) {
+@media only screen and (min-height: 800px) and (max-width: 470px) {
   .btn{
     bottom: 20vh;
   }
