@@ -53,11 +53,19 @@ const Login = () => {
           <div className={styles.password_div}>
             <div className={styles.input_container}>
               <input id='password' type={show ? "password" : "text"} placeholder='סיסמה' className={styles.input} onChange={(e) => { setPassword(e.target.value) }} />
-                {show ? 
-                  <BiSolidShow className={styles.show_password} onClick={(e) => setShow(!show)}></BiSolidShow>
-                  :
-                  <BiSolidHide className={styles.show_password} onClick={(e) => setShow(!show)}></BiSolidHide>
-                }
+              {password.length > 0 ? (
+                show ? (
+                  <BiSolidShow
+                    className={styles.show_password}
+                    onClick={(e) => setShow(!show)}
+                  ></BiSolidShow>
+                ) : (
+                  <BiSolidHide
+                    className={styles.show_password}
+                    onClick={(e) => setShow(!show)}
+                  ></BiSolidHide>
+                )
+              ) : null}
             </div>
           </div>
 
