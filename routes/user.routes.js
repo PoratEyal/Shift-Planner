@@ -39,7 +39,7 @@ userRouter.post('/addUser', async (req, res) => {
         res.status(201).json(createdUser);
     } 
     catch (err) {
-        res.status(400).json({ message: err.message });
+        res.status(400).json({ message: 'An error occurred while processing the request.' });
     }
 });
 
