@@ -28,17 +28,21 @@ app.use(bodyParser.urlencoded({extended: false}));
 var allowedDomains = process.env.ALLOWED_DOMAINS.split(",").map((domain) => domain.trim());
 
 console.log("Allowed Domains:", allowedDomains);
-app.use(cors());
-//   {
-//     origin: function (origin, callback) {
-//         if (!origin) return callback(null, true);
-//         if (allowedDomains.indexOf(origin) === -1) {
-//           var msg = `This site ${origin} does not have an access. Only specific domains are allowed to access it. ${allowedDomains}`;
-//           return callback(new Error(msg), false);
-//         }
-//         return callback(null, true);
-//       }
-// }
+app.use(cors(
+    {
+    origin: function (origin, callback) {
+        if (!origin) return callback(null, true);
+        if (allowedDomains.indexOf(origin) === -1) {
+          var msg = `This site ${origin} does not have an access. Only specific domains are allowed to access it. ${allowedDomains}`;
+          return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+      }
+}
+
+
+));
+
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
