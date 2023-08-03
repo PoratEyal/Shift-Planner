@@ -13,14 +13,11 @@ const ChooseShifts = () => {
     const [week, setWeek] = useState(null);
     const [weekPublished, setWeekPublished] = useState(null)
 
-    //context
     const userContext = useContext(UserContext);
     const managerId = userContext.getUser();
-
-    // get the days of the week - from the specific manager
     const getDays = () => {
         const body = {
-            managerId: managerId
+            id: managerId
         }
         axios.post(`${process.env.REACT_APP_URL}/getNextWeek`, body).then((response) => {
             setWeek(response.data);

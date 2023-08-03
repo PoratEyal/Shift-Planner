@@ -13,20 +13,17 @@ const routeShift = require('./routes/shift.routes');
 const routeUser = require('./routes/user.routes');
 const routeWeek = require('./routes/week.routes');
 const routeWorker = require('./routes/worker.routes');
-// database area
+
 mongoose.connect(process.env.DATABASE_ACCESS, { useNewUrlParser: true });
 const db = mongoose.connection
 db.on('error', (error) => console.error(error));
-db.once('open', () => console.log('connected to Database...'))
-// app area
+db.once('open', () => console.log('connected to Database...'));
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: false}));
 var allowedDomains = process.env.ALLOWED_DOMAINS.split(", ");
 app.use(cors({
     origin: function (origin, callback) {
-        // bypass the requests with no origin (like curl requests, mobile apps, etc )
         if (!origin) return callback(null, true);
-     
         if (allowedDomains.indexOf(origin) === -1) {
           var msg = `This site ${origin} does not have an access. Only specific domains are allowed to access it.`;
           return callback(new Error(msg), false);
