@@ -33,7 +33,7 @@ const CurrentWeekUser = () => {
     // get if nextWeek is visible or not
     const getDays = () => {
         const body = {
-            id: getUser()
+            managerId: getUser()
         }
         axios.post(`${process.env.REACT_APP_URL}/getCurrentWeek`, body).then((response) => {
            setWeek(response.data);
