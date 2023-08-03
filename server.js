@@ -30,7 +30,7 @@ app.use(cors({
     origin: function (origin, callback) {
         if (!origin) return callback(null, true);
         if (allowedDomains.indexOf(origin) === -1) {
-          var msg = `This site ${origin} does not have an access. Only specific domains are allowed to access it.`;
+          var msg = `This site ${origin} does not have an access. Only specific domains are allowed to access it. ${allowedDomains}`;
           return callback(new Error(msg), false);
         }
         return callback(null, true);
