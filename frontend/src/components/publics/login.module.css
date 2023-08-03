@@ -93,6 +93,7 @@
 }
 .input::placeholder{
   color: #2e2e2e87;
+  direction: ltr;
 }
 
 /* .wave-group {
@@ -263,4 +264,18 @@
   }
 }
 
+@media only screen and (min-height: 0px) and (max-height: 650px){
+  .blueBack{
+    border-top-left-radius: 140px;
+    border-top-right-radius: 140px;
+    width: 440px;
+    height: 450px;
+    background-color: #648ef8;
+    position: absolute;
+    animation: slideUp 1s forwards;
+  }
+  .btn{
+    bottom: 6vh;
+  }
+}
   
