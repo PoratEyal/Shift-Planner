@@ -25,7 +25,9 @@ db.once('open', () => console.log('connected to Database...'))
 // app area
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: false}));
-var allowedDomains = process.env.ALLOWED_DOMAINS.split(",");
+var allowedDomains = process.env.ALLOWED_DOMAINS.split(",").map((domain) => domain.trim());
+
+console.log("Allowed Domains:", allowedDomains);
 app.use(cors());
 //   {
 //     origin: function (origin, callback) {
