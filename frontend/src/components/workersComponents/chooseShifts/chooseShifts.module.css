@@ -25,6 +25,10 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.homeBtn{
+    cursor: pointer;
+}
+
 .nav_container p{
     font-size: 22px;
     margin-right: 18px;
@@ -50,7 +54,7 @@
     margin: 20px;
     background: rgba(255, 255, 255, 0.988);
     border-radius: 12px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(0, 0, 0, 0.26) 0px 10px 36px 0px, rgba(0, 0, 0, 0.10) 0px 0px 0px 1px;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 }
@@ -92,6 +96,11 @@
     border: 1px solid rgba(101, 101, 101, 0.245);
     background-color: rgba(231, 234, 238, 0.41);
     margin: 10px;
+}
+
+.no_shifts_message{
+    margin-top: 5px;
+    font-size: 1.3em;
 }
 
 .buttons{

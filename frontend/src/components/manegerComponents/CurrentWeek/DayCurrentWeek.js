@@ -9,12 +9,18 @@ const DayCurrentWeek = (props) => {
     const [dayShifts, setDayShifts] = useState(props.day.shifts);
     const [loading, setLoading] = useState(false);
 
+    // get the sifts of the day
     const getShifts = () => {
         return new Promise((resolve, reject) => {
             let shifts = [];
             setLoading(true)
             if (day.shifts.length >= 0) {
-                axios.get(`${process.env.REACT_APP_URL}/getShiftsOfDay/${day._id}`).then((response) => {
+                const reqBody= {
+                    managerId: props.managerId,
+                    dayId: day._id
+                }
+                axios.post(`${process.env.REACT_APP_URL}/getShiftsOfDay`, reqBody)
+                .then((response) => {
                     shifts = response.data;
                     setLoading(false)
                     resolve(shifts);
@@ -37,7 +43,7 @@ const DayCurrentWeek = (props) => {
      })
      .catch((error) => {
      });
-     };
+    };
 
     useEffect(()=>{
         updateShifts();
@@ -55,7 +61,23 @@ const DayCurrentWeek = (props) => {
                         <div className={styles['three-body__dot']}></div>
                     </div>
                 ) : (
-                    dayShifts.map((shift) => {return shift ? <ShiftCurrentWeek weekPublished={props.weekPublished} getShifts={updateShifts} shift={shift} dayId={day._id} key={shift._id} setDay={setDay}></ShiftCurrentWeek> : null }))
+                    (dayShifts?.length ?? 0) === 0 ? (
+                        <div className={styles.no_shifts_messge}>אין משמרות לאותו היום</div>
+                      ) : (
+                        dayShifts.map((shift) => (
+                          shift ? (
+                            <ShiftCurrentWeek
+                              managerId={props.managerId}
+                              weekPublished={props.weekPublished}
+                              getShifts={updateShifts}
+                              shift={shift}
+                              dayId={day._id}
+                              key={shift._id}
+                              setDay={setDay}
+                            ></ShiftCurrentWeek>
+                          ) : null
+                        ))
+                      ))
             }
 
         </div>

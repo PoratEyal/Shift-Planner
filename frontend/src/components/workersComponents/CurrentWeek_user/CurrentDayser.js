@@ -9,10 +9,17 @@ const CurrentDayUser = (props) => {
   return (
     <div>
       <div className={styles.day_container}>
+        
         <h2 className={styles.h2}>{day.name}</h2>
-        {day.shifts.map((shift) => {
-          return <Shift key={shift._id} shift={shift}></Shift>;
-        })}
+
+        {day.shifts?.length === 0 ? (
+          <div className={styles.no_shifts_message}>אין משמרות לאותו היום</div>
+        ) : (
+          day.shifts.map((shift) => (
+            <Shift managerId={props.managerId} key={shift._id} shift={shift}></Shift>
+          ))
+        )}
+
       </div>
     </div>
   );

@@ -5,7 +5,9 @@ import AllUsers from './AllUsers'
 import AddRole from './AddRole'
 import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
-import { AiOutlineUserAdd } from "react-icons/ai";
+import { ManagerContext } from '../ManagerHomePage' 
+import { useContext } from 'react';
+import Swal from 'sweetalert2';
 
 const UserManagement = () => {
 
@@ -23,9 +25,9 @@ const UserManagement = () => {
   const [addLineRules, setAddLineRules] = useState(false)
   const [addLineUsers, setAddLineUsers] = useState(true)
 
-
-
-  const data = JSON.parse(localStorage.getItem("user"));
+  //context
+  const managerContext = useContext(ManagerContext);
+  const managerId = managerContext.getUser();
 
   const handleClick = (event, targetId) => {
     event.preventDefault();
@@ -47,7 +49,10 @@ const UserManagement = () => {
     const config = {
       headers: { Authorization: `Bearer ${token}` }
     }
-    axios.get(`${process.env.REACT_APP_URL}/getRoles`, config).then((response) => {
+    const reqBody = {
+      managerId: managerId
+    }
+    axios.post(`${process.env.REACT_APP_URL}/getRoles`, reqBody, config).then((response) => {
       setRoles(response.data);
     }).catch((err) => { console.log(err) });
   };
@@ -59,11 +64,11 @@ const UserManagement = () => {
       username: username,
       password: password,
       role: selectedRole,
-      manager: data._id,
+      manager: managerId,
       job: "user"
     }
     axios.post(`${process.env.REACT_APP_URL}/addUser`, newUser)
-      .then((response) => {
+      .then(() => {
         setUserAdded(true);
         setFullName('');
         setUsername('');
@@ -71,13 +76,19 @@ const UserManagement = () => {
         setActiveElement(0)
       })
       .catch((error) => {
-        console.error('An error occurred:', error);
+        Swal.fire({
+          title: 'שם משתמש תפוס, הכנס שם משתמש אחר',
+          text: "",
+          icon: 'warning',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'אישור'
+        })
       });
   };
 
   const childElements = [
     <div id="users" className={styles.users}>
-      <AllUsers added={userAdded}></AllUsers>
+      <AllUsers managerId={managerId} added={userAdded}></AllUsers>
     </div>,
 
     <div id="create-user" className={styles.createUser}>
@@ -129,14 +140,9 @@ const UserManagement = () => {
         </div>
 
         <div className={styles.formGroup}>
-          <select className={styles.select} onChange={
-            (e) => {
-              setRole(e.target.value)
-            }
-          }>
-            {
-              roles.map(role => { return <option value={role._id} key={role._id}>{role.name}</option> })
-            }
+          <select className={styles.select} onChange={(e) => { setRole(e.target.value) }} defaultValue="" required aria-required="true">
+            <option value="" disabled>בחר תפקיד</option> {/* Displayed as a placeholder */}
+            {roles.map(role => { return <option value={role._id} key={role._id}>{role.name}</option> })}
           </select>
           <label className={styles.label_role}>תפקיד</label>
         </div>
@@ -147,7 +153,7 @@ const UserManagement = () => {
     </div>,
 
     <div id="create-role" className={styles.createRole}>
-      <AddRole roleAdded={getRoles}></AddRole>
+      <AddRole managerId={managerId} roleAdded={getRoles}></AddRole>
     </div>
   ]
 
@@ -210,5 +216,3 @@ const UserManagement = () => {
 }
 
 export default UserManagement
-
-

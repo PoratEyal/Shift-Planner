@@ -5,6 +5,8 @@ import styles from '../CreateWeek/createWeek.module.css'
 import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { ManagerContext } from '../ManagerHomePage' 
+import { useContext } from 'react';
 
 const CreateWeek = () => {
 
@@ -13,8 +15,18 @@ const CreateWeek = () => {
     const [weekVisivble, setWeekVisivble] = useState(null);
     const [weekPublished, setWeekPublished] = useState(null)
 
+    const managerContext = useContext(ManagerContext);
+    const managerId = managerContext.getUser();
+    
+
+    // get all the days in the week (from the specific manager)
     const getDays = () => {
-        axios.get(`${process.env.REACT_APP_URL}/getNextWeek`).then((response) => {
+        const managerId = managerContext.getUser();
+        const reqBody = {
+            id: managerId
+        }
+        axios.post(`${process.env.REACT_APP_URL}/getNextWeek`, reqBody)
+        .then((response) => {
             setWeek(response.data);
             setWeekVisivble(response.data.visible);
             setWeekPublished(response.data.publishScheduling)
@@ -22,23 +34,25 @@ const CreateWeek = () => {
     }
 
     useEffect(() => {
-        getDays()
+        getDays();
     }, []);
 
+    // set next week to visible
     const editWeek = async () => {
-        try {
-            await axios.put(`${process.env.REACT_APP_URL}/setNextWeekVisible`)
+        const managerId = managerContext.getUser();
+        const reqBody = {
+            id: managerId
+        }
+            await axios.put(`${process.env.REACT_APP_URL}/setNextWeekVisible`, reqBody)
             .then((response) => {
                 console.log(response.data)
                 setWeekVisivble(true)
-            });
-        } catch (error) {
+            }).catch ((error) => {
             console.log(error.message);
-        }
+        });
     }
 
-    
-
+    // show alert, if the manager select "yes" - week becomes visible
     const publishWeek = () => {
         Swal.fire({
             title: 'האם ברצונך לפרסם את המשמרות לשבוע הבא',
@@ -57,12 +71,9 @@ const CreateWeek = () => {
                 confirmButtonText: 'סגירה'
             })
               editWeek()
-              console.log(week)
             }
           })
     }
-
-    
 
     return <React.Fragment>
         <div className={styles.container}>
@@ -71,27 +82,25 @@ const CreateWeek = () => {
                 <p>יצירת משמרות לשבוע הבא</p>
             </div>
 
-            {!weekVisivble ? <div className={styles.first_publish_div}>
-                <button onClick={publishWeek} className={styles.first_addShift_btn}>פרסם משמרות</button>
+            {!weekVisivble ? <div className={styles.publish_div_createWeek}>
+                <button onClick={publishWeek} className={styles.addShift_btn}>פרסם משמרות</button>
             </div> : 
             
              
             <div className={styles.published_div}>
                 <button visible='false'>השבוע פורסם</button>
             </div>}
-
-            {/* {!weekPublished ?  */}
             <div>
                 {
                     week ? week.day.map((day) => {
-                        return <Day day={day} key={day._id} getDays={getDays}></Day>
+                        return <Day day={day} key={day._id} getDays={getDays} managerId={managerId}></Day>
                     }) : null
                 }
             </div>
-            {/* //  : null} */}
-
         </div>
     </React.Fragment>
 }
+
+
 
 export default CreateWeek

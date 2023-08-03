@@ -62,7 +62,7 @@ const UserSettings = () => {
 
         <input
           className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
-          placeholder="שם משתמש"
+          placeholder="שם משתמש באנגלית בלבד"
           value={username}
           onChange={(e) => {
             const inputUsername = e.target.value;

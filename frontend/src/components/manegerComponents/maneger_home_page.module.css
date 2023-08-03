@@ -105,7 +105,7 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 23px;
   padding: 25px;
-  height: 100px;
+  height: 110px;
   background-color: #2977bc;
   color: rgb(255, 255, 255);
   border: none;
@@ -114,6 +114,7 @@
   margin-bottom: 25px;
   border-radius: 16px;
   font-weight: 600;
+  overflow: hidden;
 }
 .btn:hover{
   cursor: pointer;
@@ -129,13 +130,14 @@
 }
 
 .icon{
-  font-size: 40px;
+  font-size: 60px;
   rotate: -20deg;
   margin-top: -10px;
   margin-bottom: -10px;
+  color: #ffffff;
 }
 .icon3{
-  font-size: 40px;
+  font-size: 60px;
   margin-top: -10px;
   margin-bottom: -10px;
 }
@@ -196,15 +198,38 @@
 @media only screen and (min-width: 340px) and (max-width: 399px) {
   .btn{
       width: 310px;
-      height:90px;
+      height:100px;
       text-align: end;
       font-size: 17px;
   }
 }
-@media only screen and (min-width: 400px) and (max-width: 540px) {
+@media only screen and (min-width: 400px) and (max-width: 510px) {
   .btn{
       width: 340px;
       text-align: end;
       font-size: 20px;
+  }
+}
+@media only screen and (min-width: 511px) {
+  .btn{
+      width: 400px;
+      height: 130px;
+      text-align: end;
+      font-size: 20px;
+  }
+  .icon{
+    font-size: 80px;
+    rotate: -20deg;
+    margin-top: -10px;
+    margin-bottom: -10px;
+    color: #ffffff;
+  }
+  .icon3{
+    font-size: 80px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
+  .text_div{
+    font-size: 25px;
   }
 }

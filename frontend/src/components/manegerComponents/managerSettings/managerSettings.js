@@ -28,8 +28,7 @@ const ManagerSettings = () => {
         job: userData.job,
       };
 
-      await axios
-        .put(`${process.env.REACT_APP_URL}/editUser`, updatedUser)
+      await axios.put(`${process.env.REACT_APP_URL}/editUser`, updatedUser)
         .then((response) => {
           setPassword('');
           setIsEmpty(false);
@@ -59,7 +58,7 @@ const ManagerSettings = () => {
 
         <input
           className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
-          placeholder="שם משתמש"
+          placeholder="שם משתמש באנגלית בלבד"
           value={username}
           onChange={(e) => {
             const inputUsername = e.target.value;

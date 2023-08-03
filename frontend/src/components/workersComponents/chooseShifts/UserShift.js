@@ -23,10 +23,12 @@ const UserShift = (props) => {
     }
   }, [])
 
+  // add worker to shift
   const addWorkerToShift = () => {
     setAdded(true);
     const updtaedShift = { ...props.shift, availableWorkers: [...shift.availableWorkers, data] }
     const reqBody = {
+      managerId: props.managerId,
       dayId: props.dayId,
       shiftId: shift._id,
       workerId: data._id
@@ -40,10 +42,11 @@ const UserShift = (props) => {
       });
   }
 
+  // remove worker from shift
   const removeWorkerFromShift = () => {
     setAdded(false);
-    //const updtaedShift = { ...props.shift, availableWorkers: [...shift.availableWorkers, data] }
     const reqBody = {
+      managerId: props.managerId,
       dayId: props.dayId,
       shiftId: shift._id,
       workerId: data._id
@@ -67,17 +70,18 @@ const UserShift = (props) => {
   }
 
   return <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`}onClick={() => {setShow(!showWorkers)}}>
-    <p className={styles.shift_data_p}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
-    
-    {
-  !props.weekPublished ? (
-    added ? (
-      <button onClick={removeWorkerFromShift} className={styles.add_btn}>הסרה</button>
-    ) : (
-      <button onClick={addWorkerToShift} className={styles.add_btn}>הוספה</button>
-    )
-  ) : ( showWorkers ? <div><WorkerList workers={shift.workers}></WorkerList></div> : null)
-}
+
+      <p className={styles.shift_data_p}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
+      
+      {
+      !props.weekPublished ? (
+        added ? (
+          <button onClick={removeWorkerFromShift} className={styles.add_btn}>הסרה</button>
+        ) : (
+          <button onClick={addWorkerToShift} className={styles.add_btn}>הוספה</button>
+        )
+        ) : ( showWorkers ? <div><WorkerList managerId={props.managerId} workers={shift.workers}></WorkerList></div> : null)
+      }
 
   </div>
 }

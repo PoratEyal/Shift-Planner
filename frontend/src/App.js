@@ -11,8 +11,8 @@ import CurrentWeekUser from './components/workersComponents/CurrentWeek_user/Cur
 import SeeCurrentWeek from './components/manegerComponents/SeeCurrentWeek/SeeCurrentWeek';
 import ManagerSettings from './components/manegerComponents/managerSettings/managerSettings';
 import ForgotPassword from './components/publics/forgotPassword';
-//import ProtectedRoute from '../ProtectedRoute';
 import ProtectedRoute from './components/ProtectedRoute';
+
 const App = () => {
 
   return <React.Fragment>

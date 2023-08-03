@@ -1,0 +1,35 @@
+### Add Shift
+POST http://localhost:3001/app/addShift
+Content-Type: application/json
+
+{
+    "description": "משמרת חג",
+    "startTime": "6:00",
+    "endTime": "10:00",
+    "workers": ["jhon"]
+}
+
+### get All Shifts
+GET http://localhost:3001/app/getShifts
+Content-Type: application/json
+
+### get shift by id
+GET http://localhost:3001/app/getShiftById/6499d143ddfa4c42dc7600cc
+Content-Type: application/json
+
+
+### delete shift
+DELETE http://localhost:3001/app/deleteShift/6499d143ddfa4c42dc7600cc
+Content-Type: application/json
+
+### update shift
+PUT http://localhost:3001/app/updateShift
+Content-Type: application/json
+
+{
+    "_id": "649af12b13cbaa41a90ab937",
+    "description": "TEST2",
+    "startTime": "8:00",
+    "endTime": "23:00",
+    "workers": []
+}

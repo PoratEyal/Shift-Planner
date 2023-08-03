@@ -11,8 +11,11 @@ const SeeWorkersCurrentWeek = (props) => {
     // get all the workers
     useEffect(() => {
       workers.map(worker => {
+        const reqBody = {
+          id: worker
+        }
         axios
-          .get(`${process.env.REACT_APP_URL}/getUserById/${worker}`)
+          .post(`${process.env.REACT_APP_URL}/getUserById`, reqBody)
           .then(response => {
             const workerData = response.data;
             if (workerData && workerData.fullName) {

@@ -9,27 +9,39 @@ const AllUsers = (props) => {
     const [users, setUsers] = useState([])
     const [userDeleted, setUserDelted] = useState(false)
     const [loading, setLoading] = useState(false)
-    const localUser = JSON.parse(localStorage.getItem("user"));
-    const fetchData =  () => {
-          const body = {
-            job: localUser._id
-          }
-            axios.post(`${process.env.REACT_APP_URL}/getMyWorkers`, body).then(response =>{
+    const managerId = props.managerId;
 
-              setUsers(response.data);
-              setLoading(true);
-
-            }).catch ((error) => {
-            console.error(error);
-        })
-        
-
-      }
     useEffect(() => {
+      const fetchData = async () => {
+      try {
+        const body = {
+          job: managerId
+        }
+        const response = await axios.post(`${process.env.REACT_APP_URL}/getMyWorkers`, body);
+        setUsers(response.data);
+      } catch (error) {
+          console.error(error);
+      }
+      };
+
       fetchData();
     }, [props.added]);
-    useEffect(() => {  
-      fetchData();
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const body = {
+            job: managerId
+          }
+          const response = await axios.post(`${process.env.REACT_APP_URL}/getMyWorkers`, body);
+          setUsers(response.data);
+          setLoading(true)
+        } catch (error) {
+            console.error(error);
+        }
+        };
+  
+        fetchData();
     }, [userDeleted]);
     const deleteUser = async (userId) => {
       Swal.fire({
@@ -74,7 +86,7 @@ const AllUsers = (props) => {
           ) : (
             users.map((user) => (
 
-              (user._id !== localUser._id) ?
+              (user._id !== managerId) ?
               <div key={user._id} className={styles.user_container}>
                 <div>
                   <button

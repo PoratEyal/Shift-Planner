@@ -14,7 +14,11 @@ const UserDay = (props) => {
             let shifts = [];
             setLoading(true)
             if (day.shifts.length >= 0) {
-                axios.get(`${process.env.REACT_APP_URL}/getShiftsOfDay/${day._id}`).then((response) => {
+                const body = {
+                    dayId: day._id,
+                    managerId: props.managerId
+                }
+                axios.post(`${process.env.REACT_APP_URL}/getShiftsOfDay`, body).then((response) => {
                     shifts = response.data;
                     setLoading(false)
                     resolve(shifts);
@@ -60,9 +64,16 @@ const UserDay = (props) => {
                         <div className={styles['three-body__dot']}></div>
                     </div>
                 ) : (
-                    dayShifts.map((shift) => {return shift ? <UserShift weekPublished={props.weekPublished} getShifts={updateShifts} shift={shift} dayId={day._id} key={shift._id}></UserShift> : null }))
-            }
-
+                dayShifts?.length === 0 ? (
+                    <div className={styles.no_shifts_message}>אין משמרות לאותו היום</div>
+                ) : (    
+                dayShifts.map((shift) => {return shift ? <UserShift 
+                    managerId={props.managerId}
+                    weekPublished={props.weekPublished}
+                    getShifts={updateShifts} shift={shift}
+                    dayId={day._id}
+                    key={shift._id}></UserShift> : null }))
+                )}
         </div>
     </div>
 

@@ -9,6 +9,7 @@ const CurrentShiftUser = (props) => {
     const [userId, setUserId] = useState("");
     const [addClass, setAddClass] = useState(false)
     const [showWorkers, setShow] = useState(false);
+    
     useEffect(() => {
         const newdata = JSON.parse(localStorage.getItem("user"));
         setUserId(newdata._id);
@@ -24,7 +25,7 @@ const CurrentShiftUser = (props) => {
     return (
         <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`} onClick={() => {setShow(!showWorkers)}}>
             <p className={styles.shift_name}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
-            {showWorkers ? <WorkersCurrentWeek workers={shift.workers}></WorkersCurrentWeek> : null}
+            {showWorkers ? <WorkersCurrentWeek managerId={props.managerId} workers={shift.workers}></WorkersCurrentWeek> : null}
         </div>
     );
 }
