@@ -64,7 +64,6 @@ const CurrentWeek = () => {
     // set next week to published
     const editPublishSchedule = async () => {
         try {
-            const managerId = managerContext.getUser();
         const reqbody = {
             id: managerId
         }

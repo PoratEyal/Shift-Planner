@@ -39,8 +39,11 @@ const CurrentWeekUser = () => {
            setWeek(response.data);
         }).catch(err=> console.log(err));
 
-        axios.post(`${process.env.REACT_APP_URL}/getNextWeek`, body).then((response) => {
-        setWeekVisible(response.data.visible)
+        const body2 = {
+            id: getUser()
+        }
+        axios.post(`${process.env.REACT_APP_URL}/getNextWeek`, body2).then((response) => {
+            setWeekVisible(response.data.visible)
         }).catch(err=> console.log(err));
     }
 

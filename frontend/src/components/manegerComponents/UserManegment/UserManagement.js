@@ -7,6 +7,7 @@ import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 import { ManagerContext } from '../ManagerHomePage' 
 import { useContext } from 'react';
+import Swal from 'sweetalert2';
 
 const UserManagement = () => {
 
@@ -75,7 +76,13 @@ const UserManagement = () => {
         setActiveElement(0)
       })
       .catch((error) => {
-        console.error('An error occurred:', error);
+        Swal.fire({
+          title: 'שם משתמש תפוס, הכנס שם משתמש אחר',
+          text: "",
+          icon: 'warning',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'אישור'
+        })
       });
   };
 

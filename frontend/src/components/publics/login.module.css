@@ -7,11 +7,12 @@
 
 .logo{
   margin-top: 60px;
-  margin-right: 10px;
+  margin-right: 0px;
   background-image: url('../../../public/fullLogo.png');
-  width: 330px;
-  height: 100px;
+  background-repeat: no-repeat;
   background-size:cover;
+  width: 370px;
+  height: 125px;
 }
 
 .container_div {
@@ -26,13 +27,13 @@
 }
 
 .blueBack{
-  border-top-left-radius: 30vw;
-  border-top-right-radius: 30vw;
+  background-image: url('../../../public/blueBack.png');
+  background-repeat: no-repeat;
+  background-size:cover;
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 230px;
-  background-color: #648ef8;
+  height: 35vh;
 }
 @keyframes slideUp {
   0% { bottom: -540px; } /* Start position outside of the view */
@@ -42,7 +43,7 @@
 /* buttons - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .btn {
   position: absolute;
-  bottom: 110px;
+  bottom: 18vh;
   z-index: 1;
   margin-top:40px;
   padding: 17px;
@@ -63,8 +64,38 @@
 }
 
 /* inputs - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.password_div{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
 
-.wave-group {
+.show_password{
+  color: rgba(86, 86, 86, 0.663);
+  cursor: pointer;
+  font-size: 30px;
+  position: absolute;
+  top: 15px;
+  left: 10px;
+}
+
+.input{
+  direction: rtl;
+  font-size: 26px;
+  margin-bottom: 40px;
+  padding: 13px;
+  width: 300px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(128, 128, 128, 0.405);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.input::placeholder{
+  color: #2e2e2e87;
+}
+
+/* .wave-group {
   position: relative;
   margin-bottom: 50px;
 }
@@ -146,7 +177,8 @@
 .wave-group .input:focus ~ .bar:before,
 .wave-group .input:focus ~ .bar:after {
   width: 50%;
-}
+} */
+
 
 @keyframes vibration {
   0% { transform: translateX(0); }
@@ -157,11 +189,10 @@
 }
 .validation_p{
   position: absolute;
-  margin-top: 20px;
   font-size: 1.5em;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: red;
-  margin-top: 170px;
+  margin-top: 200px;
   animation: vibration 0.3s;
 }
 
@@ -175,7 +206,7 @@
     margin-top: 100px;
     overflow: hidden;
     position: relative;
-    width: 380px;
+    width:420px;
     border-radius: 15px;
     /* border: 2px solid rgb(210, 209, 209); */
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
@@ -195,15 +226,41 @@
     margin-bottom:105px;
     animation: slideUpBtn 1s forwards;
   }
-  .wave-group {
-    margin-bottom: 40px;
-  }
   .validation_p{
     margin-top: -40px;
+  }
+  .input{
+    margin-top: -10px;
+  }
+  .show_password{
+    top: 5px;
+    left: 10px;
   }
 }
 
 
+@media only screen and (min-height: 800px) and (max-width: 470px) {
+  .btn{
+    bottom: 20vh;
+  }
+  .container_div {
+    margin-top:100px;
+  }
+}
 
+@media only screen and (max-width: 365px) {
+  .input{
+    width: 245px;
+  }
+  .logo{
+    margin-top: 60px;
+    margin-right: 0px;
+    background-image: url('../../../public/fullLogo.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 310px;
+    height: 100px;
+  }
+}
 
   

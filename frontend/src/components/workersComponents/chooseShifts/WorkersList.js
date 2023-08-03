@@ -17,8 +17,10 @@ const WorkerList = (props) => {
             axios.post(`${process.env.REACT_APP_URL}/getUserById`, body)
                 .then(response => {
                     setLoading(true)
-                    const fullName = response.data.fullName;
-                    setWorkerNames(prevWorkerNames => [...prevWorkerNames, fullName]);
+                    if(response.data?.fullName != null){
+                      const fullName = response.data.fullName;
+                      setWorkerNames(prevWorkerNames => [...prevWorkerNames, fullName]);
+                    }
                 })
                 .catch(error => {
                     console.error(error);

@@ -14,10 +14,15 @@ const routeUser = require('./routes/user.routes');
 const routeWeek = require('./routes/week.routes');
 const routeWorker = require('./routes/worker.routes');
 
+
+// database area
 mongoose.connect(process.env.DATABASE_ACCESS, { useNewUrlParser: true });
 const db = mongoose.connection
 db.on('error', (error) => console.error(error));
-db.once('open', () => console.log('connected to Database...'));
+db.once('open', () => console.log('connected to Database...'))
+
+
+// app area
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: false}));
 var allowedDomains = process.env.ALLOWED_DOMAINS.split(", ");
@@ -31,7 +36,6 @@ app.use(cors({
         return callback(null, true);
       }
 }));
-
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
