@@ -110,6 +110,7 @@ const UserManagement = () => {
 
         <div className={styles.formGroup}>
           <input
+            placeholder='רק באנגלית'
             className={styles.input}
             type="text"
             id="username"
@@ -128,6 +129,7 @@ const UserManagement = () => {
 
         <div className={styles.formGroup}>
           <input
+            placeholder='5 תווים לפחות'
             className={styles.input}
             type="password"
             id="password"
