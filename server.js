@@ -13,6 +13,7 @@ const routeShift = require('./routes/shift.routes');
 const routeUser = require('./routes/user.routes');
 const routeWeek = require('./routes/week.routes');
 const routeWorker = require('./routes/worker.routes');
+const routeGPT = require('./routes/gpt.routes');
 
 
 // database area
@@ -48,6 +49,7 @@ app.use('/app', routeShift);
 app.use('/app', routeUser);
 app.use('/app', routeWeek);
 app.use('/app', routeWorker);
+app.use('/app', routeGPT);
 
 app.listen(process.env.PORT || 3001, () => console.log("server is runing..."));
 

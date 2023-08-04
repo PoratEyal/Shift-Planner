@@ -1,0 +1,9 @@
+POST http://localhost:3001/app/sendMessege
+Content-Type: application/json
+
+{
+  "messages": [
+    { "role": "system", "content": "You are a helpful assistant." },
+    { "role": "user", "content": "how old are you?" }
+  ]
+}
