@@ -24,13 +24,14 @@ const ManagerHomePage = () => {
     let data = {};
     const [fullname, setName] = useState("");
     const [weekVisible, setWeekVisible] = useState(false);
+    const [loading, setLoading] = useState(true);
+
 
     const getUser = () => {
         const user = localStorage.getItem('user');
         const userData = JSON.parse(user);
         return userData._id;
       };
-
     useEffect(() => {
         const StorageData = JSON.parse(localStorage.getItem("user"));
         if(StorageData){
@@ -46,10 +47,13 @@ const ManagerHomePage = () => {
         }
         axios.post(`${process.env.REACT_APP_URL}/getNextWeek`, reqBody)
         .then((response) => {
-            setWeekVisible(response.data.visible)
-        }).catch(err=> console.log(err));
-    }, [weekVisible])
-
+            setWeekVisible(response.data.visible);
+            setLoading(false);
+        }).catch(err=> {
+            console.log(err)
+            setLoading(false);
+        });
+    }, [])
     const signout = () => {
         Swal.fire({
             title: 'האם ברצונכם להתנתק',
@@ -69,8 +73,7 @@ const ManagerHomePage = () => {
     }
 
     const handleClick = (event) => {
-        if (!weekVisible) {
-          // If weekVisible is false, show an alert and prevent navigation
+        if (!loading && !weekVisible) {
           event.preventDefault();
           Swal.fire({
             title: 'ברגע שיפורסמו המשמרות תוכלו להכנס לעמוד: שיבוץ עובדים',
