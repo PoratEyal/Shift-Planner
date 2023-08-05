@@ -65,14 +65,14 @@ userRouter.post('/getMyWorkers', (req, res) => {
 });
 
 //gets all the users
-// userRouter.get('/getUsers', async (req, res) => {
-//     try {
-//         const users = await User.find().populate('role');
-//         res.status(201).json(users)
-//     } catch (err) {
-//         res.status(400).json({ messege: err.messege })
-//     }
-// });
+userRouter.get('/getUsers', async (req, res) => {
+    try {
+        const users = await User.find();
+        res.status(201).json(users)
+    } catch (err) {
+        res.status(400).json({ messege: err.messege })
+    }
+});
 
 //gets id and return user
 userRouter.post('/getUserById', async (req, res) => {

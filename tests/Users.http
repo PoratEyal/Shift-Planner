@@ -3,10 +3,10 @@ Authorization: Bearer user.token
 Content-Type: application/json
 
 {
-    "fullName":"לירון צורדקר",
-    "username":"liron",
-    "password":"liron12345",
-    "role":"64a7d10d0606ff97cf2796dd",
+    "fullName":"משתמש בדיקה",
+    "username":"demo",
+    "password":"12345",
+    "role":"64a7d12d0606ff97cf2797bb",
     "job": "admin"
 }
 

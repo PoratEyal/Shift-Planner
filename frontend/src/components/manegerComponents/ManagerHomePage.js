@@ -76,7 +76,7 @@ const ManagerHomePage = () => {
         if (!loading && !weekVisible) {
           event.preventDefault();
           Swal.fire({
-            title: 'ברגע שיפורסמו המשמרות תוכלו להכנס לעמוד: שיבוץ עובדים',
+            title: 'כאשר יפורסמו המשמרות תוכלו להכנס לעמוד: שיבוץ עובדים',
             icon: 'warning',
             confirmButtonColor: '#2977bc'
           });
