@@ -68,7 +68,7 @@
     direction: rtl;
 }
 .input::placeholder {
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .emptyInput {
