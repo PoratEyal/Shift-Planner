@@ -17,7 +17,6 @@ const CurrentWeek = () => {
 
     const managerContext = useContext(ManagerContext);
     const managerId = managerContext.getUser();
-    
 
     // get all the days in the week (from the specific manager)
     const getDays = () => {
@@ -35,6 +34,7 @@ const CurrentWeek = () => {
 
     useEffect(() => {
         getDays();
+        console.log(`create json from this data: ${week}`);
     }, [weekPublished, weekVisible]);
 
     // show alert, if the manager select "yes" - week publish
@@ -77,6 +77,27 @@ const CurrentWeek = () => {
         }
     }
 
+    const sendMessage = async () => {
+        try {
+          const response = await axios.post(
+            `${process.env.REACT_APP_URL}/sendMessege`,
+            {
+              messages: [
+                { role: 'system', content: 'You are a helpful assistant.' },
+                { role: 'user', content: `create json from this data: ${JSON.stringify(week)}` },
+              ],
+            }
+          );
+      
+          console.log('Response Data:', response.data);
+        } catch (error) {
+          console.error('Error sending message:', error);
+        }
+    };
+      
+      
+      
+
     return <React.Fragment>
         <div>
             <div className={styles.nav_container}>
@@ -89,6 +110,10 @@ const CurrentWeek = () => {
                 <button onClick={publishSchedule} className={styles.addShift_btn}>פרסם שבוע סופי</button>
             </div>
             : null}
+
+            <div className={styles.ai_div}>
+                <button onClick={sendMessage} className={styles.ai_btn}>AI - שיבוץ אוטומטי</button>
+            </div>
 
             {weekPublished ? 
             <div className={styles.messege}>

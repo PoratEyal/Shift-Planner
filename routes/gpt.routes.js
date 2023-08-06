@@ -5,7 +5,8 @@ const bodyParser = require('body-parser');
 const axios = require('axios');
 
 const chatGptApiUrl = 'https://api.openai.com/v1/chat/completions';
-const apiKey = process.env.GPT_API_TOKEN;
+//const apiKey = process.env.GPT_API_TOKEN;
+const apiKey='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';
 
 gptRouter.use(bodyParser.json());
 
