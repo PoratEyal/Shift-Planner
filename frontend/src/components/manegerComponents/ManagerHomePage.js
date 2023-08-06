@@ -9,6 +9,7 @@ import { IoIosCreate } from "react-icons/io";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { LuBrainCircuit } from "react-icons/lu";
 
 export const ManagerContext = createContext({
     getUser: () => {
@@ -121,6 +122,15 @@ const ManagerHomePage = () => {
                     {<AiOutlineUsergroupAdd className={styles.icon3}></AiOutlineUsergroupAdd>}
                     </div>
                     <div className={styles.text_div}>שיבוץ עובדים לשבוע הבא</div>
+                </button>
+            </Link>
+
+            <Link className={styles.link} to="/aiCreateWeek">
+                <button className={styles.btn}>
+                    <div className={styles.icon_div}>
+                    {<LuBrainCircuit className={styles.icon3}></LuBrainCircuit>}
+                    </div>
+                    <div className={styles.text_div}>AI שיבוץ עובדים באמצעות</div>
                 </button>
             </Link>
 
