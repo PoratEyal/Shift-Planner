@@ -1,6 +1,9 @@
 .all_container{
-    margin-left: 10px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav_container{
@@ -100,8 +103,7 @@ ul.navbar li button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-right: 10px;
-    margin-bottom: 30px;
+    width: 80%;
 }
 
 .createRole{
@@ -192,9 +194,9 @@ ul.navbar li button {
     border-radius: 5px;
     border: none;
     margin-bottom: 10px;
-    margin-right: 12px;
+    margin-right: 18px;
     border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 175px;
+    width: 163px;
     text-align: right;
 }
 
@@ -208,11 +210,12 @@ ul.navbar li button {
     border: none;
     margin-bottom: 10px;
     border: 1px solid rgba(0, 0, 0, 0.25);
+    width: 150px;
+    margin-right: 7px;
 }
 
 .btn {
     margin-top: 20px;
-    max-width: 260px;
     display: flex;
     padding: 0.8rem 2.4rem;
     font-size: 1.275rem;
@@ -229,7 +232,7 @@ ul.navbar li button {
     background: #2977bc;
     cursor: pointer;
     transition: all .6s ease;
-    width: 400px;
+    width: 250px;
     justify-content: center;
 }
 .btn:hover {
