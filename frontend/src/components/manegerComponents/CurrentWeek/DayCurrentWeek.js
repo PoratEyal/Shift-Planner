@@ -67,13 +67,14 @@ const DayCurrentWeek = (props) => {
                         dayShifts.map((shift) => (
                           shift ? (
                             <ShiftCurrentWeek
-                              managerId={props.managerId}
-                              weekPublished={props.weekPublished}
-                              getShifts={updateShifts}
-                              shift={shift}
-                              dayId={day._id}
-                              key={shift._id}
-                              setDay={setDay}
+                                weekId={props.weekId}
+                                managerId={props.managerId}
+                                weekPublished={props.weekPublished}
+                                getShifts={updateShifts}
+                                shift={shift}
+                                dayId={day._id}
+                                key={shift._id}
+                                setDay={setDay}
                             ></ShiftCurrentWeek>
                           ) : null
                         ))

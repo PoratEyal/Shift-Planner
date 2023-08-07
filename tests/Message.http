@@ -1,5 +1,4 @@
 ### Send Message Request
-
 POST http://localhost:3001/app/sendMessage
 Content-Type: application/json
 
@@ -7,4 +6,13 @@ Content-Type: application/json
     "worker": "worker_id_here",
     "week": "week_id_here",
     "message": "Hello, this is a test message."
+}
+
+### Get Message for User Request
+POST http://localhost:3001/app/getMessageOfUser
+Content-Type: application/json
+
+{
+    "userId": "64c92ddd32b91ea0d376454e",
+    "weekId": "64c8ef2bf93c26030f033840"
 }

@@ -97,7 +97,7 @@ const CurrentWeek = () => {
             <div style={{ marginTop: '70px' }} className={styles.container}>
                 {
                     week ? week.day.map((day) => {
-                        return <DayCurrentWeek  day={day} key={day._id} getDays={getDays} managerId={managerId}></DayCurrentWeek>
+                        return <DayCurrentWeek  weekId={week._id} day={day} key={day._id} getDays={getDays} managerId={managerId}></DayCurrentWeek>
                     }) : null
                 }
             </div>

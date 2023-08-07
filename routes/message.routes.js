@@ -36,6 +36,26 @@ messageRouter.post('/sendMessage', async (req, res) => {
 messageRouter.post('/getMessageOfUser', async (req, res) => {
     const userId = req.body.userId;
     const weekId = req.body.weekId;
+
+    // Check if the user and week exist
+    const user = await User.findById(userId);
+    const week = await Week.findById(weekId);
+
+    if (!user || !week) {
+        return res.status(404).json({ error: 'User or Week not found' });
+    }
+
+    // Find the message for the given user and week
+    const message = await Message.findOne({
+        worker: userId,
+        week: weekId
+    });
+
+    if (!message) {
+        return res.status(404).json({ error: 'Message not found for the given user and week' });
+    }
+
+    return res.status(200).json(message);
 });
 
 module.exports = messageRouter;
