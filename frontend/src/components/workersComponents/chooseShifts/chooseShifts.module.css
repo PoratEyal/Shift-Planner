@@ -480,3 +480,71 @@
 .worksHer{
     border: 2px solid rgb(48, 174, 48);
 }
+
+.messege_to_manager{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 1.25rem;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    gap: 0.75rem;
+    color: rgb(255, 255, 255);
+    background-color: #2977bc;
+    border: none;
+    transition: all .6s ease;
+    width: 300px;
+    height: 40px;
+    justify-content: center;
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: -70px;
+}
+.messege_to_manager p{
+    font-size: 22px;
+}
+
+.messege_to_manager_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.input_to_manager{
+    margin-top: 90px;
+    font-size: 18px;
+    direction: rtl;
+    width: 300px;
+    padding: 8px;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(80, 80, 80, 0.52);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.btn_to_manager{
+    font-size: 22px;
+    margin-top: 15px;
+    margin-bottom: -60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 10px;
+    line-height: 1.25rem;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    gap: 0.75rem;
+    color: rgb(255, 255, 255);
+    background-color: #2977bc;
+    border: none;
+    transition: all .6s ease;
+    width: 315px;
+    height: 60px;
+    justify-content: center;
+    text-align: center;
+}

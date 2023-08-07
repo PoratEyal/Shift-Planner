@@ -1,0 +1,10 @@
+### Send Message Request
+
+POST http://localhost:3001/app/sendMessage
+Content-Type: application/json
+
+{
+    "worker": "worker_id_here",
+    "week": "week_id_here",
+    "message": "Hello, this is a test message."
+}
