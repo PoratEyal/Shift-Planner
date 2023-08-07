@@ -32,4 +32,10 @@ messageRouter.post('/sendMessage', async (req, res) => {
     }
 });
 
+// get the message of the user if he wrote one
+messageRouter.post('/getMessageOfUser', async (req, res) => {
+    const userId = req.body.userId;
+    const weekId = req.body.weekId;
+});
+
 module.exports = messageRouter;

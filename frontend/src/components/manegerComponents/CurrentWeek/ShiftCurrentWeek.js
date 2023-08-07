@@ -18,7 +18,6 @@ const ShiftCurrentWeek = (props) => {
         }
         axios.put(`${process.env.REACT_APP_URL}/addWorkerToWorkrs`, reqBody)
             .then((response) => {
-                console.log(response.data);
                 props.setDay(response.data);
             })
             .catch((error) => {

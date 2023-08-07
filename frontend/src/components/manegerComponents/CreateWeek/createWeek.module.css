@@ -399,6 +399,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid rgba(101, 101, 101, 0.245);
 }
 
 .btn_chose{
@@ -632,4 +633,33 @@
     text-align: center;
     margin-top: 80px;
     margin-bottom: -70px;
+}
+
+.icon_delete{
+    margin-left: 20px;
+    color: black;
+    font-size: 22px;
+    transition: 0.3s;
+}
+.icon_delete:hover{
+    color: red;
+}
+.icon_message{
+    margin-left: 10px;
+    color: black;
+    font-size: 22px;
+    transition: 0.3s;
+}
+.icon_message:hover{
+    color: #2068a7;
+}
+.icon_add{
+    margin-left: 20px;
+    margin-top: 3px;
+    color: black;
+    font-size: 22px;
+    transition: 0.3s;
+}
+.icon_add:hover{
+    color: green;
 }
