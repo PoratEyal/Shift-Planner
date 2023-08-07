@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import styles from './createWeek.module.css'
 import Swal from 'sweetalert2';
+import moment from "moment";
 
 const CreateWeekShift = (props) => {
 
     const [shift, setShift] = useState(props.shift);
+
+    const startTimeHours = moment(shift.startTime, 'HH:mm').format('HH:mm');
+    const endTimeHours = moment(shift.endTime, 'HH:mm').format('HH:mm');
 
     const deleteShift = () => {
         Swal.fire({
@@ -28,11 +32,18 @@ const CreateWeekShift = (props) => {
           })
 
     }
-
-    return <div className={styles.shift}>
-        <p className={styles.shift_description}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
-        <button className={styles.btn_delete} onClick={deleteShift}>מחיקת משמרת</button>
-    </div>
+    
+    return (
+      <div className={styles.shift}>
+          <p className={styles.shift_description}>
+              {shift.description}: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
+          </p>
+          <button className={styles.btn_delete} onClick={deleteShift}>
+              מחיקת משמרת
+          </button>
+      </div>
+  );
+  
 }
 
 export default CreateWeekShift

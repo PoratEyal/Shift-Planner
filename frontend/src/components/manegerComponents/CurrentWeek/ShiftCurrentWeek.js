@@ -1,7 +1,8 @@
 import React, {useState } from "react";
-import styles from '../CreateWeek/createWeek.module.css'
+import styles from '../CreateWeek/createWeek.module.css';
 import axios from 'axios';
-import CurrentWeekWorkers from './CurrentWeekWorkers'
+import CurrentWeekWorkers from './CurrentWeekWorkers';
+import moment from "moment";
 
 const ShiftCurrentWeek = (props) => {
 
@@ -44,7 +45,9 @@ const ShiftCurrentWeek = (props) => {
     return <div>
         <div className={styles.shift} >
             <div onClick={() => { setShow(!showWorkers) }}>
-                <p className={styles.shift_description}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
+                <p className={styles.shift_description}>
+                    {shift.description}: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
+                </p>
             </div>
 
             {showWorkers ? <CurrentWeekWorkers

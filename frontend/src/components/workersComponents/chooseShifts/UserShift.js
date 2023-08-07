@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import styles from './chooseShifts.module.css'
+import styles from './chooseShifts.module.css';
 import axios from 'axios';
-import WorkerList from './WorkersList'
+import WorkerList from './WorkersList';
+import moment from "moment";
 
 const UserShift = (props) => {
 
@@ -71,7 +72,9 @@ const UserShift = (props) => {
 
   return <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`}onClick={() => {setShow(!showWorkers)}}>
 
-      <p className={styles.shift_data_p}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
+      <p className={styles.shift_data_p}>
+              {shift.description}: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
+      </p>
       
       {
       !props.weekPublished ? (
