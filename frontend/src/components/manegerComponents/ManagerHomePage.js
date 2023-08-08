@@ -125,16 +125,6 @@ const ManagerHomePage = () => {
                 </button>
             </Link>
 
-            <Link className={styles.link} to="/aiCreateWeek">
-                <button className={styles.btn}>
-                    <div className={styles.icon_div}>
-                    {<LuBrainCircuit className={styles.icon3}></LuBrainCircuit>}
-                    </div>
-                    <div className={styles.text_div}>AI שיבוץ עובדים באמצעות</div>
-                </button>
-            </Link>
-
-
             <Outlet />
         </div>
     </ManagerContext.Provider>

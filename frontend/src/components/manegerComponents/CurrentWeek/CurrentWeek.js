@@ -5,8 +5,9 @@ import styles from '../CreateWeek/createWeek.module.css'
 import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { ManagerContext } from '../ManagerHomePage' 
+import { ManagerContext } from '../ManagerHomePage';
 import { useContext } from 'react';
+import { FaMagic } from "react-icons/fa";
 
 const CurrentWeek = () => {
 
@@ -14,6 +15,7 @@ const CurrentWeek = () => {
     const [week, setWeek] = useState(null);
     const [weekPublished, setWeekPublished] = useState(null)
     const [weekVisible, setWeekVisible] = useState(null)
+    const [dataFromAi, setDataFromAi] = useState(null);
 
     const managerContext = useContext(ManagerContext);
     const managerId = managerContext.getUser();
@@ -75,6 +77,24 @@ const CurrentWeek = () => {
             console.log(error.message);
         }
     }
+
+    const sendMessage = async () => {
+        try {
+          const response = await axios.post(
+            `${process.env.REACT_APP_URL}/sendMessege`,
+            {
+              messages: [
+                { role: 'system', content: 'You are a helpful assistant.' },
+                { role: 'user', content: `create me table from this data: ${JSON.stringify(week)}` },
+              ],
+            }
+          );
+          setDataFromAi(response.data);
+          console.log(response.data)
+        } catch (error) {
+          console.error('Error sending message:', error);
+        }
+    };
       
     return <React.Fragment>
         <div>
@@ -93,6 +113,13 @@ const CurrentWeek = () => {
             <div className={styles.messege}>
                 <p>השבוע פורסם</p>   
             </div>: null}
+
+            <div className={styles.publish_div}>
+                <button className={styles.ai_btn} onClick={sendMessage}>
+                    <label className={styles.ai_icon}><FaMagic></FaMagic></label>
+                    <label>AI שיבוץ באמצות</label>
+                </button>
+            </div>
 
             <div style={{ marginTop: '70px' }} className={styles.container}>
                 {

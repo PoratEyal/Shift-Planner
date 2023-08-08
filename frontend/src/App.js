@@ -12,7 +12,6 @@ import SeeCurrentWeek from './components/manegerComponents/SeeCurrentWeek/SeeCur
 import ManagerSettings from './components/manegerComponents/managerSettings/managerSettings';
 import ForgotPassword from './components/publics/forgotPassword';
 import ProtectedRoute from './components/ProtectedRoute';
-import AiCreateWeek from './components/manegerComponents/AiCreateWeek/AiCreateWeek';
 import EditCurrentWeek from './components/manegerComponents/EditCurrentWeek/EditCurrentWeek'
 
 const App = () => {
@@ -30,7 +29,6 @@ const App = () => {
         <Route path="/currentWeekShifts" element={<ProtectedRoute component={CurrentWeekShifts} role="admin"/>} />
         <Route path="/SeeCurrentWeekShifts" element={<ProtectedRoute component={SeeCurrentWeek} role="admin"/>} />
         <Route path='/managerSettings' element={<ProtectedRoute component={ManagerSettings} role="admin"/>}/>
-        <Route path='/aiCreateWeek' element={<ProtectedRoute component={AiCreateWeek} role="admin"/>}/>
         <Route path='/editCurrentWeek' element={<ProtectedRoute component={EditCurrentWeek} role="admin"/>}/>
 
          {/* - - - - - - - -workers - - - - - - -  */}
