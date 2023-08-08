@@ -4,9 +4,9 @@ const message = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-  shift:{
+  week:{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'shift'
+    ref: 'Week'
   },
   message: {
     type: String

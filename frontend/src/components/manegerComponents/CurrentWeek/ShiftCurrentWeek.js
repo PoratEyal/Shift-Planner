@@ -1,7 +1,8 @@
 import React, {useState } from "react";
-import styles from '../CreateWeek/createWeek.module.css'
+import styles from '../CreateWeek/createWeek.module.css';
 import axios from 'axios';
-import CurrentWeekWorkers from './CurrentWeekWorkers'
+import CurrentWeekWorkers from './CurrentWeekWorkers';
+import moment from "moment";
 
 const ShiftCurrentWeek = (props) => {
 
@@ -17,7 +18,6 @@ const ShiftCurrentWeek = (props) => {
         }
         axios.put(`${process.env.REACT_APP_URL}/addWorkerToWorkrs`, reqBody)
             .then((response) => {
-                console.log(response.data);
                 props.setDay(response.data);
             })
             .catch((error) => {
@@ -44,10 +44,13 @@ const ShiftCurrentWeek = (props) => {
     return <div>
         <div className={styles.shift} >
             <div onClick={() => { setShow(!showWorkers) }}>
-                <p className={styles.shift_description}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
+                <p className={styles.shift_description}>
+                    {shift.description}: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
+                </p>
             </div>
 
             {showWorkers ? <CurrentWeekWorkers
+                weekId={props.weekId}
                 managerId={props.managerId}
                 weekPublished={props.weekPublished}
                 removeWorkerShift={removeWorkerShift}

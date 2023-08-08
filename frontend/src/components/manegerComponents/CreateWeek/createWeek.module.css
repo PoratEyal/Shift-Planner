@@ -399,6 +399,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 0px solid rgba(101, 101, 101, 0.245);
 }
 
 .btn_chose{
@@ -632,4 +633,33 @@
     text-align: center;
     margin-top: 80px;
     margin-bottom: -70px;
+}
+
+.icon_delete{
+    margin-left: 20px;
+    font-size: 20px;
+    transition: 0.3s;
+    color: red;
+}
+.icon_delete:hover{
+    color: rgb(182, 0, 0);
+}
+.icon_message{
+    margin-left: 10px;
+    color: rgb(119, 119, 119);
+    font-size: 20px;
+    transition: 0.3s;
+}
+.icon_message:hover{
+    color: black;
+}
+.icon_add{
+    margin-left: 20px;
+    margin-top: 3px;
+    font-size: 20px;
+    transition: 0.3s;
+    color: green;
+}
+.icon_add:hover{
+    color: rgb(0, 87, 0);
 }

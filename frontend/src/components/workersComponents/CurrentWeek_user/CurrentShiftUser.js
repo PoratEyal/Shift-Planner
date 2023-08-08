@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from './currentWeekUser.module.css';
-import { BiSolidWinkSmile } from "react-icons/bi";
 import WorkersCurrentWeek from "./WorkersCurrentWeek";
+import moment from "moment";
 
 const CurrentShiftUser = (props) => {
 
@@ -24,7 +24,9 @@ const CurrentShiftUser = (props) => {
 
     return (
         <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`} onClick={() => {setShow(!showWorkers)}}>
-            <p className={styles.shift_name}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
+            <p className={styles.shift_name}>
+              {shift.description}: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
+            </p>
             {showWorkers ? <WorkersCurrentWeek managerId={props.managerId} workers={shift.workers}></WorkersCurrentWeek> : null}
         </div>
     );

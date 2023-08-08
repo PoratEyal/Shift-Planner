@@ -1,6 +1,10 @@
 import axios from 'axios';
 import React, { useRef, useEffect, useState } from 'react';
 import styles from '../CreateWeek/createWeek.module.css';
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { AiOutlineMessage } from "react-icons/ai";
+import { BiAddToQueue } from "react-icons/bi";
+import Swal from 'sweetalert2';
 
 const CurrentWeekWorkers = (props) => {
   const [workers, setWorker] = useState(props.workers);
@@ -75,23 +79,47 @@ const CurrentWeekWorkers = (props) => {
     setUpdatedWorkers(!updatedWorkers);
   };
 
+  // if the worker sent message will pop alert with the his message
+  const seeMessage = (worker) => {
+    const body = {
+      weekId: props.weekId,
+      userId: worker._id
+    }
+
+    axios.post(`${process.env.REACT_APP_URL}/getMessageOfUser`, body)
+    .then(response => {
+      Swal.fire({
+        title: `${worker.fullName} שלח לך הודעה`,
+        text: `${response.data.message}`,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'סגור'
+      })
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  };
+
   return (
     <React.Fragment>
       <div className={styles.workers_list_delete}>
         {workersArr.map((worker, index) => (
-          <div key={index} className={styles.nameAndDelete}>
-            <button onClick={() => removeWorker(worker._id)} className={styles.btn_chosen}>
-              הסרה
-            </button>
+          <div key={worker._id} className={styles.nameAndDelete}>
+            <div>
+              <RiDeleteBin6Line className={styles.icon_delete} onClick={() => removeWorker(worker._id)}></RiDeleteBin6Line>
+              <AiOutlineMessage onClick={() => seeMessage(worker)} className={styles.icon_message}></AiOutlineMessage>
+            </div>
             {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
           </div>
         ))}
 
         {availableWorkersArr.map((worker, index) => (
           <div key={index} className={styles.nameAndDelete}>
-            <button onClick={() => choseWorker(worker._id)} className={styles.btn_chose}>
-              בחירה
-            </button>
+            <div>
+              <BiAddToQueue className={styles.icon_add} onClick={() => choseWorker(worker._id)}></BiAddToQueue>
+              <AiOutlineMessage onClick={() => seeMessage(worker)} className={styles.icon_message}></AiOutlineMessage>
+            </div>
             {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
           </div>
         ))}
