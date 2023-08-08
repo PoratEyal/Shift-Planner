@@ -111,6 +111,7 @@ const UserManagement = () => {
         <div className={styles.formGroup}>
           <input
             className={styles.input}
+            placeholder='רק באנגלית'
             type="text"
             id="username"
             value={username}
@@ -129,6 +130,7 @@ const UserManagement = () => {
         <div className={styles.formGroup}>
           <input
             className={styles.input}
+            placeholder='5 תווים לפחות'
             type="password"
             id="password"
             value={password}

@@ -50,11 +50,11 @@ const ManagerSettings = () => {
         <button onClick={() => navigate('/managerHomePage')}>
           <BiSolidHome />
         </button>
-        <p>פרופיל משתמש</p>
+        <p>שינוי פרטי משתמש</p>
       </div>
 
       <div className={styles.container}>
-        <h2 className={styles.h2}>שינוי פרטי משתמש</h2>
+        <h2 className={styles.h2}>הכנס סיסמה או שם משתמש חדש</h2>
 
         <input
           className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}

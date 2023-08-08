@@ -55,10 +55,6 @@
     margin: 20px;
     background: rgba(255, 255, 255, 0.966);
     border-radius: 12px;
-    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
-    box-shadow: rgba(0, 0, 0, 0.26) 0px 10px 36px 0px, rgba(0, 0, 0, 0.10) 0px 0px 0px 1px;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
 }
 
 .h2{
@@ -71,8 +67,8 @@
     font-size: 1.2em;
     border: none;
     border-radius: 10px;
-    border: 1px solid rgba(101, 101, 101, 0.245);
-    background-color: rgba(231, 234, 238, 0.332);
+    /* border: 1px solid rgba(101, 101, 101, 0.245); */
+    background-color: rgba(231, 234, 238, 0.899);
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -121,6 +117,7 @@
 }
 
 .btn {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: 15px;
     margin: 5px;
     width: 87px;
@@ -149,6 +146,7 @@
 }
 
 .add_btn{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 10px;
     margin-top: 0px;
     display: flex;
@@ -175,6 +173,7 @@
     }
 
 .addShift{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     width: 280px;
     font-size: 1.2em;
     border: 1px solid rgba(0, 0, 0, 0.25);
@@ -201,6 +200,7 @@
 }
 
 .addShift_btn{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 10px;
     margin-top: -10px;
     display: flex;
@@ -242,8 +242,9 @@
 
 
 .btn_delete{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: rgba(16, 16, 16, 0.989);
-    background-color: rgba(209, 209, 209, 0.56);
+    background-color: rgba(209, 209, 209, 0.722);
     border: none;
     border-radius: 5px;
     padding: 9px;
@@ -403,6 +404,7 @@
 }
 
 .btn_chose{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 15px;
     background-color: rgb(46, 181, 29);
     color: white;
@@ -479,6 +481,7 @@
     margin-top: 90px;
 }
 .first_addShift_btn{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 10px;
     margin-top: -10px;
     display: flex;
@@ -509,6 +512,7 @@
     margin-bottom: 0px;
 }
 .publish_div_createWeek button{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: -10px;
     margin-bottom: 0px;
     display: flex;
@@ -533,12 +537,14 @@
 }
 
 .publish_div{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: 90px;
     margin-left: 10px;
     margin-bottom: -70px;
 }
 
 .publish_div button{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: -10px;
     margin-bottom: 0px;
     display: flex;
@@ -570,6 +576,7 @@
 }
 
 .published_div button{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: -10px;
     margin-bottom: 0px;
     display: flex;

@@ -89,8 +89,8 @@ const CurrentWeekWorkers = (props) => {
     axios.post(`${process.env.REACT_APP_URL}/getMessageOfUser`, body)
     .then(response => {
       Swal.fire({
-        title: `${worker.fullName} שלח לך הודעה`,
-        text: `${response.data.message}`,
+        title: `${worker.fullName}: ${response.data.message}`,
+        text: '',
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'סגור'
