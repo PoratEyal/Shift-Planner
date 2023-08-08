@@ -120,7 +120,9 @@
 
 .h2{
     margin-top: -15px;
-    margin-bottom: 0px;
+    margin-bottom: 4px;
+    font-size: 22px;
+    font-weight: 400;
 }
 
 .shift{

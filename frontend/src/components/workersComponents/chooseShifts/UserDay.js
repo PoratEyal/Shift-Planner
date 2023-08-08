@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styles from './chooseShifts.module.css'
 import axios from 'axios'
-import UserShift from './UserShift'
+import UserShift from './UserShift';
+import moment from "moment";
 
 const UserDay = (props) => {
 
@@ -55,7 +56,7 @@ const UserDay = (props) => {
 
     return <div>
         <div className={styles.day_container}>
-            <h2 className={styles.h2}>{day.name}</h2>
+            <h2 className={styles.h2}>{day.name} - {moment(day.date).format('DD/MM/YY')}</h2>
             { 
                 loading ? (
                     <div className={styles['three-body']}>
