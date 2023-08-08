@@ -16,9 +16,47 @@ const CurrentWeek = () => {
     const [weekPublished, setWeekPublished] = useState(null)
     const [weekVisible, setWeekVisible] = useState(null)
     const [dataFromAi, setDataFromAi] = useState(null);
+    const [workers, setWorkers] = useState(null);
+    const [messages, setMessages] = useState(null);
+    const [promentToAi, setPromentToAi] = useState('');
 
     const managerContext = useContext(ManagerContext);
     const managerId = managerContext.getUser();
+
+    // get all the _id's of the workers and all their messages
+    const getWorkersAndMessages = async () => {
+        try {
+            const body = {
+              job: managerId
+            }
+            const response = await axios.post(`${process.env.REACT_APP_URL}/getMyWorkers`, body);
+            setWorkers(response.data.map(item => item._id))
+
+            const body2 = {
+                managerId: managerId,
+                weekId: week._id,
+                usersId: response.data.map(item => item._id)
+            }
+            try {
+                const response = await axios.post(`${process.env.REACT_APP_URL}/getMessages`, body2);
+                setMessages(response.data.messages);
+                console.log(response.data.messages);
+
+                setPromentToAi(`this is the data of the week: ${JSON.stringify(week)},
+                this is the _id's of the users: ${JSON.stringify(workers)},
+                this is the data of their Placement requests to the manager: ${JSON.stringify(messages)}.
+                Crossword the employees for me according to their requests - 
+                return me just a json with the days and the workers inside them`) 
+
+
+            } catch (error) {
+                console.error('Error:', error);
+            }
+            
+          } catch (error) {
+              console.error(error);
+          }
+    };
 
     // get all the days in the week (from the specific manager)
     const getDays = () => {
@@ -36,7 +74,9 @@ const CurrentWeek = () => {
 
     useEffect(() => {
         getDays();
-    }, [weekPublished, weekVisible]);
+        getWorkersAndMessages();
+        console.group(promentToAi)
+    }, [weekPublished, weekVisible, promentToAi]);
 
     // show alert, if the manager select "yes" - week publish
     const publishSchedule= () => {
@@ -85,7 +125,7 @@ const CurrentWeek = () => {
             {
               messages: [
                 { role: 'system', content: 'You are a helpful assistant.' },
-                { role: 'user', content: `create me table from this data: ${JSON.stringify(week)}` },
+                { role: 'user', content: promentToAi },
               ],
             }
           );
