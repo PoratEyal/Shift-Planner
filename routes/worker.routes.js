@@ -6,29 +6,36 @@ const bodyParser = require('body-parser');
 workerRouter.use(bodyParser.json());
 
 // delete worker from workers list
-workerRouter.put('/removeWorkerFromWorkrs', (req, res) => {
-    const body = req.body;
-    const dayId = body.dayId;
-    const shiftId = body.shiftId;
-    const workerId = body.workerId;
+// workerRouter.put('/removeWorkerFromWorkrs', (req, res) => {
+//     const body = req.body;
+//     const dayId = body.dayId;
+//     const shiftId = body.shiftId;
+//     const workerId = mongoose.Types.ObjectId(body.workerId);
 
-    Week.findOneAndUpdate(
-        { "day._id": dayId, "day.shifts._id": shiftId },
-        {
-            $pull: { "day.$.shifts.$[elem].workers": workerId },
-        },
-        { arrayFilters: [{ "elem._id": shiftId }], projection: { "day.$": 1 } })
-        .then(() => {
-            Week.findOne({ "day._id": dayId }, { "day.$": 1 }).then(response => {
-                if (response && response.day && response.day.length > 0) {
-                    res.status(200).json(response.day[0]);
-                }
-            });
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-});
+//     Week.findOneAndUpdate(
+//         { "day._id": dayId, "day.shifts._id": shiftId },
+//         {
+//             $pull: { 
+//                 "day.$.shifts.$[elem].workers": workerId,
+//                 "day.$.shifts.$[elem].$.shiftData": { userId: { $eq: workerId } }
+//             },
+//         },
+//         { arrayFilters: [{ "elem._id": shiftId }], projection: { "day.$": 1 } })
+//         .then(() => {
+//             Week.findOne({ "day._id": dayId }, { "day.$": 1 }).then(response => {
+//                 if (response && response.day && response.day.length > 0) {
+//                     res.status(200).json(response.day[0]);
+//                 }
+//             });
+//         })
+//         .catch((err) => {
+//             console.log(err);
+//         });
+// });
+
+//----
+
+//----
 
 // working one !!!!!
 // add worker to avialible workers list
@@ -45,7 +52,7 @@ workerRouter.put('/addWorkerToAvial', (req, res) => {
         { arrayFilters: [{ "elem._id": shiftId }], returnOriginal: true }
     ).then(response => {
         res.status(200).json(response);
-    });    
+    });
 });
 
 // working one !!!!!
@@ -80,7 +87,16 @@ workerRouter.put('/addWorkerToWorkrs', (req, res) => {
     Week.findOneAndUpdate(
         { "day._id": dayId, "day.shifts._id": shiftId, ofManager: managerId },
         {
-            $push: { "day.$.shifts.$[elem].workers": workerId },
+            $push: {
+                "day.$.shifts.$[elem].workers": workerId,
+                "day.$.shifts.$[elem].shiftData": {
+                    //shiftId: shiftId,
+                    userId: workerId,
+                    message: "",
+                    start: null,
+                    end: null
+                }
+            }
         },
         { arrayFilters: [{ "elem._id": shiftId }], projection: { "day.$": 1 } }
     )
@@ -111,8 +127,10 @@ workerRouter.put('/WorkersToAvail', (req, res) => {
     Week.findOneAndUpdate(
         { "day._id": dayId, "day.shifts._id": shiftId, ofManager: managerId }, // Include 'ofManager' to filter by managerId
         {
-            $pull: { "day.$.shifts.$[elem].workers": workerId },
-            //$push: { "day.$.shifts.$[elem].availableWorkers": workerId }
+            $pull: {
+                "day.$.shifts.$[elem].workers": workerId,
+                "day.$.shifts.$[elem].shiftData": { userId: { $eq: workerId } }
+            }
         },
         { arrayFilters: [{ "elem._id": shiftId }], projection: { "day.$": 1 } }
     )

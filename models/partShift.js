@@ -3,10 +3,6 @@ const Shift = require('./shift');
 const User = require("./user")
 
 const ShiftData = new mongoose.Schema({
-    shiftId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: Shift
-    },
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: User
