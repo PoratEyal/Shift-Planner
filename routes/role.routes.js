@@ -44,16 +44,16 @@ roleRouter.post('/getRoles', authenticateToken, async (req, res) => {
     }
 });
 //get role by id
-roleRouter.get('/getRoleWithId/:id', async (req, res) => {
-    try {
-        const { id } = req.params;
+// roleRouter.get('/getRoleWithId/:id', async (req, res) => {
+//     try {
+//         const { id } = req.params;
 
-        const role = await Role.findById(id);
-        res.status(200).json(role)
-    } catch (err) {
-        res.status(400).json({ messege: err.messege })
-    }
-});
+//         const role = await Role.findById(id);
+//         res.status(200).json(role)
+//     } catch (err) {
+//         res.status(400).json({ messege: err.messege })
+//     }
+// });
 roleRouter.delete('/deleteRole/:id', async (req, res) => {
     try {
         const { id } = req.params;
@@ -69,16 +69,16 @@ roleRouter.delete('/deleteRole/:id', async (req, res) => {
         res.status(400).json({ messege: err.messege })
     }
 });
-roleRouter.put('/putRole', async (req, res) => {
-    try {
-        const role = req.body;
-        const putRole = await Role.findOneAndUpdate(role._id, role);
+// roleRouter.put('/putRole', async (req, res) => {
+//     try {
+//         const role = req.body;
+//         const putRole = await Role.findOneAndUpdate(role._id, role);
 
-        res.status(200).json(putRole)
-    } catch (err) {
-        res.status(400).json({ message: err.message })
-    }
-});
+//         res.status(200).json(putRole)
+//     } catch (err) {
+//         res.status(400).json({ message: err.message })
+//     }
+// });
 
 
 // - - - - - - authenticateToken check - - - - - - - - 

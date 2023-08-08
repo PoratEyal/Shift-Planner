@@ -28,7 +28,7 @@ dayRouter.put('/addShiftToDay', (req, res) => {
         });
 });
 
-// working !!!!!!!!!!!!!!!
+// working
 // get all the shifts from specific day - get dayId and managerId
 dayRouter.post('/getShiftsOfDay', (req, res) => {
     const managerId = req.body.managerId;
@@ -66,58 +66,58 @@ dayRouter.put('/deleteShiftFromDay/', (req, res) => {
 
 
 // create/post Day
-dayRouter.post('/addDay', async (req, res) => {
-    Day.create(req.body).then((obj) => {
-        res.status(201).json(obj);
-    }).catch(err => {
-        res.status(400).json({ messege: err._messege });
-    });
-});
+// dayRouter.post('/addDay', async (req, res) => {
+//     Day.create(req.body).then((obj) => {
+//         res.status(201).json(obj);
+//     }).catch(err => {
+//         res.status(400).json({ messege: err._messege });
+//     });
+// });
 //get days
-dayRouter.get('/getDays', async (req, res) => {
-    await Day.find()
-        .then(days => {
-            res.status(200).json(days);
-        })
-        .catch(err => {
-            res.status.json({ message: err.message });
-        });
-});
-//get one day
-dayRouter.get('/getDay/:id', async (req, res) => {
-    await Day.findById(req.params.id)
-        .then(day => {
-            if (day) {
-                res.status(200).json(day)
-            } else {
-                throw new Error("no such day was found");
-            }
-        })
-        .catch(err => {
-            res.status(400).json({ message: err.Error });
-        });
-});
+// dayRouter.get('/getDays', async (req, res) => {
+//     await Day.find()
+//         .then(days => {
+//             res.status(200).json(days);
+//         })
+//         .catch(err => {
+//             res.status.json({ message: err.message });
+//         });
+// });
+// //get one day
+// dayRouter.get('/getDay/:id', async (req, res) => {
+//     await Day.findById(req.params.id)
+//         .then(day => {
+//             if (day) {
+//                 res.status(200).json(day)
+//             } else {
+//                 throw new Error("no such day was found");
+//             }
+//         })
+//         .catch(err => {
+//             res.status(400).json({ message: err.Error });
+//         });
+// });
 //delete day
-dayRouter.delete('/deleteDay/:id', async (req, res) => {
-    try {
-        const id = req.params.id;
-        const deleted = await Day.findOneAndDelete(id);
-        res.status(202).json(deleted);
-    } catch (err) {
-        res.status(400).json({ message: err._messege })
-    }
-});
+// dayRouter.delete('/deleteDay/:id', async (req, res) => {
+//     try {
+//         const id = req.params.id;
+//         const deleted = await Day.findOneAndDelete(id);
+//         res.status(202).json(deleted);
+//     } catch (err) {
+//         res.status(400).json({ message: err._messege })
+//     }
+// });
 //edit day
-dayRouter.put('/editDay', async (req, res) => {
-    try {
-        let reqBody = req.body;
-        const oldDay = await Day.findByIdAndUpdate(reqBody._id, reqBody);
-        res.status(200).json(oldDay);
-    } catch (err) {
-        res.status(400).json({ message: err._messege });
-    }
+// dayRouter.put('/editDay', async (req, res) => {
+//     try {
+//         let reqBody = req.body;
+//         const oldDay = await Day.findByIdAndUpdate(reqBody._id, reqBody);
+//         res.status(200).json(oldDay);
+//     } catch (err) {
+//         res.status(400).json({ message: err._messege });
+//     }
 
-});
+// });
 // delete shift from day - get shiftId
 dayRouter.delete('/deleteShiftFromDay/:shiftId', (req, res) => {
     Day.updateOne({ shifts: req.params.shiftId }, { $pull: { shifts: req.params.shiftId } })
