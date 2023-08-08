@@ -28,7 +28,6 @@ db.once('open', () => console.log('connected to Database...'))
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: false}));
 var allowedDomains = process.env.ALLOWED_DOMAINS.split(", ");
-console.log(allowedDomains);
 app.use(cors({
     origin: function (origin, callback) {
         if (!origin) return callback(null, true);
