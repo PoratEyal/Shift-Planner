@@ -68,4 +68,28 @@ messageRouter.post('/getMessageOfUser', async (req, res) => {
     return res.status(200).json(message);
 });
 
+// get all the messages that sent to the specific manager
+messageRouter.post('/getMessages', async (req, res) => {
+    try {
+        const managerId = req.body.managerId;
+        const weekId = req.body.weekId;
+        const usersId = req.body.usersId;
+
+        const manager = await User.findById(managerId);
+        if (!manager) {
+            return res.status(404).json({ error: 'Manager not found' });
+        }
+
+        const messages = await Message.find({
+            worker: { $in: usersId },
+            week: weekId
+        });
+
+        res.status(200).json({ messages });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
 module.exports = messageRouter;
