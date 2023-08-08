@@ -29,7 +29,7 @@ const ManagerSettings = () => {
       };
 
       await axios.put(`${process.env.REACT_APP_URL}/editUser`, updatedUser)
-        .then((response) => {
+        .then(() => {
           setPassword('');
           setIsEmpty(false);
 

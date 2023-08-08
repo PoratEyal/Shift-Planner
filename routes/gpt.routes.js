@@ -6,7 +6,7 @@ const axios = require('axios');
 
 const chatGptApiUrl = 'https://api.openai.com/v1/chat/completions';
 //const apiKey = process.env.GPT_API_TOKEN;
-const apiKey='';
+const apiKey='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';
 
 gptRouter.use(bodyParser.json());
 
