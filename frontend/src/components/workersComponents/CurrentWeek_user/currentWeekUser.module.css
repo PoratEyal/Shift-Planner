@@ -128,7 +128,6 @@
 .shift{
     width: 280px;
     font-size: 1.2em;
-    border: 1px solid rgba(101, 101, 101, 0.245);
     border: none;
     background-color: rgba(231, 234, 238, 0.789);
     margin-top: 10px;
