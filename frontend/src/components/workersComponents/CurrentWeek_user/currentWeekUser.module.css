@@ -113,12 +113,9 @@
     text-align: center;
     padding: 20px;
     width: 280px;
-    margin: 20px;
+    margin: 15px;
     background: rgb(255, 255, 255);
     border-radius: 12px;
-    box-shadow: rgba(0, 0, 0, 0.26) 0px 10px 36px 0px, rgba(0, 0, 0, 0.10) 0px 0px 0px 1px;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
 }
 
 .h2{
@@ -130,8 +127,10 @@
     width: 280px;
     font-size: 1.2em;
     border: 1px solid rgba(101, 101, 101, 0.245);
-    background-color: rgba(231, 234, 238, 0.332);
-    margin: 10px;
+    border: none;
+    background-color: rgba(231, 234, 238, 0.789);
+    margin-top: 10px;
+    margin-bottom: 5px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;

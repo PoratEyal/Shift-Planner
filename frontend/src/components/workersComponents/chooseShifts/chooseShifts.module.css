@@ -52,11 +52,8 @@
     padding: 20px;
     width: 280px;
     margin: 20px;
-    background: rgba(255, 255, 255, 0.988);
+    background: rgb(255, 255, 255);
     border-radius: 12px;
-    box-shadow: rgba(0, 0, 0, 0.26) 0px 10px 36px 0px, rgba(0, 0, 0, 0.10) 0px 0px 0px 1px;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
 }
 
 .messege{
@@ -93,8 +90,7 @@
     width: 280px;
     font-size: 1.2em;
     border-radius: 10px;
-    border: 1px solid rgba(101, 101, 101, 0.245);
-    background-color: rgba(231, 234, 238, 0.41);
+    background-color: rgba(231, 234, 238, 0.789);
     margin: 10px;
 }
 
@@ -150,7 +146,7 @@
     vertical-align: middle;
     align-items: center;
     border-radius: 0.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(136, 136, 136, 0.25);
     gap: 0.75rem;
     color: rgb(65, 63, 63);
     background-color: #fff;
