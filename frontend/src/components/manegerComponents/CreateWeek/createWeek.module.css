@@ -399,7 +399,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(101, 101, 101, 0.245);
+    border-bottom: 0px solid rgba(101, 101, 101, 0.245);
 }
 
 .btn_chose{
@@ -637,29 +637,29 @@
 
 .icon_delete{
     margin-left: 20px;
-    color: black;
-    font-size: 22px;
+    font-size: 20px;
     transition: 0.3s;
+    color: red;
 }
 .icon_delete:hover{
-    color: red;
+    color: rgb(182, 0, 0);
 }
 .icon_message{
     margin-left: 10px;
-    color: black;
-    font-size: 22px;
+    color: rgb(119, 119, 119);
+    font-size: 20px;
     transition: 0.3s;
 }
 .icon_message:hover{
-    color: #2068a7;
+    color: black;
 }
 .icon_add{
     margin-left: 20px;
     margin-top: 3px;
-    color: black;
-    font-size: 22px;
+    font-size: 20px;
     transition: 0.3s;
+    color: green;
 }
 .icon_add:hover{
-    color: green;
+    color: rgb(0, 87, 0);
 }
