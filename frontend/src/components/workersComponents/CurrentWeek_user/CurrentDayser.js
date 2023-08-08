@@ -11,7 +11,7 @@ const CurrentDayUser = (props) => {
     <div>
       <div className={styles.day_container}>
         
-        <h2 className={styles.h2}>{day.name} - {moment(day.date).format('DD/MM/YY')}</h2>
+        <h2 className={styles.h2}>{day.name} - {moment(day.date).format('DD.MM')}</h2>
 
         {day.shifts?.length === 0 ? (
           <div className={styles.no_shifts_message}>אין משמרות לאותו היום</div>
