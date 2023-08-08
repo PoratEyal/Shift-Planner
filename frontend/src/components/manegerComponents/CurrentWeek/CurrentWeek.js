@@ -117,7 +117,7 @@ const CurrentWeek = () => {
             <div className={styles.publish_div}>
                 <button className={styles.ai_btn} onClick={sendMessage}>
                     <label className={styles.ai_icon}><FaMagic></FaMagic></label>
-                    <label>AI שיבוץ באמצות</label>
+                    <label>שיבוץ אוטומטי</label>
                 </button>
             </div>
 
