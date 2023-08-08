@@ -49,7 +49,6 @@ roleRouter.get('/getRoleWithId/:id', async (req, res) => {
         const { id } = req.params;
 
         const role = await Role.findById(id);
-        //const roleNames = roles.map((role) => role);
         res.status(200).json(role)
     } catch (err) {
         res.status(400).json({ messege: err.messege })
@@ -95,6 +94,4 @@ function authenticateToken(req, res, next) {
 
     });
 }
-
-
 module.exports = roleRouter
