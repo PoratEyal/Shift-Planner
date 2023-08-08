@@ -139,7 +139,7 @@ const CurrentWeekWorkers = (props) => {
       </div>
 
     </React.Fragment>
-  );
+  ); 
 };
 
 export default CurrentWeekWorkers;
