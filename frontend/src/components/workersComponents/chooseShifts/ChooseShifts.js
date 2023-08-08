@@ -48,7 +48,6 @@ const ChooseShifts = () => {
                     setMesageSent(true);
                     setAddMessege(!addMessege);
                     setMessage('');
-                    console.log(response.data)
                 } else {
                     console.error('Failed to send message');
                 }
@@ -68,7 +67,7 @@ const ChooseShifts = () => {
         </div>
         
         {!mesageSent && !weekPublished ? <div className={styles.messege_to_manager} onClick={() => setAddMessege(!addMessege)}>
-            <p>הוסף הודעה למנהל</p>
+            <p>שליחת הודעה למנהל</p>
         </div>: 
         <div className={styles.messege}>
             <p>ההודעה נשלחה בהצלחה</p>   

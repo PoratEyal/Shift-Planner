@@ -15,17 +15,27 @@ messageRouter.post('/sendMessage', async (req, res) => {
         const weekId = req.body.week;
         const messageText = req.body.message;
 
-        // Create a new message
-        const newMessage = new Message({
-            worker: workerId,
-            week: weekId,
-            message: messageText
-        });
+        // Check if a message with the same workerId and weekId already exists
+        let existingMessage = await Message.findOne({ worker: workerId, week: weekId });
 
-        // Save the message to the database
-        const savedMessage = await newMessage.save();
-
-        return res.status(201).json(savedMessage);
+        if (existingMessage) {
+            // Update the existing message's messageText
+            existingMessage.message = messageText;
+            await existingMessage.save();
+            return res.status(201).json(existingMessage);
+        } else {
+            // Create a new message
+            const newMessage = new Message({
+                worker: workerId,
+                week: weekId,
+                message: messageText
+            });
+            
+            // Save the new message to the database
+            const savedMessage = await newMessage.save();
+            console.log(newMessage)
+            return res.status(201).json(savedMessage);
+        }
     } catch (error) {
         console.error(error);
         return res.status(500).json({ error: 'Internal server error' });
