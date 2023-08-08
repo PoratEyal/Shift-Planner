@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DayCurrentWeek from './EditDayCurrentWeek'
 import styles from '../CreateWeek/createWeek.module.css'
-import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { ManagerContext } from '../ManagerHomePage' 
 import { useContext } from 'react';
+import { BiArrowBack } from "react-icons/bi";
 
 const EditCurrentWeek = () => {
 
@@ -36,7 +36,7 @@ const EditCurrentWeek = () => {
     return <React.Fragment>
         <div>
             <div className={styles.nav_container}>
-                <button className={styles.home_btn} onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
+                <button className={styles.home_btn} onClick={() => navigate('/SeeCurrentWeekShifts')}><BiArrowBack></BiArrowBack></button>
                 <p>עריכת שבוע נוכחי</p>
             </div>
 
