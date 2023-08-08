@@ -103,7 +103,7 @@ workerRouter.put('/addWorkerToWorkrs', (req, res) => {
 // add worker to avialible workers list
 workerRouter.put('/WorkersToAvail', (req, res) => {
     const body = req.body;
-    const managerId = body.managerId; // Retrieve managerId from the request body
+    const managerId = body.managerId;
     const dayId = body.dayId;
     const shiftId = body.shiftId;
     const workerId = body.workerId;
