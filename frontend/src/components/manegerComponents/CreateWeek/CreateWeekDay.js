@@ -163,7 +163,7 @@ const CreateWeekDay = (props) => {
 
     return <div>
         <div className={styles.day_container}>
-            <h2 className={styles.h2}>{day.name}</h2>
+            <h2 className={styles.h2}>{day.name} - {moment(day.date).format('DD/MM/YY')}</h2>
             {
                 loading ? (
                     <div className={styles['three-body']}>

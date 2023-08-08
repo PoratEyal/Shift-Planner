@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../CreateWeek/createWeek.module.css'
 import axios from 'axios'
-import ShiftCurrentWeek from './EditShiftCurrentWeek'
+import ShiftCurrentWeek from './EditShiftCurrentWeek';
+import moment from "moment";
 
 const EditDayCurrentWeek = (props) => {
 
@@ -52,7 +53,7 @@ const EditDayCurrentWeek = (props) => {
     return <div>
         <div className={styles.day_container}>
 
-            <h2 className={styles.h2}>{day.name}</h2>
+            <h2 className={styles.h2}>{day.name} - {moment(day.date).format('DD/MM/YY')}</h2>
             {
                 loading ? (
                     <div className={styles['three-body']}>

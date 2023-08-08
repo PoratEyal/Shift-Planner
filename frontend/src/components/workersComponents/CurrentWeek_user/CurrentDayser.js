@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './currentWeekUser.module.css';
-import Shift from './CurrentShiftUser'
+import Shift from './CurrentShiftUser';
+import moment from "moment";
 
 const CurrentDayUser = (props) => {
 
@@ -10,7 +11,7 @@ const CurrentDayUser = (props) => {
     <div>
       <div className={styles.day_container}>
         
-        <h2 className={styles.h2}>{day.name}</h2>
+        <h2 className={styles.h2}>{day.name} - {moment(day.date).format('DD/MM/YY')}</h2>
 
         {day.shifts?.length === 0 ? (
           <div className={styles.no_shifts_message}>אין משמרות לאותו היום</div>
