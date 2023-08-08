@@ -31,7 +31,6 @@ var allowedDomains = process.env.ALLOWED_DOMAINS.split(", ");
 app.use(cors({
     origin: function (origin, callback) {
         if (!origin) return callback(null, true);
-        console.log(origin);
         if (!allowedDomains.includes(origin)) {
           var msg = `This site ${origin} does not have an access. Only specific domains are allowed to access it.`;
           return callback(new Error(msg), false);
