@@ -16,7 +16,6 @@ workerRouter.put('/removeWorkerFromWorkrs', (req, res) => {
         { "day._id": dayId, "day.shifts._id": shiftId },
         {
             $pull: { "day.$.shifts.$[elem].workers": workerId },
-            //$push: { "day.$.shifts.$[elem].availableWorkers": workerId }
         },
         { arrayFilters: [{ "elem._id": shiftId }], projection: { "day.$": 1 } })
         .then(() => {
@@ -98,31 +97,6 @@ workerRouter.put('/addWorkerToWorkrs', (req, res) => {
             res.status(500).json({ error: "An error occurred while adding the worker shift." });
         });
 });
-// add worker to workers list
-// workerRouter.put('/addWorkerToWorkrs', (req, res) => {
-//     const body = req.body;
-//     const dayId = body.dayId;
-//     const shiftId = body.shiftId;
-//     const workerId = body.workerId;
-
-//     Week.findOneAndUpdate({ "day._id": dayId, "day.shifts._id": shiftId },
-//         {
-//             $push: { "day.$.shifts.$[elem].workers": workerId },
-//             $pull: { "day.$.shifts.$[elem].availableWorkers": workerId }
-//         },
-//         { arrayFilters: [{ "elem._id": shiftId }], projection: { "day.$": 1 } })
-//         .then(() => {
-
-//             Week.findOne({ "day._id": dayId }, { "day.$": 1 }).then(response => {
-//                 if (response && response.day && response.day.length > 0) {
-//                     res.status(200).json(response.day[0]);
-//                 }
-//             });
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//         });
-// });
 
 
 // working one!!!!!
@@ -155,31 +129,6 @@ workerRouter.put('/WorkersToAvail', (req, res) => {
             res.status(500).json({ error: "An error occurred while removing the worker shift." });
         });
 });
-//add worker to avialible workers list
-// workerRouter.put('/WorkersToAvail', (req, res) => {
-//     const body = req.body;
-//     const dayId = body.dayId;
-//     const shiftId = body.shiftId;
-//     const workerId = body.workerId;
-
-//     Week.findOneAndUpdate(
-//         { "day._id": dayId, "day.shifts._id": shiftId },
-//         {
-//             $pull: { "day.$.shifts.$[elem].workers": workerId },
-//             //$push: { "day.$.shifts.$[elem].availableWorkers": workerId }
-//         },
-//         { arrayFilters: [{ "elem._id": shiftId }], projection: { "day.$": 1 } })
-//         .then(() => {
-//             Week.findOne({ "day._id": dayId }, { "day.$": 1 }).then(response => {
-//                 if (response && response.day && response.day.length > 0) {
-//                     res.status(200).json(response.day[0]);
-//                 }
-//             });
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//         });
-// });
 
 
 module.exports = workerRouter
