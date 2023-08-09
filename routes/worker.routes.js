@@ -148,5 +148,42 @@ workerRouter.put('/WorkersToAvail', (req, res) => {
         });
 });
 
+workerRouter.put('/WorkerShiftMessage', (req, res) => {
+    const message = req.body.message;
+    const startTime = req.body.startTime;
+    const endTime = req.body.endTime;
+    const workerId = req.body.workerId;
+    const shiftId = req.body.shiftId;
+    const dayId = req.body.dayId;
+    const managerId = req.body.managerId;
+    Week.findOneAndUpdate({ "day._id": dayId, "day.shifts._id": shiftId, ofManager: managerId },
+    {
+        $set: {
+          "day.$[dayElem].shifts.$[shiftElem].shiftData.$[dataElem].message": message,
+          "day.$[dayElem].shifts.$[shiftElem].shiftData.$[dataElem].start": startTime,
+          "day.$[dayElem].shifts.$[shiftElem].shiftData.$[dataElem].end": endTime,
+        }
+    },
+    {
+        arrayFilters: [
+          { "dayElem._id": dayId },
+          { "shiftElem._id": shiftId },
+          { "dataElem.userId": workerId }
+        ],
+        projection: { "day.$": 1 }
+    }
+    ).then(() => {
+        Week.findOne({ "day._id": dayId, ofManager: managerId }, { "day.$": 1 })
+            .then(response => {
+                if (response && response.day && response.day.length > 0) {
+                    res.status(200).json(response.day[0]);
+                }
+            });
+    })
+    .catch((err) => {
+        console.log(err);
+        res.status(500).json({ error: "An error occurred while removing the worker shift." });
+    });
 
+});
 module.exports = workerRouter

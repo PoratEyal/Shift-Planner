@@ -91,9 +91,33 @@ const CurrentWeekWorkers = (props) => {
       Swal.fire({
         title: `${worker.fullName}: ${response.data.message}`,
         text: '',
+        input:'text',
+        inputLabel: 'הודעה לעובד',
+        inputValidator: (value) => {
+          if(!value){
+            return 'ההודעה ריקה'
+          }
+        },
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'סגור'
+      }).then((result) => {
+        if(result.isConfirmed){
+          const message = result.value;
+          const reqBody ={
+            message: message,
+            startTime: Date.now(),
+            endTime: Date.now(),
+            workerId: worker._id,
+            shiftId: props.shiftId,
+            dayId: props.dayId,
+            managerId: props.managerId
+          }
+          axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody).then(response => {
+            console.log(response.data);
+          })
+
+        }
       })
     })
     .catch(error => {

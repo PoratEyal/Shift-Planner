@@ -51,6 +51,8 @@ const ShiftCurrentWeek = (props) => {
 
             {showWorkers ? <CurrentWeekWorkers
                 weekId={props.weekId}
+                shiftId ={shift._id}
+                dayId ={props.dayId}
                 managerId={props.managerId}
                 weekPublished={props.weekPublished}
                 removeWorkerShift={removeWorkerShift}
