@@ -44,11 +44,13 @@ const CurrentWeek = () => {
                 setPromentToAi(`this is the data of the week: ${JSON.stringify(week)},
                 this is the _id's of the users: ${JSON.stringify(workers)},
                 this is the data of their Placement requests to the manager: ${JSON.stringify(messages)}.
-                return me json of that week and add users _ids into the availableWorkers field.
-                if the availableWorkers field doesnt exsit, create him and add the users randomly and based on their requests (messages).
+                return me json of that week and act like you are the manager and you add 
+                users _ids into the workers field based on their requests (messages) if they have
+                to all the shifts and the days(do not add to availableWorkers anything!).
+                Each shift must have workers!
+                Try to distribute the number of shifts to each worker equally.
                 before you write the json dont write anything.
-                after you wrote the json dont write anything`) 
-
+                after you wrote the json dont write anything`)
 
             } catch (error) {
                 console.error('Error:', error);

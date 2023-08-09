@@ -54,7 +54,7 @@ const ManagerSettings = () => {
       </div>
 
       <div className={styles.container}>
-        <h2 className={styles.h2}>הכנס סיסמה או שם משתמש חדש</h2>
+        <h2 className={styles.h2}>הכנס פרטי התחברות חדשים</h2>
 
         <input
           className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
