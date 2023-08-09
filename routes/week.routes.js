@@ -54,5 +54,28 @@ weekRouter.put('/setNextWeekPublished', (req, res) => {
     }).catch(err => { console.log(err) })
 })
 
+// get manager id and week data as a json and update the week with the new data
+weekRouter.post('/updateNextWeek', async (req, res) => {
+    try {
+        const managerId = req.body.managerId;
+        const updatedData = req.body.data; 
+        
+        // Find the week by name and managerId
+        const week = await Week.findOneAndUpdate(
+            { name: "NextWeek", ofManager: managerId },
+            updatedData,
+            { new: true }
+        );
+
+        if (!week) {
+            return res.status(404).json({ message: 'Week not found' });
+        }
+
+        res.status(200).json(week);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
 
 module.exports = weekRouter

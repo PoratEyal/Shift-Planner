@@ -34,19 +34,20 @@ const CurrentWeek = () => {
 
             const body2 = {
                 managerId: managerId,
-                weekId: week._id,
+                weekId: week ? week._id : null,
                 usersId: response.data.map(item => item._id)
             }
             try {
                 const response = await axios.post(`${process.env.REACT_APP_URL}/getMessages`, body2);
                 setMessages(response.data.messages);
-                console.log(response.data.messages);
 
                 setPromentToAi(`this is the data of the week: ${JSON.stringify(week)},
                 this is the _id's of the users: ${JSON.stringify(workers)},
                 this is the data of their Placement requests to the manager: ${JSON.stringify(messages)}.
-                Crossword the employees for me according to their requests - 
-                return me just a json with the days and the workers inside them`) 
+                return me json of that week and add users _ids into the availableWorkers field.
+                if the availableWorkers field doesnt exsit, create him and add the users randomly and based on their requests (messages).
+                before you write the json dont write anything.
+                after you wrote the json dont write anything`) 
 
 
             } catch (error) {
@@ -75,7 +76,6 @@ const CurrentWeek = () => {
     useEffect(() => {
         getDays();
         getWorkersAndMessages();
-        console.group(promentToAi)
     }, [weekPublished, weekVisible, promentToAi]);
 
     // show alert, if the manager select "yes" - week publish
@@ -97,7 +97,6 @@ const CurrentWeek = () => {
                 confirmButtonText: 'סגירה'
             })
               editPublishSchedule()
-              console.log(week)
             }
           })
     }
@@ -111,7 +110,6 @@ const CurrentWeek = () => {
             await axios.put(`${process.env.REACT_APP_URL}/setNextWeekPublished`, reqbody)
             .then((response) => {
                 setWeekPublished(true)
-                console.log(response.data)
             });
         } catch (error) {
             console.log(error.message);
@@ -129,8 +127,34 @@ const CurrentWeek = () => {
               ],
             }
           );
-          setDataFromAi(response.data);
-          console.log(response.data)
+          
+          const startIndex = response.data.indexOf('{'); // Find the first '{'
+          const endIndex = response.data.lastIndexOf('}'); // Find the last '}'  
+          const extractedJson = response.data.substring(startIndex, endIndex + 1);
+          
+          
+          let jsonData = null;
+          try {
+            jsonData = JSON.parse(extractedJson);
+            setDataFromAi(jsonData);
+            console.log(jsonData);
+
+            try {
+                const body={
+                    managerId: managerId,
+                    data: jsonData
+                }
+                await axios.post(`${process.env.REACT_APP_URL}/updateNextWeek`, body);
+                window.location.reload();
+                
+              } catch (error) {
+                console.error('Error updated the week:', error);
+              }
+            
+          } catch (error) {
+            console.error('Error parsing JSON:', error);
+          }
+          
         } catch (error) {
           console.error('Error sending message:', error);
         }
