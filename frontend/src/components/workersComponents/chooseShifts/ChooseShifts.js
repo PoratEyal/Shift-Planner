@@ -35,8 +35,6 @@ const ChooseShifts = () => {
         try {
             const user = localStorage.getItem('user');
             const userData = JSON.parse(user);
-    
-            const week = {};
             const message = ''; 
     
             const { value } = await Swal.fire({
@@ -55,7 +53,7 @@ const ChooseShifts = () => {
                 const body = {
                     worker: userData._id,
                     week: week._id,
-                    message: value // Use the user input value
+                    message: value
                 };
     
                 const response = await axios.post(`${process.env.REACT_APP_URL}/sendMessage`, body);

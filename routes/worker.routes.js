@@ -2,6 +2,7 @@ const express = require('express');
 const workerRouter = express.Router();
 const Week = require('../models/week');
 const bodyParser = require('body-parser');
+const { ObjectId } = require('mongodb');
 
 workerRouter.use(bodyParser.json());
 
@@ -153,8 +154,12 @@ workerRouter.put('/WorkerShiftMessage', (req, res) => {
     const startTime = req.body.startTime;
     const endTime = req.body.endTime;
     const workerId = req.body.workerId;
+    console.log(workerId);
+
     const shiftId = req.body.shiftId;
+    console.log(shiftId)
     const dayId = req.body.dayId;
+    console.log(dayId);
     const managerId = req.body.managerId;
     Week.findOneAndUpdate({ "day._id": dayId, "day.shifts._id": shiftId, ofManager: managerId },
     {
@@ -168,11 +173,12 @@ workerRouter.put('/WorkerShiftMessage', (req, res) => {
         arrayFilters: [
           { "dayElem._id": dayId },
           { "shiftElem._id": shiftId },
-          { "dataElem.userId": workerId }
+          { "dataElem.userId": new ObjectId(workerId) }
         ],
         projection: { "day.$": 1 }
     }
-    ).then(() => {
+    ).then((response) => {
+        console.log(response)
         Week.findOne({ "day._id": dayId, ofManager: managerId }, { "day.$": 1 })
             .then(response => {
                 if (response && response.day && response.day.length > 0) {

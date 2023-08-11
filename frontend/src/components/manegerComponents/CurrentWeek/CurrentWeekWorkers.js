@@ -5,6 +5,8 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { AiOutlineMessage } from "react-icons/ai";
 import { BiAddToQueue } from "react-icons/bi";
 import Swal from 'sweetalert2';
+import moment from "moment";
+
 
 const CurrentWeekWorkers = (props) => {
   const [workers, setWorker] = useState(props.workers);
@@ -78,7 +80,12 @@ const CurrentWeekWorkers = (props) => {
     props.removeWorkerShift(id);
     setUpdatedWorkers(!updatedWorkers);
   };
-
+  const getTime = (timeString) => {
+    const [selectedHours, selectedMinutes] = timeString.split(":").map(Number);
+    let i = new Date();
+    i.setHours(selectedHours, selectedMinutes, 0, 0);
+    return i;
+  }
   // if the worker sent message will pop alert with the his message
   const seeMessage = (worker) => {
     const body = {
@@ -90,6 +97,15 @@ const CurrentWeekWorkers = (props) => {
     .then(response => {
       Swal.fire({
         title: `${worker.fullName}: ${response.data.message}`,
+        html: `<form>
+        <label>start:
+          <input type='time' id='startTime'></input>
+          </label
+          <br></br>
+          <label>end:
+          <input type='time' id='endTime'></input>
+        </label>
+          </form>`,
         text: '',
         input:'text',
         inputLabel: 'הודעה לעובד',
@@ -106,10 +122,10 @@ const CurrentWeekWorkers = (props) => {
           const message = result.value;
           const reqBody ={
             message: message,
-            startTime: Date.now(),
+            startTime: getTime(Swal.getPopup().querySelector('#startTime').value),
             endTime: Date.now(),
             workerId: worker._id,
-            shiftId: props.shiftId,
+            shiftId: props.shift._id,
             dayId: props.dayId,
             managerId: props.managerId
           }

@@ -5,6 +5,7 @@ const Week = require('../models/week');
 const User = require('../models/user');
 
 const bodyParser = require('body-parser');
+const { ObjectId } = require('mongodb');
 
 messageRouter.use(bodyParser.json());
 
@@ -57,8 +58,8 @@ messageRouter.post('/getMessageOfUser', async (req, res) => {
 
     // Find the message for the given user and week
     const message = await Message.findOne({
-        worker: userId,
-        week: weekId
+        worker: new ObjectId(userId),
+        week: new ObjectId(weekId)
     });
 
     if (!message) {
