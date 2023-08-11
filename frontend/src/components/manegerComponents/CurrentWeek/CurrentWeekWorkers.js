@@ -5,7 +5,6 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { BiAddToQueue } from "react-icons/bi";
 import Swal from 'sweetalert2';
 import { FaEdit } from "react-icons/fa";
-import { off } from '../../../../../models/user';
 
 
 const CurrentWeekWorkers = (props) => {
@@ -37,20 +36,21 @@ const CurrentWeekWorkers = (props) => {
 
   
   // html of the edit alert for all the workrs
-  const htmlContent = `
-  <form class="${styles.swal2_content}">
-    <h2>בחירת שעות</h2>
-    <div>
-      <input type='time' id='startTime'></input>
-      <label>:שעת התחלה</label>
-    </div>
-    <div>
-      <input type='time' id='endTime'></input>
-      <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:שעת סיום</label>
-    </div>
-    <h2>כתיבת הודעה</h2>
-  </form>
-`;
+  const htmlContent =
+`<form class="${styles.swal2_content}">
+        <label>start:
+          <input type='time' id='startTime'></input>
+          </label
+          <br></br>
+          <label>end:
+          <input type='time' id='endTime'></input>
+        </label>
+        <br></br>
+        <label>
+          <input type='text' id='message'></input>
+        </label>
+          </form>`
+;
 
   // get all the workers
   useEffect(() => {
@@ -126,23 +126,8 @@ const CurrentWeekWorkers = (props) => {
     }
     Swal.fire({
       title: `${worker.fullName}: ${message ? message : ""}`,
-      html: `<form>
-        <label>start:
-          <input type='time' id='startTime'></input>
-          </label
-          <br></br>
-          <label>end:
-          <input type='time' id='endTime'></input>
-        </label>
-        <br></br>
-        <label>
-          <input type='text' id='message'></input>
-        </label>
-          </form>`,
+      html: htmlContent,
       text: '',
-
-      input: 'text',
-      inputLabel: 'הודעה לעובד',
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'סגור'
