@@ -7,37 +7,44 @@ import { ManagerContext } from '../ManagerHomePage';
 
 
 const AddRole = (props) => {
-  const [role, setRole] = useState('');
   const [roles, setRoles] = useState([]);
-  const [clicked, setClicked] = useState(false);
   const [loading, setLoading] = useState(false);
   const managerContext = useContext(ManagerContext);
 
-
   const addRole = async () => {
-    if(role === ''){
-      return
+    const { value } = await Swal.fire({
+      title: 'הוספת תפקיד',
+      input: 'text',
+      showCancelButton: true,
+      inputValidator: (value) => {
+          if (!value) {
+              return 'תיבת הטקסט ריקה מתוכן';
+          }
+      }
+    });
+
+    if (value) {
+      const newRole = {
+        manager: managerContext.getUser(),
+        name: value
+      };
+      try {
+        await axios.post(`${process.env.REACT_APP_URL}/addRole`, newRole)
+          .then(response => {
+            Swal.fire({
+              title: 'התפקיד נוסף בהצלחה',
+              icon: 'success'
+            });
+            props.roleAdded();
+          })
+          .catch(error => {
+            console.log(error.response.data.error);
+          });
+      } catch (error) {
+        console.log(error.message);
+      }
     }
-    const newRole = {
-      manager: managerContext.getUser(),
-      name: role
-    };
-    try {
-      await axios
-        .post(`${process.env.REACT_APP_URL}/addRole`, newRole)
-        .then(response => {
-          console.log(response.data);
-          setRole('');
-          setClicked(!clicked)
-          props.roleAdded();
-        })
-        .catch(error => {
-          console.log(error.response.data.error);
-        });
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+  }
 
   useEffect(() => {
     getRoles();
@@ -111,24 +118,8 @@ const AddRole = (props) => {
 
       )
       }
-      <button onClick={() => setClicked(!clicked)} className={styles.btn}>הוספת תפקיד</button>
 
-      {clicked ? (
-        <div>
-          <input
-            className={styles.input}
-            type="text"
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-            placeholder='תפקיד'
-            required
-          />
-          <div>
-            <button onClick={addRole} className={styles.btn}>אישור</button>
-          </div>
-        </div>
-      ) : null}
-
+      <img onClick={addRole} src='addRole.png' className={styles.addUser_btn}></img>
     </div>
   )
 }

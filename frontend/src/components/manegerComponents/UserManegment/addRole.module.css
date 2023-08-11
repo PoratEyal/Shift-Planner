@@ -85,6 +85,30 @@ transform: scale(1.02);
     cursor: pointer;
 }
 
+.addUser_btn {
+    width: 60px;
+    height: 60px;
+    z-index: 1000;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background-color: #2977bc;
+    color: white;
+    border: none;
+    border: 1.5px solid white;
+    font-size: 41px;
+    transition: 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 300%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+.addUser_btn:hover{
+    cursor: pointer;
+}
+
 .three-body {
     --uib-size: 35px;
     --uib-speed: 0.8s;
