@@ -15,6 +15,7 @@ const AddRole = (props) => {
     const { value } = await Swal.fire({
       title: 'הוספת תפקיד',
       input: 'text',
+      confirmButtonColor: '#2977bc',
       showCancelButton: true,
       inputValidator: (value) => {
           if (!value) {
@@ -33,6 +34,7 @@ const AddRole = (props) => {
           .then(response => {
             Swal.fire({
               title: 'התפקיד נוסף בהצלחה',
+              confirmButtonColor: '#2977bc',
               icon: 'success'
             });
             props.roleAdded();
