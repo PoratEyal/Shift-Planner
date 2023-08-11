@@ -154,7 +154,7 @@ const CurrentWeekWorkers = (props) => {
       },
     }).then((result) => {
       if (result.isConfirmed) {
-        if (Swal.getPopup().querySelector('#startTime').value !== "" || Swal.getPopup().querySelector('#endTime').value !== null || result.value !== null) {
+        if (Swal.getPopup().querySelector('#startTime').value !== "" || Swal.getPopup().querySelector('#endTime').value !== "" || result.value !== "") {
           const reqBody = {
             message: result.value,
             startTime: getTime(Swal.getPopup().querySelector('#startTime').value),
