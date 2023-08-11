@@ -41,6 +41,10 @@ const ChooseShifts = () => {
                 title: 'שליחת הודעה למנהל',
                 input: 'text', 
                 inputValue: message, 
+                cancelButtonText: 'ביטול',
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'אישור',
                 showCancelButton: true,
                 inputValidator: (value) => {
                     if (!value) {
@@ -62,7 +66,9 @@ const ChooseShifts = () => {
                     setMesageSent(true)
                     Swal.fire({
                         title: 'ההודעה נשלחה',
-                        icon: 'success'
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'סגירה'
                     });
                 } else {
                     console.error('Failed to send message');

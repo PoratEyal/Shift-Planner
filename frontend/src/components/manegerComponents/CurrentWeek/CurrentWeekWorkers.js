@@ -2,10 +2,9 @@ import axios from 'axios';
 import React, { useRef, useEffect, useState } from 'react';
 import styles from '../CreateWeek/createWeek.module.css';
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { AiOutlineMessage } from "react-icons/ai";
 import { BiAddToQueue } from "react-icons/bi";
 import Swal from 'sweetalert2';
-import moment from "moment";
+import { FaEdit } from "react-icons/fa";
 import { off } from '../../../../../models/user';
 
 
@@ -36,6 +35,22 @@ const CurrentWeekWorkers = (props) => {
       });
   }
 
+  
+  // html of the edit alert for all the workrs
+  const htmlContent = `
+  <form class="${styles.swal2_content}">
+    <h2>בחירת שעות</h2>
+    <div>
+      <input type='time' id='startTime'></input>
+      <label>:שעת התחלה</label>
+    </div>
+    <div>
+      <input type='time' id='endTime'></input>
+      <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:שעת סיום</label>
+    </div>
+    <h2>כתיבת הודעה</h2>
+  </form>
+`;
 
   // get all the workers
   useEffect(() => {
@@ -97,6 +112,7 @@ const CurrentWeekWorkers = (props) => {
     props.removeWorkerShift(id);
     setUpdatedWorkers(!updatedWorkers);
   };
+
   const getTime = (timeString) => {
     const [selectedHours, selectedMinutes] = timeString.split(":").map(Number);
     let i = new Date();
@@ -137,6 +153,7 @@ const CurrentWeekWorkers = (props) => {
             message: Swal.getPopup().querySelector('#message').value,
             startTime: getTime(Swal.getPopup().querySelector('#startTime').value),
             endTime: getTime(Swal.getPopup().querySelector('#endTime').value),
+            endTime: getTime(Swal.getPopup().querySelector('#endTime').value),
             workerId: worker._id,
             shiftId: props.shift._id,
             dayId: props.dayId,
@@ -159,7 +176,7 @@ const CurrentWeekWorkers = (props) => {
           <div key={worker._id} className={styles.nameAndDelete}>
             <div>
               <RiDeleteBin6Line className={styles.icon_delete} onClick={() => removeWorker(worker._id)}></RiDeleteBin6Line>
-              <AiOutlineMessage onClick={() => seeMessage(worker)} className={styles.icon_message}></AiOutlineMessage>
+              <FaEdit onClick={() => seeMessage(worker)} className={styles.icon_edit}></FaEdit>
             </div>
             {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
           </div>
@@ -169,7 +186,7 @@ const CurrentWeekWorkers = (props) => {
           <div key={index} className={styles.nameAndDelete}>
             <div>
               <BiAddToQueue className={styles.icon_add} onClick={() => choseWorker(worker._id)}></BiAddToQueue>
-              <AiOutlineMessage onClick={() => seeMessage(worker)} className={styles.icon_message}></AiOutlineMessage>
+              <FaEdit onClick={() => seeMessage(worker)} className={styles.icon_edit}></FaEdit>
             </div>
             {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
           </div>
