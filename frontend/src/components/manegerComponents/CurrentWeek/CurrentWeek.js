@@ -41,16 +41,16 @@ const CurrentWeek = () => {
                 const response = await axios.post(`${process.env.REACT_APP_URL}/getMessages`, body2);
                 setMessages(response.data.messages);
 
-                setPromentToAi(`this is the data of the week: ${JSON.stringify(week)},
-                this is the _id's of the users: ${JSON.stringify(workers)},
-                this is the data of their Placement requests to the manager: ${JSON.stringify(messages)}.
-                return me json of that week and act like you are the manager and you add 
-                users _ids into the workers field based on their requests (messages) if they have
-                to all the shifts and the days(do not add to availableWorkers anything!).
-                Each shift must have workers!
-                Try to distribute the number of shifts to each worker equally.
-                before you write the json dont write anything.
-                after you wrote the json dont write anything`)
+                setPromentToAi(
+                    `this is the data of the week: ${JSON.stringify(week)},
+                    this is the _id's of the users: ${JSON.stringify(workers)},
+                    return me json of that week and act like you are the manager and you add 
+                    some users _ids into the workers field (Try to distribute the number of shifts to each worker equally)
+                    to all the shifts and the days(do not add to availableWorkers anything!).
+                    Each shift must have workers!
+                    if there are id's in availableWorkers field - move them to the workers field.
+                    before you write the json dont write anything.
+                    after you wrote the json dont write anything`)
 
             } catch (error) {
                 console.error('Error:', error);

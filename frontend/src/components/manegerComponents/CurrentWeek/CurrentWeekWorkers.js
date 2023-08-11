@@ -22,6 +22,7 @@ const CurrentWeekWorkers = (props) => {
   // html of the edit alert for all the workrs
   const htmlContent = `
   <form class="${styles.swal2_content}">
+    <h2>בחירת שעות</h2>
     <div>
       <input type='time' id='startTime'></input>
       <label>:שעת התחלה</label>
@@ -111,8 +112,20 @@ const CurrentWeekWorkers = (props) => {
     axios.post(`${process.env.REACT_APP_URL}/getMessageOfUser`, body)
     .then(response => {
       Swal.fire({
-        title: `${worker.fullName}: ${response.data.message}`,
-        html: htmlContent,
+        title: `${worker.fullName} שלח/ה הודעה`,
+        html: `<form class="${styles.swal2_content}">
+          <div>${response.data.message}</div>
+          <h2>בחירת שעות</h2>
+          <div>
+            <input type='time' id='startTime'></input>
+            <label>:שעת התחלה</label>
+          </div>
+          <div>
+            <input type='time' id='endTime'></input>
+            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:שעת סיום</label>
+          </div>
+          <h2>כתיבת הודעה</h2>
+        </form>`,
         input: 'text',
         inputValidator: (value) => {
           if (!value) {
@@ -127,7 +140,8 @@ const CurrentWeekWorkers = (props) => {
         customClass: {
           popup: styles.swal2_popup,
           title: styles.swal2_title,
-          content: styles.swal2_content
+          content: styles.swal2_content,
+          input: styles.swal2_input,
         },
       })
       .then((result) => {
