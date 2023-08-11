@@ -717,9 +717,9 @@
 .icon_delete:hover{
     color: rgb(182, 0, 0);
 }
-.icon_message{
-    margin-left: 10px;
-    color: rgb(119, 119, 119);
+.icon_edit{
+    margin-left: 15px;
+    color: rgba(119, 119, 119, 0.903);
     font-size: 20px;
     transition: 0.3s;
 }
@@ -736,3 +736,47 @@
 .icon_add:hover{
     color: rgb(0, 87, 0);
 }
+
+
+
+
+
+/* - - - - - - - -alert css - - -  - - - - - - - */
+.swal2_popup {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 8px;
+  }
+
+  /* Style for the title */
+  .swal2_title {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  /* Style for the form */
+  .swal2_content form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Style for the input fields */
+  .swal2_content input[type='time'] {
+    border: 1.5px solid rgba(175, 175, 175, 0.413);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100px;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 15px;
+  }
+
+  /* Style for the labels */
+  .swal2_content label {
+    font-size: 22px;
+    margin-left: 10px;
+  }
+
+  .swal2_content h2 {
+    margin-bottom: 0px;
+  }

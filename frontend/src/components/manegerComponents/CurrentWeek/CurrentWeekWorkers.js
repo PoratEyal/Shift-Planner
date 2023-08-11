@@ -2,10 +2,9 @@ import axios from 'axios';
 import React, { useRef, useEffect, useState } from 'react';
 import styles from '../CreateWeek/createWeek.module.css';
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { AiOutlineMessage } from "react-icons/ai";
 import { BiAddToQueue } from "react-icons/bi";
 import Swal from 'sweetalert2';
-import moment from "moment";
+import { FaEdit } from "react-icons/fa";
 
 
 const CurrentWeekWorkers = (props) => {
@@ -19,6 +18,21 @@ const CurrentWeekWorkers = (props) => {
   const [updatedWorkers, setUpdatedWorkers] = useState(false);
 
   const selectRef = useRef(null);
+  
+  // html of the edit alert for all the workrs
+  const htmlContent = `
+  <form class="${styles.swal2_content}">
+    <div>
+      <input type='time' id='startTime'></input>
+      <label>:שעת התחלה</label>
+    </div>
+    <div>
+      <input type='time' id='endTime'></input>
+      <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:שעת סיום</label>
+    </div>
+    <h2>כתיבת הודעה</h2>
+  </form>
+`;
 
   // get all the workers
   useEffect(() => {
@@ -80,6 +94,7 @@ const CurrentWeekWorkers = (props) => {
     props.removeWorkerShift(id);
     setUpdatedWorkers(!updatedWorkers);
   };
+
   const getTime = (timeString) => {
     const [selectedHours, selectedMinutes] = timeString.split(":").map(Number);
     let i = new Date();
@@ -97,33 +112,31 @@ const CurrentWeekWorkers = (props) => {
     .then(response => {
       Swal.fire({
         title: `${worker.fullName}: ${response.data.message}`,
-        html: `<form>
-        <label>start:
-          <input type='time' id='startTime'></input>
-          </label
-          <br></br>
-          <label>end:
-          <input type='time' id='endTime'></input>
-        </label>
-          </form>`,
-        text: '',
-        input:'text',
-        inputLabel: 'הודעה לעובד',
+        html: htmlContent,
+        input: 'text',
         inputValidator: (value) => {
-          if(!value){
-            return 'ההודעה ריקה'
+          if (!value) {
+            return 'ההודעה ריקה';
           }
         },
+        showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'סגור'
-      }).then((result) => {
+        confirmButtonText: 'אישור',
+        cancelButtonText: 'ביטול',
+        customClass: {
+          popup: styles.swal2_popup,
+          title: styles.swal2_title,
+          content: styles.swal2_content
+        },
+      })
+      .then((result) => {
         if(result.isConfirmed){
           const message = result.value;
           const reqBody ={
             message: message,
             startTime: getTime(Swal.getPopup().querySelector('#startTime').value),
-            endTime: Date.now(),
+            endTime: getTime(Swal.getPopup().querySelector('#endTime').value),
             workerId: worker._id,
             shiftId: props.shift._id,
             dayId: props.dayId,
@@ -148,7 +161,7 @@ const CurrentWeekWorkers = (props) => {
           <div key={worker._id} className={styles.nameAndDelete}>
             <div>
               <RiDeleteBin6Line className={styles.icon_delete} onClick={() => removeWorker(worker._id)}></RiDeleteBin6Line>
-              <AiOutlineMessage onClick={() => seeMessage(worker)} className={styles.icon_message}></AiOutlineMessage>
+              <FaEdit onClick={() => seeMessage(worker)} className={styles.icon_edit}></FaEdit>
             </div>
             {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
           </div>
@@ -158,7 +171,7 @@ const CurrentWeekWorkers = (props) => {
           <div key={index} className={styles.nameAndDelete}>
             <div>
               <BiAddToQueue className={styles.icon_add} onClick={() => choseWorker(worker._id)}></BiAddToQueue>
-              <AiOutlineMessage onClick={() => seeMessage(worker)} className={styles.icon_message}></AiOutlineMessage>
+              <FaEdit onClick={() => seeMessage(worker)} className={styles.icon_edit}></FaEdit>
             </div>
             {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
           </div>
