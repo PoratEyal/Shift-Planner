@@ -149,48 +149,99 @@ workerRouter.put('/WorkersToAvail', (req, res) => {
         });
 });
 
+// workerRouter.put('/WorkerShiftMessage', (req, res) => {
+//     const message = req.body.message;
+//     const startTime = req.body.startTime;
+//     const endTime = req.body.endTime;
+//     const workerId = req.body.workerId;
+//     console.log(workerId);
+
+//     const shiftId = req.body.shiftId;
+//     console.log(shiftId)
+//     const dayId = req.body.dayId;
+//     console.log(dayId);
+//     const managerId = req.body.managerId;
+//     Week.findOneAndUpdate({ "day._id": dayId, "day.shifts._id": shiftId, ofManager: managerId },
+//     {
+//         $set: {
+//           "day.$[dayElem].shifts.$[shiftElem].shiftData.$[dataElem].message": message,
+//           "day.$[dayElem].shifts.$[shiftElem].shiftData.$[dataElem].start": startTime,
+//           "day.$[dayElem].shifts.$[shiftElem].shiftData.$[dataElem].end": endTime,
+//         }
+//     },
+//     {
+//         arrayFilters: [
+//           { "dayElem._id": dayId },
+//           { "shiftElem._id": shiftId },
+//           { "dataElem.userId": new ObjectId(workerId) }
+//         ],
+//         upsert: true,
+//         useFindAndModify: false,
+//         new: true,
+//     }
+//     ).then((response) => {
+//         console.log(response)
+//         Week.findOne({ "day._id": dayId, ofManager: managerId }, { "day.$": 1 })
+//             .then(response => {
+//                 if (response && response.day && response.day.length > 0) {
+//                     res.status(200).json(response.day[0]);
+//                 }
+//             });
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//         res.status(500).json({ error: "An error occurred while removing the worker shift." });
+//     });
+
+// });
 workerRouter.put('/WorkerShiftMessage', (req, res) => {
     const message = req.body.message;
     const startTime = req.body.startTime;
     const endTime = req.body.endTime;
     const workerId = req.body.workerId;
-    console.log(workerId);
-
     const shiftId = req.body.shiftId;
-    console.log(shiftId)
     const dayId = req.body.dayId;
-    console.log(dayId);
     const managerId = req.body.managerId;
-    Week.findOneAndUpdate({ "day._id": dayId, "day.shifts._id": shiftId, ofManager: managerId },
-    {
-        $set: {
-          "day.$[dayElem].shifts.$[shiftElem].shiftData.$[dataElem].message": message,
-          "day.$[dayElem].shifts.$[shiftElem].shiftData.$[dataElem].start": startTime,
-          "day.$[dayElem].shifts.$[shiftElem].shiftData.$[dataElem].end": endTime,
-        }
-    },
-    {
-        arrayFilters: [
-          { "dayElem._id": dayId },
-          { "shiftElem._id": shiftId },
-          { "dataElem.userId": new ObjectId(workerId) }
-        ],
-        upsert: true,
-        projection: { "day.$": 1 }
-    }
-    ).then((response) => {
-        console.log(response)
-        Week.findOne({ "day._id": dayId, ofManager: managerId }, { "day.$": 1 })
-            .then(response => {
-                if (response && response.day && response.day.length > 0) {
-                    res.status(200).json(response.day[0]);
-                }
-            });
-    })
-    .catch((err) => {
-        console.log(err);
-        res.status(500).json({ error: "An error occurred while removing the worker shift." });
-    });
 
+    const filter = {
+        "day._id": dayId,
+        "day.shifts._id": shiftId,
+        "day.shifts.shiftData.userId": workerId,
+        ofManager: managerId
+    };
+
+    const update = {
+        $set: {
+            "day.$[dayElem].shifts.$[shiftElem].shiftData.$[dataElem].message": message,
+            "day.$[dayElem].shifts.$[shiftElem].shiftData.$[dataElem].start": startTime,
+            "day.$[dayElem].shifts.$[shiftElem].shiftData.$[dataElem].end": endTime,
+        }
+    };
+
+    const arrayFilters = [
+        { "dayElem._id": dayId },
+        { "shiftElem._id": shiftId },
+        { "dataElem.userId": workerId } // Assuming workerId is a string, not an ObjectId
+    ];
+
+    const options = {
+        arrayFilters,
+        upsert: true,
+        //useFindAndModify: false,
+        new: true,
+    };
+
+    Week.findOneAndUpdate(filter, update, options)
+        .then((response) => {
+            console.log(response);
+            if (response && response.day && response.day.length > 0) {
+                res.status(200).json(response.day[0]);
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json({ error: "An error occurred while updating the worker shift." });
+        });
 });
+
 module.exports = workerRouter
