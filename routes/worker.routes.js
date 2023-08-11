@@ -90,13 +90,13 @@ workerRouter.put('/addWorkerToWorkrs', (req, res) => {
         {
             $push: {
                 "day.$.shifts.$[elem].workers": workerId,
-                "day.$.shifts.$[elem].shiftData": {
-                    //shiftId: shiftId,
-                    userId: workerId,
-                    message: "",
-                    start: null,
-                    end: null
-                }
+                // "day.$.shifts.$[elem].shiftData": {
+                //     //shiftId: shiftId,
+                //     userId: workerId,
+                //     message: "",
+                //     start: null,
+                //     end: null
+                // }
             }
         },
         { arrayFilters: [{ "elem._id": shiftId }], projection: { "day.$": 1 } }
@@ -175,6 +175,7 @@ workerRouter.put('/WorkerShiftMessage', (req, res) => {
           { "shiftElem._id": shiftId },
           { "dataElem.userId": new ObjectId(workerId) }
         ],
+        upsert: true,
         projection: { "day.$": 1 }
     }
     ).then((response) => {

@@ -6,6 +6,7 @@ import { AiOutlineMessage } from "react-icons/ai";
 import { BiAddToQueue } from "react-icons/bi";
 import Swal from 'sweetalert2';
 import moment from "moment";
+import { off } from '../../../../../models/user';
 
 
 const CurrentWeekWorkers = (props) => {
@@ -19,6 +20,22 @@ const CurrentWeekWorkers = (props) => {
   const [updatedWorkers, setUpdatedWorkers] = useState(false);
 
   const selectRef = useRef(null);
+  const message = null;
+
+  const getMessage = async (worker) => {
+    const body = {
+      weekId: props.weekId,
+      userId: worker._id
+    }
+    await axios.post(`${process.env.REACT_APP_URL}/getMessageOfUser`, body)
+      .then(response => {
+        message = response.data.message
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
 
   // get all the workers
   useEffect(() => {
@@ -87,17 +104,13 @@ const CurrentWeekWorkers = (props) => {
     return i;
   }
   // if the worker sent message will pop alert with the his message
-  const seeMessage = (worker) => {
-    const body = {
-      weekId: props.weekId,
-      userId: worker._id
+  const seeMessage = async (worker) => {
+    if (message === null) {
+      await getMessage(worker);
     }
-
-    axios.post(`${process.env.REACT_APP_URL}/getMessageOfUser`, body)
-    .then(response => {
-      Swal.fire({
-        title: `${worker.fullName}: ${response.data.message}`,
-        html: `<form>
+    Swal.fire({
+      title: `${worker.fullName}: ${message ? message : ""}`,
+      html: `<form>
         <label>start:
           <input type='time' id='startTime'></input>
           </label
@@ -105,25 +118,25 @@ const CurrentWeekWorkers = (props) => {
           <label>end:
           <input type='time' id='endTime'></input>
         </label>
+        <br></br>
+        <label>
+          <input type='text' id='message'></input>
+        </label>
           </form>`,
-        text: '',
-        input:'text',
-        inputLabel: 'הודעה לעובד',
-        inputValidator: (value) => {
-          if(!value){
-            return 'ההודעה ריקה'
-          }
-        },
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'סגור'
-      }).then((result) => {
-        if(result.isConfirmed){
-          const message = result.value;
-          const reqBody ={
-            message: message,
+      text: '',
+
+      input: 'text',
+      inputLabel: 'הודעה לעובד',
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'סגור'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if (Swal.getPopup().querySelector('#startTime').value !== "" || Swal.getPopup().querySelector('#endTime').value !== null || Swal.getPopup().querySelector('#message').value !== null) {
+          const reqBody = {
+            message: Swal.getPopup().querySelector('#message').value,
             startTime: getTime(Swal.getPopup().querySelector('#startTime').value),
-            endTime: Date.now(),
+            endTime: getTime(Swal.getPopup().querySelector('#endTime').value),
             workerId: worker._id,
             shiftId: props.shift._id,
             dayId: props.dayId,
@@ -132,13 +145,11 @@ const CurrentWeekWorkers = (props) => {
           axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody).then(response => {
             console.log(response.data);
           })
-
         }
-      })
+
+      }
     })
-    .catch(error => {
-      console.error(error);
-    });
+
   };
 
   return (
@@ -164,22 +175,22 @@ const CurrentWeekWorkers = (props) => {
           </div>
         ))}
       </div>
-      
-      <div className={styles.add_specific_worker_div}>
-          <div>
-            <button onClick={() => { choseWorker(selectRef.current.value) }} className={styles.add_specific_worker_btn}>הוספה</button>
-          </div>
 
-          <select className={styles.add_specific_worker_select} ref={selectRef} defaultValue="">
-            <option value="" disabled>בחר עובד</option>
-            {newWorkers.map((elem, index) => (
-              <option key={index} value={elem._id}>{elem.fullName}</option>
-            ))}
-          </select>
+      <div className={styles.add_specific_worker_div}>
+        <div>
+          <button onClick={() => { choseWorker(selectRef.current.value) }} className={styles.add_specific_worker_btn}>הוספה</button>
+        </div>
+
+        <select className={styles.add_specific_worker_select} ref={selectRef} defaultValue="">
+          <option value="" disabled>בחר עובד</option>
+          {newWorkers.map((elem, index) => (
+            <option key={index} value={elem._id}>{elem.fullName}</option>
+          ))}
+        </select>
       </div>
 
     </React.Fragment>
-  ); 
+  );
 };
 
 export default CurrentWeekWorkers;
