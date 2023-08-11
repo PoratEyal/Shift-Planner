@@ -18,7 +18,7 @@ const CurrentWeekWorkers = (props) => {
   const [updatedWorkers, setUpdatedWorkers] = useState(false);
 
   const selectRef = useRef(null);
-  const message = null;
+  let message = null;
 
   const getMessage = async (worker) => {
     const body = {
