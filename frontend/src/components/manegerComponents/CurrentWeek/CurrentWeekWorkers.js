@@ -119,31 +119,52 @@ const CurrentWeekWorkers = (props) => {
     i.setHours(selectedHours, selectedMinutes, 0, 0);
     return i;
   }
+
   // if the worker sent message will pop alert with the his message
   const seeMessage = async (worker) => {
     if (message === null) {
       await getMessage(worker);
     }
     Swal.fire({
-      title: `${worker.fullName}: ${message ? message : ""}`,
-      html: htmlContent,
-      text: '',
+      title: `${message ? worker.fullName + " שלח/ה הודעה" : ''}`,
+      html: `<form class="${styles.swal2_content}">
+              <label>${message ? message : ''}</label>
+              <h2>בחירת שעות</h2>
+              <div>
+                <input type='time' id='startTime'></input>
+                <label>:שעת התחלה</label>
+              </div>
+              <div>
+                <input type='time' id='endTime'></input>
+                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:שעת סיום</label>
+              </div>
+              <h2>כתיבת הודעה</h2>
+            </form>`,
+      input: 'text',
+      showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'סגור'
+      confirmButtonText: 'אישור',
+      cancelButtonText: 'ביטול',
+      customClass: {
+        popup: styles.swal2_popup,
+        title: styles.swal2_title,
+        content: styles.swal2_content,
+        input: styles.swal2_input
+      },
     }).then((result) => {
       if (result.isConfirmed) {
-        if (Swal.getPopup().querySelector('#startTime').value !== "" || Swal.getPopup().querySelector('#endTime').value !== null || Swal.getPopup().querySelector('#message').value !== null) {
+        if (Swal.getPopup().querySelector('#startTime').value !== "" || Swal.getPopup().querySelector('#endTime').value !== null || result.value !== null) {
           const reqBody = {
-            message: Swal.getPopup().querySelector('#message').value,
+            message: result.value,
             startTime: getTime(Swal.getPopup().querySelector('#startTime').value),
-            endTime: getTime(Swal.getPopup().querySelector('#endTime').value),
             endTime: getTime(Swal.getPopup().querySelector('#endTime').value),
             workerId: worker._id,
             shiftId: props.shift._id,
             dayId: props.dayId,
             managerId: props.managerId
           }
+          console.log(reqBody)
           axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody).then(response => {
             console.log(response.data);
           })
