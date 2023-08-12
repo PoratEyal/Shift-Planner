@@ -179,11 +179,10 @@ const CreateWeekDay = (props) => {
                 <button
                     className={styles.btn}
                     onClick={() => {
-                        addMorningShift()
-                    }
-                    }
+                        setClickAddShift(!clickAddShift)
+                    }}
                 >
-                    הוסף משמרת בוקר
+                    הוסף משמרת
                 </button>
 
                 <button
@@ -199,10 +198,11 @@ const CreateWeekDay = (props) => {
                 <button
                     className={styles.btn}
                     onClick={() => {
-                        setClickAddShift(!clickAddShift)
-                    }}
+                        addMorningShift()
+                    }
+                    }
                 >
-                    הוסף משמרת
+                    הוסף משמרת בוקר
                 </button>
             </div>
 

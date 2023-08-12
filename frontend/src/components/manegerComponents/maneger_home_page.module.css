@@ -1,5 +1,5 @@
 .page_container{
-  background-image: linear-gradient(rgb(255, 255, 255) 70%, #2977bcba);
+  background-image: linear-gradient(rgb(255, 255, 255) 90%, #2977bcba);
   height: 100vh;
 }
 
@@ -21,8 +21,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  width: 55vw;
-  max-width: 300px;
+  width: 28vw;
+  max-width: 150px;
 }
 
 .h1{
@@ -117,9 +117,8 @@
   width: 350px;
   transition: 0.3s;
   margin-bottom: 25px;
-  border-radius: 16px;
+  border-radius: 25px;
   font-weight: 600;
-  overflow: hidden;
 }
 .btn:hover{
   cursor: pointer;
@@ -139,7 +138,6 @@
   rotate: -20deg;
   margin-top: -10px;
   margin-bottom: -10px;
-  color: #ffffff;
 }
 .icon3{
   font-size: 45px;
@@ -200,12 +198,22 @@
       font-size: 15px;margin-bottom: 20px;
   }
 }
-@media only screen and (min-width: 340px) and (max-width: 399px) {
+@media only screen and (min-width: 340px) and (max-width: 399.9px) {
   .btn{
       width: 310px;
       height:100px;
       text-align: end;
-      font-size: 17px;
+      font-size: 19px;
+  }
+  .text_div{
+    margin-right: -5px;
+    margin-left: 80px;
+  }
+  .icon{
+    font-size: 50px;
+  }
+  .icon3{
+    font-size: 50px;
   }
 }
 @media only screen and (min-width: 400px) and (max-width: 510px) {
@@ -214,27 +222,38 @@
       text-align: end;
       font-size: 20px;
   }
+  .text_div{
+    margin-right: -5px;
+    margin-left: 85px;
+  }
+  .icon{
+    font-size: 60px;
+  }
+  .icon3{
+    font-size: 60px;
+  }
 }
 @media only screen and (min-width: 511px) {
   .btn{
-      width: 400px;
+      width: 420px;
       height: 130px;
       text-align: end;
       font-size: 20px;
   }
   .icon{
-    font-size: 80px;
+    font-size: 70px;
     rotate: -20deg;
     margin-top: -10px;
     margin-bottom: -10px;
     color: #ffffff;
   }
   .icon3{
-    font-size: 80px;
+    font-size: 70px;
     margin-top: -10px;
     margin-bottom: -10px;
   }
   .text_div{
     font-size: 25px;
+    margin-left: 120px;
   }
 }

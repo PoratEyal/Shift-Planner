@@ -9,6 +9,7 @@ import { IoIosCreate } from "react-icons/io";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { MdManageAccounts } from "react-icons/md";
 
 export const ManagerContext = createContext({
     getUser: () => {
@@ -87,10 +88,10 @@ const ManagerHomePage = () => {
                 <div className={styles.nav_buttons}>
                     <Link to="/"><button className={styles.signout} onClick={signout}><BiLogOut></BiLogOut></button></Link>
                     <Link to="/managerSettings"><button className={styles.user_settings}><BiUserCircle></BiUserCircle></button></Link>
-                    <Link to="/userManagment"><button className={styles.user_managment_btn}>עובדים</button></Link>
+                    {/* <Link to="/userManagment"><button className={styles.user_managment_btn}>עובדים</button></Link> */}
                 </div>
 
-                <h1 className={styles.h1}>{fullname}</h1>
+                <h1 className={styles.h1}>שלום, {fullname}</h1>
             </div>
 
             <div className={styles.container}>
@@ -100,7 +101,7 @@ const ManagerHomePage = () => {
                             {<AiOutlineSchedule className={styles.icon}></AiOutlineSchedule>} 
                         </div>
                         <div className={styles.text_div}>
-                            סידור עבודה לשבוע הנוכחי  
+                            צפיה בסידור עבודה לשבוע הנוכחי  
                         </div>
                     </button>
                 </Link>
@@ -122,6 +123,15 @@ const ManagerHomePage = () => {
                         {<AiOutlineUsergroupAdd className={styles.icon3}></AiOutlineUsergroupAdd>}
                         </div>
                         <div className={styles.text_div}>שיבוץ עובדים לשבוע הבא</div>
+                    </button>
+                </Link>
+
+                <Link className={styles.link} to="/userManagment">
+                    <button className={styles.btn}>
+                        <div className={styles.icon_div}>
+                        {<MdManageAccounts className={styles.icon3}></MdManageAccounts>}
+                        </div>
+                        <div className={styles.text_div}>ניהול עובדים</div>
                     </button>
                 </Link>
 
