@@ -34,7 +34,6 @@ const CurrentWeekWorkers = (props) => {
           }
         })
         .catch(error => {
-          console.error(error);
         });
     });
 
@@ -51,7 +50,6 @@ const CurrentWeekWorkers = (props) => {
           }
         })
         .catch(error => {
-          console.error(error);
         });
     });
 
@@ -66,7 +64,6 @@ const CurrentWeekWorkers = (props) => {
         setNewWorkers(response.data);
       })
       .catch(err => {
-        console.log(err);
       });
   }, []);
 
@@ -108,9 +105,7 @@ const CurrentWeekWorkers = (props) => {
         const endTime = new Date(currentMessage.end);
       currentMessage.end = endTime.toTimeString().slice(0, 5);
       }
-        console.log(currentMessage);
       }).catch(err => {
-        console.log(err);
       });
       const body = {
         weekId: props.weekId,
@@ -160,9 +155,8 @@ const CurrentWeekWorkers = (props) => {
                 dayId: props.dayId,
                 managerId: props.managerId
               }
-              console.log(reqBody)
               axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody).then(response => {
-                console.log(response.data);
+               
               })
             }
   
@@ -207,7 +201,6 @@ const CurrentWeekWorkers = (props) => {
                 dayId: props.dayId,
                 managerId: props.managerId
               }
-              console.log(reqBody)
               axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody).then(response => {
                 console.log(response.data);
               })
