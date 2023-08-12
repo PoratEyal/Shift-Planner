@@ -11,15 +11,19 @@ const UserShift = (props) => {
   const [added, setAdded] = useState(false);
   const [addClass, setAddClass] = useState(false);
   const [showWorkers, setShow] = useState(false);
-
-
+  const [shiftData, setShiftData] = useState(null);
+  //var shiftData = null;
   useEffect(() => {
     if (shift.availableWorkers.includes(data._id) || shift.workers.includes(data._id)) {
       setAdded(true);
-      //
     }
     if (shift.workers.includes(data._id) && props.weekPublished === true){
-      setAddClass(true)
+      setShiftData(shift.shiftData.find(obj => obj.userId === data._id));
+      if(shiftData){
+        console.log("found");
+        console.log(shiftData);
+      }
+      setAddClass(true);
       setShow(!showWorkers);
     }
   }, [])
@@ -43,7 +47,6 @@ const UserShift = (props) => {
       });
   }
 
-  // remove worker from shift
   const removeWorkerFromShift = () => {
     setAdded(false);
     const reqBody = {
@@ -83,7 +86,7 @@ const UserShift = (props) => {
         ) : (
           <button onClick={addWorkerToShift} className={styles.add_btn}>הוספה</button>
         )
-        ) : ( showWorkers ? <div><WorkerList managerId={props.managerId} workers={shift.workers}></WorkerList></div> : null)
+        ) : ( showWorkers ? <div><WorkerList managerId={props.managerId} workers={shift.workers} shiftData={shiftData}></WorkerList></div> : null)
       }
 
   </div>

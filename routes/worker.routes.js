@@ -177,19 +177,23 @@ workerRouter.put('/getMessageToWorker', (req, res) => {
         {
             ofManager: managerId,
             "day._id": dayId,
-            "day.shifts._id": shiftId,
-            "day.shifts.shiftData": { $elemMatch: { userId: workerId } }
+            "day.shifts": {
+                $elemMatch: {
+                    _id: shiftId,
+                    "shiftData.userId": workerId
+                }
+            }
         },
         {
-            "day.shifts.$": 1 // Retrieve only the matching shift with the matched shiftData
+            "day.shifts.$": 1
         }
     )
     .then(response => {
-        if (response && response.day && response.day[0] && response.day[0].shifts && response.day[0].shifts[0]) {
-            const shift = response.day[0].shifts[0];
-            console.log(shift.shiftData);
+        if (response && response.day) {
+
+            const shift = response.day[0].shifts.find(shift => shift._id.equals(shiftId));
             const shiftData = shift.shiftData.find(data => data.userId.equals(workerId));
-            console.log(shiftData)
+            
             if (shiftData) {
                 res.status(200).json(shiftData);
             } else {

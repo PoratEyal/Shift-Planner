@@ -210,7 +210,8 @@ const CurrentWeekWorkers = (props) => {
         })
       }
       
-  };
+      currentMessage = null;
+    };
 
   return (
     <React.Fragment>
