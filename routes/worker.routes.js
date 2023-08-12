@@ -3,6 +3,7 @@ const workerRouter = express.Router();
 const Week = require('../models/week');
 const bodyParser = require('body-parser');
 const { ObjectId } = require('mongodb');
+const mongoose = require('mongoose');
 
 workerRouter.use(bodyParser.json());
 
@@ -167,5 +168,39 @@ workerRouter.put('/WorkerShiftMessage', (req, res) => {
 
 
 });
-
+workerRouter.put('/getMessageToWorker', (req, res) => {
+    const workerId = req.body.workerId;
+    const shiftId = req.body.shiftId;
+    const dayId = req.body.dayId;
+    const managerId = req.body.managerId;
+    Week.findOne(
+        {
+            ofManager: managerId,
+            "day._id": dayId,
+            "day.shifts._id": shiftId,
+            "day.shifts.shiftData": { $elemMatch: { userId: workerId } }
+        },
+        {
+            "day.shifts.$": 1 // Retrieve only the matching shift with the matched shiftData
+        }
+    )
+    .then(response => {
+        if (response && response.day && response.day[0] && response.day[0].shifts && response.day[0].shifts[0]) {
+            const shift = response.day[0].shifts[0];
+            console.log(shift.shiftData);
+            const shiftData = shift.shiftData.find(data => data.userId.equals(workerId));
+            console.log(shiftData)
+            if (shiftData) {
+                res.status(200).json(shiftData);
+            } else {
+                res.status(404).json({ message: "Shift data not found for the given worker" });
+            }
+        } else {
+            res.status(404).json({ message: "Shift not found" });
+        }
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({ message: "Internal server error" });
+    });
+});
 module.exports = workerRouter

@@ -90,14 +90,35 @@ const CurrentWeekWorkers = (props) => {
   // if the worker sent message will pop alert with the his message
     const seeMessage = async (worker) => {
       let message = null;
-
+      let currentMessage = null;
+      
+      await axios.put(`${process.env.REACT_APP_URL}/getMessageToWorker`, 
+      {
+        workerId: worker._id,
+        shiftId: props.shift._id,
+        dayId: props.dayId,
+        managerId: props.managerId
+      }).then(response => {
+        currentMessage = response.data;
+        if(currentMessage.start){
+        const startTime = new Date(currentMessage.start);
+        currentMessage.start = startTime.toTimeString().slice(0, 5);
+      }
+      if(currentMessage.end){
+        const endTime = new Date(currentMessage.end);
+      currentMessage.end = endTime.toTimeString().slice(0, 5);
+      }
+        console.log(currentMessage);
+      }).catch(err => {
+        console.log(err);
+      });
       const body = {
         weekId: props.weekId,
         userId: worker._id
       };
   
       try {
-        const response = await axios.post(`${process.env.REACT_APP_URL}/getMessageOfUser`, body);
+        const response = await axios.post(`${process.env.REACT_APP_URL}/getMessageOfUser`, body).catch(() => {})
         message = response.data.message;
         Swal.fire({
           title: `${message ? worker.fullName + " שלח/ה הודעה" : ''}`,
@@ -105,16 +126,17 @@ const CurrentWeekWorkers = (props) => {
                   <label>${message ? message : ''}</label>
                   <h2>בחירת שעות</h2>
                   <div>
-                    <input type='time' id='startTime'></input>
+                    <input type='time' id='startTime' value=${currentMessage ? (currentMessage.start ? currentMessage.start : "") : ""}></input>
                     <label>:שעת התחלה</label>
                   </div>
                   <div>
-                    <input type='time' id='endTime'></input>
+                    <input type='time' id='endTime' value=${currentMessage ? (currentMessage.end ? currentMessage.end : "" ) : ""}></input>
                     <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:שעת סיום</label>
                   </div>
                   <h2>כתיבת הודעה</h2>
                 </form>`,
           input: 'text',
+          inputValue: currentMessage ? currentMessage.message : "",
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
@@ -151,16 +173,17 @@ const CurrentWeekWorkers = (props) => {
           html: `<form class="${styles.swal2_content}">
                   <h2>בחירת שעות</h2>
                   <div>
-                    <input type='time' id='startTime'></input>
+                    <input type='time' id='startTime' value=${currentMessage ? (currentMessage.start ? currentMessage.start : "") : ""}></input>
                     <label>:שעת התחלה</label>
                   </div>
                   <div>
-                    <input type='time' id='endTime'></input>
+                    <input type='time' id='endTime' value=${currentMessage ? (currentMessage.end ? currentMessage.end : "" ) : ""}></input>
                     <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:שעת סיום</label>
                   </div>
                   <h2>כתיבת הודעה</h2>
                 </form>`,
           input: 'text',
+          inputValue: currentMessage ? currentMessage.message : "",
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
