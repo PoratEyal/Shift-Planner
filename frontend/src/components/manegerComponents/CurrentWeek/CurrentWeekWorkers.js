@@ -18,39 +18,6 @@ const CurrentWeekWorkers = (props) => {
   const [updatedWorkers, setUpdatedWorkers] = useState(false);
 
   const selectRef = useRef(null);
-  let message = null;
-
-  const getMessage = async (worker) => {
-    const body = {
-      weekId: props.weekId,
-      userId: worker._id
-    }
-    await axios.post(`${process.env.REACT_APP_URL}/getMessageOfUser`, body)
-      .then(response => {
-        message = response.data.message
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }
-
-  
-  // html of the edit alert for all the workrs
-  const htmlContent =
-`<form class="${styles.swal2_content}">
-        <label>start:
-          <input type='time' id='startTime'></input>
-          </label
-          <br></br>
-          <label>end:
-          <input type='time' id='endTime'></input>
-        </label>
-        <br></br>
-        <label>
-          <input type='text' id='message'></input>
-        </label>
-          </form>`
-;
 
   // get all the workers
   useEffect(() => {
@@ -121,58 +88,112 @@ const CurrentWeekWorkers = (props) => {
   }
 
   // if the worker sent message will pop alert with the his message
-  const seeMessage = async (worker) => {
-    if (message === null) {
-      await getMessage(worker);
-    }
-    Swal.fire({
-      title: `${message ? worker.fullName + " שלח/ה הודעה" : ''}`,
-      html: `<form class="${styles.swal2_content}">
-              <label>${message ? message : ''}</label>
-              <h2>בחירת שעות</h2>
-              <div>
-                <input type='time' id='startTime'></input>
-                <label>:שעת התחלה</label>
-              </div>
-              <div>
-                <input type='time' id='endTime'></input>
-                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:שעת סיום</label>
-              </div>
-              <h2>כתיבת הודעה</h2>
-            </form>`,
-      input: 'text',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'אישור',
-      cancelButtonText: 'ביטול',
-      customClass: {
-        popup: styles.swal2_popup,
-        title: styles.swal2_title,
-        content: styles.swal2_content,
-        input: styles.swal2_input
-      },
-    }).then((result) => {
-      if (result.isConfirmed) {
-        if (Swal.getPopup().querySelector('#startTime').value !== "" || Swal.getPopup().querySelector('#endTime').value !== "" || result.value !== "") {
-          const reqBody = {
-            message: result.value,
-            startTime: getTime(Swal.getPopup().querySelector('#startTime').value),
-            endTime: getTime(Swal.getPopup().querySelector('#endTime').value),
-            workerId: worker._id,
-            shiftId: props.shift._id,
-            dayId: props.dayId,
-            managerId: props.managerId
+    const seeMessage = async (worker) => {
+      let message = null;
+
+      const body = {
+        weekId: props.weekId,
+        userId: worker._id
+      };
+  
+      try {
+        const response = await axios.post(`${process.env.REACT_APP_URL}/getMessageOfUser`, body);
+        message = response.data.message;
+        Swal.fire({
+          title: `${message ? worker.fullName + " שלח/ה הודעה" : ''}`,
+          html: `<form class="${styles.swal2_content}">
+                  <label>${message ? message : ''}</label>
+                  <h2>בחירת שעות</h2>
+                  <div>
+                    <input type='time' id='startTime'></input>
+                    <label>:שעת התחלה</label>
+                  </div>
+                  <div>
+                    <input type='time' id='endTime'></input>
+                    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:שעת סיום</label>
+                  </div>
+                  <h2>כתיבת הודעה</h2>
+                </form>`,
+          input: 'text',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'אישור',
+          cancelButtonText: 'ביטול',
+          customClass: {
+            popup: styles.swal2_popup,
+            title: styles.swal2_title,
+            content: styles.swal2_content,
+            input: styles.swal2_input
+          },
+        }).then((result) => {
+          if (result.isConfirmed) {
+            if (Swal.getPopup().querySelector('#startTime').value !== "" || Swal.getPopup().querySelector('#endTime').value !== "" || result.value !== "") {
+              const reqBody = {
+                message: result.value,
+                startTime: getTime(Swal.getPopup().querySelector('#startTime').value),
+                endTime: getTime(Swal.getPopup().querySelector('#endTime').value),
+                workerId: worker._id,
+                shiftId: props.shift._id,
+                dayId: props.dayId,
+                managerId: props.managerId
+              }
+              console.log(reqBody)
+              axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody).then(response => {
+                console.log(response.data);
+              })
+            }
+  
           }
-          console.log(reqBody)
-          axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody).then(response => {
-            console.log(response.data);
-          })
-        }
-
+        })
+      } catch (error) {
+        Swal.fire({
+          html: `<form class="${styles.swal2_content}">
+                  <h2>בחירת שעות</h2>
+                  <div>
+                    <input type='time' id='startTime'></input>
+                    <label>:שעת התחלה</label>
+                  </div>
+                  <div>
+                    <input type='time' id='endTime'></input>
+                    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:שעת סיום</label>
+                  </div>
+                  <h2>כתיבת הודעה</h2>
+                </form>`,
+          input: 'text',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'אישור',
+          cancelButtonText: 'ביטול',
+          customClass: {
+            popup: styles.swal2_popup,
+            title: styles.swal2_title,
+            content: styles.swal2_content,
+            input: styles.swal2_input
+          },
+        }).then((result) => {
+          if (result.isConfirmed) {
+            if (Swal.getPopup().querySelector('#startTime').value !== "" || Swal.getPopup().querySelector('#endTime').value !== "" || result.value !== "") {
+              const reqBody = {
+                message: result.value,
+                startTime: getTime(Swal.getPopup().querySelector('#startTime').value),
+                endTime: getTime(Swal.getPopup().querySelector('#endTime').value),
+                workerId: worker._id,
+                shiftId: props.shift._id,
+                dayId: props.dayId,
+                managerId: props.managerId
+              }
+              console.log(reqBody)
+              axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody).then(response => {
+                console.log(response.data);
+              })
+            }
+  
+          }
+        })
       }
-    })
-
+      
   };
 
   return (
