@@ -89,12 +89,20 @@ const ChooseShifts = () => {
             <p>בחירת משמרות לשבוע הבא</p>}
         </div>
         
-        {!mesageSent && !weekPublished ? <div className={styles.messege_to_manager} onClick={sendMessage}>
+        {
+        !mesageSent  && !weekPublished ? (
+            <div className={styles.message_to_manager} onClick={sendMessage}>
             <p>שליחת הודעה למנהל</p>
-        </div>: 
-        <div className={styles.messege}>
-            <p>ההודעה נשלחה בהצלחה</p>   
-        </div>}
+            </div>
+        ) : (
+            mesageSent ? (
+            <div className={styles.message}>
+                <p>ההודעה נשלחה בהצלחה</p>
+            </div>
+            ) : null
+        )
+        }
+
         
         {weekPublished ? <div className={styles.messege}>
             <p>השבוע פורסם, אלו המשמרות לשבוע הבא</p>   

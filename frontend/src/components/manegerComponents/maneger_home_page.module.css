@@ -36,7 +36,6 @@
   direction: rtl;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
   font-weight: 600;
   text-overflow: ellipsis;
   max-width: 110px;

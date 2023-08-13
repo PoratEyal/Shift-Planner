@@ -254,11 +254,9 @@
 }
 
 .workers_showList{
-    direction: ltr;
+    direction: rtl;
     display: flex;
     flex-direction: column;
-    justify-content: end;
-    align-items: end;
     border-top: 1px solid rgba(101, 101, 101, 0.245);
     width: 100%;
 }
@@ -384,15 +382,30 @@
     flex-direction: column;
 }
 
-.names{
-    margin: 15px;
-}
-
-.nameAndDelete{
+.all_data_div{
+    margin: 8px;
+    margin-right: 10px;
+    margin-left: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+.name{
+    text-overflow: ellipsis;
+    max-width: 110px;
+    white-space: nowrap;
+    overflow: hidden; 
+}
+
+.hours_message_div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.hours_message_div label{
+    margin-left: 10px;
 }
 
 .btn_chose{

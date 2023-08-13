@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import styles from './chooseShifts.module.css';
 import Swal from 'sweetalert2';
-import { FaEdit } from "react-icons/fa";
+import { AiOutlineMessage } from "react-icons/ai";
 
 const WorkerList = (props) => {
 
@@ -12,7 +12,6 @@ const WorkerList = (props) => {
 
   // get the user fullname and show him in the list of the workers for this shift
   useEffect(() => {
-    console.log(props.shiftData)
     workers.map(worker => {
       const body = {
         id: worker
@@ -35,7 +34,7 @@ const WorkerList = (props) => {
       title: `הודעה מהמנהל`,
       text: props.shiftData.message,
       confirmButtonColor: '#3085d6',
-      confirmButtonText: 'אישור',
+      confirmButtonText: 'סגור',
       customClass: {
         popup: styles.swal2_popup,
         title: styles.swal2_title,
@@ -54,19 +53,20 @@ const WorkerList = (props) => {
       workerNames.map((worker, index) => (
         props.shiftData ?
           (worker._id !== props.shiftData.userId ?
-            <div key={index} className={styles.nameAndDelete}>
-              <p className={styles.names}>{worker.fullName}&nbsp;•</p>
+            <div key={index} className={styles.all_data_div}>
+                <div>•&nbsp;{worker.fullName}</div>
             </div>
             :
-            <div key={index} className={styles.nameAndDelete}>
-              <p className={styles.names}>
-                {props.shiftData.message ?<FaEdit onClick={() => seeMessage(worker)} className={styles.icon_edit}></FaEdit>: null}
-                {props.shiftData.end ?  (getHour(props.shiftData.end) +":שעת סיום"): null}
-                {props.shiftData.start? (getHour(props.shiftData.start) +":שעת התחלה") : null}
-                {worker.fullName}&nbsp;•</p>
+            <div key={index} className={styles.all_data_div}>
+                <div className={styles.name}>•&nbsp;{worker.fullName}</div>
+
+                <div className={styles.hours_message_div}>
+                  <label>{props.shiftData.start? (getHour(props.shiftData.start)) : null} - {props.shiftData.end ?  (getHour(props.shiftData.end)): null}</label>
+                  {props.shiftData.message ?<AiOutlineMessage onClick={() => seeMessage(worker)}></AiOutlineMessage>: null}
+                </div>
             </div>)
-          : <div key={index} className={styles.nameAndDelete}>
-            <p className={styles.names}>{worker.fullName}&nbsp;•</p>
+          : <div key={index} className={styles.all_data_div}>
+                <div>•&nbsp;{worker.fullName}</div>
           </div>
       ))
     }
