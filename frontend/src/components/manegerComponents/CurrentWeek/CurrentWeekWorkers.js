@@ -119,7 +119,7 @@ const CurrentWeekWorkers = (props) => {
           title: `${message ? worker.fullName + " שלח/ה הודעה" : ''}`,
           html: `<form class="${styles.swal2_content}">
                   <label>${message ? message : ''}</label>
-                  <h2>בחירת שעות</h2>
+                  <h2>עריכת שעות</h2>
                   <div>
                     <input type='time' id='startTime' value=${currentMessage ? (currentMessage.start ? currentMessage.start : "") : ""}></input>
                     <label>:שעת התחלה</label>
@@ -168,7 +168,7 @@ const CurrentWeekWorkers = (props) => {
       } catch (error) {
         Swal.fire({
           html: `<form class="${styles.swal2_content}">
-                  <h2>בחירת שעות</h2>
+                  <h2>עריכת שעות</h2>
                   <div>
                     <input type='time' id='startTime' value=${currentMessage ? (currentMessage.start ? currentMessage.start : "") : ""}></input>
                     <label>:שעת התחלה</label>

@@ -63,8 +63,8 @@ const WorkerList = (props) => {
 
                 <div className={styles.hours_message_div}>
                   <label>
-                    {props.shiftData.start ? getHour(props.shiftData.start) : null}
-                    {props.shiftData.end ? ` - ${getHour(props.shiftData.end)}` : null}
+                    {props.shiftData.end ? getHour(props.shiftData.end) : getHour(props.endTime)}
+                    {props.shiftData.start ? ` - ${getHour(props.shiftData.start)}` : ` - ${getHour(props.startTime)}`}
                   </label>
                   
                   {props.shiftData.message ?<AiOutlineMessage onClick={() => seeMessage(worker)}></AiOutlineMessage>: null}

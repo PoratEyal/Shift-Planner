@@ -80,7 +80,7 @@ const UserShift = (props) => {
         ) : (
           <button onClick={addWorkerToShift} className={styles.add_btn}>הוספה</button>
         )
-        ) : ( showWorkers ? <div><WorkerList managerId={props.managerId} workers={shift.workers} shiftData={shiftData}></WorkerList></div> : null)
+        ) : ( showWorkers ? <div><WorkerList managerId={props.managerId} workers={shift.workers} shiftData={shiftData} endTime={shift.endTime} startTime={shift.startTime}></WorkerList></div> : null)
       }
 
   </div>
