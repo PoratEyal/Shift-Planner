@@ -40,7 +40,6 @@ const UserShift = (props) => {
     }
     axios.put(`${process.env.REACT_APP_URL}/addWorkerToAvial`, reqBody)
       .then(response => {
-        console.log(response);
       })
       .catch(error => {
         console.log(error.response.data.error);
@@ -57,7 +56,6 @@ const UserShift = (props) => {
     }
     axios.put(`${process.env.REACT_APP_URL}/delWorkerToAvial`, reqBody)
       .then(response => {
-        console.log(response);
       })
       .catch(error => {
         console.log(error.response.data.error);
