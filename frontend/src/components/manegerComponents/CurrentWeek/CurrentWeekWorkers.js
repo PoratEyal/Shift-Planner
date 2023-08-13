@@ -143,6 +143,9 @@ const CurrentWeekWorkers = (props) => {
             content: styles.swal2_content,
             input: styles.swal2_input
           },
+          inputAttributes: {
+            dir: 'rtl'
+          }
         }).then((result) => {
           if (result.isConfirmed) {
             if (Swal.getPopup().querySelector('#startTime').value !== "" || Swal.getPopup().querySelector('#endTime').value !== "" || result.value !== "") {
@@ -189,6 +192,9 @@ const CurrentWeekWorkers = (props) => {
             content: styles.swal2_content,
             input: styles.swal2_input
           },
+          inputAttributes: {
+            dir: 'rtl'
+          }
         }).then((result) => {
           if (result.isConfirmed) {
             if (Swal.getPopup().querySelector('#startTime').value !== "" || Swal.getPopup().querySelector('#endTime').value !== "" || result.value !== "") {
