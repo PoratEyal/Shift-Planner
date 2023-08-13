@@ -256,11 +256,27 @@
 .ai_btn:hover {
     transform: scale(1.02);
 }
+
+@keyframes magicEffect {
+    0%, 100% {
+      transform: scale(1) rotate(0);
+    }
+    75% {
+      transform: scale(1) rotate(40deg);
+    }
+    25% {
+      transform: scale(1) rotate(-80deg);
+    }
+}
 .ai_icon{
     margin-right: 10px;
     color: #ffffff;
 }
-
+.ai_icon_loading{
+    margin-right: 10px;
+    color: #ffffff;
+    animation: magicEffect 2s linear infinite;
+}
 
 .workers_list {
     display: grid;

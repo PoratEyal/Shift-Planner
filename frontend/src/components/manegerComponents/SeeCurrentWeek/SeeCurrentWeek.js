@@ -32,11 +32,11 @@ const SeeCurrentWeek = () => {
         <div>
             <div className={styles.nav_container}>
                 <button className={styles.home_btn} onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
-                <p>סידור עבודה לשבוע הנוכחי</p>
+                <p>צפיה בשבוע הנוכחי</p>
             </div>
 
             <div className={styles.edit_div_createWeek}>
-                <button onClick={() => navigate('/editCurrentWeek')}>עריכת סידור עבודה</button>
+                <button onClick={() => navigate('/editCurrentWeek')}>שינוי סידור העבודה</button>
             </div>
 
             <div className={styles.container}>

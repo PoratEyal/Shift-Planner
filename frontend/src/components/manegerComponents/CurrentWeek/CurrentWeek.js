@@ -15,10 +15,9 @@ const CurrentWeek = () => {
     const [week, setWeek] = useState(null);
     const [weekPublished, setWeekPublished] = useState(null)
     const [weekVisible, setWeekVisible] = useState(null)
-    const [dataFromAi, setDataFromAi] = useState(null);
     const [workers, setWorkers] = useState(null);
-    const [messages, setMessages] = useState(null);
     const [promentToAi, setPromentToAi] = useState('');
+    const [loadingAi, setLoadingAi] = useState(false);
 
     const managerContext = useContext(ManagerContext);
     const managerId = managerContext.getUser();
@@ -32,30 +31,19 @@ const CurrentWeek = () => {
             const response = await axios.post(`${process.env.REACT_APP_URL}/getMyWorkers`, body);
             setWorkers(response.data.map(item => item._id))
 
-            const body2 = {
-                managerId: managerId,
-                weekId: week ? week._id : null,
-                usersId: response.data.map(item => item._id)
-            }
-            try {
-                const response = await axios.post(`${process.env.REACT_APP_URL}/getMessages`, body2);
-                setMessages(response.data.messages);
+            setPromentToAi(
+                `this is the data of the week: ${JSON.stringify(week)},
+                this is the _id's of the users: ${JSON.stringify(workers)},
+                return me json of that week and act like you are the manager and you add 
+                some users _ids into the workers field (Try to distribute the number of shifts to each worker equally - 
+                every user id need to work 2-4 shifts in the week)
+                to all the shifts and the days(do not add to availableWorkers anything!).
+                the count of the workers need to be the same to all the shifts.
+                Each shift must have workers!
+                if there are id's in availableWorkers field - move them to the workers field.
+                before you write the json dont write anything.
+                after you wrote the json dont write anything`)
 
-                setPromentToAi(
-                    `this is the data of the week: ${JSON.stringify(week)},
-                    this is the _id's of the users: ${JSON.stringify(workers)},
-                    return me json of that week and act like you are the manager and you add 
-                    some users _ids into the workers field (Try to distribute the number of shifts to each worker equally)
-                    to all the shifts and the days(do not add to availableWorkers anything!).
-                    Each shift must have workers!
-                    if there are id's in availableWorkers field - move them to the workers field.
-                    before you write the json dont write anything.
-                    after you wrote the json dont write anything`)
-
-            } catch (error) {
-                console.error('Error:', error);
-            }
-            
           } catch (error) {
               console.error(error);
           }
@@ -118,7 +106,25 @@ const CurrentWeek = () => {
         }
     }
 
+    const clickAi = () => {
+        Swal.fire({
+            text: 'האם לאפשר למערכת לשבץ את העובדים אוטומטית',
+            title: 'פעולה זו יכולה לקחת כדקה',
+            icon: 'info',
+            showCancelButton: true,
+            cancelButtonText : 'ביטול',
+            confirmButtonColor: '#2977bc',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'אישור'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                sendMessage()
+            }
+          })
+    }
+
     const sendMessage = async () => {
+        setLoadingAi(true)
         try {
           const response = await axios.post(
             `${process.env.REACT_APP_URL}/sendMessege`,
@@ -133,12 +139,11 @@ const CurrentWeek = () => {
           const startIndex = response.data.indexOf('{'); // Find the first '{'
           const endIndex = response.data.lastIndexOf('}'); // Find the last '}'  
           const extractedJson = response.data.substring(startIndex, endIndex + 1);
-          
+          console.log(extractedJson)
           
           let jsonData = null;
           try {
             jsonData = JSON.parse(extractedJson);
-            setDataFromAi(jsonData);
             console.log(jsonData);
 
             try {
@@ -147,18 +152,22 @@ const CurrentWeek = () => {
                     data: jsonData
                 }
                 await axios.post(`${process.env.REACT_APP_URL}/updateNextWeek`, body);
+                setLoadingAi(false)
                 window.location.reload();
                 
               } catch (error) {
+                setLoadingAi(false)
                 console.error('Error updated the week:', error);
               }
             
           } catch (error) {
+            setLoadingAi(false)
             console.error('Error parsing JSON:', error);
           }
           
         } catch (error) {
-          console.error('Error sending message:', error);
+            setLoadingAi(false)
+            console.error('Error sending message:', error);
         }
     };
       
@@ -171,7 +180,7 @@ const CurrentWeek = () => {
 
             {weekVisible && !weekPublished ? 
             <div className={styles.publish_div}>
-                <button onClick={publishSchedule} className={styles.addShift_btn}>פרסם שבוע סופי</button>
+                <button onClick={publishSchedule} className={styles.addShift_btn}>פרסום שבוע</button>
             </div>
             : null}
 
@@ -181,9 +190,9 @@ const CurrentWeek = () => {
             </div>: null}
 
             <div className={styles.publish_div}>
-                <button className={styles.ai_btn} onClick={sendMessage}>
-                    <label className={styles.ai_icon}><FaMagic></FaMagic></label>
-                    <label>שיבוץ אוטומטי</label>
+                <button className={styles.ai_btn} onClick={clickAi}>
+                    {loadingAi ? <label className={styles.ai_icon_loading}><FaMagic></FaMagic></label> : <label className={styles.ai_icon}><FaMagic></FaMagic></label>}
+                    {loadingAi ? <label>...השיבוץ מתבצע</label> : <label>שיבוץ אוטומטי</label>}
                 </button>
             </div>
 
