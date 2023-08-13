@@ -12,7 +12,7 @@ const UserShift = (props) => {
   const [addClass, setAddClass] = useState(false);
   const [showWorkers, setShow] = useState(false);
   const [shiftData, setShiftData] = useState(null);
-  //var shiftData = null;
+
   useEffect(() => {
     if (shift.availableWorkers.includes(data._id) || shift.workers.includes(data._id)) {
       setAdded(true);

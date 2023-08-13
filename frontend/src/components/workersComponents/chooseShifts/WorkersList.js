@@ -48,6 +48,7 @@ const WorkerList = (props) => {
     dateTime = time.toTimeString().slice(0, 5);
     return dateTime 
   }
+  
   return <div className={styles.workers_showList}>
     {
       workerNames.map((worker, index) => (
@@ -61,7 +62,11 @@ const WorkerList = (props) => {
                 <div className={styles.name}>•&nbsp;{worker.fullName}</div>
 
                 <div className={styles.hours_message_div}>
-                  <label>{props.shiftData.start? (getHour(props.shiftData.start)) : null} - {props.shiftData.end ?  (getHour(props.shiftData.end)): null}</label>
+                  <label>
+                    {props.shiftData.start ? getHour(props.shiftData.start) : null}
+                    {props.shiftData.end ? ` - ${getHour(props.shiftData.end)}` : null}
+                  </label>
+                  
                   {props.shiftData.message ?<AiOutlineMessage onClick={() => seeMessage(worker)}></AiOutlineMessage>: null}
                 </div>
             </div>)
