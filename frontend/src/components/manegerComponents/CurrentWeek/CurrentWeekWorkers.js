@@ -222,7 +222,7 @@ const CurrentWeekWorkers = (props) => {
   return (
     <React.Fragment>
       <div className={styles.workers_list_delete}>
-        {workersArr.map((worker, index) => (
+        {workersArr.map((worker) => (
           <div key={worker._id} className={styles.nameAndDelete}>
             <div>
               <RiDeleteBin6Line className={styles.icon_delete} onClick={() => removeWorker(worker._id)}></RiDeleteBin6Line>
@@ -232,8 +232,8 @@ const CurrentWeekWorkers = (props) => {
           </div>
         ))}
 
-        {availableWorkersArr.map((worker, index) => (
-          <div key={index} className={styles.nameAndDelete}>
+        {availableWorkersArr.map((worker) => (
+          <div key={worker._id} className={styles.nameAndDelete}>
             <div>
               <BiAddToQueue className={styles.icon_add} onClick={() => choseWorker(worker._id)}></BiAddToQueue>
               <FaEdit onClick={() => seeMessage(worker)} className={styles.icon_edit}></FaEdit>
