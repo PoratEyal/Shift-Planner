@@ -45,7 +45,7 @@ const EditShiftCurrentWeek = (props) => {
         <div className={styles.shift} >
             <div onClick={() => { setShow(!showWorkers) }}>
                 <p className={styles.shift_description}>
-                    {shift.description}: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
+                    {shift.description}&nbsp;: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
                 </p>
             </div>
 

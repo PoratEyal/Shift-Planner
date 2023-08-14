@@ -189,17 +189,28 @@
   transform: scale(1.02);
 }
 
-
-@media only screen and (min-width: 0px) and (max-width: 339px) {
+@media only screen and (min-width: 0px) and (max-width: 311.9px) {
   .btn{
-      width: 280px;
+      width: 260px;
+      height:90px;
+      text-align: end;
+      font-size: 19px;
+  }
+  .text_div{
+    margin-right: -5px;
+    margin-left: 20px;
+  }
+}
+@media only screen and (min-width: 312px) and (max-width: 339px) {
+  .btn{
+      width: 290px;
       height:100px;
       text-align: end;
       font-size: 19px;
   }
   .text_div{
     margin-right: -5px;
-    margin-left: 40px;
+    margin-left: 30px;
   }
 }
 @media only screen and (min-width: 340px) and (max-width: 399.9px) {
