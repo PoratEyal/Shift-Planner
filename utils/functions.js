@@ -10,12 +10,7 @@ function CreateWeek() {
       const days = ['ראשון', 'שני', "שלישי", "רביעי", "חמישי", "שישי", "שבת"];
       Week.create({ name: 'NextWeek', visible: false, publishScheduling: false, ofManager: id, day: [] })
         .then(newWeek => {
-
-
           const currentDate = new Date();
-          
-
-
           const saveNextDay = index => {
             if (index >= days.length) {
               return newWeek.save();

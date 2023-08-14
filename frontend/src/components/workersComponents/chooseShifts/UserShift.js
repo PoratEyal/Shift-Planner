@@ -19,10 +19,6 @@ const UserShift = (props) => {
     }
     if (shift.workers.includes(data._id) && props.weekPublished === true){
       setShiftData(shift.shiftData.find(obj => obj.userId === data._id));
-      if(shiftData){
-        console.log("found");
-        console.log(shiftData);
-      }
       setAddClass(true);
       setShow(!showWorkers);
     }
