@@ -16,7 +16,7 @@ const CurrentShiftUser = (props) => {
         setUserId(newdata._id);
     
         if (shift.workers.includes(newdata._id)) {
-            setShiftData(shift.shiftData.find(obj => obj.userId === newdata._id));
+            //setShiftData(shift.shiftData.find(obj => obj.userId === newdata._id));
             setAddClass(true);
             setShow(true);
         } else {
@@ -29,7 +29,7 @@ const CurrentShiftUser = (props) => {
             <p className={styles.shift_name}>
               {shift.description}: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
             </p>
-            {showWorkers ? <WorkersCurrentWeek managerId={props.managerId} workers={shift.workers} shiftData={shiftData} endTime={shift.endTime} startTime={shift.startTime}></WorkersCurrentWeek> : null}
+            {showWorkers ? <WorkersCurrentWeek managerId={props.managerId} workers={shift.workers} shiftData={shift.shiftData} endTime={shift.endTime} startTime={shift.startTime}></WorkersCurrentWeek> : null}
         </div>
     );
 }

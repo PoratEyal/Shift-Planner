@@ -11,14 +11,14 @@ const UserShift = (props) => {
   const [added, setAdded] = useState(false);
   const [addClass, setAddClass] = useState(false);
   const [showWorkers, setShow] = useState(false);
-  const [shiftData, setShiftData] = useState(null);
+  
 
   useEffect(() => {
     if (shift.availableWorkers.includes(data._id) || shift.workers.includes(data._id)) {
       setAdded(true);
     }
     if (shift.workers.includes(data._id) && props.weekPublished === true){
-      setShiftData(shift.shiftData.find(obj => obj.userId === data._id));
+      
       setAddClass(true);
       setShow(!showWorkers);
     }
@@ -67,6 +67,8 @@ const UserShift = (props) => {
       }
   }
 
+  
+
   return <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`}onClick={() => {setShow(!showWorkers)}}>
 
       <p className={styles.shift_data_p}>
@@ -80,7 +82,7 @@ const UserShift = (props) => {
         ) : (
           <button onClick={addWorkerToShift} className={styles.add_btn}>הוספה</button>
         )
-        ) : ( showWorkers ? <div><WorkerList managerId={props.managerId} workers={shift.workers} shiftData={shiftData} endTime={shift.endTime} startTime={shift.startTime}></WorkerList></div> : null)
+        ) : ( showWorkers ? <div><WorkerList managerId={props.managerId} workers={shift.workers} shiftData={shift.shiftData} endTime={shift.endTime} startTime={shift.startTime}></WorkerList></div> : null)
       }
 
   </div>
