@@ -104,7 +104,7 @@ const ManagerHomePage = () => {
                             {<AiOutlineSchedule className={styles.icon}></AiOutlineSchedule>} 
                         </div>
                         <div className={styles.text_div}>
-                            צפיה בסידור העבודה לשבוע הנוכחי  
+                            צפיה בסידור עבודה<br></br>לשבוע הנוכחי  
                         </div>
                     </button>
                 </Link>
@@ -115,7 +115,7 @@ const ManagerHomePage = () => {
                             {<IoIosCreate className={styles.icon}></IoIosCreate>}
                         </div>
                         <div className={styles.text_div}>
-                            יצירת משמרות לשבוע הבא
+                            יצירת משמרות<br></br>לשבוע הבא
                         </div>
                     </button>
                 </Link> 
@@ -125,7 +125,7 @@ const ManagerHomePage = () => {
                         <div className={styles.icon_div}>
                         {<AiOutlineUsergroupAdd className={styles.icon3}></AiOutlineUsergroupAdd>}
                         </div>
-                        <div className={styles.text_div}>שיבוץ עובדים&nbsp;&nbsp; לשבוע הבא</div>
+                        <div className={styles.text_div}>שיבוץ עובדים<br></br>לשבוע הבא</div>
                     </button>
                 </Link>
 

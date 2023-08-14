@@ -189,41 +189,38 @@
   transform: scale(1.02);
 }
 
-@media only screen and (min-width: 0px) and (max-width: 311.9px) {
+@media only screen and (min-width: 0px) and (max-width: 329.9px) {
   .btn{
-      width: 260px;
-      height:90px;
+      width: 280px;
+      height:100px;
       text-align: end;
       font-size: 19px;
       background-color: green;
   }
   .text_div{
     margin-right: -5px;
-    margin-left: 20px;
   }
 }
-@media only screen and (min-width: 312px) and (max-width: 339px) {
+@media only screen and (min-width: 330px) and (max-width: 369px) {
   .btn{
-      width: 290px;
-      height:100px;
+      width: 310px;
+      height:110px;
       text-align: end;
       font-size: 19px;
       background-color: rgb(0, 38, 128);
   }
   .text_div{
     margin-right: -5px;
-    margin-left: 30px;
   }
 }
-@media only screen and (min-width: 340px) and (max-width: 399.9px) {
+@media only screen and (min-width: 370px) and (max-width: 399.9px) {
   .btn{
-      width: 310px;
+      width: 340px;
       text-align: end;
       font-size: 19px;
   }
   .text_div{
     margin-right: -5px;
-    margin-left: 62px;
   }
   .icon{
     font-size: 50px;
@@ -241,7 +238,6 @@
   }
   .text_div{
     margin-right: -5px;
-    margin-left: 75px;
   }
   .icon{
     font-size: 60px;
