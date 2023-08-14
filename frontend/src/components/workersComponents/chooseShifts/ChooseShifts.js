@@ -39,8 +39,8 @@ const ChooseShifts = () => {
     
             const { value } = await Swal.fire({
                 title: 'שליחת הודעה למנהל',
-                input: 'text', 
-                inputValue: message, 
+                input: 'text',
+                inputValue: message,
                 cancelButtonText: 'ביטול',
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
@@ -50,8 +50,12 @@ const ChooseShifts = () => {
                     if (!value) {
                         return 'הודעה ריקה מתוכן';
                     }
+                },
+                inputAttributes: {
+                    dir: 'rtl'
                 }
             });
+            
     
             if (value) {
                 const body = {
@@ -89,12 +93,19 @@ const ChooseShifts = () => {
             <p>בחירת משמרות לשבוע הבא</p>}
         </div>
         
-        {!mesageSent && !weekPublished ? <div className={styles.messege_to_manager} onClick={sendMessage}>
-            <p>שליחת הודעה למנהל</p>
-        </div>: 
-        <div className={styles.messege}>
-            <p>ההודעה נשלחה בהצלחה</p>   
-        </div>}
+        {
+            !mesageSent && !weekPublished ? (
+                <div className={styles.messege_to_manager} onClick={sendMessage}>
+                <p>שליחת הודעה למנהל</p>
+                </div>
+            ) : (
+                mesageSent ? (
+                <div className={styles.messege}>
+                    <p>ההודעה נשלחה בהצלחה</p>
+                </div>
+                ) : null
+            )
+        }
         
         {weekPublished ? <div className={styles.messege}>
             <p>השבוע פורסם, אלו המשמרות לשבוע הבא</p>   

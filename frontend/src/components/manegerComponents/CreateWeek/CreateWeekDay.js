@@ -182,7 +182,7 @@ const CreateWeekDay = (props) => {
                         setClickAddShift(!clickAddShift)
                     }}
                 >
-                    הוסף משמרת
+                    הוסף משמרת ידנית
                 </button>
 
                 <button

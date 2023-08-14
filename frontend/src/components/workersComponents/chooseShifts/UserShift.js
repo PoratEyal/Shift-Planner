@@ -12,7 +12,7 @@ const UserShift = (props) => {
   const [addClass, setAddClass] = useState(false);
   const [showWorkers, setShow] = useState(false);
   const [shiftData, setShiftData] = useState(null);
-  //var shiftData = null;
+
   useEffect(() => {
     if (shift.availableWorkers.includes(data._id) || shift.workers.includes(data._id)) {
       setAdded(true);
@@ -36,7 +36,6 @@ const UserShift = (props) => {
     }
     axios.put(`${process.env.REACT_APP_URL}/addWorkerToAvial`, reqBody)
       .then(response => {
-        console.log(response);
       })
       .catch(error => {
         console.log(error.response.data.error);
@@ -53,7 +52,6 @@ const UserShift = (props) => {
     }
     axios.put(`${process.env.REACT_APP_URL}/delWorkerToAvial`, reqBody)
       .then(response => {
-        console.log(response);
       })
       .catch(error => {
         console.log(error.response.data.error);
@@ -82,7 +80,7 @@ const UserShift = (props) => {
         ) : (
           <button onClick={addWorkerToShift} className={styles.add_btn}>הוספה</button>
         )
-        ) : ( showWorkers ? <div><WorkerList managerId={props.managerId} workers={shift.workers} shiftData={shiftData}></WorkerList></div> : null)
+        ) : ( showWorkers ? <div><WorkerList managerId={props.managerId} workers={shift.workers} shiftData={shiftData} endTime={shift.endTime} startTime={shift.startTime}></WorkerList></div> : null)
       }
 
   </div>

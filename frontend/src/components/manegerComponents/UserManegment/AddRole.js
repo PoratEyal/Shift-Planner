@@ -20,6 +20,9 @@ const AddRole = (props) => {
       cancelButtonColor: '#d33',
       confirmButtonText: 'אישור',
       showCancelButton: true,
+      inputAttributes: {
+        dir: 'rtl'
+      },
       inputValidator: (value) => {
           if (!value) {
               return 'תיבת הטקסט ריקה מתוכן';

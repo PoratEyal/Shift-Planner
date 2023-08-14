@@ -51,6 +51,8 @@ const EditShiftCurrentWeek = (props) => {
 
             {showWorkers ? <CurrentWeekWorkers
                 weekId={props.weekId}
+                shift ={shift}
+                dayId={props.dayId}
                 managerId={props.managerId}
                 weekPublished={props.weekPublished}
                 removeWorkerShift={removeWorkerShift}

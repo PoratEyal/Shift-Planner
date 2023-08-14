@@ -36,7 +36,6 @@
   direction: rtl;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
   font-weight: 600;
   text-overflow: ellipsis;
   max-width: 110px;
@@ -99,7 +98,7 @@
     align-items: center;
     justify-content: center;
     width: auto;
-    margin-top: -10px;
+    margin-top: -20px;
 }
 
 .btn{
@@ -127,6 +126,7 @@
 
 .text_div{
   margin-right: -5px;
+  line-height: 1.5;
 }
 
 .link{
@@ -192,10 +192,14 @@
 
 @media only screen and (min-width: 0px) and (max-width: 339px) {
   .btn{
-      width: 220px;
+      width: 240px;
       height:80px;
       text-align: end;
       font-size: 15px;margin-bottom: 20px;
+  }
+  .text_div{
+    margin-right: -5px;
+    margin-left: 30px;
   }
 }
 @media only screen and (min-width: 340px) and (max-width: 399.9px) {
@@ -207,7 +211,7 @@
   }
   .text_div{
     margin-right: -5px;
-    margin-left: 80px;
+    margin-left: 65px;
   }
   .icon{
     font-size: 50px;
@@ -224,7 +228,7 @@
   }
   .text_div{
     margin-right: -5px;
-    margin-left: 85px;
+    margin-left: 75px;
   }
   .icon{
     font-size: 60px;
@@ -254,6 +258,6 @@
   }
   .text_div{
     font-size: 25px;
-    margin-left: 120px;
+    margin-left: 110px;
   }
 }

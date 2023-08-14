@@ -91,7 +91,7 @@ const ManagerHomePage = () => {
                     {/* <Link to="/userManagment"><button className={styles.user_managment_btn}>עובדים</button></Link> */}
                 </div>
 
-                <h1 className={styles.h1}>שלום, {fullname}</h1>
+                <h1 className={styles.h1}>שלום {fullname}</h1>
             </div>
 
             <div className={styles.container}>
@@ -101,7 +101,7 @@ const ManagerHomePage = () => {
                             {<AiOutlineSchedule className={styles.icon}></AiOutlineSchedule>} 
                         </div>
                         <div className={styles.text_div}>
-                            צפיה בסידור עבודה לשבוע הנוכחי  
+                            צפיה בסידור העבודה לשבוע הנוכחי  
                         </div>
                     </button>
                 </Link>
@@ -122,7 +122,7 @@ const ManagerHomePage = () => {
                         <div className={styles.icon_div}>
                         {<AiOutlineUsergroupAdd className={styles.icon3}></AiOutlineUsergroupAdd>}
                         </div>
-                        <div className={styles.text_div}>שיבוץ עובדים לשבוע הבא</div>
+                        <div className={styles.text_div}>שיבוץ עובדים&nbsp;&nbsp; לשבוע הבא</div>
                     </button>
                 </Link>
 
