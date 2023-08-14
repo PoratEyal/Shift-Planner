@@ -218,14 +218,12 @@
 @media only screen and (min-width: 340px) and (max-width: 399.9px) {
   .btn{
       width: 310px;
-      height:100px;
       text-align: end;
       font-size: 19px;
-      background-color: rgb(108, 26, 176);
   }
   .text_div{
     margin-right: -5px;
-    margin-left: 65px;
+    margin-left: 62px;
   }
   .icon{
     font-size: 50px;
