@@ -1,6 +1,6 @@
 const express = require('express');
 const messageRouter = express.Router();
-const Message = require('../models/message');
+const Message = require('../models/Message');
 const Week = require('../models/week');
 const User = require('../models/user');
 
