@@ -189,12 +189,12 @@ const CurrentWeek = () => {
                 <p>השבוע פורסם</p>   
             </div>: null}
 
-            <div className={styles.publish_div}>
+            {/* <div className={styles.publish_div}>
                 <button className={styles.ai_btn} onClick={clickAi}>
                     {loadingAi ? <label className={styles.ai_icon_loading}><FaMagic></FaMagic></label> : <label className={styles.ai_icon}><FaMagic></FaMagic></label>}
                     {loadingAi ? <label>...השיבוץ מתבצע</label> : <label>שיבוץ אוטומטי</label>}
                 </button>
-            </div>
+            </div> */}
 
             <div style={{ marginTop: '70px' }} className={styles.container}>
                 {
