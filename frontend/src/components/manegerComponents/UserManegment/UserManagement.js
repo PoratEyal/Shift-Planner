@@ -112,6 +112,7 @@ const UserManagement = () => {
           <input
             placeholder='רק באנגלית'
             className={styles.input}
+            placeholder='רק באנגלית'
             type="text"
             id="username"
             value={username}
@@ -131,6 +132,7 @@ const UserManagement = () => {
           <input
             placeholder='5 תווים לפחות'
             className={styles.input}
+            placeholder='5 תווים לפחות'
             type="password"
             id="password"
             value={password}

@@ -113,25 +113,25 @@
     text-align: center;
     padding: 20px;
     width: 280px;
-    margin: 20px;
+    margin: 15px;
     background: rgb(255, 255, 255);
     border-radius: 12px;
-    box-shadow: rgba(0, 0, 0, 0.26) 0px 10px 36px 0px, rgba(0, 0, 0, 0.10) 0px 0px 0px 1px;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
 }
 
 .h2{
     margin-top: -15px;
-    margin-bottom: 0px;
+    margin-bottom: 4px;
+    font-size: 22px;
+    font-weight: 400;
 }
 
 .shift{
     width: 280px;
     font-size: 1.2em;
-    border: 1px solid rgba(101, 101, 101, 0.245);
-    background-color: rgba(231, 234, 238, 0.332);
-    margin: 10px;
+    border: none;
+    background-color: rgba(231, 234, 238, 0.789);
+    margin-top: 10px;
+    margin-bottom: 5px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -294,186 +294,32 @@ transform: scale(1.02);
 }
 
 .workers_showList{
-    direction: ltr;
+    direction: rtl;
     display: flex;
     flex-direction: column;
-    justify-content: end;
-    align-items: end;
-    width: 100%;
-    border-top: 1px solid rgba(101, 101, 101, 0.245);
-}
-.workers_showList p{
-    margin: 8px;
-    margin-right: 20px;
-}
-
-.loadingWorkers{
-    margin: 15px;
-    margin-left: 120px;
-}
-
-
-.three-body {
-    --uib-size: 35px;
-    --uib-speed: 0.8s;
-    --uib-color: #5D3FD3;
-    position: relative;
-    display: inline-block;
-    height: var(--uib-size);
-    width: var(--uib-size);
-    animation: spin78236 calc(var(--uib-speed) * 2.5) infinite linear;
-   }
-   
-   .three-body__dot {
-    position: absolute;
-    height: 100%;
-    width: 30%;
-   }
-   
-   .three-body__dot:after {
-    content: '';
-    position: absolute;
-    height: 0%;
-    width: 100%;
-    padding-bottom: 100%;
-    background-color: var(--uib-color);
-    border-radius: 50%;
-   }
-   
-   .three-body__dot:nth-child(1) {
-    bottom: 5%;
-    left: 0;
-    transform: rotate(60deg);
-    transform-origin: 50% 85%;
-   }
-   
-   .three-body__dot:nth-child(1)::after {
-    bottom: 0;
-    left: 0;
-    animation: wobble1 var(--uib-speed) infinite ease-in-out;
-    animation-delay: calc(var(--uib-speed) * -0.3);
-   }
-   
-   .three-body__dot:nth-child(2) {
-    bottom: 5%;
-    right: 0;
-    transform: rotate(-60deg);
-    transform-origin: 50% 85%;
-   }
-   
-   .three-body__dot:nth-child(2)::after {
-    bottom: 0;
-    left: 0;
-    animation: wobble1 var(--uib-speed) infinite
-       calc(var(--uib-speed) * -0.15) ease-in-out;
-   }
-   
-   .three-body__dot:nth-child(3) {
-    bottom: -5%;
-    left: 0;
-    transform: translateX(116.666%);
-   }
-   
-   .three-body__dot:nth-child(3)::after {
-    top: 0;
-    left: 0;
-    animation: wobble2 var(--uib-speed) infinite ease-in-out;
-   }
-   
-   @keyframes spin78236 {
-    0% {
-     transform: rotate(0deg);
-    }
-   
-    100% {
-     transform: rotate(360deg);
-    }
-   }
-   
-   @keyframes wobble1 {
-    0%,
-     100% {
-     transform: translateY(0%) scale(1);
-     opacity: 1;
-    }
-   
-    50% {
-     transform: translateY(-66%) scale(0.65);
-     opacity: 0.8;
-    }
-   }
-   
-   @keyframes wobble2 {
-    0%,
-     100% {
-     transform: translateY(0%) scale(1);
-     opacity: 1;
-    }
-   
-    50% {
-     transform: translateY(66%) scale(0.65);
-     opacity: 0.8;
-    }
-   }
-
-
-.workers_list_delete{
     border-top: 1px solid rgba(101, 101, 101, 0.245);
     width: 100%;
-    display: flex;
-    flex-direction: column;
 }
-
-.names{
-    margin: 15px;
+.name{
     text-overflow: ellipsis;
+    max-width: 110px;
+    white-space: nowrap;
+    overflow: hidden; 
 }
-
-.nameAndDelete{
+.hours_message_div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.hours_message_div label{
+    margin-left: 10px;
+}
+.all_data_div{
+    margin: 8px;
+    margin-right: 10px;
+    margin-left: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
-
-.btn_chose{
-    margin: 15px;
-    background-color: rgba(144, 144, 144, 0.684);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 9px;
-}
-
-.btn_chosen{
-    margin: 15px;
-    background-color: rgba(79, 235, 65, 0.684);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 9px;
-}
-
-.loadingWorkers_manger_page{
-    margin: 15px;
-}
-
-
-.all{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
-}
-
-.shift h3{
-    margin-top: 0px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.icon{
-    margin-top: 0px;
 }

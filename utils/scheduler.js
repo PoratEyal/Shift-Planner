@@ -9,8 +9,8 @@ scheduleRule.minute = 0;    // 00 minutes
 scheduleRule.tz = 'Asia/Jerusalem';
 
 
-//const currentDate = new Date();
-//const targetDate = new Date(currentDate.getTime() + 1 * 60 * 1000);
+const currentDate = new Date();
+const targetDate = new Date(currentDate.getTime() + 1 * 60 * 1000);
 const job = schedule.scheduleJob(scheduleRule, yourFunction);
 
 

@@ -45,7 +45,6 @@ const CreateWeek = () => {
         }
             await axios.put(`${process.env.REACT_APP_URL}/setNextWeekVisible`, reqBody)
             .then((response) => {
-                console.log(response.data)
                 setWeekVisivble(true)
             }).catch ((error) => {
             console.log(error.message);

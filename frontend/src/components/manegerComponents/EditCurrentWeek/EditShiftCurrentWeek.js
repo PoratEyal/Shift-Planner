@@ -1,10 +1,10 @@
 import React, {useState } from "react";
 import styles from '../CreateWeek/createWeek.module.css';
 import axios from 'axios';
-import CurrentWeekWorkers from './CurrentWeekWorkers';
+import CurrentWeekWorkers from './EditCurrentWeekWorkers';
 import moment from "moment";
 
-const ShiftCurrentWeek = (props) => {
+const EditShiftCurrentWeek = (props) => {
 
     const [shift, setShift] = useState(props.shift);
     const [showWorkers, setShow] = useState(true);
@@ -64,4 +64,4 @@ const ShiftCurrentWeek = (props) => {
     </div>
 }
 
-export default ShiftCurrentWeek
+export default EditShiftCurrentWeek

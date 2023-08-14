@@ -7,17 +7,6 @@ const createWeekTest = require('../utils/CreateWeekTest');
 
 weekRouter.use(bodyParser.json());
 
-// get week by his name
-weekRouter.get('/getWeekByName/:name', async (req, res) => {
-    try {
-        const name = req.params.name;
-        const week = await Week.findOne({ name: name });
-        res.status(200).json(week);
-    } catch (err) {
-        res.status(400).json(err);
-    }
-});
-
 // get nextWeek for the specific managerId
 weekRouter.post('/getNextWeek', async (req, res) => {
     try {
@@ -44,8 +33,8 @@ weekRouter.post('/getCurrentWeek', async (req, res) => {
 // for testing - create new nextWeek with days
 //need to put specific managerId her
 weekRouter.get('/testWeekCreating', (req, res) => {
-    //functions();
-    createWeekTest("64ccfd81cd904a14764e3768");
+  
+    createWeekTest("64c259e1933a450465d6b292");
     res.status(200);
 });
 
@@ -65,24 +54,28 @@ weekRouter.put('/setNextWeekPublished', (req, res) => {
     }).catch(err => { console.log(err) })
 })
 
-// create new week
-weekRouter.post('/addWeek', async (req, res) => {
-    Week.create(req.body).then((obj) => {
-        res.status(201).json(obj);
-    }).catch(err => {
-        res.status(400).json({ messege: err._messege });
-    });
-});
-
-// edit week - update his id
-weekRouter.put('/editWeek', async (req, res) => {
+// get manager id and week data as a json and update the week with the new data
+weekRouter.post('/updateNextWeek', async (req, res) => {
     try {
-        let reqBody = req.body;
-        const oldWeek = await Week.findOneAndUpdate({ _id: reqBody._id }, reqBody);
-        res.status(200).json(oldWeek);
+        const managerId = req.body.managerId;
+        const updatedData = req.body.data; 
+        
+        // Find the week by name and managerId
+        const week = await Week.findOneAndUpdate(
+            { name: "NextWeek", ofManager: managerId },
+            updatedData,
+            { new: true }
+        );
+
+        if (!week) {
+            return res.status(404).json({ message: 'Week not found' });
+        }
+
+        res.status(200).json(week);
     } catch (err) {
-        res.status(400).json({ message: err._messege });
+        res.status(400).json(err);
     }
 });
+
 
 module.exports = weekRouter

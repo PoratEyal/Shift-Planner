@@ -1,5 +1,5 @@
 .user_container{
-    width: 270px;
+    width: 280px;
     border: none;
     border-radius: 10px;
     background-color: rgb(229, 233, 236);
@@ -31,7 +31,7 @@
 }
 
 .p{
-    font-size: 16px;
+    font-size: 17px;
     margin-right: 10px;
 }
 

@@ -38,50 +38,51 @@ const Login = () => {
     });
   };
 
-  return (
+  return <div className={styles.page_container}>
     <div className={styles.container}>
 
-      <div className={styles.logo}></div>
+    <div className={styles.logo}></div>
 
-      <div className={styles.container_div}>
-        <form className={styles.form} onSubmit={handleSubmit}>
+    <div className={styles.container_div}>
+      <form className={styles.form} onSubmit={handleSubmit}>
 
-          <div>
-            <input type="text" placeholder='שם משתמש' className={styles.input} onChange={(e) => { setUsername(e.target.value) }} />
+        <div>
+          <input type="text" placeholder='שם משתמש' className={styles.input} onChange={(e) => { setUsername(e.target.value) }} />
+        </div>
+
+        <div className={styles.password_div}>
+          <div className={styles.input_container}>
+            <input id='password' type={show ? "password" : "text"} placeholder='סיסמה' className={styles.input} onChange={(e) => { setPassword(e.target.value) }} />
+            {password.length > 0 ? (
+              show ? (
+                <BiSolidShow
+                  className={styles.show_password}
+                  onClick={(e) => setShow(!show)}
+                ></BiSolidShow>
+              ) : (
+                <BiSolidHide
+                  className={styles.show_password}
+                  onClick={(e) => setShow(!show)}
+                ></BiSolidHide>
+              )
+            ) : null}
           </div>
+        </div>
 
-          <div className={styles.password_div}>
-            <div className={styles.input_container}>
-              <input id='password' type={show ? "password" : "text"} placeholder='סיסמה' className={styles.input} onChange={(e) => { setPassword(e.target.value) }} />
-              {password.length > 0 ? (
-                show ? (
-                  <BiSolidShow
-                    className={styles.show_password}
-                    onClick={(e) => setShow(!show)}
-                  ></BiSolidShow>
-                ) : (
-                  <BiSolidHide
-                    className={styles.show_password}
-                    onClick={(e) => setShow(!show)}
-                  ></BiSolidHide>
-                )
-              ) : null}
-            </div>
-          </div>
+        {
+          notValid ? <p key={validationKey} className={styles.validation_p}>שם משתמש או סיסמא שגויים</p> : null
+        }
 
-          {
-            notValid ? <p key={validationKey} className={styles.validation_p}>שם משתמש או סיסמא שגויים</p> : null
-          }
+        <button className={styles.btn} type="submit">התחברות</button>
 
-          <button className={styles.btn} type="submit">התחברות</button>
+        <div className={styles.blueBack}></div>
 
-          <div className={styles.blueBack}></div>
-
-        </form>
-      </div>
+      </form>
+    </div>
 
     </div>
-  );
+  </div>
+    
 };
 
 export default Login;

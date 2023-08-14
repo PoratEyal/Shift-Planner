@@ -29,7 +29,7 @@ const ManagerSettings = () => {
       };
 
       await axios.put(`${process.env.REACT_APP_URL}/editUser`, updatedUser)
-        .then((response) => {
+        .then(() => {
           setPassword('');
           setIsEmpty(false);
 
@@ -50,11 +50,11 @@ const ManagerSettings = () => {
         <button onClick={() => navigate('/managerHomePage')}>
           <BiSolidHome />
         </button>
-        <p>פרופיל משתמש</p>
+        <p>שינוי פרטי משתמש</p>
       </div>
 
       <div className={styles.container}>
-        <h2 className={styles.h2}>שינוי פרטי משתמש</h2>
+        <h2 className={styles.h2}>הזינו פרטי משתמש חדשים</h2>
 
         <input
           className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}

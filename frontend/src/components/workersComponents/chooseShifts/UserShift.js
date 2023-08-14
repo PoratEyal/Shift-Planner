@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import styles from './chooseShifts.module.css'
+import styles from './chooseShifts.module.css';
 import axios from 'axios';
-import WorkerList from './WorkersList'
+import WorkerList from './WorkersList';
+import moment from "moment";
 
 const UserShift = (props) => {
 
@@ -10,15 +11,15 @@ const UserShift = (props) => {
   const [added, setAdded] = useState(false);
   const [addClass, setAddClass] = useState(false);
   const [showWorkers, setShow] = useState(false);
-
+  
 
   useEffect(() => {
     if (shift.availableWorkers.includes(data._id) || shift.workers.includes(data._id)) {
       setAdded(true);
-      //
     }
     if (shift.workers.includes(data._id) && props.weekPublished === true){
-      setAddClass(true)
+      
+      setAddClass(true);
       setShow(!showWorkers);
     }
   }, [])
@@ -35,14 +36,12 @@ const UserShift = (props) => {
     }
     axios.put(`${process.env.REACT_APP_URL}/addWorkerToAvial`, reqBody)
       .then(response => {
-        console.log(response);
       })
       .catch(error => {
         console.log(error.response.data.error);
       });
   }
 
-  // remove worker from shift
   const removeWorkerFromShift = () => {
     setAdded(false);
     const reqBody = {
@@ -53,7 +52,6 @@ const UserShift = (props) => {
     }
     axios.put(`${process.env.REACT_APP_URL}/delWorkerToAvial`, reqBody)
       .then(response => {
-        console.log(response);
       })
       .catch(error => {
         console.log(error.response.data.error);
@@ -69,9 +67,13 @@ const UserShift = (props) => {
       }
   }
 
+  
+
   return <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`}onClick={() => {setShow(!showWorkers)}}>
 
-      <p className={styles.shift_data_p}>{shift.description}&nbsp;: {shift.endTime} - {shift.startTime}</p>
+      <p className={styles.shift_data_p}>
+              {shift.description}: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
+      </p>
       
       {
       !props.weekPublished ? (
@@ -80,7 +82,7 @@ const UserShift = (props) => {
         ) : (
           <button onClick={addWorkerToShift} className={styles.add_btn}>הוספה</button>
         )
-        ) : ( showWorkers ? <div><WorkerList managerId={props.managerId} workers={shift.workers}></WorkerList></div> : null)
+        ) : ( showWorkers ? <div><WorkerList managerId={props.managerId} workers={shift.workers} shiftData={shift.shiftData} endTime={shift.endTime} startTime={shift.startTime}></WorkerList></div> : null)
       }
 
   </div>

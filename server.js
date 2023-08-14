@@ -13,6 +13,8 @@ const routeShift = require('./routes/shift.routes');
 const routeUser = require('./routes/user.routes');
 const routeWeek = require('./routes/week.routes');
 const routeWorker = require('./routes/worker.routes');
+const routeGPT = require('./routes/gpt.routes');
+const routeMessage = require('./routes/message.routes');
 
 
 // database area
@@ -32,8 +34,8 @@ app.use(cors(
     {
     origin: function (origin, callback) {
         if (!origin) return callback(null, true);
-        if (allowedDomains.indexOf(origin) === -1) {
-          var msg = `This site ${origin} does not have an access. Only specific domains are allowed to access it. ${allowedDomains}`;
+        if (!allowedDomains.includes(origin)) {
+          var msg = `This site ${origin} does not have an access. Only specific domains are allowed to access it.`;
           return callback(new Error(msg), false);
         }
         return callback(null, true);
@@ -55,6 +57,8 @@ app.use('/app', routeShift);
 app.use('/app', routeUser);
 app.use('/app', routeWeek);
 app.use('/app', routeWorker);
+app.use('/app', routeGPT);
+app.use('/app', routeMessage);
 
 app.listen(process.env.PORT || 3001, () => console.log("server is runing..."));
 
