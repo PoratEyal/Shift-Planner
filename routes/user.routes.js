@@ -37,19 +37,19 @@ userRouter.post('/addUser', async (req, res) => {
         const createdUser = await User.create(user);
 
         res.status(201).json(createdUser);
-    } 
+    }
     catch (err) {
         res.status(400).json({ message: 'An error occurred while processing the request.' });
     }
 });
 
-// get all workers/Get user   - - - - - - - in prodaction need to change the job id to the job of the current database user id !!!
-userRouter.post(`/getAllWorkers`, (req, res) =>{
+// get all workers
+userRouter.post(`/getAllWorkers`, (req, res) => {
     const shiftWorkers = req.body;
     const convertedArr = shiftWorkers.workers.map(id => new ObjectId(id))
-    User.find({_id: { $nin: convertedArr}, manager: shiftWorkers.manager}, {_id:1, fullName:1}).then(data =>{
+    User.find({ _id: { $nin: convertedArr }, manager: shiftWorkers.manager }, { _id: 1, fullName: 1 }).then(data => {
         res.status(200).json(data)
-    }).catch(err =>{
+    }).catch(err => {
         console.log(err);
     });
 });
@@ -57,7 +57,7 @@ userRouter.post(`/getAllWorkers`, (req, res) =>{
 
 userRouter.post('/getMyWorkers', (req, res) => {
     const job = req.body.job;
-    User.find({manager: new ObjectId(job)}).then(data => {
+    User.find({ manager: new ObjectId(job) }).then(data => {
         res.status(200).json(data);
     }).catch(err => {
         console.error(err);
@@ -65,31 +65,29 @@ userRouter.post('/getMyWorkers', (req, res) => {
 });
 
 //gets all the users
-userRouter.get('/getUsers', async (req, res) => {
-    try {
-        const users = await User.find();
-        res.status(201).json(users)
-    } catch (err) {
-        res.status(400).json({ messege: err.messege })
-    }
-});
+// userRouter.get('/getUsers', async (req, res) => {
+//     try {
+//         const users = await User.find();
+//         res.status(201).json(users)
+//     } catch (err) {
+//         res.status(400).json({ messege: err.messege })
+//     }
+// });
 
 //gets id and return user
-userRouter.post('/getUserById', async (req, res) => {
-    try {
-      const id = req.body.id;
-      const user = await User.findById(id);
-  
-      if (!user) {
-        return res.status(404).json({ message: "User not found" });
-      }
-  
-      res.status(200).json(user);
-    } catch (err) {
-      res.status(400).json({ message: err.message });
-    }
+userRouter.post('/getUserById', (req, res) => {
+    const id = req.body.id;
+    User.findById(id)
+        .then((data) => {
+            const user = data;
+            res.status(200).json(user);
+        })
+        .catch(err => {
+            res.status(400).json({ message: err.message });
+        });
+
 });
-  
+
 
 userRouter.get('/GetUserRole', authenticateToken, (req, res) => {
     if (req.user.job === '649c08040834b0d306adef45' || req.user.job === "64c259551a5f2d4dca3424bb") {
@@ -150,27 +148,19 @@ userRouter.delete('/deleteUser/:id', async (req, res) => {
 
 // edit user 
 userRouter.put('/editUser', (req, res) => {
-    try {
-
-        //const salt = await bcrypt.genSalt();
-        bcrypt.hash(req.body.password, 10).then(async (hash) => {
+    //const salt = await bcrypt.genSalt();
+    bcrypt.hash(req.body.password, 10)
+        .then((hash) => {
             let updatedUser = req.body;
             updatedUser.password = hash;
-            const user = await User.findByIdAndUpdate({ _id: updatedUser._id }, updatedUser).then(user => {
-
-                res.status(202).json(user);
-            }).catch(err => {
-
-                res.status(404).json({ error: err.message });
-            });
+            User.findByIdAndUpdate({ _id: updatedUser._id }, updatedUser)
+                .then(user => {
+                    res.status(202).json(user);
+                })
+                .catch(err => {
+                    res.status(404).json({ error: err.message });
+                });
         });
-
-    } catch (err) {
-
-        console.error(err);
-        res.status(500).json({ error: 'Internal server error' });
-    }
-
 });
 
 // - - - - - - authenticateToken check - - - - - - - - 

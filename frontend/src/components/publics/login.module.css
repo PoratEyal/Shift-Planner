@@ -1,3 +1,9 @@
+.page_container{
+  background-color:#ffffff;
+  width: 100vw;
+  height: 100vh;
+}
+
 .container{
   display: flex;
   flex-direction: column;
@@ -92,91 +98,6 @@
   direction: ltr;
 }
 
-/* .wave-group {
-  position: relative;
-  margin-bottom: 50px;
-}
-
-.wave-group .input {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 24px;
-  padding: 10px 5px 10px 10px;
-  display: block;
-  border: 1px solid transparent;
-  border-bottom: 1px solid #000000;
-  border-radius: 0px;
-  background: transparent;
-  width: 250px;
-  text-align: right; 
-  appearance: none; 
-  -webkit-appearance: none; 
-  direction: rtl;
-}
-
-.wave-group .input:focus {
-  outline: none;
-}
-
-.wave-group .label {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: #999;
-  font-size: 30px;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  right: 5px;
-  top: 10px;
-  display: flex;
-}
-
-.wave-group .label-char {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  transition: 0.2s ease all;
-  transition-delay: calc(var(--index) * .05s);
-}
-
-.wave-group .input:focus ~ label .label-char,
-.wave-group .input:valid ~ label .label-char {
-  transform: translateY(-30px);
-  font-size: 22px;
-  color: #656565;
-  text-align: right;
-}
-
-.wave-group .bar {
-  position: relative;
-  display: block;
-  width: auto;
-}
-
-.wave-group .bar:before,
-.wave-group .bar:after {
-  content: '';
-  height: 2px;
-  width: 0;
-  bottom: 0px;
-  position: absolute;
-  background: #2977bc;
-  border-bottom: 1.5px solid #2977bc;
-  transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all;
-}
-
-.wave-group .bar:before {
-  left: 50%;
-}
-
-.wave-group .bar:after {
-  right: 50%;
-}
-
-.wave-group .input:focus ~ .bar:before,
-.wave-group .input:focus ~ .bar:after {
-  width: 50%;
-} */
-
-
 @keyframes vibration {
   0% { transform: translateX(0); }
   25% { transform: translateX(-2px) rotateZ(-2deg); }
@@ -203,13 +124,20 @@
 }
 
 @media only screen and (min-width: 480px) {
+  .page_container{
+    background-color:#ffffff;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .container{
-    margin-top: 100px;
+    margin-top: 70px;
     overflow: hidden;
     position: relative;
     width:420px;
     border-radius: 15px;
-    /* border: 2px solid rgb(210, 209, 209); */
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   }
   .blueBack{

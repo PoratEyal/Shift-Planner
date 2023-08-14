@@ -111,15 +111,12 @@ ul.navbar li button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 280px;
-    padding: 20px;
+    width: 290px;
+    padding: 12px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 20px;
-    background: rgba(255, 255, 255, 0.968);
-    border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    background: rgb(255, 255, 255);
+    border-radius: 12px;
 }
 
 .users{
@@ -127,15 +124,12 @@ ul.navbar li button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 280px;
-    padding: 20px;
+    width: 290px;
+    padding: 12px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 20px;
-    background: rgba(255, 255, 255, 0.961);
-    border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    background: rgb(255, 255, 255);
+    border-radius: 12px;
 }
 
 .createUser{
@@ -143,15 +137,12 @@ ul.navbar li button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 280px;
-    padding: 20px;
+    width: 290px;
+    padding: 17px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 20px;
-    background: rgba(255, 255, 255, 0.704);
-    border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    background: rgb(255, 255, 255);
+    border-radius: 12px;
 }
 
 .userForm{
@@ -162,39 +153,46 @@ ul.navbar li button {
 }
 
 .h2{
-    margin-top: -10px;
+    margin-top: 0px;
+    color: #2977bc;
 }
 
 .label_fullname{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 16px;
-    margin-left: 31px;
+    font-size: 19px;
+    margin-left: 41px;
 }
 .label_username{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 16px;
-    margin-left: 5px;
+    font-size: 19px;
+    margin-left: 10px;
+}
+.label_username::placeholder{
+    font-size: 17px;
 }
 .label_password{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 16px;
-    margin-left: 40px;
+    font-size: 19px;
+    margin-left: 50px;
+}
+.label_password::placeholder{
+    font-size: 17px;
 }
 .label_role{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 16px;
-    margin-left: 30px;
+    font-size: 19px;
+    margin-left: 40px;
 }
 
 .select{
     direction: rtl;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 16px;
+    font-size: 19px;
     padding: 5px;
     border-radius: 5px;
     border: none;
     margin-bottom: 10px;
-    margin-right: 18px;
+    margin-right: 20px;
     border: 1px solid rgba(0, 0, 0, 0.25);
     width: 163px;
     text-align: right;
@@ -204,7 +202,7 @@ ul.navbar li button {
     direction: rtl;
     text-align: right;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 16px;
+    font-size: 19px;
     padding: 5px;
     border-radius: 5px;
     border: none;
@@ -232,7 +230,7 @@ ul.navbar li button {
     background: #2977bc;
     cursor: pointer;
     transition: all .6s ease;
-    width: 250px;
+    width: 270px;
     justify-content: center;
 }
 .btn:hover {

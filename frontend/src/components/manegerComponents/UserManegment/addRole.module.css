@@ -9,26 +9,25 @@
     direction: rtl;
     margin-top: 15px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 16px;
+    font-size: 19px;
     padding: 5px;
     border-radius: 5px;
     border: none;
     margin-bottom: -2px;
     border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 250px;
+    width: 270px;
     text-align: right;
 }
 
 .label{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 16px;
+    font-size: 19px;
     margin: 10px;
     margin-right: 10px;
 }
 
 .btn {
     margin-top: 20px;
-    max-width: 260px;
     display: flex;
     padding: 0.8rem 2.4rem;
     font-size: 1.275rem;
@@ -40,12 +39,11 @@
     align-items: center;
     border-radius: 0.5rem;
     border: none;
-    gap: 0.75rem;
     color: rgb(255, 255, 255);
     background: #2977bc;
     cursor: pointer;
     transition: all .6s ease;
-    width: 270px;
+    width: 280px;
     justify-content: center;
 }
 .btn:hover {
@@ -53,7 +51,7 @@ transform: scale(1.02);
 }
 
 .roles{
-    width: 250px;
+    width: 280px;
     border: 1px solid rgba(0, 0, 0, 0.25);
     border: none;
     border-radius: 10px;
@@ -84,6 +82,30 @@ transform: scale(1.02);
 }
 .delete_btn:hover{
     color: rgba(255, 0, 0, 0.684);
+    cursor: pointer;
+}
+
+.addUser_btn {
+    width: 60px;
+    height: 60px;
+    z-index: 1000;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background-color: #2977bc;
+    color: white;
+    border: none;
+    border: 1.5px solid white;
+    font-size: 41px;
+    transition: 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 300%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+.addUser_btn:hover{
     cursor: pointer;
 }
 
@@ -189,26 +211,3 @@ transform: scale(1.02);
      opacity: 0.8;
     }
    }
-
-/* @media only screen and (max-width: 480px) {
-    .roles{
-        width: 225px;
-    }
-    .btn{
-        width: 230px;
-    }
-    .input{
-        width: 220px;
-    }
-} */
-/* @media only screen and (min-width: 0px) and (max-width: 767px) {
-    .roles{
-        width: 230px;
-    }
-    .btn{
-        width: 230px;
-    }
-    .input{
-        width: 220px;
-    }
-} */

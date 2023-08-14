@@ -1,16 +1,3 @@
-POST http://localhost:3001/app/addWeek
-Content-Type: application/json
-
-{
-    "name": "NextWeek",
-    "visible": false,
-    "publishScheduling": false,
-    "ofManager":"64ccf7351f39b732a791b710",
-    "day":[
-
-    ] 
-}
-
 ###
 GET http://localhost:3001/app/testWeekCreating
 Content-Type: application/json

@@ -1,16 +1,16 @@
 const mongoose = require('mongoose');
-
+const ShiftData = require('./partShift');
 const shiftSchema = new mongoose.Schema({
   description: {
     type: String,
     required: true,
   },
   startTime: {
-    type: String,
+    type: Date,
     required: true,
   },
   endTime: {
-    type: String,
+    type: Date,
     required: true,
   },
   workers: [{
@@ -20,7 +20,9 @@ const shiftSchema = new mongoose.Schema({
   availableWorkers: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
-  }]
+  }],
+  shiftData: [ShiftData.schema]
+
 });
 
 // Create the shift model

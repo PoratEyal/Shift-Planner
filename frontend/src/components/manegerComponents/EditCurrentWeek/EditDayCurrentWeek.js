@@ -1,25 +1,27 @@
 import React, { useEffect, useState } from 'react'
-import styles from './chooseShifts.module.css'
+import styles from '../CreateWeek/createWeek.module.css'
 import axios from 'axios'
-import UserShift from './UserShift';
+import ShiftCurrentWeek from './EditShiftCurrentWeek';
 import moment from "moment";
 
-const UserDay = (props) => {
+const EditDayCurrentWeek = (props) => {
 
-    const [day] = useState(props.day);
+    const [day, setDay] = useState(props.day);
     const [dayShifts, setDayShifts] = useState(props.day.shifts);
     const [loading, setLoading] = useState(false);
 
+    // get the sifts of the day
     const getShifts = () => {
         return new Promise((resolve, reject) => {
             let shifts = [];
             setLoading(true)
             if (day.shifts.length >= 0) {
-                const body = {
-                    dayId: day._id,
-                    managerId: props.managerId
+                const reqBody= {
+                    managerId: props.managerId,
+                    dayId: day._id
                 }
-                axios.post(`${process.env.REACT_APP_URL}/getShiftsOfDay`, body).then((response) => {
+                axios.post(`${process.env.REACT_APP_URL}/getShiftsOfDay`, reqBody)
+                .then((response) => {
                     shifts = response.data;
                     setLoading(false)
                     resolve(shifts);
@@ -42,22 +44,17 @@ const UserDay = (props) => {
      })
      .catch((error) => {
      });
-     };
-
+    };
 
     useEffect(()=>{
-        getShifts()
-            .then((shifts) => {
-                setDayShifts(shifts);
-            })
-            .catch((error) => {
-            });
+        updateShifts();
     },[day]);
 
     return <div>
         <div className={styles.day_container}>
+
             <h2 className={styles.h2}>{day.name} - {moment(day.date).format('DD.MM')}</h2>
-            { 
+            {
                 loading ? (
                     <div className={styles['three-body']}>
                         <div className={styles['three-body__dot']}></div>
@@ -65,19 +62,29 @@ const UserDay = (props) => {
                         <div className={styles['three-body__dot']}></div>
                     </div>
                 ) : (
-                dayShifts?.length === 0 ? (
-                    <div className={styles.no_shifts_message}>אין משמרות לאותו היום</div>
-                ) : (    
-                dayShifts.map((shift) => {return shift ? <UserShift 
-                    managerId={props.managerId}
-                    weekPublished={props.weekPublished}
-                    getShifts={updateShifts} shift={shift}
-                    dayId={day._id}
-                    key={shift._id}></UserShift> : null }))
-                )}
+                    (dayShifts?.length ?? 0) === 0 ? (
+                        <div className={styles.no_shifts_messge}>אין משמרות לאותו היום</div>
+                      ) : (
+                        dayShifts.map((shift) => (
+                          shift ? (
+                            <ShiftCurrentWeek
+                                weekId={props.weekId}
+                                managerId={props.managerId}
+                                weekPublished={props.weekPublished}
+                                getShifts={updateShifts}
+                                shift={shift}
+                                dayId={day._id}
+                                key={shift._id}
+                                setDay={setDay}
+                            ></ShiftCurrentWeek>
+                          ) : null
+                        ))
+                      ))
+            }
+
         </div>
     </div>
 
 }
 
-export default UserDay
+export default EditDayCurrentWeek
