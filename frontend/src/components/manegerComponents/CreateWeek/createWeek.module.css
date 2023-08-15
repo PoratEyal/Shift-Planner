@@ -822,6 +822,7 @@
   .swal2_title {
     font-size: 28px;
     position: relative;
+    margin-bottom: 10px;
   }
 
   .swal2_content{
