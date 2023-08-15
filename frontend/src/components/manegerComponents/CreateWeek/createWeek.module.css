@@ -783,8 +783,8 @@
     margin-top: 10px;
     border-radius: 4px;
     font-size: 15px;
+    height: 20px;
     -webkit-appearance: none;
-    appearance: none;
   }
 
   /* Style for the labels */
