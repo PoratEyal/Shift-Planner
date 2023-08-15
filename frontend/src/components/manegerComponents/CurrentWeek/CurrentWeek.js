@@ -187,20 +187,20 @@ const CurrentWeek = () => {
                 
               } catch (error) {
                 setLoadingAi(false);
-                errorAlertToAI();
                 console.error('Error updated the week:', error);
+                errorAlertToAI();
               }
             
           } catch (error) {
             setLoadingAi(false);
-            errorAlertToAI();
             console.error('Error parsing JSON:', error);
+            errorAlertToAI();
           }
           
         } catch (error) {
             setLoadingAi(false);
-            errorAlertToAI();
             console.error('Error sending message:', error);
+            errorAlertToAI();
         }
     };
       
