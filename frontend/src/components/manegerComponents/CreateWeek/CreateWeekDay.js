@@ -208,18 +208,9 @@ const CreateWeekDay = (props) => {
 
             {clickAddShift && (
                 <div className={styles.addShift}>
-                    <div>
-                        <input onChange={(e) => setShiftName(e.target.value)} value={shiftName} className={styles.input} type="text" placeholder="שם משמרת" />
-                    </div>
-                    <div className={styles.hour_and_input}>
-                        <input onChange={(e) => SetshiftStartTime(e.target.value)} value={shiftStartTime} className={styles.input_time} type="time" placeholder="זמן התחלה" />
-                        <label>שעת התחלה</label>
-                    </div>
-                    <div className={styles.hour_and_input}>
-                        <input onChange={(e) => SetshiftEndTime(e.target.value)} value={shiftEndTime} className={styles.input_time} type="time" placeholder="זמן סיום" />
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;שעת סיום</label>
-                    </div>
-                    
+                    <input onChange={(e) => setShiftName(e.target.value)} value={shiftName} className={styles.input} type="text" placeholder="שם משמרת" />
+                    <input onChange={(e) => SetshiftStartTime(e.target.value)} value={shiftStartTime} className={styles.input_time_start} type="time"/>
+                    <input onChange={(e) => SetshiftEndTime(e.target.value)} value={shiftEndTime} className={styles.input_time_end} type="time"/>
                     <br></br>
                     <button
                         className={styles.addShift_btn}

@@ -7,9 +7,6 @@ const CreateWeekShift = (props) => {
 
     const [shift, setShift] = useState(props.shift);
 
-    const startTimeHours = moment(shift.startTime, 'HH:mm').format('HH:mm');
-    const endTimeHours = moment(shift.endTime, 'HH:mm').format('HH:mm');
-
     const deleteShift = () => {
         Swal.fire({
             title: 'האם ברצונך למחוק את המשמרת',
