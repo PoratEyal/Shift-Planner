@@ -34,7 +34,7 @@ weekRouter.post('/getCurrentWeek', async (req, res) => {
 //need to put specific managerId her
 weekRouter.get('/testWeekCreating', (req, res) => {
   
-    createWeekTest("64c259e1933a450465d6b292");
+    createWeekTest("64ccfd81cd904a14764e3768");
     res.status(200);
 });
 

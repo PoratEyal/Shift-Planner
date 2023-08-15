@@ -126,7 +126,7 @@ const EditCurrentWeekWorkers = (props) => {
                 </div>
                 <div>
                   <input type='time' id='endTime' value=${currentMessage ? (currentMessage.end ? currentMessage.end : "" ) : ""}></input>
-                  <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:שעת סיום</label>
+                  <label>&nbsp;&nbsp;&nbsp;&nbsp;:שעת סיום</label>
                 </div>
                 <h2>כתיבת הודעה</h2>
               </form>`,

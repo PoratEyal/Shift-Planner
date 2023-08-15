@@ -57,12 +57,12 @@ const WorkerList = (props) => {
             <div className={styles.name}>•&nbsp;{worker.fullName}</div>
 
             <div className={styles.hours_message_div}>
+              {worker._id === user._id ?  (data.message ? <AiOutlineMessage onClick={() => seeMessage(data)}></AiOutlineMessage> : null) : null}
+              
               <label>
                 {data.end ? getHour(data.end) : getHour(props.endTime)}
                 {data.start ? ` - ${getHour(data.start)}` : ` - ${getHour(props.startTime)}`}
               </label>
-
-              {worker._id === user._id ?  (data.message ? <AiOutlineMessage onClick={() => seeMessage(data)}></AiOutlineMessage> : null) : null}
             </div>
           </div>)
         : <div key={index} className={styles.all_data_div}>

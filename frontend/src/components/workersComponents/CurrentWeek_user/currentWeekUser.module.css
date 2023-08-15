@@ -312,7 +312,7 @@ transform: scale(1.02);
     align-items: center;
 }
 .hours_message_div label{
-    margin-left: 10px;
+    margin-right: 10px;
 }
 .all_data_div{
     margin: 8px;
