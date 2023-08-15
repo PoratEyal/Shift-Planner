@@ -83,7 +83,6 @@
     font-size: 1.2em;
     border: none;
     border-radius: 10px;
-    /* border: 1px solid rgba(101, 101, 101, 0.245); */
     background-color: rgba(231, 234, 238, 0.789);
     margin: 10px;
     display: flex;
@@ -192,9 +191,9 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     width: 280px;
     font-size: 1.2em;
-    border: 1px solid rgba(0, 0, 0, 0.25);
+    border: none;
     border-radius: 10px;
-    background-color: rgb(244, 247, 250);
+    background-color: rgba(231, 234, 238, 0.789);
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -202,10 +201,35 @@
     align-items: center;
 }
 
+.hour_and_input{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hour_and_input{
+    margin-right: 20px;
+}
+
+.input_time{
+    margin: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    width: 117px;
+    margin-left: 20px;
+    text-align: right;
+    direction: rtl;
+}
+
 .input{
     margin: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     padding: 5px;
     border-radius: 5px;
     border: none;
@@ -801,8 +825,9 @@
 
   /* Style for the labels */
   .swal2_content label {
-    font-size: 18px;
+    font-size: 22px;
     margin-left: 10px;
+    margin-top: 5px;
   }
 
   .swal2_content h2 {
