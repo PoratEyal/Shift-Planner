@@ -59,6 +59,7 @@ const CurrentWeek = () => {
         axios.post(`${process.env.REACT_APP_URL}/getNextWeek`, reqbody)
         .then((response) => {
             setWeek(response.data);
+            setWeekAi(response.data.usedAi)
             setWeekPublished(response.data.publishScheduling)
             setWeekVisible(response.data.visible)
         }).catch(err => console.log(err));
@@ -113,15 +114,25 @@ const CurrentWeek = () => {
         const reqbody = {
             id: managerId
         }
-            await axios.put(`${process.env.REACT_APP_URL}/setNextWeekAiTrue`, reqbody)
-            .then((response) => {
-                setWeekAi(true)
-            });
+        await axios.put(`${process.env.REACT_APP_URL}/setNextWeekAiTrue`, reqbody);
         } catch (error) {
             console.log(error.message);
         }
     }
 
+    // if the AI procces get error - show this alert
+    const errorAlertToAI = () => {
+        Swal.fire({
+            title: 'המערכת נתקלה בשגיאה',
+            text: 'אנא נסו שנית',
+            icon: 'error',
+            confirmButtonColor: '#2977bc',
+            confirmButtonText: 'אישור'
+        });
+    }
+
+    // when clicking on the button - שיבוץ אוטומטי the user get alert - 
+    // if he press אישור the func called to the sendMessage func
     const clickAi = () => {
         Swal.fire({
             text: 'האם לאפשר למערכת לשבץ את העובדים אוטומטית',
@@ -139,6 +150,9 @@ const CurrentWeek = () => {
         });
     }    
 
+    // send a prompt to the gpt api and return new week json
+    // take the json and put it as the new nextWeek data
+    // refresh the page
     const sendMessage = async () => {
         setLoadingAi(true)
         try {
@@ -160,7 +174,6 @@ const CurrentWeek = () => {
           let jsonData = null;
           try {
             jsonData = JSON.parse(extractedJson);
-            console.log(jsonData);
 
             try {
                 const body={
@@ -168,22 +181,25 @@ const CurrentWeek = () => {
                     data: jsonData
                 }
                 await axios.post(`${process.env.REACT_APP_URL}/updateNextWeek`, body);
-                setLoadingAi(false)
-                usedAiToTrue()
+                setLoadingAi(false);
+                usedAiToTrue();
                 window.location.reload();
                 
               } catch (error) {
-                setLoadingAi(false)
+                setLoadingAi(false);
+                errorAlertToAI();
                 console.error('Error updated the week:', error);
               }
             
           } catch (error) {
-            setLoadingAi(false)
+            setLoadingAi(false);
+            errorAlertToAI();
             console.error('Error parsing JSON:', error);
           }
           
         } catch (error) {
-            setLoadingAi(false)
+            setLoadingAi(false);
+            errorAlertToAI();
             console.error('Error sending message:', error);
         }
     };
@@ -206,13 +222,13 @@ const CurrentWeek = () => {
                 <p>השבוע פורסם</p>   
             </div>: null}
 
-            {!weekAi ?
+            {/* {!weekAi ?
             <div className={styles.publish_div}>
                 <button className={styles.ai_btn} onClick={clickAi}>
                     {loadingAi ? <label className={styles.ai_icon_loading}><FaMagic></FaMagic></label> : <label className={styles.ai_icon}><FaMagic></FaMagic></label>}
                     {loadingAi ? <label>...השיבוץ מתבצע</label> : <label>שיבוץ אוטומטי</label>}
                 </button>
-            </div> : null}
+            </div> : null} */}
 
             <div style={{ marginTop: '70px' }} className={loadingAi ? styles.container_disabled : styles.container}>
                 {
