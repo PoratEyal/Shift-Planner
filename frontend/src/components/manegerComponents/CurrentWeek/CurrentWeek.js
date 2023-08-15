@@ -169,7 +169,6 @@ const CurrentWeek = () => {
           const startIndex = response.data.indexOf('{'); // Find the first '{'
           const endIndex = response.data.lastIndexOf('}'); // Find the last '}'  
           const extractedJson = response.data.substring(startIndex, endIndex + 1);
-          console.log(extractedJson)
           
           let jsonData = null;
           try {
