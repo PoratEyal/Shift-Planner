@@ -8,7 +8,7 @@ function CreateWeek() {
     documents.forEach(document => {
       const id = document._id;
       const days = ['ראשון', 'שני', "שלישי", "רביעי", "חמישי", "שישי", "שבת"];
-      Week.create({ name: 'NextWeek', visible: false, publishScheduling: false, ofManager: id, day: [] })
+      Week.create({ name: 'NextWeek', visible: false, publishScheduling: false, ofManager: id, usedAi: false, day: [] })
         .then(newWeek => {
           const currentDate = new Date();
           const saveNextDay = index => {

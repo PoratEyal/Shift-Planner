@@ -34,7 +34,7 @@ weekRouter.post('/getCurrentWeek', async (req, res) => {
 //need to put specific managerId her
 weekRouter.get('/testWeekCreating', (req, res) => {
   
-    createWeekTest("64ccfd81cd904a14764e3768");
+    createWeekTest("64c259e1933a450465d6b292");
     res.status(200);
 });
 
@@ -42,6 +42,14 @@ weekRouter.get('/testWeekCreating', (req, res) => {
 weekRouter.put('/setNextWeekVisible', (req, res) => {
     const managerId = req.body.id;
     Week.findOneAndUpdate({ name: "NextWeek" , ofManager: managerId}, { visible: "true" }).then(response => {
+        res.status(200).json(response);
+    }).catch(err => { console.log(err) })
+})
+
+// set nextWeek to usedAi to true
+weekRouter.put('/setNextWeekAiTrue', (req, res) => {
+    const managerId = req.body.id;
+    Week.findOneAndUpdate({ name: "NextWeek" , ofManager: managerId}, { usedAi: "true" }).then(response => {
         res.status(200).json(response);
     }).catch(err => { console.log(err) })
 })

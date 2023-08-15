@@ -11,6 +11,20 @@
     margin-bottom: 40px;
 }
 
+.container_disabled{
+    pointer-events:none;
+    direction: ltr;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+
+    background:#ffffff;
+    opacity: 0.2;
+    filter: alpha(opacity=10);
+}
+
 .nav_container{
     display: flex;
     flex-direction: row;
@@ -749,8 +763,6 @@
 .icon_add:hover{
     color: rgb(0, 87, 0);
 }
-
-
 
 
 

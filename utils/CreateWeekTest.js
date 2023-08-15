@@ -4,7 +4,7 @@ const Day = require('../models/day');
 async function createWeekForManager(managerId) {
   const days = ['ראשון', 'שני', "שלישי", "רביעי", "חמישי", "שישי", "שבת"];
   try {
-    const newWeek = await Week.create({ name: 'NextWeek', visible: false, publishScheduling: false, ofManager: managerId, day: [] });
+    const newWeek = await Week.create({ name: 'NextWeek', visible: false, publishScheduling: false, ofManager: managerId, usedAi: false, day: [] });
 
     const currentDate = new Date();
     const futureDate = new Date(currentDate);

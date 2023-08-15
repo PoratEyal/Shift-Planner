@@ -17,6 +17,10 @@ const weekSchema = new mongoose.Schema({
       type: Boolean,
       default: false 
     },
+    usedAi: {
+      type: Boolean,
+      default: false 
+    },
     day: [Day.schema]
 });
 const Week = mongoose.model('Week', weekSchema);

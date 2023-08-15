@@ -18,12 +18,13 @@ const CurrentWeek = () => {
     const [workers, setWorkers] = useState(null);
     const [promentToAi, setPromentToAi] = useState('');
     const [loadingAi, setLoadingAi] = useState(false);
+    const [weekAi, setWeekAi] = useState(false);
 
     const managerContext = useContext(ManagerContext);
     const managerId = managerContext.getUser();
 
     // get all the _id's of the workers and all their messages
-    const getWorkersAndMessages = async () => {
+    const getWorkers = async () => {
         try {
             const body = {
               job: managerId
@@ -65,7 +66,7 @@ const CurrentWeek = () => {
 
     useEffect(() => {
         getDays();
-        getWorkersAndMessages();
+        getWorkers();
     }, [weekPublished, weekVisible, promentToAi]);
 
     // show alert, if the manager select "yes" - week publish
@@ -106,22 +107,37 @@ const CurrentWeek = () => {
         }
     }
 
+    // set next week to usedAi = true
+    const usedAiToTrue = async () => {
+        try {
+        const reqbody = {
+            id: managerId
+        }
+            await axios.put(`${process.env.REACT_APP_URL}/setNextWeekAiTrue`, reqbody)
+            .then((response) => {
+                setWeekAi(true)
+            });
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
     const clickAi = () => {
         Swal.fire({
             text: 'האם לאפשר למערכת לשבץ את העובדים אוטומטית',
-            title: 'פעולה זו יכולה לקחת כדקה',
+            title: 'פעולה זו יכולה לקחת כדקה<br></br>ביצוע הפעולה מוגבל לפעם אחת בשבוע',
             icon: 'info',
             showCancelButton: true,
-            cancelButtonText : 'ביטול',
+            cancelButtonText: 'ביטול',
             confirmButtonColor: '#2977bc',
             cancelButtonColor: '#d33',
             confirmButtonText: 'אישור'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-                sendMessage()
+                sendMessage();
             }
-          })
-    }
+        });
+    }    
 
     const sendMessage = async () => {
         setLoadingAi(true)
@@ -153,6 +169,7 @@ const CurrentWeek = () => {
                 }
                 await axios.post(`${process.env.REACT_APP_URL}/updateNextWeek`, body);
                 setLoadingAi(false)
+                usedAiToTrue()
                 window.location.reload();
                 
               } catch (error) {
@@ -172,7 +189,7 @@ const CurrentWeek = () => {
     };
       
     return <React.Fragment>
-        <div>
+        <div >
             <div className={styles.nav_container}>
                 <button className={styles.home_btn} onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
                 <p>שיבוץ עובדים לשבוע הבא</p>
@@ -189,20 +206,22 @@ const CurrentWeek = () => {
                 <p>השבוע פורסם</p>   
             </div>: null}
 
-            {/* <div className={styles.publish_div}>
+            {!weekAi ?
+            <div className={styles.publish_div}>
                 <button className={styles.ai_btn} onClick={clickAi}>
                     {loadingAi ? <label className={styles.ai_icon_loading}><FaMagic></FaMagic></label> : <label className={styles.ai_icon}><FaMagic></FaMagic></label>}
                     {loadingAi ? <label>...השיבוץ מתבצע</label> : <label>שיבוץ אוטומטי</label>}
                 </button>
-            </div> */}
+            </div> : null}
 
-            <div style={{ marginTop: '70px' }} className={styles.container}>
+            <div style={{ marginTop: '70px' }} className={loadingAi ? styles.container_disabled : styles.container}>
                 {
                     week ? week.day.map((day) => {
                         return <DayCurrentWeek  weekId={week._id} day={day} key={day._id} getDays={getDays} managerId={managerId}></DayCurrentWeek>
                     }) : null
                 }
             </div>
+
         </div>
     </React.Fragment>
 }
