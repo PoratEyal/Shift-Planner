@@ -225,7 +225,7 @@
     direction: rtl;
 }
 .input_time_start::before{
-    content: 'שעת התחלה';
+    content: 'התחלה';
     color: #9d9d9d;
     direction: ltr;
 }
@@ -243,7 +243,7 @@
     direction: rtl;
 }
 .input_time_end::before{
-    content: 'שעת סיום';
+    content: 'סיום';
     color: #9d9d9d;
     direction: ltr;
 }
@@ -842,6 +842,7 @@
     border-radius: 4px;
     font-size: 15px;
     height: 15px;
+    -webkit-appearance: none;
   }
 
   /* Style for the labels */
