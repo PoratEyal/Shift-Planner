@@ -58,10 +58,5 @@ app.use('/app', routeWorker);
 app.use('/app', routeGPT);
 app.use('/app', routeMessage);
 
-app.use(function (err, req, res, next) {
-  res.status(err.status || 500);
-  res.json({ error: err.message });
-});
-
 app.listen(process.env.PORT || 3001, () => console.log("server is runing..."));
 
