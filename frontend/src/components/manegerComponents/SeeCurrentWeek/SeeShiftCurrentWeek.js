@@ -5,14 +5,14 @@ import moment from "moment";
 
 const SeeShiftCurrentWeek = (props) => {
 
-    const [shift, setShift] = useState(props.shift);
+    const [shift] = useState(props.shift);
     const [showWorkers, setShow] = useState(false);
 
     return <div className={styles.shift} onClick={() => {setShow(!showWorkers)}}>
           <p className={styles.shift_description}>
               {shift.description}&nbsp;: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
           </p>
-        { showWorkers ?<CurrentWeekWorkers managerId={props.managerId} workers={shift.workers}></CurrentWeekWorkers> : null }
+        { showWorkers ?<CurrentWeekWorkers managerId={props.managerId} workers={shift.workers} shiftData={shift.shiftData} endTime={shift.endTime} startTime={shift.startTime}></CurrentWeekWorkers> : null }
     </div>
 }
 

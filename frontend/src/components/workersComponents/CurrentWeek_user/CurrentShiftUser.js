@@ -9,14 +9,12 @@ const CurrentShiftUser = (props) => {
     const [userId, setUserId] = useState("");
     const [addClass, setAddClass] = useState(false)
     const [showWorkers, setShow] = useState(false);
-    const [shiftData, setShiftData] = useState(null);
     
     useEffect(() => {
         const newdata = JSON.parse(localStorage.getItem("user"));
         setUserId(newdata._id);
     
         if (shift.workers.includes(newdata._id)) {
-            //setShiftData(shift.shiftData.find(obj => obj.userId === newdata._id));
             setAddClass(true);
             setShow(true);
         } else {
