@@ -822,7 +822,6 @@
   .swal2_title {
     font-size: 28px;
     position: relative;
-    margin-bottom: 10px;
   }
 
   .swal2_content{
@@ -850,6 +849,7 @@
     font-size: 15px;
     height: 15px;
     -webkit-appearance: none;
+    background-color: rgba(245, 242, 242, 0.696);
   }
 
   .swal2_content div{
@@ -865,6 +865,20 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 22px;
     margin-left: 8px;
+  }
+
+  .swal2_content p {
+    direction: rtl;
+    border: none;
+    background-color: #25D366;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 23px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
   }
 
   .swal2_content h2 {

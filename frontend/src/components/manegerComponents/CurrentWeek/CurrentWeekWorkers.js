@@ -128,7 +128,7 @@ const CurrentWeekWorkers = (props) => {
         Swal.fire({
           title: `${message ? worker.fullName + " שלח/ה הודעה" : ''}`,
           html: `<form class="${styles.swal2_content}">
-                  <label>${message ? message : ''}</label>
+                  <p>${message ? message : ''}</p>
                   <h2>עריכת שעות</h2>
                   <div>
                     <input type='time' id='startTime' value=${currentMessage ? (currentMessage.start ? currentMessage.start : "") : ""}></input>
