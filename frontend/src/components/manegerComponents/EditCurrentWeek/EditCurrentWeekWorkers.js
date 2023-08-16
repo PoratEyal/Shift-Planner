@@ -2,60 +2,48 @@ import axios from 'axios';
 import React, { useRef, useEffect, useState } from 'react';
 import styles from '../CreateWeek/createWeek.module.css';
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { BiAddToQueue } from "react-icons/bi";
 import Swal from 'sweetalert2';
 import { FaEdit } from "react-icons/fa";
 
 const EditCurrentWeekWorkers = (props) => {
   const [workers, setWorker] = useState(props.workers);
-  const [availableWorkers, setAvailableWorkers] = useState(props.availableWorkers);
   const [newWorkers, setNewWorkers] = useState([]); // Initialize newWorkers as an empty array
 
-  const [availableWorkersArr, setAvailableWorkersArr] = useState([]);
   const [workersArr, setWorkersArr] = useState([]);
 
   const [updatedWorkers, setUpdatedWorkers] = useState(false);
+
+  const [loading, setLoading] = useState(true);
 
   const selectRef = useRef(null);
 
   // get all the workers
   useEffect(() => {
+    if(workers.length == 0){
+      setLoading(false)
+    }
     workers.map(worker => {
       const reqBody = {
         id: worker
       }
+
       axios
         .post(`${process.env.REACT_APP_URL}/getUserById`, reqBody)
         .then(response => {
+          setLoading(false);
           const workerData = response.data;
           if (workerData && workerData.fullName) {
             setWorkersArr(prevWorkers => [...prevWorkers, workerData]);
           }
         })
         .catch(error => {
-          console.error(error);
-        });
-    });
-
-    availableWorkers.map(worker => {
-      const reqBody = {
-        id: worker
-      }
-      axios
-        .post(`${process.env.REACT_APP_URL}/getUserById`, reqBody)
-        .then(response => {
-          const workerData = response.data;
-          if (workerData && workerData.fullName && !(workers.includes(workerData._id))) {
-            setAvailableWorkersArr(prevWorkers => [...prevWorkers, workerData]);
-          }
-        })
-        .catch(error => {
+          setLoading(false);
           console.error(error);
         });
     });
 
     const reqBody = {
-      workers: [...workers, ...availableWorkers],
+      workers: [...workers],
       manager: props.managerId
     };
 
@@ -171,6 +159,14 @@ const EditCurrentWeekWorkers = (props) => {
 
   return (
     <React.Fragment>
+      {loading ? 
+      (
+        <div className={styles['three-body']}>
+            <div className={styles['three-body__dot']}></div>
+            <div className={styles['three-body__dot']}></div>
+            <div className={styles['three-body__dot']}></div>
+        </div>
+      ) : (
       <div className={styles.workers_list_delete}>
         {workersArr.map((worker) => (
           <div key={worker._id} className={styles.nameAndDelete}>
@@ -181,17 +177,7 @@ const EditCurrentWeekWorkers = (props) => {
             {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
           </div>
         ))}
-
-        {availableWorkersArr.map((worker) => (
-          <div key={worker._id} className={styles.nameAndDelete}>
-            <div>
-              <BiAddToQueue className={styles.icon_add} onClick={() => choseWorker(worker._id)}></BiAddToQueue>
-              <FaEdit onClick={() => seeMessage(worker)} className={styles.icon_edit}></FaEdit>
-            </div>
-            {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
-          </div>
-        ))}
-      </div>
+      </div>)}
       
       <div className={styles.add_specific_worker_div}>
           <div>

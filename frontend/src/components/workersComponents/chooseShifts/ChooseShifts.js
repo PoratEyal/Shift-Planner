@@ -100,7 +100,7 @@ const ChooseShifts = () => {
                 </div>
             ) : (
                 mesageSent ? (
-                <div className={styles.messege}>
+                <div className={styles.messege_sent}>
                     <p>ההודעה נשלחה בהצלחה</p>
                 </div>
                 ) : null

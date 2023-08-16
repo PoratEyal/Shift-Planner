@@ -17,10 +17,16 @@ const CurrentWeekWorkers = (props) => {
 
   const [updatedWorkers, setUpdatedWorkers] = useState(false);
 
+  const [loading, setLoading] = useState(true);
+
   const selectRef = useRef(null);
 
   // get all the workers
   useEffect(() => {
+    if(workers.length == 0){
+      setLoading(false)
+    }
+
     workers.map(worker => {
       const reqBody = {
         id: worker
@@ -28,12 +34,14 @@ const CurrentWeekWorkers = (props) => {
       axios
         .post(`${process.env.REACT_APP_URL}/getUserById`, reqBody)
         .then(response => {
+          setLoading(false);
           const workerData = response.data;
           if (workerData && workerData.fullName) {
             setWorkersArr(prevWorkers => [...prevWorkers, workerData]);
           }
         })
         .catch(error => {
+          setLoading(false);
         });
     });
 
@@ -44,12 +52,14 @@ const CurrentWeekWorkers = (props) => {
       axios
         .post(`${process.env.REACT_APP_URL}/getUserById`, reqBody)
         .then(response => {
+          setLoading(false);
           const workerData = response.data;
           if (workerData && workerData.fullName && !(workers.includes(workerData._id))) {
             setAvailableWorkersArr(prevWorkers => [...prevWorkers, workerData]);
           }
         })
         .catch(error => {
+          setLoading(false);
         });
     });
 
@@ -126,7 +136,7 @@ const CurrentWeekWorkers = (props) => {
                   </div>
                   <div>
                     <input type='time' id='endTime' value=${currentMessage ? (currentMessage.end ? currentMessage.end : "" ) : ""}></input>
-                    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:שעת סיום</label>
+                    <label>&#8198;&nbsp;&nbsp;&nbsp;&nbsp;:שעת סיום</label>
                   </div>
                   <h2>כתיבת הודעה</h2>
                 </form>`,
@@ -175,7 +185,7 @@ const CurrentWeekWorkers = (props) => {
                   </div>
                   <div>
                     <input type='time' id='endTime' value=${currentMessage ? (currentMessage.end ? currentMessage.end : "" ) : ""}></input>
-                    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:שעת סיום</label>
+                    <label>&#8198;&nbsp;&nbsp;&nbsp;&nbsp;:שעת סיום</label>
                   </div>
                   <h2>כתיבת הודעה</h2>
                 </form>`,
@@ -221,27 +231,37 @@ const CurrentWeekWorkers = (props) => {
 
   return (
     <React.Fragment>
-      <div className={styles.workers_list_delete}>
-        {workersArr.map((worker) => (
-          <div key={worker._id} className={styles.nameAndDelete}>
-            <div>
-              <RiDeleteBin6Line className={styles.icon_delete} onClick={() => removeWorker(worker._id)}></RiDeleteBin6Line>
-              <FaEdit onClick={() => seeMessage(worker)} className={styles.icon_edit}></FaEdit>
-            </div>
-            {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
-          </div>
-        ))}
 
-        {availableWorkersArr.map((worker) => (
-          <div key={worker._id} className={styles.nameAndDelete}>
-            <div>
-              <BiAddToQueue className={styles.icon_add} onClick={() => choseWorker(worker._id)}></BiAddToQueue>
-              <FaEdit onClick={() => seeMessage(worker)} className={styles.icon_edit}></FaEdit>
+      {loading ? 
+      (
+        <div className={styles['three-body']}>
+            <div className={styles['three-body__dot']}></div>
+            <div className={styles['three-body__dot']}></div>
+            <div className={styles['three-body__dot']}></div>
+        </div>
+      ) : (
+        <div className={styles.workers_list_delete}>
+          {workersArr.map((worker) => (
+            <div key={worker._id} className={styles.nameAndDelete}>
+              <div>
+                <RiDeleteBin6Line className={styles.icon_delete} onClick={() => removeWorker(worker._id)}></RiDeleteBin6Line>
+                <FaEdit onClick={() => seeMessage(worker)} className={styles.icon_edit}></FaEdit>
+              </div>
+              {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
             </div>
-            {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
-          </div>
-        ))}
-      </div>
+          ))}
+
+          {availableWorkersArr.map((worker) => (
+            <div key={worker._id} className={styles.nameAndDelete}>
+              <div>
+                <BiAddToQueue className={styles.icon_add} onClick={() => choseWorker(worker._id)}></BiAddToQueue>
+                <FaEdit onClick={() => seeMessage(worker)} className={styles.icon_edit}></FaEdit>
+              </div>
+              {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
+            </div>
+          ))}
+        </div>
+      )}
 
       <div className={styles.add_specific_worker_div}>
         <div>

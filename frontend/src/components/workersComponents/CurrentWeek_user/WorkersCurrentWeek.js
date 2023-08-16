@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './currentWeekUser.module.css';
 import Swal from 'sweetalert2';
 import { AiOutlineMessage } from "react-icons/ai";
@@ -9,25 +9,32 @@ const WorkersCurrentWeek = (props) => {
   const [workers] = useState(props.workers);
   const [workersArr, setWorkersArr] = useState([]);
   const user = JSON.parse(localStorage.getItem("user"));
+  const [loading, setLoading] = useState(true)
   
   // get all the workers
   useEffect(() => {
+    if(workers.length == 0){
+      setLoading(false)
+    }
+
     workers.forEach(workerId => {
       const body = {
         id: workerId
       }
       axios.post(`${process.env.REACT_APP_URL}/getUserById`, body)
         .then(response => {
+          setLoading(false)
           const fetchedWorker = response.data;
           if (fetchedWorker && fetchedWorker.fullName) {
             setWorkersArr(prevWorkers => [...prevWorkers, fetchedWorker]);
           }
         })
         .catch(error => {
+          setLoading(false)
           console.error(error);
         });
     });
-  }, [workers]);
+  }, []);
 
   const seeMessage = (data) => {
     Swal.fire({
@@ -80,11 +87,20 @@ const WorkersCurrentWeek = (props) => {
     return dateTime 
   }
   
-  return <div className={styles.workers_showList}>
-  {
-    getHtml()
-  }
-  </div>
+  return <React.Fragment>
+  {loading ? 
+    (
+      <div className={styles['three-body']}>
+          <div className={styles['three-body__dot']}></div>
+          <div className={styles['three-body__dot']}></div>
+          <div className={styles['three-body__dot']}></div>
+      </div>
+    ) : (
+      <div className={styles.workers_showList}>
+          {getHtml()}
+      </div>
+  )}
+</React.Fragment>
   
 }
 
