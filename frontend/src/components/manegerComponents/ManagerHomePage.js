@@ -91,7 +91,6 @@ const ManagerHomePage = () => {
                 <div className={styles.nav_buttons}>
                     <Link to="/"><button className={styles.signout} onClick={signout}><BiLogOut></BiLogOut></button></Link>
                     <Link to="/managerSettings"><button className={styles.user_settings}><BiUserCircle></BiUserCircle></button></Link>
-                    {/* <Link to="/userManagment"><button className={styles.user_managment_btn}>עובדים</button></Link> */}
                 </div>
 
                 <h1 className={styles.h1}>שלום {fullname}</h1>
