@@ -29,9 +29,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({extended: false}));
 var allowedDomains = process.env.ALLOWED_DOMAINS.split(",").map((domain) => domain.trim());
 
-console.log("Allowed Domains:", allowedDomains);
-app.use(cors(
-    {
+const corsOptions = {
     origin: function (origin, callback) {
         if (!origin) return callback(null, true);
         if (!allowedDomains.includes(origin)) {
@@ -41,8 +39,9 @@ app.use(cors(
         return callback(null, true);
       }
     }
-));
-
+console.log("Allowed Domains:", allowedDomains);
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions))
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
