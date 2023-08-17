@@ -9,32 +9,31 @@ const apiKey = process.env.GPT_API_TOKEN;
 
 gptRouter.use(bodyParser.json());
 
+const axiosInstance = axios.create({
+  baseURL: 'https://api.openai.com/v1',
+  headers: {
+    'Authorization': `Bearer ${apiKey}`,
+    'Content-Type': 'application/json',
+  },
+});
+
 gptRouter.post('/sendMessege', async (req, res) => {
   const { messages } = req.body;
 
-  const options = {
-    method: 'POST',
-    url: chatGptApiUrl,
-    headers: {
-      'Authorization': `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-    },
-    data: {
+  try {
+    const response = await axiosInstance.post('/chat/completions', {
       model: "gpt-3.5-turbo",
       messages: messages,
-    }
-  };
+    });
 
-  try {
-    const response = await axios(options);
-    const data = response.data;
-    const answerResponse = data.choices[0].message.content;
+    const answerResponse = response.data.choices[0].message.content;
     res.json(answerResponse);
-
   } catch (error) {
     console.error("Error communicating with GPT API:", error);
     res.status(500).json({ error: "An error occurred while processing the request." });
   }
 });
+
+
 
 module.exports = gptRouter;
