@@ -50,4 +50,8 @@ If you have any questions or inquiries, feel free to contact Eyal porat at eyal1
 
 <img width="784" alt="Screenshot 2023-08-16 201607" src="https://github.com/PoratEyal/Shift-Planner/assets/134833213/7b8de167-1007-4197-b62f-54cf22bc2e89">
 
-https://github.com/PoratEyal/Shift-Planner/assets/134833213/f1a5ca2a-1f93-44ed-843e-762ccc6053be
+
+
+https://github.com/PoratEyal/Shift-Planner/assets/134833213/73761eb7-3f1a-4e6b-932a-605127f4a98f
+
+
