@@ -37,6 +37,8 @@
   border:none;
   margin-left: 10px;
   margin-top: 6px;
+  width: 55vw;
+  max-width: 30px;
 }
 
 /* ... your existing styles ... */
