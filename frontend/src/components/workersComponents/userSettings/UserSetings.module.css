@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
     height: 55px;
-    background-color: #34a0ffe4;
+    background-color: #34a0ff;
     top: 0;
     left: 0;
     width: 100%;
@@ -48,7 +48,7 @@
 .h2{
     margin-top: -20px;
     font-size: 1.5em;
-    color: #34a0ffe4;
+    color: #34a0ff;
 }
 
 .input{
@@ -88,7 +88,7 @@
     border: none;
     gap: 0.75rem;
     color: white;
-    background-color: #34a0ffe4;
+    background-color: #34a0ff;
     cursor: pointer;
     transition: all .6s ease;
     width: 88%;

@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     height: 60px;
-    background-color: #34a0ffe4;
+    background-color: #34a0ff;
     top: 0;
     left: 0;
     width: 100%;
@@ -80,7 +80,7 @@ ul.navbar li button {
     position: fixed;
     bottom: 15px;
     right: 15px;
-    background-color: #34a0ffe4;
+    background-color: #34a0ff;
     color: white;
     border: none;
     border: 1.5px solid white;
@@ -154,7 +154,7 @@ ul.navbar li button {
 
 .h2{
     margin-top: 0px;
-    color: #34a0ffe4;
+    color: #34a0ff;
 }
 
 .label_fullname{
@@ -227,7 +227,7 @@ ul.navbar li button {
     border: none;
     gap: 0.75rem;
     color: white;
-    background: #34a0ffe4;
+    background: #34a0ff;
     cursor: pointer;
     transition: all .6s ease;
     width: 270px;

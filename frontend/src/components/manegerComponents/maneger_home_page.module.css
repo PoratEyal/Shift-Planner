@@ -23,12 +23,11 @@
 }
 
 .h1{
-  color: rgb(0, 0, 0);
+  color: rgb(96, 96, 96);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   margin-right: 15px;
   margin-bottom: 15px;
   margin-top: 10px;
-  font-size: 30px;
   margin-right: 25px;
   margin-top: 30px;
   text-align: right;
@@ -37,7 +36,8 @@
   overflow: hidden;
   font-weight: 600;
   text-overflow: ellipsis;
-  max-width: 130px;
+  max-width: 160px;
+  font-size: 22px;
 }
 
 .user_managment_btn{
@@ -51,7 +51,6 @@
   margin-bottom: 5px;
   transition: 0.3s;
   padding: 2px;
-  /* border: 1px solid rgb(255, 255, 255); */
   border: none;
   border-right: 1.5px solid white;
   border-left: 1.5px solid white;
@@ -65,11 +64,11 @@
 }
 
 .signout{
-  font-size: 30px;
+  font-size: 25px;
   background-color: #33289100;
   border: none;
   margin-top: 3px;
-  color: #2977bc;
+  color: rgb(96, 96, 96);
   margin:0;
   padding: 0;
 }
@@ -78,11 +77,11 @@
 }
 
 .user_settings{
-  font-size: 30px;
+  font-size: 25px;
   background-color: #33289100;
   border: none;
   margin-top: 3px;
-  color: #2977bc;
+  color: rgb(96, 96, 96);
   margin-right: 5px;
   margin:0;
   padding: 0;
@@ -97,7 +96,7 @@
     align-items: center;
     justify-content: center;
     width: auto;
-    margin-top: -40px;
+    margin-top: -30px;
 }
 
 .btn{
@@ -134,7 +133,7 @@
 }
 
 .icon_div{
-  background-color: #34a0ffe4;
+  background-color: #34a0ff;
   padding: 15px;
   border-radius: 20px;
 }
