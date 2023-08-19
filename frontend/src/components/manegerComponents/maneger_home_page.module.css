@@ -37,6 +37,7 @@
   border:none;
   margin-top: 6px;
   margin-left: 0px;
+  -webkit-appearance: none;
 }
 
 .nav_btn_div{
@@ -47,6 +48,7 @@
   justify-content: space-evenly;
   width: 25vw;
   max-width: 100px;
+  -webkit-appearance: none;
 }
 
 .spacer {
