@@ -36,16 +36,14 @@
   background-color: #41379600;
   border:none;
   margin-top: 6px;
-  margin-left: 5px;
 }
 
 .nav_btn_div{
-  margin-left: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  width: 15vw;
+  width: 25vw;
   max-width: 100px;
 }
 
