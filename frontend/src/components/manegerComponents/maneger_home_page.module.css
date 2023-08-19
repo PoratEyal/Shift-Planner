@@ -35,10 +35,9 @@
   color: white;
   background-color: #41379600;
   border:none;
-  margin-left: 10px;
   margin-top: 6px;
-  width: 55vw;
-  max-width: 30px;
+  max-width: 20px;
+  margin-left: 15px;
 }
 
 /* ... your existing styles ... */
