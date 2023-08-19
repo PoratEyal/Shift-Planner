@@ -37,7 +37,16 @@
   border:none;
   margin-top: 6px;
   margin-left: 5px;
-  max-width: 40vw;
+}
+
+.nav_btn_div{
+  margin-left: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 15vw;
+  max-width: 100px;
 }
 
 .spacer {
