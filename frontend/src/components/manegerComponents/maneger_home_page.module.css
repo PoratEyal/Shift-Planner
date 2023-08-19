@@ -29,6 +29,10 @@
   max-width: 150px;
 }
 
+.nav_btn_div{
+  margin-left: 10px;
+}
+
 .nav_container button{
   cursor: pointer;
   font-size: 25px;
@@ -36,8 +40,7 @@
   background-color: #41379600;
   border:none;
   margin-top: 6px;
-  max-width: 20px;
-  margin-left: 15px;
+  max-width: 80vw;
 }
 
 /* ... your existing styles ... */
