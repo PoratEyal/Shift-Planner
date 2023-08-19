@@ -52,11 +52,11 @@
 
 .i1{
   width: 45px;
-  border:2px solid red;
+  border:2px solid rgb(204, 0, 255);
 }
 .i2{
   width: 45px;
-  border:2px solid rgb(255, 255, 0);
+  border:2px solid rgb(0, 255, 106);
 }
 
 .spacer {
