@@ -93,8 +93,8 @@ const ManagerHomePage = () => {
                 <div className={styles.spacer}></div>
 
                 <div className={styles.nav_btn_div}>
-                    <Link to="/managerSettings"><button><BiUserCircle></BiUserCircle></button></Link>
-                    <Link to="/"><button onClick={signout}><BiLogOut></BiLogOut></button></Link>   
+                    <Link className={styles.i1} to="/managerSettings"><button><BiUserCircle></BiUserCircle></button></Link>
+                    <Link className={styles.i2} to="/"><button onClick={signout}><BiLogOut></BiLogOut></button></Link>   
                 </div>
             </div>
 
