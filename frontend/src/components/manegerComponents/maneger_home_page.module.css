@@ -45,16 +45,17 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 25vw;
   max-width: 100px;
   -webkit-appearance: none;
   border: 1px solid black;
 }
 
 .i1{
+  width: 45px;
   border:2px solid red;
 }
 .i2{
+  width: 45px;
   border:2px solid rgb(255, 255, 0);
 }
 
