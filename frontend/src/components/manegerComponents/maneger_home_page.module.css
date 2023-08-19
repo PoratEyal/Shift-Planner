@@ -29,10 +29,6 @@
   max-width: 150px;
 }
 
-.nav_btn_div{
-  margin-left: 10px;
-}
-
 .nav_container button{
   cursor: pointer;
   font-size: 25px;
@@ -40,12 +36,11 @@
   background-color: #41379600;
   border:none;
   margin-top: 6px;
+  margin-left: 4px;
 }
 
-/* ... your existing styles ... */
-
 .spacer {
-  flex-grow: 1; /* This will make the spacer take up the available space */
+  flex-grow: 1;
 }
 
 
