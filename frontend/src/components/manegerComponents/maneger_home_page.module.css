@@ -36,7 +36,11 @@
   background-color: #41379600;
   border:none;
   margin-top: 6px;
-  margin-left: 4px;
+  margin-left: 0px;
+}
+
+.btn_nav{
+  margin: 0px;
 }
 
 .spacer {
