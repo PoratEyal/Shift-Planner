@@ -7,8 +7,8 @@
   height: 55px;
   width: 100vw;
   margin-bottom: 60px;
-  background-color: #2977bc;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 14px;
+  /* background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 14px; */
 }
 
 .nav_buttons{
@@ -18,15 +18,19 @@
   justify-content: space-evenly;
   width: 28vw;
   max-width: 150px;
+  margin-top: 25px;
+  margin-left: 8px;
 }
 
 .h1{
-  color: white;
+  color: rgb(0, 0, 0);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   margin-right: 15px;
   margin-bottom: 15px;
   margin-top: 10px;
-  font-size: 20px;
+  font-size: 30px;
+  margin-right: 25px;
+  margin-top: 30px;
   text-align: right;
   direction: rtl;
   white-space: nowrap;
@@ -43,7 +47,7 @@
   background-color: #150d5a00;
   transition: 0.3s;
   font-weight: 500;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   margin-bottom: 5px;
   transition: 0.3s;
   padding: 2px;
@@ -61,11 +65,11 @@
 }
 
 .signout{
-  font-size: 25px;
+  font-size: 30px;
   background-color: #33289100;
   border: none;
   margin-top: 3px;
-  color: white;
+  color: #2977bc;
   margin:0;
   padding: 0;
 }
@@ -74,11 +78,11 @@
 }
 
 .user_settings{
-  font-size: 25px;
+  font-size: 30px;
   background-color: #33289100;
   border: none;
   margin-top: 3px;
-  color: white;
+  color: #2977bc;
   margin-right: 5px;
   margin:0;
   padding: 0;
@@ -93,7 +97,7 @@
     align-items: center;
     justify-content: center;
     width: auto;
-    margin-top: -20px;
+    margin-top: -40px;
 }
 
 .btn{
@@ -105,7 +109,7 @@
   font-size: 23px;
   padding: 25px;
   height: 110px;
-  background-color: #2977bc;
+  background-color: #ffffff;
   color: rgb(255, 255, 255);
   border: none;
   width: 350px;
@@ -122,10 +126,17 @@
 .text_div{
   margin-right: -5px;
   line-height: 1.5;
+  color: #2977bc;
 }
 
 .link{
   text-decoration: none;
+}
+
+.icon_div{
+  background-color: #34a0ffe4;
+  padding: 15px;
+  border-radius: 20px;
 }
 
 .icon{
@@ -133,11 +144,13 @@
   rotate: -20deg;
   margin-top: -10px;
   margin-bottom: -10px;
+  color: #ffffff;
 }
 .icon3{
   font-size: 45px;
   margin-top: -10px;
   margin-bottom: -10px;
+  color: #ffffff;
 }
 
 

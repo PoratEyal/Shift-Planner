@@ -66,7 +66,7 @@ const UserDay = (props) => {
                     </div>
                 ) : (
                 dayShifts?.length === 0 ? (
-                    <div className={styles.no_shifts_message}>אין משמרות לאותו היום</div>
+                    <div className={styles.no_shifts_message}>אין משמרות ליום זה</div>
                 ) : (    
                 dayShifts.map((shift) => {return shift ? <UserShift 
                     managerId={props.managerId}

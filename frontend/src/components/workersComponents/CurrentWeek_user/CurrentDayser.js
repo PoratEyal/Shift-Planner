@@ -14,7 +14,7 @@ const CurrentDayUser = (props) => {
         <h2 className={styles.h2}>{day.name} - {moment(day.date).format('DD.MM')}</h2>
 
         {day.shifts?.length === 0 ? (
-          <div className={styles.no_shifts_message}>אין משמרות לאותו היום</div>
+          <div className={styles.no_shifts_message}>אין משמרות ליום זה</div>
         ) : (
           day.shifts.map((shift) => (
             <Shift managerId={props.managerId} key={shift._id} shift={shift}></Shift>

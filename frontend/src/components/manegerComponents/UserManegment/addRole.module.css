@@ -40,7 +40,7 @@
     border-radius: 0.5rem;
     border: none;
     color: rgb(255, 255, 255);
-    background: #2977bc;
+    background: #34a0ffe4;
     cursor: pointer;
     transition: all .6s ease;
     width: 280px;
@@ -92,7 +92,7 @@ transform: scale(1.02);
     position: fixed;
     bottom: 15px;
     right: 15px;
-    background-color: #2977bc;
+    background-color: #ffffffe4;
     color: white;
     border: none;
     border: 1.5px solid white;

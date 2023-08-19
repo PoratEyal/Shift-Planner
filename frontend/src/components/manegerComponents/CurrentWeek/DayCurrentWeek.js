@@ -63,7 +63,7 @@ const DayCurrentWeek = (props) => {
                     </div>
                 ) : (
                     (dayShifts?.length ?? 0) === 0 ? (
-                        <div className={styles.no_shifts_messge}>אין משמרות לאותו היום</div>
+                        <div className={styles.no_shifts_messge}>אין משמרות ליום זה</div>
                       ) : (
                         dayShifts.map((shift) => (
                           shift ? (
