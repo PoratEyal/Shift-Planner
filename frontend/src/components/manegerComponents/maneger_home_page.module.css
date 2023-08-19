@@ -47,16 +47,14 @@
   justify-content: center;
   max-width: 100px;
   -webkit-appearance: none;
-  border: 1px solid black;
+  margin-left: 7px;
 }
 
 .i1{
   width: 45px;
-  border:2px solid rgb(204, 0, 255);
 }
 .i2{
   width: 45px;
-  border:2px solid rgb(0, 255, 106);
 }
 
 .spacer {
