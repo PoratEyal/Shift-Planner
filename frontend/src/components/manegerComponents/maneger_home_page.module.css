@@ -31,6 +31,7 @@
 
 .nav_btn_div{
   margin-left: 10px;
+  max-width: 20vw;
 }
 
 .nav_container button{
@@ -40,7 +41,6 @@
   background-color: #41379600;
   border:none;
   margin-top: 6px;
-  max-width: 80vw;
 }
 
 /* ... your existing styles ... */
