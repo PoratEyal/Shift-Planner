@@ -113,8 +113,6 @@
 }
 
 .icon_div{
-  background-color: #34a0ff;
-  padding: 15px;
   border-radius: 20px;
 }
 
@@ -123,13 +121,13 @@
   rotate: -20deg;
   margin-top: -10px;
   margin-bottom: -10px;
-  color: #ffffff;
+  color: #34a0ff;
 }
 .icon3{
   font-size: 45px;
   margin-top: -10px;
   margin-bottom: -10px;
-  color: #ffffff;
+  color: #34a0ff;
 }
 
 
