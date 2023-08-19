@@ -1,94 +1,52 @@
-.upperContainer{
-  box-sizing: border-box;
+.nav_container{
+  height: 60px;
+  background-color: #34a0ff;
+  top: 0;
+  left: 0;
+  width: 100%;
+  position:fixed;
+  z-index: 999;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
+  font-size: 25px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-weight: 600;
+  direction: rtl;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 55px;
-  width: 100vw;
-  margin-bottom: 60px;
-  /* background-color: #ffffff;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 14px; */
 }
 
-.nav_buttons{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 28vw;
-  max-width: 150px;
-  margin-top: 25px;
-  margin-left: 8px;
-}
-
-.h1{
-  color: rgb(96, 96, 96);
+.name{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 24px;
   margin-right: 15px;
-  margin-bottom: 15px;
-  margin-top: 10px;
-  margin-right: 25px;
-  margin-top: 30px;
-  text-align: right;
-  direction: rtl;
+  max-width: 150px;
   white-space: nowrap;
   overflow: hidden;
-  font-weight: 600;
   text-overflow: ellipsis;
-  max-width: 160px;
-  font-size: 22px;
+  max-width: 150px;
 }
 
-.user_managment_btn{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 16px;
-  width: 70px;
-  background-color: #150d5a00;
-  transition: 0.3s;
-  font-weight: 500;
-  color: rgb(0, 0, 0);
-  margin-bottom: 5px;
-  transition: 0.3s;
-  padding: 2px;
-  border: none;
-  border-right: 1.5px solid white;
-  border-left: 1.5px solid white;
-  margin:0;
-  padding: 0;
-  margin-bottom: 5px;
-}
-.user_managment_btn:hover{
+.nav_container button{
   cursor: pointer;
-  transform: scale(1.02);
-}
-
-.signout{
   font-size: 25px;
-  background-color: #33289100;
-  border: none;
-  margin-top: 3px;
-  color: rgb(96, 96, 96);
-  margin:0;
-  padding: 0;
-}
-.signout:hover{
-  cursor: pointer;
+  color: white;
+  background-color: #41379600;
+  border:none;
+  margin-left: 10px;
+  margin-top: 6px;
 }
 
-.user_settings{
-  font-size: 25px;
-  background-color: #33289100;
-  border: none;
-  margin-top: 3px;
-  color: rgb(96, 96, 96);
-  margin-right: 5px;
-  margin:0;
-  padding: 0;
+/* ... your existing styles ... */
+
+.spacer {
+  flex-grow: 1; /* This will make the spacer take up the available space */
 }
-.user_settings:hover{
-  cursor: pointer;
-}
+
+
+
 
 .container{
     display: flex;
@@ -96,7 +54,7 @@
     align-items: center;
     justify-content: center;
     width: auto;
-    margin-top: -30px;
+    margin-top: 90px;
 }
 
 .btn{

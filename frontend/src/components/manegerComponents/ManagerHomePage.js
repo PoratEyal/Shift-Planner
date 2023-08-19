@@ -86,14 +86,16 @@ const ManagerHomePage = () => {
 
 
     return <ManagerContext.Provider value={{getUser}}>
-        <div className={styles.page_container}>
-            <div className={styles.upperContainer}>
-                <div className={styles.nav_buttons}>
-                    <Link to="/"><button className={styles.signout} onClick={signout}><BiLogOut></BiLogOut></button></Link>
-                    <Link to="/managerSettings"><button className={styles.user_settings}><BiUserCircle></BiUserCircle></button></Link>
-                </div>
 
-                <h1 className={styles.h1}>שלום {fullname}</h1>
+            <div className={styles.nav_container}>
+                <div className={styles.name}>שלום {fullname}</div>
+
+                <div className={styles.spacer}></div>
+
+                <div>
+                    <Link to="/managerSettings"><button><BiUserCircle></BiUserCircle></button></Link>
+                    <Link to="/"><button onClick={signout}><BiLogOut></BiLogOut></button></Link>   
+                </div>
             </div>
 
             <div className={styles.container}>
@@ -139,7 +141,7 @@ const ManagerHomePage = () => {
 
                 <Outlet />
             </div>
-        </div>
+
     </ManagerContext.Provider>
 }
 
