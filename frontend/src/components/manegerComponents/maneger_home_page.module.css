@@ -36,8 +36,6 @@
   background-color: #41379600;
   border:none;
   margin-top: 6px;
-  margin-left: 5px;
-  -webkit-appearance: none;
 }
 
 .nav_btn_div{
@@ -47,14 +45,24 @@
   justify-content: center;
   max-width: 100px;
   -webkit-appearance: none;
-  margin-left: 7px;
 }
 
 .i1{
   width: 45px;
+  border: 2px solid red;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
 }
 .i2{
   width: 45px;
+  border: 2px solid rgb(30, 255, 0);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .spacer {
