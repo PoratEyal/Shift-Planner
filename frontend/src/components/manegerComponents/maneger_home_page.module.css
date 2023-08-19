@@ -36,11 +36,8 @@
   background-color: #41379600;
   border:none;
   margin-top: 6px;
-  margin-left: 0px;
-}
-
-.btn_nav{
-  margin: 0px;
+  margin-left: 5px;
+  max-width: 40vw;
 }
 
 .spacer {
