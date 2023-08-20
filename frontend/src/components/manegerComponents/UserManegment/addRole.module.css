@@ -112,7 +112,7 @@ transform: scale(1.02);
 .three-body {
     --uib-size: 35px;
     --uib-speed: 0.8s;
-    --uib-color: #2977bc;
+    --uib-color: #34a0ff;
     position: relative;
     display: inline-block;
     height: var(--uib-size);

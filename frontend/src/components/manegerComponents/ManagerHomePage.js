@@ -62,7 +62,7 @@ const ManagerHomePage = () => {
             icon: 'warning',
             showCancelButton: true,
             cancelButtonText: 'ביטול',
-            confirmButtonColor: '#3085d6',
+            confirmButtonColor: '#34a0ff',
             cancelButtonColor: '#d33',
             confirmButtonText: 'אישור'
           }).then((result) => {
@@ -77,7 +77,7 @@ const ManagerHomePage = () => {
         if (!loading && !weekVisible) {
           event.preventDefault();
           Swal.fire({
-            title: 'כאשר יפורסמו המשמרות תוכלו להכנס לעמוד: שיבוץ עובדים',
+            title: 'שיבוץ עובדים אפשרי רק לאחר יצירת ופרסום המשמרות',
             icon: 'warning',
             confirmButtonColor: '#2977bc'
           });
@@ -102,7 +102,7 @@ const ManagerHomePage = () => {
                 <Link className={styles.link} to="/SeeCurrentWeekShifts">
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
-                            {<AiOutlineSchedule className={styles.icon}></AiOutlineSchedule>} 
+                            {<AiOutlineSchedule className={styles.icon1}></AiOutlineSchedule>} 
                         </div>
                         <div className={styles.text_div}>
                             צפיה בסידור עבודה<br></br>לשבוע הנוכחי  
@@ -113,7 +113,7 @@ const ManagerHomePage = () => {
                 <Link className={styles.link} to="/createNewWeek">
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
-                            {<IoIosCreate className={styles.icon}></IoIosCreate>}
+                            {<IoIosCreate className={styles.icon2}></IoIosCreate>}
                         </div>
                         <div className={styles.text_div}>
                             יצירת משמרות<br></br>לשבוע הבא
@@ -133,7 +133,7 @@ const ManagerHomePage = () => {
                 <Link className={styles.link} to="/userManagment">
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
-                        {<MdManageAccounts className={styles.icon3}></MdManageAccounts>}
+                        {<MdManageAccounts className={styles.icon4}></MdManageAccounts>}
                         </div>
                         <div className={styles.text_div}>ניהול עובדים</div>
                     </button>

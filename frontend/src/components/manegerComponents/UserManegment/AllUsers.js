@@ -49,7 +49,7 @@ const AllUsers = (props) => {
         icon: 'warning',
         showCancelButton: true,
         cancelButtonText: 'ביטול',
-        confirmButtonColor: '#2977bc',
+        confirmButtonColor: '#34a0ff',
         cancelButtonColor: '#d33',
         confirmButtonText: 'אישור'
       }).then(async (result) => {
@@ -57,7 +57,7 @@ const AllUsers = (props) => {
           Swal.fire({
             title: 'המשתמש נמחק',
             icon: 'success',
-            confirmButtonColor: '#2977bc',
+            confirmButtonColor: '#34a0ff',
             confirmButtonText: 'סגירה'
           }
           );
