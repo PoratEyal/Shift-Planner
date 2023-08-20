@@ -32,21 +32,14 @@ const CurrentWeek = () => {
             const response = await axios.post(`${process.env.REACT_APP_URL}/getMyWorkers`, body);
             setWorkers(response.data.map(item => item._id))
 
-            setPromentToAi(
-                `this is the data of the week: ${JSON.stringify(week)},
-                please note the schema of the json i provided and respond only with valid json for a week object like the one i provided with all the fields,
-                with opening and closing curly brackets for all the week object!
-                make sure you close all types of brackets! make sure you put commas and colons in the right places! so your response is a valid json.
-                make sure you put double quotation mark only on the keys and values and not! on commas and brackets!
-                make sure you close all double quotation marks!! dont change the fields: "name" and "ofManager"!!
-                this is the _id's of the users: ${JSON.stringify(workers)},
-                return to me a full json (with a colon after each key field and a comma after each value) of that week and act like you are the manager and you add 
-                some users _ids into the workers field (Try to distribute the number of shifts to each worker equally - 
-                every user id need to work 2-4 shifts in the week)
-                to all the shifts and the days(do not add to availableWorkers anything!).
-                the count of the workers need to be the same to all the shifts.
-                Each shift must have workers!
-                if there are id's in availableWorkers field - move them to the workers field. create the json with colons (':') after the fields. make sure that the week you give me back is a valid json parsable string same as the first json schema i provided`)
+            setPromentToAi(`this is the data of all the week: ${JSON.stringify(week)}
+            return me json with all the shiftsId, workers and availableWorkers fields.
+            example to how your answer should look:
+            {
+            "_id": "64d3cc771ce2939b807b580e",
+            "workers": ["64d3711266fe63ec056e1dcf", "64d1244e08461078630d9a87"] ,
+            "availableWorkers ":[]
+            },`)
 
           } catch (error) {
               console.error(error);
@@ -153,14 +146,13 @@ const CurrentWeek = () => {
         });
     }    
 
-    // send a prompt to the gpt api and return new week json
-    // take the json and put it as the new nextWeek data
+    // send a prompt to the gpt api and return worker
     // refresh the page
     const sendMessage = async () => {
         setLoadingAi(true)
         try {
           const response = await axios.post(
-            `${process.env.REACT_APP_URL}/sendMessege`,
+            `${process.env.REACT_APP_URL}/sendMessegeAPI`,
             {
               messages: [
                 { role: 'system', content: 'You are a helpful assistant.' },
@@ -168,36 +160,24 @@ const CurrentWeek = () => {
               ],
             }
           );
-          console.log(response.data);
-          //const startIndex = response.data.indexOf('{'); // Find the first '{'
-          //const endIndex = response.data.lastIndexOf('}'); // Find the last '}'  
-          //const extractedJson = response.data.substring(startIndex, endIndex + 1);
-          
-          let jsonData = null;
-          try {
-            jsonData = response.data;
-
-            try {
-                const body={
-                    managerId: managerId,
-                    data: jsonData
-                }
-                await axios.post(`${process.env.REACT_APP_URL}/updateNextWeek`, body);
-                setLoadingAi(false);
-                usedAiToTrue();
-                window.location.reload();
-                
-              } catch (error) {
-                setLoadingAi(false);
-                console.error('Error updated the week:', error);
-                errorAlertToAI();
-              }
-            
-          } catch (error) {
-            setLoadingAi(false);
-            console.error('Error parsing JSON:', error);
-            errorAlertToAI();
-          }
+          const response2 = await axios.post(
+            `${process.env.REACT_APP_URL}/sendMessegeAPI`,
+            {
+              messages: [
+                { role: 'system', content: 'You are a helpful assistant.' },
+                { role: 'user',
+                content: 
+                `this is all my workers ids: ${JSON.stringify(workers)}.
+                convert this data to json: ${response.data} and return me the same json but add 2-4 users ids into the workers field (distribute the number of shifts to each worker equally - every user id need to be in  2-4 times in all the json)
+                • Each shift must have workers!
+                • if there are id's in availableWorkers field - move them to the workers field.`},
+              ],
+            }
+          );
+        console.log(response2.data)
+        setLoadingAi(false);
+        // usedAiToTrue();
+        // window.location.reload();
           
         } catch (error) {
             setLoadingAi(false);
