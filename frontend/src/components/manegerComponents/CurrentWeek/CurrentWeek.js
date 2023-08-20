@@ -169,13 +169,39 @@ const CurrentWeek = () => {
                 content: 
                 `this is all my workers ids: ${JSON.stringify(workers)}.
                 convert this data to json: ${response.data} and return me the same json but add 2-4 users ids into the workers field (distribute the number of shifts to each worker equally - every user id need to be in  2-4 times in all the json)
-                • Each shift must have workers!
-                • if there are id's in availableWorkers field - move them to the workers field.`},
+                • Each workers field must have workers users ids!
+                • if there are id's in availableWorkers field - move them to the workers field.
+                example to how should it need to look:
+                {
+                    "_id": "64e1f80aead63b98fcf6fd09",
+                    "workers": ["64d3711266fe63ec056e1dcf", "64d3711266fe63ec056e1dcf", "64c28e5141f94a3645456d0b", "64c92ddd32b91ea0d376454e"],
+                    "availableWorkers": []
+                },
+                {
+                    "_id": "64e1f80cead63b98fcf6fd16",
+                    "workers": ["64d23ec5d0a241d7241d4959", "64d23ec5d0a241d7241d4959", "64d1244e08461078630d9a87", "64c92ddd32b91ea0d376454e"],
+                    "availableWorkers": []
+                }`},
               ],
             }
           );
         console.log(response2.data)
         setLoadingAi(false);
+
+        const responseText = response2.data;
+
+        // Find the index where the actual JSON starts
+        const jsonStartIndex = responseText.indexOf("{");
+
+        // Extract the JSON portion from the response text
+        var jsonString = responseText.substring(jsonStartIndex);
+
+        try {
+            var jsonData = JSON.parse(jsonString);
+            console.log(jsonData);
+        } catch (error) {
+            console.error("Error parsing JSON:", error);
+        }
         // usedAiToTrue();
         // window.location.reload();
           
