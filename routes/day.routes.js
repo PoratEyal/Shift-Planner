@@ -28,6 +28,16 @@ dayRouter.put('/addShiftToDay', (req, res) => {
         });
 });
 
+dayRouter.put('/updateShiftsOfWeek', (req,res)=> {
+    const weekId = req.body.weekId;
+    const shifts = req.body.object.shifts
+    console.log("week id: " +weekId);
+    console.log(shifts);
+    shifts.map(shift => {
+        //Week.findByIdAndUpdate({_id: weekId, })
+    })
+    res.status(200);
+})
 // working
 // get all the shifts from specific day - get dayId and managerId
 dayRouter.post('/getShiftsOfDay', (req, res) => {
