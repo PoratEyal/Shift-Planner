@@ -105,7 +105,7 @@
 .text_div{
   margin-right: -5px;
   line-height: 1.5;
-  color: #34a0ff;
+  color: #575757;
 }
 
 .link{
@@ -116,18 +116,31 @@
   border-radius: 20px;
 }
 
-.icon{
+.icon1{
   font-size: 45px;
   rotate: -20deg;
   margin-top: -10px;
   margin-bottom: -10px;
-  color: #34a0ff;
+  color: #089f42;
+}
+.icon2{
+  font-size: 45px;
+  rotate: -20deg;
+  margin-top: -10px;
+  margin-bottom: -10px;
+  color: #ffd47d;
 }
 .icon3{
   font-size: 45px;
   margin-top: -10px;
   margin-bottom: -10px;
-  color: #34a0ff;
+  color: #a666ff;
+}
+.icon4{
+  font-size: 45px;
+  margin-top: -10px;
+  margin-bottom: -10px;
+  color: #868686;
 }
 
 
