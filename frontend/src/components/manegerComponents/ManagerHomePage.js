@@ -77,7 +77,7 @@ const ManagerHomePage = () => {
         if (!loading && !weekVisible) {
           event.preventDefault();
           Swal.fire({
-            title: 'כאשר יפורסמו המשמרות תוכלו להכנס לעמוד: שיבוץ עובדים',
+            title: 'שיבוץ עובדים אפשרי רק לאחר יצירת ופרסום המשמרות',
             icon: 'warning',
             confirmButtonColor: '#2977bc'
           });

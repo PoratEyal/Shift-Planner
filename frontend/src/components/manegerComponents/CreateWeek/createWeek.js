@@ -84,11 +84,10 @@ const CreateWeek = () => {
             {!weekVisivble ? <div className={styles.publish_div_createWeek}>
                 <button onClick={publishWeek} className={styles.addShift_btn}>פרסם משמרות</button>
             </div> : 
-            
-             
             <div className={styles.published_div}>
-                <button visible='false'>השבוע פורסם</button>
+                <button visible='false'>המשמרות פורסמו</button>
             </div>}
+
             <div>
                 {
                     week ? week.day.map((day) => {
