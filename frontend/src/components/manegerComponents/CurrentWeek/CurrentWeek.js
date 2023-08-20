@@ -80,7 +80,7 @@ const CurrentWeek = () => {
             icon: 'warning',
             showCancelButton: true,
             cancelButtonText : 'ביטול',
-            confirmButtonColor: '#2977bc',
+            confirmButtonColor: '#34a0ff',
             cancelButtonColor: '#d33',
             confirmButtonText: 'פרסום'
           }).then((result) => {
@@ -88,7 +88,7 @@ const CurrentWeek = () => {
               Swal.fire({
                 title: 'השיבוצים פורסמו',
                 icon: 'success',
-                confirmButtonColor: '#2977bc',
+                confirmButtonColor: '#34a0ff',
                 confirmButtonText: 'סגירה'
             })
               editPublishSchedule()
@@ -129,7 +129,7 @@ const CurrentWeek = () => {
             title: 'המערכת נתקלה בשגיאה',
             text: 'אנא נסו שנית',
             icon: 'error',
-            confirmButtonColor: '#2977bc',
+            confirmButtonColor: '#34a0ff',
             confirmButtonText: 'אישור'
         });
     }
@@ -143,7 +143,7 @@ const CurrentWeek = () => {
             icon: 'info',
             showCancelButton: true,
             cancelButtonText: 'ביטול',
-            confirmButtonColor: '#2977bc',
+            confirmButtonColor: '#34a0ff',
             cancelButtonColor: '#d33',
             confirmButtonText: 'אישור'
         }).then((result) => {

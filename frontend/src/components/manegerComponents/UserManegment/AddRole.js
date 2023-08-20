@@ -16,7 +16,7 @@ const AddRole = (props) => {
       title: 'הוספת תפקיד',
       input: 'text',
       cancelButtonText: 'ביטול',
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#34a0ff',
       cancelButtonColor: '#d33',
       confirmButtonText: 'אישור',
       showCancelButton: true,
@@ -40,7 +40,7 @@ const AddRole = (props) => {
           .then(response => {
             Swal.fire({
               title: 'התפקיד נוסף בהצלחה',
-              confirmButtonColor: '#2977bc',
+              confirmButtonColor: '#34a0ff',
               confirmButtonText: 'סגירה',
               icon: 'success'
             });
@@ -84,7 +84,7 @@ const AddRole = (props) => {
       icon: 'warning',
       showCancelButton: true,
       cancelButtonText: 'ביטול',
-      confirmButtonColor: '#2977bc',
+      confirmButtonColor: '#34a0ff',
       cancelButtonColor: '#d33',
       confirmButtonText: 'אישור'
     }).then(async (result) => {
@@ -92,7 +92,7 @@ const AddRole = (props) => {
         Swal.fire({
           title: 'התפקיד נמחק',
           icon: 'success',
-          confirmButtonColor: '#2977bc',
+          confirmButtonColor: '#34a0ff',
           confirmButtonText: 'סגירה'
       });
         try {

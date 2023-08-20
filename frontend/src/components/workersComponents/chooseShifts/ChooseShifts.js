@@ -42,7 +42,7 @@ const ChooseShifts = () => {
                 input: 'text',
                 inputValue: message,
                 cancelButtonText: 'ביטול',
-                confirmButtonColor: '#3085d6',
+                confirmButtonColor: '#34a0ff',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'אישור',
                 showCancelButton: true,
@@ -71,7 +71,7 @@ const ChooseShifts = () => {
                     Swal.fire({
                         title: 'ההודעה נשלחה',
                         icon: 'success',
-                        confirmButtonColor: '#3085d6',
+                        confirmButtonColor: '#34a0ff',
                         confirmButtonText: 'סגירה'
                     });
                 } else {

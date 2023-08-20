@@ -58,7 +58,7 @@ const CreateWeek = () => {
             icon: 'warning',
             showCancelButton: true,
             cancelButtonText : 'ביטול',
-            confirmButtonColor: '#2977bc',
+            confirmButtonColor: '#34a0ff',
             cancelButtonColor: '#d33',
             confirmButtonText: 'פרסום'
           }).then((result) => {
