@@ -12,7 +12,7 @@
     justify-content: space-between;
     align-items: center;
     height: 55px;
-    background-color: #2977bc;
+    background-color: #34a0ff;
     top: 0;
     left: 0;
     width: 100%;
@@ -96,8 +96,9 @@
     margin: 10px;
 }
 
-.no_shifts_message{
-    margin-top: 5px;
+.no_shifts_messge{
+    color: rgb(111, 111, 111);
+    margin-top: 4px;
     font-size: 1.3em;
 }
 
@@ -125,7 +126,7 @@
     border-radius: 0.5rem;
     border: 1px solid rgba(0, 0, 0, 0.25);
     gap: 0.75rem;
-    background-color: #2977bc;
+    background-color: #34a0ff;
     color: white;
     cursor: pointer;
     transition: 0.3s;
@@ -203,7 +204,7 @@
     border: 1px solid rgba(0, 0, 0, 0.25);
     gap: 0.75rem;
     color: rgb(65, 63, 63);
-    background-color: #2977bc;
+    background-color: #34a0ff;
     color: white;
     cursor: pointer;
     transition: all .6s ease;
@@ -275,7 +276,7 @@
 .three-body {
     --uib-size: 35px;
     --uib-speed: 0.8s;
-    --uib-color: #2977bc;
+    --uib-color: #34a0ff;
     position: relative;
     display: inline-block;
     height: var(--uib-size);
@@ -451,7 +452,7 @@
     border: 1px solid rgba(0, 0, 0, 0.25);
     gap: 0.75rem;
     color: rgb(65, 63, 63);
-    background-color: #2977bc;
+    background-color: #34a0ff;
     color: white;
     cursor: pointer;
     transition: all .6s ease;
@@ -508,7 +509,7 @@
     border: 1px solid rgba(0, 0, 0, 0.25);
     gap: 0.75rem;
     color: rgb(255, 255, 255);
-    background-color: #2977bc;
+    background-color: #34a0ff;
     border: none;
     transition: all .6s ease;
     width: 300px;
@@ -581,7 +582,7 @@
     border: 1px solid rgba(0, 0, 0, 0.25);
     gap: 0.75rem;
     color: rgb(255, 255, 255);
-    background-color: #2977bc;
+    background-color: #34a0ff;
     border: none;
     transition: all .6s ease;
     width: 315px;

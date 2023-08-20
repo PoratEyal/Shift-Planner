@@ -8,7 +8,7 @@
     align-items: center;
     height: 55px;
     width: 100vw;
-    background-color: #2977bc;
+    background-color: #34a0ff;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 14px;
     z-index: 999;
   }
@@ -144,7 +144,8 @@
 }
 
 .no_shifts_message{
-    margin-top: 5px;
+    color: rgb(111, 111, 111);
+    margin-top: 4px;
     font-size: 1.3em;
 }
 

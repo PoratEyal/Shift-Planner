@@ -14,16 +14,16 @@ const apiKey = process.env.GPT_API_TOKEN;
   // const openai = new OpenAIApi(config);
 gptRouter.use(bodyParser.json());
 
+const axiosInstance = axios.create({
+  baseURL: 'https://api.openai.com/v1',
+  headers: {
+    'Authorization': `Bearer ${apiKey}`,
+    'Content-Type': 'application/json',
+  },
+});
+
 gptRouter.post('/sendMessege', async (req, res) => {
   const { messages } = req.body;
-  
-  // const completion = await openai.createCompletion({
-  //   model: "gpt-3.5-turbo",
-  //   prompt: messages,
-
-  //   stream: true
-
-  // })
 
   const options = {
     method: 'POST',
@@ -110,5 +110,7 @@ gptRouter.post('/sendMessege', async (req, res) => {
     res.status(500).json({ error: "An error occurred while processing the request." });
   }
 });
+
+
 
 module.exports = gptRouter;

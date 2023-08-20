@@ -65,7 +65,7 @@ const SeeDayCurrentWeek = (props) => {
                     </div>
                 ) : (
                     dayShifts?.length ?? 0) === 0 ? (
-                        <div className={styles.no_shifts_messge}>אין משמרות לאותו היום</div>
+                        <div className={styles.no_shifts_messge}>אין משמרות ליום זה </div>
                       ) : (
                     dayShifts.map((shift) => {return shift ? <ShiftCurrentWeek managerId={props.managerId} getShifts={updateShifts} shift={shift} dayId={day._id} key={shift._id} setDay={setDay}></ShiftCurrentWeek> : null }))
             }

@@ -1,5 +1,5 @@
 :root{
-    --main-color: #2977bc;
+    --main-color: #34a0ff;
 }
 
 .container{
@@ -375,6 +375,8 @@
 }
 
 .no_shifts_messge{
+    color: rgb(111, 111, 111);
+    margin-top: 4px;
     font-size: 1.3em;
 }
 
