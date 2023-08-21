@@ -28,13 +28,42 @@ dayRouter.put('/addShiftToDay', (req, res) => {
         });
 });
 
-dayRouter.put('/updateShiftsOfWeek', (req,res)=> {
+dayRouter.put('/updateShiftsOfWeek', async (req,res)=> {
     const weekId = req.body.weekId;
     const shifts = req.body.object.shifts
     console.log("week id: " +weekId);
-    console.log(shifts);
+    //console.log(shifts);
     shifts.map(shift => {
-        //Week.findByIdAndUpdate({_id: weekId, })
+        console.log(shift)
+        try{
+        const updatedWeek = Week.findOneAndUpdate({_id: weekId, 'day.shifts._id': mongoose.Types.ObjectId(shift._id)},
+        {
+            $set: {
+              'day.$[].shifts.$[shift].workers': shift.workers, // Replace with new worker IDs
+              'day.$[].shifts.$[shift].availableWorkers': [] // Replace with new available worker IDs
+            }
+          },
+          {
+            new: true, // Return the modified document
+            useFindAndModify: false, // Use findOneAndUpdate instead of deprecated findAndModify
+            arrayFilters:  [{ 'shift._id': mongoose.Types.ObjectId(shift._id)}]
+          }
+        ).then(res => {
+            if (!updatedWeek) {
+                console.log('Week or Shift not found');
+                return;
+              }
+              console.log(res);
+              console.log('Worker arrays modified successfully:', updatedWeek);
+        }).catch(err => {
+
+            console.log(err);
+        })
+        
+    }
+    catch{
+        res.status(404);
+    }
     })
     res.status(200);
 })
