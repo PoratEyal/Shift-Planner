@@ -184,16 +184,16 @@ const CurrentWeek = () => {
                 { role: 'user',
                 
                 content: 
-                `this is all my workers ids: ${JSON.stringify(workers)}.
+                `this is all the workers ids: ${JSON.stringify(workers)}.
                 data: ${response.data}.
-                return me this data as a json and add workers ids into all the workers arrays based on those roles:
-                • dont add the same worker id in to the same workers array.
-                • you must add to all the workers array at least 2 diffrent workers ids.
-                • Every worker ID should appear 2 to 4 times in the JSON.
-                • the count of the workers array need to be the same to all the workers arrays.
-                • if there are workers ids in availableWorkers array - move them to the workers array.
-                • double check that you added workers ids to all the workers arrays in the json.
-                example to how should the answer need to look:
+                return me this data as a json and add workers ids into all the workers arrays based on those rules:
+                • Dont add the same worker id into the same workers array.
+                • You must add to all the workers array at least 2 different workers ids.
+                • All workers IDs should appear in the final JSON.
+                • The count of the workers array needs to be the same to all the workers arrays.
+                • If there are workers ids in availableWorkers array, move them to the workers array.
+                • Make sure that you added workers ids to all the workers arrays in the json.
+                Example to how the answer should look like:
                 {
                     "shifts": [
                         {
