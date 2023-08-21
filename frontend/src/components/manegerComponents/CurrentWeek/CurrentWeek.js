@@ -189,6 +189,7 @@ const CurrentWeek = () => {
                 return me this data as a json and add workers ids into all the workers arrays based on those roles:
                 • dont add the same worker id in to the same workers array.
                 • you must add to all the workers array at least 2 diffrent workers ids.
+                • Every worker ID should appear 2 to 4 times in the JSON.
                 • the count of the workers array need to be the same to all the workers arrays.
                 • if there are workers ids in availableWorkers array - move them to the workers array.
                 • double check that you added workers ids to all the workers arrays in the json.
