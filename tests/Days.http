@@ -12,6 +12,13 @@ Content-Type: application/json
 
 
 ###
+PUT http://localhost:3001/app/updateShiftsOfWeek
+Content-Type: application/json 
+
+{
+    "weekId": "64e12d504c8766dd86034012",
+    "object":{"shifts":[{"_id":"64e1f808ead63b98fcf6fcfd","workers":[],"availableWorkers":[]},{"_id":"64e1f80aead63b98fcf6fd09","workers":["test"],"availableWorkers":[]},{"_id":"64e1f80cead63b98fcf6fd16","workers":[],"availableWorkers":[]},{"_id":"64e1f80dead63b98fcf6fd24","workers": [],"availableWorkers": []},{"_id":"64e1f80eead63b98fcf6fd33","workers":[],"availableWorkers":[]},{"_id":"64e1f810ead63b98fcf6fd43","workers":[],"availableWorkers":[]},{"_id":"64e1f811ead63b98fcf6fd54","workers":[],"availableWorkers":[]},{"_id":"64e1f812ead63b98fcf6fd67","workers":[],"availableWorkers":[]}]}}
+###
 GET http://localhost:3001/app/getDay/649b33527747ae58985fde2f
 Content-Type: application/json 
 
