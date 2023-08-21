@@ -28,51 +28,38 @@ dayRouter.put('/addShiftToDay', (req, res) => {
         });
 });
 
-dayRouter.put('/updateShiftsOfWeek', async (req,res)=> {
+dayRouter.put('/updateShiftsOfWeek', async (req, res) => {
     const weekId = req.body.weekId;
     const shifts = req.body.object.shifts
-    console.log("week id: " +weekId);
-    //console.log(shifts);
-    shifts.map(shift => {
-        console.log(shift)
-        try{
-        const updatedWeek = Week.findOneAndUpdate({_id: weekId, 'day.shifts._id': mongoose.Types.ObjectId(shift._id)},
-        {
-            $set: {
-              'day.$[].shifts.$[shift].workers': shift.workers, // Replace with new worker IDs
-              'day.$[].shifts.$[shift].availableWorkers': [] // Replace with new available worker IDs
+    shifts.map(async shift => {
+        await Week.findOneAndUpdate({ _id: weekId, 'day.shifts._id': shift._id },
+            {
+                $set: {
+                    'day.$[].shifts.$[shift].workers': shift.workers,
+                    'day.$[].shifts.$[shift].availableWorkers': []
+                }
+            },
+            {
+                new: true,
+                useFindAndModify: false,
+                arrayFilters: [{ 'shift._id': shift._id }]
             }
-          },
-          {
-            new: true, // Return the modified document
-            useFindAndModify: false, // Use findOneAndUpdate instead of deprecated findAndModify
-            arrayFilters:  [{ 'shift._id': mongoose.Types.ObjectId(shift._id)}]
-          }
         ).then(res => {
-            if (!updatedWeek) {
-                console.log('Week or Shift not found');
-                return;
-              }
-              console.log(res);
-              console.log('Worker arrays modified successfully:', updatedWeek);
+            console.log(res);
         }).catch(err => {
-
             console.log(err);
         })
-        
-    }
-    catch{
-        res.status(404);
-    }
     })
     res.status(200);
 })
+
+
 // working
 // get all the shifts from specific day - get dayId and managerId
 dayRouter.post('/getShiftsOfDay', (req, res) => {
     const managerId = req.body.managerId;
     const dayId = req.body.dayId;
-    Week.findOne({ "day._id": dayId, ofManager:managerId }, { "day.$": 1 })
+    Week.findOne({ "day._id": dayId, ofManager: managerId }, { "day.$": 1 })
         .then(response => {
             res.status(200).json(response.day[0].shifts);
         })
