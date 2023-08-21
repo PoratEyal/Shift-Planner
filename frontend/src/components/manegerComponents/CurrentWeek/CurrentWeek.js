@@ -170,6 +170,7 @@ const CurrentWeek = () => {
                 `this is all my workers ids: ${JSON.stringify(workers)}.
                 convert this data to json: ${response.data} and return me the same json but add 2-4 users ids into the workers field (distribute the number of shifts to each worker equally - every user id need to be in  2-4 times in all the json)
                 • Each workers field must have workers users ids!
+                • dont put the same user id in the same workers field.
                 • if there are id's in availableWorkers field - move them to the workers field.
                 example to how should it need to look:
                 {
