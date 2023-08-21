@@ -198,7 +198,7 @@ const CurrentWeek = () => {
         var jsonString = responseText.substring(jsonStartIndex);
 
         try {
-            console.log(week._id);
+            //console.log(week._id);
             var jsonData = JSON.parse(jsonString);
             axios.put(`${process.env.REACT_APP_URL}/updateShiftsOfWeek`, {
                 weekId: week._id,
