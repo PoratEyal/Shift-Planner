@@ -34,6 +34,7 @@ const CurrentWeek = () => {
 
             setPromentToAi(`this is the data of all the week: ${JSON.stringify(week)}
             return me json with all the shiftsId, workers and availableWorkers fields.
+            • double check that you find all the shiftsId in the data that i gave you.
             example to how your answer should look:
             {
                 "shifts": [
@@ -181,15 +182,16 @@ const CurrentWeek = () => {
               messages: [
                 { role: 'system', content: 'You are a helpful assistant.' },
                 { role: 'user',
+                
                 content: 
                 `this is all my workers ids: ${JSON.stringify(workers)}.
                 data: ${response.data}.
-                return me this data as a json but add workers ids into the workers array based on those roles:
-                    • every worker id need to be in 2-4 times in all the json.
-                    • in all the workers array need to be at least 2 workers ids.
-                    • the count of the workers array need to be the same.
-                    • dont put the same worker id in the same workers array.
-                    • if there are workers ids in availableWorkers array - move them to the workers array.
+                return me this data as a json and add workers ids into all the workers arrays based on those roles:
+                • dont add the same worker id in to the same workers array.
+                • you must add to all the workers array at least 2 diffrent workers ids.
+                • the count of the workers array need to be the same to all the workers arrays.
+                • if there are workers ids in availableWorkers array - move them to the workers array.
+                • double check that you added workers ids to all the workers arrays in the json.
                 example to how should the answer need to look:
                 {
                     "shifts": [
