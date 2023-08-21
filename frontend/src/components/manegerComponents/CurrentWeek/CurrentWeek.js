@@ -160,6 +160,7 @@ const CurrentWeek = () => {
               ],
             }
           );
+          console.log(promentToAi);
           const response2 = await axios.post(
             `${process.env.REACT_APP_URL}/sendMessegeAPI`,
             {
@@ -168,8 +169,8 @@ const CurrentWeek = () => {
                 { role: 'user',
                 content: 
                 `this is all my workers ids: ${JSON.stringify(workers)}.
-                convert this data to json: ${response.data} and return me the same json but add 2-4 users ids into the workers field (distribute the number of shifts to each worker equally - every user id need to be in  2-4 times in all the json)
-                • Each workers field must have workers users ids!
+                convert this data to json: ${response.data} and return me the same json but add users ids into the workers field (every user id need to be in 2-4 times in all the json)
+                • the count of the workers fields need to be the same
                 • dont put the same user id in the same workers field.
                 • if there are id's in availableWorkers field - move them to the workers field.
                 example to how should it need to look:
