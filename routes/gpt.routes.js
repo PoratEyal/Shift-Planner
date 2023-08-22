@@ -24,14 +24,17 @@ gptApiRouter.post('/sendMessegeAPI', async (req, res) => {
     data: {
       model: "gpt-3.5-turbo",
       messages: messages,
+      temperature: 1.5
     }
   };
 
   try {
     const response = await axios(options);
-    console.log(response.data);
+    
     const data = response.data;
     const answerResponse = data.choices[0].message.content;
+    
+    console.log(data.choices[0].message.content);
     res.json(answerResponse);
 
   } catch (error) {
