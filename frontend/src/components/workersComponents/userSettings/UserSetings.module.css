@@ -17,9 +17,20 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+@keyframes slideInFromRightName {
+    0% {
+        transform: translateX(500px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+  }
+}
 .nav_container p{
     margin-right: 18px;
     font-size: 22px;
+    animation: slideInFromRightName 1.7s ease-in-out;
 }
 .nav_container button{
     cursor: pointer;
@@ -31,6 +42,16 @@
     margin-top: 3px;
 }
 
+@keyframes slideInAndFade {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 .container{
     display: flex;
     flex-direction: column;
@@ -43,6 +64,7 @@
     background: rgb(255, 255, 255);
     border-radius: 12px;
     margin-top: 85px;
+    animation: slideInAndFade 0.5s ease-in-out;
 }
 
 .h2{

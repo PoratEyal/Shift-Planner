@@ -20,7 +20,7 @@
 
 @keyframes slideInFromRightName {
   0% {
-      transform: translateX(200px);
+      transform: translateX(160px);
       opacity: 1;
   }
   100% {
@@ -37,7 +37,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 180px;
-  animation: slideInFromRightName 1.5s ease-in-out;
+  animation: slideInFromRightName 1.2s ease-in-out;
 }
 
 .nav_container button{

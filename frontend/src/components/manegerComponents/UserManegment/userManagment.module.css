@@ -73,6 +73,16 @@ ul.navbar li button {
     cursor: pointer;
 }
 
+@keyframes downToUp {
+    0% {
+        transform: translateY(130px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+  }
+}
 .addUser_btn {
     width: 60px;
     height: 60px;
@@ -92,6 +102,7 @@ ul.navbar li button {
     justify-content: center;
     flex-direction: row;
     align-items: center;
+    animation: downToUp 1s ease-in-out;
 }
 .addUser_btn:hover{
     cursor: pointer;

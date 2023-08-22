@@ -46,7 +46,7 @@
 
 @keyframes slideInFromRightName {
     0% {
-        transform: translateX(500px);
+        transform: translateX(400px);
         opacity: 1;
     }
     100% {

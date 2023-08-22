@@ -84,6 +84,16 @@ transform: scale(1.02);
     cursor: pointer;
 }
 
+@keyframes downToUp {
+    0% {
+        transform: translateY(130px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+  }
+}
 .addUser_btn {
     width: 60px;
     height: 60px;
@@ -103,6 +113,7 @@ transform: scale(1.02);
     justify-content: center;
     flex-direction: row;
     align-items: center;
+    animation: downToUp 1s ease-in-out;
 }
 .addUser_btn:hover{
     cursor: pointer;
