@@ -11,9 +11,9 @@ gptApiRouter.use(bodyParser.json());
 
 gptApiRouter.post('/sendMessegeAPI', async (req, res) => {
               
-  const { messages } = req.body.messages;
-  const id = req.body.id;
-  console.log(`id: ${id} made a request `)
+  const { messages } = req.body;
+  //const id = req.body.id;
+  //console.log(`id: ${id} made a request `)
   const options = {
     method: 'POST',
     url: chatGptApiUrl,
@@ -29,7 +29,7 @@ gptApiRouter.post('/sendMessegeAPI', async (req, res) => {
 
   try {
     const response = await axios(options);
-    console.log(`got response for id: ${id}`);
+    console.log(`got response for id: `);
     const data = response.data;
     const answerResponse = data.choices[0].message.content;
     res.json(answerResponse);
