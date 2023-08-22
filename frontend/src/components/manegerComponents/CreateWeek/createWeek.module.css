@@ -57,7 +57,7 @@
 .nav_container p{
     font-size: 22px;
     margin-right: 18px;
-    animation: slideInFromRightName 1.3s ease-in-out;
+    animation: slideInFromRightName 1.7s ease-in-out;
 }
 .nav_container button{
     font-size: 25px;
