@@ -95,7 +95,8 @@
 .createShift_div{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
 }
 
 .addWroker_div{
@@ -359,7 +360,7 @@
     border: none;
     font-size: 18px;
     background-color: #25d36500;
-    margin-top: 8px;
+    margin-top: 9px;
 }
 .btn_delete:hover{
     cursor: pointer;
