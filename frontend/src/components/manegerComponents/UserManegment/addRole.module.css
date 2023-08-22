@@ -55,7 +55,7 @@ transform: scale(1.02);
     border: 1px solid rgba(0, 0, 0, 0.25);
     border: none;
     border-radius: 10px;
-    background-color: rgb(229, 233, 236);
+    background-color: rgba(231, 234, 238, 0.789);
     margin: 10px;
     margin-bottom: 3px;
     padding: 3px;
@@ -71,7 +71,7 @@ transform: scale(1.02);
     justify-content: center;
     align-items: center;
     background-color: rgba(205, 205, 205, 0);
-    color: rgb(0, 0, 0);
+    color: rgba(227, 86, 86, 0.989);
     border: none;
     border-radius: 5px;
     width: 40px;
@@ -81,7 +81,6 @@ transform: scale(1.02);
     transition: 0.3s;
 }
 .delete_btn:hover{
-    color: rgba(255, 0, 0, 0.684);
     cursor: pointer;
 }
 

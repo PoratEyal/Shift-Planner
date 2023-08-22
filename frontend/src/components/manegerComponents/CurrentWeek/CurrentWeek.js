@@ -34,11 +34,27 @@ const CurrentWeek = () => {
 
             setPromentToAi(`this is the data of all the week: ${JSON.stringify(week)}
             return me json with all the shiftsId, workers and availableWorkers fields.
+            • double check that you find all the shiftsId in the data that i gave you.
             example to how your answer should look:
             {
-            "_id": "64d3cc771ce2939b807b580e",
-            "workers": ["64d3711266fe63ec056e1dcf", "64d1244e08461078630d9a87"] ,
-            "availableWorkers ":[]
+                "shifts": [
+                    {
+                        "_id": "64e330568c240c5df3653937",
+                        "workers": ["64d23ec5d0a241d7241d4959", "64d1244e08461078630d9a87", "64c92ddd32b91ea0d376454e"],
+                        "availableWorkers": []
+                    },
+                    {
+                        "_id": "64e330578c240c5df3653943",
+                        "workers": ["64d3711266fe63ec056e1dcf", "64c28e5141f94a3645456d0b", "64c92ddd32b9454f0d376454e"],
+                        "availableWorkers": []
+                    },
+                    {
+                        "_id": "64e330588c240c5df3653951",
+                        "workers": ["64787445d0a241d7241d4959", "64d1244e08461078630g5670h", "64c92ddd32b91ea0d4577f"],
+                        "availableWorkers": []
+                    },
+                    .....
+                ]
             },`)
 
           } catch (error) {
@@ -132,7 +148,7 @@ const CurrentWeek = () => {
     const clickAi = () => {
         Swal.fire({
             text: 'האם לאפשר למערכת לשבץ את העובדים אוטומטית',
-            title: 'פעולה זו יכולה לקחת כדקה<br></br>ביצוע הפעולה מוגבל לפעם אחת בשבוע',
+            title: 'פעולה זו יכולה לקחת עד כחצי דקה<br></br>ביצוע הפעולה מוגבל לפעם אחת בשבוע',
             icon: 'info',
             showCancelButton: true,
             cancelButtonText: 'ביטול',
@@ -160,6 +176,7 @@ const CurrentWeek = () => {
               ],
             }
           );
+
           const response2 = await axios.post(
             `${process.env.REACT_APP_URL}/sendMessegeAPI`,
             {
@@ -167,40 +184,48 @@ const CurrentWeek = () => {
               messages: [
                 { role: 'system', content: 'You are a helpful assistant.' },
                 { role: 'user',
+                
                 content: 
                 `this is all my workers ids: ${JSON.stringify(workers)}.
-                convert this data to json: ${response.data} and return me the same json but add users ids into the workers field (every user id need to be in 2-4 times in all the json).
-                • in all the workers fields need to be at least 2 users ids.
-                • the count of the workers fields need to be the same.
-                • dont put the same user id in the same workers field.
-                • if there are id's in availableWorkers field - move them to the workers field.
-                example to how should it need to look:
+                data: ${response.data}.
+                return me this data as a json but add workers ids into the workers array based on those roles:
+                • Every worker ID should appear 2 to 4 times in the JSON.
+                • in all the workers array need to be at least 2 diffrent workers ids.
+                • Avoid repeating the same worker ID within the same workers array.
+                • the count of the workers array need to be the same.
+                • if there are workers ids in availableWorkers array - move them to the workers array.
+                example to how should the answer need to look:
                 {
-                    "_id": "64e1f80aead63b98fcf6fd09",
-                    "workers": ["64d3711266fe63ec056e1dcf", "64c28e5141f94a3645456d0b", "64c92ddd32b91ea0d376454e"],
-                    "availableWorkers": []
-                },
-                {
-                    "_id": "64e1f80cead63b98fcf6fd16",
-                    "workers": ["64d23ec5d0a241d7241d4959", "64d1244e08461078630d9a87", "64c92ddd32b91ea0d376454e"],
-                    "availableWorkers": []
+                    "shifts": [
+                        {
+                            "_id": "64e330568c240c5df3653937",
+                            "workers": ["64d23ec5d0a241d7241d4959", "64d1244e08461078630d9a87", "64c92ddd32b91ea0d376454e"],
+                            "availableWorkers": []
+                        },
+                        {
+                            "_id": "64e330578c240c5df3653943",
+                            "workers": ["64d3711266fe63ec056e1dcf", "64c28e5141f94a3645456d0b", "64c92ddd32b91ea0d376454e"],
+                            "availableWorkers": []
+                        },
+                        {
+                            "_id": "64e330588c240c5df3653951",
+                            "workers": ["64787445d0a241d7241d4959", "64d1244e08461078630g5670h", "64c92ddd32b91ea0d4577f"],
+                            "availableWorkers": []
+                        },
+                        .....
+                    ]
                 }`},
               ],
             }
           );
         setLoadingAi(false);
 
-        console.log(response.data)
-
         // Find the index where the actual JSON starts
-        const startIndex = response.data.indexOf('{'); // Find the first '{'
-        const endIndex = response.data.lastIndexOf('}'); // Find the last '}'  
-        const jsonString = response.data.substring(startIndex, endIndex + 1);
-
-        console.log(jsonString)
+        const startIndex = response2.data.indexOf('{'); // Find the first '{'
+        const endIndex = response2.data.lastIndexOf('}'); // Find the last '}'  
+        const jsonString = response2.data.substring(startIndex, endIndex + 1);
 
         try {
-            //console.log(week._id);
             var jsonData = JSON.parse(jsonString);
             axios.put(`${process.env.REACT_APP_URL}/updateShiftsOfWeek`, {
                 weekId: week._id,
@@ -208,12 +233,12 @@ const CurrentWeek = () => {
             }).then(res => {
                 console.log(res);
             })
-            console.log(jsonData);
         } catch (error) {
             console.error("Error parsing JSON:", error);
+            errorAlertToAI();
         }
         // usedAiToTrue();
-        //window.location.reload();
+        window.location.reload();
           
         } catch (error) {
             setLoadingAi(false);
