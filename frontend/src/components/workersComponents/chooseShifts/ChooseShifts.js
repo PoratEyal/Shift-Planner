@@ -92,26 +92,27 @@ const ChooseShifts = () => {
             :
             <p>בחירת משמרות לשבוע הבא</p>}
         </div>
-        
-        {
-            !mesageSent && !weekPublished ? (
-                <div className={styles.messege_to_manager} onClick={sendMessage}>
-                <p>שליחת הודעה למנהל</p>
-                </div>
-            ) : (
-                mesageSent ? (
-                <div className={styles.messege_sent}>
-                    <p>ההודעה נשלחה בהצלחה</p>
-                </div>
-                ) : null
-            )
-        }
-        
-        {weekPublished ? <div className={styles.messege}>
-            <p>השבוע פורסם, אלו המשמרות לשבוע הבא</p>   
-        </div>: null}
 
         <div style={{ marginTop: '70px' }} className={styles.container}>
+
+            {
+                !mesageSent && !weekPublished ? (
+                    <div className={styles.messege_to_manager} onClick={sendMessage}>
+                    <p>שליחת הודעה למנהל</p>
+                    </div>
+                ) : (
+                    mesageSent ? (
+                    <div className={styles.messege_sent}>
+                        <p>ההודעה נשלחה בהצלחה</p>
+                    </div>
+                    ) : null
+                )
+            }
+            
+            {weekPublished ? <div className={styles.messege}>
+                <p>השבוע פורסם, אלו המשמרות לשבוע הבא</p>   
+            </div>: null}
+
             {week && week.visible ? week.day.map((day) => {
                 return <UserDay managerId={managerId} weekPublished={weekPublished} day={day} key={day._id} getDays={getDays} />;
             }) : null}
