@@ -18,6 +18,17 @@
   align-items: center;
 }
 
+@keyframes slideInFromRightNmae {
+  0% {
+      transform: translateX(100%);
+      opacity: 1;
+  }
+  100% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
 .name{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 22px;
@@ -27,6 +38,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 180px;
+  animation: slideInFromRightNmae 2s ease-in-out;
 }
 
 .nav_container button{
@@ -68,7 +80,16 @@
 }
 
 
-
+@keyframes slideInFromRight {
+  0% {
+      transform: translateX(100%);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
 
 .container{
     display: flex;
@@ -96,6 +117,7 @@
   margin-bottom: 25px;
   border-radius: 25px;
   font-weight: 600;
+  animation: slideInFromRight 0.8s ease-in-out;
 }
 .btn:hover{
   cursor: pointer;
@@ -106,6 +128,7 @@
   margin-right: -5px;
   line-height: 1.5;
   color: #575757;
+  animation: slideInFromRight 0.7s ease-in-out;
 }
 
 .link{

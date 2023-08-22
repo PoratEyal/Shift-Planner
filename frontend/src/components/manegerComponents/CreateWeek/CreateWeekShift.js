@@ -37,7 +37,7 @@ const CreateWeekShift = (props) => {
           <button className={styles.btn_delete} onClick={deleteShift}>
             <RiDeleteBin6Line></RiDeleteBin6Line>
           </button>
-          <p style={{ marginLeft: '5px' }} className={styles.shift_description}>
+          <p style={{ marginLeft: '6px' }} className={styles.shift_description}>
             {shift.description} : {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
           </p>
         </div>
