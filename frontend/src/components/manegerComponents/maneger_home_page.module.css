@@ -78,18 +78,6 @@
   flex-grow: 1;
 }
 
-
-@keyframes slideInAndFade {
-  0% {
-      transform: translateX(0);
-      opacity: 0;
-  }
-  100% {
-      transform: translateX(0);
-      opacity: 1;
-  }
-}
-
 .container{
     display: flex;
     flex-direction: column;
@@ -116,7 +104,6 @@
   margin-bottom: 25px;
   border-radius: 25px;
   font-weight: 600;
-  animation: slideInAndFade 0.5s ease-in-out;
 }
 .btn:hover{
   cursor: pointer;
