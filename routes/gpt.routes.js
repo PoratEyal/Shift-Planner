@@ -29,7 +29,7 @@ gptApiRouter.post('/sendMessegeAPI', async (req, res) => {
 
   try {
     const response = await axios(options);
-    console.log(`got response for id: `);
+    console.log(response.data);
     const data = response.data;
     const answerResponse = data.choices[0].message.content;
     res.json(answerResponse);
