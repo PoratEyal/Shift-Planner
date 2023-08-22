@@ -79,10 +79,10 @@
 }
 
 
-@keyframes slideInFromRight {
+@keyframes slideInAndFade {
   0% {
-      transform: translateX(100%);
-      opacity: 1;
+      transform: translateX(0);
+      opacity: 0;
   }
   100% {
       transform: translateX(0);
@@ -116,7 +116,7 @@
   margin-bottom: 25px;
   border-radius: 25px;
   font-weight: 600;
-  animation: slideInFromRight 0.8s ease-in-out;
+  animation: slideInAndFade 0.5s ease-in-out;
 }
 .btn:hover{
   cursor: pointer;
