@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from './createWeek.module.css'
 import Swal from 'sweetalert2';
 import moment from "moment";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 const CreateWeekShift = (props) => {
 
@@ -32,12 +33,15 @@ const CreateWeekShift = (props) => {
     
     return (
       <div className={styles.shift}>
-          <p className={styles.shift_description}>
-              {shift.description}&nbsp;: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
-          </p>
+        <div className={styles.createShift_div}>
           <button className={styles.btn_delete} onClick={deleteShift}>
-              מחיקת משמרת
+            <RiDeleteBin6Line></RiDeleteBin6Line>
           </button>
+          <p style={{ marginLeft: '5px' }} className={styles.shift_description}>
+            {shift.description} : {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
+          </p>
+        </div>
+
       </div>
   );
   

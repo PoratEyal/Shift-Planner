@@ -2,7 +2,7 @@
     width: 280px;
     border: none;
     border-radius: 10px;
-    background-color: rgb(229, 233, 236);
+    background-color: rgba(231, 234, 238, 0.789);
     margin: 10px;
     display: flex;
     flex-direction: row;
@@ -16,7 +16,7 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(205, 205, 205, 0);
-    color: rgb(0, 0, 0);
+    color: rgba(227, 86, 86, 0.989);
     border: none;
     border-radius: 5px;
     width: 40px;
@@ -138,15 +138,4 @@
     }
    }
 
-
-/* @media only screen and (max-width: 480px) {
-    .user_container{
-        width: 230px;
-    }
-} */
-/* @media only screen and (min-width: 0px) and (max-width: 767px) {
-    .user_container{
-        width: 230px;
-    }
-} */
    
