@@ -164,32 +164,28 @@ const CurrentWeek = () => {
     // send a prompt to the gpt api and return worker
     // refresh the page
     const sendMessage = async () => {
-        setLoadingAi(true)
+        setLoadingAi(true);
+        
         try {
-          const response = await axios.post(
-            `${process.env.REACT_APP_URL}/sendMessegeAPI`,
-            {
-              messages: [
-                { role: 'system', content: 'You are a helpful assistant.' },
-                { role: 'user', content: promentToAi },
-              ],
-            }
-          );
-            console.log(response.data)
-          const response2 = await axios.post(
-            `${process.env.REACT_APP_URL}/sendMessegeAPI`,
-            {
-                //id: managerId,
-              messages: [
-                { role: 'system', content: 'You are a helpful assistant.' },
-                { role: 'user',
-                
-                content: 
-                `this is all my workers ids: ${JSON.stringify(workers)}.
+            // Send the first message to AI
+            const response = await axios.post(
+                `${process.env.REACT_APP_URL}/sendMessegeAPI`,
+                {
+                    messages: [
+                        { role: 'system', content: 'You are a helpful assistant.' },
+                        { role: 'user', content: promentToAi },
+                    ],
+                }
+            );
+            console.log(response.data);
+    
+            // prompt for the seconed message to the api
+            const userMessage = `
+                this is all my workers ids: ${JSON.stringify(workers)}.
                 data: ${response.data}.
                 return me this data as a json but add workers ids into the workers array based on those roles:
                 • Every worker ID should appear 2 to 4 times in the JSON.
-                • in all the workers array need to be at least 2 diffrent workers ids.
+                • in all the workers array need to be at least 2 different workers ids.
                 • Avoid repeating the same worker ID within the same workers array.
                 • the count of the workers array need to be the same.
                 • if there are workers ids in availableWorkers array - move them to the workers array.
@@ -198,55 +194,77 @@ const CurrentWeek = () => {
                     "shifts": [
                         {
                             "_id": "64e330568c240c5df3653937",
-                            "workers": [must have workers ids her],
+                            "workers": [must have workers ids here],
                             "availableWorkers": []
                         },
                         {
                             "_id": "64e330578c240c5df3653943",
-                            "workers": [must have workers ids her],
+                            "workers": [must have workers ids here],
                             "availableWorkers": []
                         },
                         {
                             "_id": "64e330588c240c5df3653951",
-                            "workers": [must have workers ids her],
+                            "workers": [must have workers ids here],
                             "availableWorkers": []
                         },
                         // ... more shift objects ...
                     ]
-                }`},
-              ],
-            }
-          );
-        setLoadingAi(false);
+                }`;
+    
+            // Send the second message to AI
+            const response2 = await axios.post(
+                `${process.env.REACT_APP_URL}/sendMessegeAPI`,
+                {
+                    messages: [
+                        { role: 'system', content: 'You are a helpful assistant.' },
+                        { role: 'user', content: userMessage },
+                    ],
+                }
+            );
 
-        // Find the index where the actual JSON starts
-        const startIndex = response2.data.indexOf('{'); // Find the first '{'
-        const endIndex = response2.data.lastIndexOf('}'); // Find the last '}'  
-        const jsonString = response2.data.substring(startIndex, endIndex + 1);
-        console.log(jsonString)
-
-        try {
-            var jsonData = JSON.parse(jsonString);
-            console.log(jsonData)
-            axios.put(`${process.env.REACT_APP_URL}/updateShiftsOfWeek`, {
-                weekId: week._id,
-                object: jsonData
-            }).then(res => {
-                console.log(res);
-            })
-        } catch (error) {
-            errorAlertToAI();
-            console.error("Error parsing JSON:", error);    
-        }
-        // usedAiToTrue();
-        window.location.reload();
-          
+            try {
+                // Extract and parse the JSON response from AI
+                const startIndex = response2.data.indexOf('{');
+                const endIndex = response2.data.lastIndexOf('}');
+                
+                if (startIndex !== -1 && endIndex !== -1 && endIndex > startIndex) {
+                    const jsonString = response2.data.substring(startIndex, endIndex + 1);
+                    const checkingNotGettingError = JSON.parse(jsonString);
+                    
+                    try {
+                        const jsonData = JSON.parse(jsonString);
+                        console.log(jsonData);
+            
+                        // Update shifts using parsed JSON data
+                        const updateResponse = await axios.put(`${process.env.REACT_APP_URL}/updateShiftsOfWeek`, {
+                            weekId: week._id,
+                            object: jsonData,
+                        });
+            
+                        console.log("Update response:", updateResponse.data);
+                        setLoadingAi(false);
+                        window.location.reload();
+                    } catch {
+                        setLoadingAi(false);
+                        console.error("Error making or updating the week: ");
+                        errorAlertToAI();
+                    }
+                } else {
+                    console.error('Invalid JSON response format');
+                    setLoadingAi(false);
+                    errorAlertToAI();
+                }
+            } catch (parseError) {
+                setLoadingAi(false);
+                console.error('Error parsing JSON: ', parseError);
+                errorAlertToAI();
+            }            
         } catch (error) {
             setLoadingAi(false);
-            console.error('Error sending message:', error);
+            console.error('Error sending message: ', error);
             errorAlertToAI();
         }
-    };
+    };    
       
     return <React.Fragment>
         <div >

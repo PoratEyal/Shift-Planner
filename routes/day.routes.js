@@ -45,12 +45,11 @@ dayRouter.put('/updateShiftsOfWeek', async (req, res) => {
                 arrayFilters: [{ 'shift._id': shift._id }]
             }
         ).then(res => {
-            console.log(res);
+            res.status(200).json(res);
         }).catch(err => {
-            console.log(`${err} wtf bro`);
+            res.status(500).json({ error: "error update the week" });
         })
     })
-    res.status(200);
 })
 
 
