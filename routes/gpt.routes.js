@@ -10,7 +10,9 @@ const apiKey = process.env.GPT_API_TOKEN;
 gptApiRouter.use(bodyParser.json());
 
 gptApiRouter.post('/sendMessegeAPI', async (req, res) => {
-  const { messages } = req.body;
+              
+  const { messages } = req.body.messages;
+  const id = req.body.id;
 
   const options = {
     method: 'POST',

@@ -163,6 +163,7 @@ const CurrentWeek = () => {
           const response2 = await axios.post(
             `${process.env.REACT_APP_URL}/sendMessegeAPI`,
             {
+                id: managerId,
               messages: [
                 { role: 'system', content: 'You are a helpful assistant.' },
                 { role: 'user',
