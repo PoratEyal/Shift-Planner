@@ -47,7 +47,7 @@ dayRouter.put('/updateShiftsOfWeek', async (req, res) => {
         ).then(res => {
             console.log(res);
         }).catch(err => {
-            console.log(err);
+            console.log(`${err} wtf bro`);
         })
     })
     res.status(200);

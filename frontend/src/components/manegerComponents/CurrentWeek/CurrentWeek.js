@@ -198,17 +198,17 @@ const CurrentWeek = () => {
                     "shifts": [
                         {
                             "_id": "64e330568c240c5df3653937",
-                            "workers": ["64d23ec5d0a241d7241d4959", "64d1244e08461078630d9a87", "64c92ddd32b91ea0d376454e"],
+                            "workers": [must have workers ids her],
                             "availableWorkers": []
                         },
                         {
                             "_id": "64e330578c240c5df3653943",
-                            "workers": ["64d3711266fe63ec056e1dcf", "64c28e5141f94a3645456d0b", "64c92ddd32b91ea0d376454e"],
+                            "workers": [must have workers ids her],
                             "availableWorkers": []
                         },
                         {
                             "_id": "64e330588c240c5df3653951",
-                            "workers": ["64787445d0a241d7241d4959", "64d1244e08461078630g5670h", "64c92ddd32b91ea0d4577f"],
+                            "workers": [must have workers ids her],
                             "availableWorkers": []
                         },
                         // ... more shift objects ...
@@ -235,8 +235,8 @@ const CurrentWeek = () => {
                 console.log(res);
             })
         } catch (error) {
-            console.error("Error parsing JSON:", error);
             errorAlertToAI();
+            console.error("Error parsing JSON:", error);    
         }
         // usedAiToTrue();
         window.location.reload();
