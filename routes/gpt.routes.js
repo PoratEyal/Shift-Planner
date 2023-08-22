@@ -12,8 +12,6 @@ gptApiRouter.use(bodyParser.json());
 gptApiRouter.post('/sendMessegeAPI', async (req, res) => {
               
   const { messages } = req.body;
-  //const id = req.body.id;
-  //console.log(`id: ${id} made a request `)
   const options = {
     method: 'POST',
     url: chatGptApiUrl,
@@ -23,8 +21,8 @@ gptApiRouter.post('/sendMessegeAPI', async (req, res) => {
     },
     data: {
       model: "gpt-3.5-turbo",
-      messages: messages,
-      temperature: 1.5
+      messages: messages
+      //temperature: 1
     }
   };
 

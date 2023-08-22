@@ -31,8 +31,8 @@ dayRouter.put('/addShiftToDay', (req, res) => {
 dayRouter.put('/updateShiftsOfWeek', async (req, res) => {
     const weekId = req.body.weekId;
     const shifts = req.body.object.shifts
-    shifts.map(async shift => {
-        await Week.findOneAndUpdate({ _id: weekId, 'day.shifts._id': shift._id },
+    shifts.map(shift => {
+        Week.findOneAndUpdate({ _id: weekId, 'day.shifts._id': shift._id },
             {
                 $set: {
                     'day.$[].shifts.$[shift].workers': shift.workers,

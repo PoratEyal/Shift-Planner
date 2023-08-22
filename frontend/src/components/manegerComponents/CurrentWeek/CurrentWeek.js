@@ -34,26 +34,25 @@ const CurrentWeek = () => {
 
             setPromentToAi(`this is the data of all the week: ${JSON.stringify(week)}
             return me json with all the shiftsId, workers and availableWorkers fields.
-            • double check that you find all the shiftsId in the data that i gave you.
+            • double check that you provied all the shiftsId that include into the data of the week.
             example to how your answer should look:
             {
                 "shifts": [
                     {
                         "_id": "64e330568c240c5df3653937",
-                        "workers": ["64d23ec5d0a241d7241d4959", "64d1244e08461078630d9a87", "64c92ddd32b91ea0d376454e"],
-                        "availableWorkers": []
+                        "workers": [real time data],
+                        "availableWorkers": [real time data]
                     },
                     {
                         "_id": "64e330578c240c5df3653943",
-                        "workers": ["64d3711266fe63ec056e1dcf", "64c28e5141f94a3645456d0b", "64c92ddd32b9454f0d376454e"],
-                        "availableWorkers": []
+                        "workers": [real time data],
+                        "availableWorkers": [real time data]
                     },
                     {
                         "_id": "64e330588c240c5df3653951",
-                        "workers": ["64787445d0a241d7241d4959", "64d1244e08461078630g5670h", "64c92ddd32b91ea0d4577f"],
-                        "availableWorkers": []
+                        "workers": [real time data],
+                        "availableWorkers": [real time data]
                     },
-                    .....
                 ]
             },`)
 
@@ -176,7 +175,7 @@ const CurrentWeek = () => {
               ],
             }
           );
-
+            console.log(response.data)
           const response2 = await axios.post(
             `${process.env.REACT_APP_URL}/sendMessegeAPI`,
             {
@@ -212,7 +211,7 @@ const CurrentWeek = () => {
                             "workers": ["64787445d0a241d7241d4959", "64d1244e08461078630g5670h", "64c92ddd32b91ea0d4577f"],
                             "availableWorkers": []
                         },
-                        .....
+                        // ... more shift objects ...
                     ]
                 }`},
               ],
@@ -224,9 +223,11 @@ const CurrentWeek = () => {
         const startIndex = response2.data.indexOf('{'); // Find the first '{'
         const endIndex = response2.data.lastIndexOf('}'); // Find the last '}'  
         const jsonString = response2.data.substring(startIndex, endIndex + 1);
+        console.log(jsonString)
 
         try {
             var jsonData = JSON.parse(jsonString);
+            console.log(jsonData)
             axios.put(`${process.env.REACT_APP_URL}/updateShiftsOfWeek`, {
                 weekId: week._id,
                 object: jsonData
