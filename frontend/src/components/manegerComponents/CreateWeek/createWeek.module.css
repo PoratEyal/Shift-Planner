@@ -361,6 +361,7 @@
     font-size: 18px;
     background-color: #25d36500;
     margin-top: 7px;
+    margin-left: -5px;
 }
 .btn_delete:hover{
     cursor: pointer;
