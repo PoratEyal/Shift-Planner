@@ -13,7 +13,7 @@ gptApiRouter.post('/sendMessegeAPI', async (req, res) => {
               
   const { messages } = req.body;
   //const id = req.body.id;
-  console.log(`id: ${id} made a request `)
+  //console.log(`id: ${id} made a request `)
   const options = {
     method: 'POST',
     url: chatGptApiUrl,
