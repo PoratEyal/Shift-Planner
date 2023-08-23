@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import styles from '../CreateWeek/createWeek.module.css'
 import axios from 'axios'
 import ShiftCurrentWeek from './EditShiftCurrentWeek';
@@ -46,8 +46,8 @@ const EditDayCurrentWeek = (props) => {
      });
     };
 
-    useEffect(() => {
-        updateShifts();
+    // scroll to the current day
+    useLayoutEffect(() => {
         const today = moment().format('YYYY-MM-DD');
         if (moment(day.date).format('YYYY-MM-DD') === today) {
             // Delay the scroll by 2 seconds
@@ -60,6 +60,10 @@ const EditDayCurrentWeek = (props) => {
     
             return () => clearTimeout(scrollTimeout);
         }
+    }, [day.data]);
+
+    useEffect(() => {
+        updateShifts();
     }, [day]);
 
     return <div>
