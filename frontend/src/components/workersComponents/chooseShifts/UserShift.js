@@ -78,7 +78,7 @@ const UserShift = (props) => {
       {
       !props.weekPublished ? (
         added ? (
-          <button onClick={removeWorkerFromShift} className={styles.add_btn}>הסרה</button>
+          <button onClick={removeWorkerFromShift} className={styles.remove_btn}>הסרה</button>
         ) : (
           <button onClick={addWorkerToShift} className={styles.add_btn}>הוספה</button>
         )

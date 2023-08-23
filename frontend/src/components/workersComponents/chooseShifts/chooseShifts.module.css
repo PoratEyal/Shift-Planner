@@ -158,6 +158,33 @@
     background-color: #2068a7;
 }
 
+.remove_btn{
+    margin: 10px;
+    margin-top: 0px;
+    display: flex;
+    padding: 0.8rem 2.4rem;
+    font-size: 1.275rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: none;
+    gap: 0.75rem;
+    color: rgb(255, 255, 255);
+    background-color: #fb6e6e;
+    cursor: pointer;
+    transition: all .6s ease;
+    width: 230px;
+    justify-content: center;
+    margin-left: 25px;
+}
+.remove_btn:hover {
+    transform: scale(1.02);
+}
+
 .add_btn{
     margin: 10px;
     margin-top: 0px;
@@ -171,7 +198,7 @@
     vertical-align: middle;
     align-items: center;
     border-radius: 0.5rem;
-    border: 1px solid rgba(136, 136, 136, 0.25);
+    border: none;
     gap: 0.75rem;
     color: rgb(65, 63, 63);
     background-color: #fff;
@@ -183,7 +210,7 @@
 }
 .add_btn:hover {
     transform: scale(1.02);
-    }
+}
 
 .addShift{
     width: 280px;
@@ -538,34 +565,9 @@
     justify-content: center;
     text-align: center;
     margin-top: 10px;
+    animation: slideInAndFade 0.3s ease-in-out;
 }
 .messege_to_manager p{
-    font-size: 20px;
-}
-
-.messege_sent{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding: 10px;
-    font-size: 16px;
-    line-height: 1.25rem;
-    font-weight: 700;
-    border-radius: 0.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    gap: 0.75rem;
-    color: rgb(255, 255, 255);
-    border: none;
-    transition: all .6s ease;
-    width: 300px;
-    height: 40px;
-    justify-content: center;
-    text-align: center;
-    margin-top: 10px;
-    background-color: rgb(46, 181, 29);
-}
-.messege_sent p{
     font-size: 20px;
 }
 

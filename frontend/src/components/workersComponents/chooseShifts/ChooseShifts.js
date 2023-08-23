@@ -95,19 +95,11 @@ const ChooseShifts = () => {
 
         <div style={{ marginTop: '70px' }} className={styles.container}>
 
-            {
-                !mesageSent && !weekPublished ? (
+            {!mesageSent && !weekPublished ? (
                     <div className={styles.messege_to_manager} onClick={sendMessage}>
                     <p>שליחת הודעה למנהל</p>
                     </div>
-                ) : (
-                    mesageSent ? (
-                    <div className={styles.messege_sent}>
-                        <p>ההודעה נשלחה בהצלחה</p>
-                    </div>
-                    ) : null
-                )
-            }
+            ) :  null}
             
             {weekPublished ? <div className={styles.messege}>
                 <p>השבוע פורסם, אלו המשמרות לשבוע הבא</p>   
