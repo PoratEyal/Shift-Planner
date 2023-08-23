@@ -9,11 +9,8 @@ const CurrentDayUser = (props) => {
 
   useEffect(() => {
     const today = moment().format('YYYY-MM-DD');
-    console.log(today)
     if (moment(day.date).format('YYYY-MM-DD') === today) {
-      // Scroll to the day's container element
       const dayContainer = document.getElementById(`day_${day.date}`);
-      console.log(dayContainer)
       if (dayContainer) {
         dayContainer.scrollIntoView({ behavior: 'smooth' });
       }
