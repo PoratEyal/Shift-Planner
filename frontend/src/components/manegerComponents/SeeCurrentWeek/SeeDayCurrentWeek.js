@@ -48,17 +48,22 @@ const SeeDayCurrentWeek = (props) => {
      });
      };
 
-    useEffect(()=>{
+     useEffect(() => {
         updateShifts();
-
+    
         const today = moment().format('YYYY-MM-DD');
         if (moment(day.date).format('YYYY-MM-DD') === today) {
-            const dayContainer = document.getElementById(`day_${day.date}`);
-            if (dayContainer) {
-                dayContainer.scrollIntoView({ behavior: 'smooth' });
-            }
+            // Delay the scroll by 2 seconds
+            const scrollTimeout = setTimeout(() => {
+                const dayContainer = document.getElementById(`day_${day.date}`);
+                if (dayContainer) {
+                    dayContainer.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 2000);
+    
+            return () => clearTimeout(scrollTimeout);
         }
-    },[day.date]);
+    }, [day]);    
 
     return <div>
         <div className={styles.day_container} id={`day_${day.date}`}>
