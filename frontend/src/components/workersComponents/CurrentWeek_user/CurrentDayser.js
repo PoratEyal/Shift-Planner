@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import styles from './currentWeekUser.module.css';
 import Shift from './CurrentShiftUser';
 import moment from "moment";
@@ -7,7 +7,7 @@ const CurrentDayUser = (props) => {
 
   const [day] = useState(props.day);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const today = moment().format('YYYY-MM-DD');
     if (moment(day.date).format('YYYY-MM-DD') === today) {
         // Delay the scroll by 2 seconds
@@ -16,7 +16,7 @@ const CurrentDayUser = (props) => {
             if (dayContainer) {
                 dayContainer.scrollIntoView({ behavior: 'smooth' });
             }
-        }, 2000);
+        }, 1000);
 
         return () => clearTimeout(scrollTimeout);
     }
