@@ -55,11 +55,10 @@ const SeeDayCurrentWeek = (props) => {
         if (moment(day.date).format('YYYY-MM-DD') === today) {
             const dayContainer = document.getElementById(`day_${day.date}`);
             if (dayContainer) {
-                //dayContainer.scrollIntoView({ behavior: 'smooth' });
-                dayContainer.scrollIntoView();
+                dayContainer.scrollIntoView({ behavior: 'smooth' });
             }
         }
-    },[day, day.date]);
+    },[day.date]);
 
     return <div>
         <div className={styles.day_container} id={`day_${day.date}`}>
