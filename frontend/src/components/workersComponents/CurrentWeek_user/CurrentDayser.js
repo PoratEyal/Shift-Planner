@@ -16,7 +16,7 @@ const CurrentDayUser = (props) => {
             if (dayContainer) {
                 dayContainer.scrollIntoView({ behavior: 'smooth' });
             }
-        }, 3000);
+        }, 2000);
 
         return () => clearTimeout(scrollTimeout);
     }
