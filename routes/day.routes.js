@@ -31,25 +31,36 @@ dayRouter.put('/addShiftToDay', (req, res) => {
 dayRouter.put('/updateShiftsOfWeek', async (req, res) => {
     const weekId = req.body.weekId;
     const shifts = req.body.object.shifts
-    shifts.map(shift => {
-        Week.findOneAndUpdate({ _id: weekId, 'day.shifts._id': shift._id },
-            {
-                $set: {
-                    'day.$[].shifts.$[shift].workers': shift.workers,
-                    'day.$[].shifts.$[shift].availableWorkers': []
+    try {
+        shifts.map( async shift => {
+
+             await Week.findOneAndUpdate({ _id: weekId, 'day.shifts._id': shift._id },
+                {
+                    $set: {
+                        'day.$[].shifts.$[shift].workers': shift.workers,
+                        'day.$[].shifts.$[shift].availableWorkers': []
+                    }
+                },
+                {
+                    new: true,
+                    useFindAndModify: false,
+                    arrayFilters: [{ 'shift._id': shift._id }]
                 }
-            },
-            {
-                new: true,
-                useFindAndModify: false,
-                arrayFilters: [{ 'shift._id': shift._id }]
-            }
-        ).then(res => {
-            res.status(200).json(res);
-        }).catch(err => {
-            res.status(500).json({ error: "error update the week" });
-        })
-    })
+            ).then(response => {
+            }).catch(err => {
+                console.log(err);
+
+            })
+
+
+        });
+        const nextWeek = await Week.findOne({_id: weekId});
+        res.status(200).json(nextWeek);
+    }
+    catch {
+        res.status(500).json({ error: "error update the week" });
+    }
+    
 })
 
 
