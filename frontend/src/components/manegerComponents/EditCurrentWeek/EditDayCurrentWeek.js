@@ -56,7 +56,7 @@ const EditDayCurrentWeek = (props) => {
                 if (dayContainer) {
                     dayContainer.scrollIntoView({ behavior: 'smooth' });
                 }
-            }, 3000);
+            }, 3500);
     
             return () => clearTimeout(scrollTimeout);
         }
