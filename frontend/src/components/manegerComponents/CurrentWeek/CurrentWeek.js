@@ -33,8 +33,9 @@ const CurrentWeek = () => {
             setWorkers(response.data.map(item => item._id))
 
             setPromentToAi(`this is the data of all the week: ${JSON.stringify(week)}
-            return me json with all the shiftsId, workers and availableWorkers fields.
-            • double check that you provied all the shiftsId that include into the data of the week.
+            Return me json with all the shiftsId, workers and availableWorkers fields.
+            • Do not write any explanation before or after the Json
+            • Double check that you provided all the shiftsId that include into the data of the week.
             example to how your answer should look:
             {
                 "shifts": [
@@ -45,11 +46,6 @@ const CurrentWeek = () => {
                     },
                     {
                         "_id": "64e330578c240c5df3653943",
-                        "workers": [real time data],
-                        "availableWorkers": [real time data]
-                    },
-                    {
-                        "_id": "64e330588c240c5df3653951",
                         "workers": [real time data],
                         "availableWorkers": [real time data]
                     },
@@ -183,7 +179,7 @@ const CurrentWeek = () => {
             const userMessage = `
                 this is all my workers ids: ${JSON.stringify(workers)}.
                 data: ${response.data}.
-                return me this data as a json but add workers ids into the workers array based on those roles:
+                return me this data as a json but add workers ids into the workers array based on those rules:
                 • Every worker ID should appear 2 to 4 times in the JSON.
                 • in all the workers array need to be at least 2 different workers ids.
                 • Avoid repeating the same worker ID within the same workers array.
@@ -194,22 +190,16 @@ const CurrentWeek = () => {
                     "shifts": [
                         {
                             "_id": "64e330568c240c5df3653937",
-                            "workers": [must have workers ids here],
-                            "availableWorkers": []
+                            "workers": [must have workers ids here]
                         },
                         {
                             "_id": "64e330578c240c5df3653943",
-                            "workers": [must have workers ids here],
-                            "availableWorkers": []
-                        },
-                        {
-                            "_id": "64e330588c240c5df3653951",
-                            "workers": [must have workers ids here],
-                            "availableWorkers": []
+                            "workers": [must have workers ids here]
                         },
                         // ... more shift objects ...
                     ]
                 }`;
+            console.log(userMessage);
     
             // Send the second message to AI
             const response2 = await axios.post(

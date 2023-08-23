@@ -48,12 +48,32 @@ const SeeDayCurrentWeek = (props) => {
      });
      };
 
-    useEffect(()=>{
+     useEffect(() => {
         updateShifts();
-    },[day]);
+    
+        const today = moment().format('YYYY-MM-DD');
+        if (moment(day.date).format('YYYY-MM-DD') === today) {
+            // Delay the scroll by 2 seconds
+            const scrollTimeout = setTimeout(() => {
+                const dayContainer = document.getElementById(`day_${day.date}`);
+                if (dayContainer) {
+                    // Calculate the target position with a 100px offset
+                    const targetPosition = dayContainer.offsetTop - 100;
+    
+                    // Scroll to the calculated position
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 800);
+    
+            return () => clearTimeout(scrollTimeout);
+        }
+    }, [day]);        
 
     return <div>
-        <div className={styles.day_container}>
+        <div className={styles.day_container} id={`day_${day.date}`}>
 
             <h2 className={styles.h2}>{day.name} - {moment(day.date).format('DD.MM')}</h2>
             {
