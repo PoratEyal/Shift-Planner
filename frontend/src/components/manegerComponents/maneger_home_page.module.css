@@ -75,16 +75,7 @@
     width: auto;
     margin-top: 90px;
 }
-@keyframes slideUp {
-  0% {
-    transform: translateY(800px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
+
 .btn{
   display: flex;
   flex-direction: row;
@@ -102,7 +93,6 @@
   margin-bottom: 25px;
   border-radius: 25px;
   font-weight: 600;
-  animation: slideUp 1.4s forwards;
 }
 .btn:hover{
   cursor: pointer;
