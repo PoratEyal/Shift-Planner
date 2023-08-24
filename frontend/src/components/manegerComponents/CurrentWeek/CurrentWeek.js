@@ -199,7 +199,7 @@ const CurrentWeek = () => {
                         // ... more shift objects ...
                     ]
                 }`;
-            console.log(userMessage);
+            //console.log(userMessage);
     
             // Send the second message to AI
             const response2 = await axios.post(
@@ -211,7 +211,7 @@ const CurrentWeek = () => {
                     ],
                 }
             );
-
+                console.log(response2);
             try {
                 // Extract and parse the JSON response from AI
                 const startIndex = response2.data.indexOf('{');
@@ -233,7 +233,7 @@ const CurrentWeek = () => {
             
                         console.log("Update response:", updateResponse.data);
                         setLoadingAi(false);
-                        window.location.reload();
+                        //window.location.reload();
                     } catch {
                         setLoadingAi(false);
                         console.error("Error making or updating the week: ");
