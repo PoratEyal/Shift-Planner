@@ -266,7 +266,7 @@ const CurrentWeek = () => {
 
             <div style={{ marginTop: '70px' }} className={loadingAi ? styles.container_disabled : styles.container}>
 
-                {weekPublished === false || weekPublished === null ? 
+                {weekPublished === false? 
                 <div className={styles.publish_div}>
                     <button onClick={publishSchedule} className={styles.addShift_btn}>פרסום שבוע</button>
                 </div> :
