@@ -249,11 +249,15 @@
     width: 220px;
     text-align: right;
     direction: rtl;
+    appearance: none;
+    -webkit-appearance:none;
 }
 .input_time_start::before{
     content: 'התחלה';
     color: #9d9d9d;
     direction: ltr;
+    appearance: none;
+    -webkit-appearance:none;
 }
 
 .input_time_end{
@@ -267,11 +271,15 @@
     width: 220px;
     text-align: right;
     direction: rtl;
+    appearance: none;
+    -webkit-appearance:none;
 }
 .input_time_end::before{
     content: 'סיום';
     color: #9d9d9d;
     direction: ltr;
+    appearance: none;
+    -webkit-appearance:none;
 }
 
 .input{

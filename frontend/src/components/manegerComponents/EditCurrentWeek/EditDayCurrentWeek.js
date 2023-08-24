@@ -49,7 +49,7 @@ const EditDayCurrentWeek = (props) => {
     // scroll to the current day
     useLayoutEffect(() => {
         const today = moment().format('YYYY-MM-DD');
-        if (moment(day.date).format('YYYY-MM-DD') === today) {
+        if (moment(day.date).format('YYYY-MM-DD') === today && day.name !== "ראשון") {
             // Delay the scroll by 2 seconds
             const scrollTimeout = setTimeout(() => {
                 const dayContainer = document.getElementById(`day_${day.date}`);

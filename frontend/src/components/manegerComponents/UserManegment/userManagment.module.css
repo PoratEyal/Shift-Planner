@@ -115,6 +115,7 @@ ul.navbar li button {
     justify-content: center;
     align-items: center;
     width: 80%;
+    margin-bottom: 15px;
 }
 
 .createRole{
