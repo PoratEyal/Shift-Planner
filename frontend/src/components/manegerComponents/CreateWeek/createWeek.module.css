@@ -792,6 +792,7 @@
     transition: all .6s ease;
     width: 320px;
     justify-content: center;
+    animation: slideInAndFade 0.5s ease-in-out;
 }
 
 .workers_showList{
