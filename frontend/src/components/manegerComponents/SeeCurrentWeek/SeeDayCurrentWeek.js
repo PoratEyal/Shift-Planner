@@ -64,7 +64,7 @@ const SeeDayCurrentWeek = (props) => {
                         behavior: 'smooth'
                     });
                 }
-            }, 900);
+            }, 1100);
     
             return () => clearTimeout(scrollTimeout);
         }

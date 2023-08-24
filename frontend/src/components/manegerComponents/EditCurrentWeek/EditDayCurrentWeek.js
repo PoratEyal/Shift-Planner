@@ -62,7 +62,7 @@ const EditDayCurrentWeek = (props) => {
                         behavior: 'smooth'
                     });
                 }
-            }, 2500);
+            }, 2800);
     
             return () => clearTimeout(scrollTimeout);
         }

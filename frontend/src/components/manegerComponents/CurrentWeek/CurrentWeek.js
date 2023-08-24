@@ -266,13 +266,15 @@ const CurrentWeek = () => {
 
             <div style={{ marginTop: '70px' }} className={loadingAi ? styles.container_disabled : styles.container}>
 
-                {weekPublished === false? 
-                <div className={styles.publish_div}>
-                    <button onClick={publishSchedule} className={styles.addShift_btn}>פרסום שבוע</button>
-                </div> :
+                {weekPublished === true ? 
                 <div className={styles.message}>
                     <p>השבוע פורסם</p>   
-                </div>}
+                </div> : null}
+
+                {weekPublished === false ? 
+                <div className={styles.publish_div}>
+                    <button onClick={publishSchedule} className={styles.addShift_btn}>פרסום שבוע</button>
+                </div> : null}
 
                 {weekAi === false && weekPublished === false ?
                 <div className={styles.publish_div}>
