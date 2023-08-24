@@ -274,7 +274,7 @@ const CurrentWeek = () => {
                 <p>השבוע פורסם</p>   
             </div>: null}
 
-             {!weekAi ?
+             {!weekAi  && !weekPublished?
             <div className={styles.publish_div}>
                 <button className={styles.ai_btn} onClick={clickAi}>
                     {loadingAi ? <label className={styles.ai_icon_loading}><FaMagic></FaMagic></label> : <label className={styles.ai_icon}><FaMagic></FaMagic></label>}

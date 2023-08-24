@@ -57,7 +57,6 @@ const SeeDayCurrentWeek = (props) => {
             const scrollTimeout = setTimeout(() => {
                 const dayContainer = document.getElementById(`day_${day.date}`);
                 if (dayContainer) {
-                    // Calculate the target position with a 100px offset
                     const targetPosition = dayContainer.offsetTop - 100;
     
                     // Scroll to the calculated position

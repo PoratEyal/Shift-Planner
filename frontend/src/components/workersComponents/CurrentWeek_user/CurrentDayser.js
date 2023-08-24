@@ -24,7 +24,7 @@ const CurrentDayUser = (props) => {
 
         return () => clearTimeout(scrollTimeout);
     }
-}, [day.date]);
+  }, [day.date]);
 
   return (
     <div>
