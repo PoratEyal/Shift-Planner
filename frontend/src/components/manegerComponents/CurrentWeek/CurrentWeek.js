@@ -263,16 +263,16 @@ const CurrentWeek = () => {
                 <p>שיבוץ עובדים לשבוע הבא</p>
             </div>
 
-            {weekVisible && !weekPublished ? 
+            {weekPublished === true ? 
+            <div className={styles.messege}>
+                <p>השבוע פורסם</p>   
+            </div>: null}
+
+            {weekVisible && weekPublished === false ? 
             <div className={styles.publish_div}>
                 <button onClick={publishSchedule} className={styles.addShift_btn}>פרסום שבוע</button>
             </div>
             : null}
-
-            {weekPublished ? 
-            <div className={styles.messege}>
-                <p>השבוע פורסם</p>   
-            </div>: null}
 
              {!weekAi  && !weekPublished?
             <div className={styles.publish_div}>
