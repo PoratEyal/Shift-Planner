@@ -234,7 +234,7 @@ const CurrentWeek = () => {
             
                         console.log("Update response:", updateResponse.data);
                         setLoadingAi(false);
-                        window.location.reload();
+                        //window.location.reload();
                     } catch {
                         setLoadingAi(false);
                         console.error("Error making or updating the week: ");
