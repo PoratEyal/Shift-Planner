@@ -264,7 +264,7 @@ const CurrentWeek = () => {
                 <p>שיבוץ עובדים לשבוע הבא</p>
             </div>
 
-            <div style={{ marginTop: '70px' }} className={loadingAi ? styles.container_disabled : styles.container}>
+            <div style={{ marginTop: '70px' }} className={styles.container}>
 
                 {weekPublished === true ? 
                 <div className={styles.message}>
@@ -273,7 +273,7 @@ const CurrentWeek = () => {
 
                 {weekPublished === false ? 
                 <div className={styles.publish_div}>
-                    <button onClick={publishSchedule} className={styles.addShift_btn}>פרסום שבוע</button>
+                    <button onClick={publishSchedule} className={loadingAi ? styles.addShift_btn_disabled : styles.addShift_btn}>פרסום שבוע</button>
                 </div> : null}
 
                 {weekAi === false && weekPublished === false ?
@@ -283,12 +283,15 @@ const CurrentWeek = () => {
                         {loadingAi ? <label>...השיבוץ מתבצע</label> : <label>שיבוץ אוטומטי</label>}
                     </button>
                 </div> : null} 
+                
+                <div className={loadingAi ? styles.container_disabled : null}>
+                    {
+                        week ? week.day.map((day) => {
+                            return <DayCurrentWeek  weekId={week._id} day={day} key={day._id} getDays={getDays} managerId={managerId}></DayCurrentWeek>
+                        }) : null
+                    }
+                </div>
 
-                {
-                    week ? week.day.map((day) => {
-                        return <DayCurrentWeek  weekId={week._id} day={day} key={day._id} getDays={getDays} managerId={managerId}></DayCurrentWeek>
-                    }) : null
-                }
             </div>
 
         </div>
