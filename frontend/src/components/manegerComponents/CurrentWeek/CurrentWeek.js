@@ -196,8 +196,8 @@ const CurrentWeek = () => {
                 AllWorkersArray: ${JSON.stringify(workers)}.
                 Add the workers id from AllWorkersArray to the workers array in the shifts based on those rules:
                 • workers array should contain 3 workers. not more.
+                • use all the worker ids from AllWorkersArray more then once.
                 • Avoid repeating the same worker ID within the same workers array.
-                • you can use a same worker id from AllWorkersArray more then once
 
                 Return me this json data
                 Do not write any explanation before or after the Json`;
@@ -234,7 +234,7 @@ const CurrentWeek = () => {
             
                         console.log("Update response:", updateResponse.data);
                         setLoadingAi(false);
-                        //window.location.reload();
+                        window.location.reload();
                     } catch {
                         setLoadingAi(false);
                         console.error("Error making or updating the week: ");
