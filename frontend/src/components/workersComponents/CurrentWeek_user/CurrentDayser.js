@@ -9,7 +9,7 @@ const CurrentDayUser = (props) => {
 
   useEffect(() => {
     const today = moment().format('YYYY-MM-DD');
-    if (moment(day.date).format('YYYY-MM-DD') === today) {
+    if (moment(day.date).format('YYYY-MM-DD') === today && day.name !== "ראשון") {
         const scrollTimeout = setTimeout(() => {
             const dayContainer = document.getElementById(`day_${day.date}`);
             if (dayContainer) {
