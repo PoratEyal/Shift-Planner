@@ -53,7 +53,6 @@ const SeeDayCurrentWeek = (props) => {
     
         const today = moment().format('YYYY-MM-DD');
         if (moment(day.date).format('YYYY-MM-DD') === today && day.name !== "ראשון") {
-            // Delay the scroll by 2 seconds
             const scrollTimeout = setTimeout(() => {
                 const dayContainer = document.getElementById(`day_${day.date}`);
                 if (dayContainer) {
@@ -65,7 +64,7 @@ const SeeDayCurrentWeek = (props) => {
                         behavior: 'smooth'
                     });
                 }
-            }, 800);
+            }, 900);
     
             return () => clearTimeout(scrollTimeout);
         }

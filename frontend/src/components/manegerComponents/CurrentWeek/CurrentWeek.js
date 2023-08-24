@@ -153,7 +153,7 @@ const CurrentWeek = () => {
         });
     }    
 
-    // send a prompt to the gpt api and return worker
+    // send a prompt to the gpt api and return workers
     // refresh the page
     const sendMessage = async () => {
         setLoadingAi(true);
@@ -264,26 +264,24 @@ const CurrentWeek = () => {
                 <p>שיבוץ עובדים לשבוע הבא</p>
             </div>
 
-            {weekPublished === true ? 
-            <div className={styles.messege}>
-                <p>השבוע פורסם</p>   
-            </div>: null}
-
-            {weekVisible && !weekPublished ? 
-            <div className={styles.publish_div}>
-                <button onClick={publishSchedule} className={styles.addShift_btn}>פרסום שבוע</button>
-            </div>
-            : null}
-
-             {!weekAi  && !weekPublished ?
-            <div className={styles.publish_div}>
-                <button className={styles.ai_btn} onClick={clickAi}>
-                    {loadingAi ? <label className={styles.ai_icon_loading}><FaMagic></FaMagic></label> : <label className={styles.ai_icon}><FaMagic></FaMagic></label>}
-                    {loadingAi ? <label>...השיבוץ מתבצע</label> : <label>שיבוץ אוטומטי</label>}
-                </button>
-            </div> : null} 
-
             <div style={{ marginTop: '70px' }} className={loadingAi ? styles.container_disabled : styles.container}>
+
+                {weekPublished === false || weekPublished === null ? 
+                <div className={styles.publish_div}>
+                    <button onClick={publishSchedule} className={styles.addShift_btn}>פרסום שבוע</button>
+                </div> :
+                <div className={styles.message}>
+                    <p>השבוע פורסם</p>   
+                </div>}
+
+                {weekAi === false && weekPublished === false ?
+                <div className={styles.publish_div}>
+                    <button className={styles.ai_btn} onClick={clickAi}>
+                        {loadingAi ? <label className={styles.ai_icon_loading}><FaMagic></FaMagic></label> : <label className={styles.ai_icon}><FaMagic></FaMagic></label>}
+                        {loadingAi ? <label>...השיבוץ מתבצע</label> : <label>שיבוץ אוטומטי</label>}
+                    </button>
+                </div> : null} 
+
                 {
                     week ? week.day.map((day) => {
                         return <DayCurrentWeek  weekId={week._id} day={day} key={day._id} getDays={getDays} managerId={managerId}></DayCurrentWeek>

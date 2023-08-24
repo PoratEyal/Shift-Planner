@@ -298,7 +298,7 @@
 .addShift_btn{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 10px;
-    margin-top: -15px;
+    margin-top: -10px;
     display: flex;
     padding: 0.8rem 2.4rem;
     font-size: 1.275rem;
@@ -313,10 +313,11 @@
     gap: 0.75rem;
     color: rgb(65, 63, 63);
     background-color: var(--main-color);
-    color: white;
     cursor: pointer;
+    transition: all .6s ease;
     width: 230px;
     justify-content: center;
+    animation: slideInAndFade 0.5s ease-in-out;
 }
 .addShift_btn:hover {
     transform: scale(1.02);
@@ -344,6 +345,7 @@
     transition: all .6s ease;
     width: 230px;
     justify-content: center;
+    animation: slideInAndFade 0.5s ease-in-out;
 }
 .ai_btn:hover {
     transform: scale(1.02);
@@ -705,9 +707,7 @@
 
 .publish_div{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin-top: 90px;
-    margin-left: 10px;
-    margin-bottom: -70px;
+    margin-top: 20px;
 }
 
 .publish_div button{
@@ -784,11 +784,10 @@
     cursor: pointer;
 }
 
-.messege{
+.message{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding: 10px;
     font-size: 22px;
@@ -805,11 +804,9 @@
     height: 30px;
     justify-content: center;
     text-align: center;
-    margin-top: 80px;
-    margin-bottom: -70px;
-}
-.messege p{
+    margin-top: 10px;
     transition: all .6s ease;
+    animation: slideInAndFade 0.5s ease-in-out;
 }
 
 .icon_delete{
