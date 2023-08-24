@@ -32,7 +32,6 @@ dayRouter.put('/updateShiftsOfWeek', async (req, res) => {
     const weekId = req.body.weekId;
     const shifts = req.body.object.shifts
     try {
-        console.log(shifts);
         shifts.map( async shift => {
 
              await Week.findOneAndUpdate({ _id: weekId, 'day.shifts._id': shift._id },

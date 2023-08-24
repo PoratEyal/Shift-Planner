@@ -32,20 +32,16 @@ const CurrentWeek = () => {
             const response = await axios.post(`${process.env.REACT_APP_URL}/getMyWorkers`, body);
             setWorkers(response.data.map(item => item._id))
 
-            setPromentToAi(`this is the data of all the week: ${JSON.stringify(week)}
+            setPromentToAi
+            (`Data of all the week: ${JSON.stringify(week)}
             Return me json with all the shiftsId, workers and availableWorkers fields.
             • Do not write any explanation before or after the Json
-            • Double check that you provided all the shiftsId that include into the data of the week.
+            • Double check that you provided all the shiftsId that include into the data of the week.
             example to how your answer should look:
             {
                 "shifts": [
                     {
                         "_id": "64e330568c240c5df3653937",
-                        "workers": [real time data],
-                        "availableWorkers": [real time data]
-                    },
-                    {
-                        "_id": "64e330578c240c5df3653943",
                         "workers": [real time data],
                         "availableWorkers": [real time data]
                     },
@@ -143,7 +139,7 @@ const CurrentWeek = () => {
     const clickAi = () => {
         Swal.fire({
             text: 'האם לאפשר למערכת לשבץ את העובדים אוטומטית',
-            title: 'פעולה זו יכולה לקחת עד כחצי דקה<br></br>ביצוע הפעולה מוגבל לפעם אחת בשבוע',
+            title: 'פעולה זו יכולה לקחת עד כדקה<br></br>ביצוע הפעולה מוגבל לפעם אחת בשבוע',
             icon: 'info',
             showCancelButton: true,
             cancelButtonText: 'ביטול',
@@ -173,53 +169,58 @@ const CurrentWeek = () => {
                     ],
                 }
             );
-            console.log(response.data);
-    
-            // prompt for the seconed message to the api
-            const userMessage = `
-                this is all my workers ids: ${JSON.stringify(workers)}.
-                data: ${response.data}.
-                return me this data as a json but add workers ids into the workers array based on those rules:
-                • Every worker ID should appear 2 to 4 times in the JSON.
-                • in all the workers array need to be at least 2 different workers ids.
-                • Avoid repeating the same worker ID within the same workers array.
-                • the count of the workers array need to be the same.
-                • if there are workers ids in availableWorkers array - move them to the workers array.
-                example to how should the answer need to look:
-                {
-                    "shifts": [
-                        {
-                            "_id": "64e330568c240c5df3653937",
-                            "workers": [must have workers ids here]
-                        },
-                        {
-                            "_id": "64e330578c240c5df3653943",
-                            "workers": [must have workers ids here]
-                        },
-                        // ... more shift objects ...
-                    ]
-                }`;
-            //console.log(userMessage);
-    
+            console.log(`response 1 - ${response.data}`);
+
             // Send the second message to AI
             const response2 = await axios.post(
                 `${process.env.REACT_APP_URL}/sendMessegeAPI`,
                 {
                     messages: [
                         { role: 'system', content: 'You are a helpful assistant.' },
-                        { role: 'user', content: userMessage },
+                        { role: 'user',
+                        content:
+                        `Data: 
+                        ${response.data}
+                        Move all existing availableWorkers to workers field
+                        Do not move more then 3 values
+                        Do not display the "availableWorkers" field in the retured Json
+                        Do not write any explanation before or after the Json`},
                     ],
                 }
             );
-                console.log(response2);
+            console.log(`response 2 - ${response2.data}`);
+    
+            // prompt for the seconed message to the api
+            const finelMessage = 
+                `Data: ${response.data}.
+                AllWorkersArray: ${JSON.stringify(workers)}.
+                Add the workers id from AllWorkersArray to the workers array in the shifts based on those rules:
+                • workers array should contain 3 workers. not more.
+                • Avoid repeating the same worker ID within the same workers array.
+                • you can use a same worker id from AllWorkersArray more then once
+
+                Return me this json data
+                Do not write any explanation before or after the Json`;
+    
+            // Send the thired message to AI
+            const response3 = await axios.post(
+                `${process.env.REACT_APP_URL}/sendMessegeAPI`,
+                {
+                    messages: [
+                        { role: 'system', content: 'You are a helpful assistant.' },
+                        { role: 'user', content: finelMessage },
+                    ],
+                }
+            );
+            console.log(`response 3 - ${response3.data}`);
+
             try {
                 // Extract and parse the JSON response from AI
-                const startIndex = response2.data.indexOf('{');
-                const endIndex = response2.data.lastIndexOf('}');
+                const startIndex = response3.data.indexOf('{');
+                const endIndex = response3.data.lastIndexOf('}');
                 
                 if (startIndex !== -1 && endIndex !== -1 && endIndex > startIndex) {
-                    const jsonString = response2.data.substring(startIndex, endIndex + 1);
-                    const checkingNotGettingError = JSON.parse(jsonString);
+                    const jsonString = response3.data.substring(startIndex, endIndex + 1);
                     
                     try {
                         const jsonData = JSON.parse(jsonString);
@@ -233,7 +234,7 @@ const CurrentWeek = () => {
             
                         console.log("Update response:", updateResponse.data);
                         setLoadingAi(false);
-                        //window.location.reload();
+                        window.location.reload();
                     } catch {
                         setLoadingAi(false);
                         console.error("Error making or updating the week: ");
@@ -268,13 +269,13 @@ const CurrentWeek = () => {
                 <p>השבוע פורסם</p>   
             </div>: null}
 
-            {weekVisible && weekPublished === false ? 
+            {weekVisible && !weekPublished ? 
             <div className={styles.publish_div}>
                 <button onClick={publishSchedule} className={styles.addShift_btn}>פרסום שבוע</button>
             </div>
             : null}
 
-             {!weekAi  && !weekPublished?
+             {!weekAi  && !weekPublished ?
             <div className={styles.publish_div}>
                 <button className={styles.ai_btn} onClick={clickAi}>
                     {loadingAi ? <label className={styles.ai_icon_loading}><FaMagic></FaMagic></label> : <label className={styles.ai_icon}><FaMagic></FaMagic></label>}
