@@ -157,7 +157,7 @@ const CurrentWeek = () => {
     // refresh the page
     const sendMessage = async () => {
         setLoadingAi(true);
-        
+        console.log(promentToAi)
         try {
             // Send the first message to AI
             const response = await axios.post(
