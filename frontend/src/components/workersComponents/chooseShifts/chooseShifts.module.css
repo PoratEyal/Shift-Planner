@@ -462,12 +462,11 @@
     flex-direction: row;
     align-items: center;
 }
-.hours_message_div label{
-    margin-right: 10px;
-}
+
 .icon{
+    color: rgba(101, 100, 100, 0.903);
     font-size: 21px;
-    color: rgb(47, 184, 47);
+    margin-right: 10px;
 }
 
 .btn_chose{
@@ -556,6 +555,10 @@
 
 .bold_name{
     font-weight: 600;
+    text-overflow: ellipsis;
+    max-width: 110px;
+    white-space: nowrap;
+    overflow: hidden; 
 }
 
 .messege_to_manager{
