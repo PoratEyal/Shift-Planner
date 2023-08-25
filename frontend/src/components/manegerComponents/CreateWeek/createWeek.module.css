@@ -909,8 +909,6 @@
     height: 15px;
     -webkit-appearance: none;
     background-color: rgba(245, 242, 242, 0.696);
-    caret-color: transparent;
-    pointer-events: none; 
   }
 
   .swal2_content div{
@@ -950,4 +948,6 @@
   .swal2_input{
     margin-top: 0px;
     margin-right: 30px;
+    caret-color: transparent;
+    pointer-events: none; 
   }
