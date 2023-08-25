@@ -27,12 +27,14 @@ const ManagerHomePage = () => {
     const [weekVisible, setWeekVisible] = useState(false);
     const [loading, setLoading] = useState(true);
 
-
+    // get user from the local storage and return the user ID
     const getUser = () => {
         const user = localStorage.getItem('user');
         const userData = JSON.parse(user);
         return userData._id;
-      };
+    };
+
+    // get the nextWeek
     useEffect(() => {
         const StorageData = JSON.parse(localStorage.getItem("user"));
         if(StorageData){
@@ -55,6 +57,7 @@ const ManagerHomePage = () => {
             setLoading(false);
         });
     }, [])
+
     const signout = () => {
         Swal.fire({
             title: 'האם ברצונכם להתנתק',

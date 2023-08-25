@@ -172,7 +172,11 @@
 }
 
 .worksHer{
-    border: 2px solid rgb(119, 205, 119);
+    border: 2px solid rgb(138, 202, 138);
+}
+
+.bold_name{
+    font-weight: 600;
 }
 
 .buttons{
