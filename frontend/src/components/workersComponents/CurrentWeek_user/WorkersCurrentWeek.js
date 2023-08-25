@@ -53,6 +53,7 @@ const WorkersCurrentWeek = (props) => {
   const getShiftData = (worker, index) =>{
     let data = null;
     data = props.shiftData.find(obj => obj.userId === worker._id)
+    
     return data ?
           (worker._id !== data.userId ?
             <div key={index} className={styles.all_data_div}>
