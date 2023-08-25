@@ -841,7 +841,7 @@
 
 .icon_delete{
     margin-left: 20px;
-    font-size: 20px;
+    font-size: 21px;
     transition: 0.3s;
     color: rgba(227, 86, 86, 0.989);
 }
@@ -852,7 +852,7 @@
 .icon_edit{
     margin-left: 15px;
     color: rgba(119, 119, 119, 0.903);
-    font-size: 20px;
+    font-size: 21px;
     transition: 0.3s;
 }
 .icon_message:hover{
@@ -861,7 +861,7 @@
 .icon_add{
     margin-left: 20px;
     margin-top: 3px;
-    font-size: 20px;
+    font-size: 21px;
     transition: 0.3s;
     color: green;
 }
