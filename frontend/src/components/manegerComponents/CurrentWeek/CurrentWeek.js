@@ -181,9 +181,8 @@ const CurrentWeek = () => {
                         content:
                         `Data: 
                         ${response.data}
-                        Move all existing availableWorkers to workers field
-                        Do not move more then 3 values
-                        Do not display the "availableWorkers" field in the retured Json
+                        Move all existing availableWorkers IDs to workers field.
+                        Do not display the "availableWorkers" field in the retured Json.
                         Do not write any explanation before or after the Json`},
                     ],
                 }
@@ -234,6 +233,7 @@ const CurrentWeek = () => {
             
                         console.log("Update response:", updateResponse.data);
                         setLoadingAi(false);
+                        //usedAiToTrue();
                         window.location.reload();
                     } catch {
                         setLoadingAi(false);
