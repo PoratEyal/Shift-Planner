@@ -154,7 +154,8 @@ const CurrentWeekWorkers = (props) => {
             input: styles.swal2_input
           },
           inputAttributes: {
-            dir: 'rtl'
+            dir: 'rtl',
+            autofocus: false
           }
         }).then((result) => {
           if (result.isConfirmed) {
@@ -203,7 +204,8 @@ const CurrentWeekWorkers = (props) => {
             input: styles.swal2_input
           },
           inputAttributes: {
-            dir: 'rtl'
+            dir: 'rtl',
+            autofocus: false
           }
         }).then((result) => {
           if (result.isConfirmed) {
