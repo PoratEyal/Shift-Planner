@@ -465,6 +465,9 @@
 .hours_message_div label{
     margin-right: 10px;
 }
+.icon{
+    color: rgb(47, 184, 47);
+}
 
 .btn_chose{
     margin: 15px;

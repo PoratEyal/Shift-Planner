@@ -75,9 +75,10 @@ const getShiftData = (worker, index) => {
         <div className={styles.hours_message_div}>
           {worker._id === user._id ? (
             data.message ? (
-              <AiOutlineMessage onClick={() => seeMessage(data)}></AiOutlineMessage>
+              <AiOutlineMessage className={styles.icon} onClick={() => seeMessage(data)}></AiOutlineMessage>
             ) : null
           ) : null}
+
           <label>
             {data.end ? getHour(data.end) : getHour(props.endTime)}
             {data.start ? ` - ${getHour(data.start)}` : ` - ${getHour(props.startTime)}`}

@@ -72,7 +72,11 @@ const WorkersCurrentWeek = (props) => {
                 <div className={styles.bold_name}>•&nbsp;{worker.fullName}</div>}
 
               <div className={styles.hours_message_div}>
-                {worker._id === user._id ?  (data.message ? <AiOutlineMessage onClick={() => seeMessage(data)}></AiOutlineMessage> : null) : null}
+                {worker._id === user._id ?
+                  (data.message ? 
+                  <AiOutlineMessage className={styles.icon} onClick={() => seeMessage(data)}></AiOutlineMessage>
+                  : null)
+                : null}
                 
                 <label>
                   {data.end ? getHour(data.end) : getHour(props.endTime)}

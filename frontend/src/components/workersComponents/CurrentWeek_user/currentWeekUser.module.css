@@ -341,6 +341,10 @@ transform: scale(1.02);
 .hours_message_div label{
     margin-right: 10px;
 }
+.icon{
+    color: rgb(47, 184, 47);
+}
+
 .all_data_div{
     margin: 8px;
     margin-right: 10px;
