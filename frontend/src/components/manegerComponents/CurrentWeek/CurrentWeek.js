@@ -182,6 +182,7 @@ const CurrentWeek = () => {
                         `Data: 
                         ${response.data}
                         Move all existing availableWorkers IDs to workers field.
+                        Double check that you moved all the availableWorkers IDs from the availableWorkers array to the workers array.
                         Do not display the "availableWorkers" field in the retured Json.
                         Do not write any explanation before or after the Json`},
                     ],
@@ -194,8 +195,9 @@ const CurrentWeek = () => {
                 `Data: ${response.data}.
                 AllWorkersArray: ${JSON.stringify(workers)}.
                 Add the workers id from AllWorkersArray to the workers array in the shifts based on those rules:
-                • workers array should contain 3 workers. not more.
-                • use all the worker ids from AllWorkersArray more then once.
+                • Workers array should contain 3 workers. not more.
+                • Use all the worker ids from AllWorkersArray more then once in the json.
+                • Try to add ids from AllWorkersArray in the json equally.
                 • Avoid repeating the same worker ID within the same workers array.
 
                 Return me this json data
