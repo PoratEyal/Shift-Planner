@@ -13,12 +13,12 @@ async function createWeekForManager(managerId) {
       if (index >= days.length) {
         return newWeek.save();
       }
-      futureDate.setDate(currentDate.getDate() + index);
+      futureDate.setDate(currentDate.getDate() + (index+7));
       const day = days[index];
       const newDay = await Day.create({ name: day, shifts: [], date: futureDate});
       newWeek.day.push(newDay);
       await newDay.save();
-      return saveNextDay(index + 7);
+      return saveNextDay(index + 1);
     }
 
     await saveNextDay(0);
