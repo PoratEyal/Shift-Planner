@@ -50,7 +50,7 @@ const SeeDayCurrentWeek = (props) => {
 
      useEffect(() => {
         updateShifts();
-    
+        console.log(day.date);
         const today = moment().format('YYYY-MM-DD');
         if (moment(day.date).format('YYYY-MM-DD') === today && day.name !== "ראשון") {
             // Delay the scroll by 2 seconds
