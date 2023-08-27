@@ -94,16 +94,17 @@ const ChooseShifts = () => {
         </div>
 
         <div style={{ marginTop: '70px' }} className={styles.container}>
+            
+            {weekPublished === true ? <div className={styles.messege}>
+                <p>השבוע פורסם, אלו המשמרות לשבוע הבא</p>   
+            </div>
+            : null}
 
-            {!mesageSent && !weekPublished ? (
+            {!mesageSent && weekPublished === false ? (
                     <div className={styles.messege_to_manager} onClick={sendMessage}>
                     <p>שליחת הודעה למנהל</p>
                     </div>
             ) :  null}
-            
-            {weekPublished ? <div className={styles.messege}>
-                <p>השבוע פורסם, אלו המשמרות לשבוע הבא</p>   
-            </div>: null}
 
             {week && week.visible ? week.day.map((day) => {
                 return <UserDay managerId={managerId} weekPublished={weekPublished} day={day} key={day._id} getDays={getDays} />;

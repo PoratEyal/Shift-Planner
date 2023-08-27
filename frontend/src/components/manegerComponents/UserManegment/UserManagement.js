@@ -37,6 +37,7 @@ const UserManagement = () => {
     }
     else if(targetId === "create-user"){
       setActiveElement(1)
+      setHideCreateBtn(true)
     }
     else if(targetId === "create-role"){
       setHideCreateBtn(true)

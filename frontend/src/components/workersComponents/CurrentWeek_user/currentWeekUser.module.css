@@ -171,8 +171,16 @@
     font-size: 1.3em;
 }
 
-.worksHer{
-    border: 2px solid rgb(119, 205, 119);
+/* .worksHer{
+    border: 2px solid rgb(138, 202, 138);
+} */
+
+.bold_name{
+    font-weight: 600;
+    text-overflow: ellipsis;
+    max-width: 110px;
+    white-space: nowrap;
+    overflow: hidden; 
 }
 
 .buttons{
@@ -334,9 +342,13 @@ transform: scale(1.02);
     flex-direction: row;
     align-items: center;
 }
-.hours_message_div label{
+
+.icon{
+    color: rgba(101, 100, 100, 0.903);
+    font-size: 21px;
     margin-right: 10px;
 }
+
 .all_data_div{
     margin: 8px;
     margin-right: 10px;

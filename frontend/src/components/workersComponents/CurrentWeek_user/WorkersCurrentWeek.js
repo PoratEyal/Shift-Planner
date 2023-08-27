@@ -53,26 +53,43 @@ const WorkersCurrentWeek = (props) => {
   const getShiftData = (worker, index) =>{
     let data = null;
     data = props.shiftData.find(obj => obj.userId === worker._id)
+    
     return data ?
-        (worker._id !== data.userId ?
-          <div key={index} className={styles.all_data_div}>
-            <div>•&nbsp;{worker.fullName}</div>
-          </div>
-          :
-          <div key={index} className={styles.all_data_div}>
-            <div className={styles.name}>•&nbsp;{worker.fullName}</div>
-
-            <div className={styles.hours_message_div}>
-              {worker._id === user._id ?  (data.message ? <AiOutlineMessage onClick={() => seeMessage(data)}></AiOutlineMessage> : null) : null}
-              
-              <label>
-                {data.end ? getHour(data.end) : getHour(props.endTime)}
-                {data.start ? ` - ${getHour(data.start)}` : ` - ${getHour(props.startTime)}`}
-              </label>
+          (worker._id !== data.userId ?
+            <div key={index} className={styles.all_data_div}>
+              {user._id !== worker._id ? 
+                <div>•&nbsp;{worker.fullName}</div>
+              :
+                <div className={styles.bold_name}>•&nbsp;{worker.fullName}</div>}
             </div>
-          </div>)
+
+            :
+
+            <div key={index} className={styles.all_data_div}>
+              {user._id !== worker._id ? 
+                <div className={styles.name}>•&nbsp;{worker.fullName}</div>
+              :
+                <div className={styles.bold_name}>•&nbsp;{worker.fullName}</div>}
+
+              <div className={styles.hours_message_div}>
+                <label>
+                  {data.end ? getHour(data.end) : getHour(props.endTime)}
+                  {data.start ? ` - ${getHour(data.start)}` : ` - ${getHour(props.startTime)}`}
+                </label>
+
+                {worker._id === user._id ?
+                  (data.message ? 
+                  <AiOutlineMessage className={styles.icon} onClick={() => seeMessage(data)}></AiOutlineMessage>
+                  : null)
+                : null}
+              </div>
+            </div>)
+
         : <div key={index} className={styles.all_data_div}>
-          <div>•&nbsp;{worker.fullName}</div>
+            {user._id !== worker._id ? 
+              <div>•&nbsp;{worker.fullName}</div>
+            :
+              <div className={styles.bold_name}>•&nbsp;{worker.fullName}</div>}
         </div>
   }
 

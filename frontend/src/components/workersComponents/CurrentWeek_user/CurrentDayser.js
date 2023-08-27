@@ -20,11 +20,11 @@ const CurrentDayUser = (props) => {
                     behavior: 'smooth'
                 });
             }
-        }, 1000);
+        }, 1300);
 
         return () => clearTimeout(scrollTimeout);
     }
-}, [day.date]);
+  }, [day.date]);
 
   return (
     <div>

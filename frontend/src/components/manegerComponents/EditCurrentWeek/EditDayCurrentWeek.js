@@ -54,9 +54,15 @@ const EditDayCurrentWeek = (props) => {
             const scrollTimeout = setTimeout(() => {
                 const dayContainer = document.getElementById(`day_${day.date}`);
                 if (dayContainer) {
-                    dayContainer.scrollIntoView({ behavior: 'smooth' });
+                    const targetPosition = dayContainer.offsetTop - 100;
+    
+                    // Scroll to the calculated position
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
                 }
-            }, 3500);
+            }, 2800);
     
             return () => clearTimeout(scrollTimeout);
         }

@@ -118,6 +118,17 @@ ul.navbar li button {
     margin-bottom: 15px;
 }
 
+@keyframes slideInAndFade {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 .createRole{
     display: flex;
     flex-direction: column;
@@ -129,6 +140,7 @@ ul.navbar li button {
     margin: 20px;
     background: rgb(255, 255, 255);
     border-radius: 12px;
+    animation: slideInAndFade 0.5s ease-in-out;
 }
 
 .users{
@@ -142,6 +154,7 @@ ul.navbar li button {
     margin: 20px;
     background: rgb(255, 255, 255);
     border-radius: 12px;
+    animation: slideInAndFade 0.5s ease-in-out;
 }
 
 .createUser{
@@ -155,6 +168,7 @@ ul.navbar li button {
     margin: 20px;
     background: rgb(255, 255, 255);
     border-radius: 12px;
+    animation: slideInAndFade 0.5s ease-in-out;
 }
 
 .userForm{

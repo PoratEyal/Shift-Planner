@@ -3,8 +3,9 @@ import React, { useRef, useEffect, useState } from 'react';
 import styles from '../CreateWeek/createWeek.module.css';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { BiAddToQueue } from "react-icons/bi";
+import { BiTime } from "react-icons/bi";
 import Swal from 'sweetalert2';
-import { FaEdit } from "react-icons/fa";
+import { AiOutlineMessage } from "react-icons/ai";
 
 
 const CurrentWeekWorkers = (props) => {
@@ -94,18 +95,19 @@ const CurrentWeekWorkers = (props) => {
     return i;
   }
 
-  // if the worker sent message will pop alert with the his message
-    const seeMessage = async (worker) => {
-      let message = null;
-      let currentMessage = null;
-      
-      await axios.put(`${process.env.REACT_APP_URL}/getMessageToWorker`, 
-      {
+  // get the time that the manager set to the worker.
+  // if didnt set - he can update the hours of the worker in the specific shift
+  const editHours = async (worker) => {
+    let currentMessage = null;
+    
+    // get the hours that the manager added in the past
+    await axios.put(`${process.env.REACT_APP_URL}/getMessageToWorker`, 
+    {
         workerId: worker._id,
         shiftId: props.shift._id,
         dayId: props.dayId,
         managerId: props.managerId
-      }).then(response => {
+    }).then(response => {
         currentMessage = response.data;
         if(currentMessage.start){
         const startTime = new Date(currentMessage.start);
@@ -115,8 +117,77 @@ const CurrentWeekWorkers = (props) => {
         const endTime = new Date(currentMessage.end);
       currentMessage.end = endTime.toTimeString().slice(0, 5);
       }
-      }).catch(err => {
-      });
+    }).catch(err => {});
+
+    // added the new hours to the worker
+    Swal.fire({
+      title: 'עריכת שעות',
+      html: `<form class="${styles.swal2_content}">
+              <div>
+                <input type='time' id='startTime' value=${currentMessage ? (currentMessage.start ? currentMessage.start : "") : ""}></input>
+                <label>:שעת התחלה</label>
+              </div>
+              <div>
+                <input type='time' id='endTime' value=${currentMessage ? (currentMessage.end ? currentMessage.end : "" ) : ""}></input>
+                <label>&#8198;&nbsp;&nbsp;&nbsp;&nbsp;:שעת סיום</label>
+              </div>
+            </form>`,
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'אישור',
+      cancelButtonText: 'ביטול',
+      customClass: {
+        popup: styles.swal2_popup,
+        content: styles.swal2_content
+      },
+      inputAttributes: {
+        dir: 'rtl',
+        autofocus: false
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if (Swal.getPopup().querySelector('#startTime').value !== "" || Swal.getPopup().querySelector('#endTime').value !== "") {
+          const reqBody = {
+            message: currentMessage ? currentMessage.message : "",
+            startTime: getTime(Swal.getPopup().querySelector('#startTime').value),
+            endTime: getTime(Swal.getPopup().querySelector('#endTime').value),
+            workerId: worker._id,
+            shiftId: props.shift._id,
+            dayId: props.dayId,
+            managerId: props.managerId
+          }
+          axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody)
+        }
+      }
+    })
+  }
+
+  // if the worker sent message will pop alert with the his message
+  // the manager can send message to the user for the specific shift
+    const seeMessage = async (worker) => {
+      let message = null;
+      let currentMessage = null;
+    
+      // get the message that the manager wrote if he was
+      await axios.put(`${process.env.REACT_APP_URL}/getMessageToWorker`, 
+      {
+          workerId: worker._id,
+          shiftId: props.shift._id,
+          dayId: props.dayId,
+          managerId: props.managerId
+        }).then(response => {
+          currentMessage = response.data;
+          if(currentMessage.start){
+          const startTime = new Date(currentMessage.start);
+          currentMessage.start = startTime.toTimeString().slice(0, 5);
+        }
+        if(currentMessage.end){
+          const endTime = new Date(currentMessage.end);
+        currentMessage.end = endTime.toTimeString().slice(0, 5);
+        }
+      }).catch(err => {});
+
       const body = {
         weekId: props.weekId,
         userId: worker._id
@@ -129,16 +200,7 @@ const CurrentWeekWorkers = (props) => {
           title: `${message ? worker.fullName + " שלח/ה הודעה" : ''}`,
           html: `<form class="${styles.swal2_content}">
                   <p>${message ? message : ''}</p>
-                  <h2>עריכת שעות</h2>
-                  <div>
-                    <input type='time' id='startTime' value=${currentMessage ? (currentMessage.start ? currentMessage.start : "") : ""}></input>
-                    <label>:שעת התחלה</label>
-                  </div>
-                  <div>
-                    <input type='time' id='endTime' value=${currentMessage ? (currentMessage.end ? currentMessage.end : "" ) : ""}></input>
-                    <label>&#8198;&nbsp;&nbsp;&nbsp;&nbsp;:שעת סיום</label>
-                  </div>
-                  <h2>כתיבת הודעה</h2>
+                  <h2>כתיבת הודעה ל${worker.fullName}</h2>
                 </form>`,
           input: 'text',
           inputValue: currentMessage ? currentMessage.message : "",
@@ -149,7 +211,6 @@ const CurrentWeekWorkers = (props) => {
           cancelButtonText: 'ביטול',
           customClass: {
             popup: styles.swal2_popup,
-            title: styles.swal2_title,
             content: styles.swal2_content,
             input: styles.swal2_input
           },
@@ -157,38 +218,22 @@ const CurrentWeekWorkers = (props) => {
             dir: 'rtl'
           }
         }).then((result) => {
-          if (result.isConfirmed) {
-            if (Swal.getPopup().querySelector('#startTime').value !== "" || Swal.getPopup().querySelector('#endTime').value !== "" || result.value !== "") {
+          if (result.isConfirmed && result.value !== "") {
               const reqBody = {
                 message: result.value,
-                startTime: getTime(Swal.getPopup().querySelector('#startTime').value),
-                endTime: getTime(Swal.getPopup().querySelector('#endTime').value),
+                startTime: currentMessage.start ? getTime(currentMessage.start) : "",
+                endTime: currentMessage.end ? getTime(currentMessage.end) : "",
                 workerId: worker._id,
                 shiftId: props.shift._id,
                 dayId: props.dayId,
                 managerId: props.managerId
               }
-              axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody).then(response => {
-               
-              })
+              axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody)
             }
-  
-          }
-        })
+          })
       } catch (error) {
         Swal.fire({
-          html: `<form class="${styles.swal2_content}">
-                  <h2>עריכת שעות</h2>
-                  <div>
-                    <input type='time' id='startTime' value=${currentMessage ? (currentMessage.start ? currentMessage.start : "") : ""}></input>
-                    <label>:שעת התחלה</label>
-                  </div>
-                  <div>
-                    <input type='time' id='endTime' value=${currentMessage ? (currentMessage.end ? currentMessage.end : "" ) : ""}></input>
-                    <label>&#8198;&nbsp;&nbsp;&nbsp;&nbsp;:שעת סיום</label>
-                  </div>
-                  <h2>כתיבת הודעה</h2>
-                </form>`,
+          title: 'כתיבת הודעה',
           input: 'text',
           inputValue: currentMessage ? currentMessage.message : "",
           showCancelButton: true,
@@ -197,36 +242,28 @@ const CurrentWeekWorkers = (props) => {
           confirmButtonText: 'אישור',
           cancelButtonText: 'ביטול',
           customClass: {
-            popup: styles.swal2_popup,
-            title: styles.swal2_title,
-            content: styles.swal2_content,
-            input: styles.swal2_input
+            popup: styles.swal2_popup
           },
           inputAttributes: {
-            dir: 'rtl'
+            dir: 'rtl',
           }
         }).then((result) => {
           if (result.isConfirmed) {
-            if (Swal.getPopup().querySelector('#startTime').value !== "" || Swal.getPopup().querySelector('#endTime').value !== "" || result.value !== "") {
+            if (result.value !== "") {
               const reqBody = {
                 message: result.value,
-                startTime: getTime(Swal.getPopup().querySelector('#startTime').value),
-                endTime: getTime(Swal.getPopup().querySelector('#endTime').value),
+                startTime: currentMessage.start ? getTime(currentMessage.start) : "",
+                endTime: currentMessage.end ? getTime(currentMessage.end) : "",
                 workerId: worker._id,
                 shiftId: props.shift._id,
                 dayId: props.dayId,
                 managerId: props.managerId
               }
-              axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody).then(response => {
-                console.log(response.data);
-              })
+              axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody)
             }
-  
           }
         })
       }
-      
-      currentMessage = null;
     };
 
   return (
@@ -245,7 +282,8 @@ const CurrentWeekWorkers = (props) => {
             <div key={worker._id} className={styles.nameAndDelete}>
               <div>
                 <RiDeleteBin6Line className={styles.icon_delete} onClick={() => removeWorker(worker._id)}></RiDeleteBin6Line>
-                <FaEdit onClick={() => seeMessage(worker)} className={styles.icon_edit}></FaEdit>
+                <BiTime onClick={() => editHours(worker)} className={styles.icon_edit}></BiTime>
+                <AiOutlineMessage onClick={() => seeMessage(worker)} className={styles.icon_edit}></AiOutlineMessage>
               </div>
               {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
             </div>
@@ -255,7 +293,8 @@ const CurrentWeekWorkers = (props) => {
             <div key={worker._id} className={styles.nameAndDelete}>
               <div>
                 <BiAddToQueue className={styles.icon_add} onClick={() => choseWorker(worker._id)}></BiAddToQueue>
-                <FaEdit onClick={() => seeMessage(worker)} className={styles.icon_edit}></FaEdit>
+                <BiTime onClick={() => editHours(worker)} className={styles.icon_edit}></BiTime>
+                <AiOutlineMessage onClick={() => seeMessage(worker)} className={styles.icon_edit}></AiOutlineMessage>
               </div>
               {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
             </div>
