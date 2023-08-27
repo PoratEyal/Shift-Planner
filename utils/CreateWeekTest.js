@@ -18,7 +18,7 @@ async function createWeekForManager(managerId) {
       const newDay = await Day.create({ name: day, shifts: [], date: futureDate});
       newWeek.day.push(newDay);
       await newDay.save();
-      return saveNextDay(index + 1);
+      return saveNextDay(index + 7);
     }
 
     await saveNextDay(0);
