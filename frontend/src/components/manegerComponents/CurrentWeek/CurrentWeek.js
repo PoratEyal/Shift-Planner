@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import { ManagerContext } from '../ManagerHomePage';
 import { useContext } from 'react';
 import { FaMagic } from "react-icons/fa";
+import messageContext from './messagesContext';
 
 const CurrentWeek = () => {
 
@@ -19,7 +20,7 @@ const CurrentWeek = () => {
     const [promentToAi, setPromentToAi] = useState('');
     const [loadingAi, setLoadingAi] = useState(false);
     const [weekAi, setWeekAi] = useState(false);
-
+    const [weekMessages, setMessages] = useState(null);
     const managerContext = useContext(ManagerContext);
     const managerId = managerContext.getUser();
 
@@ -27,13 +28,13 @@ const CurrentWeek = () => {
     const getWorkers = async () => {
         try {
             const body = {
-              job: managerId
+                job: managerId
             }
             const response = await axios.post(`${process.env.REACT_APP_URL}/getMyWorkers`, body);
             setWorkers(response.data.map(item => item._id))
 
             setPromentToAi
-            (`Data of all the week: ${JSON.stringify(week)}
+                (`Data of all the week: ${JSON.stringify(week)}
             Return me json with all the shiftsId, workers and availableWorkers fields.
             • Do not write any explanation before or after the Json
             • Double check that you provided all the shiftsId that include into the data of the week.
@@ -48,9 +49,9 @@ const CurrentWeek = () => {
                 ]
             },`)
 
-          } catch (error) {
-              console.error(error);
-          }
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     // get all the days in the week (from the specific manager)
@@ -60,52 +61,57 @@ const CurrentWeek = () => {
             id: managerId
         }
         axios.post(`${process.env.REACT_APP_URL}/getNextWeek`, reqbody)
-        .then((response) => {
-            setWeek(response.data);
-            setWeekAi(response.data.usedAi)
-            setWeekPublished(response.data.publishScheduling)
-            setWeekVisible(response.data.visible)
-        }).catch(err => console.log(err));
+            .then((response) => {
+                setWeek(response.data);
+                setWeekAi(response.data.usedAi)
+                setWeekPublished(response.data.publishScheduling)
+                setWeekVisible(response.data.visible)
+            }).then(() => {
+                axios.post(`${process.env.REACT_APP_URL}/getUserMessagesOfWeek`, { weekId: week._id })
+                    .then(response => {
+                        setMessages(response.data)
+                        console.log(response.data);
+                    }).catch(err => console.log(err));
+            }).catch(err => console.log(err));
     }
 
     useEffect(() => {
         getDays();
         getWorkers();
     }, [weekPublished, weekVisible, promentToAi]);
-
     // show alert, if the manager select "yes" - week publish
-    const publishSchedule= () => {
+    const publishSchedule = () => {
         Swal.fire({
             title: 'האם ברצונך לפרסם את השיבוצים לשבוע הבא',
             icon: 'warning',
             showCancelButton: true,
-            cancelButtonText : 'ביטול',
+            cancelButtonText: 'ביטול',
             confirmButtonColor: '#34a0ff',
             cancelButtonColor: '#d33',
             confirmButtonText: 'פרסום'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire({
-                title: 'השיבוצים פורסמו',
-                icon: 'success',
-                confirmButtonColor: '#34a0ff',
-                confirmButtonText: 'סגירה'
-            })
-              editPublishSchedule()
+                Swal.fire({
+                    title: 'השיבוצים פורסמו',
+                    icon: 'success',
+                    confirmButtonColor: '#34a0ff',
+                    confirmButtonText: 'סגירה'
+                })
+                editPublishSchedule()
             }
-          })
+        })
     }
 
     // set next week to published
     const editPublishSchedule = async () => {
         try {
-        const reqbody = {
-            id: managerId
-        }
+            const reqbody = {
+                id: managerId
+            }
             await axios.put(`${process.env.REACT_APP_URL}/setNextWeekPublished`, reqbody)
-            .then((response) => {
-                setWeekPublished(true)
-            });
+                .then((response) => {
+                    setWeekPublished(true)
+                });
         } catch (error) {
             console.log(error.message);
         }
@@ -114,10 +120,10 @@ const CurrentWeek = () => {
     // set next week to usedAi = true
     const usedAiToTrue = async () => {
         try {
-        const reqbody = {
-            id: managerId
-        }
-        await axios.put(`${process.env.REACT_APP_URL}/setNextWeekAiTrue`, reqbody);
+            const reqbody = {
+                id: managerId
+            }
+            await axios.put(`${process.env.REACT_APP_URL}/setNextWeekAiTrue`, reqbody);
         } catch (error) {
             console.log(error.message);
         }
@@ -151,7 +157,7 @@ const CurrentWeek = () => {
                 sendMessage();
             }
         });
-    }    
+    }
 
     // send a prompt to the gpt api and return workers
     // refresh the page
@@ -177,9 +183,10 @@ const CurrentWeek = () => {
                 {
                     messages: [
                         { role: 'system', content: 'You are a helpful assistant.' },
-                        { role: 'user',
-                        content:
-                        `Data: 
+                        {
+                            role: 'user',
+                            content:
+                                `Data: 
                         ${response.data}
                         Move all existing availableWorkers IDs to workers field.
                         Double check that you moved all the availableWorkers IDs from the availableWorkers array to the workers array.
@@ -189,9 +196,9 @@ const CurrentWeek = () => {
                 }
             );
             console.log(`response 2 - ${response2.data}`);
-    
+
             // prompt for the seconed message to the api
-            const finelMessage = 
+            const finelMessage =
                 `Data: ${response.data}.
                 AllWorkersArray: ${JSON.stringify(workers)}.
                 Add the workers id from AllWorkersArray to the workers array in the shifts based on those rules:
@@ -202,7 +209,7 @@ const CurrentWeek = () => {
 
                 Return me this json data
                 Do not write any explanation before or after the Json`;
-    
+
             // Send the thired message to AI
             const response3 = await axios.post(
                 `${process.env.REACT_APP_URL}/sendMessegeAPI`,
@@ -219,20 +226,20 @@ const CurrentWeek = () => {
                 // Extract and parse the JSON response from AI
                 const startIndex = response3.data.indexOf('{');
                 const endIndex = response3.data.lastIndexOf('}');
-                
+
                 if (startIndex !== -1 && endIndex !== -1 && endIndex > startIndex) {
                     const jsonString = response3.data.substring(startIndex, endIndex + 1);
-                    
+
                     try {
                         const jsonData = JSON.parse(jsonString);
                         console.log(jsonData);
-            
+
                         // Update shifts using parsed JSON data
                         const updateResponse = await axios.put(`${process.env.REACT_APP_URL}/updateShiftsOfWeek`, {
                             weekId: week._id,
                             object: jsonData,
                         });
-            
+
                         console.log("Update response:", updateResponse.data);
                         setLoadingAi(false);
                         //usedAiToTrue();
@@ -251,14 +258,14 @@ const CurrentWeek = () => {
                 setLoadingAi(false);
                 console.error('Error parsing JSON: ', parseError);
                 errorAlertToAI();
-            }            
+            }
         } catch (error) {
             setLoadingAi(false);
             console.error('Error sending message: ', error);
             errorAlertToAI();
         }
-    };    
-      
+    };
+
     return <React.Fragment>
         <div >
             <div className={styles.nav_container}>
@@ -268,28 +275,32 @@ const CurrentWeek = () => {
 
             <div style={{ marginTop: '70px' }} className={styles.container}>
 
-                {weekPublished === true ? 
-                <div className={styles.message}>
-                    <p>השבוע פורסם</p>   
-                </div> : null}
+                {weekPublished === true ?
+                    <div className={styles.message}>
+                        <p>השבוע פורסם</p>
+                    </div> : null}
 
-                {weekPublished === false ? 
-                <div className={styles.publish_div}>
-                    <button onClick={publishSchedule} className={loadingAi ? styles.addShift_btn_disabled : styles.addShift_btn}>פרסום שבוע</button>
-                </div> : null}
+                {weekPublished === false ?
+                    <div className={styles.publish_div}>
+                        <button onClick={publishSchedule} className={loadingAi ? styles.addShift_btn_disabled : styles.addShift_btn}>פרסום שבוע</button>
+                    </div> : null}
 
                 {weekAi === false && weekPublished === false ?
-                <div className={styles.publish_div}>
-                    <button className={styles.ai_btn} onClick={clickAi}>
-                        {loadingAi ? <label className={styles.ai_icon_loading}><FaMagic></FaMagic></label> : <label className={styles.ai_icon}><FaMagic></FaMagic></label>}
-                        {loadingAi ? <label>...השיבוץ מתבצע</label> : <label>שיבוץ אוטומטי</label>}
-                    </button>
-                </div> : null} 
-                
+                    <div className={styles.publish_div}>
+                        <button className={styles.ai_btn} onClick={clickAi}>
+                            {loadingAi ? <label className={styles.ai_icon_loading}><FaMagic></FaMagic></label> : <label className={styles.ai_icon}><FaMagic></FaMagic></label>}
+                            {loadingAi ? <label>...השיבוץ מתבצע</label> : <label>שיבוץ אוטומטי</label>}
+                        </button>
+                    </div> : null}
+
                 <div className={loadingAi ? styles.container_disabled : null}>
                     {
                         week ? week.day.map((day) => {
-                            return <DayCurrentWeek  weekId={week._id} day={day} key={day._id} getDays={getDays} managerId={managerId}></DayCurrentWeek>
+                            return (
+                                <messageContext.Provider value={weekMessages}>
+                                    <DayCurrentWeek weekId={week._id} day={day} key={day._id} getDays={getDays} managerId={managerId}></DayCurrentWeek>
+                                </messageContext.Provider>
+                            )
                         }) : null
                     }
                 </div>

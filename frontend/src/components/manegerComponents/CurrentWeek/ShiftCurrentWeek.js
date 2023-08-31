@@ -9,6 +9,7 @@ const ShiftCurrentWeek = (props) => {
     const [shift, setShift] = useState(props.shift);
     const [showWorkers, setShow] = useState(true);
 
+    
     const addWorkerShift = (workerId) => {
         const reqBody = {
             managerId: props.managerId,

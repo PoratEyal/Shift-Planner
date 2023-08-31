@@ -68,6 +68,22 @@ messageRouter.post('/getMessageOfUser', async (req, res) => {
 
     return res.status(200).json(message);
 });
+messageRouter.post('/getUserMessagesOfWeek', async (req, res) => {
+    const weekId = req.body.weekId;
+    const week = await Week.findById(weekId);
+
+    if(!week){
+        return res.status(404);
+    }
+    const messages = await Message.find({
+        week: new ObjectId(weekId)
+    });
+
+    if(!messages){
+        return res.status(404);
+    }
+    return res.status(200).json(messages);
+})
 
 // get all the messages that sent to the specific manager
 messageRouter.post('/getMessages', async (req, res) => {

@@ -16,3 +16,12 @@ Content-Type: application/json
     "userId": "64c92ddd32b91ea0d376454e",
     "weekId": "64c8ef2bf93c26030f033840"
 }
+
+###
+
+POST http://localhost:3001/app/getUserMessagesOfWeek
+Content-Type: application/json
+
+{
+    "weekId": "64e330448c240c5df36538fa"
+}
