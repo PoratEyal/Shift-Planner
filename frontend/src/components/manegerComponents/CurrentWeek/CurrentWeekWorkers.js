@@ -5,7 +5,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { BiAddToQueue } from "react-icons/bi";
 import { BiTime } from "react-icons/bi";
 import Swal from 'sweetalert2';
-import { AiOutlineMessage } from "hh";
+import { AiOutlineMessage } from "react-icons/ai";
 import messageContext from './messagesContext';
 
 const CurrentWeekWorkers = (props) => {
