@@ -72,8 +72,7 @@ const EditDayCurrentWeek = (props) => {
         updateShifts();
     }, [day]);
 
-    return <div>
-        <div className={styles.day_container} id={`day_${day.date}`}>
+    return <div className={`${styles.day_container}`} style={{ margin: '12px' }} id={`day_${day.date}`}>
 
             <h2 className={styles.h2}>{day.name} - {moment(day.date).format('DD.MM')}</h2>
             {
@@ -105,8 +104,6 @@ const EditDayCurrentWeek = (props) => {
             }
 
         </div>
-    </div>
-
 }
 
 export default EditDayCurrentWeek

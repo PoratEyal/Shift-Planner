@@ -50,8 +50,7 @@ const SeeDayCurrentWeek = (props) => {
 
      useEffect(() => {
         updateShifts();
-        console.log(day.date);
-        console.log(moment(day.date).utc().format('DD.MM'));
+        //console.log(moment(day.date).utc().format('DD.MM'));
         const today = moment().format('YYYY-MM-DD');
         if (moment(day.date).format('YYYY-MM-DD') === today && day.name !== "ראשון") {
             const scrollTimeout = setTimeout(() => {
@@ -71,8 +70,7 @@ const SeeDayCurrentWeek = (props) => {
         }
     }, [day]);        
 
-    return <div>
-        <div className={styles.day_container} id={`day_${day.date}`}>
+    return <div className={`${styles.day_container}`} style={{ margin: '12px' }} id={`day_${day.date}`}>
             
             <h2 className={styles.h2}>{day.name} - {moment(day.date).utc().format('DD.MM')}</h2>
             {
@@ -88,10 +86,7 @@ const SeeDayCurrentWeek = (props) => {
                       ) : (
                     dayShifts.map((shift) => {return shift ? <ShiftCurrentWeek managerId={props.managerId} getShifts={updateShifts} shift={shift} dayId={day._id} key={shift._id} setDay={setDay}></ShiftCurrentWeek> : null }))
             }
-
-        </div>
     </div>
-
 }
 
 export default SeeDayCurrentWeek

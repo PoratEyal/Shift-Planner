@@ -70,7 +70,6 @@ const CurrentWeek = () => {
                 axios.post(`${process.env.REACT_APP_URL}/getUserMessagesOfWeek`, { weekId: week._id })
                     .then(response => {
                         setMessages(response.data)
-                        console.log(response.data);
                     }).catch(err => console.log(err));
             }).catch(err => console.log(err));
     }
@@ -79,6 +78,7 @@ const CurrentWeek = () => {
         getDays();
         getWorkers();
     }, [weekPublished, weekVisible, promentToAi]);
+    
     // show alert, if the manager select "yes" - week publish
     const publishSchedule = () => {
         Swal.fire({

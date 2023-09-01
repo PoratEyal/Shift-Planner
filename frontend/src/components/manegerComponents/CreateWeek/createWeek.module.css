@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .container_disabled{
@@ -339,7 +339,7 @@
     border-radius: 0.5rem;
     border: none;
     gap: 0.75rem;
-    color: rgb(65, 63, 63);
+    color: rgb(255, 255, 255);
     background-color: var(--main-color);
     cursor: pointer;
     transition: all .6s ease;
@@ -712,11 +712,12 @@
     justify-content: center;
     align-items: center;
     margin-top: 90px;
+    animation: slideInAndFade 0.7s ease-in-out;
 }
 .edit_div_createWeek button{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: -10px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     display: flex;
     padding: 0.8rem 2.4rem;
     font-size: 1.275rem;
@@ -736,7 +737,6 @@
     transition: all .6s ease;
     width: 320px;
     justify-content: center;
-    animation: slideInAndFade 0.5s ease-in-out;
 }
 
 .publish_div{
@@ -857,15 +857,33 @@
     margin-left: 12px;
     color: rgba(119, 119, 119, 0.903);
     font-size: 21px;
+    cursor: pointer;
 }
-.icon_message:hover{
-    color: black;
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1); /* Scale up at 50% of the animation */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.icon_message_alert{
+    margin-left: 12px;
+    color: rgba(119, 119, 119, 0.903);
+    font-size: 21px;
+    cursor: pointer;
+    animation: pulse 1s infinite;
 }
 .icon_add{
     margin-left: 15px;
     margin-top: 3px;
     font-size: 21px;
     color: green;
+    cursor: pointer;
 }
 .icon_add:hover{
     color: rgb(0, 87, 0);

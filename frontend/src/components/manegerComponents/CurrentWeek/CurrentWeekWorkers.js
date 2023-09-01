@@ -7,6 +7,8 @@ import { BiTime } from "react-icons/bi";
 import Swal from 'sweetalert2';
 import { AiOutlineMessage } from "react-icons/ai";
 import messageContext from './messagesContext';
+import { BiSolidMessageRoundedError } from "react-icons/bi";
+
 
 const CurrentWeekWorkers = (props) => {
   const [workers, setWorker] = useState(props.workers);
@@ -18,10 +20,6 @@ const CurrentWeekWorkers = (props) => {
   const [loading, setLoading] = useState(true);
   const selectRef = useRef(null);
   const weekMessages = React.useContext(messageContext)
-
-
-  console.log(props.shift._id)
-
 
   useEffect(() => {
     if (workers.length == 0) {
@@ -234,7 +232,7 @@ const CurrentWeekWorkers = (props) => {
       })
     } catch (error) {
       Swal.fire({
-        title: 'כתיבת הודעה',
+        title: `כתיבת הודעה ל${worker.fullName}`,
         input: 'text',
         inputValue: currentMessage ? currentMessage.message : "",
         showCancelButton: true,
@@ -276,6 +274,8 @@ const CurrentWeekWorkers = (props) => {
     }}
     return false;
   }
+
+
   return (
     <React.Fragment>
 
@@ -293,12 +293,17 @@ const CurrentWeekWorkers = (props) => {
                 <div>
                   <RiDeleteBin6Line className={styles.icon_delete} onClick={() => removeWorker(worker._id)}></RiDeleteBin6Line>
                   <BiTime onClick={() => editHours(worker)} className={styles.icon_edit}></BiTime>
-                  {
-                    hasMessage(worker._id) ?
-                    <AiOutlineMessage onClick={() => seeMessage(worker)} className={styles.icon_edit}></AiOutlineMessage>
-                  :
-                  null
-                  }
+                  {hasMessage(worker._id) ? (
+                    <BiSolidMessageRoundedError
+                      onClick={() => seeMessage(worker)}
+                      className={styles.icon_message_alert}
+                    ></BiSolidMessageRoundedError>
+                  ) : (
+                    <AiOutlineMessage
+                      onClick={() => seeMessage(worker)}
+                      className={styles.icon_edit}
+                    ></AiOutlineMessage>
+                  )}
                 </div>
                 {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
               </div>
@@ -309,7 +314,17 @@ const CurrentWeekWorkers = (props) => {
                 <div>
                   <BiAddToQueue className={styles.icon_add} onClick={() => choseWorker(worker._id)}></BiAddToQueue>
                   <BiTime onClick={() => editHours(worker)} className={styles.icon_edit}></BiTime>
-                  <AiOutlineMessage onClick={() => seeMessage(worker)} className={styles.icon_edit}></AiOutlineMessage>
+                  {hasMessage(worker._id) ? (
+                    <BiSolidMessageRoundedError
+                      onClick={() => seeMessage(worker)}
+                      className={styles.icon_message_alert}
+                    ></BiSolidMessageRoundedError>
+                  ) : (
+                    <AiOutlineMessage
+                      onClick={() => seeMessage(worker)}
+                      className={styles.icon_edit}
+                    ></AiOutlineMessage>
+                  )}
                 </div>
                 {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
               </div>
