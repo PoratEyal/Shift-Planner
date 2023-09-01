@@ -865,7 +865,7 @@
         transform: scale(1);
     }
     50% {
-        transform: scale(1.1); /* Scale up at 50% of the animation */
+        transform: scale(1.2); /* Scale up at 50% of the animation */
     }
     100% {
         transform: scale(1);

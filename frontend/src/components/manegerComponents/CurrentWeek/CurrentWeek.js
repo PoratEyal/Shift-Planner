@@ -21,6 +21,8 @@ const CurrentWeek = () => {
     const [loadingAi, setLoadingAi] = useState(false);
     const [weekAi, setWeekAi] = useState(false);
     const [weekMessages, setMessages] = useState(null);
+    const [workersCount, setWorkersCount] = useState(null);
+
     const managerContext = useContext(ManagerContext);
     const managerId = managerContext.getUser();
 
@@ -77,6 +79,7 @@ const CurrentWeek = () => {
     useEffect(() => {
         getDays();
         getWorkers();
+        workersCountHandle();
     }, [weekPublished, weekVisible, promentToAi]);
     
     // show alert, if the manager select "yes" - week publish
@@ -140,28 +143,60 @@ const CurrentWeek = () => {
         });
     }
 
+    // return the count of the workers of the manager
+    const workersCountHandle = async () => {
+        const body = {
+            managerId: managerId
+        };
+        
+        try {
+            const response = await axios.put(`${process.env.REACT_APP_URL}/workersCountOfManager`, body);
+            setWorkersCount(response.data);
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
     // when clicking on the button - שיבוץ אוטומטי the user get alert - 
     // if he press אישור the func called to the sendMessage func
     const clickAi = () => {
         Swal.fire({
-            text: 'האם לאפשר למערכת לשבץ את העובדים אוטומטית',
-            title: 'פעולה זו יכולה לקחת עד כדקה<br></br>ביצוע הפעולה מוגבל לפעם אחת בשבוע',
-            icon: 'info',
+            title: 'שיבוץ עובדים אוטומטי',
+            html: `ביצוע הפעולה מוגבל לפעם אחת בשבוע
+                <br></br>        
+                פעולה זו יכולה לקחת עד כדקה
+                <br></br>     
+                אנא בחרו כמות עובדים שתרצו לשבץ במשמרות בין 1- ${workersCount}`,
+            input: 'number',
+            inputAttributes: {
+                min: 1,
+                max: workersCount,
+                dir: 'rtl'
+            },
+            inputPlaceholder: `בחירת כמות עובדים`,
             showCancelButton: true,
             cancelButtonText: 'ביטול',
             confirmButtonColor: '#34a0ff',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'אישור'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                sendMessage();
+            confirmButtonText: 'אישור',
+            inputValidator: (value) => {
+                if (!value || value < 1 || value > workersCount) {
+                    return 'אנא הזינו מספר עובדים בין 1 ל- ' + workersCount;
+                }
             }
-        });
+        })
+        .then((result) => {
+            if (result.isConfirmed) {
+                sendMessage(result.value);
+            }
+        });      
     }
 
     // send a prompt to the gpt api and return workers
     // refresh the page
-    const sendMessage = async () => {
+    const sendMessage = async (numberOfWorkers) => {
+        console.log(numberOfWorkers)
+
         setLoadingAi(true);
         console.log(promentToAi)
         try {
@@ -202,13 +237,15 @@ const CurrentWeek = () => {
                 `Data: ${response.data}.
                 AllWorkersArray: ${JSON.stringify(workers)}.
                 Add the workers id from AllWorkersArray to the workers array in the shifts based on those rules:
-                • Workers array should contain 3 workers. not more.
+                • Workers array should contain ${numberOfWorkers} workers. not more and not less.
                 • Use all the worker ids from AllWorkersArray more then once in the json.
                 • Try to add ids from AllWorkersArray in the json equally.
                 • Avoid repeating the same worker ID within the same workers array.
 
                 Return me this json data
                 Do not write any explanation before or after the Json`;
+
+            console.log(finelMessage)
 
             // Send the thired message to AI
             const response3 = await axios.post(

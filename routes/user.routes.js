@@ -2,21 +2,30 @@ const express = require('express');
 const userRouter = express.Router();
 const Role = require('../models/role');
 const User = require('../models/user');
-const Shift = require('../models/shift');
-const Day = require('../models/day');
-const Week = require('../models/week');
 const job = require('../models/job');
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
-const { parse } = require('dotenv');
-const path = require('path');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
-const functions = require('../utils/functions');
-const { Job } = require('node-schedule');
 const ObjectId = mongoose.Types.ObjectId;
 
 userRouter.use(bodyParser.json());
+
+// get the manager id and return the count of his workers
+userRouter.put('/workersCountOfManager', async (req, res) => {
+    const managerId = req.body.managerId;
+
+    try {
+        await User.find({ manager: managerId }).then(data => {
+            res.status(200).json(data.length - 1);
+    })
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+
 
 
 // create/POST user
@@ -63,16 +72,6 @@ userRouter.post('/getMyWorkers', (req, res) => {
         console.error(err);
     });
 });
-
-//gets all the users
-// userRouter.get('/getUsers', async (req, res) => {
-//     try {
-//         const users = await User.find();
-//         res.status(201).json(users)
-//     } catch (err) {
-//         res.status(400).json({ messege: err.messege })
-//     }
-// });
 
 //gets id and return user
 userRouter.post('/getUserById', (req, res) => {

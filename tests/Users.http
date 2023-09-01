@@ -48,3 +48,11 @@ Content-Type: application/json
     "role": "649995cc7c1cb8f8928a5b24",
     "job": "649d571b70f2c12b782d204f"
 }
+
+###
+PUT http://localhost:3001/app/workersCountOfManager
+Content-Type: application/json
+
+{
+    "managerId": "64c259e1933a450465d6b292"
+}
