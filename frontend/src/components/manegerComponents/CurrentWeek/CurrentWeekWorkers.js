@@ -197,13 +197,8 @@ const CurrentWeekWorkers = (props) => {
         }
       }).catch(err => { });
 
-    const body = {
-      weekId: props.weekId,
-      userId: worker._id
-    };
 
     try {
-      //const response = await axios.post(`${process.env.REACT_APP_URL}/getMessageOfUser`, body).catch(() => { })
       message = getWorkerMessage(worker._id);
       if(message){
       Swal.fire({
@@ -241,38 +236,41 @@ const CurrentWeekWorkers = (props) => {
           axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody)
         }
       })}
-    } catch (error) {
-      Swal.fire({
-        title: `כתיבת הודעה ל${worker.fullName}`,
-        input: 'text',
-        inputValue: currentMessage ? currentMessage.message : "",
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'אישור',
-        cancelButtonText: 'ביטול',
-        customClass: {
-          popup: styles.swal2_popup
-        },
-        inputAttributes: {
-          dir: 'rtl',
-        }
-      }).then((result) => {
-        if (result.isConfirmed) {
-          if (result.value !== "") {
-            const reqBody = {
-              message: result.value,
-              startTime: currentMessage.start ? getTime(currentMessage.start) : "",
-              endTime: currentMessage.end ? getTime(currentMessage.end) : "",
-              workerId: worker._id,
-              shiftId: props.shift._id,
-              dayId: props.dayId,
-              managerId: props.managerId
-            }
-            axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody)
+      else{
+        Swal.fire({
+          title: `כתיבת הודעה ל${worker.fullName}`,
+          input: 'text',
+          inputValue: currentMessage ? currentMessage.message : "",
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'אישור',
+          cancelButtonText: 'ביטול',
+          customClass: {
+            popup: styles.swal2_popup
+          },
+          inputAttributes: {
+            dir: 'rtl',
           }
-        }
-      })
+        }).then((result) => {
+          if (result.isConfirmed) {
+            if (result.value !== "") {
+              const reqBody = {
+                message: result.value,
+                startTime: currentMessage.start ? getTime(currentMessage.start) : "",
+                endTime: currentMessage.end ? getTime(currentMessage.end) : "",
+                workerId: worker._id,
+                shiftId: props.shift._id,
+                dayId: props.dayId,
+                managerId: props.managerId
+              }
+              axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody)
+            }
+          }
+        })
+      }
+    } catch (error) {
+      
     }
   };
 
