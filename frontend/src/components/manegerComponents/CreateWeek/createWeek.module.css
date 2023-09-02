@@ -983,3 +983,98 @@
     margin: 10px;
     font-size: 20px;
 }
+
+
+
+
+
+
+
+@media only screen and (min-width: 370px){
+    .day_container{
+        width: 300px;
+    }
+    .shift{
+        width: 300px;
+    }
+    .published_div button{
+        width: 340px;
+    }
+    .btn{
+        width: 93px;
+    }
+    .addShift{
+        width: 300px;
+    }
+    .publish_div_createWeek button{
+        width: 340px;
+    }
+    .input{
+        width: 250px;
+    }
+    .input_time_start{
+        width: 250px;
+    }
+    .input_time_end{
+        width: 250px;
+    }
+    .addShift_btn{
+        width: 260px;
+    }
+    .edit_div_createWeek button{
+        width: 340px;
+    }
+    .add_specific_worker_btn{
+        margin-right: 48px;
+    }
+    .publish_div button{
+        width: 340px;
+    }
+    .message{
+        width: 320px;
+    }
+}
+@media only screen and (min-width: 430px){
+    .day_container{
+        width: 320px;
+    }
+    .shift{
+        width: 320px;
+    }
+    .published_div button{
+        width: 360px;
+    }
+    .btn{
+        width: 100px;
+    }
+    .addShift{
+        width: 320px;
+    }
+    .publish_div_createWeek button{
+        width: 360px;
+    }
+    .input{
+        width: 270px;
+    }
+    .input_time_start{
+        width: 270px;
+    }
+    .input_time_end{
+        width: 270px;
+    }
+    .addShift_btn{
+        width: 280px;
+    }
+    .edit_div_createWeek button{
+        width: 360px;
+    }
+    .add_specific_worker_btn{
+        margin-right: 65px;
+    }
+    .publish_div button{
+        width: 360px;
+    }
+    .message{
+        width: 340px;
+    }
+}

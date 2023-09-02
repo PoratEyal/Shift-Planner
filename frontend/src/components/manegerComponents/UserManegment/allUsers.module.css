@@ -138,4 +138,16 @@
     }
    }
 
+
+
+@media only screen and (min-width: 380px){
+    .user_container{
+        width: 300px;
+    }
+}
+@media only screen and (min-width: 430px){
+    .user_container{
+        width: 320px;
+    }
+}
    

@@ -265,51 +265,21 @@ transform: scale(1.02);
 
 
 
-/* @media only screen and (max-width: 480px) {
-    .addUser_btn{
-        bottom: 25px;
-        right: 15px;
-    }
+
+
+@media only screen and (min-width: 380px){
     .users{
-        width: 220px;
-    }
-    .createUser{
-        width: 210px;
+        width: 310px;
     }
     .createRole{
-        width: 220px;
+        width: 310px;
     }
-    .input{
-        width: 110px;
-    }
-    .select{
-        width: 120px;
-    }
-    .btn{
-        width: 210px;
-    }
-} */
-/* @media only screen and (min-width: 0px) and (max-width: 767px) {
-    .addUser_btn{
-        bottom: 25px;
-        right: 15px;
-    }
+}
+@media only screen and (min-width: 430px){
     .users{
-        width: 220px;
-    }
-    .createUser{
-        width: 220px;
+        width: 330px;
     }
     .createRole{
-        width: 220px;
+        width: 330px;
     }
-    .input{
-        width: 120px;
-    }
-    .select{
-        width: 135px;
-    }
-    .btn{
-        width: 220px;
-    }
-} */
+}
