@@ -162,6 +162,16 @@ const CurrentWeekWorkers = (props) => {
     })
   }
 
+  const getWorkerMessage = (id) => {
+    if(weekMessages){
+      for(let i = 0; i < weekMessages.length; i++){
+        if(weekMessages[i].worker === id){
+          return weekMessages[i];
+        }
+      }}
+      return null;
+    }
+
   // if the worker sent message will pop alert with the his message
   // the manager can send message to the user for the specific shift
   const seeMessage = async (worker) => {
@@ -193,12 +203,13 @@ const CurrentWeekWorkers = (props) => {
     };
 
     try {
-      const response = await axios.post(`${process.env.REACT_APP_URL}/getMessageOfUser`, body).catch(() => { })
-      message = response.data.message;
+      //const response = await axios.post(`${process.env.REACT_APP_URL}/getMessageOfUser`, body).catch(() => { })
+      message = getWorkerMessage(worker._id);
+      if(message){
       Swal.fire({
-        title: `${message ? worker.fullName + " שלח/ה הודעה" : ''}`,
+        title: `${worker.fullName + " שלח/ה הודעה"}`,
         html: `<form class="${styles.swal2_content}">
-                  <p>${message ? message : ''}</p>
+                  <p>${message.message}</p>
                   <h2>כתיבת הודעה ל${worker.fullName}</h2>
                 </form>`,
         input: 'text',
@@ -229,7 +240,7 @@ const CurrentWeekWorkers = (props) => {
           }
           axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody)
         }
-      })
+      })}
     } catch (error) {
       Swal.fire({
         title: `כתיבת הודעה ל${worker.fullName}`,
