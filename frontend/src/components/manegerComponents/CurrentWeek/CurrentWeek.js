@@ -162,11 +162,18 @@ const CurrentWeek = () => {
     const clickAi = () => {
         Swal.fire({
             title: 'שיבוץ עובדים אוטומטי',
-            html: `ביצוע הפעולה מוגבל לפעם אחת בשבוע
-                <br></br>        
-                פעולה זו יכולה לקחת עד כדקה
-                <br></br>     
-                אנא בחרו כמות עובדים שתרצו לשבץ במשמרות בין 1- ${workersCount}`,
+            html:
+            `<form class="${styles.AI_content}">
+                <div>
+                   ביצוע הפעולה מוגבל לפעם אחת בשבוע 
+                </div>
+                <div>
+                    פעולה זו יכולה לקחת עד כדקה  
+                </div>
+                <div>
+                    אנא בחרו כמות עובדים שתרצו לשבץ במשמרות בין 1- ${workersCount} 
+                </div>
+            </form>`,
             input: 'number',
             inputAttributes: {
                 min: 1,
@@ -183,6 +190,10 @@ const CurrentWeek = () => {
                 if (!value || value < 1 || value > workersCount) {
                     return 'אנא הזינו מספר עובדים בין 1 ל- ' + workersCount;
                 }
+            },
+            customClass: {
+                popup: styles.swal2_popup,
+                content: styles.AI_content
             }
         })
         .then((result) => {
