@@ -35,9 +35,11 @@ const SeeCurrentWeek = () => {
                 <p>צפיה בשבוע הנוכחי</p>
             </div>
 
-            <div className={styles.edit_div_createWeek}>
-                <button onClick={() => navigate('/editCurrentWeek')}>שינוי סידור העבודה</button>
-            </div>
+            {week && (
+                <div className={styles.edit_div_createWeek}>
+                    <button onClick={() => navigate('/editCurrentWeek')}>שינוי סידור העבודה</button>
+                </div>
+            )}
 
             <div className={styles.container}>
                 {

@@ -712,7 +712,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 90px;
-    animation: slideInAndFade 0.7s ease-in-out;
+    animation: slideInAndFade 0.5s ease-in-out;
 }
 .edit_div_createWeek button{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
