@@ -96,7 +96,7 @@
 
 .btn {
     margin-top: 20px;
-    max-width: 260px;
+    max-width: 300px;
     display: flex;
     padding: 0.8rem 2.4rem;
     font-size: 1.275rem;
@@ -118,4 +118,17 @@
 }
 .btn:hover {
 transform: scale(1.02);
+}
+
+
+
+@media only screen and (min-width: 380px){
+    .container{
+        width: 310px;
+    }
+}
+@media only screen and (min-width: 430px){
+    .container{
+        width: 330px;
+    }
 }

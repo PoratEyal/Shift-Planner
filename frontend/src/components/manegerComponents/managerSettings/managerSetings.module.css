@@ -131,3 +131,15 @@ transform: scale(1.02);
         color: #34a0ff;
     }
 }
+
+
+@media only screen and (min-width: 380px){
+    .container{
+        width: 310px;
+    }
+}
+@media only screen and (min-width: 430px){
+    .container{
+        width: 330px;
+    }
+}

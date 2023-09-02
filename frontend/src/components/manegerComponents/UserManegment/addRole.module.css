@@ -221,3 +221,17 @@ transform: scale(1.02);
      opacity: 0.8;
     }
    }
+
+
+
+
+@media only screen and (min-width: 380px){
+    .roles{
+        width: 300px;
+    }
+}
+@media only screen and (min-width: 430px){
+    .roles{
+        width: 320px;
+    }
+}

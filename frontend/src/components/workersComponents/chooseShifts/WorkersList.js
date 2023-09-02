@@ -39,13 +39,13 @@ const WorkerList = (props) => {
   const seeMessage = (data) => {
     Swal.fire({
       title: `הודעה מהמנהל`,
-      text: data.message,
+      html:
+      `<div class="${styles.content}">${data.message}</div>`,
       confirmButtonColor: '#3085d6',
       confirmButtonText: 'סגור',
       customClass: {
-        popup: styles.swal2_popup,
         title: styles.swal2_title,
-        content: styles.swal2_content,
+        content: styles.content
       },
     })
   }
