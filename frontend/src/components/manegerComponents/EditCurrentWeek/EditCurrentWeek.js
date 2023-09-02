@@ -19,7 +19,7 @@ const EditCurrentWeek = () => {
     const managerId = managerContext.getUser();
 
     // get all the days in the current week (from the specific manager)
-    const getDays = () => {
+    const getDays = async () => {
         const managerId = managerContext.getUser();
         const reqBody = {
             managerId: managerId
@@ -27,15 +27,16 @@ const EditCurrentWeek = () => {
         axios.post(`${process.env.REACT_APP_URL}/getCurrentWeek`, reqBody)
             .then((response) => {
                 setWeek(response.data);
+                axios.post(`${process.env.REACT_APP_URL}/getUserMessagesOfWeek`, { weekId: response.data._id })
+                    .then(response => {
+                        setMessages(response.data)
+                    }).catch(err => console.log(err));
             }).catch(err => console.log(err));
     }
 
     useEffect(() => {
         getDays();
-        axios.post(`${process.env.REACT_APP_URL}/getUserMessagesOfWeek`, { weekId: week._id })
-            .then(response => {
-                setMessages(response.data)
-            }).catch(err => console.log(err));
+
     }, []);
 
     return <React.Fragment>
