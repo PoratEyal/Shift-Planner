@@ -218,7 +218,8 @@ const CurrentWeekWorkers = (props) => {
         customClass: {
           popup: styles.swal2_popup,
           content: styles.swal2_content,
-          input: styles.swal2_input
+          input: styles.swal2_input,
+          title: styles.swal2_title
         },
         inputAttributes: {
           dir: 'rtl'
@@ -246,7 +247,8 @@ const CurrentWeekWorkers = (props) => {
           confirmButtonText: 'אישור',
           cancelButtonText: 'ביטול',
           customClass: {
-            popup: styles.swal2_popup
+            popup: styles.swal2_popup,
+            title: styles.swal2_title
           },
           inputAttributes: {
             dir: 'rtl',

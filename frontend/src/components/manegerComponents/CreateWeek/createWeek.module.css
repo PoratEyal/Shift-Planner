@@ -952,13 +952,18 @@
     font-size: 23px;
     margin-top: 0px;
     margin-bottom: 0px;
-    text-align: center;
+    text-align: right;
 }
 
 .swal2_content h2 {
-    font-size: 29px;
+    font-size: 24px;
     margin-top: 20px;
     margin-bottom: 5px;
+}
+
+.swal2_title{
+    font-size: 24px;
+    margin-bottom: -5px;
 }
 
 .swal2_input{
