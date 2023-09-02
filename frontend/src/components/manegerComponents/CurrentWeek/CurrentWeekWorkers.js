@@ -163,6 +163,7 @@ const CurrentWeekWorkers = (props) => {
   }
 
   const getWorkerMessage = (id) => {
+    console.log(weekMessages)
     if(weekMessages){
       for(let i = 0; i < weekMessages.length; i++){
         if(weekMessages[i].worker === id){
@@ -226,8 +227,6 @@ const CurrentWeekWorkers = (props) => {
         if (result.isConfirmed && result.value !== "") {
           const reqBody = {
             message: result.value,
-            startTime: currentMessage.start ? getTime(currentMessage.start) : "",
-            endTime: currentMessage.end ? getTime(currentMessage.end) : "",
             workerId: worker._id,
             shiftId: props.shift._id,
             dayId: props.dayId,
@@ -257,8 +256,6 @@ const CurrentWeekWorkers = (props) => {
             if (result.value !== "") {
               const reqBody = {
                 message: result.value,
-                startTime: currentMessage.start ? getTime(currentMessage.start) : "",
-                endTime: currentMessage.end ? getTime(currentMessage.end) : "",
                 workerId: worker._id,
                 shiftId: props.shift._id,
                 dayId: props.dayId,

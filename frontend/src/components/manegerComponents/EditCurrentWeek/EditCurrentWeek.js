@@ -3,16 +3,17 @@ import axios from 'axios';
 import DayCurrentWeek from './EditDayCurrentWeek'
 import styles from '../CreateWeek/createWeek.module.css'
 import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import { ManagerContext } from '../ManagerHomePage' 
+import { ManagerContext } from '../ManagerHomePage'
 import { useContext } from 'react';
 import { BiArrowBack } from "react-icons/bi";
+import messageContext from '../CurrentWeek/messagesContext'
 
 const EditCurrentWeek = () => {
 
     const navigate = useNavigate();
     const [week, setWeek] = useState(null);
     const [weekPublished, setWeekPublished] = useState(null)
+    const [weekMessages, setMessages] = useState(null);
 
     const managerContext = useContext(ManagerContext);
     const managerId = managerContext.getUser();
@@ -24,15 +25,19 @@ const EditCurrentWeek = () => {
             managerId: managerId
         }
         axios.post(`${process.env.REACT_APP_URL}/getCurrentWeek`, reqBody)
-        .then((response) => {
-            setWeek(response.data);
-        }).catch(err => console.log(err));
+            .then((response) => {
+                setWeek(response.data);
+            }).catch(err => console.log(err));
     }
 
     useEffect(() => {
         getDays();
+        axios.post(`${process.env.REACT_APP_URL}/getUserMessagesOfWeek`, { weekId: week._id })
+            .then(response => {
+                setMessages(response.data)
+            }).catch(err => console.log(err));
     }, []);
-      
+
     return <React.Fragment>
         <div>
             <div className={styles.nav_container}>
@@ -43,7 +48,11 @@ const EditCurrentWeek = () => {
             <div style={{ marginTop: '70px' }} className={styles.container}>
                 {
                     week ? week.day.map((day) => {
-                        return <DayCurrentWeek  weekId={week._id} day={day} key={day._id} getDays={getDays} managerId={managerId}></DayCurrentWeek>
+                        return (
+                            <messageContext.Provider value={weekMessages}>
+                                <DayCurrentWeek weekId={week._id} day={day} key={day._id} getDays={getDays} managerId={managerId}></DayCurrentWeek>
+                            </messageContext.Provider>
+                        )
                     }) : null
                 }
             </div>

@@ -1,7 +1,7 @@
 import React, {useState } from "react";
 import styles from '../CreateWeek/createWeek.module.css';
 import axios from 'axios';
-import CurrentWeekWorkers from './EditCurrentWeekWorkers';
+import CurrentWeekWorkers from '../CurrentWeek/CurrentWeekWorkers';
 import moment from "moment";
 
 const EditShiftCurrentWeek = (props) => {
