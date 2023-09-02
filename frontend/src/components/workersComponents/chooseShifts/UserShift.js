@@ -69,11 +69,13 @@ const UserShift = (props) => {
 
   
 
-  return <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`}onClick={() => {setShow(!showWorkers)}}>
+  return <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`}>
+      <div onClick={() => {setShow(!showWorkers)}}>
 
       <p className={styles.shift_data_p}>
               {shift.description}&nbsp;: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
       </p>
+      </div>
       
       {
       !props.weekPublished ? (
