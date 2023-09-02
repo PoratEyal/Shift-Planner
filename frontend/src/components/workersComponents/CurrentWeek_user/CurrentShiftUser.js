@@ -23,10 +23,12 @@ const CurrentShiftUser = (props) => {
     }, [shift, userId]);
 
     return (
-        <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`} onClick={() => {setShow(!showWorkers)}}>
-            <p className={styles.shift_name}>
+        <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`}>
+            <div  onClick={() => {setShow(!showWorkers)}}>
+            <p  className={styles.shift_name}>
               {shift.description}&nbsp;: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
             </p>
+            </div>
             {showWorkers ? <WorkersCurrentWeek managerId={props.managerId} workers={shift.workers} shiftData={shift.shiftData} endTime={shift.endTime} startTime={shift.startTime}></WorkersCurrentWeek> : null}
         </div>
     );
