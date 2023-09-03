@@ -109,7 +109,6 @@ const AddRole = (props) => {
     });
   };
 
-
   return (
     <div className={styles.container}>
       {!loading ? (

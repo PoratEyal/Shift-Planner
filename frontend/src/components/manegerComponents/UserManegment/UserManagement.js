@@ -75,6 +75,7 @@ const UserManagement = () => {
         setUsername('');
         setPassword('');
         setActiveElement(0)
+        setHideCreateBtn(false)
       })
       .catch((error) => {
         Swal.fire({
@@ -210,9 +211,7 @@ const UserManagement = () => {
         }
       </div>
       
-      <div onClick={(e) => handleClick(e, 'create-user')}>
-        {!hideCreateBtn ? <img src='addUser.png'  className={styles.addUser_btn}></img> : null}
-      </div>
+      {!hideCreateBtn ? <img src='addUser.png' onClick={(e) => handleClick(e, 'create-user')} className={styles.addUser_btn}></img> : null}
       
     </div>
   );
