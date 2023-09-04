@@ -89,9 +89,25 @@ const CurrentWeekWorkers = (props) => {
   };
 
   const removeWorker = (id) => {
-    props.removeWorkerShift(id);
-    setUpdatedWorkers(!updatedWorkers);
-  };
+    Swal.fire({
+      title: '? האם להסיר את העובד',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'אישור',
+      cancelButtonText: 'ביטול',
+      customClass: {
+        popup: styles.swal2_popup,
+        title: styles.swal2_title,
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        props.removeWorkerShift(id);
+        setUpdatedWorkers(!updatedWorkers);
+      }
+    });
+  };  
 
   const getTime = (timeString) => {
     const [selectedHours, selectedMinutes] = timeString.split(":").map(Number);
@@ -197,7 +213,7 @@ const CurrentWeekWorkers = (props) => {
 
     if (message) {
       Swal.fire({
-        title: `${worker.fullName} שלח/ה הודעה`,
+        title: `:${worker.fullName} שלח/ה הודעה`,
         html: `<form class="${styles.swal2_content}">
                   <p>${message.message}</p>
                 </form>`,

@@ -7,8 +7,6 @@ import moment from "moment";
 const ShiftCurrentWeek = (props) => {
 
     const [shift, setShift] = useState(props.shift);
-    const [showWorkers, setShow] = useState(true);
-
     
     const addWorkerShift = (workerId) => {
         const reqBody = {
@@ -44,13 +42,13 @@ const ShiftCurrentWeek = (props) => {
 
     return <div>
         <div className={styles.shift} >
-            <div onClick={() => { setShow(!showWorkers) }}>
+            <div>
                 <p className={styles.shift_description}>
                     {shift.description}&nbsp;: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
                 </p>
             </div>
 
-            {showWorkers ? <CurrentWeekWorkers
+            <CurrentWeekWorkers
                 weekId={props.weekId}
                 shift ={shift}
                 dayId={props.dayId}
@@ -60,7 +58,7 @@ const ShiftCurrentWeek = (props) => {
                 addWorkerShift={addWorkerShift}
                 workers={shift.workers}
                 availableWorkers={shift.availableWorkers}>
-            </CurrentWeekWorkers> : null}
+            </CurrentWeekWorkers>
         </div>
     </div>
 }
