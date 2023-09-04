@@ -12,16 +12,18 @@ import { FiMoreHorizontal } from "react-icons/fi";
 
 
 const CurrentWeekWorkers = (props) => {
-  const [workers, setWorker] = useState(props.workers);
-  const [availableWorkers, setAvailableWorkers] = useState(props.availableWorkers);
+  const [workers] = useState(props.workers);
+  const [availableWorkers] = useState(props.availableWorkers);
   const [newWorkers, setNewWorkers] = useState([]);
   const [availableWorkersArr, setAvailableWorkersArr] = useState([]);
   const [workersArr, setWorkersArr] = useState([]);
   const [updatedWorkers, setUpdatedWorkers] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  // select option 
   const [openOptions, setOpenOptions] = useState(null);
-  const [closeOptions, setCloseOptions] = useState(false);
+  const [isDivVisible, setDivVisible] = useState(false);
+  const divRef = useRef(null);
 
   const selectRef = useRef(null);
   const weekMessages = React.useContext(messageContext)
@@ -79,7 +81,6 @@ const CurrentWeekWorkers = (props) => {
       })
       .catch(err => {
       });
-
   }, []);
 
   const choseWorker = (id) => {
@@ -125,7 +126,7 @@ const CurrentWeekWorkers = (props) => {
 
     // added the new hours to the worker
     Swal.fire({
-      title: 'עריכת שעות',
+      title: 'בחירת שעות',
       html: `<form class="${styles.swal2_content}">
               <div>
                 <input type='time' id='startTime' value=${currentMessage ? (currentMessage.start ? currentMessage.start : "") : ""}></input>
@@ -162,6 +163,18 @@ const CurrentWeekWorkers = (props) => {
             managerId: props.managerId
           }
           axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody)
+          .then(() => {
+            Swal.fire({
+              title: 'השעות נבחרו בהצלחה',
+              icon: 'success',
+              confirmButtonColor: '#34a0ff',
+              confirmButtonText: 'אישור',
+              customClass: {
+                popup: styles.swal2_popup,
+                title: styles.swal2_title,
+              },
+            });
+          })
         }
       }
     })
@@ -175,12 +188,36 @@ const CurrentWeekWorkers = (props) => {
         }
       }}
       return null;
-    }
+  }
 
   // if the worker sent message will pop alert with the his message
-  // the manager can send message to the user for the specific shift
   const seeMessage = async (worker) => {
     let message = null;
+    message = await getWorkerMessage(worker._id);
+
+    if (message) {
+      Swal.fire({
+        title: `${worker.fullName} שלח/ה הודעה`,
+        html: `<form class="${styles.swal2_content}">
+                  <p>${message.message}</p>
+                </form>`,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'סגור',
+        customClass: {
+          popup: styles.swal2_popup,
+          content: styles.swal2_content,
+          input: styles.swal2_input,
+          title: styles.swal2_title
+        },
+        inputAttributes: {
+          dir: 'rtl'
+        }
+      });
+    }
+  };  
+
+  // manager write messagwe to the worker
+  const writeMessage = async (worker) => {
     let currentMessage = null;
 
     // get the message that the manager wrote if he was
@@ -202,45 +239,7 @@ const CurrentWeekWorkers = (props) => {
         }
       }).catch(err => { });
 
-
-    try {
-      message = getWorkerMessage(worker._id);
-      if(message){
-      Swal.fire({
-        title: `${worker.fullName + " שלח/ה הודעה"}`,
-        html: `<form class="${styles.swal2_content}">
-                  <p>${message.message}</p>
-                  <h2>כתיבת הודעה ל${worker.fullName}</h2>
-                </form>`,
-        input: 'text',
-        inputValue: currentMessage ? currentMessage.message : "",
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'אישור',
-        cancelButtonText: 'ביטול',
-        customClass: {
-          popup: styles.swal2_popup,
-          content: styles.swal2_content,
-          input: styles.swal2_input,
-          title: styles.swal2_title
-        },
-        inputAttributes: {
-          dir: 'rtl'
-        }
-      }).then((result) => {
-        if (result.isConfirmed && result.value !== "") {
-          const reqBody = {
-            message: result.value,
-            workerId: worker._id,
-            shiftId: props.shift._id,
-            dayId: props.dayId,
-            managerId: props.managerId
-          }
-          axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody)
-        }
-      })}
-      else{
+      try{
         Swal.fire({
           title: `כתיבת הודעה ל${worker.fullName}`,
           input: 'text',
@@ -268,15 +267,26 @@ const CurrentWeekWorkers = (props) => {
                 managerId: props.managerId
               }
               axios.put(`${process.env.REACT_APP_URL}/WorkerShiftMessage`, reqBody)
+              .then(() => {
+                Swal.fire({
+                  title: 'ההודעה נשלחה בהצלחה',
+                  icon: 'success',
+                  confirmButtonColor: '#34a0ff',
+                  confirmButtonText: 'אישור',
+                  customClass: {
+                    popup: styles.swal2_popup,
+                    title: styles.swal2_title,
+                  },
+                });
+              })
             }
           }
         })
       }
-    } catch (error) {
-      
-    }
+      catch (error) {}
   };
 
+  // checkes if the worker has a message. if yes return true, else return false
   const hasMessage = (id) => {
     if(weekMessages){
     for(let i = 0; i < weekMessages.length; i++){
@@ -287,13 +297,32 @@ const CurrentWeekWorkers = (props) => {
     return false;
   }
 
+  // when click on the ... icon - set those two states
   const options = (workerId) => {
     setOpenOptions(workerId);
-    setCloseOptions(!closeOptions);
+    setDivVisible(true);
   }
 
-  return <React.Fragment>
+  // control on the close and open the option select
+  useEffect(() => {
+    function handleOutsideClick(event) {
+      if (divRef.current && !divRef.current.contains(event.target)) {
+        setDivVisible(false);
+      }
+    }
 
+    if (isDivVisible) {
+      document.addEventListener('mousedown', handleOutsideClick);
+    } else {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [isDivVisible ])
+
+  return <React.Fragment>
       {loading ?
         (
           <div className={styles['three-body']}>
@@ -306,20 +335,21 @@ const CurrentWeekWorkers = (props) => {
             {workersArr.map((worker) => (
               <div key={worker._id} className={styles.nameAndDelete}>
                 <div className={styles.label_edit_select}>
+                  
+                  <FiMoreHorizontal onClick={() => options(worker._id)} className={styles.icon_edit}></FiMoreHorizontal>
+                  
                   <RiDeleteBin6Line className={styles.icon_delete} onClick={() => removeWorker(worker._id)}></RiDeleteBin6Line>
 
-                  <FiMoreHorizontal onClick={() => options(worker._id)} className={styles.icon_edit}></FiMoreHorizontal>
-
-                  {openOptions === worker._id && closeOptions ? 
-                    <div className={styles.edit_div_options}>
+                  {openOptions === worker._id && isDivVisible ? 
+                    <div ref={divRef} className={styles.edit_div_options}>
                         <div className={styles.edit_div_flex}>
                           <label className={styles.text_edit_select} onClick={() => editHours(worker)}>בחירת שעות</label>
                           <BiTime className={styles.icon_edit_select} onClick={() => editHours(worker)}></BiTime>
                         </div>
 
                         <div className={styles.edit_div_flex}>
-                          <label className={styles.text_edit_select} onClick={() => seeMessage(worker)}>כתיבת הודעה</label>
-                          <AiOutlineMessage className={styles.icon_edit_select} onClick={() => seeMessage(worker)}></AiOutlineMessage>
+                          <label className={styles.text_edit_select} onClick={() => writeMessage(worker)}>כתיבת הודעה</label>
+                          <AiOutlineMessage className={styles.icon_edit_select} onClick={() => writeMessage(worker)}></AiOutlineMessage>
                         </div>
                     </div> : null}
   
@@ -338,26 +368,25 @@ const CurrentWeekWorkers = (props) => {
             {availableWorkersArr.map((worker) => (
               <div key={worker._id} className={styles.nameAndDelete}>
                 <div className={styles.label_edit_select}>
-                  <BiAddToQueue className={styles.icon_add} onClick={() => removeWorker(worker._id)}></BiAddToQueue>
 
-                  <label>
-                    <FiMoreHorizontal onClick={() => options(worker._id)} className={styles.icon_edit}></FiMoreHorizontal>
+                  <FiMoreHorizontal onClick={() => options(worker._id)} className={styles.icon_edit}></FiMoreHorizontal>
+                  
+                  <BiAddToQueue className={styles.icon_add} onClick={() => choseWorker(worker._id)}></BiAddToQueue>
+                  
+                  {openOptions === worker._id && isDivVisible ? 
+                    <div ref={divRef} className={styles.edit_div_options}>
 
-                    {openOptions === worker._id && closeOptions ?
-                      <div className={styles.edit_div_options}>
+                      <div className={styles.edit_div_flex}>
+                        <label className={styles.text_edit_select} onClick={() => editHours(worker)}>בחירת שעות</label>
+                        <BiTime className={styles.icon_edit_select} onClick={() => editHours(worker)}></BiTime>
+                      </div>
 
-                        <div className={styles.edit_div_flex}>
-                          <label className={styles.text_edit_select} onClick={() => editHours(worker)}>בחירת שעות</label>
-                          <BiTime className={styles.icon_edit_select} onClick={() => editHours(worker)}></BiTime>
-                        </div>
-
-                        <div className={styles.edit_div_flex}>
-                          <label className={styles.text_edit_select} onClick={() => seeMessage(worker)}>כתיבת הודעה</label>
-                          <AiOutlineMessage className={styles.icon_edit_select} onClick={() => seeMessage(worker)}></AiOutlineMessage>
-                        </div>
+                      <div className={styles.edit_div_flex}>
+                        <label className={styles.text_edit_select} onClick={() => writeMessage(worker)}>כתיבת הודעה</label>
+                        <AiOutlineMessage className={styles.icon_edit_select} onClick={() => writeMessage(worker)}></AiOutlineMessage>
+                      </div>
                         
-                      </div> : null}
-                  </label>
+                  </div> : null}
   
                   {hasMessage(worker._id) ? (
                     <BiSolidMessageRoundedError
@@ -365,6 +394,7 @@ const CurrentWeekWorkers = (props) => {
                       className={styles.icon_message_alert}
                     ></BiSolidMessageRoundedError>
                   ) : null}
+
                 </div>
                 {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
               </div>
