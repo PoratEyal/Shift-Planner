@@ -43,6 +43,7 @@ const AllUsers = (props) => {
   
         fetchData();
     }, [userDeleted]);
+
     const deleteUser = async (userId) => {
       Swal.fire({
         title: 'האם ברצונך למחוק את המשתמש',
@@ -75,39 +76,37 @@ const AllUsers = (props) => {
         }
       });
     }
-    return (
-        <div>
-          {!loading ? (
-            <div className={styles['three-body']}>
-            <div className={styles['three-body__dot']}></div>
-            <div className={styles['three-body__dot']}></div>
-            <div className={styles['three-body__dot']}></div>
-            </div>
-          ) : (
-            users.map((user) => (
+    return <div>
+        {!loading ? (
+          <div className={styles['three-body']}>
+          <div className={styles['three-body__dot']}></div>
+          <div className={styles['three-body__dot']}></div>
+          <div className={styles['three-body__dot']}></div>
+          </div>
+        ) : (
+          users.map((user) => (
 
-              (user._id !== managerId) ?
-              <div key={user._id} className={styles.user_container}>
-                <div>
-                  <button
-                    className={styles.btn}
-                    onClick={() => {
-                      deleteUser(user._id);
-                      setUserDelted(false);
-                    }}
-                  >
-                    <RiDeleteBin6Line></RiDeleteBin6Line>
-                  </button>
-                </div>
-                <div>
-                  <p className={styles.p}>{user.fullName}</p>
-                </div>
+            (user._id !== managerId) ?
+            <div key={user._id} className={styles.user_container}>
+              <div>
+                <button
+                  className={styles.btn}
+                  onClick={() => {
+                    deleteUser(user._id);
+                    setUserDelted(false);
+                  }}
+                >
+                  <RiDeleteBin6Line></RiDeleteBin6Line>
+                </button>
               </div>
-              : null
-            ))
-          )}
-        </div>
-      );
+              <div>
+                <p className={styles.p}>{user.fullName}</p>
+              </div>
+            </div>
+            : null
+          ))
+        )}
+    </div>
 }
 
 export default AllUsers
