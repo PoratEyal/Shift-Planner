@@ -139,7 +139,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
 }
 
 .createShift_div{
@@ -239,7 +238,7 @@
 }
 .add_btn:hover {
     transform: scale(1.02);
-    }
+}
 
 .addShift{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -889,6 +888,56 @@
     color: rgb(0, 87, 0);
 }
 
+.label_edit_select{
+    position: relative;
+}
+
+
+.edit_div_options{
+    border-radius: 7px;
+    width: 170px;
+    height: auto;
+    border: none;
+    position: absolute;
+    direction: ltr;
+    left:20px;
+    top: 33px;
+    z-index: 100;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(67, 71, 85, 0.27) 1px 1px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.15em 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    transition: all .6s ease;
+}
+.edit_div_options::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 100%;
+    left: 1.5em;
+    border: .75rem solid transparent;
+    border-top: none;
+    border-bottom-color: rgb(255, 255, 255);
+    filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
+    cursor: pointer;
+}
+.edit_div_flex{
+    margin: 8px;
+    direction: ltr;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.icon_edit_select{
+    color: rgba(119, 119, 119, 0.903);
+    font-size: 21px;
+    cursor: pointer;
+    margin-left: 10px;
+}
 
 
 /* - - - - - - - -alert css - - -  - - - - - - - */

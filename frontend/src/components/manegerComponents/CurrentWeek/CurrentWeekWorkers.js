@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import { AiOutlineMessage } from "react-icons/ai";
 import messageContext from './messagesContext';
 import { BiSolidMessageRoundedError } from "react-icons/bi";
+import { FiMoreHorizontal } from "react-icons/fi";
 
 
 const CurrentWeekWorkers = (props) => {
@@ -18,6 +19,10 @@ const CurrentWeekWorkers = (props) => {
   const [workersArr, setWorkersArr] = useState([]);
   const [updatedWorkers, setUpdatedWorkers] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  const [openOptions, setOpenOptions] = useState(null);
+  const [closeOptions, setCloseOptions] = useState(false);
+
   const selectRef = useRef(null);
   const weekMessages = React.useContext(messageContext)
 
@@ -163,7 +168,6 @@ const CurrentWeekWorkers = (props) => {
   }
 
   const getWorkerMessage = (id) => {
-    console.log(weekMessages)
     if(weekMessages){
       for(let i = 0; i < weekMessages.length; i++){
         if(weekMessages[i].worker === id){
@@ -283,9 +287,12 @@ const CurrentWeekWorkers = (props) => {
     return false;
   }
 
+  const options = (workerId) => {
+    setOpenOptions(workerId);
+    setCloseOptions(!closeOptions);
+  }
 
-  return (
-    <React.Fragment>
+  return <React.Fragment>
 
       {loading ?
         (
@@ -298,41 +305,67 @@ const CurrentWeekWorkers = (props) => {
           <div className={styles.workers_list_delete}>
             {workersArr.map((worker) => (
               <div key={worker._id} className={styles.nameAndDelete}>
-                <div>
+                <div className={styles.label_edit_select}>
                   <RiDeleteBin6Line className={styles.icon_delete} onClick={() => removeWorker(worker._id)}></RiDeleteBin6Line>
-                  <BiTime onClick={() => editHours(worker)} className={styles.icon_edit}></BiTime>
-                  {hasMessage(worker._id) ? (
-                    <BiSolidMessageRoundedError
-                      onClick={() => seeMessage(worker)}
-                      className={styles.icon_message_alert}
-                    ></BiSolidMessageRoundedError>
-                  ) : (
-                    <AiOutlineMessage
-                      onClick={() => seeMessage(worker)}
-                      className={styles.icon_edit}
-                    ></AiOutlineMessage>
-                  )}
-                </div>
+
+                  <FiMoreHorizontal onClick={() => options(worker._id)} className={styles.icon_edit}></FiMoreHorizontal>
+
+                  {openOptions === worker._id && closeOptions ? 
+                    <div className={styles.edit_div_options}>
+
+                      <div className={styles.edit_div_flex}>
+                        <label className={styles.text_edit_select} onClick={() => editHours(worker)}>בחירת שעות</label>
+                        <BiTime className={styles.icon_edit_select} onClick={() => editHours(worker)}></BiTime>
+                      </div>
+
+                      <div className={styles.edit_div_flex}>
+                        <label className={styles.text_edit_select} onClick={() => seeMessage(worker)}>כתיבת הודעה</label>
+                        <AiOutlineMessage className={styles.icon_edit_select} onClick={() => seeMessage(worker)}></AiOutlineMessage>
+                      </div>
+                      
+                    </div> : null}
+  
+                    {hasMessage(worker._id) ? (
+                      <BiSolidMessageRoundedError
+                        onClick={() => seeMessage(worker)}
+                        className={styles.icon_message_alert}
+                      ></BiSolidMessageRoundedError>
+                    ) : null}
+                  </div>
                 {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
               </div>
             ))}
 
             {availableWorkersArr.map((worker) => (
               <div key={worker._id} className={styles.nameAndDelete}>
-                <div>
-                  <BiAddToQueue className={styles.icon_add} onClick={() => choseWorker(worker._id)}></BiAddToQueue>
-                  <BiTime onClick={() => editHours(worker)} className={styles.icon_edit}></BiTime>
+                <div className={styles.label_edit_select}>
+                  <BiAddToQueue className={styles.icon_add} onClick={() => removeWorker(worker._id)}></BiAddToQueue>
+
+                  <label>
+                    <FiMoreHorizontal onClick={() => options(worker._id)} className={styles.icon_edit}></FiMoreHorizontal>
+
+                    {openOptions === worker._id && closeOptions ?
+                      <div className={styles.edit_div_options}>
+
+                        <div className={styles.edit_div_flex}>
+                          <label className={styles.text_edit_select} onClick={() => editHours(worker)}>בחירת שעות</label>
+                          <BiTime className={styles.icon_edit_select} onClick={() => editHours(worker)}></BiTime>
+                        </div>
+
+                        <div className={styles.edit_div_flex}>
+                          <label className={styles.text_edit_select} onClick={() => seeMessage(worker)}>כתיבת הודעה</label>
+                          <AiOutlineMessage className={styles.icon_edit_select} onClick={() => seeMessage(worker)}></AiOutlineMessage>
+                        </div>
+                        
+                      </div> : null}
+                  </label>
+  
                   {hasMessage(worker._id) ? (
                     <BiSolidMessageRoundedError
                       onClick={() => seeMessage(worker)}
                       className={styles.icon_message_alert}
                     ></BiSolidMessageRoundedError>
-                  ) : (
-                    <AiOutlineMessage
-                      onClick={() => seeMessage(worker)}
-                      className={styles.icon_edit}
-                    ></AiOutlineMessage>
-                  )}
+                  ) : null}
                 </div>
                 {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
               </div>
@@ -346,7 +379,7 @@ const CurrentWeekWorkers = (props) => {
         </div>
 
         <select className={styles.add_specific_worker_select} ref={selectRef} defaultValue="">
-          <option value="" disabled>בחר עובד</option>
+          <option value="" disabled>הוספת עובד</option>
           {newWorkers.map((elem, index) => (
             <option key={index} value={elem._id}>{elem.fullName}</option>
           ))}
@@ -354,7 +387,7 @@ const CurrentWeekWorkers = (props) => {
       </div>
 
     </React.Fragment>
-  );
-};
+    
+}
 
 export default CurrentWeekWorkers;
