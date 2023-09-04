@@ -1,0 +1,6 @@
+POST http://localhost:3001/app/getDefShifts
+Content-Type: application/json
+
+{
+    "managerId": "64ccfd81cd904a14764e3768"
+}

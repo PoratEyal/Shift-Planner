@@ -15,6 +15,8 @@ const routeWeek = require('./routes/week.routes');
 const routeWorker = require('./routes/worker.routes');
 const routeGPT = require('./routes/gpt.routes');
 const routeMessage = require('./routes/message.routes');
+const routeDefShifts = require('./routes/defaultShifts.routes');
+
 
 
 // database area
@@ -47,6 +49,7 @@ app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     next();
   });
+app.use('/app', routeDefShifts);
 app.use('/app', routeDay);
 app.use('/app', routeJob);
 app.use('/app', routeRole);
