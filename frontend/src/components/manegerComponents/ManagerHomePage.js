@@ -141,14 +141,16 @@ const ManagerHomePage = () => {
                         <div className={styles.text_div}>ניהול עובדים</div>
                     </button>
                 </Link>
-                <Link className={styles.link} to="/settings">
+
+                {/* <Link className={styles.link} to="/settings">
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
                         {<MdManageAccounts className={styles.icon4}></MdManageAccounts>}
                         </div>
                         <div className={styles.text_div}>הגדרות</div>
                     </button>
-                </Link>
+                </Link> */}
+
                 <Outlet />
             </div>
 

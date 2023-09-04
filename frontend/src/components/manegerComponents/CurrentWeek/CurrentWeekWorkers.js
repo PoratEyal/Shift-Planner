@@ -312,17 +312,15 @@ const CurrentWeekWorkers = (props) => {
 
                   {openOptions === worker._id && closeOptions ? 
                     <div className={styles.edit_div_options}>
+                        <div className={styles.edit_div_flex}>
+                          <label className={styles.text_edit_select} onClick={() => editHours(worker)}>בחירת שעות</label>
+                          <BiTime className={styles.icon_edit_select} onClick={() => editHours(worker)}></BiTime>
+                        </div>
 
-                      <div className={styles.edit_div_flex}>
-                        <label className={styles.text_edit_select} onClick={() => editHours(worker)}>בחירת שעות</label>
-                        <BiTime className={styles.icon_edit_select} onClick={() => editHours(worker)}></BiTime>
-                      </div>
-
-                      <div className={styles.edit_div_flex}>
-                        <label className={styles.text_edit_select} onClick={() => seeMessage(worker)}>כתיבת הודעה</label>
-                        <AiOutlineMessage className={styles.icon_edit_select} onClick={() => seeMessage(worker)}></AiOutlineMessage>
-                      </div>
-                      
+                        <div className={styles.edit_div_flex}>
+                          <label className={styles.text_edit_select} onClick={() => seeMessage(worker)}>כתיבת הודעה</label>
+                          <AiOutlineMessage className={styles.icon_edit_select} onClick={() => seeMessage(worker)}></AiOutlineMessage>
+                        </div>
                     </div> : null}
   
                     {hasMessage(worker._id) ? (
@@ -331,6 +329,7 @@ const CurrentWeekWorkers = (props) => {
                         className={styles.icon_message_alert}
                       ></BiSolidMessageRoundedError>
                     ) : null}
+                    
                   </div>
                 {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
               </div>

@@ -876,6 +876,7 @@
     font-size: 21px;
     cursor: pointer;
     animation: pulse 1s infinite;
+    animation: slideInAndFade 0.7s ease-in-out;
 }
 .icon_add{
     margin-left: 15px;
