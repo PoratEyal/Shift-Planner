@@ -273,6 +273,19 @@ transform: scale(1.02);
     .createRole{
         width: 310px;
     }
+
+    .createUser{
+        width: 310px;
+    }
+    .input{
+        width: 170px;
+    }
+    .select{
+        width: 183px;
+    }
+    .btn{
+        width: 290px;
+    }
 }
 @media only screen and (min-width: 430px){
     .users{
@@ -280,5 +293,18 @@ transform: scale(1.02);
     }
     .createRole{
         width: 330px;
+    }
+
+    .createUser{
+        width: 330px;
+    }
+    .input{
+        width: 190px;
+    }
+    .select{
+        width: 203px;
+    }
+    .btn{
+        width: 310px;
     }
 }
