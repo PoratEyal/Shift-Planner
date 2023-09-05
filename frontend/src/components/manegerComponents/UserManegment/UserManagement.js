@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { ManagerContext } from '../ManagerHomePage' 
 import { useContext } from 'react';
 import Swal from 'sweetalert2';
+import { AiOutlineUserAdd } from "react-icons/ai";
 
 const UserManagement = () => {
 
@@ -212,7 +213,7 @@ const UserManagement = () => {
       </div>
       
       {!hideCreateBtn ? <img src='addUser.png' onClick={(e) => handleClick(e, 'create-user')} className={styles.addUser_btn}></img> : null}
-      
+
     </div>
   );
 }
