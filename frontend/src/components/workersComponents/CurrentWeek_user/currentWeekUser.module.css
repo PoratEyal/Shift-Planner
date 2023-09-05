@@ -112,7 +112,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 @keyframes slideInAndFade {
@@ -134,7 +134,7 @@
     text-align: center;
     padding: 20px;
     width: 280px;
-    margin: 15px;
+    margin: 12px;
     background: rgb(255, 255, 255);
     border-radius: 12px;
     animation: slideInAndFade 0.5s ease-in-out;

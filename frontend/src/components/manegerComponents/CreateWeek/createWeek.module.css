@@ -415,7 +415,7 @@
 .btn_delete{
     color: rgba(227, 86, 86, 0.989);
     border: none;
-    font-size: 18px;
+    font-size: 22px;
     background-color: #25d36500;
     margin-top: 7px;
     margin-left: -5px;
@@ -893,7 +893,6 @@
     position: relative;
 }
 
-
 .edit_div_options{
     border-radius: 7px;
     width: 170px;
@@ -910,7 +909,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: end;
-    transition: all .6s ease;
+    animation: slideInAndFade 0.2s ease-in-out;
 }
 .edit_div_options::before{
     content: '';

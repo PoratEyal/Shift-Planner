@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .nav_container{
@@ -72,7 +72,7 @@
     text-align: center;
     padding: 20px;
     width: 280px;
-    margin: 20px;
+    margin: 12px;
     background: rgb(255, 255, 255);
     border-radius: 12px;
     animation: slideInAndFade 0.5s ease-in-out;
@@ -98,8 +98,24 @@
     justify-content: center;
     text-align: center;
     margin-top: 5px;
+    margin-bottom: 10px;
     animation: slideInAndFade 0.3s ease-in-out;
+    position: relative;
 }
+/* .messege::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: auto;
+    top: 10;
+    right: -11px;
+    border: .75rem solid transparent;
+    border-left: none;
+    border-right-color: rgba(53, 200, 34, 0.934); 
+    cursor: pointer;
+    transform: rotate(180deg);
+} */
 
 .h2{
     margin-top: -15px;
@@ -581,6 +597,7 @@
     justify-content: center;
     text-align: center;
     margin-top: 10px;
+    margin-bottom: 10px;
     animation: slideInAndFade 0.3s ease-in-out;
 }
 .messege_to_manager p{
