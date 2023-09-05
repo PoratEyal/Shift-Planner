@@ -99,7 +99,7 @@ const CreateWeek = () => {
                 </button>
             </div> : null}
 
-            <div style={{marginTop: '65px'}}>
+            <div style={{ marginTop: '65px', marginBottom: '50px' }}>
                 {
                     week ? week.day.map((day) => {
                         return <Day day={day} key={day._id} getDays={getDays} managerId={managerId}></Day>

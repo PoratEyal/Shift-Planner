@@ -334,9 +334,9 @@ const CurrentWeek = () => {
                     </button>
                 </div> : null}
 
-                {weekPublished === false ?
+                {weekPublished === false && !loadingAi?
                     <div className={styles.publish_div}>
-                        <button onClick={publishSchedule} className={loadingAi ? styles.addShift_btn_disabled : null}>
+                        <button onClick={publishSchedule}>
                         <FcAdvertising className={styles.icon_publish}></FcAdvertising>
                         <label>פרסום שבוע</label>
                         </button>
@@ -350,7 +350,7 @@ const CurrentWeek = () => {
                         </button>
                     </div> : null}
 
-                <div className={loadingAi ? styles.container_disabled : null}>
+                <div style={{marginBottom: '50px'}} className={loadingAi ? styles.container_disabled : null}>
                     {
                         week ? week.day.map((day) => {
                             return (

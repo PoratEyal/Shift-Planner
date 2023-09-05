@@ -212,7 +212,7 @@ const CurrentWeekWorkers = (props) => {
 
     if (message) {
       Swal.fire({
-        title: `:${worker.fullName} שלח/ה הודעה`,
+        title: `${worker.fullName} שלח/ה הודעה`,
         html: `<form class="${styles.swal2_content}">
                   <p>${message.message}</p>
                 </form>`,

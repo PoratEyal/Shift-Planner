@@ -332,10 +332,9 @@
 }
 
 .addShift_btn{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: -10px;
-    margin-bottom: 0px;
+    margin-bottom: 15px;
     display: flex;
     padding: 0.8rem 2.4rem;
     font-size: 1.275rem;
@@ -352,9 +351,8 @@
     color: white;
     cursor: pointer;
     transition: all .6s ease;
-    width: 340px;
+    width: 230px;
     justify-content: center;
-    animation: downToUp 1s ease-in-out;
 }
 
 .ai_div{
@@ -378,7 +376,7 @@
     border-radius: 0.5rem;
     border: none;
     gap: 0.75rem;
-    background-color: #6ecfff;
+    background-color: var(--main-color);
     color:#ffffff;
     cursor: pointer;
     transition: all .6s ease;
@@ -1097,7 +1095,7 @@
         width: 250px;
     }
     .addShift_btn{
-        width: 360px;
+        width: 260px;
     }
     .edit_div_createWeek button{
         width: 320px;
@@ -1144,7 +1142,7 @@
         width: 270px;
     }
     .addShift_btn{
-        width: 340px;
+        width: 280px;
     }
     .edit_div_createWeek button{
         width: 360px;

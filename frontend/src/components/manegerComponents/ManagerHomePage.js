@@ -80,10 +80,11 @@ const ManagerHomePage = () => {
         if (!loading && !weekVisible) {
           event.preventDefault();
           Swal.fire({
-            title: 'שיבוץ עובדים אפשרי רק לאחר יצירת ופרסום המשמרות',
+            title: 'שיבוץ עובדים אפשרי רק לאחר יצירת ופרסום המשמרות',
             icon: 'warning',
-            confirmButtonColor: '#2977bc'
-          });
+            confirmButtonColor: '#2977bc',
+            confirmButtonText: 'סגור'
+          });          
         }
       };
 
