@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { ManagerContext } from '../ManagerHomePage' 
 import { useContext } from 'react';
+import { FcAdvertising } from "react-icons/fc";
+import { FcApproval } from "react-icons/fc";
 
 const CreateWeek = () => {
 
@@ -83,15 +85,21 @@ const CreateWeek = () => {
 
             {weekVisivble === false ?
             <div className={styles.publish_div_createWeek}>
-                <button onClick={publishWeek} className={styles.addShift_btn}>פרסום משמרות</button>
+                <button onClick={publishWeek}>
+                    <FcAdvertising className={styles.icon_publish}></FcAdvertising>
+                    <label>פרסום משמרות</label>
+                </button>
             </div> : null}
 
             {weekVisivble === true ?
             <div className={styles.published_div}>
-                <button visible='false'>המשמרות פורסמו</button>
+                <button visible='false'>
+                    <FcApproval className={styles.icon_publishd}></FcApproval>
+                    <label>המשמרות פורסמו</label>
+                </button>
             </div> : null}
 
-            <div>
+            <div style={{marginTop: '65px'}}>
                 {
                     week ? week.day.map((day) => {
                         return <Day day={day} key={day._id} getDays={getDays} managerId={managerId}></Day>

@@ -43,7 +43,7 @@ const EditCurrentWeek = () => {
         <div>
             <div className={styles.nav_container}>
                 <button className={styles.home_btn} onClick={() => navigate('/SeeCurrentWeekShifts')}><BiArrowBack></BiArrowBack></button>
-                <p>עריכת שבוע נוכחי</p>
+                <p>עדכון שבוע נוכחי</p>
             </div>
 
             <div style={{ marginTop: '70px' }} className={styles.container}>

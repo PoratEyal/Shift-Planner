@@ -2,14 +2,13 @@ import axios from 'axios';
 import React, { useRef, useEffect, useState } from 'react';
 import styles from '../CreateWeek/createWeek.module.css';
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { BiAddToQueue } from "react-icons/bi";
 import { BiTime } from "react-icons/bi";
 import Swal from 'sweetalert2';
 import { AiOutlineMessage } from "react-icons/ai";
 import messageContext from './messagesContext';
 import { BiSolidMessageRoundedError } from "react-icons/bi";
 import { FiMoreHorizontal } from "react-icons/fi";
-
+import { FcPlus } from "react-icons/fc";
 
 const CurrentWeekWorkers = (props) => {
   const [workers] = useState(props.workers);
@@ -387,7 +386,7 @@ const CurrentWeekWorkers = (props) => {
 
                   <FiMoreHorizontal onClick={() => options(worker._id)} className={styles.icon_edit}></FiMoreHorizontal>
                   
-                  <BiAddToQueue className={styles.icon_add} onClick={() => choseWorker(worker._id)}></BiAddToQueue>
+                  <FcPlus className={styles.icon_add} onClick={() => choseWorker(worker._id)}></FcPlus>
                   
                   {openOptions === worker._id && isDivVisible ? 
                     <div ref={divRef} className={styles.edit_div_options}>

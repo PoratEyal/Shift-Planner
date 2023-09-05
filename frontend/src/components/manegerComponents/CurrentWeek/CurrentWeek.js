@@ -9,6 +9,8 @@ import { ManagerContext } from '../ManagerHomePage';
 import { useContext } from 'react';
 import { FaMagic } from "react-icons/fa";
 import messageContext from './messagesContext';
+import { FcAdvertising } from "react-icons/fc";
+import { FcApproval } from "react-icons/fc";
 
 const CurrentWeek = () => {
 
@@ -316,25 +318,32 @@ const CurrentWeek = () => {
 
     return <React.Fragment>
         <div >
+            
             <div className={styles.nav_container}>
                 <button className={styles.home_btn} onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
                 <p>שיבוץ עובדים לשבוע הבא</p>
             </div>
 
-            <div style={{ marginTop: '70px' }} className={styles.container}>
+            <div style={{ marginTop: '65px' }} className={styles.container}>
 
                 {weekPublished === true ?
-                    <div className={styles.message}>
-                        <p>השבוע פורסם</p>
-                    </div> : null}
+                    <div className={styles.published_div}>
+                    <button visible='false'>
+                        <FcApproval className={styles.icon_publishd}></FcApproval>
+                        <label>השבוע פורסם</label>
+                    </button>
+                </div> : null}
 
                 {weekPublished === false ?
                     <div className={styles.publish_div}>
-                        <button onClick={publishSchedule} className={loadingAi ? styles.addShift_btn_disabled : styles.addShift_btn}>פרסום שבוע</button>
+                        <button onClick={publishSchedule} className={loadingAi ? styles.addShift_btn_disabled : null}>
+                        <FcAdvertising className={styles.icon_publish}></FcAdvertising>
+                        <label>פרסום שבוע</label>
+                        </button>
                     </div> : null}
 
                 {weekAi === false && weekPublished === false ?
-                    <div className={styles.publish_div}>
+                    <div className={styles.ai_div}>
                         <button className={styles.ai_btn} onClick={clickAi}>
                             {loadingAi ? <label className={styles.ai_icon_loading}><FaMagic></FaMagic></label> : <label className={styles.ai_icon}><FaMagic></FaMagic></label>}
                             {loadingAi ? <label>...השיבוץ מתבצע</label> : <label>שיבוץ אוטומטי</label>}

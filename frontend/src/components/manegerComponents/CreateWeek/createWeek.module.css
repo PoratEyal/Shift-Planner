@@ -95,6 +95,7 @@
     margin-left: 10px;
     margin-top: 3px;
 }
+
 @keyframes slideInAndFade {
     0% {
         transform: translateX(0);
@@ -203,14 +204,22 @@
     vertical-align: middle;
     align-items: center;
     border-radius: 0.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.25);
     border: none;
     gap: 0.75rem;
     background-color: var(--main-color);
-    color: white;
+    background-color: #d2e9ff;
+    color:#2880cc;
     cursor: pointer;
     transition: 0.3s;
     justify-content: center;
+}
+
+.icon_publish {
+    font-size: 25px;
+    transform: scaleX(-1);
+}
+.icon_publishd {
+    font-size: 25px;
 }
 
 .add_btn{
@@ -323,9 +332,10 @@
 }
 
 .addShift_btn{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin: 10px;
     margin-top: -10px;
+    margin-bottom: 0px;
     display: flex;
     padding: 0.8rem 2.4rem;
     font-size: 1.275rem;
@@ -338,16 +348,18 @@
     border-radius: 0.5rem;
     border: none;
     gap: 0.75rem;
-    color: rgb(255, 255, 255);
     background-color: var(--main-color);
+    color: white;
     cursor: pointer;
     transition: all .6s ease;
-    width: 230px;
+    width: 340px;
     justify-content: center;
-    animation: slideInAndFade 0.5s ease-in-out;
+    animation: downToUp 1s ease-in-out;
 }
-.addShift_btn:hover {
-    transform: scale(1.02);
+
+.ai_div{
+    margin-top: 20px;
+    margin-bottom: -10px;
 }
 
 .ai_btn{
@@ -366,16 +378,13 @@
     border-radius: 0.5rem;
     border: none;
     gap: 0.75rem;
-    color: rgb(65, 63, 63);
-    background-color: var(--main-color);
+    background-color: #6ecfff;
+    color:#ffffff;
     cursor: pointer;
     transition: all .6s ease;
-    width: 230px;
+    width: 320px;
     justify-content: center;
     animation: slideInAndFade 0.5s ease-in-out;
-}
-.ai_btn:hover {
-    transform: scale(1.02);
 }
 
 @keyframes magicEffect {
@@ -677,10 +686,14 @@
     transform: scale(1.02);
 }
 .publish_div_createWeek{
-    margin-top: 90px;
-    margin-bottom: 0px;
+    position: absolute;
+    bottom: 30px;
+    z-index: 900;
+    position:fixed;
 }
+
 .publish_div_createWeek button{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: -10px;
     margin-bottom: 0px;
@@ -696,13 +709,13 @@
     border-radius: 0.5rem;
     border: none;
     gap: 0.75rem;
-    color: rgb(65, 63, 63);
     background-color: var(--main-color);
     color: white;
     cursor: pointer;
     transition: all .6s ease;
-    width: 320px;
+    width: 300px;
     justify-content: center;
+    animation: downToUp 1s ease-in-out;
 }
 
 .edit_div_createWeek{
@@ -739,11 +752,15 @@
 }
 
 .publish_div{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin-top: 20px;
+    position: absolute;
+    bottom: 30px;
+    z-index: 900;
+    position:fixed;
 }
 
 .publish_div button{
+    background-color: var(--main-color);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: -10px;
     margin-bottom: 0px;
@@ -759,23 +776,23 @@
     border-radius: 0.5rem;
     border: none;
     gap: 0.75rem;
-    color: rgb(65, 63, 63);
-    background-color: var(--main-color);
     color: white;
     cursor: pointer;
     transition: all .6s ease;
-    width: 320px;
+    width: 300px;
     justify-content: center;
-}
-.publish_div button:hover {
-    transform: scale(1.02);
+    animation: downToUp 1s ease-in-out;
 }
 
 .published_div{
-    margin-top: 90px;
+    position: absolute;
+    bottom: 30px;
+    z-index: 900;
+    position:fixed;
 }
 
 .published_div button{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: -10px;
     margin-bottom: 0px;
@@ -789,15 +806,15 @@
     vertical-align: middle;
     align-items: center;
     border-radius: 0.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    gap: 0.75rem;
-    color: rgb(255, 255, 255);
-    background-color: rgb(46, 181, 29);
     border: none;
+    gap: 0.75rem;
+    color: white;
+    cursor: pointer;
     transition: all .6s ease;
-    width: 320px;
+    width: 300px;
     justify-content: center;
-    animation: slideInAndFade 0.5s ease-in-out;
+    animation: downToUp 1s ease-in-out;
+    background-color: rgb(60, 204, 41);
 }
 
 .workers_showList{
@@ -816,31 +833,6 @@
 
 .home_btn{
     cursor: pointer;
-}
-
-.message{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding: 10px;
-    font-size: 22px;
-    line-height: 1.25rem;
-    font-weight: 700;
-    border-radius: 0.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    gap: 0.75rem;
-    color: rgb(255, 255, 255);
-    background-color: rgb(46, 181, 29);
-    border: none;
-    transition: all .6s ease;
-    width: 300px;
-    height: 30px;
-    justify-content: center;
-    text-align: center;
-    margin-top: 10px;
-    transition: all .6s ease;
-    animation: slideInAndFade 0.5s ease-in-out;
 }
 
 .icon_delete{
@@ -1084,7 +1076,7 @@
         width: 300px;
     }
     .published_div button{
-        width: 340px;
+        width: 320px;
     }
     .btn{
         width: 93px;
@@ -1093,7 +1085,7 @@
         width: 300px;
     }
     .publish_div_createWeek button{
-        width: 340px;
+        width: 320px;
     }
     .input{
         width: 250px;
@@ -1105,19 +1097,22 @@
         width: 250px;
     }
     .addShift_btn{
-        width: 260px;
+        width: 360px;
     }
     .edit_div_createWeek button{
-        width: 340px;
+        width: 320px;
     }
     .add_specific_worker_btn{
         margin-right: 48px;
     }
     .publish_div button{
-        width: 340px;
+        width: 320px;
     }
     .message{
         width: 320px;
+    }
+    .ai_btn{
+        width: 340px;
     }
 }
 @media only screen and (min-width: 430px){
@@ -1128,7 +1123,7 @@
         width: 320px;
     }
     .published_div button{
-        width: 360px;
+        width: 340px;
     }
     .btn{
         width: 100px;
@@ -1137,7 +1132,7 @@
         width: 320px;
     }
     .publish_div_createWeek button{
-        width: 360px;
+        width: 340px;
     }
     .input{
         width: 270px;
@@ -1149,7 +1144,7 @@
         width: 270px;
     }
     .addShift_btn{
-        width: 280px;
+        width: 340px;
     }
     .edit_div_createWeek button{
         width: 360px;
@@ -1158,9 +1153,12 @@
         margin-right: 65px;
     }
     .publish_div button{
-        width: 360px;
+        width: 340px;
     }
     .message{
         width: 340px;
+    }
+    .ai_btn{
+        width: 360px;
     }
 }
