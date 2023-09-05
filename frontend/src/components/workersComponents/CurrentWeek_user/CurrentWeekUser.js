@@ -76,7 +76,8 @@ const CurrentWeekUser = () => {
         : Swal.fire({
             title: 'טרם פורסמו משמרות',
             icon: 'warning',
-            confirmButtonColor: '#34a0ff'
+            confirmButtonColor: '#34a0ff',
+            confirmButtonText: 'סגור'
           })
     }
 
