@@ -34,20 +34,19 @@ const SeeCurrentWeek = () => {
                 <button className={styles.home_btn} onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
                 <p>צפיה בשבוע הנוכחי</p>
             </div>
-
-            {week && (
-                <div className={styles.edit_div_createWeek}>
-                    <button onClick={() => navigate('/editCurrentWeek')}>שינוי סידור העבודה</button>
-                </div>
-            )}
-
-            <div className={styles.container}>
+            
+            <div style={{ marginTop: '70px' }} className={styles.container}>
                 {
                     week ? week.day.map((day) => {
                         return <DayCurrentWeek managerId={managerId} day={day} key={day._id} getDays={getDays}></DayCurrentWeek>
                     }) : null
                 }
             </div>
+
+            {week && (
+                <img onClick={() => navigate('/editCurrentWeek')} src='edit.png' className={styles.edit_week_btn}></img>
+            )}
+
         </div>
     </React.Fragment>
 }
