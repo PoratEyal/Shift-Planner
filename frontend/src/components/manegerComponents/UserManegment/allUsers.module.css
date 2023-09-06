@@ -2,12 +2,12 @@
     width: 280px;
     border: none;
     border-radius: 10px;
-    background-color: rgba(231, 234, 238, 0.789);
     margin: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background-color: rgba(231, 234, 238, 0.672);
 }
 
 .btn{

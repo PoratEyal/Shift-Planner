@@ -3,6 +3,7 @@ import styles from '../CreateWeek/createWeek.module.css'
 import axios from 'axios'
 import Shift from './CreateWeekShift';
 import moment from 'moment';
+import { FcPlus } from "react-icons/fc";
 
 const CreateWeekDay = (props) => {
 

@@ -134,7 +134,7 @@
     font-size: 1.2em;
     border: none;
     border-radius: 10px;
-    background-color: rgba(231, 234, 238, 0.789);
+    background-color: rgba(231, 234, 238, 0.672);
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -147,7 +147,7 @@
     font-size: 1.2em;
     border: none;
     border-radius: 10px;
-    background-color: rgba(231, 234, 238, 0.789);
+    background-color: rgba(231, 234, 238, 0.672);
     margin: 10px;
     display: flex;
     flex-direction: row;
@@ -194,6 +194,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .btn {
@@ -202,7 +203,6 @@
     margin: 5px;
     width: 87px;
     height: auto;
-    display: flex;
     padding: 0.8rem 2.4rem;
     font-size: 18px;
     line-height: 1.25rem;
@@ -210,7 +210,6 @@
     text-align: center;
     text-transform: uppercase;
     vertical-align: middle;
-    align-items: center;
     border-radius: 0.5rem;
     border: none;
     gap: 0.75rem;
@@ -219,6 +218,7 @@
     color:#2880cc;
     cursor: pointer;
     transition: 0.3s;
+    display: flex;
     justify-content: center;
 }
 
@@ -384,13 +384,13 @@
     border-radius: 0.5rem;
     border: none;
     gap: 0.75rem;
-    background-color: var(--main-color);
     color:#ffffff;
     cursor: pointer;
     transition: all .6s ease;
     width: 320px;
     justify-content: center;
     animation: slideInAndFade 0.5s ease-in-out;
+    background-color:#68b5f9;
 }
 
 @keyframes magicEffect {
@@ -640,10 +640,11 @@
     font-size: 15px;
     transition: 0.3s;
     margin-right: 30px;
+    font-weight: 600;
+    background-color: #d2e9ff;
+    color:#2880cc;
 }
-.add_specific_worker_btn:hover{
-    background-color: rgb(153, 153, 153);
-}
+
 .add_specific_worker_select{
     margin: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -714,13 +715,13 @@
     border-radius: 0.5rem;
     border: none;
     gap: 0.75rem;
-    background-color: var(--main-color);
     color: white;
     cursor: pointer;
     transition: all .6s ease;
     width: 300px;
     justify-content: center;
     animation: downToUp 1s ease-in-out;
+    background-color:#68b5f9;
 }
 
 .edit_div_createWeek{
@@ -764,7 +765,6 @@
 }
 
 .publish_div button{
-    background-color: var(--main-color);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: -10px;
@@ -787,6 +787,7 @@
     width: 300px;
     justify-content: center;
     animation: downToUp 1s ease-in-out;
+    background-color:#68b5f9;
 }
 
 .published_div{

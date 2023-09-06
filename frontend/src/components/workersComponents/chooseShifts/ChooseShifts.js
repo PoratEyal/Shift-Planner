@@ -7,6 +7,7 @@ import styles from './chooseShifts.module.css';
 import { UserContext } from '../CurrentWeek_user/CurrentWeekUser' 
 import { useContext } from 'react';
 import Swal from 'sweetalert2';
+import { FcSms } from "react-icons/fc";
 
 const ChooseShifts = () => {
 
@@ -95,14 +96,18 @@ const ChooseShifts = () => {
 
         <div style={{ marginTop: '70px' }} className={styles.container}>
             
-            {weekPublished === true ? <div className={styles.messege}>
-                <p>השבוע פורסם, אלו המשמרות לשבוע הבא</p>   
+            {weekPublished === true ?
+            <div className={styles.messege}>
+                <p>המשמרות פורסמו, אלו המשמרות לשבוע הבא</p>   
             </div>
             : null}
 
             {!mesageSent && weekPublished === false ? (
                     <div className={styles.messege_to_manager} onClick={sendMessage}>
-                    <p>שליחת הודעה למנהל</p>
+                        <p>
+                            <label>שליחת הודעה למנהל</label>
+                            <FcSms className={styles.icon_message}></FcSms>
+                        </p>
                     </div>
             ) :  null}
 
