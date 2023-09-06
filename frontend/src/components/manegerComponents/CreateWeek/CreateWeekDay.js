@@ -182,7 +182,7 @@ const CreateWeekDay = (props) => {
                         setClickAddShift(!clickAddShift)
                     }}
                 >
-                    הוסף משמרת ידנית
+                    ידנית
                 </button>
 
                 <button
@@ -192,7 +192,7 @@ const CreateWeekDay = (props) => {
                     }
                     }
                 >
-                    הוסף משמרת ערב
+                    ערב
                 </button>
 
                 <button
@@ -202,7 +202,7 @@ const CreateWeekDay = (props) => {
                     }
                     }
                 >
-                    הוסף משמרת בוקר
+                    בוקר
                 </button>
             </div>
 
@@ -218,7 +218,7 @@ const CreateWeekDay = (props) => {
                             addShift()
                             setClickAddShift(!clickAddShift)
                         }}
-                    >הוסף
+                    >הוסף משמרת
                     </button>
                 </div>
             )}

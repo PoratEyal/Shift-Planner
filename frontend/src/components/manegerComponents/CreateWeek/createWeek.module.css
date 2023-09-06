@@ -140,13 +140,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 5px;
 }
-
-.createShift_div{
+.shift_createWeek{
+    width: 255px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(231, 234, 238, 0.789);
+    margin: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    margin-bottom: 5px;
+    padding: 12px;
 }
 
 .addWroker_div{
@@ -193,10 +201,10 @@
     margin-top: 15px;
     margin: 5px;
     width: 87px;
-    height: 70px;
+    height: auto;
     display: flex;
     padding: 0.8rem 2.4rem;
-    font-size: 13px;
+    font-size: 18px;
     line-height: 1.25rem;
     font-weight: 700;
     text-align: center;
@@ -347,12 +355,12 @@
     border-radius: 0.5rem;
     border: none;
     gap: 0.75rem;
-    background-color: var(--main-color);
-    color: white;
     cursor: pointer;
     transition: all .6s ease;
     width: 230px;
     justify-content: center;
+    background-color: #c1e1ff;
+     color:#2880cc;
 }
 
 .ai_div{
@@ -424,8 +432,7 @@
     border: none;
     font-size: 22px;
     background-color: #25d36500;
-    margin-top: 7px;
-    margin-left: -5px;
+    margin-top: 5px;
 }
 .btn_delete:hover{
     cursor: pointer;
@@ -1073,6 +1080,9 @@
     .shift{
         width: 300px;
     }
+    .shift_createWeek{
+        width: 275px;
+    }
     .published_div button{
         width: 320px;
     }
@@ -1119,6 +1129,9 @@
     }
     .shift{
         width: 320px;
+    }
+    .shift_createWeek{
+        width: 295px;
     }
     .published_div button{
         width: 340px;
