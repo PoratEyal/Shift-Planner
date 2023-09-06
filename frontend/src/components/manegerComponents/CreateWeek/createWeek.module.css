@@ -134,20 +134,19 @@
     font-size: 1.2em;
     border: none;
     border-radius: 10px;
-    background-color: rgba(231, 234, 238, 0.672);
     margin: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 5px;
+    background-color: rgba(231, 234, 238, 0.571);
 }
 .shift_createWeek{
     width: 255px;
     font-size: 1.2em;
     border: none;
     border-radius: 10px;
-    background-color: rgba(231, 234, 238, 0.672);
     margin: 10px;
     display: flex;
     flex-direction: row;
@@ -155,6 +154,7 @@
     align-items: center;
     margin-bottom: 5px;
     padding: 12px;
+    background-color: rgba(231, 234, 238, 0.571);
 }
 
 .addWroker_div{

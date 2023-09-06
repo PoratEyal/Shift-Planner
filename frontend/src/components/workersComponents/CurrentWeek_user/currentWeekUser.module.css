@@ -159,7 +159,7 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: rgba(231, 234, 238, 0.672);
+    background-color: rgba(231, 234, 238, 0.571);
 }
 .shift:hover{
     cursor: pointer;
