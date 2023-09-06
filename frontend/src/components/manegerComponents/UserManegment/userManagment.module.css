@@ -89,7 +89,7 @@ ul.navbar li button {
     z-index: 1000;
     position: fixed;
     bottom: 15px;
-    right: 15px;
+    left: 15px;
     background-color: #34a0ff;
     color: white;
     border: 1.5px solid white;

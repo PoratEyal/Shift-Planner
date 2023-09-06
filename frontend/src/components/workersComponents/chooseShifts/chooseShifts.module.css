@@ -577,34 +577,6 @@
     overflow: hidden; 
 }
 
-.messege_to_manager{
-    position: absolute;
-    bottom: 30px;
-    z-index: 900;
-    position:fixed;
-    direction: rtl;
-}
-.messege_to_manager p{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin-bottom: 0px;
-    font-size: 20px;
-    font-weight: 600;
-    border-radius: 0.5rem;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    color: white;
-    cursor: pointer;
-    width: 270px;
-    padding: 15px;
-    animation: downToUp 1s ease-in-out;
-    background-color:#68b5f9;
-}
-
 .icon_message{
     font-size: 23px;
     margin-right: 12px;
@@ -651,7 +623,28 @@
     text-align: center;
 }
 
-
+.write_message_btn {
+    width: 60px;
+    height: 60px;
+    z-index: 1000;
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    background-color: #34a0ff;
+    color: white;
+    border: none;
+    border: 1.5px solid white;
+    transition: 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 300%;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    animation: downToUp 1s ease-in-out;
+    cursor: pointer;
+}
 
 
 
@@ -785,9 +778,6 @@
     .messege p{
         width: 330px;
     }
-    .messege_to_manager p{
-        width: 290px;
-    }
     .remove_btn{
         margin-left: 10px;
     }
@@ -807,9 +797,6 @@
     }
     .messege p{
         width: 350px;
-    }
-    .messege_to_manager p{
-        width: 310px;
     }
     .remove_btn{
         margin-left: 10px;
