@@ -6,7 +6,6 @@ import { BiTime } from "react-icons/bi";
 import Swal from 'sweetalert2';
 import { AiOutlineMessage } from "react-icons/ai";
 import messageContext from './messagesContext';
-import { BiSolidMessageRoundedError } from "react-icons/bi";
 import { FiMoreHorizontal } from "react-icons/fi";
 import { FcPlus } from "react-icons/fc";
 
@@ -369,10 +368,10 @@ const CurrentWeekWorkers = (props) => {
                     </div> : null}
   
                     {hasMessage(worker._id) ? (
-                      <BiSolidMessageRoundedError
+                      <AiOutlineMessage
                         onClick={() => seeMessage(worker)}
                         className={styles.icon_message_alert}
-                      ></BiSolidMessageRoundedError>
+                      ></AiOutlineMessage>
                     ) : null}
                     
                   </div>
@@ -404,10 +403,10 @@ const CurrentWeekWorkers = (props) => {
                   </div> : null}
   
                   {hasMessage(worker._id) ? (
-                    <BiSolidMessageRoundedError
+                    <AiOutlineMessage
                       onClick={() => seeMessage(worker)}
                       className={styles.icon_message_alert}
-                    ></BiSolidMessageRoundedError>
+                    ></AiOutlineMessage>
                   ) : null}
 
                 </div>
