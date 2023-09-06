@@ -958,9 +958,7 @@
     background-color: #34a0ff;
     color: white;
     border: none;
-    border: 1.5px solid white;
     transition: 0.3s;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 300%;
     font-size: 25px;
     display: flex;
@@ -968,6 +966,7 @@
     flex-direction: row;
     align-items: center;
     animation: downToUp 1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .edit_week_btn:hover{
     cursor: pointer;

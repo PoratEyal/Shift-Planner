@@ -103,16 +103,16 @@ transform: scale(1.02);
     left: 15px;
     background-color: #34a0ff;
     color: white;
-    border: 1.5px solid white;
+    border: none;
     font-size: 41px;
     transition: 0.3s;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 300%;
     display: flex;
     justify-content: center;
     flex-direction: row;
     align-items: center;
     animation: downToUp 1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .addUser_btn:hover{
     cursor: pointer;

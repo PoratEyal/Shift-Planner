@@ -623,27 +623,26 @@
     text-align: center;
 }
 
-.write_message_btn {
+.write_message_btn{
     width: 60px;
     height: 60px;
     z-index: 1000;
     position: fixed;
     bottom: 15px;
     left: 15px;
-    background-color: #34a0ff;
     color: white;
-    border: none;
-    border: 1.5px solid white;
+    background-color: #34a0ff;
+    font-size: 41px;
     transition: 0.3s;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 300%;
-    font-size: 25px;
+    border: none;
     display: flex;
     justify-content: center;
     flex-direction: row;
     align-items: center;
     animation: downToUp 1s ease-in-out;
-    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 
