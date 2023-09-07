@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DayCurrentWeek from './DayCurrentWeek'
-import styles from '../CreateWeek/createWeek.module.css'
+import styles from './CurrentWeek.module.css'
 import { BiSolidHome } from "react-icons/bi";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { ManagerContext } from '../ManagerHomePage';
 import { useContext } from 'react';
@@ -317,12 +317,28 @@ const CurrentWeek = () => {
     };
 
     return <React.Fragment>
-        <div >
-            
             <div className={styles.nav_container}>
-                <button className={styles.home_btn} onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
-                <p>שיבוץ עובדים לשבוע הבא</p>
+                <div className={styles.name}>שיבוץ עובדים לשבוע הבא</div>
+
+                <div className={styles.spacer}></div>
+
+                <div className={styles.nav_btn_div}>
+                    {weekAi === false && weekPublished === false ?
+                        <button onClick={clickAi}>
+                            {loadingAi ? <FaMagic className={styles.ai_icon_loading}></FaMagic> : <FaMagic className={styles.i2}></FaMagic>}
+                        </button>
+                    : null}
+                    <Link className={styles.i1} to="/managerHomePage"><button><BiSolidHome></BiSolidHome></button></Link>   
+                </div>
             </div>
+
+            {/* {weekAi === false && weekPublished === false ?
+                    <div className={styles.ai_div}>
+                        <button className={styles.ai_btn} onClick={clickAi}>
+                            {loadingAi ? <label className={styles.ai_icon_loading}><FaMagic></FaMagic></label> : <label className={styles.ai_icon}><FaMagic></FaMagic></label>}
+                            {loadingAi ? <label>...השיבוץ מתבצע</label> : <label>שיבוץ אוטומטי</label>}
+                        </button>
+                    </div> : null} */}
 
             <div style={{ marginTop: '65px' }} className={styles.container}>
 
@@ -342,14 +358,6 @@ const CurrentWeek = () => {
                         </button>
                     </div> : null}
 
-                {weekAi === false && weekPublished === false ?
-                    <div className={styles.ai_div}>
-                        <button className={styles.ai_btn} onClick={clickAi}>
-                            {loadingAi ? <label className={styles.ai_icon_loading}><FaMagic></FaMagic></label> : <label className={styles.ai_icon}><FaMagic></FaMagic></label>}
-                            {loadingAi ? <label>...השיבוץ מתבצע</label> : <label>שיבוץ אוטומטי</label>}
-                        </button>
-                    </div> : null}
-
                 <div style={{marginBottom: '50px'}} className={loadingAi ? styles.container_disabled : null}>
                     {
                         week ? week.day.map((day) => {
@@ -363,8 +371,6 @@ const CurrentWeek = () => {
                 </div>
 
             </div>
-
-        </div>
     </React.Fragment>
 }
 

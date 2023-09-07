@@ -357,12 +357,12 @@ const CurrentWeekWorkers = (props) => {
                   {openOptions === worker._id && isDivVisible ? 
                     <div ref={divRef} className={styles.edit_div_options}>
                         <div className={styles.edit_div_flex}>
-                          <label className={styles.text_edit_select} onClick={() => editHours(worker)}>בחירת שעות</label>
+                          <label onClick={() => editHours(worker)}>בחירת שעות</label>
                           <BiTime className={styles.icon_edit_select} onClick={() => editHours(worker)}></BiTime>
                         </div>
 
                         <div className={styles.edit_div_flex}>
-                          <label className={styles.text_edit_select} onClick={() => writeMessage(worker)}>כתיבת הודעה</label>
+                          <label onClick={() => writeMessage(worker)}>כתיבת הודעה</label>
                           <AiOutlineMessage className={styles.icon_edit_select} onClick={() => writeMessage(worker)}></AiOutlineMessage>
                         </div>
                     </div> : null}
