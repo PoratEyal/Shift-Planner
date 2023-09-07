@@ -318,7 +318,7 @@ const CurrentWeek = () => {
 
     return <React.Fragment>
             <div className={styles.nav_container}>
-                <div className={styles.name}>שיבוץ עובדים לשבוע הבא</div>
+                <div className={styles.name}>שיבוצים לשבוע הבא</div>
 
                 <div className={styles.spacer}></div>
 
