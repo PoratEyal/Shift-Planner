@@ -55,25 +55,23 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-left: 15px;
 }
 
 .i2{
-    width: 45px;
+    width: 65px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
     margin-bottom: 5px;
+    margin-left: 20px;
+}
+.magic_icon{
+    font-size: 23px;
 }
 .ai_icon_loading{
-    width: 45px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    margin-bottom: 5px;
+    font-size: 23px;
     animation: magicEffect 2s linear infinite;
 }
   
