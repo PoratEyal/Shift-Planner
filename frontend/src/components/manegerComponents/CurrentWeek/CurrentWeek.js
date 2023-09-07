@@ -324,9 +324,11 @@ const CurrentWeek = () => {
 
                 <div className={styles.nav_btn_div}>
                     {weekAi === false && weekPublished === false ?
-                        <button className={styles.i2} onClick={clickAi}>
-                            {loadingAi ? <FaMagic className={styles.ai_icon_loading}></FaMagic> : <FaMagic></FaMagic>}
-                        </button>
+                        <label className={styles.i2}>
+                            <button  onClick={clickAi}>
+                                {loadingAi ? <FaMagic className={styles.ai_icon_loading}></FaMagic> : <FaMagic></FaMagic>}
+                            </button>
+                        </label>
                     : null}
                     <Link className={styles.i1} to="/managerHomePage"><button><BiSolidHome></BiSolidHome></button></Link>   
                 </div>

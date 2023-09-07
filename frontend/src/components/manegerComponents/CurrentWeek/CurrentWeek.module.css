@@ -63,7 +63,6 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5px;
 }
 .ai_icon_loading{
     animation: magicEffect 2s linear infinite;
