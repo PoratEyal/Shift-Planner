@@ -55,7 +55,6 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-left: 15px;
 }
 
 .i2{
@@ -65,13 +64,8 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 5px;
-    margin-left: 20px;
-}
-.magic_icon{
-    font-size: 23px;
 }
 .ai_icon_loading{
-    font-size: 23px;
     animation: magicEffect 2s linear infinite;
 }
   
