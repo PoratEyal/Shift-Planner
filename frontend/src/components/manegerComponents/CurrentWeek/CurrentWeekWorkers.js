@@ -433,4 +433,4 @@ const CurrentWeekWorkers = (props) => {
     
 }
 
-export default React.memo(CurrentWeekWorkers);
+export default CurrentWeekWorkers;
