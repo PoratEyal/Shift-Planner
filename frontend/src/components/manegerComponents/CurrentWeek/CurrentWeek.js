@@ -334,14 +334,6 @@ const CurrentWeek = () => {
                 </div>
             </div>
 
-            {/* {weekAi === false && weekPublished === false ?
-                    <div className={styles.ai_div}>
-                        <button className={styles.ai_btn} onClick={clickAi}>
-                            {loadingAi ? <label className={styles.ai_icon_loading}><FaMagic></FaMagic></label> : <label className={styles.ai_icon}><FaMagic></FaMagic></label>}
-                            {loadingAi ? <label>...השיבוץ מתבצע</label> : <label>שיבוץ אוטומטי</label>}
-                        </button>
-                    </div> : null} */}
-
             <div style={{ marginTop: '65px' }} className={styles.container}>
 
                 {weekPublished === true ?
