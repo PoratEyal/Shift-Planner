@@ -1,15 +1,14 @@
 import styles from '../manegerComponents/maneger_home_page.module.css'
 import React, { createContext, useEffect, useState } from 'react'
-import { Link, Outlet} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { BiLogOut } from "react-icons/bi";
-import { BiUserCircle } from "react-icons/bi";
-import { AiOutlineSchedule } from "react-icons/ai";
-import { IoIosCreate } from "react-icons/io";
-import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import Swal from 'sweetalert2';
 import axios from 'axios';
-import { MdManageAccounts } from "react-icons/md";
+import PageLayout from '../layout/PageLayout';
+import { FcPlanner } from "react-icons/fc";
+import { FcGoodDecision } from "react-icons/fc";
+import { FcSurvey } from "react-icons/fc";
+import { FcAutomatic } from "react-icons/fc";
 
 export const ManagerContext = createContext({
     getUser: () => {
@@ -58,24 +57,6 @@ const ManagerHomePage = () => {
         });
     }, [])
 
-    const signout = () => {
-        Swal.fire({
-            title: 'האם ברצונכם להתנתק',
-            text: "",
-            icon: 'warning',
-            showCancelButton: true,
-            cancelButtonText: 'ביטול',
-            confirmButtonColor: '#34a0ff',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'אישור'
-          }).then((result) => {
-            if (result.isConfirmed) {
-              localStorage.clear()
-              navigate('./')
-            }
-          })
-    }
-
     const handleClick = (event) => {
         if (!loading && !weekVisible) {
           event.preventDefault();
@@ -88,25 +69,13 @@ const ManagerHomePage = () => {
         }
       };
 
-
     return <ManagerContext.Provider value={{getUser}}>
-
-            <div className={styles.nav_container}>
-                <div className={styles.name}>שלום {fullname}</div>
-
-                <div className={styles.spacer}></div>
-
-                <div className={styles.nav_btn_div}>
-                    <Link className={styles.i1} to="/managerSettings"><button><BiUserCircle></BiUserCircle></button></Link>
-                    <Link className={styles.i2} to="/"><button onClick={signout}><BiLogOut></BiLogOut></button></Link>   
-                </div>
-            </div>
-
+        <PageLayout text={`שלום ${fullname}`}>
             <div className={styles.container}>
                 <Link className={styles.link} to="/SeeCurrentWeekShifts">
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
-                            {<AiOutlineSchedule className={styles.icon1}></AiOutlineSchedule>} 
+                            {<FcPlanner className={styles.icon1}></FcPlanner>} 
                         </div>
                         <div className={styles.text_div}>
                             צפיה בסידור עבודה<br></br>לשבוע הנוכחי  
@@ -117,7 +86,7 @@ const ManagerHomePage = () => {
                 <Link className={styles.link} to="/createNewWeek">
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
-                            {<IoIosCreate className={styles.icon2}></IoIosCreate>}
+                            {<FcSurvey className={styles.icon2}></FcSurvey>}
                         </div>
                         <div className={styles.text_div}>
                             יצירת משמרות<br></br>לשבוע הבא
@@ -128,7 +97,7 @@ const ManagerHomePage = () => {
                 <Link className={styles.link} to="/currentWeekShifts" onClick={handleClick}>
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
-                        {<AiOutlineUsergroupAdd className={styles.icon3}></AiOutlineUsergroupAdd>}
+                        {<FcGoodDecision className={styles.icon3}></FcGoodDecision>}
                         </div>
                         <div className={styles.text_div}>שיבוץ עובדים<br></br>לשבוע הבא</div>
                     </button>
@@ -137,26 +106,24 @@ const ManagerHomePage = () => {
                 <Link className={styles.link} to="/userManagment">
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
-                        {<MdManageAccounts className={styles.icon4}></MdManageAccounts>}
+                        {<FcAutomatic className={styles.icon4}></FcAutomatic>}
                         </div>
                         <div className={styles.text_div}>ניהול עובדים</div>
                     </button>
                 </Link>
-
-                {/* <Link className={styles.link} to="/settings">
-                    <button className={styles.btn}>
-                        <div className={styles.icon_div}>
-                        {<MdManageAccounts className={styles.icon4}></MdManageAccounts>}
-                        </div>
-                        <div className={styles.text_div}>הגדרות</div>
-                    </button>
-                </Link> */}
-
-                <Outlet />
             </div>
-
+        </PageLayout>
     </ManagerContext.Provider>
 }
 
 export default ManagerHomePage;
   
+
+{/* <Link className={styles.link} to="/settings">
+    <button className={styles.btn}>
+        <div className={styles.icon_div}>
+        {<MdManageAccounts className={styles.icon4}></MdManageAccounts>}
+        </div>
+        <div className={styles.text_div}>הגדרות</div>
+    </button>
+</Link> */}

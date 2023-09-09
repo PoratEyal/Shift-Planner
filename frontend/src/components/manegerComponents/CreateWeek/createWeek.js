@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Day from './CreateWeekDay';
 import axios from 'axios';
 import styles from '../CreateWeek/createWeek.module.css'
-import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { ManagerContext } from '../ManagerHomePage' 
 import { useContext } from 'react';
 import { FcAdvertising } from "react-icons/fc";
 import { FcApproval } from "react-icons/fc";
+import PageLayout from './/..//..//layout/PageLayout';
 
 const CreateWeek = () => {
 
@@ -76,13 +76,8 @@ const CreateWeek = () => {
           })
     }
 
-    return <React.Fragment>
+    return <PageLayout text='יצירת משמרות לשבוע הבא'>
         <div className={styles.container}>
-            <div className={styles.nav_container}>
-                <button className={styles.home_btn} onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
-                <p>יצירת משמרות לשבוע הבא</p>
-            </div>
-
             {weekVisivble === false ?
             <div className={styles.publish_div_createWeek}>
                 <button onClick={publishWeek}>
@@ -107,7 +102,7 @@ const CreateWeek = () => {
                 }
             </div>
         </div>
-    </React.Fragment>
+    </PageLayout>
 }
 
 

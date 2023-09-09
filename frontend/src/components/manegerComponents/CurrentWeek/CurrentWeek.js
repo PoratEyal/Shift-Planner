@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DayCurrentWeek from './DayCurrentWeek'
 import styles from './CurrentWeek.module.css'
-import { BiSolidHome } from "react-icons/bi";
-import { Link, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { ManagerContext } from '../ManagerHomePage';
 import { useContext } from 'react';
@@ -11,10 +10,10 @@ import { FaMagic } from "react-icons/fa";
 import messageContext from './messagesContext';
 import { FcAdvertising } from "react-icons/fc";
 import { FcApproval } from "react-icons/fc";
+import PageLayout from './/..//..//layout/PageLayout';
 
 const CurrentWeek = () => {
 
-    const navigate = useNavigate();
     const [week, setWeek] = useState(null);
     const [weekPublished, setWeekPublished] = useState(null)
     const [weekVisible, setWeekVisible] = useState(null)
@@ -316,24 +315,7 @@ const CurrentWeek = () => {
         }
     };
 
-    return <React.Fragment>
-            <div className={styles.nav_container}>
-                <div className={styles.name}>שיבוצים לשבוע הבא</div>
-
-                <div className={styles.spacer}></div>
-
-                <div className={styles.nav_btn_div}>
-                    {weekAi === false && weekPublished === false ?
-                        <label className={styles.i2}>
-                            <button  onClick={clickAi}>
-                                {loadingAi ? <FaMagic className={styles.ai_icon_loading}></FaMagic> : <FaMagic></FaMagic>}
-                            </button>
-                        </label>
-                    : null}
-                    <Link className={styles.i1} to="/managerHomePage"><button><BiSolidHome></BiSolidHome></button></Link>   
-                </div>
-            </div>
-
+    return <PageLayout text='שיבוץ עובדים לשבוע הבא'>
             <div style={{ marginTop: '65px' }} className={styles.container}>
 
                 {weekPublished === true ?
@@ -365,7 +347,26 @@ const CurrentWeek = () => {
                 </div>
 
             </div>
-    </React.Fragment>
+    </PageLayout>
 }
 
 export default CurrentWeek;
+
+
+
+{/* <div className={styles.nav_container}>
+<div className={styles.name}>שיבוצים לשבוע הבא</div>
+
+<div className={styles.spacer}></div>
+
+<div className={styles.nav_btn_div}>
+    {weekAi === false && weekPublished === false ?
+        <label className={styles.i2}>
+            <button  onClick={clickAi}>
+                {loadingAi ? <FaMagic className={styles.ai_icon_loading}></FaMagic> : <FaMagic></FaMagic>}
+            </button>
+        </label>
+    : null}
+    <Link className={styles.i1} to="/managerHomePage"><button><BiSolidHome></BiSolidHome></button></Link>   
+</div>
+</div> */}

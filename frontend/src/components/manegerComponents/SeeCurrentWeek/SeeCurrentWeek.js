@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DayCurrentWeek from './SeeDayCurrentWeek'
 import styles from '../CreateWeek/createWeek.module.css'
-import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 import { ManagerContext } from '../ManagerHomePage' 
 import { useContext } from 'react';
+import PageLayout from './/..//..//layout/PageLayout';
 
 const SeeCurrentWeek = () => {
 
@@ -28,13 +28,7 @@ const SeeCurrentWeek = () => {
         getDays();
     }, []);
     
-    return <React.Fragment>
-        <div>
-            <div className={styles.nav_container}>
-                <button className={styles.home_btn} onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
-                <p>צפיה בשבוע הנוכחי</p>
-            </div>
-            
+    return <PageLayout text='צפיה בסידור העבודה'>
             <div style={{ marginTop: '70px' }} className={styles.container}>
                 {
                     week ? week.day.map((day) => {
@@ -46,9 +40,13 @@ const SeeCurrentWeek = () => {
             {week && (
                 <img onClick={() => navigate('/editCurrentWeek')} src='edit.png' className={styles.edit_week_btn}></img>
             )}
-
-        </div>
-    </React.Fragment>
+    </PageLayout>
 }
 
 export default SeeCurrentWeek;
+
+
+{/* <div className={styles.nav_container}>
+    <button className={styles.home_btn} onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
+    <p>צפיה בשבוע הנוכחי</p>
+</div> */}

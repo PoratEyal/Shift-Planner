@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import styles from '../managerSettings/managerSetings.module.css'
 import axios from 'axios';
-import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
+import PageLayout from './/..//..//layout/PageLayout';
 
 const ManagerSettings = () => {
   const navigate = useNavigate();
@@ -44,15 +44,7 @@ const ManagerSettings = () => {
     }
   };
 
-  return (
-    <div>
-      <div className={styles.nav_container}>
-        <button onClick={() => navigate('/managerHomePage')}>
-          <BiSolidHome />
-        </button>
-        <p>שינוי פרטי משתמש</p>
-      </div>
-
+  return <PageLayout text='שינוי פרטי משתמש'>
       <div className={styles.container}>
         <h2 className={styles.h2}>הזינו פרטי משתמש חדשים</h2>
 
@@ -83,8 +75,7 @@ const ManagerSettings = () => {
           אישור
         </button>
       </div>
-    </div>
-  );
+    </PageLayout>
 }
 
 export default ManagerSettings;

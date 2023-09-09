@@ -13,6 +13,7 @@ import ManagerSettings from './components/manegerComponents/managerSettings/mana
 import ProtectedRoute from './components/ProtectedRoute';
 import EditCurrentWeek from './components/manegerComponents/EditCurrentWeek/EditCurrentWeek'
 import defShifts from './components/manegerComponents/SettingsPage/Settings'
+
 const App = () => {
 
   return <React.Fragment>
@@ -20,9 +21,8 @@ const App = () => {
         {/* - - - - - - - -login - - - - - - -  */}
         <Route path="/" element={<Login/>} />
 
-         {/* - - - - - - - -maneger - - - - - - -  */}
-         <Route path='/settings' element={<ProtectedRoute component={defShifts} role="admin"/>}></Route>
-        
+        {/* - - - - - - - -maneger - - - - - - -  */}
+        <Route path='/settings' element={<ProtectedRoute component={defShifts} role="admin"/>}></Route>
 
         <Route path='/managerHomePage' element={<ProtectedRoute component={ManagerHomePage} role="admin"/>}></Route>
         <Route path="/userManagment" element={<ProtectedRoute component={UserManagement} role="admin"/>} />

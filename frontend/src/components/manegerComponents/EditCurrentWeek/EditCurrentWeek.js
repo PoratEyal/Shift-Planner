@@ -5,8 +5,8 @@ import styles from '../CreateWeek/createWeek.module.css'
 import { useNavigate } from 'react-router-dom';
 import { ManagerContext } from '../ManagerHomePage'
 import { useContext } from 'react';
-import { BiArrowBack } from "react-icons/bi";
 import messageContext from '../CurrentWeek/messagesContext'
+import PageLayout from './/..//..//layout/PageLayout';
 
 const EditCurrentWeek = () => {
 
@@ -39,13 +39,7 @@ const EditCurrentWeek = () => {
 
     }, []);
 
-    return <React.Fragment>
-        <div>
-            <div className={styles.nav_container}>
-                <button className={styles.home_btn} onClick={() => navigate('/SeeCurrentWeekShifts')}><BiArrowBack></BiArrowBack></button>
-                <p>עדכון שבוע נוכחי</p>
-            </div>
-
+    return <PageLayout text='עריכת משמרות'>
             <div style={{ marginTop: '70px' }} className={styles.container}>
                 {
                     week ? week.day.map((day) => {
@@ -57,8 +51,7 @@ const EditCurrentWeek = () => {
                     }) : null
                 }
             </div>
-        </div>
-    </React.Fragment>
+    </PageLayout>
 }
 
 export default EditCurrentWeek;
