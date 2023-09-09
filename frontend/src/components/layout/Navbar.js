@@ -18,15 +18,12 @@ const Navbar = (props) => {
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
-        // Click occurred outside of the sidebar, close it
         setOpen(false);
       }
     };
 
-    // Add event listener when the component mounts
     document.addEventListener('mousedown', handleClickOutside);
 
-    // Remove the event listener when the component unmounts
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
@@ -71,9 +68,14 @@ const Navbar = (props) => {
 
       {open ? (
         <div className={styles.sideBar} ref={sidebarRef}>
+
+          <div className={styles.upper_sidebar_div}>
+            <label className={styles.name_upper_sidebar}></label>
+            {/* <img className={styles.avatar_img} src='avatar.png'></img> */}
+          </div>
+
           <div className={styles.buttons_div}>
             <div className={styles.buttons_container}>
-              <h2>תפריט</h2>
 
               <div className={styles.text_and_icon}>
                 <FiUsers className={styles.icon}></FiUsers>

@@ -95,7 +95,28 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4.5px);
   -webkit-backdrop-filter: blur(7.5px);
+}
 
+.upper_sidebar_div{
+  background: linear-gradient(#25a1ff, #82c4ff, white 95%);
+  border-top-left-radius: 20px;
+  width: 100%;
+  height: 170px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.name_upper_sidebar{
+  color: white;
+  font-size: 33px;
+}
+
+.avatar_img{
+  width: 40px;
+  height: 40px;
 }
 
 .buttons_div{
