@@ -10,12 +10,17 @@ import { MdWorkOutline } from 'react-icons/md';
 import { AiOutlineLogout } from 'react-icons/ai';
 
 const Navbar = (props) => {
+
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const [name, setName] = useState('')
 
   const sidebarRef = useRef(null);
 
   useEffect(() => {
+    const StorageData = JSON.parse(localStorage.getItem("user"));
+    setName(StorageData.fullName);
+
     const handleClickOutside = (e) => {
       if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
         setOpen(false);
@@ -70,8 +75,14 @@ const Navbar = (props) => {
         <div className={styles.sideBar} ref={sidebarRef}>
 
           <div className={styles.upper_sidebar_div}>
-            <label className={styles.name_upper_sidebar}></label>
-            {/* <img className={styles.avatar_img} src='avatar.png'></img> */}
+            <img
+              src="avatar.png"
+              style={{
+                width: "60px",
+                height: "60px",
+              }}
+            />
+            <label className={styles.name_upper_sidebar}>{name}</label>
           </div>
 
           <div className={styles.buttons_div}>
