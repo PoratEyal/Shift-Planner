@@ -77,7 +77,7 @@ const Navbar = (props) => {
 
               <div className={styles.text_and_icon}>
                 <FiUsers className={styles.icon}></FiUsers>
-                <Link className={styles.links} to="/userManagment">
+                <Link className={styles.links} to="/workers">
                   עובדים
                 </Link>
               </div>
