@@ -12,6 +12,7 @@ import SeeCurrentWeek from './components/manegerComponents/SeeCurrentWeek/SeeCur
 import ManagerSettings from './components/manegerComponents/managerSettings/managerSettings';
 import ProtectedRoute from './components/ProtectedRoute';
 import EditCurrentWeek from './components/manegerComponents/EditCurrentWeek/EditCurrentWeek'
+import Roles from './components/manegerComponents/Roles/Roles'
 import defShifts from './components/manegerComponents/SettingsPage/Settings'
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="/SeeCurrentWeekShifts" element={<ProtectedRoute component={SeeCurrentWeek} role="admin"/>} />
         <Route path='/managerSettings' element={<ProtectedRoute component={ManagerSettings} role="admin"/>}/>
         <Route path='/editCurrentWeek' element={<ProtectedRoute component={EditCurrentWeek} role="admin"/>}/>
+        <Route path='/roles' element={<ProtectedRoute component={Roles} role="admin"/>}/>
 
          {/* - - - - - - - -workers - - - - - - -  */}
         <Route path='/CurrentWeek' element={<ProtectedRoute component={CurrentWeekUser} role="user"/>}></Route>

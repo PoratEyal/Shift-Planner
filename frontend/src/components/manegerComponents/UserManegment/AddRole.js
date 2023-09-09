@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import styles from './addRole.module.css';
+import styles from '../Roles/role.module.css';
 import axios from 'axios';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import Swal from 'sweetalert2';

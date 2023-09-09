@@ -1,3 +1,28 @@
+.all_roles_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 290px;
+    padding: 12px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 90px;
+    background: rgb(255, 255, 255);
+    border-radius: 12px;
+    animation: slideInAndFade 0.5s ease-in-out;
+}
+
+@keyframes slideInAndFade {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 .container{
     display: flex;
     flex-direction: column;

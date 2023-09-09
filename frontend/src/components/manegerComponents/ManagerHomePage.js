@@ -103,14 +103,6 @@ const ManagerHomePage = () => {
                     </button>
                 </Link>
 
-                <Link className={styles.link} to="/userManagment">
-                    <button className={styles.btn}>
-                        <div className={styles.icon_div}>
-                        {<FcAutomatic className={styles.icon4}></FcAutomatic>}
-                        </div>
-                        <div className={styles.text_div}>ניהול עובדים</div>
-                    </button>
-                </Link>
             </div>
         </PageLayout>
     </ManagerContext.Provider>

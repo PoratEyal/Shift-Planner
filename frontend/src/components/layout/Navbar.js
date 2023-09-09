@@ -62,7 +62,7 @@ const Navbar = (props) => {
       <div className={styles.spacer}></div>
 
       <div className={styles.nav_btn_div}>
-        <Link className={styles.logo} to="/">
+        <Link className={styles.logo} to="/managerHomePage">
           <img src="s_logo.png" alt="Logo"></img>
         </Link>
       </div>
@@ -85,13 +85,13 @@ const Navbar = (props) => {
               <div className={styles.text_and_icon}>
                 <RiLockPasswordLine className={styles.icon}></RiLockPasswordLine>
                 <Link className={styles.links} to="/managerSettings">
-                  שינוי משתמש
+                  שינוי פרטי משתמש
                 </Link>
               </div>
 
               <div className={styles.text_and_icon}>
                 <MdWorkOutline className={styles.icon}></MdWorkOutline>
-                <Link className={styles.links} to="/userManagment">
+                <Link className={styles.links} to="/roles">
                   תפקידים
                 </Link>
               </div>
