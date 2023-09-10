@@ -76,7 +76,7 @@ const CreateWeek = () => {
           })
     }
 
-    return <PageLayout text='יצירת משמרות לשבוע הבא'>
+    return <PageLayout text='משמרות לשבוע הבא'>
         <div className={styles.container}>
             {weekVisivble === false ?
             <div className={styles.publish_div_createWeek}>

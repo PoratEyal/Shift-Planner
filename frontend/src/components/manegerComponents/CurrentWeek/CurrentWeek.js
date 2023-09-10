@@ -315,7 +315,7 @@ const CurrentWeek = () => {
         }
     };
 
-    return <PageLayout text='שיבוץ עובדים לשבוע הבא'>
+    return <PageLayout text='שיבוצים לשבוע הבא'>
             <div style={{ marginTop: '65px' }} className={styles.container}>
 
                 {weekPublished === true ?

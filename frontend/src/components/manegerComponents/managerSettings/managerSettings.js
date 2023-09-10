@@ -44,7 +44,7 @@ const ManagerSettings = () => {
     }
   };
 
-  return <PageLayout text='שינוי פרטי משתמש'>
+  return <PageLayout text='עדכון פרטי משתמש'>
       <div className={styles.container}>
         <h2 className={styles.h2}>הזינו פרטי משתמש חדשים</h2>
 
