@@ -8,7 +8,7 @@ import PageLayout from '../layout/PageLayout';
 import { FcPlanner } from "react-icons/fc";
 import { FcGoodDecision } from "react-icons/fc";
 import { FcSurvey } from "react-icons/fc";
-import { FcAutomatic } from "react-icons/fc";
+import { FcLeave } from "react-icons/fc";
 
 export const ManagerContext = createContext({
     getUser: () => {
@@ -72,6 +72,7 @@ const ManagerHomePage = () => {
     return <ManagerContext.Provider value={{getUser}}>
         <PageLayout text={`שלום ${fullname}`}>
             <div className={styles.container}>
+
                 <Link className={styles.link} to="/SeeCurrentWeekShifts">
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
@@ -83,10 +84,23 @@ const ManagerHomePage = () => {
                     </button>
                 </Link>
 
+                <Link className={styles.link} to="/editCurrentWeek">
+                    <button className={styles.btn}>
+                        <div className={styles.icon_div}>
+                            {<FcLeave className={styles.icon1}></FcLeave>} 
+                        </div>
+                        <div className={styles.text_div}>
+                            עדכון בסידור עבודה<br></br>לשבוע הנוכחי  
+                        </div>
+                    </button>
+                </Link>
+
+                <div className={styles.spacer}></div>
+
                 <Link className={styles.link} to="/createNewWeek">
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
-                            {<FcSurvey className={styles.icon2}></FcSurvey>}
+                            {<FcSurvey className={styles.icon1}></FcSurvey>}
                         </div>
                         <div className={styles.text_div}>
                             יצירת משמרות<br></br>לשבוע הבא
@@ -97,7 +111,7 @@ const ManagerHomePage = () => {
                 <Link className={styles.link} to="/currentWeekShifts" onClick={handleClick}>
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
-                        {<FcGoodDecision className={styles.icon3}></FcGoodDecision>}
+                        {<FcGoodDecision className={styles.icon2}></FcGoodDecision>}
                         </div>
                         <div className={styles.text_div}>שיבוץ עובדים<br></br>לשבוע הבא</div>
                     </button>

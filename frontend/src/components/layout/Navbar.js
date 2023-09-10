@@ -107,7 +107,7 @@ const Navbar = (props) => {
                   <BiEdit className={styles.icon}></BiEdit>
                 </Link>
                 <Link className={styles.links} to="/editCurrentWeek">
-                  עריכת שבוע נוכחי
+                  עדכון שבוע נוכחי
                 </Link>
               </div>
 

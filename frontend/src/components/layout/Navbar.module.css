@@ -38,6 +38,7 @@
 }
 
 .hamburger{
+  cursor: pointer;
   font-size: 30px;
   margin-right: 12px;
   color: #34a0ff;
@@ -45,7 +46,6 @@
 }
 
 .nav_container img{
-  cursor: pointer;
   font-size: 25px;
   border:none;
   margin-top: 6px;
@@ -115,6 +115,7 @@
   top: 15px;
   left: 15px;
   color: white;
+  cursor: pointer;
 }
 
 .name_upper_sidebar{
@@ -173,6 +174,7 @@
   font-size: 18px;
   color: #34a0ff;
   color: rgb(145, 145, 145);
+  cursor: pointer;
 }
 
 .icon{
@@ -181,6 +183,7 @@
   font-size: 25px;
   color: #34a0ff;
   color: rgb(145, 145, 145);
+  cursor: pointer;
 }
 
 @keyframes opacity {

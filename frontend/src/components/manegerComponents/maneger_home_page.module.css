@@ -20,13 +20,17 @@
   border: none;
   width: 350px;
   transition: 0.3s;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   border-radius: 25px;
   font-weight: 600;
 }
 .btn:hover{
   cursor: pointer;
   transform: scale(1.02);
+}
+
+.spacer{
+  margin-bottom: 50px;
 }
 
 .text_div{
@@ -44,32 +48,17 @@
 }
 
 .icon1{
-  font-size: 45px;
+  font-size: 52px;
   rotate: -20deg;
   margin-top: -10px;
   margin-bottom: -10px;
-  color: #7cd79fe4;
-}
-.icon2{
-  font-size: 45px;
-  rotate: -20deg;
-  margin-top: -10px;
-  margin-bottom: -10px;
-  color: #ffd47d;
-}
-.icon3{
-  font-size: 45px;
-  margin-top: -10px;
-  margin-bottom: -10px;
-  color: #b68dee;
-}
-.icon4{
-  font-size: 45px;
-  margin-top: -10px;
-  margin-bottom: -10px;
-  color: #9f9f9f;
 }
 
+.icon2{
+  font-size: 52px;
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
 
 .closed_btn{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

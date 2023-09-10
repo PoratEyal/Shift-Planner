@@ -39,7 +39,7 @@ const EditCurrentWeek = () => {
 
     }, []);
 
-    return <PageLayout text='עריכת משמרות'>
+    return <PageLayout text='עדכון משמרות'>
             <div style={{ marginTop: '70px' }} className={styles.container}>
                 {
                     week ? week.day.map((day) => {
