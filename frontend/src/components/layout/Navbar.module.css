@@ -155,6 +155,10 @@
   color: rgb(145, 145, 145);
 }
 
+.icon_link{
+  margin-bottom: -6px;
+}
+
 .label{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   text-decoration: none;
@@ -165,6 +169,7 @@
 
 .icon{
   margin-left: 22px;
+  margin-right: 5px;
   font-size: 25px;
   color: #34a0ff;
   color: rgb(145, 145, 145);

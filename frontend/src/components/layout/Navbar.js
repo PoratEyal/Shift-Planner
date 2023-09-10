@@ -93,14 +93,18 @@ const Navbar = (props) => {
             <div className={styles.buttons_container}>
 
               <div className={styles.text_and_icon}>
-                <AiOutlineSchedule className={styles.icon}></AiOutlineSchedule>
+                <Link to="/SeeCurrentWeekShifts" className={styles.icon_link}>
+                  <AiOutlineSchedule className={styles.icon}></AiOutlineSchedule>
+                </Link>
                 <Link className={styles.links} to="/SeeCurrentWeekShifts">
                   צפיה בשבוע הנוכחי
                 </Link>
               </div>
 
               <div className={styles.text_and_icon}>
-                <BiEdit className={styles.icon}></BiEdit>
+                <Link to="/editCurrentWeek" className={styles.icon_link}>
+                  <BiEdit className={styles.icon}></BiEdit>
+                </Link>
                 <Link className={styles.links} to="/editCurrentWeek">
                   עריכת שבוע נוכחי
                 </Link>
@@ -109,14 +113,18 @@ const Navbar = (props) => {
               <hr className={styles.line}></hr>
               
               <div className={styles.text_and_icon}>
-                <BsCardList className={styles.icon}></BsCardList>
+                <Link to="/createNewWeek" className={styles.icon_link}>
+                  <BsCardList className={styles.icon}></BsCardList>
+                </Link>
                 <Link className={styles.links} to="/createNewWeek">
                      יצירת משמרות לשבוע הבא
                 </Link>
               </div>
 
               <div className={styles.text_and_icon}>
-                <TbUsersPlus className={styles.icon}></TbUsersPlus>
+                <Link to="/currentWeekShifts" className={styles.icon_link}>
+                  <TbUsersPlus className={styles.icon}></TbUsersPlus>
+                </Link>
                 <Link className={styles.links} to="/currentWeekShifts">
                      שיבוץ עובדים לשבוע הבא
                 </Link>
@@ -125,14 +133,18 @@ const Navbar = (props) => {
               <hr className={styles.line}></hr>
 
               <div className={styles.text_and_icon}>
-                <FiUsers className={styles.icon}></FiUsers>
+                <Link to="/workers" className={styles.icon_link}>
+                  <FiUsers className={styles.icon}></FiUsers>
+                </Link>
                 <Link className={styles.links} to="/workers">
                   עובדים
                 </Link>
               </div>
 
               <div className={styles.text_and_icon}>
-                <MdWorkOutline className={styles.icon}></MdWorkOutline>
+                <Link className={styles.icon_link} to="/roles">
+                  <MdWorkOutline className={styles.icon}></MdWorkOutline>
+                </Link>
                 <Link className={styles.links} to="/roles">
                   תפקידים
                 </Link>
@@ -141,7 +153,9 @@ const Navbar = (props) => {
               <hr className={styles.line}></hr>
 
               <div className={styles.text_and_icon}>
-                <RiLockPasswordLine className={styles.icon}></RiLockPasswordLine>
+                <Link className={styles.icon_link} to="/managerSettings">
+                  <RiLockPasswordLine className={styles.icon}></RiLockPasswordLine>
+                </Link>
                 <Link className={styles.links} to="/managerSettings">
                   עדכון פרטי משתמש
                 </Link>
