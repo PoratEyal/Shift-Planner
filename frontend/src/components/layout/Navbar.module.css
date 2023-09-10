@@ -74,7 +74,7 @@
   position: fixed;
   right: 0;
   top: 0;
-  width: 70vw;
+  width: 300px;
   height: 100vh;
   background-color: rgb(255, 255, 255);
   color: #34a0ff;
@@ -101,8 +101,8 @@
   background: linear-gradient(#25a1ff, #82c4ff, white 90%);
   border-top-left-radius: 20px;
   width: 100%;
-  height: 200px;
-  margin-bottom: 40px;
+  height: 180px;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -110,9 +110,10 @@
 }
 
 .name_upper_sidebar{
-  color: white;
+  color: rgb(114, 112, 112);
   font-size: 33px;
-  margin-bottom: 60px;
+  margin-top: 5px;
+  margin-bottom: 40px;
 }
 
 .avatar_img{
@@ -139,6 +140,11 @@
   flex-direction: row;
   align-items: center;
   margin-bottom: 30px;
+}
+
+.line{
+  border: 1px solid rgba(202, 202, 202, 0.625);
+  margin-top: -10px;
 }
 
 .links{

@@ -13,6 +13,17 @@
     animation: slideInAndFade 0.5s ease-in-out;
 }
 
+@keyframes slideInAndFade {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 .user_container{
     width: 280px;
     border: none;

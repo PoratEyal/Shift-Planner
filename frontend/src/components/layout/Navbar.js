@@ -8,6 +8,10 @@ import { FiUsers } from 'react-icons/fi';
 import { RiLockPasswordLine } from 'react-icons/ri';
 import { MdWorkOutline } from 'react-icons/md';
 import { AiOutlineLogout } from 'react-icons/ai';
+import { AiOutlineSchedule } from "react-icons/ai";
+import { BiEdit } from "react-icons/bi";
+import { BsCardList } from "react-icons/bs";
+import { TbUsersPlus } from "react-icons/tb";
 
 const Navbar = (props) => {
 
@@ -88,17 +92,42 @@ const Navbar = (props) => {
           <div className={styles.buttons_div}>
             <div className={styles.buttons_container}>
 
-              <div className={styles.text_and_icon}>
-                <FiUsers className={styles.icon}></FiUsers>
-                <Link className={styles.links} to="/workers">
-                  עובדים
+            <div className={styles.text_and_icon}>
+                <BsCardList className={styles.icon}></BsCardList>
+                <Link className={styles.links} to="/createNewWeek">
+                     יצירת משמרות לשבוע הבא
                 </Link>
               </div>
 
               <div className={styles.text_and_icon}>
-                <RiLockPasswordLine className={styles.icon}></RiLockPasswordLine>
-                <Link className={styles.links} to="/managerSettings">
-                  שינוי פרטי משתמש
+                <TbUsersPlus className={styles.icon}></TbUsersPlus>
+                <Link className={styles.links} to="/currentWeekShifts">
+                     שיבוץ עובדים לשבוע הבא
+                </Link>
+              </div>
+
+              <hr className={styles.line}></hr>
+
+              <div className={styles.text_and_icon}>
+                <AiOutlineSchedule className={styles.icon}></AiOutlineSchedule>
+                <Link className={styles.links} to="/SeeCurrentWeekShifts">
+                  צפיה בשבוע הנוכחי
+                </Link>
+              </div>
+
+              <div className={styles.text_and_icon}>
+                <BiEdit className={styles.icon}></BiEdit>
+                <Link className={styles.links} to="/editCurrentWeek">
+                  עריכת שבוע נוכחי
+                </Link>
+              </div>
+
+              <hr className={styles.line}></hr>
+
+              <div className={styles.text_and_icon}>
+                <FiUsers className={styles.icon}></FiUsers>
+                <Link className={styles.links} to="/workers">
+                  עובדים
                 </Link>
               </div>
 
@@ -108,6 +137,17 @@ const Navbar = (props) => {
                   תפקידים
                 </Link>
               </div>
+
+              <hr className={styles.line}></hr>
+
+              <div className={styles.text_and_icon}>
+                <RiLockPasswordLine className={styles.icon}></RiLockPasswordLine>
+                <Link className={styles.links} to="/managerSettings">
+                  שינוי פרטי משתמש
+                </Link>
+              </div>
+
+              <hr className={styles.line}></hr>
 
               <div className={styles.text_and_icon}>
                 <AiOutlineLogout onClick={signout} className={styles.icon}></AiOutlineLogout>
