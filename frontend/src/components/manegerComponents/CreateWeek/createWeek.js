@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Day from './CreateWeekDay';
 import axios from 'axios';
 import styles from '../CreateWeek/createWeek.module.css'
-import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { ManagerContext } from '../ManagerHomePage' 
 import { useContext } from 'react';
@@ -12,7 +11,6 @@ import PageLayout from './/..//..//layout/PageLayout';
 
 const CreateWeek = () => {
 
-    const navigate = useNavigate();
     const [week, setWeek] = useState(null);
     const [weekVisivble, setWeekVisivble] = useState(null);
     const [weekPublished, setWeekPublished] = useState(null)

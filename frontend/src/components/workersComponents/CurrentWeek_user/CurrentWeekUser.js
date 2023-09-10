@@ -2,11 +2,7 @@ import React, { createContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import Day from './CurrentDayser'
 import styles from './currentWeekUser.module.css';
-import { BiLogOut } from "react-icons/bi";
-import { BiUserCircle } from "react-icons/bi";
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import Swal from 'sweetalert2';
+import PageLayoutWorker from './/..//..//layout/PageLayoutWorker';
 
 export const UserContext = createContext({
     getUser: () => {
@@ -18,7 +14,6 @@ export const UserContext = createContext({
 
 const CurrentWeekUser = () => {
 
-    const navigate = useNavigate();
     const[week, setWeek] = useState(null);
     const [weekVisible, setWeekVisible] = useState(null);
 
@@ -51,47 +46,8 @@ const CurrentWeekUser = () => {
         getDays();
     }, [])
 
-    // signout func
-    const signout = () => {
-        Swal.fire({
-            title: 'האם ברצונכם להתנתק',
-            text: "",
-            icon: 'warning',
-            showCancelButton: true,
-            cancelButtonText: 'ביטול',
-            confirmButtonColor: '#34a0ff',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'אישור'
-          }).then((result) => {
-            if (result.isConfirmed) {
-              localStorage.clear()
-              navigate('/')
-            }
-          })
-    }
-
-    // if next week isnt visible threw alert
-    const ChooseShiftsHandler = () => {
-        weekVisible ? navigate("/chooseShifts") 
-        : Swal.fire({
-            title: 'טרם פורסמו משמרות',
-            icon: 'warning',
-            confirmButtonColor: '#34a0ff',
-            confirmButtonText: 'סגור'
-          })
-    }
-
     return <UserContext.Provider value={{getUser}}>
-            <div className={styles.upperContainer}>
-                <div className={styles.nav_buttons}>
-                    <Link to="/"><button className={styles.signout} onClick={signout}><BiLogOut></BiLogOut></button></Link>
-                    <Link to="/userSettings"><button className={styles.user_settings}><BiUserCircle></BiUserCircle></button></Link>
-                    <button className={styles.user_managment_btn} onClick={() => {ChooseShiftsHandler()}}>&nbsp;שבוע הבא&nbsp;</button>
-                </div>
-
-                <h1 className={styles.h1}>שבוע נוכחי</h1>
-            </div>
-
+        <PageLayoutWorker text='סידור עבודה לשבוע הנוכחי'>
             <div className={styles.container}>
                 {
                 week ?  week.day.map((day) => {
@@ -99,6 +55,7 @@ const CurrentWeekUser = () => {
                     }) : null
                 }
             </div>
+        </PageLayoutWorker>
     </UserContext.Provider>
 }
 

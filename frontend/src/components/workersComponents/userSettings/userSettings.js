@@ -3,6 +3,7 @@ import styles from '../userSettings/UserSetings.module.css';
 import axios from 'axios';
 import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
+import PageLayoutWorker from './/..//..//layout/PageLayoutWorker';
 
 const UserSettings = () => {
 
@@ -49,46 +50,39 @@ const UserSettings = () => {
     
   };
 
-  return (
-    <div>
-      <div className={styles.nav_container}>
-        <button onClick={() => navigate('/CurrentWeek')}><BiSolidHome></BiSolidHome></button>
-        <p>שינוי פרטי משתמש</p>
-      </div>
-
-      <div className={styles.container}>
+  return <PageLayoutWorker text='עדכון פרטי משתמש'>
+    <div className={styles.container}>
       <h2 className={styles.h2}>הזינו פרטי משתמש חדשים</h2>
 
-        <input
-          className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
-          placeholder="שם משתמש באנגלית בלבד"
-          value={username}
-          onChange={(e) => {
-            const inputUsername = e.target.value;
-            const alphanumericRegex = /^[a-zA-Z0-9]*$/;
-            if (alphanumericRegex.test(inputUsername)) {
-              setUsername(inputUsername);
-            }
-          }}
-        />
+      <input
+        className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
+        placeholder="שם משתמש באנגלית בלבד"
+        value={username}
+        onChange={(e) => {
+          const inputUsername = e.target.value;
+          const alphanumericRegex = /^[a-zA-Z0-9]*$/;
+          if (alphanumericRegex.test(inputUsername)) {
+            setUsername(inputUsername);
+          }
+        }}
+      />
 
-        <input
-          type='password'
-          className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
-          placeholder="סיסמה בעלת 5 תווים לפחות"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          minLength={5}
-          required
-        />
+      <input
+        type='password'
+        className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
+        placeholder="סיסמה בעלת 5 תווים לפחות"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        minLength={5}
+        required
+      />
 
-        <button onClick={changeUser} className={styles.btn}>
-          אישור
-        </button>
-      </div>
+      <button onClick={changeUser} className={styles.btn}>
+        אישור
+      </button>
     </div>
+  </PageLayoutWorker>
 
-  );
 };
 
 export default UserSettings;
