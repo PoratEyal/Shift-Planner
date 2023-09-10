@@ -7,6 +7,16 @@
     margin-top: 90px;
 }
 
+.week_text{
+  margin-top: -10px;
+  font-size: 27px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #575757;
+  margin-bottom: 15px;
+  margin-left: 180px;
+  font-weight: 600;
+}
+
 .btn{
   display: flex;
   flex-direction: row;
@@ -30,7 +40,7 @@
 }
 
 .spacer{
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .text_div{
@@ -113,6 +123,9 @@
   .text_div{
     margin-right: -5px;
   }
+  .week_text{
+    margin-left: 140px;
+  }
 }
 @media only screen and (min-width: 330px) and (max-width: 369px) {
   .btn{
@@ -123,6 +136,9 @@
   }
   .text_div{
     margin-right: -5px;
+  }
+  .week_text{
+    margin-left: 170px;
   }
 }
 @media only screen and (min-width: 370px) and (max-width: 399.9px) {
@@ -137,8 +153,11 @@
   .icon{
     font-size: 50px;
   }
-  .icon3{
+  .icon2{
     font-size: 50px;
+  }
+  .week_text{
+    margin-left: 190px;
   }
 }
 @media only screen and (min-width: 400px) and (max-width: 510px) {
@@ -153,8 +172,11 @@
   .icon{
     font-size: 60px;
   }
-  .icon3{
+  .icon2{
     font-size: 60px;
+  }
+  .week_text{
+    margin-left: 200px;
   }
 }
 @media only screen and (min-width: 511px) {
@@ -169,15 +191,19 @@
     rotate: -20deg;
     margin-top: -10px;
     margin-bottom: -10px;
-    color: #ffffff;
-  }
-  .icon3{
-    font-size: 70px;
-    margin-top: -10px;
-    margin-bottom: -10px;
   }
   .text_div{
     font-size: 25px;
     margin-left: 110px;
+  }
+  .icon2{
+    font-size: 70px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
+  .week_text{
+    margin-top: 5px;
+    margin-left: 250px;
+    font-size: 37px;
   }
 }

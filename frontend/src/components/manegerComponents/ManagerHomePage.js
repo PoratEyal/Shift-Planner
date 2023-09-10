@@ -73,6 +73,8 @@ const ManagerHomePage = () => {
         <PageLayout text={`שלום ${fullname}`}>
             <div className={styles.container}>
 
+                <label className={styles.week_text}>שבוע נוכחי</label>
+
                 <Link className={styles.link} to="/SeeCurrentWeekShifts">
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
@@ -96,6 +98,7 @@ const ManagerHomePage = () => {
                 </Link>
 
                 <div className={styles.spacer}></div>
+                <label className={styles.week_text}>שבוע הבא</label>
 
                 <Link className={styles.link} to="/createNewWeek">
                     <button className={styles.btn}>
