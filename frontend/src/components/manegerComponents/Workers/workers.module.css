@@ -76,7 +76,7 @@
 .addUser_btn {
     width: 60px;
     height: 60px;
-    z-index: 1000;
+    z-index: 10;
     position: fixed;
     bottom: 15px;
     left: 15px;
