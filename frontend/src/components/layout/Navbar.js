@@ -52,7 +52,7 @@ const Navbar = (props) => {
     }).then((result) => {
       if (result.isConfirmed) {
         localStorage.clear();
-        navigate('./');
+        navigate('/');
       }
     });
   };

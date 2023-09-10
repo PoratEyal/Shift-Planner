@@ -81,7 +81,7 @@ const ManagerHomePage = () => {
                             {<FcPlanner className={styles.icon1}></FcPlanner>} 
                         </div>
                         <div className={styles.text_div}>
-                            צפיה בסידור עבודה<br></br>לשבוע הנוכחי  
+                            צפיה בסידור העבודה  
                         </div>
                     </button>
                 </Link>
@@ -89,10 +89,10 @@ const ManagerHomePage = () => {
                 <Link className={styles.link} to="/editCurrentWeek">
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
-                            {<FcLeave className={styles.icon1}></FcLeave>} 
+                            {<FcLeave className={styles.icon2}></FcLeave>} 
                         </div>
                         <div className={styles.text_div}>
-                            עדכון בסידור עבודה<br></br>לשבוע הנוכחי  
+                            עדכון סידור העבודה  
                         </div>
                     </button>
                 </Link>
@@ -106,7 +106,7 @@ const ManagerHomePage = () => {
                             {<FcSurvey className={styles.icon1}></FcSurvey>}
                         </div>
                         <div className={styles.text_div}>
-                            יצירת משמרות<br></br>לשבוע הבא
+                            יצירת משמרות
                         </div>
                     </button>
                 </Link> 
@@ -116,7 +116,7 @@ const ManagerHomePage = () => {
                         <div className={styles.icon_div}>
                         {<FcGoodDecision className={styles.icon2}></FcGoodDecision>}
                         </div>
-                        <div className={styles.text_div}>שיבוץ עובדים<br></br>לשבוע הבא</div>
+                        <div className={styles.text_div}>שיבוץ עובדים</div>
                     </button>
                 </Link>
 

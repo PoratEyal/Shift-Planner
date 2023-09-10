@@ -9,11 +9,11 @@
 
 .week_text{
   margin-top: -10px;
-  font-size: 27px;
+  font-size: 23px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: #575757;
   margin-bottom: 15px;
-  margin-left: 180px;
+  margin-left: 200px;
   font-weight: 600;
 }
 
@@ -23,7 +23,6 @@
   justify-content: space-between;
   align-items: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 23px;
   padding: 25px;
   height: 110px;
   background-color: #ffffff;
@@ -40,12 +39,12 @@
 }
 
 .spacer{
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .text_div{
   margin-right: -5px;
-  line-height: 1.5;
+  font-size: 24px;
   color: #575757;
 }
 
@@ -124,7 +123,7 @@
     margin-right: -5px;
   }
   .week_text{
-    margin-left: 140px;
+    margin-left: 170px;
   }
 }
 @media only screen and (min-width: 330px) and (max-width: 369px) {
@@ -138,7 +137,7 @@
     margin-right: -5px;
   }
   .week_text{
-    margin-left: 170px;
+    margin-left: 190px;
   }
 }
 @media only screen and (min-width: 370px) and (max-width: 399.9px) {
@@ -157,7 +156,7 @@
     font-size: 50px;
   }
   .week_text{
-    margin-left: 190px;
+    margin-left: 210px;
   }
 }
 @media only screen and (min-width: 400px) and (max-width: 510px) {
@@ -176,7 +175,7 @@
     font-size: 60px;
   }
   .week_text{
-    margin-left: 200px;
+    margin-left: 220px;
   }
 }
 @media only screen and (min-width: 511px) {
