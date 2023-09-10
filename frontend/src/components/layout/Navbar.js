@@ -12,6 +12,7 @@ import { AiOutlineSchedule } from "react-icons/ai";
 import { BiEdit } from "react-icons/bi";
 import { BsCardList } from "react-icons/bs";
 import { TbUsersPlus } from "react-icons/tb";
+import { AiOutlineClose } from "react-icons/ai";
 
 const Navbar = (props) => {
 
@@ -77,8 +78,8 @@ const Navbar = (props) => {
 
       {open ? (
         <div className={styles.sideBar} ref={sidebarRef}>
-
           <div className={styles.upper_sidebar_div}>
+            <AiOutlineClose onClick={() => setOpen((prev) => !prev)} className={styles.close_icon}></AiOutlineClose>
             <img
               src="avatar.png"
               style={{

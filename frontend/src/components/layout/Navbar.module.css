@@ -107,6 +107,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.close_icon{
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: white;
 }
 
 .name_upper_sidebar{
