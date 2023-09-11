@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DayCurrentWeek from './DayCurrentWeek'
 import styles from './CurrentWeek.module.css'
-import {useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { ManagerContext } from '../ManagerHomePage';
 import { useContext } from 'react';

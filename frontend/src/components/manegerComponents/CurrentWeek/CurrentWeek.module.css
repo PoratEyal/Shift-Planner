@@ -2,76 +2,6 @@
     --main-color: #34a0ff;
 }
 
-/* - - - - - - - - nav bar - - - - - - - - -  */
-
-.nav_container{
-    height: 60px;
-    background-color: var(--main-color);
-    top: 0;
-    left: 0;
-    width: 100%;
-    position:fixed;
-    z-index: 999;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: white;
-    font-size: 25px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    font-weight: 600;
-    direction: rtl;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .name{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 22px;
-    margin-right: 15px;
-    animation: slideInFromRightName 1.7s ease-in-out;
-  }
-  
-  .nav_container button{
-    cursor: pointer;
-    font-size: 25px;
-    color: white;
-    background-color: #41379600;
-    border:none;
-    margin-top: 6px;
-  }
-  
-  .nav_btn_div{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    max-width: 100px;
-    -webkit-appearance: none;
-  }
-  
-.i1{
-    width: 45px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.i2{
-    width: 45px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.ai_icon_loading{
-    animation: magicEffect 2s linear infinite;
-}
-  
-.spacer {
-    flex-grow: 1;
-}
-
  /* - - - - - - - main component - - - - - - -  */
 
 .AI_content{
@@ -89,6 +19,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    font-family: 'Rubik', sans-serif;
 }
 
 .published_div{
@@ -100,7 +31,6 @@
 
 .published_div button{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: -10px;
     margin-bottom: 0px;
     display: flex;
@@ -141,7 +71,6 @@
 
 .publish_div button{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: -10px;
     margin-bottom: 0px;
     display: flex;
@@ -171,7 +100,6 @@
 }
 
 .ai_btn{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 10px;
     margin-top: -10px;
     display: flex;
@@ -211,7 +139,6 @@
 /* - - - - - - -day component - - - - - -  */
 
 .day_container{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -396,7 +323,6 @@
 
 .add_specific_worker_select{
     margin: 10px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
     padding: 5px;
     border-radius: 5px;
@@ -469,7 +395,6 @@
 /* - - - - - swal alert - - - - -  */
 
 .swal2_popup {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     border-radius: 8px;
 }
 
