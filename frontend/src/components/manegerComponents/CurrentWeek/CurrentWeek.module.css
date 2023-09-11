@@ -210,6 +210,14 @@
     position: relative;
 }
 
+.icon_add{
+    margin-left: 18px;
+    margin-top: 3px;
+    font-size: 23px;
+    color: green;
+    cursor: pointer;
+}
+
 .icon_delete{
     margin-left: 18px;
     font-size: 23px;

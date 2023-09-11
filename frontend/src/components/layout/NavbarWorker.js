@@ -135,10 +135,10 @@ const NavbarWroker = (props) => {
               <hr className={styles.line}></hr>
 
               <div className={styles.text_and_icon}>
-                <Link onClick={ChooseShiftsHandler} className={styles.icon_link}>
+                <Link to="/chooseShifts" onClick={ChooseShiftsHandler} className={styles.icon_link}>
                   <TbUsersPlus className={styles.icon}></TbUsersPlus>
                 </Link>
-                <Link className={styles.links} onClick={ChooseShiftsHandler}>
+                <Link className={styles.links} to="/chooseShifts" onClick={ChooseShiftsHandler}>
                   {weekPublished ? (
                     <>צפיה במשמרות לשבוע הבא</>
                   ) : (
