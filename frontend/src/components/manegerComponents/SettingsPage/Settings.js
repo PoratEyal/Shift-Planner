@@ -1,5 +1,8 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import styles from './settingsPage.module.css';
+import PageLayout from './/..//..//layout/PageLayout';
+
 const SettingsPage = (props) =>{
 
     //const [user, setUser] = useState(null);
@@ -22,13 +25,10 @@ const SettingsPage = (props) =>{
         console.log(name.current.value)
         console.log(startTime.current.value)
         console.log(endTime.current.value)
-
     }
-    
 
-
-    return(
-        <div>
+    return <PageLayout text='הגדרות'>
+        <div className={styles.contianer}>
             Add shift
             <form>
                 <label>name:
@@ -44,12 +44,13 @@ const SettingsPage = (props) =>{
                     end time:
                     <input type="time" ref={endTime}></input>
                 </label>
-               
+                
             </form>
             <button onClick={clickHandle}>
                     Submit
             </button>
         </div>
-    )
+    </PageLayout>
 }
+
 export default SettingsPage
