@@ -16,7 +16,6 @@
     width: 290px;
     height: 270px;
     padding: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background: rgb(255, 255, 255);
     border-radius: 12px;
     margin-top: 90px;
@@ -27,11 +26,11 @@
     margin-top: -20px;
     font-size: 1.45em;
     color: #34a0ff;
+    font-weight: 500;
 }
 
 .input{
     text-align: right;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
     padding: 10px;
     border-radius: 5px;
@@ -41,6 +40,7 @@
     width: 80%;
     border: 1px solid rgba(0, 0, 0, 0.25);
     direction: rtl;
+    font-family: 'Rubik', sans-serif;
 }
 .input::placeholder {
     font-size: 15px;
@@ -57,7 +57,7 @@
     padding: 0.8rem 2.4rem;
     font-size: 1.275rem;
     line-height: 1.25rem;
-    font-weight: 700;
+    font-weight: 600;
     text-align: center;
     text-transform: uppercase;
     vertical-align: middle;
@@ -66,11 +66,12 @@
     border:none;
     gap: 0.75rem;
     color: white;
-    background-color: #34a0ff;
+    background-color: #63b6ff;
     cursor: pointer;
     transition: all .6s ease;
     width: 88%;
     justify-content: center;
+    font-family: 'Rubik', sans-serif;
 }
 .btn:hover {
 transform: scale(1.02);
