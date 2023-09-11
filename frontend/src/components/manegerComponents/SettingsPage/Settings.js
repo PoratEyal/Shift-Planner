@@ -43,8 +43,12 @@ const SettingsPage = (props) =>{
     }    
 
     return <PageLayout text='הגדרות'>
+        {/* <div className={styles.container}>
+            <h2 className={styles.h2}>המשמרות שלי</h2>
+        </div> */}
+
         <div className={styles.container}>
-            <h2 className={styles.h2}>בנית משמרת</h2>
+            <h2 className={styles.h2}>בנית משמרת קבועה</h2>
             <form className={styles.userForm}>
                 <div>
                     <input className={styles.input} type="text" ref={name}></input>
