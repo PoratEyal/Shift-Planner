@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import styles from './settingsPage.module.css';
 import PageLayout from './/..//..//layout/PageLayout';
+import Swal from 'sweetalert2';
 
 const SettingsPage = (props) =>{
 
@@ -22,33 +23,46 @@ const SettingsPage = (props) =>{
     }, []);
 
     const clickHandle = () => {
-        console.log(name.current.value)
-        console.log(startTime.current.value)
-        console.log(endTime.current.value)
-    }
+        const nameValue = name.current.value;
+        const startTimeValue = startTime.current.value;
+        const endTimeValue = endTime.current.value;
+    
+        if (!nameValue || !startTimeValue || !endTimeValue) {
+            Swal.fire({
+              title: 'יש למלא את כל השדות',
+              text: "",
+              icon: 'warning',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'סגירה'
+            });
+            return;
+        }
+        console.log(nameValue);
+        console.log(startTimeValue);
+        console.log(endTimeValue);
+    }    
 
     return <PageLayout text='הגדרות'>
-        <div className={styles.contianer}>
-            Add shift
-            <form>
-                <label>name:
-                    <input type="text" ref={name}></input>
-                </label>
-                <br></br>
-                <label>
-                    startTime:
-                    <input type="time" ref={startTime}></input>
-                </label>
-                <br></br>
-                <label>
-                    end time:
-                    <input type="time" ref={endTime}></input>
-                </label>
-                
+        <div className={styles.container}>
+            <h2 className={styles.h2}>בנית משמרת</h2>
+            <form className={styles.userForm}>
+                <div>
+                    <input className={styles.input} type="text" ref={name}></input>
+                    <label className={styles.label_name}>שם משמרת</label>
+                </div>
+
+                <div>
+                    <input className={styles.input} type="time" ref={startTime}></input>
+                    <label className={styles.label_start}>זמן התחלה</label>
+                </div>
+
+                <div>
+                    <input className={styles.input} type="time" ref={endTime}></input>
+                    <label className={styles.label_end}>זמן סיום</label>
+                </div>
             </form>
-            <button onClick={clickHandle}>
-                    Submit
-            </button>
+
+            <button className={styles.btn} onClick={clickHandle}>אישור</button>
         </div>
     </PageLayout>
 }
