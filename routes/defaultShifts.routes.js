@@ -11,7 +11,7 @@ DSRouter.post('/getDefShifts', async (req, res) => {
     try {
         const response = await defShifts.findOne({ ofManager: managerId });
         if (response) {
-            res.status(200).json(response);
+            res.status(200).json(response.shifts);
         }
         else {
             const newDefShifts = {
@@ -22,7 +22,7 @@ DSRouter.post('/getDefShifts', async (req, res) => {
             await defShifts.create(newDefShifts);
             const response = await defShifts.findOne({ ofManager: managerId });
             if (response) {
-                res.status(200).json(response);
+                res.status(200).json(response.shifts);
             }
         }
     }
