@@ -27,7 +27,7 @@ function CreateWeek() {
               currentDateInIsrael.minute,
               currentDateInIsrael.second
             );
-            futureDate.setMinutes(jsDate.getMinutes() + currentDateInIsrael.offset);
+            futureDate.setMinutes(futureDate.getMinutes() + currentDateInIsrael.offset);
             
             return Day.create({ name: day, shifts: [], date: futureDate})
               .then(newDay => {
