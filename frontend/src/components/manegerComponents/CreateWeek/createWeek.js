@@ -27,6 +27,8 @@ const CreateWeek = () => {
         }
         axios.post(`${process.env.REACT_APP_URL}/getNextWeek`, reqBody)
         .then((response) => {
+
+            console.log(response.data);
             setWeek(response.data);
             setWeekVisivble(response.data.visible);
             setWeekPublished(response.data.publishScheduling)
