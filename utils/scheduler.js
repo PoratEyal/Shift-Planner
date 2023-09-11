@@ -11,15 +11,15 @@ scheduleRule.tz = 'Asia/Jerusalem';
 
 const currentDate = new Date();
 const targetDate = new Date(currentDate.getTime() + 5 * 1000);
-const job = schedule.scheduleJob(targetDate, yourFunction);
+const job = schedule.scheduleJob(scheduleRule, yourFunction);
 
 
 function yourFunction() {
-  // Week.updateMany({name: "CurrentWeek"}, {name: "DataWeek"}).then((response) => {
-  //   console.log(response);
-  //   Week.updateMany({name: "NextWeek"}, {name: "CurrentWeek"}).then((response)=> {
-  //     console.log(response);
-       createWeek();
-  //   });
-  // });
+  Week.updateMany({name: "CurrentWeek"}, {name: "DataWeek"}).then((response) => {
+    console.log(response);
+    Week.updateMany({name: "NextWeek"}, {name: "CurrentWeek"}).then((response)=> {
+      console.log(response);
+      createWeek();
+    });
+  });
 }
