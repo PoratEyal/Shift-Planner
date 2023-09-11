@@ -25,7 +25,6 @@
 }
 
 .addShift_btn_disabled{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 10px;
     margin-top: -10px;
     display: flex;
@@ -53,25 +52,6 @@
     pointer-events:none;
 }
 
-.nav_container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    background-color: var(--main-color);
-    top: 0;
-    left: 0;
-    width: 100%;
-    position:fixed;
-    z-index: 999;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: white;
-    font-size: 25px;
-    font-weight: 600;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
 @keyframes slideInFromRightName {
     0% {
         transform: translateX(400px);
@@ -81,19 +61,6 @@
         transform: translateX(0);
         opacity: 1;
   }
-}
-.nav_container p{
-    font-size: 22px;
-    margin-right: 18px;
-    animation: slideInFromRightName 1.7s ease-in-out;
-}
-.nav_container button{
-    font-size: 25px;
-    color: white;
-    background-color: #41379600;
-    border:none;
-    margin-left: 10px;
-    margin-top: 3px;
 }
 
 @keyframes slideInAndFade {
@@ -108,7 +75,6 @@
 }
 
 .day_container{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -177,7 +143,6 @@
     margin-top: 5px;
 }
 .select_choose_worker{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     direction: rtl;
     border-radius: 7px;
     padding: 3px;
@@ -198,7 +163,6 @@
 }
 
 .btn {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: 15px;
     margin: 5px;
     width: 87px;
@@ -206,7 +170,6 @@
     padding: 0.8rem 2.4rem;
     font-size: 18px;
     line-height: 1.25rem;
-    font-weight: 700;
     text-align: center;
     text-transform: uppercase;
     vertical-align: middle;
@@ -220,6 +183,8 @@
     transition: 0.3s;
     display: flex;
     justify-content: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
 }
 
 .icon_publish {
@@ -231,7 +196,6 @@
 }
 
 .add_btn{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 10px;
     margin-top: 0px;
     display: flex;
@@ -258,7 +222,6 @@
 }
 
 .addShift{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     width: 280px;
     font-size: 1.2em;
     border: none;
@@ -280,11 +243,11 @@
 
 .hour_and_input{
     margin-right: 20px;
+    font-family: 'Rubik', sans-serif;
 }
 
 .input_time_start{
     margin: 10px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
     padding: 5px;
     border-radius: 5px;
@@ -295,6 +258,7 @@
     direction: rtl;
     appearance: none;
     -webkit-appearance:none;
+    font-family: 'Rubik', sans-serif;
 }
 .input_time_start::before{
     content: 'התחלה';
@@ -302,11 +266,11 @@
     direction: ltr;
     appearance: none;
     -webkit-appearance:none;
+    font-family: 'Rubik', sans-serif;
 }
 
 .input_time_end{
     margin: 10px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
     padding: 5px;
     border-radius: 5px;
@@ -317,6 +281,7 @@
     direction: rtl;
     appearance: none;
     -webkit-appearance:none;
+    font-family: 'Rubik', sans-serif;
 }
 .input_time_end::before{
     content: 'סיום';
@@ -324,11 +289,11 @@
     direction: ltr;
     appearance: none;
     -webkit-appearance:none;
+    font-family: 'Rubik', sans-serif;
 }
 
 .input{
     margin: 10px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
     padding: 5px;
     border-radius: 5px;
@@ -337,17 +302,16 @@
     width: 220px;
     text-align: right;
     direction: rtl;
+    font-family: 'Rubik', sans-serif;
 }
 
 .addShift_btn{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: -10px;
     margin-bottom: 15px;
     display: flex;
     padding: 0.8rem 2.4rem;
     font-size: 1.275rem;
     line-height: 1.25rem;
-    font-weight: 700;
     text-align: center;
     text-transform: uppercase;
     vertical-align: middle;
@@ -360,58 +324,14 @@
     width: 230px;
     justify-content: center;
     background-color: #c1e1ff;
-     color:#2880cc;
+    color:#2880cc;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
 }
 
 .ai_div{
     margin-top: 20px;
     margin-bottom: -10px;
-}
-
-.ai_btn{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin: 10px;
-    margin-top: -10px;
-    display: flex;
-    padding: 0.8rem 2.4rem;
-    font-size: 1.275rem;
-    line-height: 1.25rem;
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-    vertical-align: middle;
-    align-items: center;
-    border-radius: 0.5rem;
-    border: none;
-    gap: 0.75rem;
-    color:#ffffff;
-    cursor: pointer;
-    transition: all .6s ease;
-    width: 320px;
-    justify-content: center;
-    animation: slideInAndFade 0.5s ease-in-out;
-    background-color:#68b5f9;
-}
-
-@keyframes magicEffect {
-    0%, 100% {
-      transform: scale(1) rotate(0);
-    }
-    75% {
-      transform: scale(1) rotate(40deg);
-    }
-    25% {
-      transform: scale(1) rotate(-80deg);
-    }
-}
-.ai_icon{
-    margin-right: 10px;
-    color: #ffffff;
-}
-.ai_icon_loading{
-    margin-right: 10px;
-    color: #ffffff;
-    animation: magicEffect 2s linear infinite;
 }
 
 .workers_list {
@@ -590,7 +510,6 @@
 }
 
 .btn_chose{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 15px;
     background-color: rgb(46, 181, 29);
     color: white;
@@ -601,6 +520,7 @@
     cursor: pointer;
     transition: 0.3s;
     font-size: 15px;
+    
 }
 .btn_chose:hover{
     background-color: rgb(30, 144, 14);
@@ -647,7 +567,6 @@
 
 .add_specific_worker_select{
     margin: 10px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
     padding: 5px;
     border-radius: 5px;
@@ -656,6 +575,7 @@
     width: 150px;
     text-align: right;
     direction: rtl;
+    font-family: 'Rubik', sans-serif;
 }
 
 .loadingWorkers_manger_page{
@@ -665,7 +585,6 @@
     margin-top: 90px;
 }
 .first_addShift_btn{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 10px;
     margin-top: -10px;
     display: flex;
@@ -700,14 +619,13 @@
 
 .publish_div_createWeek button{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: -10px;
     margin-bottom: 0px;
     display: flex;
     padding: 0.8rem 2.4rem;
     font-size: 1.275rem;
     line-height: 1.25rem;
-    font-weight: 700;
+    font-weight: 600;
     text-align: center;
     text-transform: uppercase;
     vertical-align: middle;
@@ -722,6 +640,7 @@
     justify-content: center;
     animation: downToUp 1s ease-in-out;
     background-color:#68b5f9;
+    font-family: 'Rubik', sans-serif;
 }
 
 .edit_div_createWeek{
@@ -733,7 +652,6 @@
     animation: slideInAndFade 0.5s ease-in-out;
 }
 .edit_div_createWeek button{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: -10px;
     margin-bottom: 10px;
     display: flex;
@@ -766,7 +684,6 @@
 
 .publish_div button{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: -10px;
     margin-bottom: 0px;
     display: flex;
@@ -799,14 +716,13 @@
 
 .published_div button{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: -10px;
     margin-bottom: 0px;
     display: flex;
     padding: 0.8rem 2.4rem;
     font-size: 1.275rem;
     line-height: 1.25rem;
-    font-weight: 700;
+    font-weight: 600;
     text-align: center;
     text-transform: uppercase;
     vertical-align: middle;
@@ -821,6 +737,7 @@
     justify-content: center;
     animation: downToUp 1s ease-in-out;
     background-color: rgb(60, 204, 41);
+    font-family: 'Rubik', sans-serif;
 }
 
 .workers_showList{
@@ -977,7 +894,6 @@
 /* - - - - - - - -alert css - - -  - - - - - - - */
 
 .swal2_popup {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     border-radius: 8px;
 }
 
@@ -999,7 +915,6 @@
   /* Style for the input fields */
 .swal2_content input[type='time'] {
     border: 1.5px solid rgba(175, 175, 175, 0.413);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     width: 120px;
     padding: 8px;
     border-radius: 4px;
@@ -1019,7 +934,6 @@
 
   /* Style for the labels */
 .swal2_content label {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 22px;
     margin-left: 8px;
 }
@@ -1031,7 +945,6 @@
     color: rgb(62, 62, 62);
     border-radius: 10px;
     padding: 10px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: 0px;
     margin-bottom: 0px;
     text-align: right;
