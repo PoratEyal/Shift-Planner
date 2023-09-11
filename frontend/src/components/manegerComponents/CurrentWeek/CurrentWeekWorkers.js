@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useRef, useEffect, useState } from 'react';
-import styles from '../CreateWeek/createWeek.module.css';
+import styles from './CurrentWeek.module.css'
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { BiTime } from "react-icons/bi";
 import Swal from 'sweetalert2';

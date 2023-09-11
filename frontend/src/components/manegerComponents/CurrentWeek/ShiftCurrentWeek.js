@@ -1,5 +1,5 @@
 import React, {useState } from "react";
-import styles from '../CreateWeek/createWeek.module.css';
+import styles from './CurrentWeek.module.css'
 import axios from 'axios';
 import CurrentWeekWorkers from './CurrentWeekWorkers';
 import moment from "moment";
