@@ -51,7 +51,7 @@
   margin-top:40px;
   padding: 17px;
   font-size: 1.85rem;
-  font-weight: 700;
+  font-weight: 600;
   text-align: center;
   border-radius: 20px;
   border: none;
@@ -61,6 +61,7 @@
   cursor: pointer;
   width: 260px;
   background-color: #ffffff;
+  font-family: 'Rubik', sans-serif;
 }
 .btn:hover {
   color: #254aa9;
@@ -92,7 +93,7 @@
   width: 300px;
   border-radius: 10px;
   border: 1.5px solid rgba(128, 128, 128, 0.405);
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 .input::placeholder{
   color: #2e2e2e87;
@@ -108,8 +109,8 @@
 }
 .validation_p{
   position: absolute;
-  font-size: 1.5em;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.4em;
+  font-family: 'Rubik', sans-serif;
   color: red;
   margin-top: 200px;
   animation: vibration 0.3s;
