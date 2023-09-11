@@ -19,7 +19,7 @@ function yourFunction() {
   //   console.log(response);
   //   Week.updateMany({name: "NextWeek"}, {name: "CurrentWeek"}).then((response)=> {
   //     console.log(response);
-  //     createWeek();
+       createWeek();
   //   });
   // });
 }
