@@ -162,6 +162,15 @@ const Navbar = (props) => {
                 </Link>
               </div>
 
+              <div className={styles.text_and_icon}>
+                <Link className={styles.icon_link} to="/settings">
+                  <RiLockPasswordLine className={styles.icon}></RiLockPasswordLine>
+                </Link>
+                <Link className={styles.links} to="/settings">
+                  הגדרות
+                </Link>
+              </div>
+
               <hr className={styles.line}></hr>
 
               <div className={styles.text_and_icon}>
