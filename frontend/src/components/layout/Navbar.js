@@ -13,6 +13,7 @@ import { BiEdit } from "react-icons/bi";
 import { BsCardList } from "react-icons/bs";
 import { TbUsersPlus } from "react-icons/tb";
 import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineSetting } from "react-icons/ai";
 
 const Navbar = (props) => {
 
@@ -154,20 +155,20 @@ const Navbar = (props) => {
               <hr className={styles.line}></hr>
 
               <div className={styles.text_and_icon}>
+                <Link className={styles.icon_link} to="/settings">
+                  <AiOutlineSetting className={styles.icon}></AiOutlineSetting>
+                </Link>
+                <Link className={styles.links} to="/settings">
+                  הגדרות
+                </Link>
+              </div>
+
+              <div className={styles.text_and_icon}>
                 <Link className={styles.icon_link} to="/managerSettings">
                   <RiLockPasswordLine className={styles.icon}></RiLockPasswordLine>
                 </Link>
                 <Link className={styles.links} to="/managerSettings">
                   עדכון פרטי משתמש
-                </Link>
-              </div>
-
-              <div className={styles.text_and_icon}>
-                <Link className={styles.icon_link} to="/settings">
-                  <RiLockPasswordLine className={styles.icon}></RiLockPasswordLine>
-                </Link>
-                <Link className={styles.links} to="/settings">
-                  הגדרות
                 </Link>
               </div>
 
