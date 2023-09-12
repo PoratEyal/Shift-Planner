@@ -15,6 +15,13 @@ const DefaultShift = (props) => {
     useEffect(() => {
         setShift(props.shift)
     }, [])
+
+    const saveHandler = () => {
+        console.log(name.current.value);
+        console.log(startTime.current.value);
+        console.log(endTime.current.value);
+
+    }
     return <div className={styles.shifts}>
         <label className={styles.label}>
             {moment(shift.endTime).utc().format('HH:mm')} - {moment(shift.startTime).utc().format('HH:mm')} : {shift.description}
@@ -40,6 +47,7 @@ const DefaultShift = (props) => {
                 <br></br>
                 <button
                     onClick={() => {
+                        saveHandler()
                         setClickAddShift(!clickAddShift)
                     }}
                 >שמור
