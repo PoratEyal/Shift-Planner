@@ -21,45 +21,45 @@ const DefaultShift = (props) => {
         console.log(startTime.current.value);
         console.log(endTime.current.value);
         const user = JSON.parse(localStorage.getItem('user'));
-        reqBody={
-  
-            managerId: user._id,
-            shiftId: shift._id,
-            name: name.current.value,
-            startTime: startTime.current.value,
-            endTime: endTime.current.value
-        }
-
+        // reqBody={
+        //     managerId: user._id,
+        //     shiftId: shift._id,
+        //     name: name.current.value,
+        //     startTime: startTime.current.value,
+        //     endTime: endTime.current.value
+        // }
     }
     return <div className={styles.shifts}>
+
         <label className={styles.label}>
             {moment(shift.endTime).utc().format('HH:mm')} - {moment(shift.startTime).utc().format('HH:mm')} : {shift.description}
         </label>
+
         <div className={styles.icons_div}>
-            <button className={styles.delete_btn} onClick={() => {
-            }}><RiDeleteBin6Line></RiDeleteBin6Line></button>
-            <button className={styles.edit_icon} onClick={() => {
-                setClickAddShift(!clickAddShift)
-            }}><BiEditAlt></BiEditAlt></button>
+            <button className={styles.delete_btn}>
+                מחיקה
+            </button>
+
+            <label className={styles.spacer}></label>
+
+            <button className={styles.edit_btn} onClick={() => {setClickAddShift(!clickAddShift)}}>
+                עריכה
+            </button>
         </div>
+
         {clickAddShift && (
-            <div className={styles.addShift}>
-                <input defaultValue={shift.description} type="text" placeholder="שם משמרת" ref={name} />
-                <label>
-                    שעת התחלה
-                    <input defaultValue={moment(shift.startTime).utc().format('HH:mm')} type="time" ref={startTime} />
-                </label>
-                <label>
-                    שעת סיום
-                    <input defaultValue={moment(shift.endTime).utc().format('HH:mm')} type="time" ref={endTime} />
-                </label>
+            <div className={styles.editShift}>
+                <input className={styles.input_edit} defaultValue={shift.description} type="text" placeholder="שם משמרת" ref={name} />
+                <input className={styles.input_time_start} defaultValue={moment(shift.startTime).utc().format('HH:mm')} type="time" ref={startTime} />
+                <input className={styles.input_time_end} defaultValue={moment(shift.endTime).utc().format('HH:mm')} type="time" ref={endTime} />
                 <br></br>
                 <button
+                    className={styles.edit_shift_btn}
                     onClick={() => {
                         saveHandler()
                         setClickAddShift(!clickAddShift)
                     }}
-                >שמור
+                >אישור
                 </button>
             </div>
         )}
