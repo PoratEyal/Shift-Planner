@@ -109,7 +109,7 @@
     background-color: rgba(231, 234, 238, 0.571);
 }
 .shift_createWeek{
-    width: 255px;
+    width: 275px;
     font-size: 1.2em;
     border: none;
     border-radius: 10px;
@@ -165,7 +165,7 @@
 .btn {
     margin-top: 15px;
     margin: 5px;
-    width: 87px;
+    width: 93px;
     height: auto;
     padding: 0.8rem 2.4rem;
     font-size: 18px;
@@ -352,7 +352,7 @@
     border: none;
     font-size: 22px;
     background-color: #25d36500;
-    margin-top: 5px;
+    margin-top: 4px;
 }
 .btn_delete:hover{
     cursor: pointer;
@@ -361,6 +361,10 @@
 .shift_description{
     font-size: 19px;
     margin-bottom: 15px;
+}
+
+.shift_description_createWeek{
+    font-size: 18px;
 }
 
 .no_shifts_messge{
@@ -994,13 +998,13 @@
         width: 300px;
     }
     .shift_createWeek{
-        width: 275px;
+        width: 295px;
     }
     .published_div button{
         width: 320px;
     }
     .btn{
-        width: 93px;
+        width: 99px;
     }
     .addShift{
         width: 300px;
@@ -1044,13 +1048,13 @@
         width: 320px;
     }
     .shift_createWeek{
-        width: 295px;
+        width: 315px;
     }
     .published_div button{
         width: 340px;
     }
     .btn{
-        width: 100px;
+        width: 105px;
     }
     .addShift{
         width: 320px;
