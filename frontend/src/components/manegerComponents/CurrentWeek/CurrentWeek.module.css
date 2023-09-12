@@ -67,6 +67,7 @@
     bottom: 30px;
     left: 35px;
     position:fixed;
+    z-index: 900;
 }
 .btn_ai{
     background-color:#68b5f9;
@@ -84,7 +85,7 @@
     align-items: center;
 }
 .ai_icon_loading{
-    animation: magicEffect 1s ease-in-out;
+    animation: magicEffect 1s ease-in-out infinite;
 }
 
 .publish_div{
