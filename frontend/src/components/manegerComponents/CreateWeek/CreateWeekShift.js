@@ -37,7 +37,7 @@ const CreateWeekShift = (props) => {
               <RiDeleteBin6Line className={styles.btn_delete} onClick={deleteShift}></RiDeleteBin6Line>
           </div>
 
-          <div>
+          <div className={styles.shift_description_createWeek}>
             {shift.description} : {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
           </div>
       </div>
