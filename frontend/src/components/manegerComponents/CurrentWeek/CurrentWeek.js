@@ -325,13 +325,25 @@ const CurrentWeek = () => {
                     </button>
                 </div> : null}
 
-                {weekPublished === false && !loadingAi?
-                    <div className={styles.publish_div}>
-                        <button onClick={publishSchedule}>
-                        <FcAdvertising className={styles.icon_publish}></FcAdvertising>
-                        <label>פרסום שבוע</label>
-                        </button>
-                    </div> : null}
+                <div className={styles.two_btns_div}>
+                    <div className={styles.ai_div}>
+                        {weekAi === false && weekPublished === false ?
+                            <button className={styles.btn_ai} onClick={clickAi}>
+                                {loadingAi ? <FaMagic className={styles.ai_icon_loading}></FaMagic> : <FaMagic></FaMagic>}
+                            </button>
+                        : null}
+                    </div>
+
+
+                    {weekPublished === false && !loadingAi?
+                        <div className={styles.publish_div}>
+                            <button onClick={publishSchedule}>
+                                <FcAdvertising className={styles.icon_publish}></FcAdvertising>
+                                <label>פרסום שבוע</label>
+                            </button>
+                        </div>
+                    : null}
+                </div>
 
                 <div style={{marginBottom: '50px'}} className={loadingAi ? styles.container_disabled : null}>
                     {
