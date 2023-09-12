@@ -133,7 +133,7 @@ const CreateWeekDay = (props) => {
         }
     }
 
-    // create shift and added the _id of her to day
+    // create shift and added the _id of it to day
     const addShift = () => {
         if (!shiftName || !shiftStartTime || !shiftEndTime) {
             return;

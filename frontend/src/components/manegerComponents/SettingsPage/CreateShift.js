@@ -43,7 +43,7 @@ const CreateShift = () => {
 
     return <PageLayout text='יצירת משמרת קבועה'>
         <div className={styles.container}>
-            <form className={styles.userForm}>
+            <form className={styles.userForm}> 
                 <div>
                     <input className={styles.input} type="text" ref={name}></input>
                     <label className={styles.label_name}>שם משמרת</label>
