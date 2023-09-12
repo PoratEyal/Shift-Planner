@@ -3,6 +3,8 @@ const DSRouter = express.Router();
 const defShifts = require('../models/defaultShifts');
 const Shift = require('../models/shift');
 const bodyParser = require('body-parser');
+const { ObjectId } = require('mongodb');
+
 
 DSRouter.use(bodyParser.json());
 
@@ -33,6 +35,21 @@ DSRouter.post('/getDefShifts', async (req, res) => {
 
 
 });
+
+DSRouter.put('/changeShift', async (req, res) =>{
+    reqBody = req.body;
+
+    const st = new Date(`1970-01-01T${reqBody.startTime}:00Z`);
+    const et = new Date(`1970-01-01T${reqBody.endTime}:00Z`);
+
+    const response = await defShifts.findOne({ofManager: reqBody.managerId});
+    
+    console.log(reqBody.shiftId)
+    if(response.shifts.some(shift => shift._id === new ObjectId(reqBody.shiftId))){
+        console.log("OK");
+        res.status(200);
+    }
+})
 DSRouter.put('/addNewShift', async (req, res) => {
     rewBody = req.body;
     console.log(rewBody);
