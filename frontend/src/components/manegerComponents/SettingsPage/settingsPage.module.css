@@ -21,10 +21,19 @@
     margin-bottom: 3px;
     padding: 3px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     background-color: rgba(231, 234, 238, 0.571);
+    position: relative;
+}
+
+.icons_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 160px;
 }
 
 .delete_btn{
@@ -33,21 +42,36 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(205, 205, 205, 0);
-    color: rgba(227, 86, 86, 0.989);
     border: none;
-    border-radius: 5px;
-    width: 40px;
-    height: 40px;
-    font-size: 21px;
-    margin-left: 5px;
+    font-size: 25px;
     transition: 0.3s;
+    margin-bottom: 5px;
+    background-color: #d2e9ff;
+    color:#2880cc;
+    width: 70px;
+    border-radius: 5px;
+    padding: 7px;
 }
-.delete_btn:hover{
-    cursor: pointer;
+
+.edit_icon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(205, 205, 205, 0);
+    border: none;
+    font-size: 25px;
+    transition: 0.3s;
+    margin-bottom: 5px;
+    background-color: #d2e9ff;
+    color:#2880cc;
+    width: 70px;
+    border-radius: 5px;
+    padding: 7px;
 }
 
 .label{
-    font-size: 18px;
+    font-size: 19px;
     margin: 10px;
     margin-right: 10px;
 }

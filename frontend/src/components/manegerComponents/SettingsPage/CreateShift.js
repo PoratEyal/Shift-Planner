@@ -37,16 +37,12 @@ const CreateShift = () => {
                 endTime: endTimeValue
             }
             axios.put(`${process.env.REACT_APP_URL}/addNewShift`, reqBody)
-            navigate('/createShift')
+            navigate('/settings')
         }
-        console.log(nameValue);
-        console.log(startTimeValue);
-        console.log(endTimeValue);
     }
 
-    return <PageLayout text='הגדרות'>
+    return <PageLayout text='יצירת משמרת קבועה'>
         <div className={styles.container}>
-            <h2 className={styles.h2}>בניית משמרת קבועה</h2>
             <form className={styles.userForm}>
                 <div>
                     <input className={styles.input} type="text" ref={name}></input>

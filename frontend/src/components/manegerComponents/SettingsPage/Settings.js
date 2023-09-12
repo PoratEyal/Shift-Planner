@@ -5,6 +5,7 @@ import PageLayout from './/..//..//layout/PageLayout';
 import moment from "moment";
 import { useNavigate } from 'react-router-dom';
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { BiEditAlt } from "react-icons/bi";
 
 const SettingsPage = (props) => {
 
@@ -21,18 +22,20 @@ const SettingsPage = (props) => {
         })
     }, []);
 
-    return <PageLayout text='הגדרות'>
+    return <PageLayout text='הגדרת משמרות'>
         <div className={styles.container}>
             <h2 className={styles.title}>המשמרות שלי</h2>
             {defShifts ? 
                 defShifts.map((shift) => {
                     return <div key={shift._id}>
                         <div className={styles.shifts}>
-                            <button className={styles.delete_btn}><RiDeleteBin6Line></RiDeleteBin6Line></button>
                             <label className={styles.label}>
                                 {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')} : {shift.description}
                             </label>
-                            
+                            <div className={styles.icons_div}>
+                                <button className={styles.delete_btn}><RiDeleteBin6Line></RiDeleteBin6Line></button>
+                                <button className={styles.edit_icon}><BiEditAlt></BiEditAlt></button>
+                            </div>
                         </div>
                     </div>
                 })

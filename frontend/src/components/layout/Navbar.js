@@ -159,7 +159,7 @@ const Navbar = (props) => {
                   <AiOutlineSetting className={styles.icon}></AiOutlineSetting>
                 </Link>
                 <Link className={styles.links} to="/settings">
-                  הגדרות
+                  הגדרת משמרות
                 </Link>
               </div>
 
