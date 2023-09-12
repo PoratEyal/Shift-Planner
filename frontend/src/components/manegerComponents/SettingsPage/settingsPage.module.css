@@ -154,7 +154,7 @@
     font-family: 'Rubik', sans-serif;
 }
 .input_time::before{
-    content: '';
+    content: 'הזן שעה';
     color: #9d9d9d;
     direction: ltr;
     appearance: none;
