@@ -6,12 +6,14 @@ import moment from "moment";
 import { useNavigate } from 'react-router-dom';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { BiEditAlt } from "react-icons/bi";
-
+import CreateShift from "./CreateShift";
+import DefaultShift from "./DefaultShift";
 const SettingsPage = (props) => {
 
     const navigate = useNavigate();
 
     const [defShifts, setDefShifts] = useState(null);
+
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
@@ -22,27 +24,24 @@ const SettingsPage = (props) => {
         })
     }, []);
 
+    const editHandler = (shift) => {
+        //edit shift swal
+        console.log(shift);
+    }
+    const deleteHandler = (shift) => {
+        //delete shift swal
+    }
+
     return <PageLayout text='הגדרת משמרות'>
         <div className={styles.container}>
             <h2 className={styles.title}>המשמרות שלי</h2>
-            {defShifts ? 
+            {defShifts ?
                 defShifts.map((shift) => {
-                    return <div key={shift._id}>
-                        <div className={styles.shifts}>
-                            <label className={styles.label}>
-                                {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')} : {shift.description}
-                            </label>
-                            <div className={styles.icons_div}>
-                                <button className={styles.delete_btn}><RiDeleteBin6Line></RiDeleteBin6Line></button>
-                                <button className={styles.edit_icon}><BiEditAlt></BiEditAlt></button>
-                            </div>
-                        </div>
-                    </div>
+                    return <DefaultShift shift={shift} key={shift._id}></DefaultShift>
                 })
-            : null}
+                : null}
         </div>
-
-        <img onClick={() => navigate('/createShift')} src='addRole.png' className={styles.addShift_btn}></img> 
+        <img onClick={() => navigate('/createShift')} src='addRole.png' className={styles.addShift_btn}></img>
     </PageLayout>
 }
 
