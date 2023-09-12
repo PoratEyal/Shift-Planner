@@ -1,0 +1,72 @@
+import { useRef } from "react";
+import axios from "axios";
+import styles from './settingsPage.module.css';
+import PageLayout from './/..//..//layout/PageLayout';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+
+const CreateShift = () => {
+
+    const navigate = useNavigate();
+
+    let name = useRef();
+    let startTime = useRef();
+    let endTime = useRef();
+
+    const clickHandle = () => {
+        const nameValue = name.current.value;
+        const startTimeValue = startTime.current.value;
+        const endTimeValue = endTime.current.value;
+
+        if (!nameValue || !startTimeValue || !endTimeValue) {
+            Swal.fire({
+                title: 'יש למלא את כל השדות',
+                text: "",
+                icon: 'warning',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'סגירה'
+            });
+            return;
+        }
+        else {
+            const user = JSON.parse(localStorage.getItem('user'));
+            const reqBody = {
+                managerId: user._id,
+                name: nameValue,
+                startTime: startTimeValue,
+                endTime: endTimeValue
+            }
+            axios.put(`${process.env.REACT_APP_URL}/addNewShift`, reqBody)
+            navigate('/createShift')
+        }
+        console.log(nameValue);
+        console.log(startTimeValue);
+        console.log(endTimeValue);
+    }
+
+    return <PageLayout text='הגדרות'>
+        <div className={styles.container}>
+            <h2 className={styles.h2}>בניית משמרת קבועה</h2>
+            <form className={styles.userForm}>
+                <div>
+                    <input className={styles.input} type="text" ref={name}></input>
+                    <label className={styles.label_name}>שם משמרת</label>
+                </div>
+
+                <div>
+                    <input className={styles.input} type="time" ref={startTime}></input>
+                    <label className={styles.label_start}>זמן התחלה</label>
+                </div>
+
+                <div>
+                    <input className={styles.input} type="time" ref={endTime}></input>
+                    <label className={styles.label_end}>זמן סיום</label>
+                </div>
+            </form>
+
+            <button className={styles.btn} onClick={clickHandle}>אישור</button>
+        </div>
+    </PageLayout>
+}
+
+export default CreateShift;

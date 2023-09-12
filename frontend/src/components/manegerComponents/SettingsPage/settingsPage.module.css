@@ -12,6 +12,46 @@
     animation: slideInAndFade 0.5s ease-in-out;
 }
 
+.shifts{
+    width: 280px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 10px;
+    margin: 10px;
+    margin-bottom: 3px;
+    padding: 3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(231, 234, 238, 0.571);
+}
+
+.delete_btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(205, 205, 205, 0);
+    color: rgba(227, 86, 86, 0.989);
+    border: none;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 21px;
+    margin-left: 5px;
+    transition: 0.3s;
+}
+.delete_btn:hover{
+    cursor: pointer;
+}
+
+.label{
+    font-size: 18px;
+    margin: 10px;
+    margin-right: 10px;
+}
+
 @keyframes slideInAndFade {
     0% {
         transform: translateX(0);
@@ -28,6 +68,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.title{
+    margin-top: 0px;
+    margin-bottom: 5px;
+    color: #378bd4;
+    font-weight: 500;
 }
 
 .h2{
@@ -90,6 +137,30 @@
 }
 .btn:hover {
 transform: scale(1.02);
+}
+
+.addShift_btn {
+    width: 60px;
+    height: 60px;
+    z-index: 10;
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    background-color: #34a0ff;
+    color: white;
+    border: none;
+    font-size: 41px;
+    transition: 0.3s;
+    border-radius: 300%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    animation: downToUp 1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.addShift_btn:hover{
+    cursor: pointer;
 }
 
 

@@ -13,8 +13,9 @@ import ProtectedRoute from './components/ProtectedRoute';
 import EditCurrentWeek from './components/manegerComponents/EditCurrentWeek/EditCurrentWeek';
 import Roles from './components/manegerComponents/Roles/Roles';
 import Workers from './components/manegerComponents/Workers/Workers';
-import CreateWorker from './components/manegerComponents/Workers/CreateWorker'
+import CreateWorker from './components/manegerComponents/Workers/CreateWorker';
 import defShifts from './components/manegerComponents/SettingsPage/Settings';
+import CreateShift from './components/manegerComponents/SettingsPage/CreateShift';
 
 const App = () => {
 
@@ -25,6 +26,7 @@ const App = () => {
 
         {/* - - - - - - - -maneger - - - - - - -  */}
         <Route path='/settings' element={<ProtectedRoute component={defShifts} role="admin"/>}></Route>
+        <Route path='/createShift' element={<ProtectedRoute component={CreateShift} role="admin"/>}></Route>
 
         <Route path='/managerHomePage' element={<ProtectedRoute component={ManagerHomePage} role="admin"/>}></Route>
         <Route path="/createNewWeek" element={<ProtectedRoute component={CreateWeek} role="admin"/>} />

@@ -121,8 +121,8 @@ const Roles = () => {
                     </div>
                 ) : (roles.map(role => (
                     <div className={styles.roles} key={role._id}>
-                    <button onClick={() => deleteRole(role._id)} className={styles.delete_btn}><RiDeleteBin6Line></RiDeleteBin6Line></button>
-                    <label className={styles.label}>{role.name}</label>
+                      <button onClick={() => deleteRole(role._id)} className={styles.delete_btn}><RiDeleteBin6Line></RiDeleteBin6Line></button>
+                      <label className={styles.label}>{role.name}</label>
                     </div>
                     ))
                     )
