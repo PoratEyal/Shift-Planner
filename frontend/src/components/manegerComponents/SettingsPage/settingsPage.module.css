@@ -167,6 +167,28 @@
     -webkit-appearance:none;
     font-family: 'Rubik', sans-serif;
 }
+.input_time2{
+    margin: 10px;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    width: 110px;
+    text-align: right;
+    direction: rtl;
+    appearance: none;
+    -webkit-appearance:none;
+    font-family: 'Rubik', sans-serif;
+}
+.input_time2::before{
+    content: 'סיום';
+    color: #9d9d9d;
+    direction: ltr;
+    appearance: none;
+    -webkit-appearance:none;
+    font-family: 'Rubik', sans-serif;
+}
 
 .btn {
     margin-top: 20px;
@@ -325,6 +347,9 @@ transform: scale(1.02);
     .input_time{
         width: 130px;
     }
+    .input_time2{
+        width: 130px;
+    }
     .shifts{
         width: 300px;
     }
@@ -356,6 +381,9 @@ transform: scale(1.02);
         width: 300px;
     }
     .input_time{
+        width: 150px;
+    }
+    .input_time2{
         width: 150px;
     }
     .shifts{
