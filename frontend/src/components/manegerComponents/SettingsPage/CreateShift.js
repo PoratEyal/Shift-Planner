@@ -54,12 +54,12 @@ const CreateShift = () => {
                 </div>
 
                 <div>
-                    <input className={styles.input} type="time" ref={startTime}></input>
+                    <input className={styles.input_time} type="time" ref={startTime}></input>
                     <label className={styles.label_start}>זמן התחלה</label>
                 </div>
 
                 <div>
-                    <input className={styles.input} type="time" ref={endTime}></input>
+                    <input className={styles.input_time} type="time" ref={endTime}></input>
                     <label className={styles.label_end}>זמן סיום</label>
                 </div>
             </form>
