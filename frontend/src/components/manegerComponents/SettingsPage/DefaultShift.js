@@ -20,6 +20,15 @@ const DefaultShift = (props) => {
         console.log(name.current.value);
         console.log(startTime.current.value);
         console.log(endTime.current.value);
+        const user = JSON.parse(localStorage.getItem('user'));
+        reqBody={
+  
+            managerId: user._id,
+            shiftId: shift._id,
+            name: name.current.value,
+            startTime: startTime.current.value,
+            endTime: endTime.current.value
+        }
 
     }
     return <div className={styles.shifts}>
