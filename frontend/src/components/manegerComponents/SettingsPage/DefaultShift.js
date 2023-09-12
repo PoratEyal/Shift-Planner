@@ -39,11 +39,10 @@ const DefaultShift = (props) => {
                 </label>
                 <br></br>
                 <button
-                    className={styles.addShift_btn}
                     onClick={() => {
                         setClickAddShift(!clickAddShift)
                     }}
-                >הוסף משמרת
+                >שמור
                 </button>
             </div>
         )}
