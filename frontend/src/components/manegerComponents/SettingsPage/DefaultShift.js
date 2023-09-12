@@ -3,6 +3,7 @@ import moment from "moment";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { BiEditAlt } from "react-icons/bi";
 import styles from './settingsPage.module.css';
+import axios from "axios";
 
 const DefaultShift = (props) => {
     const [shift, setShift] = useState(props.shift);
@@ -16,12 +17,12 @@ const DefaultShift = (props) => {
         setShift(props.shift)
     }, [])
 
-    const saveHandler = () => {
+    const saveHandler = async () => {
         console.log(name.current.value);
         console.log(startTime.current.value);
         console.log(endTime.current.value);
         const user = JSON.parse(localStorage.getItem('user'));
-        reqBody={
+        const reqBody={
   
             managerId: user._id,
             shiftId: shift._id,
@@ -29,6 +30,8 @@ const DefaultShift = (props) => {
             startTime: startTime.current.value,
             endTime: endTime.current.value
         }
+        const response = await axios.put(`${process.env.REACT_APP_URL}/changeShift`, reqBody);
+        console.log(response.data)
 
     }
     return <div className={styles.shifts}>
