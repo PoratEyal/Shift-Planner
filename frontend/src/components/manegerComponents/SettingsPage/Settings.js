@@ -4,7 +4,7 @@ import styles from './settingsPage.module.css';
 import PageLayout from './/..//..//layout/PageLayout';
 import Swal from 'sweetalert2';
 
-const SettingsPage = (props) =>{
+const SettingsPage = (props) => {
 
     //const [user, setUser] = useState(null);
     const [defShifts, setDefShifts] = useState(null);
@@ -12,7 +12,7 @@ const SettingsPage = (props) =>{
     let startTime = useRef();
     let endTime = useRef();
 
-    useEffect(() =>{
+    useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
         axios.post(`${process.env.REACT_APP_URL}/getDefShifts`, {
             managerId: user._id
@@ -26,29 +26,46 @@ const SettingsPage = (props) =>{
         const nameValue = name.current.value;
         const startTimeValue = startTime.current.value;
         const endTimeValue = endTime.current.value;
-    
+
         if (!nameValue || !startTimeValue || !endTimeValue) {
             Swal.fire({
-              title: 'יש למלא את כל השדות',
-              text: "",
-              icon: 'warning',
-              confirmButtonColor: '#3085d6',
-              confirmButtonText: 'סגירה'
+                title: 'יש למלא את כל השדות',
+                text: "",
+                icon: 'warning',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'סגירה'
             });
             return;
+        }
+        else {
+            const user = JSON.parse(localStorage.getItem('user'));
+            const reqBody = {
+                managerId: user._id,
+                name: nameValue,
+                startTime: startTimeValue,
+                endTime: endTimeValue
+            }
+            axios.put(`${process.env.REACT_APP_URL}/addNewShift`, reqBody)
         }
         console.log(nameValue);
         console.log(startTimeValue);
         console.log(endTimeValue);
-    }    
+    }
 
     return <PageLayout text='הגדרות'>
         {/* <div className={styles.container}>
             <h2 className={styles.h2}>המשמרות שלי</h2>
         </div> */}
 
+        {
+            defShifts ? 
+            defShifts.map((shift) => {
+                console.log(shift)
+                return <h1 key={shift._id}>test</h1>
+            }) : null
+        }
         <div className={styles.container}>
-            <h2 className={styles.h2}>בנית משמרת קבועה</h2>
+            <h2 className={styles.h2}>בניית משמרת קבועה</h2>
             <form className={styles.userForm}>
                 <div>
                     <input className={styles.input} type="text" ref={name}></input>
