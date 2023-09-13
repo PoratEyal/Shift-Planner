@@ -3,7 +3,8 @@ import styles from '../CreateWeek/createWeek.module.css'
 import axios from 'axios'
 import Shift from './CreateWeekShift';
 import moment from 'moment';
-import { FcPlus } from "react-icons/fc";
+import { FcExpand } from "react-icons/fc";
+import { FcCollapse } from "react-icons/fc";
 
 const CreateWeekDay = (props) => {
 
@@ -167,6 +168,7 @@ const CreateWeekDay = (props) => {
                         setClickAddShift(!clickAddShift)
                     }}
                 >
+                    {!clickAddShift ? <FcExpand></FcExpand> : <FcCollapse></FcCollapse>}
                     הוספת משמרת ידנית
                 </button>
             </div>
