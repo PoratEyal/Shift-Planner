@@ -35,7 +35,16 @@ DSRouter.post('/getDefShifts', async (req, res) => {
 
 
 });
-
+DSRouter.put('/deleteShift', async (req, res) => {
+    reqBody = req.body;
+    const response = await defShifts.findOne({ ofManager: reqBody.managerId });
+    const index = response.shifts.indexOf(shift => String(shift._id) === (reqBody.shiftId));
+    if(index !== -1){
+        response.shifts.splice(index, 1);
+        await response.save();
+        res.status(200);
+    }
+})
 DSRouter.put('/changeShift', async (req, res) => {
     reqBody = req.body;
 
