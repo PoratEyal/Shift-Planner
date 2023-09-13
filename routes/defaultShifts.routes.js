@@ -45,6 +45,7 @@ DSRouter.put('/changeShift', async (req, res) =>{
     const response = await defShifts.findOne({ofManager: reqBody.managerId});
     
     console.log(reqBody.shiftId)
+    console.log(response.shifts)
     if(response.shifts.some(shift => shift._id === new ObjectId(reqBody.shiftId))){
         console.log("OK");
         res.status(200);
