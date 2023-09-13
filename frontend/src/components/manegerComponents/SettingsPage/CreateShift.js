@@ -13,7 +13,7 @@ const CreateShift = () => {
     let startTime = useRef();
     let endTime = useRef();
 
-    const clickHandle = () => {
+    const clickHandle = async () => {
         const nameValue = name.current.value;
         const startTimeValue = startTime.current.value;
         const endTimeValue = endTime.current.value;
@@ -36,7 +36,7 @@ const CreateShift = () => {
                 startTime: startTimeValue,
                 endTime: endTimeValue
             }
-            axios.put(`${process.env.REACT_APP_URL}/addNewShift`, reqBody)
+            await axios.put(`${process.env.REACT_APP_URL}/addNewShift`, reqBody)
             navigate('/settings')
         }
     }
