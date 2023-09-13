@@ -186,12 +186,6 @@
   color: rgb(145, 145, 145);
   cursor: pointer;
 }
-.icon_btn{
-  margin-left: 5px;
-  font-size: 23px;
-  color: rgb(145, 145, 145);
-  cursor: pointer;
-}
 
 @keyframes opacity {
   0% {

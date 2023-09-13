@@ -40,7 +40,8 @@ const NavbarWroker = (props) => {
   }
 
   // if next week isnt visible threw alert
-  const ChooseShiftsHandler = () => {
+  const ChooseShiftsHandler = (event) => {
+    event.preventDefault();
     weekVisible ? navigate("/chooseShifts") 
     : Swal.fire({
         title: 'טרם פורסמו משמרות',
@@ -135,16 +136,16 @@ const NavbarWroker = (props) => {
               <hr className={styles.line}></hr>
 
               <div className={styles.text_and_icon}>
-                <button onClick={ChooseShiftsHandler} className={styles.icon_link}>
-                  <TbUsersPlus className={styles.icon_btn}></TbUsersPlus>
-                </button>
-                <button className={styles.links} onClick={ChooseShiftsHandler}>
+                <Link onClick={ChooseShiftsHandler} className={styles.icon_link}>
+                  <TbUsersPlus className={styles.icon}></TbUsersPlus>
+                </Link>
+                <Link className={styles.links} onClick={ChooseShiftsHandler}>
                   {weekPublished ? (
                     <>צפיה במשמרות לשבוע הבא</>
                   ) : (
-                    <>בחירה לשבוע הבא</>
+                    <>בחירת משמרות לשבוע הבא</>
                   )}
-                </button>
+                </Link>
               </div>
 
               <hr className={styles.line}></hr>
