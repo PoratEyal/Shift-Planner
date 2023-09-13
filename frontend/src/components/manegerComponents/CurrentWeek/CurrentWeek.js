@@ -165,13 +165,10 @@ const CurrentWeek = () => {
             html:
             `<form class="${styles.AI_content}">
                 <div>
-                   ביצוע הפעולה מוגבל לפעם אחת בשבוע 
+                • ביצוע הפעולה מוגבל לפעם אחת בשבוע
                 </div>
                 <div>
-                    פעולה זו יכולה לקחת עד כדקה  
-                </div>
-                <div>
-                    אנא בחרו כמות עובדים שתרצו לשבץ במשמרות בין 1- ${workersCount} 
+                • פעולה זו יכולה לקחת עד כדקה 
                 </div>
             </form>`,
             input: 'number',
@@ -180,7 +177,7 @@ const CurrentWeek = () => {
                 max: workersCount,
                 dir: 'rtl'
             },
-            inputPlaceholder: `בחירת כמות עובדים`,
+            inputPlaceholder: ` בחירת כמות עובדים בין 1 - ${workersCount}`,
             showCancelButton: true,
             cancelButtonText: 'ביטול',
             confirmButtonColor: '#34a0ff',

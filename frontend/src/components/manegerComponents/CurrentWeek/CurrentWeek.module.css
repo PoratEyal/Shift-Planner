@@ -468,6 +468,11 @@
     margin-bottom: -5px;
 }
 
+.AI_content{
+    text-align: right;
+    direction: rtl;
+}
+
 
 /* - - - - - loading animation - - - - -  */
 
