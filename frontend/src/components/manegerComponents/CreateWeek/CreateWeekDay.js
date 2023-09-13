@@ -146,6 +146,19 @@ const CreateWeekDay = (props) => {
                     dayShifts.map((shift) => { return shift ? <Shift deleteShift={deleteShift} shift={shift} key={shift._id} managerId={props.managerId}></Shift> : null }))
             }
 
+            <div className={styles.specific_shift_div}>
+                <button onClick={() => { addDefShift(selectRef.current.value) }}>
+                        הוספה
+                </button>
+                
+                <select ref={selectRef} defaultValue="">
+                    <option value="" disabled>בחירת משמרת</option>
+                    {defShifts.map((shift, index) => {
+                        return <option key={index} value={shift._id}>{shift.description}</option>
+                    })}
+                </select>
+            </div>
+
             <div className={styles.buttons}>
                 <button
                     className={styles.btn}
@@ -153,18 +166,8 @@ const CreateWeekDay = (props) => {
                         setClickAddShift(!clickAddShift)
                     }}
                 >
-                    ידנית
+                    הוספת משמרת ידנית
                 </button>
-
-                <button className={styles.btn} onClick={() => { addDefShift(selectRef.current.value) }}>
-                    הוספה
-                </button>
-                <select ref={selectRef} defaultValue="">
-                    <option value="" disabled>משמרת</option>
-                    {defShifts.map((shift, index) => {
-                        return <option key={index} value={shift._id}>{shift.description}</option>
-                    })}
-                </select>
             </div>
 
             {clickAddShift && (

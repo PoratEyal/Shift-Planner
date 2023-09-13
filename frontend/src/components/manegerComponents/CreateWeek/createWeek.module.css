@@ -165,10 +165,10 @@
 .btn {
     margin-top: 15px;
     margin: 5px;
-    width: 93px;
+    width: 295px;
     height: auto;
     padding: 0.8rem 2.4rem;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.25rem;
     text-align: center;
     text-transform: uppercase;
@@ -185,6 +185,67 @@
     justify-content: center;
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
+    margin-bottom: 0px;
+    height: 40px;
+    align-items: center;
+}
+
+.specific_shift_div{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.specific_shift_div button{
+    margin-right: 15px;
+    width: 80px;
+    height: 40px;
+    padding: 0.8rem 2.4rem;
+    font-size: 20px;
+    line-height: 1.25rem;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    border-radius: 0.5rem;
+    border: none;
+    gap: 0.75rem;
+    background-color: var(--main-color);
+    background-color: #d2e9ff;
+    color:#2880cc;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+.specific_shift_div select{
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+    font-family: 'Rubik', sans-serif;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(181, 181, 181);
+    direction: rtl;
+    cursor: pointer;
+    text-align: right;
+    padding:5px 5px;
+}
+.specific_shift_div select::before{
+    content: '';
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+    font-family: 'Rubik', sans-serif;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(181, 181, 181);
+    direction: rtl;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance:none;
 }
 
 .icon_publish {
@@ -1005,7 +1066,10 @@
         width: 320px;
     }
     .btn{
-        width: 99px;
+        width: 315px;
+    }
+    .specific_shift_div button{
+        width: 100px;
     }
     .addShift{
         width: 315px;
@@ -1055,7 +1119,10 @@
         width: 340px;
     }
     .btn{
-        width: 105px;
+        width: 335px;
+    }
+    .specific_shift_div button{
+        width: 120px;
     }
     .addShift{
         width: 335px;
