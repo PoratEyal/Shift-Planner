@@ -8,6 +8,8 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { BiEditAlt } from "react-icons/bi";
 import CreateShift from "./CreateShift";
 import DefaultShift from "./DefaultShift";
+import Swal from 'sweetalert2';
+
 const SettingsPage = (props) => {
 
     const navigate = useNavigate();
@@ -29,7 +31,24 @@ const SettingsPage = (props) => {
         console.log(shift);
     }
     const deleteHandler = (shift) => {
-        //delete shift swal
+        Swal.fire({
+            title: 'האם ברצונך למחוק את המשמרת',
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'ביטול',
+            confirmButtonColor: '#34a0ff',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'אישור'
+          }).then(async (result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: 'המשמרת נמחקה',
+                icon: 'success',
+                confirmButtonColor: '#34a0ff',
+                confirmButtonText: 'סגירה'
+            });
+            }
+        });
     }
 
     return <PageLayout text='הגדרת משמרות'>
