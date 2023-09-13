@@ -74,7 +74,8 @@ const CreateWeekDay = (props) => {
     }
 
     const addDefShift = (shiftId) => {
-        const shift = props.defShifts.find(shift => String(shift._id) === shiftId)
+         try {
+            const shift = props.defShifts.find(shift => String(shift._id) === shiftId)
         console.log();
         const newShift = {
             description: shift.description,
@@ -91,7 +92,7 @@ const CreateWeekDay = (props) => {
             newShift: newShift,
             dayId: day._id
         }
-        try {
+       
 
             axios.put(`${process.env.REACT_APP_URL}/addShiftToDay`, reqBody)
                 .then((response) => {
