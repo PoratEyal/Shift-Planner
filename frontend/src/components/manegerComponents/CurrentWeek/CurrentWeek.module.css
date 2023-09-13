@@ -58,13 +58,13 @@
 .btn_ai{
     display: flex;
     border-radius: 0.5rem;
-    border: none;
+    border: 3px solid #eaf5ff;
     cursor: pointer;
     transition: all .6s ease;
     justify-content: center;
     align-items: center;
     font-family: 'Rubik', sans-serif;
-    height: 40px;
+    height: 45px;
     font-size: 23px;
     font-weight: 500;
     gap: 20px;
@@ -112,7 +112,7 @@
 }
 
 .container_disabled{
-    margin-top: -60px;
+    margin-top: -100px;
     direction: ltr;
     display: flex;
     flex-direction: column;
