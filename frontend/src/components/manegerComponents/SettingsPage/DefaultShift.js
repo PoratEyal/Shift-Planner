@@ -31,7 +31,9 @@ const DefaultShift = (props) => {
             endTime: endTime.current.value
         }
         const response = await axios.put(`${process.env.REACT_APP_URL}/changeShift`, reqBody);
-        console.log(response.data)
+        if(response.data){
+            setShift(response.data)
+        }
 
     }
     return <div className={styles.shifts}>

@@ -36,20 +36,26 @@ DSRouter.post('/getDefShifts', async (req, res) => {
 
 });
 
-DSRouter.put('/changeShift', async (req, res) =>{
+DSRouter.put('/changeShift', async (req, res) => {
     reqBody = req.body;
 
     const st = new Date(`1970-01-01T${reqBody.startTime}:00Z`);
     const et = new Date(`1970-01-01T${reqBody.endTime}:00Z`);
 
-    const response = await defShifts.findOne({ofManager: reqBody.managerId});
-    
-    console.log(reqBody.shiftId)
-    console.log(response.shifts)
-    if(response.shifts.some(shift => shift._id === new ObjectId(reqBody.shiftId))){
-        console.log("OK");
+    const response = await defShifts.findOne({ ofManager: reqBody.managerId });
+
+      
+    const shift = response.shifts.find(shift => String(shift._id) === (reqBody.shiftId));
+    if (shift) {
+        shift.description = reqBody.name;
+        shift.startTime = st;
+        shift.endTime = et;
+        await response.save();
+        res.status(200).send(shift);
+    } else {
         res.status(200);
     }
+
 })
 DSRouter.put('/addNewShift', async (req, res) => {
     rewBody = req.body;
@@ -64,15 +70,15 @@ DSRouter.put('/addNewShift', async (req, res) => {
         startTime: st,
         endTime: et
     });
-    const response = await defShifts.findOne({ofManager: rewBody.managerId});
-    if(response.shifts.length < response.maxAmount){
+    const response = await defShifts.findOne({ ofManager: rewBody.managerId });
+    if (response.shifts.length < response.maxAmount) {
         response.shifts.push(shift);
         response.save().then(() => {
             console.log(response)
             res.status(200).send(response.shifts);
         })
     }
-    else{
+    else {
         res.status(204)
     }
     console.log(shift);
