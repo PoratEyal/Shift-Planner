@@ -51,8 +51,8 @@ const SeeDayCurrentWeek = (props) => {
      useEffect(() => {
         updateShifts();
         //console.log(moment(day.date).utc().format('DD.MM'));
-        const today = moment().format('YYYY-MM-DD');
-        if (moment(day.date).format('YYYY-MM-DD') === today && day.name !== "ראשון") {
+        const today = moment().utc().format('YYYY-MM-DD');
+        if (moment(day.date).utc().format('YYYY-MM-DD') === today && day.name !== "ראשון") {
             const scrollTimeout = setTimeout(() => {
                 const dayContainer = document.getElementById(`day_${day.date}`);
                 if (dayContainer) {
@@ -84,7 +84,7 @@ const SeeDayCurrentWeek = (props) => {
                     dayShifts?.length ?? 0) === 0 ? (
                         <div className={styles.no_shifts_messge}>אין משמרות ליום זה </div>
                       ) : (
-                    dayShifts.map((shift) => {return shift ? <ShiftCurrentWeek openShift={moment(day.date).format('YYYY-MM-DD') === moment().format('YYYY-MM-DD')} managerId={props.managerId} getShifts={updateShifts} shift={shift} dayId={day._id} key={shift._id} setDay={setDay}></ShiftCurrentWeek> : null }))
+                    dayShifts.map((shift) => {return shift ? <ShiftCurrentWeek openShift={moment(day.date).utc().format('YYYY-MM-DD') === moment().utc().format('YYYY-MM-DD')} managerId={props.managerId} getShifts={updateShifts} shift={shift} dayId={day._id} key={shift._id} setDay={setDay}></ShiftCurrentWeek> : null }))
             }
     </div>
 }

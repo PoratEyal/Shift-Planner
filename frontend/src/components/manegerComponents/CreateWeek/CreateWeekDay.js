@@ -16,7 +16,7 @@ const CreateWeekDay = (props) => {
     const [shiftEndTime, SetshiftEndTime] = useState('')
     const [clickAddShift, setClickAddShift] = useState(false)
     const defShifts = props.defShifts;
-    console.log(defShifts);
+    //console.log(defShifts);
     const selectRef = useRef(null);
 
     // get the sifts of the day
@@ -73,51 +73,18 @@ const CreateWeekDay = (props) => {
             })
     }
 
-    // create morning shift and added the _id of her to day
-    const addMorningShift = () => {
+    const addDefShift = (shiftId) => {
+        const shift = props.defShifts.find(shift => String(shift._id) === shiftId)
+        console.log();
         const newShift = {
-            description: "משמרת בוקר",
-            startTime: "7:00",
-            endTime: "15:00",
+            description: shift.description,
+            startTime: moment(moment(shift.startTime).utc().format('HH:mm'), 'HH:mm'),
+            endTime: moment(moment(shift.endTime).utc().format('HH:mm'), 'HH:mm'),
             workers: []
         };
-
-        const startTimeMoment = moment(newShift.startTime, 'HH:mm');
-        const endTimeMoment = moment(newShift.endTime, 'HH:mm');
-
-        newShift.startTime = startTimeMoment
-        newShift.endTime = endTimeMoment
-
-        const reqBody = {
-            managerId: props.managerId,
-            newShift: newShift,
-            dayId: day._id
-        }
-        axios.put(`${process.env.REACT_APP_URL}/addShiftToDay`, reqBody)
-            .then((response) => {
-                const updatedDay = response.data.day.find(d => d._id === day._id);
-                setDay(updatedDay);
-
-            })
-            .catch((error) => {
-                console.log(error.message);
-            });
-    }
-
-    // create evnig shift and added the _id of her to day
-    const addEvningShift = () => {
-        const newShift = {
-            description: "משמרת ערב",
-            startTime: "15:00",
-            endTime: "23:00",
-            workers: []
-        };
-
-        const startTimeMoment = moment(newShift.startTime, 'HH:mm');
-        const endTimeMoment = moment(newShift.endTime, 'HH:mm');
-
-        newShift.startTime = startTimeMoment;
-        newShift.endTime = endTimeMoment;
+        console.log(newShift.startTime);
+        const startTimeMoment = moment(shift.startTime, 'HH:mm').utc();
+        const endTimeMoment = moment(shift.endTime, 'HH:mm');
 
         const reqBody = {
             managerId: props.managerId,
@@ -189,24 +156,13 @@ const CreateWeekDay = (props) => {
                     ידנית
                 </button>
 
-                {/* <button
-                    className={styles.btn}
-                    onClick={() => {
-                        addEvningShift()
-                    }
-                    }
-                >
-                    ערב
-                </button> */}
-
-                <button className={styles.btn}>
+                <button className={styles.btn} onClick={() => { addDefShift(selectRef.current.value) }}>
                     הוספה
                 </button>
                 <select ref={selectRef} defaultValue="">
                     <option value="" disabled>משמרת</option>
                     {defShifts.map((shift, index) => {
-                        console.log(shift);
-                        return <option key={index} value={shift}>{shift.description}</option>
+                        return <option key={index} value={shift._id}>{shift.description}</option>
                     })}
                 </select>
             </div>
