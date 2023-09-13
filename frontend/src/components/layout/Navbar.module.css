@@ -175,7 +175,6 @@
 .label{
   text-decoration: none;
   font-size: 16px;
-  color: #34a0ff;
   color: rgb(145, 145, 145);
   cursor: pointer;
 }
@@ -184,14 +183,12 @@
   margin-left: 18px;
   margin-right: 5px;
   font-size: 23px;
-  color: #34a0ff;
   color: rgb(145, 145, 145);
   cursor: pointer;
 }
 .icon_btn{
   margin-left: 5px;
   font-size: 23px;
-  color: #34a0ff;
   color: rgb(145, 145, 145);
   cursor: pointer;
 }
