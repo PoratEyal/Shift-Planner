@@ -43,7 +43,7 @@ const DefaultShift = (props) => {
         </label>
 
         <div className={styles.icons_div}>
-            <button className={styles.delete_btn}>
+            <button className={styles.delete_btn} onClick={() => {props.delete(shift._id)}}>
                 מחיקה
             </button>
 

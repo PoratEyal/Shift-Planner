@@ -25,12 +25,7 @@ const SettingsPage = (props) => {
             setDefShifts(response.data);
         })
     }, []);
-
-    const editHandler = (shift) => {
-        //edit shift swal
-        console.log(shift);
-    }
-    const deleteHandler = (shift) => {
+    const deleteHandler = (shiftId) => {
         Swal.fire({
             title: 'האם ברצונך למחוק את המשמרת',
             icon: 'warning',
@@ -41,6 +36,16 @@ const SettingsPage = (props) => {
             confirmButtonText: 'אישור'
           }).then(async (result) => {
             if (result.isConfirmed) {
+                console.log(shiftId);
+                const user = JSON.parse(localStorage.getItem('user'));
+                const reqBody = {
+                    managerId: user._id,
+                    shiftId: shiftId
+                }
+                const response = await axios.put(`${process.env.REACT_APP_URL}/deleteShift`, reqBody);
+                if(response){
+                    setDefShifts(response.data)
+                }
               Swal.fire({
                 title: 'המשמרת נמחקה',
                 icon: 'success',
@@ -56,7 +61,7 @@ const SettingsPage = (props) => {
             <h2 className={styles.title}>המשמרות שלי</h2>
             {defShifts ?
                 defShifts.map((shift) => {
-                    return <DefaultShift shift={shift} key={shift._id}></DefaultShift>
+                    return <DefaultShift shift={shift} delete={deleteHandler} key={shift._id}></DefaultShift>
                 })
                 : null}
         </div>
