@@ -79,6 +79,7 @@
 .btn_ai label{
     font-size: 1.275rem;
     font-weight: 500;
+    direction: rtl;
 }
 .ai_icon_loading{
     animation: magicEffect 2s ease-in-out infinite;
