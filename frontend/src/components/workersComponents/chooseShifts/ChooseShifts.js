@@ -83,7 +83,8 @@ const ChooseShifts = () => {
     }; 
 
     return <PageLayoutWorker text={weekPublished ? 'צפיה במשמרות לשבוע הבא' : 'בחירת משמרות לשבוע הבא'}>
-        <div style={{ marginTop: '70px' }} className={styles.container}>
+        <div 
+        style={weekPublished ? {marginBottom: '80px'} : null} className={styles.container}>
             
             {weekPublished === true ?
             <div className={styles.messege}>

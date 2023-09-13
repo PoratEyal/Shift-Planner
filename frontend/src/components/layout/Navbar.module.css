@@ -160,12 +160,16 @@
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
-  color: #34a0ff;
   color: rgb(145, 145, 145);
+  background-color: #ffffff00;
+  border: none;
+  font-family: 'Rubik', sans-serif;
 }
 
 .icon_link{
   margin-bottom: -5px;
+  background-color: #ffffff00;
+  border: none;
 }
 
 .label{
@@ -179,6 +183,13 @@
 .icon{
   margin-left: 18px;
   margin-right: 5px;
+  font-size: 23px;
+  color: #34a0ff;
+  color: rgb(145, 145, 145);
+  cursor: pointer;
+}
+.icon_btn{
+  margin-left: 5px;
   font-size: 23px;
   color: #34a0ff;
   color: rgb(145, 145, 145);

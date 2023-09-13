@@ -41,13 +41,13 @@ const NavbarWroker = (props) => {
 
   // if next week isnt visible threw alert
   const ChooseShiftsHandler = () => {
-      weekVisible ? navigate("/chooseShifts") 
-      : Swal.fire({
-          title: 'טרם פורסמו משמרות',
-          icon: 'warning',
-          confirmButtonColor: '#34a0ff',
-          confirmButtonText: 'סגור'
-        })
+    weekVisible ? navigate("/chooseShifts") 
+    : Swal.fire({
+        title: 'טרם פורסמו משמרות',
+        icon: 'warning',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'סגור'
+      })
   }
 
   useEffect(() => {
@@ -76,7 +76,7 @@ const NavbarWroker = (props) => {
       icon: 'warning',
       showCancelButton: true,
       cancelButtonText: 'ביטול',
-      confirmButtonColor: '#34a0ff',
+      confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'אישור',
     }).then((result) => {
@@ -135,16 +135,16 @@ const NavbarWroker = (props) => {
               <hr className={styles.line}></hr>
 
               <div className={styles.text_and_icon}>
-                <Link to="/chooseShifts" onClick={ChooseShiftsHandler} className={styles.icon_link}>
-                  <TbUsersPlus className={styles.icon}></TbUsersPlus>
-                </Link>
-                <Link className={styles.links} to="/chooseShifts" onClick={ChooseShiftsHandler}>
+                <button onClick={ChooseShiftsHandler} className={styles.icon_link}>
+                  <TbUsersPlus className={styles.icon_btn}></TbUsersPlus>
+                </button>
+                <button className={styles.links} onClick={ChooseShiftsHandler}>
                   {weekPublished ? (
                     <>צפיה במשמרות לשבוע הבא</>
                   ) : (
                     <>בחירת משמרות לשבוע הבא</>
                   )}
-                </Link>
+                </button>
               </div>
 
               <hr className={styles.line}></hr>
