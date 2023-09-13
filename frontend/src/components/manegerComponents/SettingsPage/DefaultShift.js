@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import moment from "moment";
-import { RiDeleteBin6Line } from "react-icons/ri";
-import { BiEditAlt } from "react-icons/bi";
 import styles from './settingsPage.module.css';
 import axios from "axios";
+import Swal from 'sweetalert2';
 
 const DefaultShift = (props) => {
     const [shift, setShift] = useState(props.shift);
@@ -18,12 +17,8 @@ const DefaultShift = (props) => {
     }, [])
 
     const saveHandler = async () => {
-        console.log(name.current.value);
-        console.log(startTime.current.value);
-        console.log(endTime.current.value);
         const user = JSON.parse(localStorage.getItem('user'));
         const reqBody={
-  
             managerId: user._id,
             shiftId: shift._id,
             name: name.current.value,
@@ -33,9 +28,15 @@ const DefaultShift = (props) => {
         const response = await axios.put(`${process.env.REACT_APP_URL}/changeShift`, reqBody);
         if(response.data){
             setShift(response.data)
+            Swal.fire({
+                title: 'המשמרת עודכנה',
+                icon: 'success',
+                confirmButtonColor: '#34a0ff',
+                confirmButtonText: 'סגירה'
+            });
         }
-
     }
+
     return <div className={styles.shifts}>
 
         <label className={styles.label}>
