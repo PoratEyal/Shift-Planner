@@ -222,7 +222,7 @@
 }
 
 .addShift{
-    width: 280px;
+    width: 295px;
     font-size: 1.2em;
     border: none;
     border-radius: 10px;
@@ -232,6 +232,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 0px;
 }
 
 .hour_and_input{
@@ -1007,7 +1008,7 @@
         width: 99px;
     }
     .addShift{
-        width: 300px;
+        width: 315px;
     }
     .publish_div_createWeek button{
         width: 320px;
@@ -1057,7 +1058,7 @@
         width: 105px;
     }
     .addShift{
-        width: 320px;
+        width: 335px;
     }
     .publish_div_createWeek button{
         width: 340px;
