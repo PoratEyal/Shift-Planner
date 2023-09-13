@@ -287,13 +287,22 @@
     font-size: 1.2em;
     border: none;
     border-radius: 10px;
-    background-color: rgba(231, 234, 238, 0.789);
+    background-color: rgba(231, 234, 238, 0.571);
     margin: 10px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 0px;
+    position: relative;
+}
+
+.addShift_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .hour_and_input{
@@ -383,10 +392,34 @@
     gap: 0.75rem;
     cursor: pointer;
     transition: all .6s ease;
-    width: 230px;
+    width: 110px;
     justify-content: center;
     background-color: #c1e1ff;
     color:#2880cc;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    margin-right: 10px;
+}
+.addShift_cancel_btn{
+    margin-top: -10px;
+    margin-bottom: 15px;
+    display: flex;
+    padding: 0.8rem 2.4rem;
+    font-size: 1.275rem;
+    line-height: 1.25rem;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: none;
+    gap: 0.75rem;
+    cursor: pointer;
+    transition: all .6s ease;
+    width: 110px;
+    justify-content: center;
+    background-color: rgba(255, 92, 92, 0.76);
+    color:rgb(255, 255, 255);
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
 }
@@ -1087,7 +1120,10 @@
         width: 250px;
     }
     .addShift_btn{
-        width: 260px;
+        width: 125px;
+    }
+    .addShift_cancel_btn{
+        width: 125px;
     }
     .edit_div_createWeek button{
         width: 320px;
@@ -1140,7 +1176,10 @@
         width: 270px;
     }
     .addShift_btn{
-        width: 280px;
+        width: 135px;
+    }
+    .addShift_cancel_btn{
+        width: 135px;
     }
     .edit_div_createWeek button{
         width: 360px;
