@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from '../CreateWeek/createWeek.module.css'
 import axios from 'axios'
 import Shift from './CreateWeekShift';
@@ -15,6 +15,9 @@ const CreateWeekDay = (props) => {
     const [shiftStartTime, SetshiftStartTime] = useState('')
     const [shiftEndTime, SetshiftEndTime] = useState('')
     const [clickAddShift, setClickAddShift] = useState(false)
+    const defShifts = props.defShifts;
+    console.log(defShifts);
+    const selectRef = useRef(null);
 
     // get the sifts of the day
     const getShifts = () => {
@@ -58,16 +61,16 @@ const CreateWeekDay = (props) => {
     }, [day], [dayShifts]);
 
     // delete shift
-    const deleteShift = (id) =>{
+    const deleteShift = (id) => {
         const reqBody = {
             managerId: props.managerId,
             dayId: day._id,
             shiftId: id
         }
         axios.put(`${process.env.REACT_APP_URL}/deleteShiftFromDay/`, reqBody)
-        .then(response =>{
-            updateShifts();
-        })
+            .then(response => {
+                updateShifts();
+            })
     }
 
     // create morning shift and added the _id of her to day
@@ -124,10 +127,10 @@ const CreateWeekDay = (props) => {
         try {
 
             axios.put(`${process.env.REACT_APP_URL}/addShiftToDay`, reqBody)
-            .then((response) => {
-                const updatedDay = response.data.day.find(d => d._id === day._id);
-                setDay(updatedDay);
-            });
+                .then((response) => {
+                    const updatedDay = response.data.day.find(d => d._id === day._id);
+                    setDay(updatedDay);
+                });
         } catch (error) {
             console.log(error.message);
         }
@@ -142,7 +145,7 @@ const CreateWeekDay = (props) => {
         const newShift = {
             description: shiftName,
             startTime: moment(shiftStartTime, 'HH:mm'),
-            endTime: moment(shiftEndTime, 'HH:mm'),  
+            endTime: moment(shiftEndTime, 'HH:mm'),
             workers: []
         };
 
@@ -186,7 +189,7 @@ const CreateWeekDay = (props) => {
                     ידנית
                 </button>
 
-                <button
+                {/* <button
                     className={styles.btn}
                     onClick={() => {
                         addEvningShift()
@@ -194,24 +197,25 @@ const CreateWeekDay = (props) => {
                     }
                 >
                     ערב
-                </button>
+                </button> */}
 
-                <button
-                    className={styles.btn}
-                    onClick={() => {
-                        addMorningShift()
-                    }
-                    }
-                >
-                    בוקר
+                <button className={styles.btn}>
+                    הוספה
                 </button>
+                <select ref={selectRef} defaultValue="">
+                    <option value="" disabled>משמרת</option>
+                    {defShifts.map((shift, index) => {
+                        console.log(shift);
+                        return <option key={index} value={shift}>{shift.description}</option>
+                    })}
+                </select>
             </div>
 
             {clickAddShift && (
                 <div className={styles.addShift}>
                     <input onChange={(e) => setShiftName(e.target.value)} value={shiftName} className={styles.input} type="text" placeholder="שם משמרת" />
-                    <input onChange={(e) => SetshiftStartTime(e.target.value)} value={shiftStartTime} className={styles.input_time_start} type="time"/>
-                    <input onChange={(e) => SetshiftEndTime(e.target.value)} value={shiftEndTime} className={styles.input_time_end} type="time"/>
+                    <input onChange={(e) => SetshiftStartTime(e.target.value)} value={shiftStartTime} className={styles.input_time_start} type="time" />
+                    <input onChange={(e) => SetshiftEndTime(e.target.value)} value={shiftEndTime} className={styles.input_time_end} type="time" />
                     <br></br>
                     <button
                         className={styles.addShift_btn}

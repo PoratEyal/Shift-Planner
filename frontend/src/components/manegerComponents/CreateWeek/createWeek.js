@@ -13,19 +13,27 @@ const CreateWeek = () => {
 
     const [week, setWeek] = useState(null);
     const [weekVisivble, setWeekVisivble] = useState(null);
-    const [weekPublished, setWeekPublished] = useState(null)
+    const [weekPublished, setWeekPublished] = useState(null);
+    const [defShifts, setDefShifts] = useState();
 
     const managerContext = useContext(ManagerContext);
     const managerId = managerContext.getUser();
     
 
     // get all the days in the week (from the specific manager)
-    const getDays = () => {
+    const getDays = async () => {
         const managerId = managerContext.getUser();
         const reqBody = {
             id: managerId
         }
-        axios.post(`${process.env.REACT_APP_URL}/getNextWeek`, reqBody)
+        const defBody = {
+            managerId: managerId
+        }
+        const defShifts = await axios.post(`${process.env.REACT_APP_URL}/getDefShifts`, defBody);
+        if(defShifts.data){
+            setDefShifts(defShifts.data);
+        }
+        await axios.post(`${process.env.REACT_APP_URL}/getNextWeek`, reqBody)
         .then((response) => {
 
             console.log(response.data);
@@ -33,6 +41,7 @@ const CreateWeek = () => {
             setWeekVisivble(response.data.visible);
             setWeekPublished(response.data.publishScheduling)
         }).catch(err => console.log(err));
+        
     }
 
     useEffect(() => {
@@ -97,7 +106,7 @@ const CreateWeek = () => {
             <div style={{ marginTop: '65px', marginBottom: '50px' }}>
                 {
                     week ? week.day.map((day) => {
-                        return <Day day={day} key={day._id} getDays={getDays} managerId={managerId}></Day>
+                        return <Day day={day} key={day._id} defShifts={defShifts} getDays={getDays} managerId={managerId}></Day>
                     }) : null
                 }
             </div>

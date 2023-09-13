@@ -6,7 +6,7 @@ import moment from "moment";
 const SeeShiftCurrentWeek = (props) => {
 
     const [shift] = useState(props.shift);
-    const [showWorkers, setShow] = useState(false);
+    const [showWorkers, setShow] = useState(props.openShift);
 
     return <div className={styles.shift} onClick={() => {setShow(!showWorkers)}}>
           <p className={styles.shift_description}>
