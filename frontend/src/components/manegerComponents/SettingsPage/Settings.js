@@ -15,7 +15,7 @@ const SettingsPage = (props) => {
     const navigate = useNavigate();
 
     const [defShifts, setDefShifts] = useState(null);
-
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
@@ -23,8 +23,10 @@ const SettingsPage = (props) => {
             managerId: user._id
         }).then((response) => {
             setDefShifts(response.data);
+            setLoading(true);
         })
     }, []);
+
     const deleteHandler = (shiftId) => {
         Swal.fire({
             title: 'האם ברצונך למחוק את המשמרת',
@@ -58,14 +60,37 @@ const SettingsPage = (props) => {
 
     return <PageLayout text='הגדרת משמרות'>
         <div className={styles.container}>
-            <h2 className={styles.title}>המשמרות שלי</h2>
-            {defShifts ?
-                defShifts.map((shift) => {
-                    return <DefaultShift shift={shift} delete={deleteHandler} key={shift._id}></DefaultShift>
-                })
+            {!loading ? (
+            <div className={styles['three-body']}>
+                <div className={styles['three-body__dot']}></div>
+                <div className={styles['three-body__dot']}></div>
+                <div className={styles['three-body__dot']}></div>
+            </div>
+            ) : (
+            <>
+                <h2 className={styles.title}>המשמרות שלי</h2>
+                {defShifts
+                ? defShifts.map((shift) => {
+                    return (
+                        <DefaultShift
+                        shift={shift}
+                        delete={deleteHandler}
+                        key={shift._id}
+                        ></DefaultShift>
+                    );
+                    })
                 : null}
+            </>
+            )}
         </div>
-        <img onClick={() => navigate('/createShift')} src='addRole.png' className={styles.addShift_btn}></img>
+
+        <img
+            onClick={() => navigate('/createShift')}
+            src='addRole.png'
+            className={styles.addShift_btn}
+            alt='Add Shift'
+        ></img>
+        
     </PageLayout>
 }
 

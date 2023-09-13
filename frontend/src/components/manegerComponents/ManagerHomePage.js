@@ -63,7 +63,7 @@ const ManagerHomePage = () => {
           Swal.fire({
             title: 'שיבוץ עובדים אפשרי רק לאחר יצירת ופרסום המשמרות',
             icon: 'warning',
-            confirmButtonColor: '#2977bc',
+            confirmButtonColor: '#3085d6',
             confirmButtonText: 'סגור'
           });          
         }

@@ -165,13 +165,10 @@ const CurrentWeek = () => {
             html:
             `<form class="${styles.AI_content}">
                 <div>
-                   ביצוע הפעולה מוגבל לפעם אחת בשבוע 
+                • ביצוע הפעולה מוגבל לפעם אחת בשבוע
                 </div>
                 <div>
-                    פעולה זו יכולה לקחת עד כדקה  
-                </div>
-                <div>
-                    אנא בחרו כמות עובדים שתרצו לשבץ במשמרות בין 1- ${workersCount} 
+                • פעולה זו יכולה לקחת עד כדקה 
                 </div>
             </form>`,
             input: 'number',
@@ -180,7 +177,7 @@ const CurrentWeek = () => {
                 max: workersCount,
                 dir: 'rtl'
             },
-            inputPlaceholder: `בחירת כמות עובדים`,
+            inputPlaceholder: ` בחירת כמות עובדים בין 1 - ${workersCount}`,
             showCancelButton: true,
             cancelButtonText: 'ביטול',
             confirmButtonColor: '#34a0ff',
@@ -317,6 +314,13 @@ const CurrentWeek = () => {
     return <PageLayout text='שיבוצים לשבוע הבא'>
             <div style={{ marginTop: '65px' }} className={styles.container}>
 
+                {weekAi === false && weekPublished === false ?
+                    <button className={styles.btn_ai} onClick={clickAi}>
+                        {loadingAi ? <FaMagic className={styles.ai_icon_loading}></FaMagic> : <FaMagic></FaMagic>}
+                        {loadingAi ? <label>השיבוץ בתהליך...</label> : <label>שיבוץ אוטומטי</label>}
+                    </button>
+                : null}
+
                 {weekPublished === true ?
                     <div className={styles.published_div}>
                     <button visible='false'>
@@ -325,25 +329,14 @@ const CurrentWeek = () => {
                     </button>
                 </div> : null}
 
-                <div className={styles.two_btns_div}>
-                    <div className={styles.ai_div}>
-                        {weekAi === false && weekPublished === false ?
-                            <button className={styles.btn_ai} onClick={clickAi}>
-                                {loadingAi ? <FaMagic className={styles.ai_icon_loading}></FaMagic> : <FaMagic></FaMagic>}
-                            </button>
-                        : null}
+                {weekPublished === false && !loadingAi?
+                    <div className={styles.publish_div}>
+                        <button onClick={publishSchedule}>
+                            <FcAdvertising className={styles.icon_publish}></FcAdvertising>
+                            <label>פרסום שבוע</label>
+                        </button>
                     </div>
-
-
-                    {weekPublished === false && !loadingAi?
-                        <div className={styles.publish_div}>
-                            <button onClick={publishSchedule}>
-                                <FcAdvertising className={styles.icon_publish}></FcAdvertising>
-                                <label>פרסום שבוע</label>
-                            </button>
-                        </div>
-                    : null}
-                </div>
+                : null}
 
                 <div style={{marginBottom: '50px'}} className={loadingAi ? styles.container_disabled : null}>
                     {
