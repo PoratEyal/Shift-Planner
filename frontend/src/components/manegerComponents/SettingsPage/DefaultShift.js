@@ -46,13 +46,9 @@ const DefaultShift = (props) => {
             </div>
 
             <div className={styles.delete_edit_div}>
-                <button className={styles.edit_btn} onClick={() => {setClickAddShift(!clickAddShift)}}>
-                    <BiEditAlt></BiEditAlt>
-                </button>
+                <BiEditAlt className={styles.icon_edit} onClick={() => {setClickAddShift(!clickAddShift)}}></BiEditAlt>
 
-                <button className={styles.delete_btn} onClick={() => {props.delete(shift._id)}}>
-                    <RiDeleteBin6Line></RiDeleteBin6Line>
-                </button>
+                <RiDeleteBin6Line className={styles.icon_delete} onClick={() => {props.delete(shift._id)}}></RiDeleteBin6Line>
             </div>
         </div>
 
