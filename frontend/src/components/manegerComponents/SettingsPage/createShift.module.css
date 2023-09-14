@@ -1,0 +1,206 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 290px;
+    padding: 17px;
+    margin-top: 85px;
+    background: rgb(255, 255, 255);
+    border-radius: 12px;
+    animation: slideInAndFade 0.5s ease-in-out;
+}
+
+.userForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.input{
+    margin: 10px;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    width: 120px;
+    text-align: right;
+    direction: rtl;
+    appearance: none;
+    -webkit-appearance:none;
+    font-family: 'Rubik', sans-serif;
+}
+
+.input_time{
+    margin: 10px;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    width: 120px;
+    text-align: right;
+    direction: rtl;
+    appearance: none;
+    -webkit-appearance:none;
+    font-family: 'Rubik', sans-serif;
+}
+.input_time::before{
+    content: 'התחלה';
+    color: #9d9d9d;
+    direction: ltr;
+    appearance: none;
+    -webkit-appearance:none;
+    font-family: 'Rubik', sans-serif;
+}
+.input_time2{
+    margin: 10px;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    width: 120px;
+    text-align: right;
+    direction: rtl;
+    appearance: none;
+    -webkit-appearance:none;
+    font-family: 'Rubik', sans-serif;
+}
+.input_time2::before{
+    content: 'סיום';
+    color: #9d9d9d;
+    direction: ltr;
+    appearance: none;
+    -webkit-appearance:none;
+    font-family: 'Rubik', sans-serif;
+}
+
+.label_name{
+    font-family: 'Rubik', sans-serif;
+    font-size: 19px;
+    margin-left: 30px;
+}
+.label_start{
+    font-family: 'Rubik', sans-serif;
+    font-size: 19px;
+    margin-left: 34px;
+}
+.label_end{
+    font-family: 'Rubik', sans-serif;
+    font-size: 19px;
+    margin-left: 58px;
+}
+
+.btn_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    margin-right: 10px;
+    margin-top: 20px;
+    display: flex;
+    padding: 0.8rem 2.4rem;
+    font-size: 1.275rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: none;
+    gap: 0.75rem;
+    color: white;
+    background-color: #63b6ff;
+    cursor: pointer;
+    transition: all .6s ease;
+    width: 130px;
+    justify-content: center;
+    font-family: 'Rubik', sans-serif;
+    background-color: #c1e1ff;
+    color:#2880cc;
+}
+
+.btn_cancel {
+    margin-top: 20px;
+    display: flex;
+    padding: 0.8rem 2.4rem;
+    font-size: 1.275rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: none;
+    gap: 0.75rem;
+    cursor: pointer;
+    transition: all .6s ease;
+    width: 130px;
+    justify-content: center;
+    font-family: 'Rubik', sans-serif;
+    background-color: rgba(255, 92, 92, 0.76);
+    color:rgb(255, 255, 255);
+}
+
+@keyframes slideInAndFade {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* - - - - - - - media query - - - - - - - - */
+
+@media only screen and (min-width: 380px){
+    .container{
+        width: 310px;
+    }
+    .input{
+        width: 130px;
+    }
+    .btn{
+        width: 135px;
+    }
+    .btn_cancel{
+        width: 135px;
+    }
+    .input_time{
+        width: 130px;
+    }
+    .input_time2{
+        width: 130px;
+    }
+}
+@media only screen and (min-width: 430px){
+    .container{
+        width: 330px;
+    }
+    .input{
+        width: 150px;
+    }
+    .btn{
+        width: 150px;
+    }
+    .btn_cancel{
+        width: 150px;
+    }
+    .input_time{
+        width: 150px;
+    }
+    .input_time2{
+        width: 150px;
+    }
+}

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import axios from "axios";
-import styles from './settingsPage.module.css';
+import styles from './createShift.module.css';
 import PageLayout from './/..//..//layout/PageLayout';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
@@ -60,7 +60,11 @@ const CreateShift = () => {
                 </div>
             </form>
 
-            <button className={styles.btn} onClick={clickHandle}>אישור</button>
+            <div className={styles.btn_div}>
+                <button className={styles.btn} onClick={clickHandle}>אישור</button>
+                <button className={styles.btn_cancel} onClick={() => navigate('/settings')}>ביטול</button>
+            </div>
+
         </div>
     </PageLayout>
 }

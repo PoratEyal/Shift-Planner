@@ -93,13 +93,6 @@
     }
 }
 
-.userForm{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .title{
     margin-top: 0px;
     margin-bottom: 5px;
@@ -111,109 +104,6 @@
     margin-top: 0px;
     color: #34a0ff;
     font-weight: 500;
-}
-
-
-.label_name{
-    font-family: 'Rubik', sans-serif;
-    font-size: 19px;
-    margin-left: 30px;
-}
-.label_start{
-    font-family: 'Rubik', sans-serif;
-    font-size: 19px;
-    margin-left: 34px;
-}
-.label_end{
-    font-family: 'Rubik', sans-serif;
-    font-size: 19px;
-    margin-left: 58px;
-}
-
-.input{
-    margin: 10px;
-    font-size: 18px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 110px;
-    text-align: right;
-    direction: rtl;
-    appearance: none;
-    -webkit-appearance:none;
-    font-family: 'Rubik', sans-serif;
-}
-
-.input_time{
-    margin: 10px;
-    font-size: 18px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 110px;
-    text-align: right;
-    direction: rtl;
-    appearance: none;
-    -webkit-appearance:none;
-    font-family: 'Rubik', sans-serif;
-}
-.input_time::before{
-    content: 'התחלה';
-    color: #9d9d9d;
-    direction: ltr;
-    appearance: none;
-    -webkit-appearance:none;
-    font-family: 'Rubik', sans-serif;
-}
-.input_time2{
-    margin: 10px;
-    font-size: 18px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 110px;
-    text-align: right;
-    direction: rtl;
-    appearance: none;
-    -webkit-appearance:none;
-    font-family: 'Rubik', sans-serif;
-}
-.input_time2::before{
-    content: 'סיום';
-    color: #9d9d9d;
-    direction: ltr;
-    appearance: none;
-    -webkit-appearance:none;
-    font-family: 'Rubik', sans-serif;
-}
-
-.btn {
-    margin-top: 20px;
-    display: flex;
-    padding: 0.8rem 2.4rem;
-    font-size: 1.275rem;
-    line-height: 1.25rem;
-    font-weight: 600;
-    text-align: center;
-    text-transform: uppercase;
-    vertical-align: middle;
-    align-items: center;
-    border-radius: 0.5rem;
-    border: none;
-    gap: 0.75rem;
-    color: white;
-    background-color: #63b6ff;
-    cursor: pointer;
-    transition: all .6s ease;
-    width: 260px;
-    justify-content: center;
-    font-family: 'Rubik', sans-serif;
-}
-.btn:hover {
-transform: scale(1.02);
 }
 
 .addShift_btn {
@@ -449,22 +339,9 @@ transform: scale(1.02);
     .container{
         width: 310px;
     }
-    .input{
-        width: 130px;
-    }
-    .btn{
-        width: 280px;
-    }
-    .input_time{
-        width: 130px;
-    }
-    .input_time2{
-        width: 130px;
-    }
     .shifts{
         width: 300px;
     }
-
     .editShift{
         width: 280px;
     }
@@ -485,22 +362,9 @@ transform: scale(1.02);
     .container{
         width: 330px;
     }
-    .input{
-        width: 150px;
-    }
-    .btn{
-        width: 300px;
-    }
-    .input_time{
-        width: 150px;
-    }
-    .input_time2{
-        width: 150px;
-    }
     .shifts{
         width: 320px;
     }
-
     .editShift{
         width: 300px;
     }
