@@ -42,7 +42,7 @@
     color: rgb(255, 92, 92);
     margin: 0px;
     margin-top: 4px;
-    border: 1px solid blue;
+    border: 1px solid rgb(85, 255, 0);
     width: 35px;
 }
 .edit_btn{
