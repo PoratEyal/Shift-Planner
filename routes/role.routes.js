@@ -30,20 +30,30 @@ roleRouter.post('/getRoles', authenticateToken, async (req, res) => {
         res.status(400).json({ messege: err.messege })
     }
 });
+
 //get role by id
 roleRouter.post('/getRoleWithId', async (req, res) => {
     try {
         const { id } = req.body;
 
         Role.findById(id)
-        .then((data) => {
-            res.status(200).json(data);
-        })
-
+            .then((data) => {
+                if (data) {
+                    res.status(200).json(data.name);
+                } else {
+                    res.status(404).json({ message: 'Role not found' });
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+                res.status(500).json({ message: 'Internal server error' });
+            });
     } catch (err) {
+        console.error(err);
         res.status(500).json({ message: 'Internal server error' });
     }
 });
+
 
 
 roleRouter.delete('/deleteRole/:id', async (req, res) => {
