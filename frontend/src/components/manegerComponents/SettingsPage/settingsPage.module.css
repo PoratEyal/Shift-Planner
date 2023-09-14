@@ -40,24 +40,23 @@
     border: none;
     background-color: #ff6a6a00;
     color: rgb(255, 92, 92);
-    border: 1px solid rgb(85, 255, 0);
-    width: 30px;
+    width: 28px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content:left;
     align-items: center;
 }
 .edit_btn{
+    margin-left: 3px;
     font-size: 22px;
     border: none;
     background-color: rgba(119, 119, 119, 0);
     color: rgb(144, 144, 144);
-    border: 1px solid rgb(255, 0, 0);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
-    width: 30px;
+    width: 28px;
 }
 
 @keyframes slideInAndFade {
