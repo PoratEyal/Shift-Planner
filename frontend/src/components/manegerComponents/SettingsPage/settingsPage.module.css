@@ -3,14 +3,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 330px;
+    width: 310px;
     margin-top: 85px;
     background: rgb(255, 255, 255);
     border-radius: 12px;
+    padding: 10px;
     animation: slideInAndFade 0.5s ease-in-out;
 }
 
 .shift_container{
+    width: 310px;
     direction: rtl;
     display: flex;
     flex-direction: row;
@@ -29,6 +31,8 @@
 .delete_edit_div{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .delete_btn{
@@ -58,7 +62,7 @@
 }
 
 .title{
-    margin-top: 15px;
+    margin-top: 5px;
     margin-bottom: 20px;
     color: #575757;
     font-weight: 500;
@@ -326,10 +330,10 @@
 
 @media only screen and (min-width: 380px){
     .container{
-        width: 350px;
+        width: 330px;
     }
-    .shifts{
-        width: 300px;
+    .shift_container{
+        width: 330px;
     }
     .editShift{
         width: 280px;
@@ -353,10 +357,10 @@
 }
 @media only screen and (min-width: 430px){
     .container{
-        width: 370px;
+        width: 350px;
     }
-    .shifts{
-        width: 320px;
+    .shift_container{
+        width: 350px;
     }
     .editShift{
         width: 300px;
