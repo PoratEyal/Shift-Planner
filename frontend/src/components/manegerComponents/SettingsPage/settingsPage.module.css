@@ -3,83 +3,47 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 290px;
-    padding: 17px;
-    margin: 20px;
+    width: 330px;
     margin-top: 85px;
     background: rgb(255, 255, 255);
     border-radius: 12px;
     animation: slideInAndFade 0.5s ease-in-out;
 }
 
-.shifts{
-    width: 280px;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    border: none;
-    border-radius: 10px;
-    margin: 10px;
-    margin-bottom: 3px;
-    padding: 3px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(231, 234, 238, 0.571);
-}
-
-.icons_div{
+.shift_container{
+    direction: rtl;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    padding-top: 19px;
+    border-top: 1px solid rgb(208, 208, 208);
 }
 
-.spacer{
-    margin: 10px;
+.description{
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.delete_edit_div{
+    display: flex;
+    flex-direction: row;
 }
 
 .delete_btn{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(205, 205, 205, 0);
+    font-size: 22px;
     border: none;
-    font-size: 18px;
-    font-weight: 500;
-    transition: 0.3s;
-    background-color: #d2e9ff;
-    color:#2880cc;
-    border-radius: 10px;
-    padding: 10px;
-    font-family: 'Rubik', sans-serif;
+    background-color: #ff6a6a00;
+    color: rgb(255, 92, 92);
+    margin-top: 4px;
 }
 .edit_btn{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(205, 205, 205, 0);
+    font-size: 22px;
+    margin-top: 4px;
     border: none;
-    font-size: 18px;
-    font-weight: 500;
-    transition: 0.3s;
-    background-color: #d2e9ff;
-    color:#2880cc;
-    border-radius: 10px;
-    padding: 10px;
-    font-family: 'Rubik', sans-serif;
-}
-.icon{
-    font-size: 20px;
-    margin-right: 10px;
-}
-
-.label{
-    font-size: 19px;
-    margin: 10px;
-    margin-right: 10px;
+    background-color: rgba(119, 119, 119, 0);
+    color: rgb(144, 144, 144);
 }
 
 @keyframes slideInAndFade {
@@ -94,15 +58,9 @@
 }
 
 .title{
-    margin-top: 0px;
-    margin-bottom: 5px;
+    margin-top: 15px;
+    margin-bottom: 20px;
     color: #575757;
-    font-weight: 500;
-}
-
-.h2{
-    margin-top: 0px;
-    color: #34a0ff;
     font-weight: 500;
 }
 
@@ -153,7 +111,7 @@
     border-radius: 5px;
     border: none;
     border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 210px;
+    width: 260px;
     text-align: right;
     direction: rtl;
     appearance: none;
@@ -168,7 +126,7 @@
     border-radius: 5px;
     border: none;
     border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 210px;
+    width: 260px;
     text-align: right;
     direction: rtl;
     appearance: none;
@@ -182,14 +140,23 @@
     border-radius: 5px;
     border: none;
     border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 210px;
+    width: 260px;
     text-align: right;
     direction: rtl;
     appearance: none;
     -webkit-appearance:none;
     font-family: 'Rubik', sans-serif;
 }
+
+.btn_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
 .edit_shift_btn{
+    margin-right: 15px;
     margin-top: -10px;
     margin-bottom: 15px;
     display: flex;
@@ -205,14 +172,36 @@
     gap: 0.75rem;
     cursor: pointer;
     transition: all .6s ease;
-    width: 220px;
+    width: 130px;
     justify-content: center;
-    background-color: #34a0ff;
-    color:#ffffff;
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
+    background-color: #c1e1ff;
+    color:#2880cc;
 }
-
+.edit_shift_btn_cancel{
+    margin-top: -10px;
+    margin-bottom: 15px;
+    display: flex;
+    padding: 0.8rem 2.4rem;
+    font-size: 1.275rem;
+    line-height: 1.25rem;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: none;
+    gap: 0.75rem;
+    cursor: pointer;
+    transition: all .6s ease;
+    width: 130px;
+    justify-content: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    background-color: rgba(255, 92, 92, 0.76);
+    color:rgb(255, 255, 255);
+}
 
 @keyframes downToUp {
     0% {
@@ -337,7 +326,7 @@
 
 @media only screen and (min-width: 380px){
     .container{
-        width: 310px;
+        width: 350px;
     }
     .shifts{
         width: 300px;
@@ -346,21 +335,25 @@
         width: 280px;
     }
     .input_edit{
-        width: 230px;
+        width: 280px;
     }
     .input_time_start{
-        width: 230px;
+        width: 280px;
     }
     .input_time_end{
-        width: 230px;
+        width: 280px;
     }
     .edit_shift_btn{
-        width: 240px;
+        width: 140px;
     }
+    .edit_shift_btn_cancel{
+        width: 140px;
+    }
+
 }
 @media only screen and (min-width: 430px){
     .container{
-        width: 330px;
+        width: 370px;
     }
     .shifts{
         width: 320px;
@@ -369,15 +362,18 @@
         width: 300px;
     }
     .input_edit{
-        width: 250px;
+        width: 300px;
     }
     .input_time_start{
-        width: 250px;
+        width: 300px;
     }
     .input_time_end{
-        width: 250px;
+        width: 300px;
     }
     .edit_shift_btn{
-        width: 260px;
+        width: 150px;
+    }
+    .edit_shift_btn_cancel{
+        width: 150px;
     }
 }

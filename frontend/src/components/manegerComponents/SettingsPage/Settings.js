@@ -1,12 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from './settingsPage.module.css';
 import PageLayout from './/..//..//layout/PageLayout';
-import moment from "moment";
 import { useNavigate } from 'react-router-dom';
-import { RiDeleteBin6Line } from "react-icons/ri";
-import { BiEditAlt } from "react-icons/bi";
-import CreateShift from "./CreateShift";
 import DefaultShift from "./DefaultShift";
 import Swal from 'sweetalert2';
 
