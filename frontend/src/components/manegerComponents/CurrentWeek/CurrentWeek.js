@@ -338,7 +338,7 @@ const CurrentWeek = () => {
                     </div>
                 : null}
 
-                <div style={{marginBottom: '50px'}} className={loadingAi ? styles.container_disabled : null}>
+                <div style={{marginBottom: '60px'}} className={loadingAi ? styles.container_disabled : null}>
                     {
                         week ? week.day.map((day) => {
                             return (
