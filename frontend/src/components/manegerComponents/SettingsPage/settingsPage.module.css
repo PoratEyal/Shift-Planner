@@ -40,10 +40,12 @@
     border: none;
     background-color: #ff6a6a00;
     color: rgb(255, 92, 92);
+    margin: 0px;
     margin-top: 4px;
 }
 .edit_btn{
     font-size: 22px;
+    margin: 0px;
     margin-top: 4px;
     border: none;
     background-color: rgba(119, 119, 119, 0);
