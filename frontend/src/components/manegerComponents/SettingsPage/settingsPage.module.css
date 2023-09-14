@@ -37,14 +37,12 @@
 
 .icon_delete{
     margin: 0px;
-    border: 1px solid green;
     font-size: 22px;
-    margin-right: 7px;
+    margin-right: 10px;
     color: rgb(255, 92, 92);
 }
 .icon_edit{
     margin: 0px;
-    border: 1px solid green;
     font-size: 22px;
     color: rgb(144, 144, 144);
 }
