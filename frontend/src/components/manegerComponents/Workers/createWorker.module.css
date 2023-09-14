@@ -30,10 +30,8 @@
     align-items: center;
 }
 
-.h2{
-    margin-top: 0px;
-    color: #34a0ff;
-    font-weight: 500;
+.formGroup{
+    margin-bottom: 7px;
 }
 
 .label_fullname{
@@ -91,7 +89,15 @@
     margin-right: 7px;
 }
 
+.btns_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .btn {
+    margin-right: 10px;
     margin-top: 20px;
     display: flex;
     padding: 0.8rem 2.4rem;
@@ -109,12 +115,34 @@
     background-color: #63b6ff;
     cursor: pointer;
     transition: all .6s ease;
-    width: 270px;
+    width: 132px;
     justify-content: center;
     font-family: 'Rubik', sans-serif;
+    background-color: #c1e1ff;
+    color:#2880cc;
 }
-.btn:hover {
-transform: scale(1.02);
+
+.btn_cancel {
+    margin-top: 20px;
+    display: flex;
+    padding: 0.8rem 2.4rem;
+    font-size: 1.275rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: none;
+    gap: 0.75rem;
+    cursor: pointer;
+    transition: all .6s ease;
+    width: 132px;
+    justify-content: center;
+    font-family: 'Rubik', sans-serif;
+    background-color: rgba(255, 92, 92, 0.76);
+    color:rgb(255, 255, 255);
 }
 
 
@@ -131,7 +159,10 @@ transform: scale(1.02);
         width: 183px;
     }
     .btn{
-        width: 290px;
+        width: 143px;
+    }
+    .btn_cancel{
+        width: 143px;
     }
 }
 @media only screen and (min-width: 430px){
@@ -145,6 +176,9 @@ transform: scale(1.02);
         width: 203px;
     }
     .btn{
-        width: 310px;
+        width: 153px;
+    }
+    .btn_cancel{
+        width: 153px;
     }
 }

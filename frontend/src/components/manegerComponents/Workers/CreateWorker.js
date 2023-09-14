@@ -87,7 +87,6 @@ const CreateWorker = () => {
 
     return <PageLayout text='יצירת עובד'>
         <div id="create-user" className={styles.createUser}>
-            <h2 className={styles.h2}>הוספת עובד</h2>
 
             <form className={styles.userForm} onSubmit={handleSubmit}>
 
@@ -143,8 +142,12 @@ const CreateWorker = () => {
                 </select>
                 <label className={styles.label_role}>תפקיד</label>
                 </div>
+                
+                <div className={styles.btns_div}>
+                  <button className={styles.btn} type="button" onClick={handleSubmit}>אישור</button>
+                  <button className={styles.btn_cancel} type="button" onClick={() => navigate('/workers')}>ביטול</button>
+                </div>
 
-                <button className={styles.btn} type="button" onClick={handleSubmit}>אישור</button>
             </form>
         </div>
     </PageLayout>
