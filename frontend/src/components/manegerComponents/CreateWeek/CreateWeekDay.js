@@ -3,7 +3,7 @@ import styles from '../CreateWeek/createWeek.module.css'
 import axios from 'axios'
 import Shift from './CreateWeekShift';
 import moment from 'moment';
-import { FcPlus } from "react-icons/fc";
+import { AiOutlineClose } from "react-icons/ai";
 
 const CreateWeekDay = (props) => {
 
@@ -144,24 +144,20 @@ const CreateWeekDay = (props) => {
                     dayShifts.map((shift) => { return shift ? <Shift deleteShift={deleteShift} shift={shift} key={shift._id} managerId={props.managerId}></Shift> : null }))
             }
 
-            <div className={styles.buttons}>
-                <button
-                    className={styles.btn}
-                    onClick={() => {
-                        setClickAddShift(!clickAddShift)
-                    }}
-                >
-                    ידנית
+            <div className={styles.specific_shift_div}>
+                <button onClick={() => { addDefShift(selectRef.current.value) }}>
+                        הוספה
                 </button>
-
-                <button className={styles.btn} onClick={() => { addDefShift(selectRef.current.value) }}>
-                    הוספה
-                </button>
-                <select ref={selectRef} defaultValue="">
-                    <option value="" disabled>משמרת</option>
+                
+                <select ref={selectRef} defaultValue="" onChange={(e) => {
+                if (e.target.value === "") {
+                    setClickAddShift(!clickAddShift);
+                }}}>
+                    <option value="" disabled>בחירת משמרת</option>
                     {defShifts.map((shift, index) => {
                         return <option key={index} value={shift._id}>{shift.description}</option>
                     })}
+                    <option value="">משמרת ידנית</option>
                 </select>
             </div>
 
@@ -171,14 +167,25 @@ const CreateWeekDay = (props) => {
                     <input onChange={(e) => SetshiftStartTime(e.target.value)} value={shiftStartTime} className={styles.input_time_start} type="time" />
                     <input onChange={(e) => SetshiftEndTime(e.target.value)} value={shiftEndTime} className={styles.input_time_end} type="time" />
                     <br></br>
-                    <button
-                        className={styles.addShift_btn}
-                        onClick={() => {
-                            addShift()
-                            setClickAddShift(!clickAddShift)
-                        }}
-                    >הוסף משמרת
-                    </button>
+                    <div className={styles.addShift_div}>
+                        <button
+                            className={styles.addShift_btn}
+                            onClick={() => {
+                                addShift()
+                                setClickAddShift(!clickAddShift)
+                            }}
+                        >הוספה
+                        </button>
+                        <button
+                            className={styles.addShift_cancel_btn}
+                            onClick={() => {
+                                addShift()
+                                setClickAddShift(!clickAddShift)
+                            }}
+                        >ביטול
+                        </button>
+                    </div>
+
                 </div>
             )}
 

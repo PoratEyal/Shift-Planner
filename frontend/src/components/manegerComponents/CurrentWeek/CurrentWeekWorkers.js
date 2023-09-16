@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useRef, useEffect, useState } from 'react';
-import styles from './CurrentWeek.module.css'
+import styles from './CurrentWeek.module.css';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { BiTime } from "react-icons/bi";
 import Swal from 'sweetalert2';
@@ -8,6 +8,7 @@ import { AiOutlineMessage } from "react-icons/ai";
 import messageContext from './messagesContext';
 import { FiMoreHorizontal } from "react-icons/fi";
 import { FcPlus } from "react-icons/fc";
+import { FcSynchronize } from "react-icons/fc";
 
 const CurrentWeekWorkers = (props) => {
   const [workers] = useState(props.workers);

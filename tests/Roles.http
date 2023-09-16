@@ -15,7 +15,7 @@ POST http://localhost:3001/app/getRoleWithId
 Content-Type: application/json
 
 {
-    "body":"64c8e1cff01fdde28c659a68"
+    "id":"64c8e1cff01fdde28c659a68"
 }
 
 ### delete role (delete)

@@ -1,8 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import React,{ useEffect, useRef, useState } from "react";
 import moment from "moment";
 import styles from './settingsPage.module.css';
 import axios from "axios";
 import Swal from 'sweetalert2';
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { BiEditAlt } from "react-icons/bi";
 
 const DefaultShift = (props) => {
     const [shift, setShift] = useState(props.shift);
@@ -37,22 +39,17 @@ const DefaultShift = (props) => {
         }
     }
 
-    return <div className={styles.shifts}>
+    return <React.Fragment>
+        <div className={styles.shift_container}>
+            <div className={styles.description}>
+                {moment(shift.endTime).utc().format('HH:mm')} - {moment(shift.startTime).utc().format('HH:mm')} : {shift.description}
+            </div>
 
-        <label className={styles.label}>
-            {moment(shift.endTime).utc().format('HH:mm')} - {moment(shift.startTime).utc().format('HH:mm')} : {shift.description}
-        </label>
+            <div className={styles.delete_edit_div}>
+                <BiEditAlt className={styles.icon_edit} onClick={() => {setClickAddShift(!clickAddShift)}}></BiEditAlt>
 
-        <div className={styles.icons_div}>
-            <button className={styles.delete_btn} onClick={() => {props.delete(shift._id)}}>
-                מחיקה
-            </button>
-
-            <label className={styles.spacer}></label>
-
-            <button className={styles.edit_btn} onClick={() => {setClickAddShift(!clickAddShift)}}>
-                עריכה
-            </button>
+                <RiDeleteBin6Line className={styles.icon_delete} onClick={() => {props.delete(shift._id)}}></RiDeleteBin6Line>
+            </div>
         </div>
 
         {clickAddShift && (
@@ -60,17 +57,25 @@ const DefaultShift = (props) => {
                 <input className={styles.input_edit} defaultValue={shift.description} type="text" placeholder="שם משמרת" ref={name} />
                 <input className={styles.input_time_start} defaultValue={moment(shift.startTime).utc().format('HH:mm')} type="time" ref={startTime} />
                 <input className={styles.input_time_end} defaultValue={moment(shift.endTime).utc().format('HH:mm')} type="time" ref={endTime} />
-                <br></br>
-                <button
-                    className={styles.edit_shift_btn}
-                    onClick={() => {
-                        saveHandler()
-                        setClickAddShift(!clickAddShift)
-                    }}
-                >אישור
-                </button>
+                <div className={styles.btn_div}>
+                    <button
+                        className={styles.edit_shift_btn}
+                        onClick={() => {
+                            saveHandler()
+                            setClickAddShift(!clickAddShift)
+                        }}
+                    >אישור
+                    </button>
+                    <button
+                        className={styles.edit_shift_btn_cancel}
+                        onClick={() => {
+                            setClickAddShift(!clickAddShift)
+                        }}
+                    >ביטול
+                    </button>
+                </div>
             </div>
         )}
-    </div>
+    </React.Fragment>
 }
 export default DefaultShift
