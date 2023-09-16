@@ -84,9 +84,6 @@ const CreateWeekDay = (props) => {
             workers: []
         };
         console.log(newShift.startTime);
-        const startTimeMoment = moment(shift.startTime, 'HH:mm').utc();
-        const endTimeMoment = moment(shift.endTime, 'HH:mm');
-
         const reqBody = {
             managerId: props.managerId,
             newShift: newShift,
