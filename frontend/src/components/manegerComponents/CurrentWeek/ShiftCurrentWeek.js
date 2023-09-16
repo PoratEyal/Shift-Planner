@@ -46,6 +46,7 @@ const ShiftCurrentWeek = (props) => {
             workerId: workerId
         }
         axios.put(`${process.env.REACT_APP_URL}/delWorkerFromSB`, reqBody).then((response) => {
+           
             props.setDay(response.data);
         })
         .catch((error) => {

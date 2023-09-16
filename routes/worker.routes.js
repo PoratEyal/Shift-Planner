@@ -225,8 +225,14 @@ workerRouter.put('/delWorkerFromSB', (req, res) => {
         {
             $pull: { "day.$.shifts.$[elem].standBy": workerId }
         },
-        { arrayFilters: [{ "elem._id": shiftId }] }).then(response => {
-            res.status(200).json(response);
+        { arrayFilters: [{ "elem._id": shiftId }] , projection: { "day.$": 1 } })
+        .then(() => {
+            Week.findOne({ "day._id": dayId, ofManager: managerId }, { "day.$": 1 })
+                .then(response => {
+                    if (response && response.day && response.day.length > 0) {
+                        res.status(200).json(response.day[0]);
+                    }
+                });
         });
 });
 workerRouter.put('/addWorkerToStandBy', (req, res) => {

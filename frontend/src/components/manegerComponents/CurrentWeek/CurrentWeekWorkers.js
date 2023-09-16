@@ -14,6 +14,9 @@ import { AiOutlineSync } from "react-icons/ai";
 const CurrentWeekWorkers = (props) => {
   const [workers] = useState(props.workers);
   const [availableWorkers] = useState(props.availableWorkers);
+  // console.log(props.workers);
+  // console.log(props.availableWorkers);
+  // console.log(props.shift.standBy);
   const [newWorkers, setNewWorkers] = useState([]);
   const [availableWorkersArr, setAvailableWorkersArr] = useState([]);
   const [workersArr, setWorkersArr] = useState([]);
@@ -44,7 +47,7 @@ const CurrentWeekWorkers = (props) => {
         .then(response => {
           setLoading(false);
           const workerData = response.data;
-          if (workerData && workerData.fullName) {
+          if (workerData && workerData.fullName && !(sbWorkers.includes(workerData._id))) {
             setWorkersArr(prevWorkers => [...prevWorkers, workerData]);
           }
         })
@@ -62,7 +65,7 @@ const CurrentWeekWorkers = (props) => {
         .then(response => {
           setLoading(false);
           const workerData = response.data;
-          if (workerData && workerData.fullName && !(workers.includes(workerData._id))) {
+          if (workerData && workerData.fullName && !(workers.includes(workerData._id)) && !(sbWorkers.includes(workerData._id))) {
             setAvailableWorkersArr(prevWorkers => [...prevWorkers, workerData]);
           }
         })
@@ -80,7 +83,7 @@ const CurrentWeekWorkers = (props) => {
         .then(response => {
           setLoading(false);
           const workerData = response.data;
-          if (workerData && workerData.fullName) {
+          if (workerData && workerData.fullName ) {
             setSbWorkersArr(prevWorkers => [...prevWorkers, workerData]);
           }
         })
@@ -127,7 +130,28 @@ const CurrentWeekWorkers = (props) => {
         setUpdatedWorkers(!updatedWorkers);
       }
     });
-  };  
+  };
+
+  const delSbworker = (id) => {
+    Swal.fire({
+      title: '? האם להסיר מכוננות',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'אישור',
+      cancelButtonText: 'ביטול',
+      customClass: {
+        popup: styles.swal2_popup,
+        title: styles.swal2_title,
+      },
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        await props.delSb(id);
+        setUpdatedWorkers(!updatedWorkers);
+      }
+    });
+  }
 
   const getTime = (timeString) => {
     const [selectedHours, selectedMinutes] = timeString.split(":").map(Number);
@@ -451,7 +475,7 @@ const CurrentWeekWorkers = (props) => {
 
                   <FiMoreHorizontal onClick={() => options(worker._id)} className={styles.icon_edit}></FiMoreHorizontal>
                   
-                  <FcSynchronize className={styles.icon_add} onClick={() => removeWorker(worker._id)}></FcSynchronize>
+                  <FcSynchronize className={styles.icon_add} onClick={() => delSbworker(worker._id)}></FcSynchronize>
                   
                   {openOptions === worker._id && isDivVisible ? 
                     <div ref={divRef} className={styles.edit_div_options}>
