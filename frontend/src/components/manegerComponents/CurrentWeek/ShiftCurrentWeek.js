@@ -24,6 +24,21 @@ const ShiftCurrentWeek = (props) => {
             });
     }
 
+    const addWorkerToStandBy = (workerId) => {
+        const reqBody = {
+            managerId: props.managerId,
+            dayId: props.dayId,
+            shiftId: shift._id,
+            workerId: workerId
+        }
+        axios.put(`${process.env.REACT_APP_URL}/addWorkerToStandBy`, reqBody).then((response) => {
+            props.setDay(response.data);
+        })
+        .catch((error) => {
+            console.log(error.message);
+        });
+    }
+
     const removeWorkerShift = (workerId) => {
         const reqBody = {
             managerId: props.managerId,

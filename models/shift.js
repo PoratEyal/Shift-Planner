@@ -21,6 +21,10 @@ const shiftSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   }],
+  standBy:[{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }],
   shiftData: [ShiftData.schema]
 
 });
