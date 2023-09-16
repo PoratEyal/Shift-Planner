@@ -38,6 +38,20 @@ const ShiftCurrentWeek = (props) => {
             console.log(error.message);
         });
     }
+    const delWorkerFromStandBy = (workerId) => {
+        const reqBody = {
+            managerId: props.managerId,
+            dayId: props.dayId,
+            shiftId: shift._id,
+            workerId: workerId
+        }
+        axios.put(`${process.env.REACT_APP_URL}/delWorkerFromSB`, reqBody).then((response) => {
+            props.setDay(response.data);
+        })
+        .catch((error) => {
+            console.log(error.message);
+        });
+    }
 
     const removeWorkerShift = (workerId) => {
         const reqBody = {
@@ -69,6 +83,8 @@ const ShiftCurrentWeek = (props) => {
                 dayId={props.dayId}
                 managerId={props.managerId}
                 weekPublished={props.weekPublished}
+                addSB={addWorkerToStandBy}
+                delSb={delWorkerFromStandBy}
                 removeWorkerShift={removeWorkerShift}
                 addWorkerShift={addWorkerShift}
                 workers={shift.workers}
