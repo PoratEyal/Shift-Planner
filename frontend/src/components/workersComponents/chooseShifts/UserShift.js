@@ -67,8 +67,6 @@ const UserShift = (props) => {
       }
   }
 
-  
-
   return <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`}>
       <div onClick={() => {setShow(!showWorkers)}}>
 
@@ -84,7 +82,7 @@ const UserShift = (props) => {
         ) : (
           <button onClick={addWorkerToShift} className={styles.add_btn}>הוספה למשמרת</button>
         )
-        ) : ( showWorkers ? <div><WorkerList managerId={props.managerId} workers={shift.workers} shiftData={shift.shiftData} endTime={shift.endTime} startTime={shift.startTime}></WorkerList></div> : null)
+        ) : ( showWorkers ? <div><WorkerList managerId={props.managerId} standBy={shift.standBy} workers={shift.workers} shiftData={shift.shiftData} endTime={shift.endTime} startTime={shift.startTime}></WorkerList></div> : null)
       }
 
   </div>

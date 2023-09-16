@@ -2,11 +2,16 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import React from 'react';
 import styles from './workers.module.css';
+import { FcSynchronize } from "react-icons/fc";
 
 const SeeWorkersCurrentWeek = (props) => {
     
-    const [workers, setWorkers] = useState(props.workers)
+    const [workers] = useState(props.workers)
     const [workersArr, setWorkersArr] = useState([]);
+
+    const [sbWorkers] = useState(props.standBy);
+    const [sbWorkersNames, setSbWorkersNames] = useState([]);
+
     const [loading, setLoading] = useState(true);
 
     // get all the workers
@@ -14,16 +19,33 @@ const SeeWorkersCurrentWeek = (props) => {
       if(workers.length == 0){
         setLoading(false)
       }
+
+      sbWorkers.map(worker => {
+        const body = {
+          id: worker
+        }
+        axios.post(`${process.env.REACT_APP_URL}/getUserById`, body)
+          .then(response => {
+            setLoading(false)
+            if (response.data?.fullName != null) {
+              const worker = response.data;
+              setSbWorkersNames(prevWorkerNames => [...prevWorkerNames, worker]);
+            }
+          })
+          .catch(error => {
+            setLoading(false)
+          });
+      });
+
       workers.map(worker => {
         const reqBody = {
           id: worker
         };
-    
         axios.post(`${process.env.REACT_APP_URL}/getUserById`, reqBody)
           .then(response => {
             setLoading(false);
             const workerData = response.data;
-            if (workerData && workerData.fullName) {
+            if (workerData && workerData.fullName && !(props.standBy.includes(response.data._id))) {
               setWorkersArr(prevWorkers => [...prevWorkers, workerData]);
             }
           })
@@ -58,9 +80,48 @@ const SeeWorkersCurrentWeek = (props) => {
           </div>
     }
 
-    const getHtml = () => {
+    const getShiftDataSB = (worker, index) =>{
+      let data = null;
+      data = props.shiftData.find(obj => obj.userId === worker._id)
+      return data ?
+          (worker._id !== data.userId ?
+            <div key={index} className={styles.all_data_div}>
+              <div className={styles.name_and_icon_div}>
+                <FcSynchronize className={styles.sb_icon}></FcSynchronize>
+                <label className={styles.name}>{worker.fullName}</label>
+              </div>
+            </div>
+            :
+            <div key={index} className={styles.all_data_div}>
+              <div className={styles.name_and_icon_div}>
+                <FcSynchronize className={styles.sb_icon}></FcSynchronize>
+                <label className={styles.name}>{worker.fullName}</label>
+              </div>
+  
+              <div className={styles.hours_message_div}>
+                <label>
+                  {data.end ? getHour(data.end) : getHour(props.endTime)}
+                  {data.start ? ` - ${getHour(data.start)}` : ` - ${getHour(props.startTime)}`}
+                </label>
+              </div>
+            </div>)
+          : <div key={index} className={styles.all_data_div}>
+            <div className={styles.name_and_icon_div}>
+              <FcSynchronize className={styles.sb_icon}></FcSynchronize>
+              <label className={styles.name}>{worker.fullName}</label>
+            </div>
+          </div>
+    }
+
+    const getWorkers = () => {
       return workersArr.map((worker, index) => (
         getShiftData(worker, index)
+      ))
+    }
+
+    const getSB = () => {
+      return sbWorkersNames.map((worker, index) => (
+        getShiftDataSB(worker, index)
       ))
     }
 
@@ -80,7 +141,8 @@ const SeeWorkersCurrentWeek = (props) => {
         </div>
       ) : (
         <div className={styles.workers_showList}>
-          {getHtml()}
+          {getWorkers()}
+          {getSB()}
         </div>)}
     </React.Fragment>
 

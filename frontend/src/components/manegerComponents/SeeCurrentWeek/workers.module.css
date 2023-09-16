@@ -300,6 +300,20 @@ transform: scale(1.02);
     border-top: 1px solid rgba(101, 101, 101, 0.245);
     width: 100%;
 }
+
+.name_and_icon_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.sb_icon{
+    margin-top: 3px;
+    margin-right: -2px;
+}
+
 .name{
     text-overflow: ellipsis;
     max-width: 110px;

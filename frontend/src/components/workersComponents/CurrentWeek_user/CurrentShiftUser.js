@@ -29,7 +29,7 @@ const CurrentShiftUser = (props) => {
               {shift.description}&nbsp;: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
             </p>
             </div>
-            {showWorkers ? <WorkersCurrentWeek managerId={props.managerId} workers={shift.workers} shiftData={shift.shiftData} endTime={shift.endTime} startTime={shift.startTime}></WorkersCurrentWeek> : null}
+            {showWorkers ? <WorkersCurrentWeek managerId={props.managerId} standBy={shift.standBy} workers={shift.workers} shiftData={shift.shiftData} endTime={shift.endTime} startTime={shift.startTime}></WorkersCurrentWeek> : null}
         </div>
     );
 }

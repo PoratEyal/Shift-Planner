@@ -38,6 +38,7 @@ const ShiftCurrentWeek = (props) => {
             console.log(error.message);
         });
     }
+    
     const delWorkerFromStandBy = (workerId) => {
         const reqBody = {
             managerId: props.managerId,

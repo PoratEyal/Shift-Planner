@@ -198,6 +198,19 @@ transform: scale(1.02);
     margin-bottom: 15px;
 }
 
+.name_and_icon_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.sb_icon{
+    margin-top: 3px;
+    margin-right: -2px;
+}
+
 .shift_name{
     margin: 10px;
     margin-right: 15px;
@@ -217,6 +230,14 @@ transform: scale(1.02);
     overflow: hidden; 
 }
 .hours_message_div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.hours_message_div_SB{
+    gap: 5px;
+    margin-top: 3px;
     display: flex;
     flex-direction: row;
     align-items: center;
