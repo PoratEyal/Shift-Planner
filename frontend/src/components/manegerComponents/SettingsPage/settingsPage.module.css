@@ -18,14 +18,16 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
-    padding-top: 19px;
-    border-top: 1px solid rgb(208, 208, 208);
+    margin-bottom: 20px;
+    padding-top: 20px;
+    border-top: 1.5px solid rgba(200, 201, 202, 0.422);
 }
 
 .description{
+    direction: ltr;
     font-size: 18px;
     margin-left: 10px;
+    margin-right: 10px;
 }
 
 .delete_edit_div{
@@ -37,6 +39,7 @@
 
 .icon_delete{
     margin: 0px;
+    margin-left: 10px;
     font-size: 22px;
     margin-right: 10px;
     color: rgb(255, 92, 92);
@@ -96,13 +99,13 @@
     font-size: 1.2em;
     border: none;
     border-radius: 10px;
-    margin: 10px;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    background-color: rgba(231, 234, 238, 0.571);
 }
 
 .input_edit{
@@ -118,6 +121,7 @@
     appearance: none;
     -webkit-appearance:none;
     font-family: 'Rubik', sans-serif;
+    margin-top: -3px;
 }
 
 .input_time_start{
@@ -155,6 +159,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 15px;
+    margin-bottom: -15px;
 }
 .edit_shift_btn{
     margin-right: 15px;
