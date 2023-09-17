@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
+import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { RxHamburgerMenu } from 'react-icons/rx';
@@ -17,14 +18,35 @@ import { AiOutlineSetting } from "react-icons/ai";
 
 const Navbar = (props) => {
 
-  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+
+  const [open, setOpen] = useState(false);
   const [name, setName] = useState('')
+  const [weekVisible, setWeekVisible] = useState(null);
 
   const sidebarRef = useRef(null);
   const blurBack = useRef(null);
 
+    // get user from the local storage and return the user ID
+    const getUser = () => {
+      const user = localStorage.getItem('user');
+      const userData = JSON.parse(user);
+      return userData._id;
+  };
+
+  // get if nextWeek is visible or not
+  const getDays = () => {
+    const body2 = {
+        id: getUser()
+    }
+    axios.post(`${process.env.REACT_APP_URL}/getNextWeek`, body2).then((response) => {
+        setWeekVisible(response.data.visible)
+    }).catch(() => {});
+  }
+
   useEffect(() => {
+    getDays();
+
     const StorageData = JSON.parse(localStorage.getItem("user"));
     setName(StorageData.fullName);
 
@@ -33,6 +55,24 @@ const Navbar = (props) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  // if next week isnt visible threw alert
+  const handleWeekVisible = (event) => {
+    event.preventDefault();
+
+    if (!weekVisible) {
+      console.log(weekVisible)
+      Swal.fire({
+        title: 'שיבוץ עובדים אפשרי רק לאחר יצירת ופרסום המשמרות',
+        icon: 'warning',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'סגירה'
+      });         
+    }
+    else{
+      navigate('/currentWeekShifts');
+    }
+  };
 
   const signout = () => {
     Swal.fire({
@@ -143,10 +183,10 @@ const Navbar = (props) => {
               </div>
 
               <div className={styles.text_and_icon}>
-                <Link to="/currentWeekShifts" className={styles.icon_link}>
+                <Link onClick={(e) => handleWeekVisible(e)} className={styles.icon_link}>
                   <TbUsersPlus className={styles.icon}></TbUsersPlus>
                 </Link>
-                <Link className={styles.links} to="/currentWeekShifts">
+                <Link className={styles.links} onClick={(e) => handleWeekVisible(e)}>
                      שיבוץ עובדים לשבוע הבא
                 </Link>
               </div>
