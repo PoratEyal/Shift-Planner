@@ -26,8 +26,7 @@
 .description{
     direction: ltr;
     font-size: 18px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .delete_edit_div{
@@ -39,7 +38,7 @@
 
 .icon_delete{
     margin: 0px;
-    margin-left: 10px;
+    margin-left: 5px;
     font-size: 22px;
     margin-right: 10px;
     color: rgb(255, 92, 92);
