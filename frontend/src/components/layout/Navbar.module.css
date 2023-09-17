@@ -82,6 +82,14 @@
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: 0.6s ease-in-out;
+}
+
+.closed_sideBar{
+  transform: translateX(100%);
+}
+.closed_blur_back{
+  display: none;
 }
 
 .blur_back{

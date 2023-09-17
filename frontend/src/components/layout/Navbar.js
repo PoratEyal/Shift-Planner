@@ -22,19 +22,13 @@ const Navbar = (props) => {
   const [name, setName] = useState('')
 
   const sidebarRef = useRef(null);
+  const blurBack = useRef(null);
 
   useEffect(() => {
     const StorageData = JSON.parse(localStorage.getItem("user"));
     setName(StorageData.fullName);
 
-    const handleClickOutside = (e) => {
-      if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
-        setOpen(false);
-      }
-    };
-
     document.addEventListener('mousedown', handleClickOutside);
-
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
@@ -58,6 +52,31 @@ const Navbar = (props) => {
     });
   };
 
+  const handleClickOutside = (e) => {
+    if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
+      sidebarRef.current.classList.add(styles.closed_sideBar);
+      blurBack.current.classList.add(styles.closed_blur_back);
+
+      setTimeout(() => {
+        setOpen(false);
+      }, 700);
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  };
+
+  const handleCloseClick = () => {
+    sidebarRef.current.classList.add(styles.closed_sideBar);
+    blurBack.current.classList.add(styles.closed_blur_back);
+  
+    setTimeout(() => {
+      setOpen(false);
+    }, 700);
+  };
+
   return (
     <div className={styles.nav_container}>
       <div className={styles.nav_btn_div}>
@@ -75,12 +94,12 @@ const Navbar = (props) => {
         </Link>
       </div>
 
-      {open ? <div className={styles.blur_back}></div> : null}
+      {open ? <div className={styles.blur_back} ref={blurBack}></div> : null}
 
       {open ? (
         <div className={styles.sideBar} ref={sidebarRef}>
           <div className={styles.upper_sidebar_div}>
-            <AiOutlineClose onClick={() => setOpen((prev) => !prev)} className={styles.close_icon}></AiOutlineClose>
+            <AiOutlineClose onClick={handleCloseClick} className={styles.close_icon}></AiOutlineClose>
             <img
               src="avatar.png"
               style={{
