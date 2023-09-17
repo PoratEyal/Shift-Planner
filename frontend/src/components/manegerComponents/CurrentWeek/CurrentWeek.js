@@ -73,7 +73,7 @@ const CurrentWeek = () => {
                     .then(response => {
                         setMessages(response.data)
                     }).catch(err => console.log(err));
-            }).catch(err => console.log(err));
+            }).catch(() => {});
     }
 
     useEffect(() => {
