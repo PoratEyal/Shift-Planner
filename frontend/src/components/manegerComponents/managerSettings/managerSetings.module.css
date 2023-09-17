@@ -87,11 +87,11 @@ transform: scale(1.02);
     opacity: 0.9;
     width: 300px;
     height: 320px;
-    animation: downToUp 2s ease-in-out;
+    animation: downToUp 1.5s ease-in-out;
 }
 @keyframes downToUp {
     0% {
-        transform: translateY(400px);
+        transform: translateY(50px);
     }
     100% {
         transform: translateY(0);
