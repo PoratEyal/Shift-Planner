@@ -146,10 +146,10 @@ const NavbarWroker = (props) => {
             <div style={{marginTop: '-25px'}} className={styles.buttons_container}>
 
               <div className={styles.text_and_icon}>
-                <Link to="/CurrentWeek" className={styles.icon_link}>
+                <Link onClick={() => setOpen((prev) => !prev)} to="/CurrentWeek" className={styles.icon_link}>
                   <AiOutlineSchedule className={styles.icon}></AiOutlineSchedule>
                 </Link>
-                <Link className={styles.links} to="/CurrentWeek">
+                <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/CurrentWeek">
                   סידור עבודה לשבוע הנוכחי
                 </Link>
               </div>
@@ -157,7 +157,7 @@ const NavbarWroker = (props) => {
               <hr className={styles.line}></hr>
 
               <div className={styles.text_and_icon}>
-                <Link onClick={ChooseShiftsHandler} className={styles.icon_link}>
+              <Link onClick={ChooseShiftsHandler} className={styles.icon_link}>
                   <TbUsersPlus className={styles.icon}></TbUsersPlus>
                 </Link>
                 <Link className={styles.links} onClick={ChooseShiftsHandler}>
@@ -172,10 +172,10 @@ const NavbarWroker = (props) => {
               <hr className={styles.line}></hr>
 
               <div className={styles.text_and_icon}>
-                <Link className={styles.icon_link} to="/userSettings">
+                <Link onClick={() => setOpen((prev) => !prev)} className={styles.icon_link} to="/userSettings">
                   <RiLockPasswordLine className={styles.icon}></RiLockPasswordLine>
                 </Link>
-                <Link className={styles.links} to="/userSettings">
+                <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/userSettings">
                   עדכון פרטי משתמש
                 </Link>
               </div>
