@@ -65,6 +65,7 @@ const CreateShift = () => {
                 <button className={styles.btn_cancel} onClick={() => navigate('/settings')}>ביטול</button>
             </div>
 
+            <img className={styles.time_svg} src="time.svg" alt="Icon" />
         </div>
     </PageLayout>
 }

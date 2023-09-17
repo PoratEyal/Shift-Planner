@@ -9,6 +9,8 @@
     background: rgb(255, 255, 255);
     border-radius: 12px;
     animation: slideInAndFade 0.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
 }
 
 .userForm{
@@ -127,9 +129,11 @@
     font-family: 'Rubik', sans-serif;
     background-color: #c1e1ff;
     color:#2880cc;
+    margin-bottom: 240px;
 }
 
 .btn_cancel {
+    margin-bottom: 240px;
     margin-top: 20px;
     display: flex;
     padding: 0.8rem 2.4rem;
@@ -150,6 +154,25 @@
     font-family: 'Rubik', sans-serif;
     background-color: rgba(255, 92, 92, 0.76);
     color:rgb(255, 255, 255);
+}
+
+.time_svg {
+    z-index: 0;
+    position: absolute;
+    bottom: -10px;
+    right: 40px;
+    opacity: 0.9;
+    width: 240px;
+    height: 260px;
+    animation: downToUp 1.2s ease-in-out;
+}
+@keyframes downToUp {
+    0% {
+        transform: translateY(50px);
+    }
+    100% {
+        transform: translateY(0);
+  }
 }
 
 @keyframes slideInAndFade {
