@@ -3,6 +3,10 @@ const roleRouter = express.Router();
 const Role = require('../models/role');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
+const mongoose = require('mongoose');
+
+const ObjectId = mongoose.Types.ObjectId;
+
 
 roleRouter.use(bodyParser.json());
 
@@ -35,13 +39,14 @@ roleRouter.post('/getRoles', authenticateToken, async (req, res) => {
 roleRouter.post('/getRoleWithId', async (req, res) => {
     try {
         const { id } = req.body;
-
-        Role.findById(id)
+        console.log(id)
+        Role.findById(new ObjectId(id))
             .then((data) => {
+                console.log(data)
                 if (data) {
                     res.status(200).json(data.name);
                 } else {
-                    res.status(404).json({ message: 'Role not found' });
+                    res.status(204).json({ message: 'Role not found' });
                 }
             })
             .catch((error) => {
