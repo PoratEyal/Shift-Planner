@@ -148,6 +148,7 @@ const CreateWorker = () => {
                   <button className={styles.btn_cancel} type="button" onClick={() => navigate('/workers')}>ביטול</button>
                 </div>
 
+                <img className={styles.password_time_svg} src="addUser.svg" alt="Icon" />
             </form>
         </div>
     </PageLayout>

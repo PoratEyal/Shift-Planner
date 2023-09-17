@@ -53,12 +53,24 @@
   text-decoration: none;
 }
 
+@keyframes slideInAndFade {
+  0% {
+      transform: translateX(0);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
 .icon{
   position: absolute;
   bottom: -35px;
   left: -15px;
   width: 150px;
   height: 160px;
+  animation: slideInAndFade 0.3s ease-in-out;
 }
 .icon2{
   position: absolute;
@@ -66,6 +78,7 @@
   left: -15px;
   width: 135px;
   height: 160px;
+  animation: slideInAndFade 0.3s ease-in-out;
 }
 .icon3{
   position: absolute;
@@ -73,6 +86,7 @@
   left: -15px;
   width: 140px;
   height: 150px;
+  animation: slideInAndFade 0.3s ease-in-out;
 }
 
 

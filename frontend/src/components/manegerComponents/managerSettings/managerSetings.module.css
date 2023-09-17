@@ -75,6 +75,7 @@
     justify-content: center;
     font-family: 'Rubik', sans-serif;
     margin-bottom: 205px;
+    z-index: 1;
 }
 .btn:hover {
 transform: scale(1.02);
@@ -89,6 +90,7 @@ transform: scale(1.02);
     height: 320px;
     animation: downToUp 1.5s ease-in-out;
 }
+
 @keyframes downToUp {
     0% {
         transform: translateY(50px);
