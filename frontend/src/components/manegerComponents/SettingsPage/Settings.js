@@ -25,7 +25,7 @@ const SettingsPage = (props) => {
 
     const deleteHandler = (shiftId) => {
         Swal.fire({
-            title: 'האם ברצונך למחוק את המשמרת',
+            title: 'האם למחוק את המשמרת',
             icon: 'warning',
             showCancelButton: true,
             cancelButtonText: 'ביטול',
@@ -53,7 +53,7 @@ const SettingsPage = (props) => {
         });
     }
 
-    return <PageLayout text='הגדרת משמרות'>
+    return <PageLayout text='משמרות'>
         <div className={styles.container}>
             {!loading ? (
             <div className={styles['three-body']}>
@@ -63,7 +63,6 @@ const SettingsPage = (props) => {
             </div>
             ) : (
             <>
-                <h2 className={styles.title}>המשמרות שלי</h2>
                 {defShifts
                 ? defShifts.map((shift) => {
                     return (

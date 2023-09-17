@@ -211,16 +211,16 @@ const Navbar = (props) => {
                 </Link>
               </div>
 
-              <hr className={styles.line}></hr>
-
               <div className={styles.text_and_icon}>
                 <Link className={styles.icon_link} to="/settings">
                   <AiOutlineSetting className={styles.icon}></AiOutlineSetting>
                 </Link>
                 <Link className={styles.links} to="/settings">
-                  הגדרת משמרות
+                  משמרות
                 </Link>
               </div>
+
+              <hr className={styles.line}></hr>
 
               <div className={styles.text_and_icon}>
                 <Link className={styles.icon_link} to="/managerSettings">

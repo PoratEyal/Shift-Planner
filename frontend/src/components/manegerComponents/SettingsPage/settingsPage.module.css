@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 310px;
+    width: 315px;
     margin-top: 85px;
     background: rgb(255, 255, 255);
     border-radius: 12px;
@@ -12,15 +12,18 @@
 }
 
 .shift_container{
-    width: 310px;
+    width: 290px;
     direction: rtl;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-    padding-top: 20px;
-    border-top: 1.5px solid rgba(200, 201, 202, 0.422);
+    background-color: rgba(231, 234, 238, 0.571);
+    border-radius: 12px;
+    margin: 10px;
+    margin-top: 5px;
+    padding: 10px;
+    background-color: rgba(231, 234, 238, 0.571);
 }
 
 .description{
@@ -34,19 +37,54 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
-.icon_delete{
-    margin: 0px;
-    margin-left: 5px;
-    font-size: 22px;
-    margin-right: 10px;
-    color: rgb(255, 92, 92);
+.edit_div_options{
+    border-radius: 7px;
+    width: 170px;
+    height: auto;
+    border: none;
+    position: absolute;
+    direction: ltr;
+    left:-25px;
+    top: 37px;
+    z-index: 100;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(67, 71, 85, 0.27) 1px 1px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.15em 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    animation: slideInAndFade 0.2s ease-in-out;
 }
-.icon_edit{
-    margin: 0px;
-    font-size: 22px;
-    color: rgb(144, 144, 144);
+.edit_div_options::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 100%;
+    left: 1.5em;
+    border: .75rem solid transparent;
+    border-top: none;
+    border-bottom-color: rgb(255, 255, 255);
+    filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
+    cursor: pointer;
+}
+.edit_div_flex{
+    margin: 8px;
+    direction: ltr;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon_edit_select{
+    color: rgba(59, 59, 59, 0.903);
+    font-size: 21px;
+    cursor: pointer;
+    margin-left: 10px;
 }
 
 @keyframes slideInAndFade {
@@ -58,13 +96,6 @@
         transform: translateX(0);
         opacity: 1;
     }
-}
-
-.title{
-    margin-top: 5px;
-    margin-bottom: 20px;
-    color: #575757;
-    font-weight: 500;
 }
 
 .addShift_btn {
@@ -94,7 +125,7 @@
 /* - - - - - - - - edit shift - - - - - - -  */
 
 .editShift{
-    width: 260px;
+    width: 270px;
     font-size: 1.2em;
     border: none;
     border-radius: 10px;
@@ -334,10 +365,10 @@
         width: 330px;
     }
     .shift_container{
-        width: 330px;
+        width: 310px;
     }
     .editShift{
-        width: 280px;
+        width: 290px;
     }
     .input_edit{
         width: 280px;
@@ -361,10 +392,10 @@
         width: 350px;
     }
     .shift_container{
-        width: 350px;
+        width: 330px;
     }
     .editShift{
-        width: 300px;
+        width: 310px;
     }
     .input_edit{
         width: 300px;
