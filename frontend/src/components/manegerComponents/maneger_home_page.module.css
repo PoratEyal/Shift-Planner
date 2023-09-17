@@ -60,8 +60,23 @@
   width: 150px;
   height: 160px;
 }
+.icon2{
+  position: absolute;
+  bottom: -35px;
+  left: -15px;
+  width: 135px;
+  height: 160px;
+}
+.icon3{
+  position: absolute;
+  bottom: -35px;
+  left: -15px;
+  width: 140px;
+  height: 150px;
+}
 
-.icon1{
+
+/* .icon1{
   font-size: 52px;
   rotate: -20deg;
   margin-top: -10px;
@@ -72,7 +87,7 @@
   font-size: 52px;
   margin-top: -10px;
   margin-bottom: -10px;
-}
+} */
 
 .closed_btn{
   font-size: 26px;
@@ -142,6 +157,18 @@
   .week_text{
     margin-left: 190px;
   }
+  .icon{
+    width: 125px;
+    height: 140px;
+  }
+  .icon2{
+    width: 110px;
+    height: 155px;
+  }
+  .icon3{
+    width: 130px;
+    height: 150px;
+  }
 }
 @media only screen and (min-width: 370px) and (max-width: 399.9px) {
   .btn{
@@ -151,12 +178,6 @@
   }
   .text_div{
     margin-right: -5px;
-  }
-  .icon{
-    font-size: 50px;
-  }
-  .icon2{
-    font-size: 50px;
   }
   .week_text{
     margin-left: 210px;
@@ -171,12 +192,6 @@
   .text_div{
     margin-right: -5px;
   }
-  .icon{
-    font-size: 60px;
-  }
-  .icon2{
-    font-size: 60px;
-  }
   .week_text{
     margin-left: 220px;
   }
@@ -187,12 +202,6 @@
       height: 130px;
       text-align: end;
       font-size: 20px;
-  }
-  .icon{
-    font-size: 70px;
-    rotate: -20deg;
-    margin-top: -10px;
-    margin-bottom: -10px;
   }
   .text_div{
     font-size: 25px;

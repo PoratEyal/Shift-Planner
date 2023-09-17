@@ -90,7 +90,8 @@ const ManagerHomePage = () => {
                 <Link className={styles.link} to="/editCurrentWeek">
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
-                            {<FcLeave className={styles.icon2}></FcLeave>} 
+                            <img className={styles.icon2} src="editsvg.svg" alt="Icon" />
+                            {/* {<FcLeave className={styles.icon2}></FcLeave>}  */}
                         </div>
                         <div className={styles.text_div}>
                             עדכון סידור העבודה  
@@ -104,7 +105,8 @@ const ManagerHomePage = () => {
                 <Link className={styles.link} to="/createNewWeek">
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
-                            {<FcSurvey className={styles.icon1}></FcSurvey>}
+                            <img className={styles.icon3} src="create.svg" alt="Icon" />
+                            {/* {<FcSurvey className={styles.icon1}></FcSurvey>} */}
                         </div>
                         <div className={styles.text_div}>
                             יצירת משמרות
@@ -115,7 +117,8 @@ const ManagerHomePage = () => {
                 <Link className={styles.link} to="/currentWeekShifts" onClick={handleClick}>
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
-                        {<FcGoodDecision className={styles.icon2}></FcGoodDecision>}
+                        <img className={styles.icon} src="addWorker.svg" alt="Icon" /> 
+                        {/* {<FcGoodDecision className={styles.icon2}></FcGoodDecision>} */}
                         </div>
                         <div className={styles.text_div}>שיבוץ עובדים</div>
                     </button>
