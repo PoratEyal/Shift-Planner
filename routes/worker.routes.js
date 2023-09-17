@@ -158,7 +158,6 @@ workerRouter.put('/WorkerShiftMessage', (req, res) => {
             }
             week.save()
                 .then(updatedWeek => {
-                    console.log(updatedWeek);
                     if (updatedWeek && updatedWeek.day && updatedWeek.day.length > 0) {
                         res.status(200).json(updatedWeek.day[dayIndex]);
                     }

@@ -5,18 +5,20 @@ import axios from "axios";
 import Swal from 'sweetalert2';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { BiEditAlt } from "react-icons/bi";
+import { FiMoreHorizontal } from "react-icons/fi";
 
 const DefaultShift = (props) => {
+
     const [shift, setShift] = useState(props.shift);
     const [clickAddShift, setClickAddShift] = useState(false);
+
+    const [openOptions, setOpenOptions] = useState(null);
+    const [isDivVisible, setDivVisible] = useState(false);
+    const divRef = useRef(null);
+
     let name = useRef();
     let startTime = useRef();
     let endTime = useRef();
-
-
-    useEffect(() => {
-        setShift(props.shift)
-    }, [])
 
     const saveHandler = async () => {
         const user = JSON.parse(localStorage.getItem('user'));
@@ -39,6 +41,33 @@ const DefaultShift = (props) => {
         }
     }
 
+    // control on the close and open the option select
+    useEffect(() => {
+        setShift(props.shift)
+
+        function handleOutsideClick(event) {
+        if (divRef.current && !divRef.current.contains(event.target)) {
+            setDivVisible(false);
+        }
+        }
+
+        if (isDivVisible) {
+        document.addEventListener('mousedown', handleOutsideClick);
+        } else {
+        document.removeEventListener('mousedown', handleOutsideClick);
+        }
+
+        return () => {
+        document.removeEventListener('mousedown', handleOutsideClick);
+        };
+    }, [isDivVisible ])
+
+    // when click on the ... icon - set those two states
+    const options = (shiftId) => {
+        setOpenOptions(shiftId);
+        setDivVisible(true);
+    }
+
     return <React.Fragment>
         <div className={styles.shift_container}>
             <div className={styles.description}>
@@ -46,9 +75,20 @@ const DefaultShift = (props) => {
             </div>
 
             <div className={styles.delete_edit_div}>
-                <BiEditAlt className={styles.icon_edit} onClick={() => {setClickAddShift(!clickAddShift)}}></BiEditAlt>
+                <FiMoreHorizontal onClick={() => options(shift._id)}></FiMoreHorizontal>
 
-                <RiDeleteBin6Line className={styles.icon_delete} onClick={() => {props.delete(shift._id)}}></RiDeleteBin6Line>
+                {openOptions === shift._id && isDivVisible ? 
+                    <div ref={divRef} className={styles.edit_div_options}>
+                        <div className={styles.edit_div_flex}>
+                            <label onClick={() => { setClickAddShift(!clickAddShift); setDivVisible(false) }}>עדכון משמרת</label>
+                            <BiEditAlt className={styles.icon_edit_select} onClick={() => { setClickAddShift(!clickAddShift); setDivVisible(false) }}></BiEditAlt>
+                        </div>
+
+                        <div className={styles.edit_div_flex}>
+                          <label onClick={() => { props.delete(shift._id); setDivVisible(false) }}>מחיקת משמרת</label>
+                          <RiDeleteBin6Line className={styles.icon_edit_select} onClick={() => { props.delete(shift._id); setDivVisible(false) }}></RiDeleteBin6Line>
+                        </div>
+                </div> : null}
             </div>
         </div>
 

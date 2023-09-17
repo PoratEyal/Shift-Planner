@@ -16,7 +16,6 @@ const CreateWeekDay = (props) => {
     const [shiftEndTime, SetshiftEndTime] = useState('')
     const [clickAddShift, setClickAddShift] = useState(false)
     const defShifts = props.defShifts;
-    //console.log(defShifts);
     const selectRef = useRef(null);
 
     // get the sifts of the day
@@ -83,7 +82,6 @@ const CreateWeekDay = (props) => {
             endTime: moment(moment(shift.endTime).utc().format('HH:mm'), 'HH:mm'),
             workers: []
         };
-        console.log(newShift.startTime);
         const reqBody = {
             managerId: props.managerId,
             newShift: newShift,

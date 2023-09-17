@@ -14,14 +14,15 @@ import { AiOutlineSync } from "react-icons/ai";
 const CurrentWeekWorkers = (props) => {
   const [workers] = useState(props.workers);
   const [availableWorkers] = useState(props.availableWorkers);
-  // console.log(props.workers);
-  // console.log(props.availableWorkers);
-  // console.log(props.shift.standBy);
+
   const [newWorkers, setNewWorkers] = useState([]);
+
   const [availableWorkersArr, setAvailableWorkersArr] = useState([]);
   const [workersArr, setWorkersArr] = useState([]);
+
   const [sbWorkers, setSbWorkers] = useState(props.shift.standBy);
   const [sbWorkersArr, setSbWorkersArr] = useState([]);
+  
   const [updatedWorkers, setUpdatedWorkers] = useState(false);
   const [loading, setLoading] = useState(true);
 
