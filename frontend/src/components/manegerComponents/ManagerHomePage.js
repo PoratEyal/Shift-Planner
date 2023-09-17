@@ -78,7 +78,8 @@ const ManagerHomePage = () => {
                 <Link className={styles.link} to="/SeeCurrentWeekShifts">
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
-                            {<FcPlanner className={styles.icon1}></FcPlanner>} 
+                            <img className={styles.icon} src="shifts.svg" alt="Icon" />
+                            {/* {<FcPlanner className={styles.icon1}></FcPlanner>}  */}
                         </div>
                         <div className={styles.text_div}>
                             צפיה בסידור העבודה  

@@ -31,6 +31,8 @@
   border-radius: 25px;
   font-weight: 400;
   font-family: 'Rubik', sans-serif;
+  position: relative;
+  overflow: hidden;
 }
 .btn:hover{
   cursor: pointer;
@@ -51,8 +53,12 @@
   text-decoration: none;
 }
 
-.icon_div{
-  border-radius: 20px;
+.icon{
+  position: absolute;
+  bottom: -35px;
+  left: -15px;
+  width: 150px;
+  height: 160px;
 }
 
 .icon1{
