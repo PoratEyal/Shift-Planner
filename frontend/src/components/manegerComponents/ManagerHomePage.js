@@ -82,7 +82,7 @@ const ManagerHomePage = () => {
                             {/* {<FcPlanner className={styles.icon1}></FcPlanner>}  */}
                         </div>
                         <div className={styles.text_div}>
-                            צפיה בסידור העבודה  
+                            צפיה בסידור<br></br> העבודה  
                         </div>
                     </button>
                 </Link>
@@ -94,7 +94,7 @@ const ManagerHomePage = () => {
                             {/* {<FcLeave className={styles.icon2}></FcLeave>}  */}
                         </div>
                         <div className={styles.text_div}>
-                            עדכון סידור העבודה  
+                            עדכון סידור <br></br>העבודה  
                         </div>
                     </button>
                 </Link>
