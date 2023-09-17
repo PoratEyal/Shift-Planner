@@ -12,7 +12,6 @@ DSRouter.post('/getDefShifts', async (req, res) => {
     const managerId = req.body.managerId;
     try {
         const response = await defShifts.findOne({ ofManager: managerId });
-        console.log(response)
         if (response) {
             res.status(200).send(response.shifts);
         }
@@ -39,9 +38,7 @@ DSRouter.post('/getDefShifts', async (req, res) => {
 DSRouter.put('/deleteShift', async (req, res) => {
     reqBody = req.body;
     const response = await defShifts.findOne({ ofManager: reqBody.managerId });
-    console.log(response)
     const index = response.shifts.findIndex(shift => String(shift._id) === (reqBody.shiftId));
-    console.log(index)
     if(index !== -1){
         response.shifts.splice(index, 1);
         await response.save();
@@ -71,7 +68,6 @@ DSRouter.put('/changeShift', async (req, res) => {
 })
 DSRouter.put('/addNewShift', async (req, res) => {
     rewBody = req.body;
-    console.log(rewBody);
     const st = new Date(`1970-01-01T${rewBody.startTime}:00Z`);
     const et = new Date(`1970-01-01T${rewBody.endTime}:00Z`);
     const shift = new Shift({
@@ -86,13 +82,11 @@ DSRouter.put('/addNewShift', async (req, res) => {
     if (response.shifts.length < response.maxAmount) {
         response.shifts.push(shift);
         response.save().then(() => {
-            console.log(response)
             res.status(200).send(response.shifts);
         })
     }
     else {
         res.status(204)
     }
-    console.log(shift);
 });
 module.exports = DSRouter

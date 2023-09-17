@@ -32,7 +32,6 @@ gptApiRouter.post('/sendMessegeAPI', async (req, res) => {
     const data = response.data;
     const answerResponse = data.choices[0].message.content;
     
-    console.log(data.choices[0].message.content);
     res.json(answerResponse);
 
   } catch (error) {

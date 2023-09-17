@@ -34,7 +34,6 @@ const SettingsPage = (props) => {
             confirmButtonText: 'אישור'
           }).then(async (result) => {
             if (result.isConfirmed) {
-                console.log(shiftId);
                 const user = JSON.parse(localStorage.getItem('user'));
                 const reqBody = {
                     managerId: user._id,

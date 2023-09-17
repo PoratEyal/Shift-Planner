@@ -34,7 +34,6 @@ messageRouter.post('/sendMessage', async (req, res) => {
             
             // Save the new message to the database
             const savedMessage = await newMessage.save();
-            console.log(newMessage)
             return res.status(201).json(savedMessage);
         }
     } catch (error) {

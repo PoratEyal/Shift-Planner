@@ -203,8 +203,6 @@ const CurrentWeek = () => {
     // send a prompt to the gpt api and return workers
     // refresh the page
     const sendMessage = async (numberOfWorkers) => {
-        console.log(numberOfWorkers)
-
         setLoadingAi(true);
         console.log(promentToAi)
         try {
