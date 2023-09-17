@@ -77,10 +77,6 @@ const SettingsPage = (props) => {
             </>
             )}
         </div>
-        
-        <div className={styles.time_svg_div}>
-            <img className={styles.time_svg} src="time.svg" alt="Icon" />
-        </div>
 
         <img
             onClick={() => navigate('/createShift')}

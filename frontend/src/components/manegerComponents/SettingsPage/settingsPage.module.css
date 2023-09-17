@@ -250,25 +250,6 @@
   }
 }
 
-.time_svg_div {
-    position: absolute;
-    z-index: -1;
-    bottom: 60px;
-    right: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    animation: slideInAndFade 1.5s ease-in-out;
-}
-  
-.time_svg {
-    opacity: 0.9;
-    width: 300px;
-    height: 300px;
-}
-  
-
 /* - - - - - - - loading animation - - - - - - - - */
 
 .three-body {
