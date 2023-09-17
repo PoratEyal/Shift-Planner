@@ -169,7 +169,7 @@ const WorkersCurrentWeek = (props) => {
         {user._id !== worker._id ? 
           <div className={styles.name_and_icon_div}>
             <label><FcSynchronize className={styles.sb_icon}></FcSynchronize></label>
-            <labe>{worker.fullName}</labe>
+            <label>{worker.fullName}</label>
           </div>
         :
           <div className={styles.name_and_icon_div}>

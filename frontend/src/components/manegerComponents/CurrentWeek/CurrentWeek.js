@@ -342,8 +342,8 @@ const CurrentWeek = () => {
                     {
                         week ? week.day.map((day) => {
                             return (
-                                <messageContext.Provider value={weekMessages}>
-                                    <DayCurrentWeek weekId={week._id} day={day} key={day._id} getDays={getDays} managerId={managerId}></DayCurrentWeek>
+                                <messageContext.Provider value={weekMessages} key={day._id}>
+                                    <DayCurrentWeek weekId={week._id} day={day}  getDays={getDays} managerId={managerId}></DayCurrentWeek>
                                 </messageContext.Provider>
                             )
                         }) : null
