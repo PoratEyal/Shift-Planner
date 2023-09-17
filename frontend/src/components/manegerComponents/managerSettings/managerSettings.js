@@ -75,6 +75,10 @@ const ManagerSettings = () => {
           אישור
         </button>
       </div>
+
+      <div className={styles.password_svg_div}>
+          <img className={styles.password_time_svg} src="password.svg" alt="Icon" />
+      </div>
     </PageLayout>
 }
 

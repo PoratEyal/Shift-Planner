@@ -8,6 +8,7 @@
         opacity: 1;
     }
 }
+
 .container{
     display: flex;
     flex-direction: column;
@@ -77,6 +78,21 @@
 transform: scale(1.02);
 }
 
+.password_svg_div {
+    margin-top: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: slideInAndFade 0.5s ease-in-out;
+}
+  
+.password_time_svg {
+    opacity: 0.9;
+    width: 320px;
+    height: 320px;
+}
 
 @media only screen and (min-width: 0px) and (max-width: 360px){
     .container{
