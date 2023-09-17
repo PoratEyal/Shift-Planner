@@ -155,19 +155,19 @@ const Navbar = (props) => {
             <div className={styles.buttons_container}>
 
               <div className={styles.text_and_icon}>
-                <Link to="/SeeCurrentWeekShifts" className={styles.icon_link}>
+                <Link onClick={() => setOpen((prev) => !prev)} to="/SeeCurrentWeekShifts" className={styles.icon_link}>
                   <AiOutlineSchedule className={styles.icon}></AiOutlineSchedule>
                 </Link>
-                <Link className={styles.links} to="/SeeCurrentWeekShifts">
+                <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/SeeCurrentWeekShifts">
                   צפיה בשבוע הנוכחי
                 </Link>
               </div>
 
               <div className={styles.text_and_icon}>
-                <Link to="/editCurrentWeek" className={styles.icon_link}>
+                <Link onClick={() => setOpen((prev) => !prev)} to="/editCurrentWeek" className={styles.icon_link}>
                   <BiEdit className={styles.icon}></BiEdit>
                 </Link>
-                <Link className={styles.links} to="/editCurrentWeek">
+                <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/editCurrentWeek">
                   עדכון שבוע נוכחי
                 </Link>
               </div>
@@ -175,19 +175,19 @@ const Navbar = (props) => {
               <hr className={styles.line}></hr>
               
               <div className={styles.text_and_icon}>
-                <Link to="/createNewWeek" className={styles.icon_link}>
+                <Link onClick={() => setOpen((prev) => !prev)} to="/createNewWeek" className={styles.icon_link}>
                   <BsCardList className={styles.icon}></BsCardList>
                 </Link>
-                <Link className={styles.links} to="/createNewWeek">
+                <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/createNewWeek">
                      יצירת משמרות לשבוע הבא
                 </Link>
               </div>
 
               <div className={styles.text_and_icon}>
-                <Link onClick={(e) => handleWeekVisible(e)} className={styles.icon_link}>
+                <Link onClick={(e) => { handleWeekVisible(e); setOpen((prev) => !prev); }} className={styles.icon_link}>
                   <TbUsersPlus className={styles.icon}></TbUsersPlus>
                 </Link>
-                <Link className={styles.links} onClick={(e) => handleWeekVisible(e)}>
+                <Link className={styles.links} onClick={(e) => { handleWeekVisible(e); setOpen((prev) => !prev); }}>
                      שיבוץ עובדים לשבוע הבא
                 </Link>
               </div>
@@ -195,28 +195,28 @@ const Navbar = (props) => {
               <hr className={styles.line}></hr>
 
               <div className={styles.text_and_icon}>
-                <Link to="/workers" className={styles.icon_link}>
+                <Link onClick={() => setOpen((prev) => !prev)} to="/workers" className={styles.icon_link}>
                   <FiUsers className={styles.icon}></FiUsers>
                 </Link>
-                <Link className={styles.links} to="/workers">
+                <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/workers">
                   עובדים
                 </Link>
               </div>
 
               <div className={styles.text_and_icon}>
-                <Link className={styles.icon_link} to="/roles">
+                <Link onClick={() => setOpen((prev) => !prev)} className={styles.icon_link} to="/roles">
                   <MdWorkOutline className={styles.icon}></MdWorkOutline>
                 </Link>
-                <Link className={styles.links} to="/roles">
+                <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/roles">
                   תפקידים
                 </Link>
               </div>
 
               <div className={styles.text_and_icon}>
-                <Link className={styles.icon_link} to="/settings">
+                <Link onClick={() => setOpen((prev) => !prev)} className={styles.icon_link} to="/settings">
                   <BiTime className={styles.icon}></BiTime>
                 </Link>
-                <Link className={styles.links} to="/settings">
+                <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/settings">
                   משמרות
                 </Link>
               </div>
@@ -224,10 +224,10 @@ const Navbar = (props) => {
               <hr className={styles.line}></hr>
 
               <div className={styles.text_and_icon}>
-                <Link className={styles.icon_link} to="/managerSettings">
+                <Link onClick={() => setOpen((prev) => !prev)} className={styles.icon_link} to="/managerSettings">
                   <RiLockPasswordLine className={styles.icon}></RiLockPasswordLine>
                 </Link>
-                <Link className={styles.links} to="/managerSettings">
+                <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/managerSettings">
                   עדכון פרטי משתמש
                 </Link>
               </div>
