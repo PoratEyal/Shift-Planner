@@ -250,6 +250,22 @@
   }
 }
 
+.time_svg_div {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: slideInAndFade 2.5s ease-in-out;
+}
+  
+.time_svg {
+opacity: 0.9;
+width: 250px;
+height: 250px;
+animation: slideIn 0.5s forwards;
+}
+  
 
 /* - - - - - - - loading animation - - - - - - - - */
 
