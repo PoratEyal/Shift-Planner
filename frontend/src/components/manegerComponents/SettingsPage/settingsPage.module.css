@@ -13,6 +13,7 @@
 
 .shift_container{
     width: 290px;
+    height: 30px;
     direction: rtl;
     display: flex;
     flex-direction: row;
