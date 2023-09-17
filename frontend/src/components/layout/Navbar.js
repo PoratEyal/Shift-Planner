@@ -15,6 +15,7 @@ import { BsCardList } from "react-icons/bs";
 import { TbUsersPlus } from "react-icons/tb";
 import { AiOutlineClose } from "react-icons/ai";
 import { AiOutlineSetting } from "react-icons/ai";
+import { BiTime } from "react-icons/bi";
 
 const Navbar = (props) => {
 
@@ -213,7 +214,7 @@ const Navbar = (props) => {
 
               <div className={styles.text_and_icon}>
                 <Link className={styles.icon_link} to="/settings">
-                  <AiOutlineSetting className={styles.icon}></AiOutlineSetting>
+                  <BiTime className={styles.icon}></BiTime>
                 </Link>
                 <Link className={styles.links} to="/settings">
                   משמרות
