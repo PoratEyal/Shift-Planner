@@ -13,12 +13,15 @@ import { AiOutlineSchedule } from "react-icons/ai";
 
 const NavbarWroker = (props) => {
 
-  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+
+  const [open, setOpen] = useState(false);
   const [name, setName] = useState('')
-  const sidebarRef = useRef(null);
   const [weekVisible, setWeekVisible] = useState(null);
   const [weekPublished, setWeekPublished] = useState(null);
+
+  const sidebarRef = useRef(null);
+  const blurBack = useRef(null);
 
   // return the manager Id of the current user
   const getUser = () => {
@@ -57,18 +60,36 @@ const NavbarWroker = (props) => {
     const StorageData = JSON.parse(localStorage.getItem("user"));
     setName(StorageData.fullName);
 
-    const handleClickOutside = (e) => {
-      if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
-        setOpen(false);
-      }
-    };
-
     document.addEventListener('mousedown', handleClickOutside);
-
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  const handleClickOutside = (e) => {
+    if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
+      sidebarRef.current.classList.add(styles.closed_sideBar);
+      blurBack.current.classList.add(styles.closed_blur_back);
+
+      setTimeout(() => {
+        setOpen(false);
+      }, 700);
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  };
+
+  const handleCloseClick = () => {
+    sidebarRef.current.classList.add(styles.closed_sideBar);
+    blurBack.current.classList.add(styles.closed_blur_back);
+  
+    setTimeout(() => {
+      setOpen(false);
+    }, 700);
+  };
 
   const signout = () => {
     Swal.fire({
@@ -105,12 +126,12 @@ const NavbarWroker = (props) => {
         </Link>
       </div>
 
-      {open ? <div className={styles.blur_back}></div> : null}
+      {open ? <div className={styles.blur_back} ref={blurBack}></div> : null}
 
       {open ? (
         <div className={styles.sideBar} ref={sidebarRef}>
           <div className={styles.upper_sidebar_div}>
-            <AiOutlineClose onClick={() => setOpen((prev) => !prev)} className={styles.close_icon}></AiOutlineClose>
+            <AiOutlineClose onClick={handleCloseClick} className={styles.close_icon}></AiOutlineClose>
             <img
               src="avatar.png"
               style={{
