@@ -80,6 +80,8 @@ const UserSettings = () => {
       <button onClick={changeUser} className={styles.btn}>
         אישור
       </button>
+
+      <img className={styles.password_time_svg} src="password.svg" alt="Icon" />
     </div>
   </PageLayoutWorker>
 

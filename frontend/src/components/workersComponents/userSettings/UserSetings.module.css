@@ -14,13 +14,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 280px;
-    height: 270px;
+    width: 290px;
+    height: 440px;
     padding: 20px;
     background: rgb(255, 255, 255);
     border-radius: 12px;
-    margin-top: 85px;
+    margin-top: 90px;
     animation: slideInAndFade 0.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
 }
 
 .h2{
@@ -54,7 +56,6 @@
 
 .btn {
     margin-top: 20px;
-    max-width: 300px;
     display: flex;
     padding: 0.8rem 2.4rem;
     font-size: 1.275rem;
@@ -65,18 +66,37 @@
     vertical-align: middle;
     align-items: center;
     border-radius: 0.5rem;
-    border: none;
+    border:none;
     gap: 0.75rem;
     color: white;
-    background-color: #34a0ff;
+    background-color: #63b6ff;
     cursor: pointer;
     transition: all .6s ease;
-    width: 88%;
+    width: 89%;
     justify-content: center;
     font-family: 'Rubik', sans-serif;
+    margin-bottom: 200px;
 }
 .btn:hover {
 transform: scale(1.02);
+}
+
+.password_time_svg {
+    z-index: 0;
+    position: absolute;
+    bottom: -65px;
+    opacity: 0.9;
+    width: 300px;
+    height: 320px;
+    animation: downToUp 1.5s ease-in-out;
+}
+@keyframes downToUp {
+    0% {
+        transform: translateY(50px);
+    }
+    100% {
+        transform: translateY(0);
+  }
 }
 
 
@@ -85,9 +105,15 @@ transform: scale(1.02);
     .container{
         width: 310px;
     }
+    .btn{
+        width: 270px;
+    }
 }
 @media only screen and (min-width: 430px){
     .container{
         width: 330px;
+    }
+    .btn{
+        width: 290px;
     }
 }
