@@ -75,7 +75,7 @@ const DefaultShift = (props) => {
             </div>
 
             <div className={styles.delete_edit_div}>
-                <FiMoreHorizontal onClick={() => options(shift._id)}></FiMoreHorizontal>
+                <FiMoreHorizontal className={styles.icon} onClick={() => options(shift._id)}></FiMoreHorizontal>
 
                 {openOptions === shift._id && isDivVisible ? 
                     <div ref={divRef} className={styles.edit_div_options}>

@@ -32,6 +32,9 @@
     font-size: 18px;
     margin-right: 5px;
 }
+.icon{
+    font-size: 23px;
+}
 
 .delete_edit_div{
     display: flex;
