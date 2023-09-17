@@ -76,6 +76,7 @@
     justify-content: center;
     font-family: 'Rubik', sans-serif;
     margin-bottom: 200px;
+    z-index: 1;
 }
 .btn:hover {
 transform: scale(1.02);
