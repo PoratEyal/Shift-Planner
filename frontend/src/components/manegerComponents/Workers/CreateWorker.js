@@ -89,64 +89,52 @@ const CreateWorker = () => {
         <div id="create-user" className={styles.createUser}>
 
             <form className={styles.userForm} onSubmit={handleSubmit}>
+              <input
+                  className={styles.input}
+                  type="text"
+                  id="fullName"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  required
+                  placeholder='שם מלא'
+              />
 
-                <div className={styles.formGroup}>
-                <input
-                    className={styles.input}
-                    type="text"
-                    id="fullName"
-                    value={fullName}
-                    onChange={(e) => setFullName(e.target.value)}
-                    required
-                />
-                <label className={styles.label_fullname} htmlFor="fullName">שם מלא</label>
-                </div>
+              <input
+                  placeholder='שם משתמש (באנגלית)'
+                  className={styles.input}
+                  type="text"
+                  id="username"
+                  value={username}
+                  onChange={(e) => {
+                  const inputUsername = e.target.value;
+                  const alphanumericRegex = /^[a-zA-Z0-9]*$/;
+                  if (alphanumericRegex.test(inputUsername)) {
+                      setUsername(inputUsername);
+                  }
+                  }}
+                  required
+              />
 
-                <div className={styles.formGroup}>
-                <input
-                    placeholder='רק באנגלית'
-                    className={styles.input}
-                    type="text"
-                    id="username"
-                    value={username}
-                    onChange={(e) => {
-                    const inputUsername = e.target.value;
-                    const alphanumericRegex = /^[a-zA-Z0-9]*$/;
-                    if (alphanumericRegex.test(inputUsername)) {
-                        setUsername(inputUsername);
-                    }
-                    }}
-                    required
-                />
-                <label className={styles.label_username} htmlFor="username">שם משתמש</label>
-                </div>
+              <input
+                  placeholder='סיסמה בעלת 5 תווים לפחות'
+                  className={styles.input}
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  minLength={5}
+              />
 
-                <div className={styles.formGroup}>
-                <input
-                    placeholder='5 תווים לפחות'
-                    className={styles.input}
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    minLength={5}
-                />
-                <label className={styles.label_password} htmlFor="password">סיסמה</label>
-                </div>
-
-                <div className={styles.formGroup}>
-                <select className={styles.select} onChange={(e) => { setRole(e.target.value) }} defaultValue="" required aria-required="true">
-                    <option value="" disabled>בחר תפקיד</option>
-                    {roles.map(role => { return <option value={role._id} key={role._id}>{role.name}</option> })}
-                </select>
-                <label className={styles.label_role}>תפקיד</label>
-                </div>
+              <select className={styles.select} onChange={(e) => { setRole(e.target.value) }} defaultValue="" required aria-required="true">
+                  <option value="" disabled>תפקיד</option>
+                  {roles.map(role => { return <option value={role._id} key={role._id}>{role.name}</option> })}
+              </select>
                 
-                <div className={styles.btns_div}>
-                  <button className={styles.btn} type="button" onClick={handleSubmit}>אישור</button>
-                  <button className={styles.btn_cancel} type="button" onClick={() => navigate('/workers')}>ביטול</button>
-                </div>
+              <div className={styles.btns_div}>
+                <button className={styles.btn} type="button" onClick={handleSubmit}>אישור</button>
+                <button className={styles.btn_cancel} type="button" onClick={() => navigate('/workers')}>ביטול</button>
+              </div>
                 
             </form>
         </div>

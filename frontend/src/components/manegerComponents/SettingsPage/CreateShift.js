@@ -45,18 +45,15 @@ const CreateShift = () => {
         <div className={styles.container}>
             <form className={styles.userForm}> 
                 <div>
-                    <input className={styles.input} type="text" ref={name}></input>
-                    <label className={styles.label_name}>שם משמרת</label>
+                    <input placeholder="שם משמרת" className={styles.input} type="text" ref={name}></input>
                 </div>
 
                 <div>
                     <input className={styles.input_time} type="time" ref={startTime}></input>
-                    <label className={styles.label_start}>זמן התחלה</label>
                 </div>
 
                 <div>
                     <input className={styles.input_time2} type="time" ref={endTime}></input>
-                    <label className={styles.label_end}>זמן סיום</label>
                 </div>
             </form>
 

@@ -32,63 +32,32 @@
     align-items: center;
 }
 
-.formGroup{
-    margin-bottom: 7px;
-}
-
-.label_fullname{
-    font-family: 'Rubik', sans-serif;
-    font-size: 19px;
-    margin-left: 41px;
-}
-.label_username{
-    font-family: 'Rubik', sans-serif;
-    font-size: 19px;
-    margin-left: 10px;
-}
-.label_username::placeholder{
-    font-size: 17px;
-}
-.label_password{
-    font-family: 'Rubik', sans-serif;
-    font-size: 19px;
-    margin-left: 50px;
-}
-.label_password::placeholder{
-    font-size: 17px;
-}
-.label_role{
-    font-family: 'Rubik', sans-serif;
-    font-size: 19px;
-    margin-left: 40px;
-}
-
 .select{
     direction: rtl;
+    text-align: right;
     font-family: 'Rubik', sans-serif;
-    font-size: 19px;
-    padding: 5px;
+    font-size: 20px;
+    padding: 6px;
     border-radius: 5px;
     border: none;
     margin-bottom: 10px;
-    margin-right: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 163px;
-    text-align: right;
+    border: 1.5px solid rgba(91, 91, 91, 0.25);
+    width: 272px;
+    margin-bottom: 20px;
 }
 
 .input{
     direction: rtl;
     text-align: right;
     font-family: 'Rubik', sans-serif;
-    font-size: 19px;
-    padding: 5px;
+    font-size: 20px;
+    padding: 6px;
     border-radius: 5px;
     border: none;
     margin-bottom: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 150px;
-    margin-right: 7px;
+    border: 1.5px solid rgba(91, 91, 91, 0.25);
+    width: 260px;
+    margin-bottom: 20px;
 }
 
 .btns_div{
@@ -154,10 +123,10 @@
         width: 310px;
     }
     .input{
-        width: 170px;
+        width: 280px;
     }
     .select{
-        width: 183px;
+        width: 292px;
     }
     .btn{
         width: 143px;
@@ -171,10 +140,10 @@
         width: 330px;
     }
     .input{
-        width: 190px;
+        width: 300px;
     }
     .select{
-        width: 203px;
+        width: 312px;
     }
     .btn{
         width: 153px;

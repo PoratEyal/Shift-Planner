@@ -18,17 +18,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-right: 15px;
 }
 
 .input{
     margin: 10px;
-    font-size: 18px;
-    padding: 5px;
+    font-size: 20px;
+    padding: 6px;
     border-radius: 5px;
     border: none;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 120px;
+    border: 1.5px solid rgba(91, 91, 91, 0.25);
+    width: 255px;
     text-align: right;
     direction: rtl;
     appearance: none;
@@ -39,12 +38,12 @@
 
 .input_time{
     margin: 10px;
-    font-size: 18px;
-    padding: 5px;
+    font-size: 20px;
+    padding: 6px;
     border-radius: 5px;
     border: none;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 120px;
+    border: 1.5px solid rgba(91, 91, 91, 0.25);
+    width: 255px;
     text-align: right;
     direction: rtl;
     appearance: none;
@@ -52,21 +51,22 @@
     font-family: 'Rubik', sans-serif;
 }
 .input_time::before{
-    content: 'התחלה';
+    content: 'זמן התחלה';
     color: #9d9d9d;
-    direction: ltr;
+    direction: rtl;
+    text-align: right;
     appearance: none;
     -webkit-appearance:none;
     font-family: 'Rubik', sans-serif;
 }
 .input_time2{
     margin: 10px;
-    font-size: 18px;
-    padding: 5px;
+    font-size: 20px;
+    padding: 6px;
     border-radius: 5px;
     border: none;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 120px;
+    border: 1.5px solid rgba(91, 91, 91, 0.25);
+    width: 255px;
     text-align: right;
     direction: rtl;
     appearance: none;
@@ -74,28 +74,13 @@
     font-family: 'Rubik', sans-serif;
 }
 .input_time2::before{
-    content: 'סיום';
+    content: 'זמן סיום';
     color: #9d9d9d;
-    direction: ltr;
+    direction: rtl;
+    text-align: right;
     appearance: none;
     -webkit-appearance:none;
     font-family: 'Rubik', sans-serif;
-}
-
-.label_name{
-    font-family: 'Rubik', sans-serif;
-    font-size: 19px;
-    margin-left: 30px;
-}
-.label_start{
-    font-family: 'Rubik', sans-serif;
-    font-size: 19px;
-    margin-left: 34px;
-}
-.label_end{
-    font-family: 'Rubik', sans-serif;
-    font-size: 19px;
-    margin-left: 58px;
 }
 
 .btn_div{
@@ -171,39 +156,39 @@
     .container{
         width: 310px;
     }
-    .input{
-        width: 130px;
-    }
     .btn{
         width: 135px;
     }
     .btn_cancel{
         width: 135px;
     }
+    .input{
+        width: 260px;
+    }
     .input_time{
-        width: 130px;
+        width: 260px;
     }
     .input_time2{
-        width: 130px;
+        width: 260px;
     }
 }
 @media only screen and (min-width: 430px){
     .container{
         width: 330px;
     }
-    .input{
-        width: 150px;
-    }
     .btn{
         width: 150px;
     }
     .btn_cancel{
         width: 150px;
     }
+    .input{
+        width: 290px;
+    }
     .input_time{
-        width: 150px;
+        width: 290px;
     }
     .input_time2{
-        width: 150px;
+        width: 290px;
     }
 }
