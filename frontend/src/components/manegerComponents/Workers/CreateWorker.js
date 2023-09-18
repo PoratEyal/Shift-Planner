@@ -135,6 +135,8 @@ const CreateWorker = () => {
                 <button className={styles.btn} type="button" onClick={handleSubmit}>אישור</button>
                 <button className={styles.btn_cancel} type="button" onClick={() => navigate('/workers')}>ביטול</button>
               </div>
+
+              <img className={styles.addUser_svg} src="addUser.svg" alt="Icon" />
                 
             </form>
         </div>

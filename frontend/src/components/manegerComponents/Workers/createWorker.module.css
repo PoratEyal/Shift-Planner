@@ -92,9 +92,11 @@
     background-color: #c1e1ff;
     color:#2880cc;
     z-index: 2;
+    margin-bottom: 200px;
 }
 
 .btn_cancel {
+    margin-bottom: 200px;
     margin-top: 10px;
     display: flex;
     padding: 0.8rem 2.4rem;
@@ -118,6 +120,25 @@
     z-index: 2;
 }
 
+.addUser_svg {
+    z-index: 0;
+    position: absolute;
+    bottom: -120px;
+    opacity: 0.9;
+    margin-left: 145px;
+    width: 280px;
+    height: 320px;
+    animation: downToUp 1s ease-in-out;
+}
+@keyframes downToUp {
+    0% {
+        transform: translateY(70px);
+    }
+    100% {
+        transform: translateY(0);
+  }
+}
+
 @media only screen and (min-width: 380px){
     .createUser{
         width: 310px;
@@ -133,6 +154,9 @@
     }
     .btn_cancel{
         width: 143px;
+    }
+    .addUser_svg{
+        margin-left: 165px;
     }
 }
 @media only screen and (min-width: 430px){
@@ -150,5 +174,8 @@
     }
     .btn_cancel{
         width: 153px;
+    }
+    .addUser_svg{
+        margin-left: 185px;
     }
 }
