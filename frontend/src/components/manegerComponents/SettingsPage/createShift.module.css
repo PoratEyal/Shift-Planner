@@ -114,9 +114,12 @@
     font-family: 'Rubik', sans-serif;
     background-color: #c1e1ff;
     color:#2880cc;
+    margin-bottom: 150px;
+    z-index: 1;
 }
 
 .btn_cancel {
+    margin-bottom: 150px;
     margin-top: 20px;
     display: flex;
     padding: 0.8rem 2.4rem;
@@ -137,6 +140,27 @@
     font-family: 'Rubik', sans-serif;
     background-color: rgba(255, 92, 92, 0.76);
     color:rgb(255, 255, 255);
+    z-index: 1;
+}
+
+.shift_svg {
+    z-index: 0;
+    position: absolute;
+    bottom: -102px;
+    margin-right: 10px;
+    opacity: 0.9;
+    width: 300px;
+    height: 320px;
+    animation: downToUp 1.2s ease-in-out;
+}
+
+@keyframes downToUp {
+    0% {
+        transform: translateY(80px);
+    }
+    100% {
+        transform: translateY(0);
+  }
 }
 
 @keyframes slideInAndFade {
