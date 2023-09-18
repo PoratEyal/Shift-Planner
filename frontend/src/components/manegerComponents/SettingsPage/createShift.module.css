@@ -27,7 +27,7 @@
     border-radius: 5px;
     border: none;
     border: 1.5px solid rgba(91, 91, 91, 0.25);
-    width: 255px;
+    width: 275px;
     text-align: right;
     direction: rtl;
     appearance: none;
@@ -43,7 +43,7 @@
     border-radius: 5px;
     border: none;
     border: 1.5px solid rgba(91, 91, 91, 0.25);
-    width: 255px;
+    width: 275px;
     text-align: right;
     direction: rtl;
     appearance: none;
@@ -66,7 +66,7 @@
     border-radius: 5px;
     border: none;
     border: 1.5px solid rgba(91, 91, 91, 0.25);
-    width: 255px;
+    width: 275px;
     text-align: right;
     direction: rtl;
     appearance: none;
@@ -91,7 +91,7 @@
 }
 
 .btn {
-    margin-right: 10px;
+    margin-right: 20px;
     margin-top: 20px;
     display: flex;
     padding: 0.8rem 2.4rem;
@@ -109,7 +109,7 @@
     background-color: #63b6ff;
     cursor: pointer;
     transition: all .6s ease;
-    width: 130px;
+    width: 135px;
     justify-content: center;
     font-family: 'Rubik', sans-serif;
     background-color: #c1e1ff;
@@ -132,7 +132,7 @@
     gap: 0.75rem;
     cursor: pointer;
     transition: all .6s ease;
-    width: 130px;
+    width: 135px;
     justify-content: center;
     font-family: 'Rubik', sans-serif;
     background-color: rgba(255, 92, 92, 0.76);
@@ -157,19 +157,19 @@
         width: 310px;
     }
     .btn{
-        width: 135px;
+        width: 145px;
     }
     .btn_cancel{
-        width: 135px;
+        width: 145px;
     }
     .input{
-        width: 260px;
+        width: 290px;
     }
     .input_time{
-        width: 260px;
+        width: 290px;
     }
     .input_time2{
-        width: 260px;
+        width: 290px;
     }
 }
 @media only screen and (min-width: 430px){
@@ -177,18 +177,18 @@
         width: 330px;
     }
     .btn{
-        width: 150px;
+        width: 153px;
     }
     .btn_cancel{
-        width: 150px;
+        width: 153px;
     }
     .input{
-        width: 290px;
+        width: 310px;
     }
     .input_time{
-        width: 290px;
+        width: 310px;
     }
     .input_time2{
-        width: 290px;
+        width: 310px;
     }
 }
