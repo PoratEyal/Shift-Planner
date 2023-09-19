@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import styles from './settingsPage.module.css';
+import styles from './shiftPage.module.css';
 import PageLayout from './/..//..//layout/PageLayout';
 import { useNavigate } from 'react-router-dom';
 import DefaultShift from "./DefaultShift";

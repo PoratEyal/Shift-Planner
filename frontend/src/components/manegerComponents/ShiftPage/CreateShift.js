@@ -37,7 +37,7 @@ const CreateShift = () => {
                 endTime: endTimeValue
             }
             await axios.put(`${process.env.REACT_APP_URL}/addNewShift`, reqBody)
-            navigate('/settings')
+            navigate('/defShifts')
         }
     }
 
@@ -59,7 +59,7 @@ const CreateShift = () => {
 
             <div className={styles.btn_div}>
                 <button className={styles.btn} onClick={clickHandle}>אישור</button>
-                <button className={styles.btn_cancel} onClick={() => navigate('/settings')}>ביטול</button>
+                <button className={styles.btn_cancel} onClick={() => navigate('/defShifts')}>ביטול</button>
             </div>
 
             <img className={styles.shift_svg} src="shift.svg" alt="Icon" />

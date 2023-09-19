@@ -1,6 +1,6 @@
 import React,{ useEffect, useRef, useState } from "react";
 import moment from "moment";
-import styles from './settingsPage.module.css';
+import styles from './shiftPage.module.css';
 import axios from "axios";
 import Swal from 'sweetalert2';
 import { RiDeleteBin6Line } from "react-icons/ri";
