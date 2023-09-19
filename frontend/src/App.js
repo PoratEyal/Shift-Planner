@@ -14,8 +14,9 @@ import EditCurrentWeek from './components/manegerComponents/EditCurrentWeek/Edit
 import Roles from './components/manegerComponents/Roles/Roles';
 import Workers from './components/manegerComponents/Workers/Workers';
 import CreateWorker from './components/manegerComponents/Workers/CreateWorker';
-import defShifts from './components/manegerComponents/SettingsPage/Settings';
-import CreateShift from './components/manegerComponents/SettingsPage/CreateShift';
+import defShifts from './components/manegerComponents/ShiftPage/ShiftPage';
+import CreateShift from './components/manegerComponents/ShiftPage/CreateShift';
+import SettingsPage from './components/manegerComponents/SettingsPage/SettingsPage';
 
 const App = () => {
 
@@ -25,9 +26,6 @@ const App = () => {
         <Route path="/" element={<Login/>} />
 
         {/* - - - - - - - -maneger - - - - - - -  */}
-        <Route path='/settings' element={<ProtectedRoute component={defShifts} role="admin"/>}></Route>
-        <Route path='/createShift' element={<ProtectedRoute component={CreateShift} role="admin"/>}></Route>
-
         <Route path='/managerHomePage' element={<ProtectedRoute component={ManagerHomePage} role="admin"/>}></Route>
         <Route path="/createNewWeek" element={<ProtectedRoute component={CreateWeek} role="admin"/>} />
         <Route path="/currentWeekShifts" element={<ProtectedRoute component={CurrentWeekShifts} role="admin"/>} />
@@ -37,6 +35,9 @@ const App = () => {
         <Route path='/roles' element={<ProtectedRoute component={Roles} role="admin"/>}/>
         <Route path='/workers' element={<ProtectedRoute component={Workers} role="admin"/>}/>
         <Route path='/createWorker' element={<ProtectedRoute component={CreateWorker} role="admin"/>}/>
+        <Route path='/defShifts' element={<ProtectedRoute component={defShifts} role="admin"/>}></Route>
+        <Route path='/createShift' element={<ProtectedRoute component={CreateShift} role="admin"/>}></Route>
+        <Route path='/settingsPage' element={<ProtectedRoute component={SettingsPage} role="admin"/>}></Route>
 
          {/* - - - - - - - -workers - - - - - - -  */}
         <Route path='/CurrentWeek' element={<ProtectedRoute component={CurrentWeekUser} role="user"/>}></Route>

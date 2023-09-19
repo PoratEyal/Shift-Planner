@@ -26,11 +26,11 @@ const SeeWorkersCurrentWeek = (props) => {
       }
       axios.post(`${process.env.REACT_APP_URL}/getUserById`, body)
         .then(async (response) => {
-          setLoading(false)
           if (response.data?.fullName != null) {
             const worker = response.data;
             setGrouped(await groupByIntegerField(grouped, worker));
             setSbWorkersNames(prevWorkerNames => [...prevWorkerNames, worker]);
+            setLoading(false)
           }
         })
         .catch(error => {
@@ -43,19 +43,29 @@ const SeeWorkersCurrentWeek = (props) => {
       };
       await axios.post(`${process.env.REACT_APP_URL}/getUserById`, reqBody)
         .then(async(response) => {
-          setLoading(false);
           const workerData = response.data;
           if (workerData && workerData.fullName && !(props.standBy.includes(response.data._id))) { 
             setGrouped(await groupByIntegerField(grouped, workerData));
             setWorkersArr(prevWorkers => [...prevWorkers, workerData]);
+            setLoading(false);
           }
         })
         .catch(error => {
           setLoading(false);
-          console.error(error);
         })
     });
   }, []);
+
+  //console.log(grouped);
+  //console.log(groupedKeys);
+
+  // grouped.map((role) => {
+  //   console.log(role)
+  //   role.map((workerName) => {
+  //     console.log(workerName.fullName)
+  //   })
+  // })
+
   const groupByIntegerField = async (grouped, workerData) => {
     const fieldValue = workerData['role'];
     if (fieldValue) {

@@ -1,26 +1,30 @@
 import { useState } from 'react';
 import styles from '../userSettings/UserSetings.module.css';
 import axios from 'axios';
-import { BiSolidHome } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 import PageLayoutWorker from './/..//..//layout/PageLayoutWorker';
+import Swal from 'sweetalert2';
 
 const UserSettings = () => {
 
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [isEmpty, setIsEmpty] = useState(false); // New state variable
   const userData = JSON.parse(localStorage.getItem('user'));
 
   const changeUser = async () => {
-    if (password.length < 5) {
-      setIsEmpty(true);
-      return
-    }
-
     if (username.trim() !== '' && password.trim() !== '') {
-      setIsEmpty(false); // Reset isEmpty state
+      if (password.length < 5) {
+        Swal.fire({
+          title: 'יש למלא סיסמה גדולה מחמישה תווים',
+          text: "",
+          icon: 'warning',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'סגירה'
+        });
+        return;
+      }
+
       const updatedUser = {
         _id: userData._id,
         fullName: userData.fullName,
@@ -30,13 +34,10 @@ const UserSettings = () => {
         job: userData.job,
       };
 
-
-      await axios
-        .put(`${process.env.REACT_APP_URL}/editUser`, updatedUser)
-        .then((response) => {
-          setUsername('');
+      await axios.put(`${process.env.REACT_APP_URL}/editUser`, updatedUser)
+        .then(() => {
           setPassword('');
-          setIsEmpty(false);
+
           localStorage.clear();
           navigate('/');
         })
@@ -44,10 +45,15 @@ const UserSettings = () => {
           console.error('An error occurred:', error);
         });
     } else {
-      setIsEmpty(true);
+      Swal.fire({
+        title: 'יש למלא את כל השדות',
+        text: "",
+        icon: 'warning',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'סגירה'
+      });
+      return;
     }
-
-    
   };
 
   return <PageLayoutWorker text='עדכון פרטי משתמש'>
@@ -55,7 +61,7 @@ const UserSettings = () => {
       <h2 className={styles.h2}>הזינו פרטי משתמש חדשים</h2>
 
       <input
-        className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
+        className={styles.input}
         placeholder="שם משתמש באנגלית בלבד"
         value={username}
         onChange={(e) => {
@@ -69,7 +75,7 @@ const UserSettings = () => {
 
       <input
         type='password'
-        className={`${styles.input} ${isEmpty ? styles.emptyInput : ''}`}
+        className={styles.input}
         placeholder="סיסמה בעלת 5 תווים לפחות"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
@@ -80,6 +86,8 @@ const UserSettings = () => {
       <button onClick={changeUser} className={styles.btn}>
         אישור
       </button>
+
+      <img className={styles.password_time_svg} src="password.svg" alt="Icon" />
     </div>
   </PageLayoutWorker>
 

@@ -30,6 +30,11 @@ const userSchema = new mongoose.Schema({
     },
     token:{
       type: String
+    },
+    useRoles:{
+      type: Boolean,
+      default: false,
+      required: false
     }
   });
 

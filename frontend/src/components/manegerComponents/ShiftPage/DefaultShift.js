@@ -1,6 +1,6 @@
 import React,{ useEffect, useRef, useState } from "react";
 import moment from "moment";
-import styles from './settingsPage.module.css';
+import styles from './shiftPage.module.css';
 import axios from "axios";
 import Swal from 'sweetalert2';
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -75,7 +75,7 @@ const DefaultShift = (props) => {
             </div>
 
             <div className={styles.delete_edit_div}>
-                <FiMoreHorizontal onClick={() => options(shift._id)}></FiMoreHorizontal>
+                <FiMoreHorizontal className={styles.icon} onClick={() => options(shift._id)}></FiMoreHorizontal>
 
                 {openOptions === shift._id && isDivVisible ? 
                     <div ref={divRef} className={styles.edit_div_options}>

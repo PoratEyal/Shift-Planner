@@ -9,6 +9,8 @@
     background: rgb(255, 255, 255);
     border-radius: 12px;
     animation: slideInAndFade 0.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
 }
 
 .userForm{
@@ -16,17 +18,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-right: 15px;
 }
 
 .input{
     margin: 10px;
-    font-size: 18px;
-    padding: 5px;
+    font-size: 20px;
+    padding: 6px;
     border-radius: 5px;
     border: none;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 120px;
+    border: 1.5px solid rgba(91, 91, 91, 0.25);
+    width: 275px;
     text-align: right;
     direction: rtl;
     appearance: none;
@@ -37,12 +38,12 @@
 
 .input_time{
     margin: 10px;
-    font-size: 18px;
-    padding: 5px;
+    font-size: 20px;
+    padding: 6px;
     border-radius: 5px;
     border: none;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 120px;
+    border: 1.5px solid rgba(91, 91, 91, 0.25);
+    width: 275px;
     text-align: right;
     direction: rtl;
     appearance: none;
@@ -52,19 +53,20 @@
 .input_time::before{
     content: 'התחלה';
     color: #9d9d9d;
-    direction: ltr;
+    direction: rtl;
+    text-align: right;
     appearance: none;
     -webkit-appearance:none;
     font-family: 'Rubik', sans-serif;
 }
 .input_time2{
     margin: 10px;
-    font-size: 18px;
-    padding: 5px;
+    font-size: 20px;
+    padding: 6px;
     border-radius: 5px;
     border: none;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 120px;
+    border: 1.5px solid rgba(91, 91, 91, 0.25);
+    width: 275px;
     text-align: right;
     direction: rtl;
     appearance: none;
@@ -74,26 +76,11 @@
 .input_time2::before{
     content: 'סיום';
     color: #9d9d9d;
-    direction: ltr;
+    direction: rtl;
+    text-align: right;
     appearance: none;
     -webkit-appearance:none;
     font-family: 'Rubik', sans-serif;
-}
-
-.label_name{
-    font-family: 'Rubik', sans-serif;
-    font-size: 19px;
-    margin-left: 30px;
-}
-.label_start{
-    font-family: 'Rubik', sans-serif;
-    font-size: 19px;
-    margin-left: 34px;
-}
-.label_end{
-    font-family: 'Rubik', sans-serif;
-    font-size: 19px;
-    margin-left: 58px;
 }
 
 .btn_div{
@@ -104,7 +91,7 @@
 }
 
 .btn {
-    margin-right: 10px;
+    margin-right: 20px;
     margin-top: 20px;
     display: flex;
     padding: 0.8rem 2.4rem;
@@ -122,14 +109,17 @@
     background-color: #63b6ff;
     cursor: pointer;
     transition: all .6s ease;
-    width: 130px;
+    width: 135px;
     justify-content: center;
     font-family: 'Rubik', sans-serif;
     background-color: #c1e1ff;
     color:#2880cc;
+    margin-bottom: 150px;
+    z-index: 1;
 }
 
 .btn_cancel {
+    margin-bottom: 150px;
     margin-top: 20px;
     display: flex;
     padding: 0.8rem 2.4rem;
@@ -145,11 +135,32 @@
     gap: 0.75rem;
     cursor: pointer;
     transition: all .6s ease;
-    width: 130px;
+    width: 135px;
     justify-content: center;
     font-family: 'Rubik', sans-serif;
     background-color: rgba(255, 92, 92, 0.76);
     color:rgb(255, 255, 255);
+    z-index: 1;
+}
+
+.shift_svg {
+    z-index: 0;
+    position: absolute;
+    bottom: -102px;
+    margin-right: 10px;
+    opacity: 0.9;
+    width: 300px;
+    height: 320px;
+    animation: downToUp 1.2s ease-in-out;
+}
+
+@keyframes downToUp {
+    0% {
+        transform: translateY(80px);
+    }
+    100% {
+        transform: translateY(0);
+  }
 }
 
 @keyframes slideInAndFade {
@@ -169,39 +180,39 @@
     .container{
         width: 310px;
     }
-    .input{
-        width: 130px;
-    }
     .btn{
-        width: 135px;
+        width: 145px;
     }
     .btn_cancel{
-        width: 135px;
+        width: 145px;
+    }
+    .input{
+        width: 290px;
     }
     .input_time{
-        width: 130px;
+        width: 290px;
     }
     .input_time2{
-        width: 130px;
+        width: 290px;
     }
 }
 @media only screen and (min-width: 430px){
     .container{
         width: 330px;
     }
-    .input{
-        width: 150px;
-    }
     .btn{
-        width: 150px;
+        width: 153px;
     }
     .btn_cancel{
-        width: 150px;
+        width: 153px;
+    }
+    .input{
+        width: 310px;
     }
     .input_time{
-        width: 150px;
+        width: 310px;
     }
     .input_time2{
-        width: 150px;
+        width: 310px;
     }
 }

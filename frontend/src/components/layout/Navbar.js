@@ -213,10 +213,10 @@ const Navbar = (props) => {
               </div>
 
               <div className={styles.text_and_icon}>
-                <Link onClick={() => setOpen((prev) => !prev)} className={styles.icon_link} to="/settings">
+                <Link onClick={() => setOpen((prev) => !prev)} className={styles.icon_link} to="/defShifts">
                   <BiTime className={styles.icon}></BiTime>
                 </Link>
-                <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/settings">
+                <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/defShifts">
                   משמרות
                 </Link>
               </div>
@@ -231,6 +231,15 @@ const Navbar = (props) => {
                   עדכון פרטי משתמש
                 </Link>
               </div>
+
+              {/* <div className={styles.text_and_icon}>
+                <Link onClick={() => setOpen((prev) => !prev)} className={styles.icon_link} to="/settingsPage">
+                  <AiOutlineSetting className={styles.icon}></AiOutlineSetting>
+                </Link>
+                <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/settingsPage">
+                  הגדרות
+                </Link>
+              </div> */}
 
               <hr className={styles.line}></hr>
 

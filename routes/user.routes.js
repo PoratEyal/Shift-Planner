@@ -26,8 +26,6 @@ userRouter.put('/workersCountOfManager', async (req, res) => {
 });
 
 
-
-
 // create/POST user
 userRouter.post('/addUser', async (req, res) => {
     try {
@@ -63,6 +61,29 @@ userRouter.post(`/getAllWorkers`, (req, res) => {
     });
 });
 
+userRouter.post('/rolesToShow', (req, res) => {
+    const id = req.body.id;
+    const roleStatus = req.body.roleStatus;
+
+    User.findById(id)
+        .then((user) => {
+            if (!user) {
+                return res.status(404).json({ error: 'User not found' });
+            }
+            // Update the useRoles field with the roleStatus
+            user.useRoles = roleStatus;
+
+            // Save the updated user
+            return user.save();
+        })
+        .then((updatedUser) => {
+            res.json({ message: 'useRoles field updated successfully', user: updatedUser });
+        })
+        .catch((error) => {
+            res.status(500).json({ error: 'Internal server error', details: error.message });
+        });
+});
+
 
 userRouter.post('/getMyWorkers', (req, res) => {
     const job = req.body.job;
@@ -84,9 +105,7 @@ userRouter.post('/getUserById', (req, res) => {
         .catch(err => {
             res.status(400).json({ message: err.message });
         });
-
 });
-
 
 userRouter.get('/GetUserRole', authenticateToken, (req, res) => {
     if (req.user.job === '649c08040834b0d306adef45' || req.user.job === "64c259551a5f2d4dca3424bb") {

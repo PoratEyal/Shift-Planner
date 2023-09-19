@@ -37,7 +37,7 @@ const CreateShift = () => {
                 endTime: endTimeValue
             }
             await axios.put(`${process.env.REACT_APP_URL}/addNewShift`, reqBody)
-            navigate('/settings')
+            navigate('/defShifts')
         }
     }
 
@@ -45,26 +45,24 @@ const CreateShift = () => {
         <div className={styles.container}>
             <form className={styles.userForm}> 
                 <div>
-                    <input className={styles.input} type="text" ref={name}></input>
-                    <label className={styles.label_name}>שם משמרת</label>
+                    <input placeholder="שם משמרת" className={styles.input} type="text" ref={name}></input>
                 </div>
 
                 <div>
                     <input className={styles.input_time} type="time" ref={startTime}></input>
-                    <label className={styles.label_start}>זמן התחלה</label>
                 </div>
 
                 <div>
                     <input className={styles.input_time2} type="time" ref={endTime}></input>
-                    <label className={styles.label_end}>זמן סיום</label>
                 </div>
             </form>
 
             <div className={styles.btn_div}>
                 <button className={styles.btn} onClick={clickHandle}>אישור</button>
-                <button className={styles.btn_cancel} onClick={() => navigate('/settings')}>ביטול</button>
+                <button className={styles.btn_cancel} onClick={() => navigate('/defShifts')}>ביטול</button>
             </div>
 
+            <img className={styles.shift_svg} src="shift.svg" alt="Icon" />
         </div>
     </PageLayout>
 }
