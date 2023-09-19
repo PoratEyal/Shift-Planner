@@ -58,6 +58,16 @@ const SeeWorkersCurrentWeek = (props) => {
     });
   }, []);
 
+  //console.log(grouped);
+  //console.log(groupedKeys);
+
+  // grouped.map((role) => {
+  //   console.log(role)
+  //   role.map((workerName) => {
+  //     console.log(workerName.fullName)
+  //   })
+  // })
+
   const groupByIntegerField = async (grouped, workerData) => {
     const fieldValue = workerData['role'];
     if (fieldValue) {
@@ -73,9 +83,6 @@ const SeeWorkersCurrentWeek = (props) => {
     }
     return grouped
   };
-
-  // console.log(grouped);
-  // console.log(groupedKeys);
 
   const getShiftData = (worker, index) => {
     let data = null;
