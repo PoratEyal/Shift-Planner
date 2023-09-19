@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PageLayout from "../../layout/PageLayout";
-import styles from "./SettingsPage.module.css";
+import styles from "./settingsPage.module.css";
 import axios from 'axios';
 import { ManagerContext } from '../ManagerHomePage' 
 import { useContext } from 'react';
