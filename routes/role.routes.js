@@ -39,10 +39,8 @@ roleRouter.post('/getRoles', authenticateToken, async (req, res) => {
 roleRouter.post('/getRoleWithId', async (req, res) => {
     try {
         const { id } = req.body;
-        console.log(id)
         Role.findById(new ObjectId(id))
             .then((data) => {
-                console.log(data)
                 if (data) {
                     res.status(200).json(data.name);
                 } else {

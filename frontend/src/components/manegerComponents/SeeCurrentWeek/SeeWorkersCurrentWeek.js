@@ -20,7 +20,6 @@ const SeeWorkersCurrentWeek = (props) => {
     if (workers.length == 0) {
       setLoading(false)
     }
-
     sbWorkers.map(worker => {
       const body = {
         id: worker
@@ -38,7 +37,6 @@ const SeeWorkersCurrentWeek = (props) => {
           setLoading(false)
         });
     });
-
     workers.map(async (worker) => {
       const reqBody = {
         id: worker
@@ -74,8 +72,12 @@ const SeeWorkersCurrentWeek = (props) => {
     return grouped
   };
 
-  console.log(grouped);
-  console.log(groupedKeys);
+  groupedKeys.map(key => {
+    console.log(key);
+    grouped[key].map(worker => {
+      console.log(worker.fullName);
+    });
+  });
 
   const getShiftData = (worker, index) => {
     let data = null;
