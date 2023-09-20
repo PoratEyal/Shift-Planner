@@ -108,6 +108,7 @@ const CurrentWeekWorkers = (props) => {
   }, []);
 
   const choseWorker = (id) => {
+    console.log(id)
     props.addWorkerShift(id);
     setUpdatedWorkers(!updatedWorkers);
   };
@@ -399,10 +400,15 @@ const CurrentWeekWorkers = (props) => {
                   
                   <FiMoreHorizontal onClick={() => options(worker._id)} className={styles.icon_edit}></FiMoreHorizontal>
                   
-                  <RiDeleteBin6Line className={styles.icon_delete} onClick={() => removeWorker(worker._id)}></RiDeleteBin6Line>
+                  {/* <RiDeleteBin6Line className={styles.icon_delete} onClick={() => removeWorker(worker._id)}></RiDeleteBin6Line> */}
 
                   {openOptions === worker._id && isDivVisible ? 
                     <div ref={divRef} className={styles.edit_div_options}>
+                        <div className={styles.edit_div_flex}>
+                          <label onClick={() => removeWorker(worker._id)}>מחיקת עובד</label>
+                          <RiDeleteBin6Line className={styles.icon_edit_select} onClick={() => removeWorker(worker._id)}></RiDeleteBin6Line>
+                        </div>
+
                         <div className={styles.edit_div_flex}>
                           <label onClick={() => editHours(worker)}>בחירת שעות</label>
                           <BiTime className={styles.icon_edit_select} onClick={() => editHours(worker)}></BiTime>
@@ -427,11 +433,60 @@ const CurrentWeekWorkers = (props) => {
                     ) : null}
                     
                   </div>
-                {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
+
+                <div className={styles.name_role_div}>
+                  <label>{worker.fullName && <p className={styles.names}>{worker.fullName}</p>}</label>
+                  <div className={styles.role_sb_div}>(מלצר)</div>
+                </div>
+
               </div>
             ))}
 
-            {availableWorkersArr.map((worker) => (
+            {sbWorkersArr.map((worker) => (
+              <div key={worker._id} className={styles.nameAndDelete}>
+                <div className={styles.label_edit_select}>
+
+                  <FiMoreHorizontal onClick={() => options(worker._id)} className={styles.icon_edit}></FiMoreHorizontal>
+                  
+                  {/* <FcSynchronize className={styles.icon_add} onClick={() => delSbworker(worker._id)}></FcSynchronize> */}
+                  
+                  {openOptions === worker._id && isDivVisible ? 
+                    <div ref={divRef} className={styles.edit_div_options}>
+
+                      <div className={styles.edit_div_flex}>
+                        <label className={styles.text_edit_select} onClick={() => delSbworker(worker._id)}>הסרת כוננות</label>
+                        <FcSynchronize className={styles.icon_edit_select} onClick={() => delSbworker(worker._id)}></FcSynchronize>
+                      </div>
+
+                      <div className={styles.edit_div_flex}>
+                        <label className={styles.text_edit_select} onClick={() => editHours(worker)}>בחירת שעות</label>
+                        <BiTime className={styles.icon_edit_select} onClick={() => editHours(worker)}></BiTime>
+                      </div>
+
+                      <div className={styles.edit_div_flex}>
+                        <label className={styles.text_edit_select} onClick={() => writeMessage(worker)}>כתיבת הודעה</label>
+                        <AiOutlineMessage className={styles.icon_edit_select} onClick={() => writeMessage(worker)}></AiOutlineMessage>
+                      </div>
+                  </div> : null}
+  
+                  {hasMessage(worker._id) ? (
+                    <AiOutlineMessage
+                      onClick={() => seeMessage(worker)}
+                      className={styles.icon_message_alert}
+                    ></AiOutlineMessage>
+                  ) : null}
+
+                </div>
+
+                <div className={styles.name_role_div}>
+                  <label>{worker.fullName && <p className={styles.names}>{worker.fullName}</p>}</label>
+                  <div className={styles.role_sb_div}>(מלצר, כוננות)</div>
+                </div>
+
+              </div>
+            ))}
+
+            {/* {availableWorkersArr.map((worker) => (
               <div key={worker._id} className={styles.nameAndDelete}>
                 <div className={styles.label_edit_select}>
 
@@ -468,56 +523,34 @@ const CurrentWeekWorkers = (props) => {
                 </div>
                 {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
               </div>
+            ))} */}
+        </div>)}
+
+        <div className={styles.add_specific_worker_div}>
+          <div>
+            <button onClick={() => { choseWorker(selectRef.current.value) }} className={styles.add_specific_worker_btn}>+</button>
+          </div>
+
+          <select className={styles.add_specific_worker_select} ref={selectRef} defaultValue="">
+            <option value="" disabled>עובדים שבקשו את המשמרת</option>
+            {availableWorkersArr.map((elem, index) => (
+              <option key={index} value={elem._id}>{elem.fullName}</option>
             ))}
-
-            {sbWorkersArr.map((worker) => (
-              <div key={worker._id} className={styles.nameAndDelete}>
-                <div className={styles.label_edit_select}>
-
-                  <FiMoreHorizontal onClick={() => options(worker._id)} className={styles.icon_edit}></FiMoreHorizontal>
-                  
-                  <FcSynchronize className={styles.icon_add} onClick={() => delSbworker(worker._id)}></FcSynchronize>
-                  
-                  {openOptions === worker._id && isDivVisible ? 
-                    <div ref={divRef} className={styles.edit_div_options}>
-
-                      <div className={styles.edit_div_flex}>
-                        <label className={styles.text_edit_select} onClick={() => editHours(worker)}>בחירת שעות</label>
-                        <BiTime className={styles.icon_edit_select} onClick={() => editHours(worker)}></BiTime>
-                      </div>
-
-                      <div className={styles.edit_div_flex}>
-                        <label className={styles.text_edit_select} onClick={() => writeMessage(worker)}>כתיבת הודעה</label>
-                        <AiOutlineMessage className={styles.icon_edit_select} onClick={() => writeMessage(worker)}></AiOutlineMessage>
-                      </div>
-                  </div> : null}
-  
-                  {hasMessage(worker._id) ? (
-                    <AiOutlineMessage
-                      onClick={() => seeMessage(worker)}
-                      className={styles.icon_message_alert}
-                    ></AiOutlineMessage>
-                  ) : null}
-
-                </div>
-                {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
-              </div>
-            ))}
-
-          </div>)}
-
-      <div className={styles.add_specific_worker_div}>
-        <div>
-          <button onClick={() => { choseWorker(selectRef.current.value) }} className={styles.add_specific_worker_btn}>הוספה</button>
+          </select>
         </div>
 
-        <select className={styles.add_specific_worker_select} ref={selectRef} defaultValue="">
-          <option value="" disabled>הוספת עובד</option>
-          {newWorkers.map((elem, index) => (
-            <option key={index} value={elem._id}>{elem.fullName}</option>
-          ))}
-        </select>
-      </div>
+        <div className={styles.add_specific_worker_div}>
+          <div>
+            <button onClick={() => { choseWorker(selectRef.current.value) }} className={styles.add_specific_worker_btn}>+</button>
+          </div>
+
+          <select className={styles.add_specific_worker_select} ref={selectRef} defaultValue="">
+            <option value="" disabled>הוספת עובד למשמרת</option>
+            {newWorkers.map((elem, index) => (
+              <option key={index} value={elem._id}>{elem.fullName}</option>
+            ))}
+          </select>
+        </div>
 
     </React.Fragment>
     
