@@ -437,7 +437,7 @@ const CurrentWeekWorkers = (props) => {
 
                 <div className={styles.name_role_div}>
                   <label>{worker.fullName && <p className={styles.names}>{worker.fullName}</p>}</label>
-                  <div className={styles.role_sb_div}>(מלצר)</div>
+                  {/* <div className={styles.role_sb_div}>(מלצר)</div> */}
                 </div>
 
               </div>
@@ -481,7 +481,7 @@ const CurrentWeekWorkers = (props) => {
 
                 <div className={styles.name_role_div}>
                   <label>{worker.fullName && <p className={styles.names}>{worker.fullName}</p>}</label>
-                  <div className={styles.role_sb_div}>(מלצר, כוננות)</div>
+                  <div className={styles.role_sb_div}>(כוננות)</div>
                 </div>
 
               </div>
