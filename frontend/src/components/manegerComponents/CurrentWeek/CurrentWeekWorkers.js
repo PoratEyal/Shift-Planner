@@ -456,7 +456,7 @@ const CurrentWeekWorkers = (props) => {
 
                       <div className={styles.edit_div_flex}>
                         <label className={styles.text_edit_select} onClick={() => delSbworker(worker._id)}>הסרת כוננות</label>
-                        <FcSynchronize className={styles.icon_edit_select} onClick={() => delSbworker(worker._id)}></FcSynchronize>
+                        <AiOutlineSync className={styles.icon_edit_select} onClick={() => delSbworker(worker._id)}></AiOutlineSync>
                       </div>
 
                       <div className={styles.edit_div_flex}>
