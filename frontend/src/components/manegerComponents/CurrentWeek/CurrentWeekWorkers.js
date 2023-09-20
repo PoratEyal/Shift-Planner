@@ -31,7 +31,9 @@ const CurrentWeekWorkers = (props) => {
   const [isDivVisible, setDivVisible] = useState(false);
   const divRef = useRef(null);
 
-  const selectRef = useRef(null);
+  const selectRef = useRef("");
+  const selectreF = useRef("");
+
   const weekMessages = React.useContext(messageContext)
 
   useEffect(() => {
@@ -528,10 +530,10 @@ const CurrentWeekWorkers = (props) => {
 
         <div className={styles.add_specific_worker_div}>
           <div>
-            <button onClick={() => { choseWorker(selectRef.current.value) }} className={styles.add_specific_worker_btn}>+</button>
+            <button onClick={() => { choseWorker(selectreF.current.value) }} className={styles.add_specific_worker_btn}>+</button>
           </div>
 
-          <select className={styles.add_specific_worker_select} ref={selectRef} defaultValue="">
+          <select className={styles.add_specific_worker_select} ref={selectreF} defaultValue="">
             <option value="" disabled>עובדים שבקשו את המשמרת</option>
             {availableWorkersArr.map((elem, index) => (
               <option key={index} value={elem._id}>{elem.fullName}</option>
