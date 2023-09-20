@@ -144,7 +144,7 @@
 .h2{
     font-size: 22px;
     margin-top: -15px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     font-weight: 400;
 }
 
@@ -157,7 +157,7 @@
 /* - - - - - - - shift component - - - - - -  */
 
 .shift{
-    width: 280px;
+    width: 295px;
     font-size: 1.2em;
     border: none;
     border-radius: 10px;
@@ -166,7 +166,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     background-color: rgba(231, 234, 238, 0.571);
 }
 
@@ -298,7 +298,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 90px;
+    max-width: 105px;
 }
 
 .nameAndDelete{
@@ -314,7 +314,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 280px;
+    width: 295px;
 }
 .add_specific_worker_btn{
     display: flex;
@@ -601,7 +601,7 @@
         width: 300px;
     }
     .shift{
-        width: 300px;
+        width: 315px;
     }
     .published_div button{
         width: 320px;
@@ -613,7 +613,7 @@
         width: 340px;
     }
     .add_specific_worker_div{
-        width: 300px;
+        width: 315px;
     }
     .add_specific_worker_select{
         width: 230px;
@@ -624,7 +624,7 @@
         width: 320px;
     }
     .shift{
-        width: 320px;
+        width: 335px;
     }
     .published_div button{
         width: 340px;
@@ -636,7 +636,7 @@
         width: 360px;
     }
     .add_specific_worker_div{
-        width: 320px;
+        width: 335px;
     }
     .add_specific_worker_select{
         width: 250px;
