@@ -299,6 +299,15 @@
     border-bottom: 0px solid rgba(101, 101, 101, 0.245);
 }
 
+.add_available_worker_div{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
 .add_specific_worker_div{
     display: flex;
     flex-direction: row;
