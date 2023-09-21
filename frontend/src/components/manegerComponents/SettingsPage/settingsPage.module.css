@@ -1,6 +1,6 @@
 .container{
     margin-top: 90px;
-    width: 320px;
+    width: 345px;
     height: 60px;
     border-radius: 15px;
     background-color: rgb(255, 255, 255);
@@ -21,13 +21,6 @@
 .text{
     font-size: 20px;
 }
-
-
-
-
-
-
-
 
 
 /* - - - - - - - - - switch style - - - - - - - - - - - - */
@@ -88,3 +81,16 @@
     transform: translateX(calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset)));
    }
    
+
+
+
+@media only screen and (min-width: 380px){
+    .container{
+        width: 365px;
+    }
+}
+@media only screen and (min-width: 430px){
+    .container{
+        width: 385px;
+    }
+}

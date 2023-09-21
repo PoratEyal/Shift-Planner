@@ -232,14 +232,14 @@ const Navbar = (props) => {
                 </Link>
               </div>
 
-              <div className={styles.text_and_icon}>
+              {/* <div className={styles.text_and_icon}>
                 <Link onClick={() => setOpen((prev) => !prev)} className={styles.icon_link} to="/settingsPage">
                   <AiOutlineSetting className={styles.icon}></AiOutlineSetting>
                 </Link>
                 <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/settingsPage">
                   הגדרות
                 </Link>
-              </div>
+              </div> */}
 
               <hr className={styles.line}></hr>
 
