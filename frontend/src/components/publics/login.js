@@ -47,12 +47,12 @@ const Login = () => {
       <form className={styles.form} onSubmit={handleSubmit}>
 
         <div>
-          <input type="text" placeholder='שם משתמש' className={styles.input} onChange={(e) => { setUsername(e.target.value) }} />
+          <input type="text" placeholder='שם משתמש' autoComplete="username" className={styles.input} onChange={(e) => { setUsername(e.target.value) }} />
         </div>
 
         <div className={styles.password_div}>
           <div className={styles.input_container}>
-            <input id='password' type={show ? "password" : "text"} placeholder='סיסמה' className={styles.input} onChange={(e) => { setPassword(e.target.value) }} />
+            <input id='password' autoComplete="current-password" type={show ? "password" : "text"} placeholder='סיסמה' className={styles.input} onChange={(e) => { setPassword(e.target.value) }} />
             {password.length > 0 ? (
               show ? (
                 <BiSolidShow

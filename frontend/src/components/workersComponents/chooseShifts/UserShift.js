@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from './chooseShifts.module.css';
 import axios from 'axios';
-import WorkerList from './WorkersList';
+import WorkerList from '../CurrentWeek_user/WorkersCurrentWeek';
 import moment from "moment";
 
 const UserShift = (props) => {
@@ -75,14 +75,13 @@ const UserShift = (props) => {
       </p>
       </div>
       
-      {
-      !props.weekPublished ? (
+      {!props.weekPublished ? (
         added ? (
           <button onClick={removeWorkerFromShift} className={styles.remove_btn}>הסרה ממשמרת</button>
         ) : (
           <button onClick={addWorkerToShift} className={styles.add_btn}>הוספה למשמרת</button>
         )
-        ) : ( showWorkers ? <div><WorkerList managerId={props.managerId} standBy={shift.standBy} workers={shift.workers} shiftData={shift.shiftData} endTime={shift.endTime} startTime={shift.startTime}></WorkerList></div> : null)
+        ) : ( showWorkers ? <WorkerList managerId={props.managerId} standBy={shift.standBy} workers={shift.workers} shiftData={shift.shiftData} endTime={shift.endTime} startTime={shift.startTime}></WorkerList> : null)
       }
 
   </div>
