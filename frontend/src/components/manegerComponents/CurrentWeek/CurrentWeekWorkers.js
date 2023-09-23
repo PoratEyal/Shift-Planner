@@ -10,6 +10,7 @@ import { FiMoreHorizontal } from "react-icons/fi";
 import { FcPlus } from "react-icons/fc";
 import { FcSynchronize } from "react-icons/fc";
 import { AiOutlineSync } from "react-icons/ai";
+import { HiSelector } from "react-icons/hi";
 
 const CurrentWeekWorkers = (props) => {
   const [workers] = useState(props.workers);
@@ -110,7 +111,6 @@ const CurrentWeekWorkers = (props) => {
   }, []);
 
   const choseWorker = (id) => {
-    console.log(id)
     props.addWorkerShift(id);
     setUpdatedWorkers(!updatedWorkers);
   };
@@ -438,7 +438,7 @@ const CurrentWeekWorkers = (props) => {
 
                 <div className={styles.name_role_div}>
                   <label>{worker.fullName && <p className={styles.names}>{worker.fullName}</p>}</label>
-                  <div className={styles.role_sb_div}>(מלצר)</div>
+                  {/* <div className={styles.role_sb_div}>(מלצר)</div> */}
                 </div>
 
               </div>
@@ -457,7 +457,7 @@ const CurrentWeekWorkers = (props) => {
 
                       <div className={styles.edit_div_flex}>
                         <label className={styles.text_edit_select} onClick={() => delSbworker(worker._id)}>הסרת כוננות</label>
-                        <FcSynchronize className={styles.icon_edit_select} onClick={() => delSbworker(worker._id)}></FcSynchronize>
+                        <AiOutlineSync className={styles.icon_edit_select} onClick={() => delSbworker(worker._id)}></AiOutlineSync>
                       </div>
 
                       <div className={styles.edit_div_flex}>
@@ -482,7 +482,7 @@ const CurrentWeekWorkers = (props) => {
 
                 <div className={styles.name_role_div}>
                   <label>{worker.fullName && <p className={styles.names}>{worker.fullName}</p>}</label>
-                  <div className={styles.role_sb_div}>(מלצר, כוננות)</div>
+                  <div className={styles.role_sb_div}>(כוננות)</div>
                 </div>
 
               </div>
@@ -528,13 +528,15 @@ const CurrentWeekWorkers = (props) => {
             ))} */}
         </div>)}
 
-        <div className={styles.add_specific_worker_div}>
+        <div className={styles.add_available_worker_div}>
           <div>
             <button onClick={() => { choseWorker(selectreF.current.value) }} className={styles.add_specific_worker_btn}>+</button>
           </div>
 
           <select className={styles.add_specific_worker_select} ref={selectreF} defaultValue="">
-            <option value="" disabled>עובדים שבקשו את המשמרת</option>
+            <option value="" disabled>
+              <label>עובדים שביקשו את המשמרת</label>
+            </option>
             {availableWorkersArr.map((elem, index) => (
               <option key={index} value={elem._id}>{elem.fullName}</option>
             ))}
@@ -547,7 +549,9 @@ const CurrentWeekWorkers = (props) => {
           </div>
 
           <select className={styles.add_specific_worker_select} ref={selectRef} defaultValue="">
-            <option value="" disabled>הוספת עובד למשמרת</option>
+            <option value="" disabled>
+              <label>הוספת עובד למשמרת</label>
+            </option>
             {newWorkers.map((elem, index) => (
               <option key={index} value={elem._id}>{elem.fullName}</option>
             ))}

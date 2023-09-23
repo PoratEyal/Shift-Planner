@@ -144,7 +144,7 @@
 .h2{
     font-size: 22px;
     margin-top: -15px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     font-weight: 400;
 }
 
@@ -157,7 +157,7 @@
 /* - - - - - - - shift component - - - - - -  */
 
 .shift{
-    width: 280px;
+    width: 295px;
     font-size: 1.2em;
     border: none;
     border-radius: 10px;
@@ -166,7 +166,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     background-color: rgba(231, 234, 238, 0.571);
 }
 
@@ -193,25 +193,16 @@
 
 .label_edit_select{
     position: relative;
-}
-
-.icon_add{
-    margin-left: 18px;
-    margin-top: 3px;
-    font-size: 23px;
-    color: green;
-    cursor: pointer;
-}
-
-.icon_delete{
-    margin-left: 18px;
-    font-size: 23px;
-    color: rgba(227, 86, 86, 0.989);
-    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 70px;
 }
 
 .icon_edit{
-    margin-left: 15px;
+    margin-left: 8px;
     color: rgba(119, 119, 119, 0.903);
     font-size: 23px;
     cursor: pointer;
@@ -224,7 +215,7 @@
     border: none;
     position: absolute;
     direction: ltr;
-    left:-13px;
+    left:-20px;
     top: 37px;
     z-index: 100;
     background-color: rgb(255, 255, 255);
@@ -265,7 +256,6 @@
 }
 
 .icon_message_alert{
-    margin-left: 18px;
     color: rgba(119, 119, 119, 0.903);
     font-size: 23px;
     cursor: pointer;
@@ -284,7 +274,7 @@
 .role_sb_div{
     text-align: right;
     color: rgb(125, 125, 125);
-    width: 130px;
+    width: 115px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -298,7 +288,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 90px;
+    max-width: 105px;
 }
 
 .nameAndDelete{
@@ -309,12 +299,21 @@
     border-bottom: 0px solid rgba(101, 101, 101, 0.245);
 }
 
+.add_available_worker_div{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
 .add_specific_worker_div{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 280px;
+    width: 295px;
 }
 .add_specific_worker_btn{
     display: flex;
@@ -332,7 +331,7 @@
     background-color: #d2e9ff;
     color:#2880cc;
     font-family: 'Rubik', sans-serif;
-    margin-left: 10px;
+    margin-left: 8px;
 }
 
 .add_specific_worker_select{
@@ -343,7 +342,7 @@
     border-radius: 5px;
     border: none;
     border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 210px;
+    width: 215px;
     text-align: right;
     direction: rtl;
     font-family: 'Rubik', sans-serif;
@@ -601,7 +600,7 @@
         width: 300px;
     }
     .shift{
-        width: 300px;
+        width: 315px;
     }
     .published_div button{
         width: 320px;
@@ -613,7 +612,7 @@
         width: 340px;
     }
     .add_specific_worker_div{
-        width: 300px;
+        width: 315px;
     }
     .add_specific_worker_select{
         width: 230px;
@@ -624,7 +623,7 @@
         width: 320px;
     }
     .shift{
-        width: 320px;
+        width: 335px;
     }
     .published_div button{
         width: 340px;
@@ -636,7 +635,7 @@
         width: 360px;
     }
     .add_specific_worker_div{
-        width: 320px;
+        width: 335px;
     }
     .add_specific_worker_select{
         width: 250px;
