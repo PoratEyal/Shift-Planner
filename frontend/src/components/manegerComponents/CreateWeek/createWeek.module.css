@@ -330,6 +330,7 @@
     appearance: none;
     -webkit-appearance:none;
     font-family: 'Rubik', sans-serif;
+    background-color: white;
 }
 .input_time_start::before{
     content: 'התחלה';
@@ -338,6 +339,7 @@
     appearance: none;
     -webkit-appearance:none;
     font-family: 'Rubik', sans-serif;
+    background-color: white;
 }
 
 .input_time_end{
@@ -353,6 +355,7 @@
     appearance: none;
     -webkit-appearance:none;
     font-family: 'Rubik', sans-serif;
+    background-color: white;
 }
 .input_time_end::before{
     content: 'סיום';
@@ -361,6 +364,7 @@
     appearance: none;
     -webkit-appearance:none;
     font-family: 'Rubik', sans-serif;
+    background-color: white;
 }
 
 .input{

@@ -446,8 +446,6 @@ const CurrentWeekWorkers = (props) => {
 
                   <FiMoreHorizontal onClick={() => options(worker._id)} className={styles.icon_edit}></FiMoreHorizontal>
                   
-                  {/* <FcSynchronize className={styles.icon_add} onClick={() => delSbworker(worker._id)}></FcSynchronize> */}
-                  
                   {openOptions === worker._id && isDivVisible ? 
                     <div ref={divRef} className={styles.edit_div_options}>
 
@@ -478,7 +476,9 @@ const CurrentWeekWorkers = (props) => {
 
                 <div className={styles.name_role_div}>
                   <label>{worker.fullName && <p className={styles.names}>{worker.fullName}</p>}</label>
-                  {worker.role ? <div className={styles.role_sb_div}>(כונן ,{worker.role.name})</div> :null}
+                  {worker.role ? <div className={styles.role_sb_div}>(כוננות ,{worker.role.name})</div>
+                  :
+                    <div className={styles.role_sb_div}>(כוננות)</div>}
                 </div>
 
               </div>

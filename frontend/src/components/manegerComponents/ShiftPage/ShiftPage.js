@@ -11,6 +11,7 @@ const SettingsPage = (props) => {
     const navigate = useNavigate();
 
     const [defShifts, setDefShifts] = useState(null);
+    const [noShifts, setNoShifts] = useState(false)
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -18,10 +19,15 @@ const SettingsPage = (props) => {
         axios.post(`${process.env.REACT_APP_URL}/getDefShifts`, {
             managerId: user._id
         }).then((response) => {
-            setDefShifts(response.data);
+            if (Array.isArray(response.data) && response.data.length === 0) {
+                setNoShifts(true)
+            }
+            else{
+                setDefShifts(response.data);
+            }
             setLoading(true);
         })
-    }, []);
+    }, [noShifts]);
 
     const deleteHandler = (shiftId) => {
         Swal.fire({
@@ -61,6 +67,8 @@ const SettingsPage = (props) => {
                 <div className={styles['three-body__dot']}></div>
                 <div className={styles['three-body__dot']}></div>
             </div>
+            ) : ( noShifts ? (
+                <div className={styles.noShifts_div}>לא קיימות משמרות</div>
             ) : (
             <>
                 {defShifts
@@ -75,7 +83,7 @@ const SettingsPage = (props) => {
                     })
                 : null}
             </>
-            )}
+            ))}
         </div>
 
         <img

@@ -78,11 +78,11 @@
   height: 100vh;
   background-color: rgb(255, 255, 255);
   color: #34a0ff;
-  animation: slideInFromRightName 0.7s ease-in-out;
+  animation: slideInFromRightName 0.5s ease-in-out;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  transition: 0.4s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .closed_sideBar{

@@ -599,6 +599,13 @@
     .add_specific_worker_select{
         width: 330px;
     }
+    .name_role_div{
+        width: 275px;
+    }
+    .role_sb_div{
+        width: 135px;
+        max-width: 185px;
+    }
 }
 @media only screen and (min-width: 430px){
     .day_container{
@@ -621,5 +628,12 @@
     }
     .add_specific_worker_select{
         width: 350px;
+    }
+    .name_role_div{
+        width: 295px;
+    }
+    .role_sb_div{
+        width: 155px;
+        max-width: 195px;
     }
 }
