@@ -34,10 +34,14 @@ userRouter.post('/addUser', async (req, res) => {
 
         let user = req.body;
         user.password = hashedPassword;
-
-        const role = await Role.findOne({ _id: user.role });
-        user.role = role._doc;
-        console.log(role);
+        try{
+            const role = await Role.findOne({ _id: user.role });
+            user.role = role._doc;
+        }
+        catch(err){
+            user.role = undefined
+        }
+       
         const jobRes = await job.findOne({ name: user.job });
         user.job = jobRes._doc._id;
 
@@ -46,7 +50,8 @@ userRouter.post('/addUser', async (req, res) => {
         res.status(201).json(createdUser);
     }
     catch (err) {
-        res.status(400).json({ message: 'An error occurred while processing the request.' });
+        console.log(err)
+        res.status(404).json({ message: 'An error occurred while processing the request.' });
     }
 });
 

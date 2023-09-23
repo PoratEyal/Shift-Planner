@@ -57,7 +57,7 @@ const CreateWorker = () => {
             });
             return;
         }
-
+        console.log(selectedRole)
         const newUser = {
           fullName: fullName,
           username: username,
@@ -75,6 +75,7 @@ const CreateWorker = () => {
             navigate('/workers')
           })
           .catch((error) => {
+            console.log(error);
             Swal.fire({
               title: 'שם משתמש תפוס, הכנס שם משתמש אחר',
               text: "",
@@ -128,7 +129,7 @@ const CreateWorker = () => {
                   autoComplete="current-password"
               />
 
-              <select className={styles.select} onChange={(e) => { setRole(e.target.value) }} defaultValue="" required aria-required="true">
+              <select className={styles.select} onChange={(e) => { setRole(e.target.value) }} defaultValue="">
                   <option value="" disabled>תפקיד</option>
                   {roles.map(role => { return <option value={role._id} key={role._id}>{role.name}</option> })}
               </select>
