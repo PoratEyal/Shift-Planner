@@ -486,13 +486,9 @@ const CurrentWeekWorkers = (props) => {
         </div>)}
 
         <div className={styles.add_available_worker_div}>
-          <div>
-            <button onClick={() => { choseWorker(selectreF.current.value) }} className={styles.add_specific_worker_btn}>+</button>
-          </div>
-
-          <select className={styles.add_specific_worker_select} ref={selectreF} defaultValue="">
+          <select className={styles.add_specific_worker_select} ref={selectreF} defaultValue="" onChange={() => choseWorker(selectreF.current.value) }>
             <option value="" disabled>
-              <label>עובדים שביקשו את המשמרת</label>
+              <label>עובדים שביקשו שיבוץ למשמרת</label>
             </option>
             {availableWorkersArr.map((elem, index) => (
               <option key={index} value={elem._id}>{elem.fullName}</option>
@@ -501,11 +497,7 @@ const CurrentWeekWorkers = (props) => {
         </div>
 
         <div className={styles.add_specific_worker_div}>
-          <div>
-            <button onClick={() => { choseWorker(selectRef.current.value) }} className={styles.add_specific_worker_btn}>+</button>
-          </div>
-
-          <select className={styles.add_specific_worker_select} ref={selectRef} defaultValue="">
+          <select className={styles.add_specific_worker_select} ref={selectRef} defaultValue="" onChange={() => choseWorker(selectRef.current.value)}>
             <option value="" disabled>
               <label>הוספת עובד למשמרת</label>
             </option>

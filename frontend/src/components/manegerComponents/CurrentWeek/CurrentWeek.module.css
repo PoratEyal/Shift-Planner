@@ -315,34 +315,16 @@
     align-items: center;
     width: 295px;
 }
-.add_specific_worker_btn{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;align-items: center;
-    width: 35px;
-    height: 35px;
-    font-size: 22px;
-    border-radius: 100px;
-    border: none;
-    padding: 9px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: 700;
-    background-color: #d2e9ff;
-    color:#2880cc;
-    font-family: 'Rubik', sans-serif;
-    margin-left: 8px;
-}
 
 .add_specific_worker_select{
     margin: 10px;
     margin-right: 8px;
-    font-size: 17px;
-    padding: 5px;
+    font-size: 18px;
+    padding: 6px;
     border-radius: 5px;
     border: none;
     border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 215px;
+    width: 310px;
     text-align: right;
     direction: rtl;
     font-family: 'Rubik', sans-serif;
@@ -615,7 +597,7 @@
         width: 315px;
     }
     .add_specific_worker_select{
-        width: 230px;
+        width: 330px;
     }
 }
 @media only screen and (min-width: 430px){
@@ -638,6 +620,6 @@
         width: 335px;
     }
     .add_specific_worker_select{
-        width: 250px;
+        width: 350px;
     }
 }
