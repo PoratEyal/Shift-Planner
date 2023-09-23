@@ -2,7 +2,9 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import React from 'react';
 import styles from './workers.module.css';
-import { FcSynchronize } from "react-icons/fc";
+import { BiTime } from "react-icons/bi";
+import { AiOutlineMessage } from "react-icons/ai";
+import Swal from 'sweetalert2';
 
 const SeeWorkersCurrentWeek = (props) => {
 
@@ -51,11 +53,31 @@ const SeeWorkersCurrentWeek = (props) => {
     });
   }, []);
 
+  const showTime = (workerId) => {
+    const data = props.shiftData.find(obj => obj.userId === workerId);
+    Swal.fire({
+      title: 'שעות עבודה לעובד',
+      text: data.end ? `${getHour(data.end)}${data.start ? ` - ${getHour(data.start)}` : ` - ${getHour(props.startTime)}`}` : `${getHour(props.endTime)}${data.start ? ` - ${getHour(data.start)}` : ` - ${getHour(props.startTime)}`}`,
+      confirmButtonColor: '#34a0ff',
+      confirmButtonText: 'סגירה',
+    });
+  };
+
+  const showMessage = (workerId) => {
+    const data = props.shiftData.find(obj => obj.userId === workerId);
+    Swal.fire({
+      title: 'הודעה לעובד',
+      text: data.message,
+      confirmButtonColor: '#34a0ff',
+      confirmButtonText: 'סגירה',
+    });
+  }
+
   const getShiftData = (worker, index) => {
     let data = null;
     data = props.shiftData.find(obj => obj.userId === worker._id)
     return data ?
-      (worker._id !== data.userId ?
+      worker._id !== data.userId ?
         <div key={index} className={styles.all_data_div}>
           <div>•&nbsp;{worker.fullName}</div>
         </div>
@@ -63,49 +85,54 @@ const SeeWorkersCurrentWeek = (props) => {
         <div key={index} className={styles.all_data_div}>
           <div className={styles.name}>•&nbsp;{worker.fullName}</div>
 
-          <div className={styles.hours_message_div}>
-            <label>
-              {data.end ? getHour(data.end) : getHour(props.endTime)}
-              {data.start ? ` - ${getHour(data.start)}` : ` - ${getHour(props.startTime)}`}
-            </label>
+          <div className={styles.alert_div}>
+            {data.end || data.start ?
+              <div className={styles.hours_message_div}>
+                <BiTime className={styles.icon} onClick={() => showTime(worker._id)} />
+              </div> : null}
+            
+            {data.message ?
+              <div className={styles.hours_message_div}>
+                <AiOutlineMessage className={styles.icon} onClick={() => showMessage(worker._id)} />
+              </div>: null}
           </div>
-        </div>)
-      : <div key={index} className={styles.all_data_div}>
-        <div>•&nbsp;{worker.fullName}</div>
-      </div>
+
+        </div>
+        :
+        <div key={index} className={styles.all_data_div}>
+          <div>•&nbsp;{worker.fullName}</div>
+        </div>
   }
 
   const getShiftDataSB = (worker, index) => {
     let data = null;
     data = props.shiftData.find(obj => obj.userId === worker._id)
     return data ?
-      (worker._id !== data.userId ?
+      worker._id !== data.userId ?
         <div key={index} className={styles.all_data_div}>
-          <div className={styles.name_and_icon_div}>
-            <FcSynchronize className={styles.sb_icon}></FcSynchronize>
-            <label className={styles.name}>{worker.fullName}</label>
-          </div>
+          <div>•&nbsp;{worker.fullName}</div>
         </div>
         :
         <div key={index} className={styles.all_data_div}>
-          <div className={styles.name_and_icon_div}>
-            <FcSynchronize className={styles.sb_icon}></FcSynchronize>
-            <label className={styles.name}>{worker.fullName}</label>
+          <div className={styles.name}>•&nbsp;{worker.fullName}</div>
+
+          <div className={styles.alert_div}>
+            {data.end || data.start ?
+              <div className={styles.hours_message_div}>
+                <BiTime className={styles.icon} onClick={() => showTime(worker._id)} />
+              </div> : null}
+            
+            {data.message ?
+              <div className={styles.hours_message_div}>
+                <AiOutlineMessage className={styles.icon} onClick={() => showMessage(worker._id)} />
+              </div>: null}
           </div>
 
-          <div className={styles.hours_message_div}>
-            <label>
-              {data.end ? getHour(data.end) : getHour(props.endTime)}
-              {data.start ? ` - ${getHour(data.start)}` : ` - ${getHour(props.startTime)}`}
-            </label>
-          </div>
-        </div>)
-      : <div key={index} className={styles.all_data_div}>
-        <div className={styles.name_and_icon_div}>
-          <FcSynchronize className={styles.sb_icon}></FcSynchronize>
-          <label className={styles.name}>{worker.fullName}</label>
         </div>
-      </div>
+        :
+        <div key={index} className={styles.all_data_div}>
+          <div>•&nbsp;{worker.fullName} - כוננות</div>
+        </div>
   }
 
   const getWorkers = () => {

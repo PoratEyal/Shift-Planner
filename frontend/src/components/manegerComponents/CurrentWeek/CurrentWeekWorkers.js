@@ -7,10 +7,7 @@ import Swal from 'sweetalert2';
 import { AiOutlineMessage } from "react-icons/ai";
 import messageContext from './messagesContext';
 import { FiMoreHorizontal } from "react-icons/fi";
-import { FcPlus } from "react-icons/fc";
-import { FcSynchronize } from "react-icons/fc";
 import { AiOutlineSync } from "react-icons/ai";
-import { HiSelector } from "react-icons/hi";
 
 const CurrentWeekWorkers = (props) => {
   const [workers] = useState(props.workers);
