@@ -10,9 +10,6 @@ const SeeWorkersCurrentWeek = (props) => {
   const [workersArr, setWorkersArr] = useState([]);
   const [sbWorkers] = useState(props.standBy);
   const [sbWorkersNames, setSbWorkersNames] = useState([]);
-  
-  const [grouped, setGrouped] = useState([]);
-  const [groupedKeys, setKeys] = useState([]);
   const [loading, setLoading] = useState(true);
 
   // get all the workers
@@ -28,7 +25,6 @@ const SeeWorkersCurrentWeek = (props) => {
         .then(async (response) => {
           if (response.data?.fullName != null) {
             const worker = response.data;
-            setGrouped(await groupByIntegerField(grouped, worker));
             setSbWorkersNames(prevWorkerNames => [...prevWorkerNames, worker]);
             setLoading(false)
           }
@@ -45,7 +41,6 @@ const SeeWorkersCurrentWeek = (props) => {
         .then(async(response) => {
           const workerData = response.data;
           if (workerData && workerData.fullName && !(props.standBy.includes(response.data._id))) { 
-            setGrouped(await groupByIntegerField(grouped, workerData));
             setWorkersArr(prevWorkers => [...prevWorkers, workerData]);
             setLoading(false);
           }
@@ -55,28 +50,6 @@ const SeeWorkersCurrentWeek = (props) => {
         })
     });
   }, []);
-  const groupByIntegerField = async (grouped, workerData) => {
-    const fieldValue = workerData['role'];
-    if (fieldValue) {
-      const reqBody = {
-        id: fieldValue
-      }
-      const result = await axios.post(`${process.env.REACT_APP_URL}/getRoleWithId`, reqBody)
-      if (!grouped[result.data]) {
-        setKeys(groupedKeys => [...groupedKeys, result.data]);
-        grouped[result.data] = [];
-      }
-      grouped[result.data].push(workerData);
-    }
-    return grouped
-  };
-
-  groupedKeys.map(key => {
-    console.log(key);
-    grouped[key].map(worker => {
-      console.log(worker.fullName);
-    });
-  });
 
   const getShiftData = (worker, index) => {
     let data = null;
