@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DayCurrentWeek from './SeeDayCurrentWeek'
-import styles from '../CreateWeek/createWeek.module.css'
+import styles from './seeCurrentWeek.module.css';
 import { useNavigate } from 'react-router-dom';
 import { ManagerContext } from '../ManagerHomePage' 
 import { useContext } from 'react';
@@ -44,9 +44,3 @@ const SeeCurrentWeek = () => {
 }
 
 export default SeeCurrentWeek;
-
-
-{/* <div className={styles.nav_container}>
-    <button className={styles.home_btn} onClick={() => navigate('/managerHomePage')}><BiSolidHome></BiSolidHome></button>
-    <p>צפיה בשבוע הנוכחי</p>
-</div> */}

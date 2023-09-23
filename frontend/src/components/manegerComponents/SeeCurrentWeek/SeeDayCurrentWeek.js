@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import styles from '../CreateWeek/createWeek.module.css'
+import styles from './seeCurrentWeek.module.css';
 import axios from 'axios'
 import ShiftCurrentWeek from './SeeShiftCurrentWeek'
 import { ManagerContext } from '../ManagerHomePage'

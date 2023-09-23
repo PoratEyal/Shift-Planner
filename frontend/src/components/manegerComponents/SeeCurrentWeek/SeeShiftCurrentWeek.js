@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import styles from '../CreateWeek/createWeek.module.css';
+import React, { useState } from "react";
+import styles from './seeCurrentWeek.module.css';
 import CurrentWeekWorkers from './SeeWorkersCurrentWeek';
 import moment from "moment";
 

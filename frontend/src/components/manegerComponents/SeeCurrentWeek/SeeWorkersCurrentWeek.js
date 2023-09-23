@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import React from 'react';
-import styles from './workers.module.css';
+import styles from './seeCurrentWeek.module.css';
 import { BiTime } from "react-icons/bi";
 import { AiOutlineMessage } from "react-icons/ai";
 import Swal from 'sweetalert2';
@@ -78,29 +78,41 @@ const SeeWorkersCurrentWeek = (props) => {
     data = props.shiftData.find(obj => obj.userId === worker._id)
     return data ?
       worker._id !== data.userId ?
-        <div key={index} className={styles.all_data_div}>
-          <div>•&nbsp;{worker.fullName}</div>
+        <div key={index} className={styles.all_data_div_clear}>
+          <div className={styles.name}>•&nbsp;{worker.fullName}</div>
+          <div>
+            {worker.role ? <div className={styles.role_div}> - {worker.role.name}</div> :null}
+          </div>
         </div>
         :
         <div key={index} className={styles.all_data_div}>
-          <div className={styles.name}>•&nbsp;{worker.fullName}</div>
+          <div className={styles.name_role_div}>
+            <div className={styles.name}>•&nbsp;{worker.fullName}</div>
+
+            <div>
+            {worker.role ? <div className={styles.role_div}>&nbsp;- {worker.role.name}</div> :null}
+            </div>
+          </div>
 
           <div className={styles.alert_div}>
             {data.end || data.start ?
-              <div className={styles.hours_message_div}>
+              <div>
                 <BiTime className={styles.icon} onClick={() => showTime(worker._id)} />
               </div> : null}
             
             {data.message ?
-              <div className={styles.hours_message_div}>
+              <div>
                 <AiOutlineMessage className={styles.icon} onClick={() => showMessage(worker._id)} />
               </div>: null}
           </div>
 
         </div>
         :
-        <div key={index} className={styles.all_data_div}>
-          <div>•&nbsp;{worker.fullName}</div>
+        <div key={index} className={styles.all_data_div_clear}>
+          <div className={styles.name}>•&nbsp;{worker.fullName}</div>
+          <div>
+          {worker.role ? <div className={styles.role_div}> - {worker.role.name}</div> :null}
+          </div>
         </div>
   }
 
@@ -109,29 +121,50 @@ const SeeWorkersCurrentWeek = (props) => {
     data = props.shiftData.find(obj => obj.userId === worker._id)
     return data ?
       worker._id !== data.userId ?
-        <div key={index} className={styles.all_data_div}>
-          <div>•&nbsp;{worker.fullName}</div>
+        <div key={index} className={styles.all_data_div_clear}>
+          <div className={styles.name}>•&nbsp;{worker.fullName}</div>
+          <div>
+            {worker.role ? <div className={styles.role_div}>- כוננות ,{worker.role.name}</div>
+            :
+            <div className={styles.role_div}>- כוננות</div>
+            }
+          </div>
         </div>
         :
         <div key={index} className={styles.all_data_div}>
-          <div className={styles.name}>•&nbsp;{worker.fullName}</div>
+          <div className={styles.name_role_div}>
+            <div className={styles.name}>•&nbsp;{worker.fullName}</div>
+
+            <div>
+              {worker.role ? <div className={styles.role_div}>- כוננות ,{worker.role.name}</div>
+              :
+              <div className={styles.role_div}>- כוננות</div>
+              }
+            </div>
+          </div>
 
           <div className={styles.alert_div}>
             {data.end || data.start ?
-              <div className={styles.hours_message_div}>
+              <div>
                 <BiTime className={styles.icon} onClick={() => showTime(worker._id)} />
               </div> : null}
             
             {data.message ?
-              <div className={styles.hours_message_div}>
+              <div>
                 <AiOutlineMessage className={styles.icon} onClick={() => showMessage(worker._id)} />
               </div>: null}
           </div>
 
         </div>
         :
-        <div key={index} className={styles.all_data_div}>
-          <div>•&nbsp;{worker.fullName} - כוננות</div>
+        <div key={index} className={styles.all_data_div_clear}>
+          <div className={styles.name}>•&nbsp;{worker.fullName}</div>
+          <div>
+            {worker.role ? <div className={styles.role_div}>- כוננות ,{worker.role.name}</div>
+            :
+            <div className={styles.role_div}>- כוננות</div>
+            }
+          </div>
         </div>
   }
 
