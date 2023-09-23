@@ -36,8 +36,8 @@ userRouter.post('/addUser', async (req, res) => {
         user.password = hashedPassword;
 
         const role = await Role.findOne({ _id: user.role });
-        user.role = role._doc._id;
-
+        user.role = role._doc;
+        console.log(role);
         const jobRes = await job.findOne({ name: user.job });
         user.job = jobRes._doc._id;
 
