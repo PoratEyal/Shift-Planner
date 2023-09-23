@@ -488,7 +488,7 @@ const CurrentWeekWorkers = (props) => {
         <div className={styles.add_available_worker_div}>
           <select className={styles.add_specific_worker_select} ref={selectreF} defaultValue="" onChange={() => choseWorker(selectreF.current.value) }>
             <option value="" disabled>
-              <label>הוספת עובדים שביקשו את המשמרת</label>
+              <label>הוספת עובד שביקש את המשמרת</label>
             </option>
             {availableWorkersArr.map((elem, index) => (
               <option key={index} value={elem._id}>{elem.fullName}</option>
@@ -499,7 +499,7 @@ const CurrentWeekWorkers = (props) => {
         <div className={styles.add_specific_worker_div}>
           <select className={styles.add_specific_worker_select} ref={selectRef} defaultValue="" onChange={() => choseWorker(selectRef.current.value)}>
             <option value="" disabled>
-              <label>הוספת עובדים למשמרת</label>
+              <label>הוספת עובד למשמרת</label>
             </option>
             {newWorkers.map((elem, index) => (
               <option key={index} value={elem._id}>{elem.fullName}</option>
