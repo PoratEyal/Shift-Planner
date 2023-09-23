@@ -47,7 +47,7 @@ const CreateWorker = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!fullName || !username || !password || !selectedRole || !managerId) {
+        if (!fullName || !username || !password || !managerId) {
             Swal.fire({
               title: 'יש למלא את כל השדות',
               text: "",
@@ -113,6 +113,7 @@ const CreateWorker = () => {
                   }
                   }}
                   required
+                  autoComplete="username"
               />
 
               <input
@@ -124,6 +125,7 @@ const CreateWorker = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   minLength={5}
+                  autoComplete="current-password"
               />
 
               <select className={styles.select} onChange={(e) => { setRole(e.target.value) }} defaultValue="" required aria-required="true">

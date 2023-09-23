@@ -438,9 +438,8 @@ const CurrentWeekWorkers = (props) => {
 
                 <div className={styles.name_role_div}>
                   <label>{worker.fullName && <p className={styles.names}>{worker.fullName}</p>}</label>
-                  {/* <div className={styles.role_sb_div}>(מלצר)</div> */}
+                  {worker.role ? <div className={styles.role_sb_div}>({worker.role.name})</div> :null}
                 </div>
-
               </div>
             ))}
 
@@ -482,50 +481,11 @@ const CurrentWeekWorkers = (props) => {
 
                 <div className={styles.name_role_div}>
                   <label>{worker.fullName && <p className={styles.names}>{worker.fullName}</p>}</label>
-                  <div className={styles.role_sb_div}>(כוננות)</div>
+                  {worker.role ? <div className={styles.role_sb_div}>(כונן ,{worker.role.name})</div> :null}
                 </div>
 
               </div>
             ))}
-
-            {/* {availableWorkersArr.map((worker) => (
-              <div key={worker._id} className={styles.nameAndDelete}>
-                <div className={styles.label_edit_select}>
-
-                  <FiMoreHorizontal onClick={() => options(worker._id)} className={styles.icon_edit}></FiMoreHorizontal>
-                  
-                  <FcPlus className={styles.icon_add} onClick={() => choseWorker(worker._id)}></FcPlus>
-                  
-                  {openOptions === worker._id && isDivVisible ? 
-                    <div ref={divRef} className={styles.edit_div_options}>
-
-                      <div className={styles.edit_div_flex}>
-                        <label className={styles.text_edit_select} onClick={() => editHours(worker)}>בחירת שעות</label>
-                        <BiTime className={styles.icon_edit_select} onClick={() => editHours(worker)}></BiTime>
-                      </div>
-
-                      <div className={styles.edit_div_flex}>
-                        <label className={styles.text_edit_select} onClick={() => writeMessage(worker)}>כתיבת הודעה</label>
-                        <AiOutlineMessage className={styles.icon_edit_select} onClick={() => writeMessage(worker)}></AiOutlineMessage>
-                      </div>
-
-                      <div className={styles.edit_div_flex}>
-                        <label onClick={() => props.addSB(worker._id)}>כוננות</label>
-                        <AiOutlineSync className={styles.icon_edit_select} onClick={() => props.addSB(worker._id)}></AiOutlineSync>
-                      </div>
-                  </div> : null}
-  
-                  {hasMessage(worker._id) ? (
-                    <AiOutlineMessage
-                      onClick={() => seeMessage(worker)}
-                      className={styles.icon_message_alert}
-                    ></AiOutlineMessage>
-                  ) : null}
-
-                </div>
-                {worker.fullName && <p className={styles.names}>{worker.fullName}</p>}
-              </div>
-            ))} */}
         </div>)}
 
         <div className={styles.add_available_worker_div}>

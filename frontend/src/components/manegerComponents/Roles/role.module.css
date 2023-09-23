@@ -103,6 +103,12 @@
     cursor: pointer;
 }
 
+.noRoles_div{
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(112, 112, 112);
+}
+
 .three-body {
     --uib-size: 35px;
     --uib-speed: 0.8s;

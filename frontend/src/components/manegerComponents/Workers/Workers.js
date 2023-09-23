@@ -13,6 +13,7 @@ const Workers = () => {
     const navigate = useNavigate();
 
     const [users, setUsers] = useState([])
+    const [noWorkers, setNoWorkers] = useState(false)
     const [userDeleted, setUserDelted] = useState(false)
     const [loading, setLoading] = useState(false)
     const managerContext = useContext(ManagerContext);
@@ -24,6 +25,9 @@ const Workers = () => {
             job: managerContext.getUser()
           }
           const response = await axios.post(`${process.env.REACT_APP_URL}/getMyWorkers`, body);
+          if (Array.isArray(response.data) && response.data.length === 0) {
+            setNoWorkers(true)
+          }
           setUsers(response.data);
         } catch (error) {
             console.error(error);
@@ -83,40 +87,46 @@ const Workers = () => {
         });
       }
     
-    return <PageLayout text='עובדים'>
-        <div className={styles.container}>
+      return (
+        <PageLayout text='עובדים'>
+          <div className={styles.container}>
             {!loading ? (
-            <div className={styles['three-body']}>
-            <div className={styles['three-body__dot']}></div>
-            <div className={styles['three-body__dot']}></div>
-            <div className={styles['three-body__dot']}></div>
-            </div>
+              <div className={styles['three-body']}>
+                <div className={styles['three-body__dot']}></div>
+                <div className={styles['three-body__dot']}></div>
+                <div className={styles['three-body__dot']}></div>
+              </div>
             ) : (
-            users.map((user) => (
-
-                (user._id !== managerContext.getUser()) ?
-                <div key={user._id} className={styles.user_container}>
-                <div>
-                    <button
-                    className={styles.btn}
-                    onClick={() => {
-                        deleteUser(user._id);
-                        setUserDelted(false);
-                    }}
-                    >
-                    <RiDeleteBin6Line></RiDeleteBin6Line>
-                    </button>
-                </div>
-                <div>
-                    <p className={styles.p}>{user.fullName}</p>
-                </div>
-                </div>
-                : null
-            ))
+              noWorkers ? (
+                <div className={styles.noWorkers_div}>לא קיימים עובדים</div>
+              ) : (
+                users.map((user) => (
+                  (user._id !== managerContext.getUser()) ? (
+                    <div key={user._id} className={styles.user_container}>
+                      <div>
+                        <button
+                          className={styles.btn}
+                          onClick={() => {
+                            deleteUser(user._id);
+                            setUserDelted(false);
+                          }}
+                        >
+                          <RiDeleteBin6Line />
+                        </button>
+                      </div>
+                      <div>
+                        <p className={styles.p}>{user.fullName}</p>
+                      </div>
+                    </div>
+                  ) : null
+                ))
+              )
             )}
-        </div>
-        <img onClick={() => navigate('/createWorker')} src='addUser.png' className={styles.addUser_btn}></img>
-    </PageLayout>
+          </div>
+          <img onClick={() => navigate('/createWorker')} src='addUser.png' className={styles.addUser_btn} />
+        </PageLayout>
+      );
+      
 }
 
 export default Workers;

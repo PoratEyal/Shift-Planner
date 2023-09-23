@@ -36,6 +36,12 @@
     background-color: rgba(231, 234, 238, 0.571);
 }
 
+.noWorkers_div{
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(112, 112, 112);
+}
+
 .btn{
     display: flex;
     flex-direction: column;

@@ -10,6 +10,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 const Roles = () => {
 
     const [roles, setRoles] = useState([]);
+    const [noRoles, setNoRoles] = useState(false)
     const [loading, setLoading] = useState(false);
     const managerContext = useContext(ManagerContext);
 
@@ -46,6 +47,8 @@ const Roles = () => {
                   confirmButtonText: 'סגירה',
                   icon: 'success'
                 });
+                //setRoles(prevRoles => [...prevRoles, response.data]);
+                getRoles();
               })
               .catch(error => {
                 console.log(error.response.data.error);
@@ -67,7 +70,12 @@ const Roles = () => {
         axios
           .post(`${process.env.REACT_APP_URL}/getRoles`, reqbody ,config)
           .then((response) => {
-            setRoles(response.data);
+            if (Array.isArray(response.data) && response.data.length === 0) {
+              setNoRoles(true)
+            }
+            else {
+              setRoles(response.data);
+            }
             setLoading(true);
           })
           .catch((err) => {
@@ -77,7 +85,7 @@ const Roles = () => {
 
     useEffect(() => {
         getRoles();
-    }, [roles]);
+    }, [noRoles, roles]);
 
     const deleteRole = async (roleId) => {
         Swal.fire({
@@ -119,7 +127,10 @@ const Roles = () => {
                     <div className={styles['three-body__dot']}></div>
                     <div className={styles['three-body__dot']}></div>
                     </div>
-                ) : (roles.map(role => (
+                ) : noRoles ? (
+                  <div className={styles.noRoles_div}>לא קיימים תפקידים</div>
+                ) : (
+                  roles.map(role => (
                     <div className={styles.roles} key={role._id}>
                       <button onClick={() => deleteRole(role._id)} className={styles.delete_btn}><RiDeleteBin6Line></RiDeleteBin6Line></button>
                       <label className={styles.label}>{role.name}</label>
