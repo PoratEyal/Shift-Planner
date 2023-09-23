@@ -18,7 +18,7 @@ const ManagerSettings = () => {
           title: 'יש למלא סיסמה גדולה מחמישה תווים',
           text: "",
           icon: 'warning',
-          confirmButtonColor: '#3085d6',
+          confirmButtonColor: '#34a0ff',
           confirmButtonText: 'סגירה'
         });
         return;
@@ -48,7 +48,7 @@ const ManagerSettings = () => {
         title: 'יש למלא את כל השדות',
         text: "",
         icon: 'warning',
-        confirmButtonColor: '#3085d6',
+        confirmButtonColor: '#34a0ff',
         confirmButtonText: 'סגירה'
       });
       return;

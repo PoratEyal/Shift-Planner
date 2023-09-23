@@ -3,7 +3,6 @@ import styles from '../CreateWeek/createWeek.module.css'
 import axios from 'axios'
 import Shift from './CreateWeekShift';
 import moment from 'moment';
-import { AiOutlineClose } from "react-icons/ai";
 
 const CreateWeekDay = (props) => {
 

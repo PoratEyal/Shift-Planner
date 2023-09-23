@@ -120,7 +120,7 @@ const CurrentWeekWorkers = (props) => {
       title: '? האם להסיר את העובד',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#34a0ff',
       cancelButtonColor: '#d33',
       confirmButtonText: 'אישור',
       cancelButtonText: 'ביטול',
@@ -141,7 +141,7 @@ const CurrentWeekWorkers = (props) => {
       title: '? האם להסיר מכוננות',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#34a0ff',
       cancelButtonColor: '#d33',
       confirmButtonText: 'אישור',
       cancelButtonText: 'ביטול',
@@ -202,7 +202,7 @@ const CurrentWeekWorkers = (props) => {
               </div>
             </form>`,
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#34a0ff',
       cancelButtonColor: '#d33',
       confirmButtonText: 'אישור',
       cancelButtonText: 'ביטול',
@@ -265,7 +265,7 @@ const CurrentWeekWorkers = (props) => {
         html: `<form class="${styles.swal2_content}">
                   <p>${message.message}</p>
                 </form>`,
-        confirmButtonColor: '#3085d6',
+        confirmButtonColor: '#34a0ff',
         confirmButtonText: 'סגור',
         customClass: {
           popup: styles.swal2_popup,
@@ -309,7 +309,7 @@ const CurrentWeekWorkers = (props) => {
           input: 'text',
           inputValue: currentMessage ? currentMessage.message : "",
           showCancelButton: true,
-          confirmButtonColor: '#3085d6',
+          confirmButtonColor: '#34a0ff',
           cancelButtonColor: '#d33',
           confirmButtonText: 'אישור',
           cancelButtonText: 'ביטול',

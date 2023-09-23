@@ -22,7 +22,7 @@ const CreateWeekShift = (props) => {
               Swal.fire({
                 title: 'המשמרת נמחקה',
                 icon: 'success',
-                confirmButtonColor: '#2977bc',
+                confirmButtonColor: '#34a0ff',
                 confirmButtonText: 'סגירה'
               })
               props.deleteShift(shift._id);

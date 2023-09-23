@@ -61,7 +61,7 @@ const WorkerList = (props) => {
       title: `הודעה מהמנהל`,
       html:
       `<div class="${styles.content}">${data.message}</div>`,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#34a0ff',
       confirmButtonText: 'סגור',
       customClass: {
         title: styles.swal2_title,

@@ -52,7 +52,7 @@ const CreateWorker = () => {
               title: 'יש למלא את כל השדות',
               text: "",
               icon: 'warning',
-              confirmButtonColor: '#3085d6',
+              confirmButtonColor: '#34a0ff',
               confirmButtonText: 'אישור'
             });
             return;
@@ -79,7 +79,7 @@ const CreateWorker = () => {
               title: 'שם משתמש תפוס, הכנס שם משתמש אחר',
               text: "",
               icon: 'warning',
-              confirmButtonColor: '#3085d6',
+              confirmButtonColor: '#34a0ff',
               confirmButtonText: 'אישור'
             })
           });

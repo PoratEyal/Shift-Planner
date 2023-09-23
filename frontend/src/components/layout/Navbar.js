@@ -66,7 +66,7 @@ const Navbar = (props) => {
       Swal.fire({
         title: 'שיבוץ עובדים אפשרי רק לאחר יצירת ופרסום המשמרות',
         icon: 'warning',
-        confirmButtonColor: '#3085d6',
+        confirmButtonColor: '#34a0ff',
         confirmButtonText: 'סגירה'
       });         
     }

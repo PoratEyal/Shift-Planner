@@ -75,7 +75,7 @@ const CreateWeek = () => {
               Swal.fire({
                 title: 'המשמרות פורסמו',
                 icon: 'success',
-                confirmButtonColor: '#2977bc',
+                confirmButtonColor: '#34a0ff',
                 confirmButtonText: 'סגירה'
             })
               editWeek()
