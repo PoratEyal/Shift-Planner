@@ -11,8 +11,9 @@ const SettingsPage = (props) => {
     const navigate = useNavigate();
 
     const [defShifts, setDefShifts] = useState(null);
-    const [noShifts, setNoShifts] = useState(false)
+    const [noShifts, setNoShifts] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [limitShifts, setLimitShifts] = useState(false);
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
@@ -20,14 +21,16 @@ const SettingsPage = (props) => {
             managerId: user._id
         }).then((response) => {
             if (Array.isArray(response.data) && response.data.length === 0) {
-                setNoShifts(true)
-            }
-            else{
+                setNoShifts(true);
+            } else {
                 setDefShifts(response.data);
+                if (response.data.length >= 4) {
+                    setLimitShifts(true)
+                }
             }
             setLoading(true);
-        })
-    }, [noShifts]);
+        });
+    }, [noShifts, defShifts]);    
 
     const deleteHandler = (shiftId) => {
         Swal.fire({
@@ -48,6 +51,7 @@ const SettingsPage = (props) => {
                 const response = await axios.put(`${process.env.REACT_APP_URL}/deleteShift`, reqBody);
                 if(response){
                     setDefShifts(response.data)
+                    setLimitShifts(false)
                 }
               Swal.fire({
                 title: 'המשמרת נמחקה',
@@ -57,6 +61,21 @@ const SettingsPage = (props) => {
             });
             }
         });
+    }
+
+    const createShiftHandler = () => {
+        if(!limitShifts){
+            navigate('/createShift')
+        }
+        else {
+            Swal.fire({
+                title: 'ניתן להוסיף עד - 4 משמרות',
+                icon: 'info',
+                confirmButtonColor: '#34a0ff',
+                confirmButtonText: 'סגירה'
+            });
+        }
+
     }
 
     return <PageLayout text='משמרות'>
@@ -87,7 +106,7 @@ const SettingsPage = (props) => {
         </div>
 
         <img
-            onClick={() => navigate('/createShift')}
+            onClick={createShiftHandler}
             src='addRole.png'
             className={styles.addShift_btn}
             alt='Add Shift'
