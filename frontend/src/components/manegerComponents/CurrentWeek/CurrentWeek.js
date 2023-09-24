@@ -320,7 +320,7 @@ const CurrentWeek = () => {
                         </button>
                     ) : (
                         <button className={styles.btn_ai_block} onClick={clickAi}>
-                            <label>השיבוץ בתהליך...</label>
+                            <label>השיבוץ בתהליך</label>
                         </button>
                     )
                     ) : null}
