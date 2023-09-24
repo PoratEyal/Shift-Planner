@@ -81,8 +81,33 @@
     font-weight: 500;
     direction: rtl;
 }
-.ai_icon_loading{
-    animation: magicEffect 2s ease-in-out infinite;
+
+.btn_ai_block{
+    display: flex;
+    border-radius: 0.5rem;
+    border: 3px solid #eaf5ff;
+    cursor: pointer;
+    transition: all .6s ease;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+    height: 45px;
+    font-size: 23px;
+    font-weight: 500;
+    gap: 20px;
+    z-index: 20;
+    width: 320px;
+    margin-top: 10px;
+    margin-bottom: -5px;
+    background-color: #d2e9ff;
+    color:#2880cc;
+    animation: slideInAndFade 0.5s ease-in-out;
+    display: block;
+}
+.btn_ai_block label{
+    font-size: 1.275rem;
+    font-weight: 500;
+    direction: rtl;
 }
 
 .publish_div{

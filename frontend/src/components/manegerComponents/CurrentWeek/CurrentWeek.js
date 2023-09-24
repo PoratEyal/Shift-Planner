@@ -64,12 +64,10 @@ const CurrentWeek = () => {
         }
         axios.post(`${process.env.REACT_APP_URL}/getNextWeek`, reqbody)
             .then((response) => {
-                setTimeout(() => {
-                    setWeek(response.data);
-                    setWeekAi(response.data.usedAi);
-                    setWeekPublished(response.data.publishScheduling);
-                    setWeekVisible(response.data.visible);
-                }, 1000); 
+                setWeek(response.data);
+                setWeekAi(response.data.usedAi)
+                setWeekPublished(response.data.publishScheduling)
+                setWeekVisible(response.data.visible)
             }).then(() => {
                 axios.post(`${process.env.REACT_APP_URL}/getUserMessagesOfWeek`, { weekId: week._id })
                     .then(response => {
@@ -314,12 +312,18 @@ const CurrentWeek = () => {
     return <PageLayout text='שיבוצים לשבוע הבא'>
             <div style={{ marginTop: '65px' }} className={styles.container}>
 
-                {weekAi === false && weekPublished === false ?
-                    <button className={styles.btn_ai} onClick={clickAi}>
-                        {loadingAi ? <FaMagic className={styles.ai_icon_loading}></FaMagic> : <FaMagic></FaMagic>}
-                        {loadingAi ? <label>השיבוץ בתהליך...</label> : <label>שיבוץ אוטומטי</label>}
-                    </button>
-                : null}
+                {weekAi === false && weekPublished === false ? (
+                    !loadingAi ? (
+                        <button className={styles.btn_ai} onClick={clickAi}>
+                            <FaMagic />
+                            <label>שיבוץ אוטומטי</label>
+                        </button>
+                    ) : (
+                        <button className={styles.btn_ai_block} onClick={clickAi}>
+                            <label>השיבוץ בתהליך...</label>
+                        </button>
+                    )
+                    ) : null}
 
                 {weekPublished === true ?
                     <div className={styles.published_div}>
@@ -346,14 +350,7 @@ const CurrentWeek = () => {
                                         <DayCurrentWeek weekId={week._id} day={day}  getDays={getDays} managerId={managerId}></DayCurrentWeek>
                                     </messageContext.Provider>
                             })
-                        :
-                            <div className={styles.load_row}>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                    }
+                        :null}
                 </div>
 
                 {loadingAi ?
