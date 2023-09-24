@@ -393,8 +393,8 @@ const CurrentWeekWorkers = (props) => {
           </div>
         ) : (
           <div className={styles.workers_list_delete}>
-            {workersArr.map((worker) => (
-              <div key={worker._id} className={styles.nameAndDelete}>
+            {workersArr.map((worker, index) => (
+              <div key={index} className={styles.nameAndDelete}>
                 <div className={styles.label_edit_select}>
                   
                   <FiMoreHorizontal onClick={() => options(worker._id)} className={styles.icon_edit}></FiMoreHorizontal>
@@ -423,7 +423,7 @@ const CurrentWeekWorkers = (props) => {
                           <AiOutlineSync className={styles.icon_edit_select} onClick={() => props.addSB(worker._id)}></AiOutlineSync>
                         </div>
                     </div> : null}
-  
+
                     {hasMessage(worker._id) ? (
                       <AiOutlineMessage
                         onClick={() => seeMessage(worker)}
@@ -440,8 +440,8 @@ const CurrentWeekWorkers = (props) => {
               </div>
             ))}
 
-            {sbWorkersArr.map((worker) => (
-              <div key={worker._id} className={styles.nameAndDelete}>
+            {sbWorkersArr.map((worker, index) => (
+              <div key={index} className={styles.nameAndDelete}>
                 <div className={styles.label_edit_select}>
 
                   <FiMoreHorizontal onClick={() => options(worker._id)} className={styles.icon_edit}></FiMoreHorizontal>
@@ -464,7 +464,7 @@ const CurrentWeekWorkers = (props) => {
                         <AiOutlineMessage className={styles.icon_edit_select} onClick={() => writeMessage(worker)}></AiOutlineMessage>
                       </div>
                   </div> : null}
-  
+
                   {hasMessage(worker._id) ? (
                     <AiOutlineMessage
                       onClick={() => seeMessage(worker)}
@@ -483,13 +483,11 @@ const CurrentWeekWorkers = (props) => {
 
               </div>
             ))}
-        </div>)}
+          </div>)}
 
         <div className={styles.add_available_worker_div}>
           <select className={styles.add_specific_worker_select} ref={selectreF} defaultValue="" onChange={() => choseWorker(selectreF.current.value) }>
-            <option value="" disabled>
-              <label>הוספת עובד שביקש את המשמרת</label>
-            </option>
+            <option value="" disabled>הוספת עובד שביקש את המשמרת</option>
             {availableWorkersArr.map((elem, index) => (
               <option key={index} value={elem._id}>{elem.fullName}</option>
             ))}
@@ -498,9 +496,7 @@ const CurrentWeekWorkers = (props) => {
 
         <div className={styles.add_specific_worker_div}>
           <select className={styles.add_specific_worker_select} ref={selectRef} defaultValue="" onChange={() => choseWorker(selectRef.current.value)}>
-            <option value="" disabled>
-              <label>הוספת עובד למשמרת</label>
-            </option>
+            <option value="" disabled>הוספת עובד למשמרת</option>
             {newWorkers.map((elem, index) => (
               <option key={index} value={elem._id}>{elem.fullName}</option>
             ))}
