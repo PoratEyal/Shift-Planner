@@ -49,7 +49,7 @@ const CreateWorker = () => {
 
         if (!fullName || !username || !password || !managerId) {
             Swal.fire({
-              title: 'יש למלא את כל השדות',
+              title: 'יש למלא את כל השדות (תפקיד לא חובה)',
               text: "",
               icon: 'warning',
               confirmButtonColor: '#34a0ff',
