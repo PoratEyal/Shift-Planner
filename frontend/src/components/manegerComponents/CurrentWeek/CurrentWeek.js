@@ -345,12 +345,11 @@ const CurrentWeek = () => {
                                     </messageContext.Provider>
                             })
                         :
-                            <div className={styles.loader2}>
-                                <div className={styles.circle}></div>
-                                <div className={styles.circle}></div>
-                                <div className={styles.circle}></div>
-                                <div className={styles.circle}></div>
-                                <div className={styles.circle}></div>
+                            <div className={styles.load_row}>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
                             </div>
                     }
                 </div>
