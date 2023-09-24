@@ -338,13 +338,20 @@ const CurrentWeek = () => {
 
                 <div style={{marginBottom: '60px'}} className={loadingAi ? styles.container_disabled : null}>
                     {
-                        week ? week.day.map((day) => {
-                            return (
-                                <messageContext.Provider value={weekMessages} key={day._id}>
-                                    <DayCurrentWeek weekId={week._id} day={day}  getDays={getDays} managerId={managerId}></DayCurrentWeek>
-                                </messageContext.Provider>
-                            )
-                        }) : null
+                        week ? 
+                            week.day.map((day) => {
+                                return <messageContext.Provider value={weekMessages} key={day._id}>
+                                        <DayCurrentWeek weekId={week._id} day={day}  getDays={getDays} managerId={managerId}></DayCurrentWeek>
+                                    </messageContext.Provider>
+                            })
+                        :
+                            <div className={styles.loader}>
+                                <div className={styles.circle}></div>
+                                <div className={styles.circle}></div>
+                                <div className={styles.circle}></div>
+                                <div className={styles.circle}></div>
+                                <div className={styles.circle}></div>
+                            </div>
                     }
                 </div>
 
@@ -358,6 +365,8 @@ const CurrentWeek = () => {
                             <span className={styles.word}>..טוען עובדים</span>
                             <span className={styles.word}>..בודק בקשות</span>
                             <span className={styles.word}>..מחשב שיבוצים</span>
+                            <span className={styles.word}>..בודק תקינות</span>
+                            <span className={styles.word}>..מאמת נתונים</span>
                         </div>
                     </div>
                 </div>: null}
@@ -367,22 +376,3 @@ const CurrentWeek = () => {
 }
 
 export default CurrentWeek;
-
-
-
-{/* <div className={styles.nav_container}>
-<div className={styles.name}>שיבוצים לשבוע הבא</div>
-
-<div className={styles.spacer}></div>
-
-<div className={styles.nav_btn_div}>
-    {weekAi === false && weekPublished === false ?
-        <label className={styles.i2}>
-            <button  onClick={clickAi}>
-                {loadingAi ? <FaMagic className={styles.ai_icon_loading}></FaMagic> : <FaMagic></FaMagic>}
-            </button>
-        </label>
-    : null}
-    <Link className={styles.i1} to="/managerHomePage"><button><BiSolidHome></BiSolidHome></button></Link>   
-</div>
-</div> */}
