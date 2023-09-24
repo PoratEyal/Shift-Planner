@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import { ManagerContext } from '../ManagerHomePage' 
 import { useContext } from 'react';
 import { FcAdvertising } from "react-icons/fc";
-import { FcApproval } from "react-icons/fc";
+import { FcInspection } from "react-icons/fc";
 import PageLayout from './/..//..//layout/PageLayout';
 
 const CreateWeek = () => {
@@ -96,7 +96,7 @@ const CreateWeek = () => {
             {weekVisivble === true ?
             <div className={styles.published_div}>
                 <button visible='false'>
-                    <FcApproval className={styles.icon_publishd}></FcApproval>
+                    <FcInspection className={styles.icon_publishd}></FcInspection>
                     <label>המשמרות פורסמו</label>
                 </button>
             </div> : null}

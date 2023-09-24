@@ -8,7 +8,7 @@ import { useContext } from 'react';
 import { FaMagic } from "react-icons/fa";
 import messageContext from './messagesContext';
 import { FcAdvertising } from "react-icons/fc";
-import { FcApproval } from "react-icons/fc";
+import { FcInspection } from "react-icons/fc";
 import PageLayout from './/..//..//layout/PageLayout';
 
 const CurrentWeek = () => {
@@ -328,7 +328,7 @@ const CurrentWeek = () => {
                 {weekPublished === true ?
                     <div className={styles.published_div}>
                     <button visible='false'>
-                        <FcApproval className={styles.icon_publishd}></FcApproval>
+                        <FcInspection className={styles.icon_publishd}></FcInspection>
                         <label>השבוע פורסם</label>
                     </button>
                 </div> : null}
