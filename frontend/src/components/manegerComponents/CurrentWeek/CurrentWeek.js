@@ -64,10 +64,12 @@ const CurrentWeek = () => {
         }
         axios.post(`${process.env.REACT_APP_URL}/getNextWeek`, reqbody)
             .then((response) => {
-                setWeek(response.data);
-                setWeekAi(response.data.usedAi)
-                setWeekPublished(response.data.publishScheduling)
-                setWeekVisible(response.data.visible)
+                setTimeout(() => {
+                    setWeek(response.data);
+                    setWeekAi(response.data.usedAi);
+                    setWeekPublished(response.data.publishScheduling);
+                    setWeekVisible(response.data.visible);
+                }, 1000); 
             }).then(() => {
                 axios.post(`${process.env.REACT_APP_URL}/getUserMessagesOfWeek`, { weekId: week._id })
                     .then(response => {
