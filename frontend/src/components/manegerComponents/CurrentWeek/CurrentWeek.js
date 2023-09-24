@@ -345,7 +345,7 @@ const CurrentWeek = () => {
                                     </messageContext.Provider>
                             })
                         :
-                            <div className={styles.loader}>
+                            <div className={styles.loader2}>
                                 <div className={styles.circle}></div>
                                 <div className={styles.circle}></div>
                                 <div className={styles.circle}></div>
@@ -365,8 +365,6 @@ const CurrentWeek = () => {
                             <span className={styles.word}>..טוען עובדים</span>
                             <span className={styles.word}>..בודק בקשות</span>
                             <span className={styles.word}>..מחשב שיבוצים</span>
-                            <span className={styles.word}>..בודק תקינות</span>
-                            <span className={styles.word}>..מאמת נתונים</span>
                         </div>
                     </div>
                 </div>: null}
