@@ -1,11 +1,13 @@
 import PageLayout from './/..//..//layout/PageLayout';
 import styles from './workers.module.css';
 import { ManagerContext } from '../ManagerHomePage';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { useContext } from 'react';
 import Swal from 'sweetalert2';
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { BiEditAlt } from "react-icons/bi";
+import { FiMoreHorizontal } from "react-icons/fi";
 import { useNavigate } from 'react-router-dom';
 
 const Workers = () => {
@@ -16,6 +18,11 @@ const Workers = () => {
     const [noWorkers, setNoWorkers] = useState(false)
     const [userDeleted, setUserDelted] = useState(false)
     const [loading, setLoading] = useState(false)
+
+    const [openOptions, setOpenOptions] = useState(null);
+    const [isDivVisible, setDivVisible] = useState(false);
+    const divRef = useRef(null);
+
     const managerContext = useContext(ManagerContext);
 
     useEffect(() => {
@@ -53,6 +60,31 @@ const Workers = () => {
 
         fetchData();
     }, [userDeleted]);
+
+    // control on the close and open the option select
+    useEffect(() => {
+      function handleOutsideClick(event) {
+      if (divRef.current && !divRef.current.contains(event.target)) {
+          setDivVisible(false);
+      }
+      }
+
+      if (isDivVisible) {
+      document.addEventListener('mousedown', handleOutsideClick);
+      } else {
+      document.removeEventListener('mousedown', handleOutsideClick);
+      }
+
+      return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+      };
+    }, [isDivVisible ])
+
+    // when click on the ... icon - set those two states
+    const options = (shiftId) => {
+      setOpenOptions(shiftId);
+      setDivVisible(true);
+    }
 
     const deleteUser = async (userId) => {
         Swal.fire({
@@ -104,7 +136,23 @@ const Workers = () => {
                   (user._id !== managerContext.getUser()) ? (
                     <div key={user._id} className={styles.user_container}>
                       <div>
-                        <button
+                      <div className={styles.delete_edit_div}>
+                        <FiMoreHorizontal className={styles.icon} onClick={() => options(user._id)}></FiMoreHorizontal>
+
+                        {openOptions === user._id && isDivVisible ? 
+                          <div ref={divRef} className={styles.edit_div_options}>
+                              <div className={styles.edit_div_flex}>
+                                  <label onClick={() =>  setDivVisible(false)}>עריכת עובד</label>
+                                  <BiEditAlt onClick={() =>  setDivVisible(false)} className={styles.icon_edit_select}></BiEditAlt>
+                              </div>
+
+                              <div className={styles.edit_div_flex}>
+                                <label onClick={() => { deleteUser(user._id); setDivVisible(false); setUserDelted(false); }}>מחיקת עובד</label>
+                                <RiDeleteBin6Line className={styles.icon_edit_select} onClick={() => { deleteUser(user._id); setDivVisible(false); setUserDelted(false); }}></RiDeleteBin6Line>
+                              </div>
+                          </div> : null}
+                        </div>
+                        {/* <button
                           className={styles.btn}
                           onClick={() => {
                             deleteUser(user._id);
@@ -112,7 +160,7 @@ const Workers = () => {
                           }}
                         >
                           <RiDeleteBin6Line />
-                        </button>
+                        </button> */}
                       </div>
                       <div>
                         <p className={styles.p}>{user.fullName}</p>
