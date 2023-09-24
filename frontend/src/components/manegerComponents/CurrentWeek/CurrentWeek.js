@@ -348,6 +348,20 @@ const CurrentWeek = () => {
                     }
                 </div>
 
+                {loadingAi ?
+                <div className={styles.spinnerContainer}>
+                    <div className={styles.spinner}></div>
+                    <div className={styles.loader}>
+                        <div className={styles.words}>
+                            <span className={styles.word}></span>
+                            <span className={styles.word}>..טוען משמרות</span>
+                            <span className={styles.word}>..טוען עובדים</span>
+                            <span className={styles.word}>..בודק בקשות</span>
+                            <span className={styles.word}>..מחשב שיבוצים</span>
+                        </div>
+                    </div>
+                </div>: null}
+
             </div>
     </PageLayout>
 }

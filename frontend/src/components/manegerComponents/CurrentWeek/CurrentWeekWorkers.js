@@ -403,10 +403,6 @@ const CurrentWeekWorkers = (props) => {
 
                   {openOptions === worker._id && isDivVisible ? 
                     <div ref={divRef} className={styles.edit_div_options}>
-                        <div className={styles.edit_div_flex}>
-                          <label onClick={() => removeWorker(worker._id)}>מחיקת עובד</label>
-                          <RiDeleteBin6Line className={styles.icon_edit_select} onClick={() => removeWorker(worker._id)}></RiDeleteBin6Line>
-                        </div>
 
                         <div className={styles.edit_div_flex}>
                           <label onClick={() => editHours(worker)}>בחירת שעות</label>
@@ -421,6 +417,11 @@ const CurrentWeekWorkers = (props) => {
                         <div className={styles.edit_div_flex}>
                           <label onClick={() => props.addSB(worker._id)}>כוננות</label>
                           <AiOutlineSync className={styles.icon_edit_select} onClick={() => props.addSB(worker._id)}></AiOutlineSync>
+                        </div>
+
+                        <div className={styles.edit_div_flex}>
+                          <label onClick={() => removeWorker(worker._id)}>מחיקת עובד</label>
+                          <RiDeleteBin6Line className={styles.icon_edit_select} onClick={() => removeWorker(worker._id)}></RiDeleteBin6Line>
                         </div>
                     </div> : null}
 
@@ -450,11 +451,6 @@ const CurrentWeekWorkers = (props) => {
                     <div ref={divRef} className={styles.edit_div_options}>
 
                       <div className={styles.edit_div_flex}>
-                        <label className={styles.text_edit_select} onClick={() => delSbworker(worker._id)}>הסרת כוננות</label>
-                        <AiOutlineSync className={styles.icon_edit_select} onClick={() => delSbworker(worker._id)}></AiOutlineSync>
-                      </div>
-
-                      <div className={styles.edit_div_flex}>
                         <label className={styles.text_edit_select} onClick={() => editHours(worker)}>בחירת שעות</label>
                         <BiTime className={styles.icon_edit_select} onClick={() => editHours(worker)}></BiTime>
                       </div>
@@ -462,7 +458,13 @@ const CurrentWeekWorkers = (props) => {
                       <div className={styles.edit_div_flex}>
                         <label className={styles.text_edit_select} onClick={() => writeMessage(worker)}>כתיבת הודעה</label>
                         <AiOutlineMessage className={styles.icon_edit_select} onClick={() => writeMessage(worker)}></AiOutlineMessage>
-                      </div>
+                      </div>            
+
+                      <div className={styles.edit_div_flex}>
+                        <label className={styles.text_edit_select} onClick={() => delSbworker(worker._id)}>הסרת כוננות</label>
+                        <AiOutlineSync className={styles.icon_edit_select} onClick={() => delSbworker(worker._id)}></AiOutlineSync>
+                      </div> 
+
                   </div> : null}
 
                   {hasMessage(worker._id) ? (
