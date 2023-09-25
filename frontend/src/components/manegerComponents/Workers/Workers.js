@@ -142,7 +142,7 @@ const Workers = () => {
                         {openOptions === user._id && isDivVisible ? 
                           <div ref={divRef} className={styles.edit_div_options}>
                               <div className={styles.edit_div_flex}>
-                                  <label onClick={() =>  setDivVisible(false)}>עריכת עובד</label>
+                                  <label onClick={() => navigate('/EditWorker')}>עריכת עובד</label>
                                   <BiEditAlt onClick={() =>  setDivVisible(false)} className={styles.icon_edit_select}></BiEditAlt>
                               </div>
 
@@ -152,15 +152,6 @@ const Workers = () => {
                               </div>
                           </div> : null}
                         </div>
-                        {/* <button
-                          className={styles.btn}
-                          onClick={() => {
-                            deleteUser(user._id);
-                            setUserDelted(false);
-                          }}
-                        >
-                          <RiDeleteBin6Line />
-                        </button> */}
                       </div>
                       <div>
                         <p className={styles.p}>{user.fullName}</p>
@@ -173,8 +164,6 @@ const Workers = () => {
           </div>
           <img onClick={() => navigate('/createWorker')} src='addUser.png' className={styles.addUser_btn} />
         </PageLayout>
-      );
-      
+      );     
 }
-
 export default Workers;
