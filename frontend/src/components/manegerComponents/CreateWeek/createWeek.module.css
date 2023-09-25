@@ -214,6 +214,7 @@
     background-color: #d2e9ff;
     color:#2880cc;
     border: none;
+    border: 3px solid rgb(200, 229, 255);
     font-weight: 500;
     text-align: center !important;
     text-align: -webkit-center;
