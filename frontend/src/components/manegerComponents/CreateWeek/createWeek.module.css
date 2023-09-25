@@ -199,8 +199,8 @@
 }
 .specific_shift_div select{
     width: 290px;
-    height: 40px;
-    font-size: 18px;
+    height: 50px;
+    font-size: 20px;
     font-family: 'Rubik', sans-serif;
     border-radius: 0.5rem;
     border: 1px solid rgb(181, 181, 181);
@@ -219,8 +219,8 @@
 .specific_shift_div select::before{
     content: '';
     width: 290px;
-    height: 40px;
-    font-size: 18px;
+    height: 50px;
+    font-size: 20px;
     font-family: 'Rubik', sans-serif;
     border-radius: 0.5rem;
     border: 1px solid rgb(181, 181, 181);
