@@ -231,7 +231,7 @@
     appearance: none;
     -webkit-appearance:none;
     background-color: #d2e9ff00;
-    color:#287fcc;
+    color:#287fcc00;
     border: none;
     font-weight: 500;
     text-align: center !important;
@@ -1194,5 +1194,10 @@
     }
     .ai_btn{
         width: 360px;
+    }
+}
+@media only screen and (min-width: 900px){
+    .specific_shift_div select{
+        color:#2880cc;
     }
 }
