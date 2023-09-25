@@ -175,7 +175,6 @@ userRouter.put('/editUser', async (req, res) => {
         let updatedUser = req.body;
         let user = await User.findOne({ _id: updatedUser._id });
         if (!!updatedUser.password) {
-            console.log("passed" +updatedUser.password)
             const salt = await bcrypt.genSalt();
             user.password = await bcrypt.hash(updatedUser.password, salt);
             try {

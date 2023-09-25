@@ -66,14 +66,7 @@ const Worker = (props) => {
     }
 
     const EditUser = async () => {
-
-
-        console.log(password.current.value);
-        console.log(fullName.current.value);
-        console.log(username.current.value);
-
-
-
+        
         const updatedUser = {
             _id: user._id,
             fullName: fullName.current.value,
