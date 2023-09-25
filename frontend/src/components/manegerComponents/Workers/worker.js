@@ -14,8 +14,9 @@ const Worker = (props) => {
     const [openOptions, setOpenOptions] = useState(null);
     const [userDeleted, setUserDelted] = useState(false)
     const [clickEditWorker, setEditWorker] = useState(false);
-    const divRef = useRef(null);
+    const [selectedRole, setRole] = useState("");
 
+    const divRef = useRef(null);
     const user = props.user;
 
     const options = (shiftId) => {
@@ -83,7 +84,12 @@ const Worker = (props) => {
             clickEditWorker ? <div className={styles.editWorker}>
             <input className={styles.input_edit} defaultValue={user.fullName} type="text" placeholder="שם מלא"/>
             <input className={styles.input_edit} defaultValue={user.username} type="text" placeholder='שם משתמש'/>
-            <input className={styles.input_edit}  type="password" placeholder='סיסמא'/> 
+            <input className={styles.input_edit}  type="password" placeholder='סיסמא'/>
+
+            <select className={styles.select} onChange={(e) => { setRole(e.target.value) }} defaultValue="">
+                  <option value="" disabled>תפקיד</option>
+                  {props.roles.map(role => { return <option value={role._id} key={role._id}>{role.name}</option> })}
+              </select>
             <div className={styles.btn_div}>
                 <button
                     className={styles.edit_worker_btn}

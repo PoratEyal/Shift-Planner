@@ -95,6 +95,19 @@
     background-color: #c1e1ff;
     color:#2880cc;
 }
+.select{
+    direction: rtl;
+    text-align: right;
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    padding: 6px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+    border: 1.5px solid rgba(91, 91, 91, 0.25);
+    width: 272px;
+    margin-bottom: 20px;
+}
 .edit_worker_btn_cancel{
     margin-top: -10px;
     margin-bottom: 15px;

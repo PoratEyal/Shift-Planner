@@ -19,13 +19,30 @@ const Workers = () => {
   const [noWorkers, setNoWorkers] = useState(false)
   const [userDeleted, setUserDelted] = useState(false)
   const [loading, setLoading] = useState(false)
-
+  const [roles, setRoles] = useState([]);
   const [openOptions, setOpenOptions] = useState(null);
   const [isDivVisible, setDivVisible] = useState(false);
   const divRef = useRef(null);
 
   const managerContext = useContext(ManagerContext);
-
+  const getRoles = () => {
+    const token = localStorage.getItem("token");
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+    };
+    const reqbody = {
+      managerId: managerContext.getUser()
+    }
+    axios
+      .post(`${process.env.REACT_APP_URL}/getRoles`, reqbody, config)
+      .then((response) => {
+        console.log(response.data)
+        setRoles(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -43,6 +60,7 @@ const Workers = () => {
     };
 
     fetchData();
+    getRoles();
   }, []);
 
   useEffect(() => {
@@ -135,7 +153,7 @@ const Workers = () => {
           ) : (
             users.map((user) => (
               (user._id !== managerContext.getUser()) ? (
-                  <Worker user={user}></Worker>
+                <Worker user={user} roles={roles} key={user._id}></Worker>
               ) : null
             ))
           )
