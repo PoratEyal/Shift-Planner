@@ -197,31 +197,6 @@
     justify-content: center;
     align-items: center;
 }
-.specific_shift_div button{
-    margin-right: 15px;
-    width: 80px;
-    height: 40px;
-    padding: 0.8rem 2.4rem;
-    font-size: 20px;
-    line-height: 1.25rem;
-    text-align: center;
-    text-transform: uppercase;
-    vertical-align: middle;
-    border-radius: 0.5rem;
-    border: none;
-    gap: 0.75rem;
-    background-color: var(--main-color);
-    background-color: #d2e9ff;
-    color:#2880cc;
-    cursor: pointer;
-    transition: 0.3s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Rubik', sans-serif;
-    font-weight: 500;
-    margin-bottom: 0px;
-}
 .specific_shift_div select{
     width: 290px;
     height: 40px;
@@ -1119,8 +1094,8 @@
     .btn{
         width: 315px;
     }
-    .specific_shift_div button{
-        width: 100px;
+    .specific_shift_div select{
+        width: 310px;
     }
     .addShift{
         width: 305px;
@@ -1175,8 +1150,8 @@
     .btn{
         width: 335px;
     }
-    .specific_shift_div button{
-        width: 120px;
+    .specific_shift_div select{
+        width: 330px;
     }
     .addShift{
         width: 325px;
