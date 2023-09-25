@@ -141,10 +141,7 @@ const CreateWeekDay = (props) => {
                     dayShifts.map((shift) => { return shift ? <Shift deleteShift={deleteShift} shift={shift} key={shift._id} managerId={props.managerId}></Shift> : null }))
             }
 
-            <div className={styles.specific_shift_div}>
-                {/* <button onClick={() => { addDefShift(selectRef.current.value) }}>
-                        הוספה
-                </button> */}         
+            <div className={styles.specific_shift_div}>        
                 <select
                     ref={selectRef}
                     defaultValue=""
