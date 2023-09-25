@@ -36,11 +36,12 @@
     background-color: rgba(231, 234, 238, 0.571);
 }
 .editWorker{
-    width: 270px;
+    margin-top: 5px;
+    width: 240px;
     font-size: 1.2em;
     border: none;
     border-radius: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,19 +50,32 @@
     background-color: rgba(231, 234, 238, 0.571);
 }
 .input_edit{
-    margin: 10px;
-    font-size: 18px;
-    padding: 5px;
+    font-size: 19px;
+    padding: 6px;
     border-radius: 5px;
-    border: none;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 260px;
+    border: 2px solid rgba(169, 169, 169, 0.25);
+    background-color: white;
+    width: 240px;
     text-align: right;
     direction: rtl;
     appearance: none;
     -webkit-appearance:none;
     font-family: 'Rubik', sans-serif;
-    margin-top: -3px;
+    margin-bottom: 10px;
+}
+.select{
+    font-size: 19px;
+    padding: 6px;
+    border-radius: 5px;
+    border: 2px solid rgba(169, 169, 169, 0.25);
+    background-color: white;
+    width: 255px;
+    text-align: right;
+    direction: rtl;
+    appearance: none;
+    -webkit-appearance:none;
+    font-family: 'Rubik', sans-serif;
+    margin-bottom: 10px;
 }
 .btn_div{
     display: flex;
@@ -94,21 +108,11 @@
     font-weight: 500;
     background-color: #c1e1ff;
     color:#2880cc;
+    width: 120px;
 }
-.select{
-    direction: rtl;
-    text-align: right;
-    font-family: 'Rubik', sans-serif;
-    font-size: 20px;
-    padding: 6px;
-    border-radius: 5px;
-    border: none;
-    margin-bottom: 10px;
-    border: 1.5px solid rgba(91, 91, 91, 0.25);
-    width: 272px;
-    margin-bottom: 20px;
-}
+
 .edit_worker_btn_cancel{
+    width: 120px;
     margin-top: -10px;
     margin-bottom: 15px;
     display: flex;
@@ -124,7 +128,6 @@
     gap: 0.75rem;
     cursor: pointer;
     transition: all .6s ease;
-    width: 130px;
     justify-content: center;
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
@@ -352,6 +355,21 @@
     .container{
         width: 310px;
     }
+    .editWorker{
+        width:260px;
+    }
+    .input_edit{
+        width: 260px;
+    }
+    .select{
+        width: 275px;
+    }
+    .edit_worker_btn{
+        width: 130px;
+    }
+    .edit_worker_btn_cancel{
+        width: 130px;
+    }
 }
 @media only screen and (min-width: 430px){
     .user_container{
@@ -359,6 +377,21 @@
     }
     .container{
         width: 330px;
+    }
+    .editWorker{
+        width:280px;
+    }
+    .input_edit{
+        width: 280px;
+    }
+    .select{
+        width: 295px;
+    }
+    .edit_worker_btn{
+        width: 140px;
+    }
+    .edit_worker_btn_cancel{
+        width: 140px;
     }
 }
    
