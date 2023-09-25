@@ -18,7 +18,7 @@ userRouter.put('/workersCountOfManager', async (req, res) => {
     try {
         await User.find({ manager: managerId }).then(data => {
             res.status(200).json(data.length - 1);
-    })
+        })
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Internal server error' });
@@ -34,14 +34,14 @@ userRouter.post('/addUser', async (req, res) => {
 
         let user = req.body;
         user.password = hashedPassword;
-        try{
+        try {
             const role = await Role.findOne({ _id: user.role });
             user.role = role._doc;
         }
-        catch(err){
+        catch (err) {
             user.role = undefined
         }
-       
+
         const jobRes = await job.findOne({ name: user.job });
         user.job = jobRes._doc._id;
 
@@ -170,20 +170,38 @@ userRouter.delete('/deleteUser/:id', async (req, res) => {
 });
 
 // edit user 
-userRouter.put('/editUser', (req, res) => {
-    //const salt = await bcrypt.genSalt();
-    bcrypt.hash(req.body.password, 10)
-        .then((hash) => {
-            let updatedUser = req.body;
-            updatedUser.password = hash;
-            User.findByIdAndUpdate({ _id: updatedUser._id }, updatedUser)
-                .then(user => {
-                    res.status(202).json(user);
-                })
-                .catch(err => {
-                    res.status(404).json({ error: err.message });
-                });
-        });
+userRouter.put('/editUser', async (req, res) => {
+    try {
+        let updatedUser = req.body;
+        let user = await User.findOne({ _id: updatedUser._id });
+        if (!!updatedUser.password) {
+            console.log("passed" +updatedUser.password)
+            const salt = await bcrypt.genSalt();
+            user.password = await bcrypt.hash(updatedUser.password, salt);
+            try {
+                const role = await Role.findOne({ _id: updatedUser.role });
+                user.role = role._doc;
+            }
+            catch (err) { console.log(err) }
+            user.fullName = updatedUser.fullName
+            user.username = updatedUser.username
+        }
+        else {
+            try {
+                const role = await Role.findOne({ _id: updatedUser.role });
+                user.role = role._doc;
+            }
+            catch (err) { console.log(err) }
+            user.fullName = updatedUser.fullName
+            user.username = updatedUser.username
+        }
+        await user.save();
+        res.status(202).json(user);
+    }
+    catch (err) {
+        console.log(err)
+        res.status(404).json({ error: err.message });
+    }
 });
 
 // - - - - - - authenticateToken check - - - - - - - - 

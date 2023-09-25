@@ -14,10 +14,18 @@ const Worker = (props) => {
     const [openOptions, setOpenOptions] = useState(null);
     const [userDeleted, setUserDelted] = useState(false)
     const [clickEditWorker, setEditWorker] = useState(false);
+    const divRef = useRef(null);
+
+    const user = props.user;
+    
+    
+    let fullName = useRef(user.fullName);
+    let username = useRef(user.username);
+    let password = useRef("");
     const [selectedRole, setRole] = useState("");
 
-    const divRef = useRef(null);
-    const user = props.user;
+
+
 
     const options = (shiftId) => {
         setOpenOptions(shiftId);
@@ -56,6 +64,30 @@ const Worker = (props) => {
             }
         });
     }
+
+    const EditUser = async () => {
+
+
+        console.log(password.current.value);
+        console.log(fullName.current.value);
+        console.log(username.current.value);
+
+
+
+        const updatedUser = {
+            _id: user._id,
+            fullName: fullName.current.value,
+            username: username.current.value,
+            password: password.current.value,
+            role: selectedRole,
+            job: user.job,
+          };
+        await axios.put(`${process.env.REACT_APP_URL}/editUser`, updatedUser).then(() => {
+            setEditWorker(!clickEditWorker)
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
     return <React.Fragment>
         <div key={user._id} className={styles.user_container}>
             <div>
@@ -82,9 +114,9 @@ const Worker = (props) => {
         </div>
         {
             clickEditWorker ? <div className={styles.editWorker}>
-            <input className={styles.input_edit} defaultValue={user.fullName} type="text" placeholder="שם מלא"/>
-            <input className={styles.input_edit} defaultValue={user.username} type="text" placeholder='שם משתמש'/>
-            <input className={styles.input_edit}  type="password" placeholder='סיסמא'/>
+            <input className={styles.input_edit} defaultValue={user.fullName} type="text" placeholder="שם מלא" ref={fullName}/>
+            <input className={styles.input_edit} defaultValue={user.username} type="text" placeholder='שם משתמש' ref={username}/>
+            <input className={styles.input_edit}  type="password" placeholder='סיסמא' ref={password}/>
 
             <select className={styles.select} onChange={(e) => { setRole(e.target.value) }} defaultValue="">
                   <option value="" disabled>תפקיד</option>
@@ -94,6 +126,7 @@ const Worker = (props) => {
                 <button
                     className={styles.edit_worker_btn}
                     onClick={() => {
+                        EditUser();
                     }}
                 >אישור
                 </button>
