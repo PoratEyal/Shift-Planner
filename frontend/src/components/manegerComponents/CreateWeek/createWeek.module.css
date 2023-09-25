@@ -193,14 +193,34 @@
 .specific_shift_div{
     margin-top: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 280px;
+    height: 40px;
+    font-size: 21px;
+    font-family: 'Rubik', sans-serif;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(181, 181, 181);
+    direction: rtl;
+    cursor: pointer;
+    text-align: right;
+    padding:5px 5px;
+    appearance: none;
+    -webkit-appearance:none;
+    background-color: #d2e9ff;
+    color:#2880cc;
+    border: none;
+    font-weight: 500;
+    text-align: center !important;
+    position: relative;
 }
+
 .specific_shift_div select{
+    position: absolute;
     width: 290px;
     height: 50px;
-    font-size: 20px;
+    font-size: 21px;
     font-family: 'Rubik', sans-serif;
     border-radius: 0.5rem;
     border: 1px solid rgb(181, 181, 181);
@@ -210,31 +230,11 @@
     padding:5px 5px;
     appearance: none;
     -webkit-appearance:none;
-    background-color: #d2e9ff;
-    color:#2880cc;
+    background-color: #d2e9ff00;
+    color:#287fcc;
     border: none;
     font-weight: 500;
-    text-align: center;
-}
-.specific_shift_div select::before{
-    content: '';
-    width: 290px;
-    height: 50px;
-    font-size: 20px;
-    font-family: 'Rubik', sans-serif;
-    border-radius: 0.5rem;
-    border: 1px solid rgb(181, 181, 181);
-    direction: rtl;
-    cursor: pointer;
-    text-align: right;
-    padding:5px 5px;
-    appearance: none;
-    -webkit-appearance:none;
-    background-color: #d2e9ff;
-    color:#2880cc;
-    border: none;
-    font-weight: 500;
-    text-align: center;
+    text-align: center !important;
 }
 
 .icon_publish {
@@ -1094,6 +1094,9 @@
     .btn{
         width: 315px;
     }
+    .specific_shift_div{
+        width: 300px;
+    }
     .specific_shift_div select{
         width: 310px;
     }
@@ -1149,6 +1152,9 @@
     }
     .btn{
         width: 335px;
+    }
+    .specific_shift_div{
+        width: 320px;
     }
     .specific_shift_div select{
         width: 330px;

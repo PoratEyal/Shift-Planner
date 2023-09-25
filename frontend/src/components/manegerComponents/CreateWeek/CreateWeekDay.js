@@ -141,7 +141,8 @@ const CreateWeekDay = (props) => {
                     dayShifts.map((shift) => { return shift ? <Shift deleteShift={deleteShift} shift={shift} key={shift._id} managerId={props.managerId}></Shift> : null }))
             }
 
-            <div className={styles.specific_shift_div}>        
+            <div className={styles.specific_shift_div}>  
+                <label>הוספת משמרת</label>      
                 <select
                     ref={selectRef}
                     defaultValue=""
