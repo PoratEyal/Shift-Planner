@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useRef } from 'react';
 import styles from './workers.module.css';
 import axios from 'axios';
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -9,7 +8,6 @@ import Swal from 'sweetalert2';
 
 const Worker = (props) => {
 
-    const navigate = useNavigate();
     const [isDivVisible, setDivVisible] = useState(false);
     const [openOptions, setOpenOptions] = useState(null);
     const [userDeleted, setUserDelted] = useState(false)
@@ -18,14 +16,10 @@ const Worker = (props) => {
 
     const user = props.user;
     
-    
     let fullName = useRef(user.fullName);
     let username = useRef(user.username);
     let password = useRef("");
     const [selectedRole, setRole] = useState("");
-
-
-
 
     const options = (shiftId) => {
         setOpenOptions(shiftId);
@@ -48,8 +42,7 @@ const Worker = (props) => {
                     icon: 'success',
                     confirmButtonColor: '#34a0ff',
                     confirmButtonText: 'סגירה'
-                }
-                );
+                });
                 try {
                     await axios.delete(`${process.env.REACT_APP_URL}/deleteUser/${userId}`)
                         .then(response => {
@@ -77,10 +70,17 @@ const Worker = (props) => {
           };
         await axios.put(`${process.env.REACT_APP_URL}/editUser`, updatedUser).then(() => {
             setEditWorker(!clickEditWorker)
+            Swal.fire({
+                title: 'העובד עודכן בהצלחה',
+                icon: 'success',
+                confirmButtonColor: '#34a0ff',
+                confirmButtonText: 'סגירה'
+            });
         }).catch((err) => {
             console.log(err);
         })
     }
+
     return <React.Fragment>
         <div key={user._id} className={styles.user_container}>
             <div>
