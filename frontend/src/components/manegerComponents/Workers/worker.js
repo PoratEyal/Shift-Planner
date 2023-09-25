@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styles from './workers.module.css';
 import axios from 'axios';
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -80,6 +80,25 @@ const Worker = (props) => {
             console.log(err);
         })
     }
+
+    // control on the close and open the option select
+    useEffect(() => {
+        function handleOutsideClick(event) {
+        if (divRef.current && !divRef.current.contains(event.target)) {
+            setDivVisible(false);
+        }
+        }
+
+        if (isDivVisible) {
+        document.addEventListener('mousedown', handleOutsideClick);
+        } else {
+        document.removeEventListener('mousedown', handleOutsideClick);
+        }
+
+        return () => {
+        document.removeEventListener('mousedown', handleOutsideClick);
+        };
+    }, [isDivVisible ])
 
     return <React.Fragment>
         <div key={user._id} className={styles.user_container}>
