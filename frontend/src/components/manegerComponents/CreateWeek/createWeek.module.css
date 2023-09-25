@@ -213,14 +213,13 @@
     border: none;
     font-weight: 500;
     text-align: center !important;
-}
-.specific_shift_div label{
-    margin-top: 32px;
+    position: relative;
 }
 
 .specific_shift_div select{
+    position: absolute;
     width: 290px;
-    height: 40px;
+    height: 50px;
     font-size: 21px;
     font-family: 'Rubik', sans-serif;
     border-radius: 0.5rem;
@@ -232,7 +231,7 @@
     appearance: none;
     -webkit-appearance:none;
     background-color: #d2e9ff00;
-    color:#287fcc00;
+    color:#287fcc;
     border: none;
     font-weight: 500;
     text-align: center !important;
