@@ -241,9 +241,9 @@
     font-weight: 500;
     text-align: center;
 }
-/* .specific_shift_div select::before{
+.specific_shift_div select::before{
     content: '';
-    width: 190px;
+    width: 290px;
     height: 40px;
     font-size: 18px;
     font-family: 'Rubik', sans-serif;
@@ -251,9 +251,16 @@
     border: 1px solid rgb(181, 181, 181);
     direction: rtl;
     cursor: pointer;
+    text-align: right;
+    padding:5px 5px;
     appearance: none;
     -webkit-appearance:none;
-} */
+    background-color: #d2e9ff;
+    color:#2880cc;
+    border: none;
+    font-weight: 500;
+    text-align: center;
+}
 
 .icon_publish {
     font-size: 25px;
