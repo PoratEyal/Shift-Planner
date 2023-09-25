@@ -80,7 +80,7 @@ const DefaultShift = (props) => {
                 {openOptions === shift._id && isDivVisible ? 
                     <div ref={divRef} className={styles.edit_div_options}>
                         <div className={styles.edit_div_flex}>
-                            <label onClick={() => { setClickAddShift(!clickAddShift); setDivVisible(false) }}>עדכון משמרת</label>
+                            <label onClick={() => { setClickAddShift(!clickAddShift); setDivVisible(false) }}>עריכת משמרת</label>
                             <BiEditAlt className={styles.icon_edit_select} onClick={() => { setClickAddShift(!clickAddShift); setDivVisible(false) }}></BiEditAlt>
                         </div>
 
