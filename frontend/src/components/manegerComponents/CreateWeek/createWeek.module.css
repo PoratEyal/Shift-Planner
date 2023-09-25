@@ -1196,3 +1196,8 @@
         width: 360px;
     }
 }
+@media only screen and (min-width: 900px){
+    .specific_shift_div select{
+        color:#2880cc;
+    }
+}
