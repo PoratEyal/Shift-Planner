@@ -142,15 +142,23 @@ const CreateWeekDay = (props) => {
             }
 
             <div className={styles.specific_shift_div}>
-                <button onClick={() => { addDefShift(selectRef.current.value) }}>
+                {/* <button onClick={() => { addDefShift(selectRef.current.value) }}>
                         הוספה
-                </button>
-                
-                <select ref={selectRef} defaultValue="" onChange={(e) => {
-                if (e.target.value === "") {
-                    setClickAddShift(!clickAddShift);
-                }}}>
-                    <option value="" disabled>בחירת משמרת</option>
+                </button> */}         
+                <select
+                    ref={selectRef}
+                    defaultValue=""
+                    onChange={(e) => {
+                        if (e.target.value === "") {
+                            setClickAddShift(!clickAddShift);
+                            e.target.value = "";
+                        } else {
+                            addDefShift(e.target.value);
+                            e.target.value = "";
+                        }
+                    }}
+                    >
+                    <option value="" disabled>הוספת משמרת</option>
                     {defShifts.map((shift, index) => {
                         return <option key={index} value={shift._id}>{shift.description}</option>
                     })}
