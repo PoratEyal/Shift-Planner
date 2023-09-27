@@ -1,21 +1,21 @@
-const mongoose = require('mongoose');
-const Shift = require('./shift');
-const User = require("./user")
+const mongoose = require("mongoose");
+const Shift = require("./shift");
+const User = require("./user");
 
 const ShiftData = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: User
+        ref: User,
     },
     message: {
-        type: String
+        type: String,
     },
     start: {
-        type: Date
+        type: Date,
     },
-    end:{
-        type: Date
-    }
+    end: {
+        type: Date,
+    },
 });
-const shiftData = mongoose.model('shiftData', ShiftData);
-module.exports = shiftData
+const shiftData = mongoose.model("shiftData", ShiftData);
+module.exports = shiftData;

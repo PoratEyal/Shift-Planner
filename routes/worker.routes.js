@@ -1,9 +1,9 @@
-const express = require('express');
+const express = require("express");
 const workerRouter = express.Router();
-const Week = require('../models/week');
-const bodyParser = require('body-parser');
-const { ObjectId } = require('mongodb');
-const mongoose = require('mongoose');
+const Week = require("../models/week");
+const bodyParser = require("body-parser");
+const { ObjectId } = require("mongodb");
+const mongoose = require("mongoose");
 
 workerRouter.use(bodyParser.json());
 
@@ -25,7 +25,7 @@ workerRouter.use(bodyParser.json());
 // });
 
 // working one !!!!!
-workerRouter.put('/addWorkerToAvial', (req, res) => {
+workerRouter.put("/addWorkerToAvial", (req, res) => {
     const body = req.body;
     const managerId = body.managerId;
     const dayId = body.dayId;
@@ -33,29 +33,31 @@ workerRouter.put('/addWorkerToAvial', (req, res) => {
     const workerId = body.workerId;
 
     Week.findOneAndUpdate(
-        { "day._id": dayId, "day.shifts._id": shiftId, "ofManager": managerId },
+        { "day._id": dayId, "day.shifts._id": shiftId, ofManager: managerId },
         { $push: { "day.$.shifts.$[elem].availableWorkers": workerId } },
-        { arrayFilters: [{ "elem._id": shiftId }], returnOriginal: true }
-    ).then(response => {
+        { arrayFilters: [{ "elem._id": shiftId }], returnOriginal: true },
+    ).then((response) => {
         res.status(200).json(response);
     });
 });
-workerRouter.put('/delWorkerToAvial', (req, res) => {
+workerRouter.put("/delWorkerToAvial", (req, res) => {
     const body = req.body;
     const managerId = body.managerId;
     const dayId = body.dayId;
     const shiftId = body.shiftId;
     const workerId = body.workerId;
 
-    Week.findOneAndUpdate({ "day._id": dayId, "day.shifts._id": shiftId, "ofManager": managerId },
+    Week.findOneAndUpdate(
+        { "day._id": dayId, "day.shifts._id": shiftId, ofManager: managerId },
         {
-            $pull: { "day.$.shifts.$[elem].availableWorkers": workerId }
+            $pull: { "day.$.shifts.$[elem].availableWorkers": workerId },
         },
-        { arrayFilters: [{ "elem._id": shiftId }] }).then(response => {
-            res.status(200).json(response);
-        });
+        { arrayFilters: [{ "elem._id": shiftId }] },
+    ).then((response) => {
+        res.status(200).json(response);
+    });
 });
-workerRouter.put('/addWorkerToWorkrs', (req, res) => {
+workerRouter.put("/addWorkerToWorkrs", (req, res) => {
     const body = req.body;
     const managerId = body.managerId;
     const dayId = body.dayId;
@@ -67,24 +69,25 @@ workerRouter.put('/addWorkerToWorkrs', (req, res) => {
         {
             $push: {
                 "day.$.shifts.$[elem].workers": workerId,
-            }
+            },
         },
-        { arrayFilters: [{ "elem._id": shiftId }], projection: { "day.$": 1 } }
+        { arrayFilters: [{ "elem._id": shiftId }], projection: { "day.$": 1 } },
     )
         .then(() => {
-            Week.findOne({ "day._id": dayId, ofManager: managerId }, { "day.$": 1 })
-                .then(response => {
+            Week.findOne({ "day._id": dayId, ofManager: managerId }, { "day.$": 1 }).then(
+                (response) => {
                     if (response && response.day && response.day.length > 0) {
                         res.status(200).json(response.day[0]);
                     }
-                });
+                },
+            );
         })
         .catch((err) => {
             console.log(err);
             res.status(500).json({ error: "An error occurred while adding the worker shift." });
         });
 });
-workerRouter.put('/WorkersToAvail', (req, res) => {
+workerRouter.put("/WorkersToAvail", (req, res) => {
     const body = req.body;
     const managerId = body.managerId;
     const dayId = body.dayId;
@@ -96,25 +99,26 @@ workerRouter.put('/WorkersToAvail', (req, res) => {
         {
             $pull: {
                 "day.$.shifts.$[elem].workers": workerId,
-                "day.$.shifts.$[elem].shiftData": { userId: { $eq: workerId } }
-            }
+                "day.$.shifts.$[elem].shiftData": { userId: { $eq: workerId } },
+            },
         },
-        { arrayFilters: [{ "elem._id": shiftId }], projection: { "day.$": 1 } }
+        { arrayFilters: [{ "elem._id": shiftId }], projection: { "day.$": 1 } },
     )
         .then(() => {
-            Week.findOne({ "day._id": dayId, ofManager: managerId }, { "day.$": 1 })
-                .then(response => {
+            Week.findOne({ "day._id": dayId, ofManager: managerId }, { "day.$": 1 }).then(
+                (response) => {
                     if (response && response.day && response.day.length > 0) {
                         res.status(200).json(response.day[0]);
                     }
-                });
+                },
+            );
         })
         .catch((err) => {
             console.log(err);
             res.status(500).json({ error: "An error occurred while removing the worker shift." });
         });
 });
-workerRouter.put('/WorkerShiftMessage', (req, res) => {
+workerRouter.put("/WorkerShiftMessage", (req, res) => {
     const message = req.body.message;
     const startTime = req.body.startTime;
     const endTime = req.body.endTime;
@@ -126,30 +130,34 @@ workerRouter.put('/WorkerShiftMessage', (req, res) => {
     Week.findOne({
         "day._id": dayId,
         "day.shifts._id": shiftId,
-        ofManager: managerId
+        ofManager: managerId,
     })
         .then((week) => {
             if (!week) {
                 return res.status(404).json({ error: "Week not found." });
             }
 
-            const dayIndex = week.day.findIndex(d => d._id.toString() === dayId);
+            const dayIndex = week.day.findIndex((d) => d._id.toString() === dayId);
             if (dayIndex === -1) {
                 return res.status(404).json({ error: "Day not found." });
             }
 
-            const shiftIndex = week.day[dayIndex].shifts.findIndex(s => s._id.toString() === shiftId);
+            const shiftIndex = week.day[dayIndex].shifts.findIndex(
+                (s) => s._id.toString() === shiftId,
+            );
             if (shiftIndex === -1) {
                 return res.status(404).json({ error: "Shift not found." });
             }
 
-            const shiftDataIndex = week.day[dayIndex].shifts[shiftIndex].shiftData.findIndex(sd => sd.userId.toString() === workerId);
+            const shiftDataIndex = week.day[dayIndex].shifts[shiftIndex].shiftData.findIndex(
+                (sd) => sd.userId.toString() === workerId,
+            );
             if (shiftDataIndex === -1) {
                 week.day[dayIndex].shifts[shiftIndex].shiftData.push({
                     userId: workerId,
                     message: message,
                     start: startTime,
-                    end: endTime
+                    end: endTime,
                 });
             } else {
                 week.day[dayIndex].shifts[shiftIndex].shiftData[shiftDataIndex].message = message;
@@ -157,24 +165,24 @@ workerRouter.put('/WorkerShiftMessage', (req, res) => {
                 week.day[dayIndex].shifts[shiftIndex].shiftData[shiftDataIndex].end = endTime;
             }
             week.save()
-                .then(updatedWeek => {
+                .then((updatedWeek) => {
                     if (updatedWeek && updatedWeek.day && updatedWeek.day.length > 0) {
                         res.status(200).json(updatedWeek.day[dayIndex]);
                     }
                 })
-                .catch(err => {
+                .catch((err) => {
                     console.log(err);
-                    res.status(500).json({ error: "An error occurred while updating the worker shift." });
+                    res.status(500).json({
+                        error: "An error occurred while updating the worker shift.",
+                    });
                 });
         })
-        .catch(err => {
+        .catch((err) => {
             console.log(err);
             res.status(500).json({ error: "An error occurred while finding the week." });
         });
-
-
 });
-workerRouter.put('/getMessageToWorker', (req, res) => {
+workerRouter.put("/getMessageToWorker", (req, res) => {
     const workerId = req.body.workerId;
     const shiftId = req.body.shiftId;
     const dayId = req.body.dayId;
@@ -186,55 +194,57 @@ workerRouter.put('/getMessageToWorker', (req, res) => {
             "day.shifts": {
                 $elemMatch: {
                     _id: shiftId,
-                    "shiftData.userId": workerId
-                }
-            }
+                    "shiftData.userId": workerId,
+                },
+            },
         },
         {
-            "day.shifts.$": 1
-        }
+            "day.shifts.$": 1,
+        },
     )
-    .then(response => {
-        if (response && response.day) {
+        .then((response) => {
+            if (response && response.day) {
+                const shift = response.day[0].shifts.find((shift) => shift._id.equals(shiftId));
+                const shiftData = shift.shiftData.find((data) => data.userId.equals(workerId));
 
-            const shift = response.day[0].shifts.find(shift => shift._id.equals(shiftId));
-            const shiftData = shift.shiftData.find(data => data.userId.equals(workerId));
-            
-            if (shiftData) {
-                res.status(200).json(shiftData);
+                if (shiftData) {
+                    res.status(200).json(shiftData);
+                } else {
+                    res.status(404).json({ message: "Shift data not found for the given worker" });
+                }
             } else {
-                res.status(404).json({ message: "Shift data not found for the given worker" });
+                res.status(404).json({ message: "Shift not found" });
             }
-        } else {
-            res.status(404).json({ message: "Shift not found" });
-        }
-    }).catch(err => {
-        console.log(err);
-        res.status(500).json({ message: "Internal server error" });
-    });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json({ message: "Internal server error" });
+        });
 });
-workerRouter.put('/delWorkerFromSB', (req, res) => {
+workerRouter.put("/delWorkerFromSB", (req, res) => {
     const body = req.body;
     const managerId = body.managerId;
     const dayId = body.dayId;
     const shiftId = body.shiftId;
     const workerId = body.workerId;
 
-    Week.findOneAndUpdate({ "day._id": dayId, "day.shifts._id": shiftId, "ofManager": managerId },
+    Week.findOneAndUpdate(
+        { "day._id": dayId, "day.shifts._id": shiftId, ofManager: managerId },
         {
-            $pull: { "day.$.shifts.$[elem].standBy": workerId }
+            $pull: { "day.$.shifts.$[elem].standBy": workerId },
         },
-        { arrayFilters: [{ "elem._id": shiftId }] , projection: { "day.$": 1 } })
-        .then(() => {
-            Week.findOne({ "day._id": dayId, ofManager: managerId }, { "day.$": 1 })
-                .then(response => {
-                    if (response && response.day && response.day.length > 0) {
-                        res.status(200).json(response.day[0]);
-                    }
-                });
-        });
+        { arrayFilters: [{ "elem._id": shiftId }], projection: { "day.$": 1 } },
+    ).then(() => {
+        Week.findOne({ "day._id": dayId, ofManager: managerId }, { "day.$": 1 }).then(
+            (response) => {
+                if (response && response.day && response.day.length > 0) {
+                    res.status(200).json(response.day[0]);
+                }
+            },
+        );
+    });
 });
-workerRouter.put('/addWorkerToStandBy', (req, res) => {
+workerRouter.put("/addWorkerToStandBy", (req, res) => {
     const body = req.body;
     const managerId = body.managerId;
     const dayId = body.dayId;
@@ -246,21 +256,22 @@ workerRouter.put('/addWorkerToStandBy', (req, res) => {
         {
             $push: {
                 "day.$.shifts.$[elem].standBy": workerId,
-            }
+            },
         },
-        { arrayFilters: [{ "elem._id": shiftId }], projection: { "day.$": 1 } }
+        { arrayFilters: [{ "elem._id": shiftId }], projection: { "day.$": 1 } },
     )
         .then(() => {
-            Week.findOne({ "day._id": dayId, ofManager: managerId }, { "day.$": 1 })
-                .then(response => {
+            Week.findOne({ "day._id": dayId, ofManager: managerId }, { "day.$": 1 }).then(
+                (response) => {
                     if (response && response.day && response.day.length > 0) {
                         res.status(200).json(response.day[0]);
                     }
-                });
+                },
+            );
         })
         .catch((err) => {
             console.log(err);
             res.status(500).json({ error: "An error occurred while adding the worker shift." });
         });
 });
-module.exports = workerRouter
+module.exports = workerRouter;

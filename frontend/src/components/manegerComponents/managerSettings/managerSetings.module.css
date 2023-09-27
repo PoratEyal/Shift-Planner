@@ -3,13 +3,14 @@
         transform: translateX(0);
         opacity: 0;
     }
+
     100% {
         transform: translateX(0);
         opacity: 1;
     }
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,14 +26,14 @@
     overflow: hidden;
 }
 
-.h2{
+.h2 {
     margin-top: -10px;
     font-size: 1.45em;
     color: #34a0ff;
     font-weight: 500;
 }
 
-.input{
+.input {
     text-align: right;
     font-size: 20px;
     padding: 10px;
@@ -45,6 +46,7 @@
     direction: rtl;
     font-family: 'Rubik', sans-serif;
 }
+
 .input::placeholder {
     font-size: 15px;
 }
@@ -65,7 +67,7 @@
     vertical-align: middle;
     align-items: center;
     border-radius: 0.5rem;
-    border:none;
+    border: none;
     gap: 0.75rem;
     color: white;
     background-color: #63b6ff;
@@ -77,10 +79,11 @@
     margin-bottom: 205px;
     z-index: 1;
 }
+
 .btn:hover {
-transform: scale(1.02);
+    transform: scale(1.02);
 }
-  
+
 .password_time_svg {
     z-index: 0;
     position: absolute;
@@ -95,17 +98,18 @@ transform: scale(1.02);
     0% {
         transform: translateY(50px);
     }
+
     100% {
         transform: translateY(0);
-  }
+    }
 }
 
-@media only screen and (min-width: 0px) and (max-width: 360px){
-    .container{
+@media only screen and (min-width: 0px) and (max-width: 360px) {
+    .container {
         width: 280px;
     }
-    
-    .h2{
+
+    .h2 {
         margin-top: -20px;
         font-size: 1.4em;
         color: #34a0ff;
@@ -113,19 +117,22 @@ transform: scale(1.02);
 }
 
 
-@media only screen and (min-width: 380px){
-    .container{
+@media only screen and (min-width: 380px) {
+    .container {
         width: 310px;
     }
-    .btn{
+
+    .btn {
         width: 270px;
     }
 }
-@media only screen and (min-width: 430px){
-    .container{
+
+@media only screen and (min-width: 430px) {
+    .container {
         width: 330px;
     }
-    .btn{
+
+    .btn {
         width: 290px;
     }
 }

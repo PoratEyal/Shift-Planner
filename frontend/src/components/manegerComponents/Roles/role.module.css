@@ -1,4 +1,4 @@
-.all_roles_div{
+.all_roles_div {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,26 +16,27 @@
         transform: translateX(0);
         opacity: 0;
     }
+
     100% {
         transform: translateX(0);
         opacity: 1;
     }
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
 
-.label{
+.label {
     font-size: 18px;
     margin: 10px;
     margin-right: 10px;
 }
 
-.roles{
+.roles {
     width: 280px;
     border: 1px solid rgba(0, 0, 0, 0.25);
     border: none;
@@ -50,7 +51,7 @@
     background-color: rgba(231, 234, 238, 0.571);
 }
 
-.delete_btn{
+.delete_btn {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -65,7 +66,8 @@
     margin-left: 5px;
     transition: 0.3s;
 }
-.delete_btn:hover{
+
+.delete_btn:hover {
     cursor: pointer;
 }
 
@@ -74,11 +76,13 @@
         transform: translateY(130px);
         opacity: 1;
     }
+
     100% {
         transform: translateY(0);
         opacity: 1;
-  }
+    }
 }
+
 .addUser_btn {
     width: 60px;
     height: 60px;
@@ -99,11 +103,12 @@
     animation: downToUp 1s ease-in-out;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.addUser_btn:hover{
+
+.addUser_btn:hover {
     cursor: pointer;
 }
 
-.noRoles_div{
+.noRoles_div {
     font-size: 20px;
     font-weight: 500;
     color: rgb(112, 112, 112);
@@ -118,15 +123,15 @@
     height: var(--uib-size);
     width: var(--uib-size);
     animation: spin78236 calc(var(--uib-speed) * 2.5) infinite linear;
-   }
-   
-   .three-body__dot {
+}
+
+.three-body__dot {
     position: absolute;
     height: 100%;
     width: 30%;
-   }
-   
-   .three-body__dot:after {
+}
+
+.three-body__dot:after {
     content: '';
     position: absolute;
     height: 0%;
@@ -134,100 +139,104 @@
     padding-bottom: 100%;
     background-color: var(--uib-color);
     border-radius: 50%;
-   }
-   
-   .three-body__dot:nth-child(1) {
+}
+
+.three-body__dot:nth-child(1) {
     bottom: 5%;
     left: 0;
     transform: rotate(60deg);
     transform-origin: 50% 85%;
-   }
-   
-   .three-body__dot:nth-child(1)::after {
+}
+
+.three-body__dot:nth-child(1)::after {
     bottom: 0;
     left: 0;
     animation: wobble1 var(--uib-speed) infinite ease-in-out;
     animation-delay: calc(var(--uib-speed) * -0.3);
-   }
-   
-   .three-body__dot:nth-child(2) {
+}
+
+.three-body__dot:nth-child(2) {
     bottom: 5%;
     right: 0;
     transform: rotate(-60deg);
     transform-origin: 50% 85%;
-   }
-   
-   .three-body__dot:nth-child(2)::after {
+}
+
+.three-body__dot:nth-child(2)::after {
     bottom: 0;
     left: 0;
-    animation: wobble1 var(--uib-speed) infinite
-       calc(var(--uib-speed) * -0.15) ease-in-out;
-   }
-   
-   .three-body__dot:nth-child(3) {
+    animation: wobble1 var(--uib-speed) infinite calc(var(--uib-speed) * -0.15) ease-in-out;
+}
+
+.three-body__dot:nth-child(3) {
     bottom: -5%;
     left: 0;
     transform: translateX(116.666%);
-   }
-   
-   .three-body__dot:nth-child(3)::after {
+}
+
+.three-body__dot:nth-child(3)::after {
     top: 0;
     left: 0;
     animation: wobble2 var(--uib-speed) infinite ease-in-out;
-   }
-   
-   @keyframes spin78236 {
+}
+
+@keyframes spin78236 {
     0% {
-     transform: rotate(0deg);
+        transform: rotate(0deg);
     }
-   
+
     100% {
-     transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-   }
-   
-   @keyframes wobble1 {
+}
+
+@keyframes wobble1 {
+
     0%,
-     100% {
-     transform: translateY(0%) scale(1);
-     opacity: 1;
+    100% {
+        transform: translateY(0%) scale(1);
+        opacity: 1;
     }
-   
+
     50% {
-     transform: translateY(-66%) scale(0.65);
-     opacity: 0.8;
+        transform: translateY(-66%) scale(0.65);
+        opacity: 0.8;
     }
-   }
-   
-   @keyframes wobble2 {
+}
+
+@keyframes wobble2 {
+
     0%,
-     100% {
-     transform: translateY(0%) scale(1);
-     opacity: 1;
+    100% {
+        transform: translateY(0%) scale(1);
+        opacity: 1;
     }
-   
+
     50% {
-     transform: translateY(66%) scale(0.65);
-     opacity: 0.8;
+        transform: translateY(66%) scale(0.65);
+        opacity: 0.8;
     }
-   }
+}
 
 
 
 
-@media only screen and (min-width: 380px){
-    .roles{
+@media only screen and (min-width: 380px) {
+    .roles {
         width: 300px;
     }
-    .all_roles_div{
+
+    .all_roles_div {
         width: 310px;
     }
 }
-@media only screen and (min-width: 430px){
-    .roles{
+
+@media only screen and (min-width: 430px) {
+    .roles {
         width: 320px;
     }
-    .all_roles_div{
+
+    .all_roles_div {
         width: 330px;
     }
 }

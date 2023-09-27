@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import styles from './shiftPage.module.css';
-import PageLayout from './/..//..//layout/PageLayout';
-import { useNavigate } from 'react-router-dom';
+import styles from "./shiftPage.module.css";
+import PageLayout from ".//..//..//layout/PageLayout";
+import { useNavigate } from "react-router-dom";
 import DefaultShift from "./DefaultShift";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 const SettingsPage = (props) => {
-
     const navigate = useNavigate();
 
     const [defShifts, setDefShifts] = useState(null);
@@ -16,103 +15,107 @@ const SettingsPage = (props) => {
     const [limitShifts, setLimitShifts] = useState(false);
 
     useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('user'));
-        axios.post(`${process.env.REACT_APP_URL}/getDefShifts`, {
-            managerId: user._id
-        }).then((response) => {
-            if (Array.isArray(response.data) && response.data.length === 0) {
-                setNoShifts(true);
-            } else {
-                setDefShifts(response.data);
-                if (response.data.length >= 4) {
-                    setLimitShifts(true)
+        const user = JSON.parse(localStorage.getItem("user"));
+        axios
+            .post(`${process.env.REACT_APP_URL}/getDefShifts`, {
+                managerId: user._id,
+            })
+            .then((response) => {
+                if (Array.isArray(response.data) && response.data.length === 0) {
+                    setNoShifts(true);
+                } else {
+                    setDefShifts(response.data);
+                    if (response.data.length >= 4) {
+                        setLimitShifts(true);
+                    }
                 }
-            }
-            setLoading(true);
-        });
-    }, [noShifts, defShifts]);    
+                setLoading(true);
+            });
+    }, [noShifts, defShifts]);
 
     const deleteHandler = (shiftId) => {
         Swal.fire({
-            title: 'האם למחוק את המשמרת',
-            icon: 'warning',
+            title: "האם למחוק את המשמרת",
+            icon: "warning",
             showCancelButton: true,
-            cancelButtonText: 'ביטול',
-            confirmButtonColor: '#34a0ff',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'אישור'
-          }).then(async (result) => {
+            cancelButtonText: "ביטול",
+            confirmButtonColor: "#34a0ff",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "אישור",
+        }).then(async (result) => {
             if (result.isConfirmed) {
-                const user = JSON.parse(localStorage.getItem('user'));
+                const user = JSON.parse(localStorage.getItem("user"));
                 const reqBody = {
                     managerId: user._id,
-                    shiftId: shiftId
+                    shiftId: shiftId,
+                };
+                const response = await axios.put(
+                    `${process.env.REACT_APP_URL}/deleteShift`,
+                    reqBody,
+                );
+                if (response) {
+                    setDefShifts(response.data);
+                    setLimitShifts(false);
                 }
-                const response = await axios.put(`${process.env.REACT_APP_URL}/deleteShift`, reqBody);
-                if(response){
-                    setDefShifts(response.data)
-                    setLimitShifts(false)
-                }
-              Swal.fire({
-                title: 'המשמרת נמחקה',
-                icon: 'success',
-                confirmButtonColor: '#34a0ff',
-                confirmButtonText: 'סגירה'
-            });
+                Swal.fire({
+                    title: "המשמרת נמחקה",
+                    icon: "success",
+                    confirmButtonColor: "#34a0ff",
+                    confirmButtonText: "סגירה",
+                });
             }
         });
-    }
+    };
 
     const createShiftHandler = () => {
-        if(!limitShifts){
-            navigate('/createShift')
-        }
-        else {
+        if (!limitShifts) {
+            navigate("/createShift");
+        } else {
             Swal.fire({
-                title: 'ניתן להוסיף עד - 4 משמרות',
-                icon: 'info',
-                confirmButtonColor: '#34a0ff',
-                confirmButtonText: 'סגירה'
+                title: "ניתן להוסיף עד - 4 משמרות",
+                icon: "info",
+                confirmButtonColor: "#34a0ff",
+                confirmButtonText: "סגירה",
             });
         }
+    };
 
-    }
-
-    return <PageLayout text='משמרות'>
-        <div className={styles.container}>
-            {!loading ? (
-            <div className={styles['three-body']}>
-                <div className={styles['three-body__dot']}></div>
-                <div className={styles['three-body__dot']}></div>
-                <div className={styles['three-body__dot']}></div>
+    return (
+        <PageLayout text="משמרות">
+            <div className={styles.container}>
+                {!loading ? (
+                    <div className={styles["three-body"]}>
+                        <div className={styles["three-body__dot"]}></div>
+                        <div className={styles["three-body__dot"]}></div>
+                        <div className={styles["three-body__dot"]}></div>
+                    </div>
+                ) : noShifts ? (
+                    <div className={styles.noShifts_div}>לא קיימות משמרות</div>
+                ) : (
+                    <>
+                        {defShifts
+                            ? defShifts.map((shift) => {
+                                  return (
+                                      <DefaultShift
+                                          shift={shift}
+                                          delete={deleteHandler}
+                                          key={shift._id}
+                                      ></DefaultShift>
+                                  );
+                              })
+                            : null}
+                    </>
+                )}
             </div>
-            ) : ( noShifts ? (
-                <div className={styles.noShifts_div}>לא קיימות משמרות</div>
-            ) : (
-            <>
-                {defShifts
-                ? defShifts.map((shift) => {
-                    return (
-                        <DefaultShift
-                        shift={shift}
-                        delete={deleteHandler}
-                        key={shift._id}
-                        ></DefaultShift>
-                    );
-                    })
-                : null}
-            </>
-            ))}
-        </div>
 
-        <img
-            onClick={createShiftHandler}
-            src='addRole.png'
-            className={styles.addShift_btn}
-            alt='Add Shift'
-        ></img>
-        
-    </PageLayout>
-}
+            <img
+                onClick={createShiftHandler}
+                src="addRole.png"
+                className={styles.addShift_btn}
+                alt="Add Shift"
+            ></img>
+        </PageLayout>
+    );
+};
 
-export default SettingsPage
+export default SettingsPage;

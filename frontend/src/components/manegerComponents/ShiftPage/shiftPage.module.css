@@ -1,4 +1,4 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,7 +11,7 @@
     animation: slideInAndFade 0.5s ease-in-out;
 }
 
-.shift_container{
+.shift_container {
     width: 290px;
     height: 30px;
     direction: rtl;
@@ -27,17 +27,18 @@
     background-color: rgba(231, 234, 238, 0.571);
 }
 
-.description{
+.description {
     direction: ltr;
     font-size: 18px;
     margin-right: 5px;
 }
-.icon{
+
+.icon {
     font-size: 23px;
     color: gray;
 }
 
-.delete_edit_div{
+.delete_edit_div {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -45,14 +46,14 @@
     position: relative;
 }
 
-.edit_div_options{
+.edit_div_options {
     border-radius: 7px;
     width: 170px;
     height: auto;
     border: none;
     position: absolute;
     direction: ltr;
-    left:-25px;
+    left: -25px;
     top: 37px;
     z-index: 100;
     background-color: rgb(255, 255, 255);
@@ -63,7 +64,8 @@
     align-items: end;
     animation: slideInAndFade 0.2s ease-in-out;
 }
-.edit_div_options::before{
+
+.edit_div_options::before {
     content: '';
     position: absolute;
     width: 0;
@@ -76,7 +78,8 @@
     filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
     cursor: pointer;
 }
-.edit_div_flex{
+
+.edit_div_flex {
     margin: 8px;
     direction: ltr;
     display: flex;
@@ -86,13 +89,13 @@
     font-size: 18px;
 }
 
-.noShifts_div{
+.noShifts_div {
     font-size: 20px;
     font-weight: 500;
     color: rgb(112, 112, 112);
 }
 
-.icon_edit_select{
+.icon_edit_select {
     color: rgb(98, 98, 98);
     font-size: 22px;
     cursor: pointer;
@@ -104,6 +107,7 @@
         transform: translateX(0);
         opacity: 0;
     }
+
     100% {
         transform: translateX(0);
         opacity: 1;
@@ -130,13 +134,14 @@
     animation: downToUp 1s ease-in-out;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.addShift_btn:hover{
+
+.addShift_btn:hover {
     cursor: pointer;
 }
 
 /* - - - - - - - - edit shift - - - - - - -  */
 
-.editShift{
+.editShift {
     width: 270px;
     font-size: 1.2em;
     border: none;
@@ -150,7 +155,7 @@
     background-color: rgba(231, 234, 238, 0.571);
 }
 
-.input_edit{
+.input_edit {
     margin: 10px;
     font-size: 18px;
     padding: 5px;
@@ -161,12 +166,12 @@
     text-align: right;
     direction: rtl;
     appearance: none;
-    -webkit-appearance:none;
+    -webkit-appearance: none;
     font-family: 'Rubik', sans-serif;
     margin-top: -3px;
 }
 
-.input_time_start{
+.input_time_start {
     margin: 10px;
     font-size: 18px;
     padding: 5px;
@@ -177,25 +182,26 @@
     text-align: right;
     direction: rtl;
     appearance: none;
-    -webkit-appearance:none;
-    font-family: 'Rubik', sans-serif;
-}
-.input_time_end{
-    margin: 10px;
-    font-size: 18px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 260px;
-    text-align: right;
-    direction: rtl;
-    appearance: none;
-    -webkit-appearance:none;
+    -webkit-appearance: none;
     font-family: 'Rubik', sans-serif;
 }
 
-.btn_div{
+.input_time_end {
+    margin: 10px;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    width: 260px;
+    text-align: right;
+    direction: rtl;
+    appearance: none;
+    -webkit-appearance: none;
+    font-family: 'Rubik', sans-serif;
+}
+
+.btn_div {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -203,7 +209,8 @@
     margin-top: 15px;
     margin-bottom: -15px;
 }
-.edit_shift_btn{
+
+.edit_shift_btn {
     margin-right: 15px;
     margin-top: -10px;
     margin-bottom: 15px;
@@ -225,9 +232,10 @@
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
     background-color: #c1e1ff;
-    color:#2880cc;
+    color: #2880cc;
 }
-.edit_shift_btn_cancel{
+
+.edit_shift_btn_cancel {
     margin-top: -10px;
     margin-bottom: 15px;
     display: flex;
@@ -248,7 +256,7 @@
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
     background-color: rgba(255, 92, 92, 0.76);
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
 }
 
 @keyframes downToUp {
@@ -256,10 +264,11 @@
         transform: translateY(130px);
         opacity: 1;
     }
+
     100% {
         transform: translateY(0);
         opacity: 1;
-  }
+    }
 }
 
 /* - - - - - - - loading animation - - - - - - - - */
@@ -273,15 +282,15 @@
     height: var(--uib-size);
     width: var(--uib-size);
     animation: spin78236 calc(var(--uib-speed) * 2.5) infinite linear;
-   }
-   
-   .three-body__dot {
+}
+
+.three-body__dot {
     position: absolute;
     height: 100%;
     width: 30%;
-   }
-   
-   .three-body__dot:after {
+}
+
+.three-body__dot:after {
     content: '';
     position: absolute;
     height: 0%;
@@ -289,138 +298,154 @@
     padding-bottom: 100%;
     background-color: var(--uib-color);
     border-radius: 50%;
-   }
-   
-   .three-body__dot:nth-child(1) {
+}
+
+.three-body__dot:nth-child(1) {
     bottom: 5%;
     left: 0;
     transform: rotate(60deg);
     transform-origin: 50% 85%;
-   }
-   
-   .three-body__dot:nth-child(1)::after {
+}
+
+.three-body__dot:nth-child(1)::after {
     bottom: 0;
     left: 0;
     animation: wobble1 var(--uib-speed) infinite ease-in-out;
     animation-delay: calc(var(--uib-speed) * -0.3);
-   }
-   
-   .three-body__dot:nth-child(2) {
+}
+
+.three-body__dot:nth-child(2) {
     bottom: 5%;
     right: 0;
     transform: rotate(-60deg);
     transform-origin: 50% 85%;
-   }
-   
-   .three-body__dot:nth-child(2)::after {
+}
+
+.three-body__dot:nth-child(2)::after {
     bottom: 0;
     left: 0;
-    animation: wobble1 var(--uib-speed) infinite
-       calc(var(--uib-speed) * -0.15) ease-in-out;
-   }
-   
-   .three-body__dot:nth-child(3) {
+    animation: wobble1 var(--uib-speed) infinite calc(var(--uib-speed) * -0.15) ease-in-out;
+}
+
+.three-body__dot:nth-child(3) {
     bottom: -5%;
     left: 0;
     transform: translateX(116.666%);
-   }
-   
-   .three-body__dot:nth-child(3)::after {
+}
+
+.three-body__dot:nth-child(3)::after {
     top: 0;
     left: 0;
     animation: wobble2 var(--uib-speed) infinite ease-in-out;
-   }
-   
-   @keyframes spin78236 {
+}
+
+@keyframes spin78236 {
     0% {
-     transform: rotate(0deg);
+        transform: rotate(0deg);
     }
-   
+
     100% {
-     transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-   }
-   
-   @keyframes wobble1 {
+}
+
+@keyframes wobble1 {
+
     0%,
-     100% {
-     transform: translateY(0%) scale(1);
-     opacity: 1;
+    100% {
+        transform: translateY(0%) scale(1);
+        opacity: 1;
     }
-   
+
     50% {
-     transform: translateY(-66%) scale(0.65);
-     opacity: 0.8;
+        transform: translateY(-66%) scale(0.65);
+        opacity: 0.8;
     }
-   }
-   
-   @keyframes wobble2 {
+}
+
+@keyframes wobble2 {
+
     0%,
-     100% {
-     transform: translateY(0%) scale(1);
-     opacity: 1;
+    100% {
+        transform: translateY(0%) scale(1);
+        opacity: 1;
     }
-   
+
     50% {
-     transform: translateY(66%) scale(0.65);
-     opacity: 0.8;
+        transform: translateY(66%) scale(0.65);
+        opacity: 0.8;
     }
-   }
+}
 
 
 
 /* - - - - - - - media query - - - - - - - - */
 
-@media only screen and (min-width: 380px){
-    .container{
+@media only screen and (min-width: 380px) {
+    .container {
         width: 330px;
     }
-    .shift_container{
+
+    .shift_container {
         width: 310px;
     }
-    .editShift{
+
+    .editShift {
         width: 290px;
     }
-    .input_edit{
+
+    .input_edit {
         width: 280px;
     }
-    .input_time_start{
+
+    .input_time_start {
         width: 280px;
     }
-    .input_time_end{
+
+    .input_time_end {
         width: 280px;
     }
-    .edit_shift_btn{
+
+    .edit_shift_btn {
         width: 140px;
     }
-    .edit_shift_btn_cancel{
+
+    .edit_shift_btn_cancel {
         width: 140px;
     }
 
 }
-@media only screen and (min-width: 430px){
-    .container{
+
+@media only screen and (min-width: 430px) {
+    .container {
         width: 350px;
     }
-    .shift_container{
+
+    .shift_container {
         width: 330px;
     }
-    .editShift{
+
+    .editShift {
         width: 310px;
     }
-    .input_edit{
+
+    .input_edit {
         width: 300px;
     }
-    .input_time_start{
+
+    .input_time_start {
         width: 300px;
     }
-    .input_time_end{
+
+    .input_time_end {
         width: 300px;
     }
-    .edit_shift_btn{
+
+    .edit_shift_btn {
         width: 150px;
     }
-    .edit_shift_btn_cancel{
+
+    .edit_shift_btn_cancel {
         width: 150px;
     }
 }

@@ -1,4 +1,4 @@
-.container{
+.container {
     margin-top: 90px;
     width: 345px;
     height: 60px;
@@ -7,18 +7,19 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
 }
-.margin_div{
+
+.margin_div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
     margin: 15px;
     width: 300px;
 }
 
-.text{
+.text {
     font-size: 20px;
 }
 
@@ -35,8 +36,8 @@
     --color-grey: #cccccc;
     --color-green: #4296f4;
 }
-   
-   .slider {
+
+.slider {
     display: inline-block;
     width: var(--button-width);
     height: var(--button-height);
@@ -44,9 +45,9 @@
     border-radius: calc(var(--button-height) / 2);
     position: relative;
     transition: 0.3s all ease-in-out;
-   }
-   
-   .slider::after {
+}
+
+.slider::after {
     content: "";
     display: inline-block;
     width: var(--toggle-diameter);
@@ -58,39 +59,40 @@
     transform: translateX(var(--button-toggle-offset));
     box-shadow: var(--toggle-shadow-offset) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
     transition: 0.3s all ease-in-out;
-   }
-   
-   .switch input[type="checkbox"]:checked + .slider {
+}
+
+.switch input[type="checkbox"]:checked+.slider {
     background-color: var(--color-green);
-   }
-   
-   .switch input[type="checkbox"]:checked + .slider::after {
+}
+
+.switch input[type="checkbox"]:checked+.slider::after {
     transform: translateX(calc(var(--button-width) - var(--toggle-diameter) - var(--button-toggle-offset)));
     box-shadow: calc(var(--toggle-shadow-offset) * -1) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
-   }
-   
-   .switch input[type="checkbox"] {
+}
+
+.switch input[type="checkbox"] {
     display: none;
-   }
-   
-   .switch input[type="checkbox"]:active + .slider::after {
+}
+
+.switch input[type="checkbox"]:active+.slider::after {
     width: var(--toggle-wider);
-   }
-   
-   .switch input[type="checkbox"]:checked:active + .slider::after {
+}
+
+.switch input[type="checkbox"]:checked:active+.slider::after {
     transform: translateX(calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset)));
-   }
-   
+}
 
 
 
-@media only screen and (min-width: 380px){
-    .container{
+
+@media only screen and (min-width: 380px) {
+    .container {
         width: 365px;
     }
 }
-@media only screen and (min-width: 430px){
-    .container{
+
+@media only screen and (min-width: 430px) {
+    .container {
         width: 385px;
     }
 }
