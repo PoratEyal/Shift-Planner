@@ -153,6 +153,7 @@
     gap: 7px;
     justify-content: left;
     width: 45px;
+    margin-bottom: -6px;
 }
 .icon{
     color: rgba(119, 119, 119, 0.903);
