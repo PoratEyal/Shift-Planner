@@ -379,7 +379,7 @@
 
 .add_specific_worker_select{
     position: absolute;
-    width: 278px;
+    width: 275px;
     height: 40px;
     font-size: 21px;
     font-family: 'Rubik', sans-serif;
@@ -670,7 +670,7 @@
         font-size: 19px;
     }
     .add_specific_worker_select{
-        width: 298px;
+        width: 295px;
     }
     .name_role_div{
         width: 275px;
@@ -705,7 +705,7 @@
         font-size: 20px;
     }
     .add_specific_worker_select{
-        width: 318px;
+        width: 315px;
     }
     .name_role_div{
         width: 295px;
