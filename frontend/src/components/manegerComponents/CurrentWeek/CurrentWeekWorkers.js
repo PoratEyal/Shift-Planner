@@ -398,8 +398,6 @@ const CurrentWeekWorkers = (props) => {
                 <div className={styles.label_edit_select}>
                   
                   <FiMoreHorizontal onClick={() => options(worker._id)} className={styles.icon_edit}></FiMoreHorizontal>
-                  
-                  {/* <RiDeleteBin6Line className={styles.icon_delete} onClick={() => removeWorker(worker._id)}></RiDeleteBin6Line> */}
 
                   {openOptions === worker._id && isDivVisible ? 
                     <div ref={divRef} className={styles.edit_div_options}>
@@ -436,7 +434,7 @@ const CurrentWeekWorkers = (props) => {
 
                 <div className={styles.name_role_div}>
                   <label>{worker.fullName && <p className={styles.names}>{worker.fullName}</p>}</label>
-                  {worker.role ? <div className={styles.role_sb_div}>({worker.role.name})</div> :null}
+                  {worker.role ? <div className={styles.role_sb_div}> - {worker.role.name}</div> :null}
                 </div>
               </div>
             ))}
@@ -478,9 +476,9 @@ const CurrentWeekWorkers = (props) => {
 
                 <div className={styles.name_role_div}>
                   <label>{worker.fullName && <p className={styles.names}>{worker.fullName}</p>}</label>
-                  {worker.role ? <div className={styles.role_sb_div}>(כוננות ,{worker.role.name})</div>
+                  {worker.role ? <div className={styles.role_sb_div}> - כוננות ,{worker.role.name}</div>
                   :
-                    <div className={styles.role_sb_div}>(כוננות)</div>}
+                    <div className={styles.role_sb_div}> - כוננות</div>}
                 </div>
 
               </div>

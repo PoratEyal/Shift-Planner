@@ -79,7 +79,7 @@ const SeeWorkersCurrentWeek = (props) => {
     return data ?
       worker._id !== data.userId ?
         <div key={index} className={styles.all_data_div_clear}>
-          <div className={styles.name}>•&nbsp;{worker.fullName}</div>
+          <div className={styles.name}>{worker.fullName}</div>
           <div>
             {worker.role ? <div className={styles.role_div}> - {worker.role.name}</div> :null}
           </div>
@@ -87,7 +87,7 @@ const SeeWorkersCurrentWeek = (props) => {
         :
         <div key={index} className={styles.all_data_div}>
           <div className={styles.name_role_div}>
-            <div className={styles.name}>•&nbsp;{worker.fullName}</div>
+            <div className={styles.name}>{worker.fullName}</div>
 
             <div>
             {worker.role ? <div className={styles.role_div}>&nbsp;- {worker.role.name}</div> :null}
@@ -109,7 +109,7 @@ const SeeWorkersCurrentWeek = (props) => {
         </div>
         :
         <div key={index} className={styles.all_data_div_clear}>
-          <div className={styles.name}>•&nbsp;{worker.fullName}</div>
+          <div className={styles.name}>{worker.fullName}</div>
           <div>
           {worker.role ? <div className={styles.role_div}> - {worker.role.name}</div> :null}
           </div>
@@ -122,23 +122,23 @@ const SeeWorkersCurrentWeek = (props) => {
     return data ?
       worker._id !== data.userId ?
         <div key={index} className={styles.all_data_div_clear}>
-          <div className={styles.name}>•&nbsp;{worker.fullName}</div>
+          <div className={styles.name}>{worker.fullName}</div>
           <div>
-            {worker.role ? <div className={styles.role_div}>- כוננות ,{worker.role.name}</div>
+            {worker.role ? <div className={styles.role_div}>&#160;- כוננות ,{worker.role.name}</div>
             :
-            <div className={styles.role_div}>- כוננות</div>
+            <div className={styles.role_div}>&#160;- כוננות</div>
             }
           </div>
         </div>
         :
         <div key={index} className={styles.all_data_div}>
           <div className={styles.name_role_div}>
-            <div className={styles.name}>•&nbsp;{worker.fullName}</div>
+            <div className={styles.name}>{worker.fullName}</div>
 
             <div>
-              {worker.role ? <div className={styles.role_div}>- כוננות ,{worker.role.name}</div>
+              {worker.role ? <div className={styles.role_div} >&#160;- כוננות ,{worker.role.name}</div>
               :
-              <div className={styles.role_div}>- כוננות</div>
+              <div className={styles.role_div}>&#160;- כוננות</div>
               }
             </div>
           </div>
@@ -158,11 +158,11 @@ const SeeWorkersCurrentWeek = (props) => {
         </div>
         :
         <div key={index} className={styles.all_data_div_clear}>
-          <div className={styles.name}>•&nbsp;{worker.fullName}</div>
+          <div className={styles.name}>{worker.fullName}</div>
           <div>
-            {worker.role ? <div className={styles.role_div}>- כוננות ,{worker.role.name}</div>
+            {worker.role ? <div className={styles.role_div}>&#160;- כוננות ,{worker.role.name}</div>
             :
-            <div className={styles.role_div}>- כוננות</div>
+            <div className={styles.role_div}>&#160;- כוננות</div>
             }
           </div>
         </div>
