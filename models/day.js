@@ -1,20 +1,20 @@
-const mongoose = require('mongoose');
-const Shift = require('./shift');
+const mongoose = require("mongoose");
+const Shift = require("./shift");
 const daySchema = new mongoose.Schema({
     date: {
-      type: Date,
-      required: true
+        type: Date,
+        required: true,
     },
     holiday: {
-      type: String
+        type: String,
     },
     name: {
-      type: String,
-      required: true
+        type: String,
+        required: true,
     },
-    shifts: [Shift.schema]
-  });
+    shifts: [Shift.schema],
+});
 
 // Create the shift model
-const Day = mongoose.model('Day', daySchema);
+const Day = mongoose.model("Day", daySchema);
 module.exports = Day;

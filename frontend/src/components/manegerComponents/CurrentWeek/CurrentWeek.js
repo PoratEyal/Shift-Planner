@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import DayCurrentWeek from './DayCurrentWeek'
-import styles from './CurrentWeek.module.css'
-import Swal from 'sweetalert2';
-import { ManagerContext } from '../ManagerHomePage';
-import { useContext } from 'react';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import DayCurrentWeek from "./DayCurrentWeek";
+import styles from "./CurrentWeek.module.css";
+import Swal from "sweetalert2";
+import { ManagerContext } from "../ManagerHomePage";
+import { useContext } from "react";
 import { FaMagic } from "react-icons/fa";
-import messageContext from './messagesContext';
+import messageContext from "./messagesContext";
 import { FcAdvertising } from "react-icons/fc";
 import { FcInspection } from "react-icons/fc";
-import PageLayout from './/..//..//layout/PageLayout';
+import PageLayout from ".//..//..//layout/PageLayout";
 
 const CurrentWeek = () => {
-
     const [week, setWeek] = useState(null);
-    const [weekPublished, setWeekPublished] = useState(null)
-    const [weekVisible, setWeekVisible] = useState(null)
+    const [weekPublished, setWeekPublished] = useState(null);
+    const [weekVisible, setWeekVisible] = useState(null);
     const [workers, setWorkers] = useState(null);
-    const [promentToAi, setPromentToAi] = useState('');
+    const [promentToAi, setPromentToAi] = useState("");
     const [loadingAi, setLoadingAi] = useState(false);
     const [weekAi, setWeekAi] = useState(false);
     const [weekMessages, setMessages] = useState(null);
@@ -30,13 +29,12 @@ const CurrentWeek = () => {
     const getWorkers = async () => {
         try {
             const body = {
-                job: managerId
-            }
+                job: managerId,
+            };
             const response = await axios.post(`${process.env.REACT_APP_URL}/getMyWorkers`, body);
-            setWorkers(response.data.map(item => item._id))
+            setWorkers(response.data.map((item) => item._id));
 
-            setPromentToAi
-                (`Data of all the week: ${JSON.stringify(week)}
+            setPromentToAi(`Data of all the week: ${JSON.stringify(week)}
             Return me json with all the shiftsId, workers and availableWorkers fields.
             • Do not write any explanation before or after the Json
             • Double check that you provided all the shiftsId that include into the data of the week.
@@ -49,8 +47,7 @@ const CurrentWeek = () => {
                         "availableWorkers": [real time data]
                     },
                 ]
-            },`)
-
+            },`);
         } catch (error) {
             console.error(error);
         }
@@ -60,110 +57,120 @@ const CurrentWeek = () => {
     const getDays = () => {
         const managerId = managerContext.getUser();
         const reqbody = {
-            id: managerId
-        }
-        axios.post(`${process.env.REACT_APP_URL}/getNextWeek`, reqbody)
+            id: managerId,
+        };
+        axios
+            .post(`${process.env.REACT_APP_URL}/getNextWeek`, reqbody)
             .then((response) => {
                 setWeek(response.data);
-                setWeekAi(response.data.usedAi)
-                setWeekPublished(response.data.publishScheduling)
-                setWeekVisible(response.data.visible)
-            }).then(() => {
-                axios.post(`${process.env.REACT_APP_URL}/getUserMessagesOfWeek`, { weekId: week._id })
-                    .then(response => {
-                        setMessages(response.data)
-                    }).catch(err => console.log(err));
-            }).catch(() => {});
-    }
+                setWeekAi(response.data.usedAi);
+                setWeekPublished(response.data.publishScheduling);
+                setWeekVisible(response.data.visible);
+            })
+            .then(() => {
+                axios
+                    .post(`${process.env.REACT_APP_URL}/getUserMessagesOfWeek`, {
+                        weekId: week._id,
+                    })
+                    .then((response) => {
+                        setMessages(response.data);
+                    })
+                    .catch((err) => console.log(err));
+            })
+            .catch(() => {});
+    };
 
     useEffect(() => {
         getDays();
         getWorkers();
         workersCountHandle();
     }, [weekPublished, weekVisible, promentToAi]);
-    
+
     // show alert, if the manager select "yes" - week publish
     const publishSchedule = () => {
         Swal.fire({
-            title: 'האם ברצונך לפרסם את השיבוצים לשבוע הבא',
-            icon: 'warning',
+            title: "האם ברצונך לפרסם את השיבוצים לשבוע הבא",
+            icon: "warning",
             showCancelButton: true,
-            cancelButtonText: 'ביטול',
-            confirmButtonColor: '#34a0ff',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'פרסום'
+            cancelButtonText: "ביטול",
+            confirmButtonColor: "#34a0ff",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "פרסום",
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire({
-                    title: 'השיבוצים פורסמו',
-                    icon: 'success',
-                    confirmButtonColor: '#34a0ff',
-                    confirmButtonText: 'סגירה'
-                })
-                editPublishSchedule()
+                    title: "השיבוצים פורסמו",
+                    icon: "success",
+                    confirmButtonColor: "#34a0ff",
+                    confirmButtonText: "סגירה",
+                });
+                editPublishSchedule();
             }
-        })
-    }
+        });
+    };
 
     // set next week to published
     const editPublishSchedule = async () => {
         try {
             const reqbody = {
-                id: managerId
-            }
-            await axios.put(`${process.env.REACT_APP_URL}/setNextWeekPublished`, reqbody)
+                id: managerId,
+            };
+            await axios
+                .put(`${process.env.REACT_APP_URL}/setNextWeekPublished`, reqbody)
                 .then((response) => {
-                    setWeekPublished(true)
+                    setWeekPublished(true);
                 });
         } catch (error) {
             console.log(error.message);
         }
-    }
+    };
 
     // set next week to usedAi = true
     const usedAiToTrue = async () => {
         try {
             const reqbody = {
-                id: managerId
-            }
+                id: managerId,
+            };
             await axios.put(`${process.env.REACT_APP_URL}/setNextWeekAiTrue`, reqbody);
         } catch (error) {
             console.log(error.message);
         }
-    }
+    };
 
     // if the AI procces get error - show this alert
     const errorAlertToAI = () => {
         Swal.fire({
-            title: 'המערכת נתקלה בשגיאה',
-            text: 'אנא נסו שנית',
-            icon: 'error',
-            confirmButtonColor: '#34a0ff',
-            confirmButtonText: 'אישור'
+            title: "המערכת נתקלה בשגיאה",
+            text: "אנא נסו שנית",
+            icon: "error",
+            confirmButtonColor: "#34a0ff",
+            confirmButtonText: "אישור",
         });
-    }
+    };
 
     // return the count of the workers of the manager
     const workersCountHandle = async () => {
         const body = {
-            managerId: managerId
+            managerId: managerId,
         };
-        
+
         try {
-            const response = await axios.put(`${process.env.REACT_APP_URL}/workersCountOfManager`, body);
+            const response = await axios.put(
+                `${process.env.REACT_APP_URL}/workersCountOfManager`,
+                body,
+            );
             setWorkersCount(response.data);
         } catch (error) {
             console.log(error.message);
         }
-    }
+    };
 
-    // when clicking on the button - שיבוץ אוטומטי the user get alert - 
+    // when clicking on the button - שיבוץ אוטומטי the user get alert -
     // if he press אישור the func called to the sendMessage func
     const clickAi = () => {
         Swal.fire({
-            title: 'שיבוץ עובדים אוטומטי',
-            html:
-            `<form class="${styles.AI_content}">
+            title: "שיבוץ עובדים אוטומטי",
+            html: `<form class="${styles.AI_content}">
                 <div>
                 • ביצוע הפעולה מוגבל לפעם אחת בשבוע
                 </div>
@@ -171,76 +178,68 @@ const CurrentWeek = () => {
                 • פעולה זו יכולה לקחת עד כדקה 
                 </div>
             </form>`,
-            input: 'number',
+            input: "number",
             inputAttributes: {
                 min: 1,
                 max: workersCount,
-                dir: 'rtl'
+                dir: "rtl",
             },
             inputPlaceholder: ` בחירת כמות עובדים בין 1 - ${workersCount}`,
             showCancelButton: true,
-            cancelButtonText: 'ביטול',
-            confirmButtonColor: '#34a0ff',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'אישור',
+            cancelButtonText: "ביטול",
+            confirmButtonColor: "#34a0ff",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "אישור",
             inputValidator: (value) => {
                 if (!value || value < 1 || value > workersCount) {
-                    return 'אנא הזינו מספר עובדים בין 1 ל- ' + workersCount;
+                    return "אנא הזינו מספר עובדים בין 1 ל- " + workersCount;
                 }
             },
             customClass: {
                 popup: styles.swal2_popup,
-                content: styles.AI_content
-            }
-        })
-        .then((result) => {
+                content: styles.AI_content,
+            },
+        }).then((result) => {
             if (result.isConfirmed) {
                 sendMessage(result.value);
             }
-        });      
-    }
+        });
+    };
 
     // send a prompt to the gpt api and return workers
     // refresh the page
     const sendMessage = async (numberOfWorkers) => {
         setLoadingAi(true);
-        console.log(promentToAi)
+        console.log(promentToAi);
         try {
             // Send the first message to AI
-            const response = await axios.post(
-                `${process.env.REACT_APP_URL}/sendMessegeAPI`,
-                {
-                    messages: [
-                        { role: 'system', content: 'You are a helpful assistant.' },
-                        { role: 'user', content: promentToAi },
-                    ],
-                }
-            );
+            const response = await axios.post(`${process.env.REACT_APP_URL}/sendMessegeAPI`, {
+                messages: [
+                    { role: "system", content: "You are a helpful assistant." },
+                    { role: "user", content: promentToAi },
+                ],
+            });
             console.log(`response 1 - ${response.data}`);
 
             // Send the second message to AI
-            const response2 = await axios.post(
-                `${process.env.REACT_APP_URL}/sendMessegeAPI`,
-                {
-                    messages: [
-                        { role: 'system', content: 'You are a helpful assistant.' },
-                        {
-                            role: 'user',
-                            content:
-                                `Data: 
+            const response2 = await axios.post(`${process.env.REACT_APP_URL}/sendMessegeAPI`, {
+                messages: [
+                    { role: "system", content: "You are a helpful assistant." },
+                    {
+                        role: "user",
+                        content: `Data: 
                         ${response.data}
                         Move all existing availableWorkers IDs to workers field.
                         Double check that you moved all the availableWorkers IDs from the availableWorkers array to the workers array.
                         Do not display the "availableWorkers" field in the retured Json.
-                        Do not write any explanation before or after the Json`},
-                    ],
-                }
-            );
+                        Do not write any explanation before or after the Json`,
+                    },
+                ],
+            });
             console.log(`response 2 - ${response2.data}`);
 
             // prompt for the seconed message to the api
-            const finelMessage =
-                `Data: ${response.data}.
+            const finelMessage = `Data: ${response.data}.
                 AllWorkersArray: ${JSON.stringify(workers)}.
                 Add the workers id from AllWorkersArray to the workers array in the shifts based on those rules:
                 • Workers array should contain ${numberOfWorkers} workers. not more and not less.
@@ -251,24 +250,21 @@ const CurrentWeek = () => {
                 Return me this json data
                 Do not write any explanation before or after the Json`;
 
-            console.log(finelMessage)
+            console.log(finelMessage);
 
             // Send the thired message to AI
-            const response3 = await axios.post(
-                `${process.env.REACT_APP_URL}/sendMessegeAPI`,
-                {
-                    messages: [
-                        { role: 'system', content: 'You are a helpful assistant.' },
-                        { role: 'user', content: finelMessage },
-                    ],
-                }
-            );
+            const response3 = await axios.post(`${process.env.REACT_APP_URL}/sendMessegeAPI`, {
+                messages: [
+                    { role: "system", content: "You are a helpful assistant." },
+                    { role: "user", content: finelMessage },
+                ],
+            });
             console.log(`response 3 - ${response3.data}`);
 
             try {
                 // Extract and parse the JSON response from AI
-                const startIndex = response3.data.indexOf('{');
-                const endIndex = response3.data.lastIndexOf('}');
+                const startIndex = response3.data.indexOf("{");
+                const endIndex = response3.data.lastIndexOf("}");
 
                 if (startIndex !== -1 && endIndex !== -1 && endIndex > startIndex) {
                     const jsonString = response3.data.substring(startIndex, endIndex + 1);
@@ -278,10 +274,13 @@ const CurrentWeek = () => {
                         console.log(jsonData);
 
                         // Update shifts using parsed JSON data
-                        const updateResponse = await axios.put(`${process.env.REACT_APP_URL}/updateShiftsOfWeek`, {
-                            weekId: week._id,
-                            object: jsonData,
-                        });
+                        const updateResponse = await axios.put(
+                            `${process.env.REACT_APP_URL}/updateShiftsOfWeek`,
+                            {
+                                weekId: week._id,
+                                object: jsonData,
+                            },
+                        );
 
                         console.log("Update response:", updateResponse.data);
                         setLoadingAi(false);
@@ -293,25 +292,25 @@ const CurrentWeek = () => {
                         errorAlertToAI();
                     }
                 } else {
-                    console.error('Invalid JSON response format');
+                    console.error("Invalid JSON response format");
                     setLoadingAi(false);
                     errorAlertToAI();
                 }
             } catch (parseError) {
                 setLoadingAi(false);
-                console.error('Error parsing JSON: ', parseError);
+                console.error("Error parsing JSON: ", parseError);
                 errorAlertToAI();
             }
         } catch (error) {
             setLoadingAi(false);
-            console.error('Error sending message: ', error);
+            console.error("Error sending message: ", error);
             errorAlertToAI();
         }
     };
 
-    return <PageLayout text='שיבוצים לשבוע הבא'>
-            <div style={{ marginTop: '65px' }} className={styles.container}>
-
+    return (
+        <PageLayout text="שיבוצים לשבוע הבא">
+            <div style={{ marginTop: "65px" }} className={styles.container}>
                 {weekAi === false && weekPublished === false ? (
                     !loadingAi ? (
                         <button className={styles.btn_ai} onClick={clickAi}>
@@ -323,57 +322,68 @@ const CurrentWeek = () => {
                             <label>השיבוץ בתהליך</label>
                         </button>
                     )
-                    ) : null}
+                ) : null}
 
-                {weekPublished === true ?
+                {weekPublished === true ? (
                     <div className={styles.published_div}>
-                    <button visible='false'>
-                        <FcInspection className={styles.icon_publishd}></FcInspection>
-                        <label>השבוע פורסם</label>
-                    </button>
-                </div> : null}
+                        <button visible="false">
+                            <FcInspection className={styles.icon_publishd}></FcInspection>
+                            <label>השבוע פורסם</label>
+                        </button>
+                    </div>
+                ) : null}
 
-                {weekPublished === false && !loadingAi?
+                {weekPublished === false && !loadingAi ? (
                     <div className={styles.publish_div}>
                         <button onClick={publishSchedule}>
                             <FcAdvertising className={styles.icon_publish}></FcAdvertising>
                             <label>פרסום שבוע</label>
                         </button>
                     </div>
-                : null}
+                ) : null}
 
-                <div style={{marginBottom: '60px'}} className={loadingAi ? styles.container_disabled : null}>
-                    {
-                        week ? 
-                            week.day.map((day) => {
-                                return <messageContext.Provider value={weekMessages} key={day._id}>
-                                        <DayCurrentWeek weekId={week._id} day={day}  getDays={getDays} managerId={managerId}></DayCurrentWeek>
-                                    </messageContext.Provider>
-                            })
-                        :null}
+                <div
+                    style={{ marginBottom: "60px" }}
+                    className={loadingAi ? styles.container_disabled : null}
+                >
+                    {week
+                        ? week.day.map((day) => {
+                              return (
+                                  <messageContext.Provider value={weekMessages} key={day._id}>
+                                      <DayCurrentWeek
+                                          weekId={week._id}
+                                          day={day}
+                                          getDays={getDays}
+                                          managerId={managerId}
+                                      ></DayCurrentWeek>
+                                  </messageContext.Provider>
+                              );
+                          })
+                        : null}
                 </div>
 
-                {loadingAi ?
-                <div className={styles.spinnerContainer}>
-                    <div className={styles.spinner}></div>
-                    <div className={styles.loader}>
-                        <div className={styles.words}>
-                            <span className={styles.word}></span>
-                            <span className={styles.word}>טוען שבוע</span>
-                            <span className={styles.word}>טוען ימים</span>
-                            <span className={styles.word}>טוען משמרות</span>
-                            <span className={styles.word}>טוען עובדים</span>
-                            <span className={styles.word}>טוען בקשות עובדים</span>
-                            <span className={styles.word}>מאמת נתונים</span>
-                            <span className={styles.word}>מחשב שיבוצים</span>
-                            <span className={styles.word}>מסכם תוצאות</span>
-                            <span className={styles.word}>בודק תקינות</span>
+                {loadingAi ? (
+                    <div className={styles.spinnerContainer}>
+                        <div className={styles.spinner}></div>
+                        <div className={styles.loader}>
+                            <div className={styles.words}>
+                                <span className={styles.word}></span>
+                                <span className={styles.word}>טוען שבוע</span>
+                                <span className={styles.word}>טוען ימים</span>
+                                <span className={styles.word}>טוען משמרות</span>
+                                <span className={styles.word}>טוען עובדים</span>
+                                <span className={styles.word}>טוען בקשות עובדים</span>
+                                <span className={styles.word}>מאמת נתונים</span>
+                                <span className={styles.word}>מחשב שיבוצים</span>
+                                <span className={styles.word}>מסכם תוצאות</span>
+                                <span className={styles.word}>בודק תקינות</span>
+                            </div>
                         </div>
                     </div>
-                </div>: null}
-
+                ) : null}
             </div>
-    </PageLayout>
-}
+        </PageLayout>
+    );
+};
 
 export default CurrentWeek;

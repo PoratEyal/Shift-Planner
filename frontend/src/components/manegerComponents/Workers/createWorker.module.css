@@ -1,4 +1,4 @@
-.createUser{
+.createUser {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,20 +19,21 @@
         transform: translateX(0);
         opacity: 0;
     }
+
     100% {
         transform: translateX(0);
         opacity: 1;
     }
 }
 
-.userForm{
+.userForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.select{
+.select {
     direction: rtl;
     text-align: right;
     font-family: 'Rubik', sans-serif;
@@ -46,7 +47,7 @@
     margin-bottom: 20px;
 }
 
-.input{
+.input {
     direction: rtl;
     text-align: right;
     font-family: 'Rubik', sans-serif;
@@ -60,7 +61,7 @@
     margin-bottom: 20px;
 }
 
-.btns_div{
+.btns_div {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -90,7 +91,7 @@
     justify-content: center;
     font-family: 'Rubik', sans-serif;
     background-color: #c1e1ff;
-    color:#2880cc;
+    color: #2880cc;
     z-index: 2;
     margin-bottom: 200px;
 }
@@ -116,7 +117,7 @@
     justify-content: center;
     font-family: 'Rubik', sans-serif;
     background-color: rgba(255, 92, 92, 0.76);
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     z-index: 2;
 }
 
@@ -130,52 +131,65 @@
     height: 320px;
     animation: downToUp 1s ease-in-out;
 }
+
 @keyframes downToUp {
     0% {
         transform: translateY(70px);
     }
+
     100% {
         transform: translateY(0);
-  }
+    }
 }
 
-@media only screen and (min-width: 380px){
-    .createUser{
+@media only screen and (min-width: 380px) {
+    .createUser {
         width: 310px;
     }
-    .input{
+
+    .input {
         width: 280px;
     }
-    .select{
+
+    .select {
         width: 292px;
     }
-    .btn{
+
+    .btn {
         width: 143px;
     }
-    .btn_cancel{
+
+    .btn_cancel {
         width: 143px;
     }
-    .addUser_svg{
+
+    .addUser_svg {
         margin-left: 165px;
     }
 }
-@media only screen and (min-width: 430px){
-    .createUser{
+
+@media only screen and (min-width: 430px) {
+    .createUser {
         width: 330px;
     }
-    .input{
+
+    .input {
         width: 300px;
     }
-    .select{
+
+    .select {
         width: 312px;
     }
-    .btn{
+
+    .btn {
         width: 153px;
     }
-    .btn_cancel{
+
+    .btn_cancel {
         width: 153px;
     }
-    .addUser_svg{
+
+    .addUser_svg {
         margin-left: 185px;
     }
 }

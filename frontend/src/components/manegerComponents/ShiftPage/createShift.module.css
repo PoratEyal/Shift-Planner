@@ -1,4 +1,4 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,14 +13,14 @@
     overflow: hidden;
 }
 
-.userForm{
+.userForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.input{
+.input {
     margin: 10px;
     font-size: 20px;
     padding: 6px;
@@ -31,12 +31,12 @@
     text-align: right;
     direction: rtl;
     appearance: none;
-    -webkit-appearance:none;
+    -webkit-appearance: none;
     font-family: 'Rubik', sans-serif;
     margin-top: 0px;
 }
 
-.input_time{
+.input_time {
     margin: 10px;
     font-size: 20px;
     padding: 6px;
@@ -48,19 +48,21 @@
     text-align: right;
     direction: rtl;
     appearance: none;
-    -webkit-appearance:none;
+    -webkit-appearance: none;
     font-family: 'Rubik', sans-serif;
 }
-.input_time::before{
+
+.input_time::before {
     content: 'התחלה';
     color: #9d9d9d;
     direction: rtl;
     text-align: right;
     appearance: none;
-    -webkit-appearance:none;
+    -webkit-appearance: none;
     font-family: 'Rubik', sans-serif;
 }
-.input_time2{
+
+.input_time2 {
     margin: 10px;
     font-size: 20px;
     padding: 6px;
@@ -72,20 +74,21 @@
     text-align: right;
     direction: rtl;
     appearance: none;
-    -webkit-appearance:none;
+    -webkit-appearance: none;
     font-family: 'Rubik', sans-serif;
 }
-.input_time2::before{
+
+.input_time2::before {
     content: 'סיום';
     color: #9d9d9d;
     direction: rtl;
     text-align: right;
     appearance: none;
-    -webkit-appearance:none;
+    -webkit-appearance: none;
     font-family: 'Rubik', sans-serif;
 }
 
-.btn_div{
+.btn_div {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -115,7 +118,7 @@
     justify-content: center;
     font-family: 'Rubik', sans-serif;
     background-color: #c1e1ff;
-    color:#2880cc;
+    color: #2880cc;
     margin-bottom: 150px;
     z-index: 1;
 }
@@ -141,7 +144,7 @@
     justify-content: center;
     font-family: 'Rubik', sans-serif;
     background-color: rgba(255, 92, 92, 0.76);
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     z-index: 1;
 }
 
@@ -160,9 +163,10 @@
     0% {
         transform: translateY(80px);
     }
+
     100% {
         transform: translateY(0);
-  }
+    }
 }
 
 @keyframes slideInAndFade {
@@ -170,6 +174,7 @@
         transform: translateX(0);
         opacity: 0;
     }
+
     100% {
         transform: translateX(0);
         opacity: 1;
@@ -178,43 +183,54 @@
 
 /* - - - - - - - media query - - - - - - - - */
 
-@media only screen and (min-width: 380px){
-    .container{
+@media only screen and (min-width: 380px) {
+    .container {
         width: 310px;
     }
-    .btn{
+
+    .btn {
         width: 145px;
     }
-    .btn_cancel{
+
+    .btn_cancel {
         width: 145px;
     }
-    .input{
+
+    .input {
         width: 290px;
     }
-    .input_time{
+
+    .input_time {
         width: 290px;
     }
-    .input_time2{
+
+    .input_time2 {
         width: 290px;
     }
 }
-@media only screen and (min-width: 430px){
-    .container{
+
+@media only screen and (min-width: 430px) {
+    .container {
         width: 330px;
     }
-    .btn{
+
+    .btn {
         width: 153px;
     }
-    .btn_cancel{
+
+    .btn_cancel {
         width: 153px;
     }
-    .input{
+
+    .input {
         width: 310px;
     }
-    .input_time{
+
+    .input_time {
         width: 310px;
     }
-    .input_time2{
+
+    .input_time2 {
         width: 310px;
     }
 }

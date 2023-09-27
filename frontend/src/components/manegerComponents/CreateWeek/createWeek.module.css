@@ -1,8 +1,8 @@
-:root{
+:root {
     --main-color: #34a0ff;
 }
 
-.container{
+.container {
     direction: ltr;
     display: flex;
     flex-direction: column;
@@ -11,20 +11,20 @@
     margin-bottom: 20px;
 }
 
-.container_disabled{
+.container_disabled {
     direction: ltr;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 0px;
-    background:#ffffff;
+    background: #ffffff;
     opacity: 0.2;
     filter: alpha(opacity=10);
-    pointer-events:none;
+    pointer-events: none;
 }
 
-.addShift_btn_disabled{
+.addShift_btn_disabled {
     margin: 10px;
     margin-top: -10px;
     display: flex;
@@ -46,10 +46,10 @@
     width: 230px;
     justify-content: center;
     animation: slideInAndFade 0.5s ease-in-out;
-    background:#ffffff;
+    background: #ffffff;
     opacity: 0.2;
     filter: alpha(opacity=10);
-    pointer-events:none;
+    pointer-events: none;
 }
 
 @keyframes slideInFromRightName {
@@ -57,10 +57,11 @@
         transform: translateX(400px);
         opacity: 1;
     }
+
     100% {
         transform: translateX(0);
         opacity: 1;
-  }
+    }
 }
 
 @keyframes slideInAndFade {
@@ -68,13 +69,14 @@
         transform: translateX(0);
         opacity: 0;
     }
+
     100% {
         transform: translateX(0);
         opacity: 1;
     }
 }
 
-.day_container{
+.day_container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,14 +90,14 @@
     animation: slideInAndFade 0.5s ease-in-out;
 }
 
-.h2{
+.h2 {
     font-size: 22px;
     margin-top: -15px;
     margin-bottom: 5px;
     font-weight: 400;
 }
 
-.shift{
+.shift {
     width: 280px;
     font-size: 1.2em;
     border: none;
@@ -108,7 +110,8 @@
     margin-bottom: 5px;
     background-color: rgba(231, 234, 238, 0.571);
 }
-.shift_createWeek{
+
+.shift_createWeek {
     width: 265px;
     font-size: 1.2em;
     border: none;
@@ -123,14 +126,15 @@
     background-color: rgba(231, 234, 238, 0.571);
 }
 
-.addWroker_div{
+.addWroker_div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 270px;
     margin-bottom: -15px;
 }
-.plus_btn{
+
+.plus_btn {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -142,7 +146,8 @@
     cursor: pointer;
     margin-top: 5px;
 }
-.select_choose_worker{
+
+.select_choose_worker {
     direction: rtl;
     border-radius: 7px;
     padding: 3px;
@@ -150,11 +155,12 @@
     border: 1px solid rgba(101, 101, 101, 0.245);
     margin-bottom: 5px;
 }
-.select_choose_worker:optional{
+
+.select_choose_worker:optional {
     cursor: pointer;
 }
 
-.buttons{
+.buttons {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -178,7 +184,7 @@
     gap: 0.75rem;
     background-color: var(--main-color);
     background-color: #d2e9ff;
-    color:#2880cc;
+    color: #2880cc;
     cursor: pointer;
     transition: 0.3s;
     display: flex;
@@ -190,7 +196,7 @@
     align-items: center;
 }
 
-.specific_shift_div{
+.specific_shift_div {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
@@ -205,18 +211,18 @@
     direction: rtl;
     cursor: pointer;
     text-align: right;
-    padding:5px 5px;
+    padding: 5px 5px;
     appearance: none;
-    -webkit-appearance:none;
+    -webkit-appearance: none;
     background-color: #d2e9ff;
-    color:#2880cc;
+    color: #2880cc;
     border: none;
     font-weight: 500;
     text-align: center !important;
     position: relative;
 }
 
-.specific_shift_div select{
+.specific_shift_div select {
     position: absolute;
     width: 290px;
     height: 50px;
@@ -227,11 +233,11 @@
     direction: rtl;
     cursor: pointer;
     text-align: right;
-    padding:5px 5px;
+    padding: 5px 5px;
     appearance: none;
-    -webkit-appearance:none;
+    -webkit-appearance: none;
     background-color: #d2e9ff00;
-    color:#287fcc00;
+    color: #287fcc00;
     border: none;
     font-weight: 500;
     text-align: center !important;
@@ -241,11 +247,12 @@
     font-size: 25px;
     transform: scaleX(-1);
 }
+
 .icon_publishd {
     font-size: 25px;
 }
 
-.add_btn{
+.add_btn {
     margin: 10px;
     margin-top: 0px;
     display: flex;
@@ -267,11 +274,12 @@
     width: 230px;
     justify-content: center;
 }
+
 .add_btn:hover {
     transform: scale(1.02);
 }
 
-.addShift{
+.addShift {
     width: 285px;
     font-size: 1.2em;
     border: none;
@@ -287,26 +295,26 @@
     position: relative;
 }
 
-.addShift_div{
+.addShift_div {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-.hour_and_input{
+.hour_and_input {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-.hour_and_input{
+.hour_and_input {
     margin-right: 20px;
     font-family: 'Rubik', sans-serif;
 }
 
-.input_time_start{
+.input_time_start {
     margin: 10px;
     font-size: 18px;
     padding: 5px;
@@ -317,21 +325,22 @@
     text-align: right;
     direction: rtl;
     appearance: none;
-    -webkit-appearance:none;
+    -webkit-appearance: none;
     font-family: 'Rubik', sans-serif;
     background-color: white;
 }
-.input_time_start::before{
+
+.input_time_start::before {
     content: 'התחלה';
     color: #9d9d9d;
     direction: ltr;
     appearance: none;
-    -webkit-appearance:none;
+    -webkit-appearance: none;
     font-family: 'Rubik', sans-serif;
     background-color: white;
 }
 
-.input_time_end{
+.input_time_end {
     margin: 10px;
     font-size: 18px;
     padding: 5px;
@@ -342,21 +351,22 @@
     text-align: right;
     direction: rtl;
     appearance: none;
-    -webkit-appearance:none;
+    -webkit-appearance: none;
     font-family: 'Rubik', sans-serif;
     background-color: white;
 }
-.input_time_end::before{
+
+.input_time_end::before {
     content: 'סיום';
     color: #9d9d9d;
     direction: ltr;
     appearance: none;
-    -webkit-appearance:none;
+    -webkit-appearance: none;
     font-family: 'Rubik', sans-serif;
     background-color: white;
 }
 
-.input{
+.input {
     margin: 10px;
     font-size: 18px;
     padding: 5px;
@@ -369,7 +379,7 @@
     font-family: 'Rubik', sans-serif;
 }
 
-.addShift_btn{
+.addShift_btn {
     margin-top: -10px;
     margin-bottom: 15px;
     display: flex;
@@ -388,12 +398,13 @@
     width: 110px;
     justify-content: center;
     background-color: #c1e1ff;
-    color:#2880cc;
+    color: #2880cc;
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
     margin-right: 10px;
 }
-.addShift_cancel_btn{
+
+.addShift_cancel_btn {
     margin-top: -10px;
     margin-bottom: 15px;
     display: flex;
@@ -412,12 +423,12 @@
     width: 110px;
     justify-content: center;
     background-color: rgba(255, 92, 92, 0.76);
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
 }
 
-.ai_div{
+.ai_div {
     margin-top: 20px;
     margin-bottom: -10px;
 }
@@ -429,43 +440,44 @@
     width: 100%;
     border-top: 1px solid rgba(101, 101, 101, 0.245);
 }
-    
+
 .workers_list p {
     margin-left: 0px;
 }
 
 
-.btn_delete{
+.btn_delete {
     color: rgba(227, 86, 86, 0.989);
     border: none;
     font-size: 22px;
     background-color: #25d36500;
     margin-top: 4px;
 }
-.btn_delete:hover{
+
+.btn_delete:hover {
     cursor: pointer;
 }
 
-.shift_description{
+.shift_description {
     font-size: 19px;
     margin-bottom: 15px;
 }
 
-.shift_description_createWeek{
+.shift_description_createWeek {
     font-size: 18px;
 }
 
-.no_shifts_messge{
+.no_shifts_messge {
     color: rgb(111, 111, 111);
     margin-top: 4px;
     font-size: 1.3em;
 }
 
-.shift_data_p{
+.shift_data_p {
     margin: 12px
 }
 
-.loadingWorkers{
+.loadingWorkers {
     margin: 15px;
     margin-left: 120px;
 }
@@ -480,15 +492,15 @@
     height: var(--uib-size);
     width: var(--uib-size);
     animation: spin78236 calc(var(--uib-speed) * 2.5) infinite linear;
-   }
-   
-   .three-body__dot {
+}
+
+.three-body__dot {
     position: absolute;
     height: 100%;
     width: 30%;
-   }
-   
-   .three-body__dot:after {
+}
+
+.three-body__dot:after {
     content: '';
     position: absolute;
     height: 0%;
@@ -496,86 +508,87 @@
     padding-bottom: 100%;
     background-color: var(--uib-color);
     border-radius: 50%;
-   }
-   
-   .three-body__dot:nth-child(1) {
+}
+
+.three-body__dot:nth-child(1) {
     bottom: 5%;
     left: 0;
     transform: rotate(60deg);
     transform-origin: 50% 85%;
-   }
-   
-   .three-body__dot:nth-child(1)::after {
+}
+
+.three-body__dot:nth-child(1)::after {
     bottom: 0;
     left: 0;
     animation: wobble1 var(--uib-speed) infinite ease-in-out;
     animation-delay: calc(var(--uib-speed) * -0.3);
-   }
-   
-   .three-body__dot:nth-child(2) {
+}
+
+.three-body__dot:nth-child(2) {
     bottom: 5%;
     right: 0;
     transform: rotate(-60deg);
     transform-origin: 50% 85%;
-   }
-   
-   .three-body__dot:nth-child(2)::after {
+}
+
+.three-body__dot:nth-child(2)::after {
     bottom: 0;
     left: 0;
-    animation: wobble1 var(--uib-speed) infinite
-       calc(var(--uib-speed) * -0.15) ease-in-out;
-   }
-   
-   .three-body__dot:nth-child(3) {
+    animation: wobble1 var(--uib-speed) infinite calc(var(--uib-speed) * -0.15) ease-in-out;
+}
+
+.three-body__dot:nth-child(3) {
     bottom: -5%;
     left: 0;
     transform: translateX(116.666%);
-   }
-   
-   .three-body__dot:nth-child(3)::after {
+}
+
+.three-body__dot:nth-child(3)::after {
     top: 0;
     left: 0;
     animation: wobble2 var(--uib-speed) infinite ease-in-out;
-   }
-   
-   @keyframes spin78236 {
+}
+
+@keyframes spin78236 {
     0% {
-     transform: rotate(0deg);
+        transform: rotate(0deg);
     }
-   
+
     100% {
-     transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-   }
-   
-   @keyframes wobble1 {
+}
+
+@keyframes wobble1 {
+
     0%,
-     100% {
-     transform: translateY(0%) scale(1);
-     opacity: 1;
+    100% {
+        transform: translateY(0%) scale(1);
+        opacity: 1;
     }
-   
+
     50% {
-     transform: translateY(-66%) scale(0.65);
-     opacity: 0.8;
+        transform: translateY(-66%) scale(0.65);
+        opacity: 0.8;
     }
-   }
-   
-   @keyframes wobble2 {
+}
+
+@keyframes wobble2 {
+
     0%,
-     100% {
-     transform: translateY(0%) scale(1);
-     opacity: 1;
+    100% {
+        transform: translateY(0%) scale(1);
+        opacity: 1;
     }
-   
+
     50% {
-     transform: translateY(66%) scale(0.65);
-     opacity: 0.8;
+        transform: translateY(66%) scale(0.65);
+        opacity: 0.8;
     }
-   }
+}
 
 
-.workers_list_delete{
+.workers_list_delete {
     direction: ltr;
     border-top: 1px solid rgba(101, 101, 101, 0.245);
     width: 100%;
@@ -583,7 +596,7 @@
     flex-direction: column;
 }
 
-.names{
+.names {
     direction: rtl;
     margin: 10px;
     margin-right: 20px;
@@ -593,7 +606,7 @@
     max-width: 130px;
 }
 
-.nameAndDelete{
+.nameAndDelete {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -601,7 +614,7 @@
     border-bottom: 0px solid rgba(101, 101, 101, 0.245);
 }
 
-.btn_chose{
+.btn_chose {
     margin: 15px;
     background-color: rgb(46, 181, 29);
     color: white;
@@ -612,13 +625,14 @@
     cursor: pointer;
     transition: 0.3s;
     font-size: 15px;
-    
+
 }
-.btn_chose:hover{
+
+.btn_chose:hover {
     background-color: rgb(30, 144, 14);
 }
 
-.btn_chosen{
+.btn_chosen {
     width: 60px;
     margin: 15px;
     background-color: rgba(230, 58, 20, 0.838);
@@ -630,17 +644,19 @@
     font-size: 15px;
     transition: 0.3s;
 }
-.btn_chosen:hover{
+
+.btn_chosen:hover {
     background-color: rgba(196, 48, 15, 0.956);
 }
 
-.add_specific_worker_div{
+.add_specific_worker_div {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-.add_specific_worker_btn{
+
+.add_specific_worker_btn {
     width: 60px;
     margin: 15px;
     background-color: rgba(165, 165, 165, 0.88);
@@ -654,10 +670,10 @@
     margin-right: 30px;
     font-weight: 600;
     background-color: #d2e9ff;
-    color:#2880cc;
+    color: #2880cc;
 }
 
-.add_specific_worker_select{
+.add_specific_worker_select {
     margin: 10px;
     font-size: 18px;
     padding: 5px;
@@ -670,13 +686,15 @@
     font-family: 'Rubik', sans-serif;
 }
 
-.loadingWorkers_manger_page{
+.loadingWorkers_manger_page {
     margin: 15px;
 }
-.first_publish_div{
+
+.first_publish_div {
     margin-top: 90px;
 }
-.first_addShift_btn{
+
+.first_addShift_btn {
     margin: 10px;
     margin-top: -10px;
     display: flex;
@@ -699,17 +717,19 @@
     width: 320px;
     justify-content: center;
 }
+
 .first_addShift_btn:hover {
     transform: scale(1.02);
 }
-.publish_div_createWeek{
+
+.publish_div_createWeek {
     position: absolute;
     bottom: 30px;
     z-index: 900;
-    position:fixed;
+    position: fixed;
 }
 
-.publish_div_createWeek button{
+.publish_div_createWeek button {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin-top: -10px;
     margin-bottom: 0px;
@@ -731,11 +751,11 @@
     width: 300px;
     justify-content: center;
     animation: downToUp 1s ease-in-out;
-    background-color:#68b5f9;
+    background-color: #68b5f9;
     font-family: 'Rubik', sans-serif;
 }
 
-.edit_div_createWeek{
+.edit_div_createWeek {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -743,7 +763,8 @@
     margin-top: 90px;
     animation: slideInAndFade 0.5s ease-in-out;
 }
-.edit_div_createWeek button{
+
+.edit_div_createWeek button {
     margin-top: -10px;
     margin-bottom: 10px;
     display: flex;
@@ -767,14 +788,14 @@
     justify-content: center;
 }
 
-.publish_div{
+.publish_div {
     position: absolute;
     bottom: 30px;
     z-index: 900;
-    position:fixed;
+    position: fixed;
 }
 
-.publish_div button{
+.publish_div button {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin-top: -10px;
     margin-bottom: 0px;
@@ -796,17 +817,17 @@
     width: 300px;
     justify-content: center;
     animation: downToUp 1s ease-in-out;
-    background-color:#68b5f9;
+    background-color: #68b5f9;
 }
 
-.published_div{
+.published_div {
     position: absolute;
     bottom: 30px;
     z-index: 900;
-    position:fixed;
+    position: fixed;
 }
 
-.published_div button{
+.published_div button {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin-top: -10px;
     margin-bottom: 0px;
@@ -832,7 +853,7 @@
     font-family: 'Rubik', sans-serif;
 }
 
-.workers_showList{
+.workers_showList {
     direction: ltr;
     display: flex;
     flex-direction: column;
@@ -842,24 +863,27 @@
     margin-top: 5px;
     border-top: 1px solid rgba(101, 101, 101, 0.245);
 }
-.workers_showList > :last-child {
+
+.workers_showList> :last-child {
     grid-column-start: 2;
 }
 
-.home_btn{
+.home_btn {
     cursor: pointer;
 }
 
-.icon_delete{
+.icon_delete {
     margin-left: 18px;
     font-size: 23px;
     color: rgba(227, 86, 86, 0.989);
 }
-.icon_delete:hover{
+
+.icon_delete:hover {
     color: rgba(227, 86, 86, 0.989);
     cursor: pointer;
 }
-.icon_edit{
+
+.icon_edit {
     margin-left: 15px;
     color: rgba(119, 119, 119, 0.903);
     font-size: 23px;
@@ -870,14 +894,18 @@
     0% {
         transform: scale(1);
     }
+
     50% {
-        transform: scale(1.2); /* Scale up at 50% of the animation */
+        transform: scale(1.2);
+        /* Scale up at 50% of the animation */
     }
+
     100% {
         transform: scale(1);
     }
 }
-.icon_message_alert{
+
+.icon_message_alert {
     margin-left: 18px;
     color: rgba(119, 119, 119, 0.903);
     font-size: 23px;
@@ -885,29 +913,31 @@
     animation: pulse 1s infinite;
     animation: slideInAndFade 0.7s ease-in-out;
 }
-.icon_add{
+
+.icon_add {
     margin-left: 18px;
     margin-top: 3px;
     font-size: 23px;
     color: green;
     cursor: pointer;
 }
-.icon_add:hover{
+
+.icon_add:hover {
     color: rgb(0, 87, 0);
 }
 
-.label_edit_select{
+.label_edit_select {
     position: relative;
 }
 
-.edit_div_options{
+.edit_div_options {
     border-radius: 7px;
     width: 170px;
     height: auto;
     border: none;
     position: absolute;
     direction: ltr;
-    left:-13px;
+    left: -13px;
     top: 37px;
     z-index: 100;
     background-color: rgb(255, 255, 255);
@@ -918,7 +948,8 @@
     align-items: end;
     animation: slideInAndFade 0.2s ease-in-out;
 }
-.edit_div_options::before{
+
+.edit_div_options::before {
     content: '';
     position: absolute;
     width: 0;
@@ -931,7 +962,8 @@
     filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
     cursor: pointer;
 }
-.edit_div_flex{
+
+.edit_div_flex {
     margin: 8px;
     direction: ltr;
     display: flex;
@@ -939,7 +971,8 @@
     justify-content: space-between;
     align-items: center;
 }
-.icon_edit_select{
+
+.icon_edit_select {
     color: rgba(119, 119, 119, 0.903);
     font-size: 21px;
     cursor: pointer;
@@ -951,10 +984,11 @@
         transform: translateY(130px);
         opacity: 1;
     }
+
     100% {
         transform: translateY(0);
         opacity: 1;
-  }
+    }
 }
 
 .edit_week_btn {
@@ -977,7 +1011,8 @@
     animation: downToUp 1s ease-in-out;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.edit_week_btn:hover{
+
+.edit_week_btn:hover {
     cursor: pointer;
 }
 
@@ -989,22 +1024,22 @@
     border-radius: 8px;
 }
 
-.swal2_content{
+.swal2_content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items:center;
+    align-items: center;
 }
 
-  /* Style for the form */
+/* Style for the form */
 .swal2_content form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items:center;
+    align-items: center;
 }
 
-  /* Style for the input fields */
+/* Style for the input fields */
 .swal2_content input[type='time'] {
     border: 1.5px solid rgba(175, 175, 175, 0.413);
     width: 120px;
@@ -1016,7 +1051,7 @@
     background-color: rgba(245, 242, 242, 0.696);
 }
 
-.swal2_content div{
+.swal2_content div {
     margin-bottom: 10px;
     display: flex;
     flex-direction: row;
@@ -1024,7 +1059,7 @@
     align-items: center;
 }
 
-  /* Style for the labels */
+/* Style for the labels */
 .swal2_content label {
     font-size: 22px;
     margin-left: 8px;
@@ -1049,25 +1084,25 @@
     margin-bottom: 5px;
 }
 
-.swal2_title{
+.swal2_title {
     font-size: 24px;
     margin-bottom: -5px;
 }
 
-.swal2_input{
+.swal2_input {
     margin-top: 0px;
 }
 
 
-.AI_content{
+.AI_content {
     display: flex;
     flex-direction: column;
-    justify-content:center;
+    justify-content: center;
     align-items: end;
     text-align: right;
 }
 
-.AI_content div{
+.AI_content div {
     margin: 10px;
     font-size: 20px;
 }
@@ -1078,126 +1113,164 @@
 
 
 
-@media only screen and (min-width: 370px){
-    .day_container{
+@media only screen and (min-width: 370px) {
+    .day_container {
         width: 300px;
     }
-    .shift{
+
+    .shift {
         width: 300px;
     }
-    .shift_createWeek{
+
+    .shift_createWeek {
         width: 285px;
     }
-    .published_div button{
+
+    .published_div button {
         width: 320px;
     }
-    .btn{
+
+    .btn {
         width: 315px;
     }
-    .specific_shift_div{
+
+    .specific_shift_div {
         width: 300px;
     }
-    .specific_shift_div select{
+
+    .specific_shift_div select {
         width: 310px;
     }
-    .addShift{
+
+    .addShift {
         width: 305px;
     }
-    .publish_div_createWeek button{
+
+    .publish_div_createWeek button {
         width: 320px;
     }
-    .input{
+
+    .input {
         width: 250px;
     }
-    .input_time_start{
+
+    .input_time_start {
         width: 250px;
     }
-    .input_time_end{
+
+    .input_time_end {
         width: 250px;
     }
-    .addShift_btn{
+
+    .addShift_btn {
         width: 125px;
     }
-    .addShift_cancel_btn{
+
+    .addShift_cancel_btn {
         width: 125px;
     }
-    .edit_div_createWeek button{
+
+    .edit_div_createWeek button {
         width: 320px;
     }
-    .add_specific_worker_btn{
+
+    .add_specific_worker_btn {
         margin-right: 48px;
     }
-    .publish_div button{
+
+    .publish_div button {
         width: 320px;
     }
-    .message{
+
+    .message {
         width: 320px;
     }
-    .ai_btn{
+
+    .ai_btn {
         width: 340px;
     }
 }
-@media only screen and (min-width: 430px){
-    .day_container{
+
+@media only screen and (min-width: 430px) {
+    .day_container {
         width: 320px;
     }
-    .shift{
+
+    .shift {
         width: 320px;
     }
-    .shift_createWeek{
+
+    .shift_createWeek {
         width: 310px;
     }
-    .published_div button{
+
+    .published_div button {
         width: 340px;
     }
-    .btn{
+
+    .btn {
         width: 335px;
     }
-    .specific_shift_div{
+
+    .specific_shift_div {
         width: 320px;
     }
-    .specific_shift_div select{
+
+    .specific_shift_div select {
         width: 330px;
     }
-    .addShift{
+
+    .addShift {
         width: 325px;
     }
-    .publish_div_createWeek button{
+
+    .publish_div_createWeek button {
         width: 340px;
     }
-    .input{
+
+    .input {
         width: 270px;
     }
-    .input_time_start{
+
+    .input_time_start {
         width: 270px;
     }
-    .input_time_end{
+
+    .input_time_end {
         width: 270px;
     }
-    .addShift_btn{
+
+    .addShift_btn {
         width: 135px;
     }
-    .addShift_cancel_btn{
+
+    .addShift_cancel_btn {
         width: 135px;
     }
-    .edit_div_createWeek button{
+
+    .edit_div_createWeek button {
         width: 360px;
     }
-    .add_specific_worker_btn{
+
+    .add_specific_worker_btn {
         margin-right: 65px;
     }
-    .publish_div button{
+
+    .publish_div button {
         width: 340px;
     }
-    .message{
+
+    .message {
         width: 340px;
     }
-    .ai_btn{
+
+    .ai_btn {
         width: 360px;
     }
 }
-@media only screen and (min-width: 900px){
-    .specific_shift_div select{
-        color:#2880cc;
+
+@media only screen and (min-width: 900px) {
+    .specific_shift_div select {
+        color: #2880cc;
     }
 }
