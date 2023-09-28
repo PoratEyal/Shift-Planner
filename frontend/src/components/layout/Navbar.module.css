@@ -18,7 +18,26 @@
   font-family: 'Rubik', sans-serif;
 }
 
-.nav_btn_div{
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.nav_btn_div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  -webkit-appearance: none;
+  animation: slideInFromLeft 1.5s forwards;
+}
+
+
+.logo_div{
   display: flex;
   flex-direction: row;
   align-items: center;

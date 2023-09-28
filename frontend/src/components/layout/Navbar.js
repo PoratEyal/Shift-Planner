@@ -129,7 +129,7 @@ const Navbar = (props) => {
 
       <div className={styles.spacer}></div>
 
-      <div className={styles.nav_btn_div}>
+      <div className={styles.logo_div}>
         <Link className={styles.logo} to="/managerHomePage">
           <img src="s_logo.png" alt="Logo"></img>
         </Link>
