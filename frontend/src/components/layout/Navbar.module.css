@@ -20,7 +20,7 @@
 
 @keyframes slideInFromLeft {
   from {
-    transform: translateX(100%);
+    transform: translateX(200%);
   }
   to {
     transform: translateX(0);
@@ -33,7 +33,6 @@
   align-items: center;
   justify-content: center;
   -webkit-appearance: none;
-  animation: slideInFromLeft 1.5s forwards;
 }
 
 

@@ -24,6 +24,7 @@ const Navbar = (props) => {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState('')
   const [weekVisible, setWeekVisible] = useState(null);
+  const noAnimation = props.noAnimation;
 
   const sidebarRef = useRef(null);
   const blurBack = useRef(null);
@@ -131,9 +132,10 @@ const Navbar = (props) => {
 
       <div className={styles.logo_div}>
         <Link className={styles.logo} to="/managerHomePage">
-          <img src="s_logo.png" alt="Logo"></img>
+          <img src="s_logo.png" alt="Logo" />
         </Link>
       </div>
+
 
       {open ? <div className={styles.blur_back} ref={blurBack}></div> : null}
 

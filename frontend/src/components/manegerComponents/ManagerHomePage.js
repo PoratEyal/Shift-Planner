@@ -70,7 +70,7 @@ const ManagerHomePage = () => {
       };
 
     return <ManagerContext.Provider value={{getUser}}>
-        <PageLayout text={`שלום ${fullname}`}>
+        <PageLayout text={`שלום ${fullname}`} noAnimation={true}>
             <div className={styles.container}>
 
                 <label className={styles.week_text}>שבוע נוכחי</label>
