@@ -114,6 +114,8 @@
   color: red;
   margin-top: 200px;
   animation: vibration 0.3s;
+  direction: ltr;
+  width: fit-content;
 }
 
 @keyframes slideUpBtn {
