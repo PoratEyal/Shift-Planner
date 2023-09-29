@@ -16,6 +16,10 @@
   justify-content: space-between;
   align-items: center;
   font-family: 'Rubik', sans-serif;
+
+  background: rgba(255, 255, 255, 0.51);
+  backdrop-filter: blur(13.9px);
+  -webkit-backdrop-filter: blur(13.9px);
 }
 
 @keyframes slideInFromLeft {
