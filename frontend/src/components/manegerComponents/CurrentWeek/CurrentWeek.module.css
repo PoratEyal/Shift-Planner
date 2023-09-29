@@ -391,6 +391,9 @@
     border: none;
     font-weight: 500;
     text-align: right !important;
+    display: flex;
+    align-items: end;
+    width: fit-content;
 }
 .add_specific_worker_select option{
     font-family: 'Rubik', sans-serif;
@@ -399,16 +402,7 @@
     appearance: none;
     -webkit-appearance:none;
 }
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    .add_specific_worker_select {
-        text-align-last: right;
-        direction: rtl !important;
-    }
-    .add_specific_worker_select option {
-        text-align: right;
-        direction: rtl !important;
-    }
-}
+
 
 /* - - - - - animations - - - - -  */
 
