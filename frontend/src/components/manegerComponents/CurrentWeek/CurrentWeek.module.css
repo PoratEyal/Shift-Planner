@@ -393,6 +393,10 @@
     font-weight: 500;
     text-align: right !important;
 }
+.add_specific_worker_select option{
+    direction: rtl !important;
+    text-align: right !important;
+}
 
 /* - - - - - animations - - - - -  */
 
