@@ -391,9 +391,6 @@
     border: none;
     font-weight: 500;
     text-align: right !important;
-    display: flex;
-    align-items: end;
-    width: fit-content;
 }
 .add_specific_worker_select option{
     font-family: 'Rubik', sans-serif;
