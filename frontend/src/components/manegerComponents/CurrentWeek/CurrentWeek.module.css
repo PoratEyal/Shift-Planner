@@ -368,7 +368,6 @@
     background-color: #d2e9ff;
     color:#2880cc;
     border: none;
-    border: 2px solid var(--main-color);
     font-weight: 500;
     text-align: center !important;
     position: relative;
@@ -394,10 +393,9 @@
     text-align: right !important;
 }
 .add_specific_worker_select option{
-    font-family: 'Rubik', sans-serif;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     direction: rtl !important;
-    text-align: right !important;
-    color: black;
+    color: rgb(0, 0, 0);
     appearance: none;
     -webkit-appearance:none;
 }
