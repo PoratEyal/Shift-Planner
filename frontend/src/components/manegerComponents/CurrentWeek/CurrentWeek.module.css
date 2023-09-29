@@ -396,6 +396,7 @@
 .add_specific_worker_select option{
     direction: rtl !important;
     text-align: right !important;
+    color: black;
 }
 
 /* - - - - - animations - - - - -  */
