@@ -393,11 +393,21 @@
     text-align: right !important;
 }
 .add_specific_worker_select option{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Rubik', sans-serif;
     direction: rtl !important;
     color: rgb(0, 0, 0);
     appearance: none;
     -webkit-appearance:none;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .add_specific_worker_select {
+        text-align-last: right;
+        direction: rtl !important;
+    }
+    .add_specific_worker_select option {
+        text-align: right;
+        direction: rtl !important;
+    }
 }
 
 /* - - - - - animations - - - - -  */
