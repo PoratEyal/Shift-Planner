@@ -368,6 +368,7 @@
     background-color: #d2e9ff;
     color:#2880cc;
     border: none;
+    border: 2px solid var(--main-color);
     font-weight: 500;
     text-align: center !important;
     position: relative;
@@ -381,7 +382,6 @@
     font-size: 21px;
     font-family: 'Rubik', sans-serif;
     border-radius: 0.5rem;
-    border: 1px solid rgb(181, 181, 181);
     direction: rtl !important;
     cursor: pointer;
     padding:5px 5px;
@@ -394,9 +394,12 @@
     text-align: right !important;
 }
 .add_specific_worker_select option{
+    font-family: 'Rubik', sans-serif;
     direction: rtl !important;
     text-align: right !important;
     color: black;
+    appearance: none;
+    -webkit-appearance:none;
 }
 
 /* - - - - - animations - - - - -  */
