@@ -19,7 +19,7 @@ const Worker = (props) => {
     let fullName = useRef(user.fullName);
     let username = useRef(user.username);
     let password = useRef("");
-    const [selectedRole, setRole] = useState("");
+    const [selectedRole, setRole] = useState(user.role ? user.role._id : 0);
 
     const options = (shiftId) => {
         setOpenOptions(shiftId);
@@ -59,7 +59,7 @@ const Worker = (props) => {
     }
 
     const EditUser = async () => {
-        
+        console.log(selectedRole)  
         const updatedUser = {
             _id: user._id,
             fullName: fullName.current.value,
@@ -130,9 +130,10 @@ const Worker = (props) => {
             <input className={styles.input_edit} defaultValue={user.username} type="text" placeholder='שם משתמש' ref={username}/>
             <input className={styles.input_edit}  type="password" placeholder='סיסמא' ref={password}/>
 
-            <select className={styles.select} onChange={(e) => { setRole(e.target.value) }} defaultValue="">
+            <select value={selectedRole} className={styles.select} onChange={(e) => { setRole(e.target.value)}} >
                   <option value="" disabled>תפקיד</option>
                   {props.roles.map(role => { return <option value={role._id} key={role._id}>{role.name}</option> })}
+                  <option value={0}>ללא תפקיד</option>
               </select>
             <div className={styles.btn_div}>
                 <button

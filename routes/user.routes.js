@@ -59,7 +59,7 @@ userRouter.post('/addUser', async (req, res) => {
 userRouter.post(`/getAllWorkers`, (req, res) => {
     const shiftWorkers = req.body;
     const convertedArr = shiftWorkers.workers.map(id => new ObjectId(id))
-    User.find({ _id: { $nin: convertedArr }, manager: shiftWorkers.manager }, { _id: 1, fullName: 1, role: 1}).then(data => {
+    User.find({ _id: { $nin: convertedArr }, manager: shiftWorkers.manager }, { _id: 1, fullName: 1, role: 1 }).then(data => {
         res.status(200).json(data)
     }).catch(err => {
         console.log(err);
@@ -187,8 +187,12 @@ userRouter.put('/editUser', async (req, res) => {
         }
         else {
             try {
-                const role = await Role.findOne({ _id: updatedUser.role });
-                user.role = role._doc;
+                if (updatedUser.role === '0') {
+                    user.role = null;
+                } else {
+                    const role = await Role.findOne({ _id: updatedUser.role });
+                    user.role = role._doc;
+                }
             }
             catch (err) { console.log(err) }
             user.fullName = updatedUser.fullName
