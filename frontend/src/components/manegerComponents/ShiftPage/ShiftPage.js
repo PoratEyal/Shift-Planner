@@ -24,7 +24,7 @@ const SettingsPage = (props) => {
                 setNoShifts(true);
             } else {
                 setDefShifts(response.data);
-                if (response.data.length >= 4) {
+                if (response.data.length >= 6) {
                     setLimitShifts(true)
                 }
             }
@@ -69,7 +69,7 @@ const SettingsPage = (props) => {
         }
         else {
             Swal.fire({
-                title: 'ניתן להוסיף עד - 4 משמרות',
+                title: 'ניתן להוסיף עד - 6 משמרות',
                 icon: 'info',
                 confirmButtonColor: '#34a0ff',
                 confirmButtonText: 'סגירה'
