@@ -98,7 +98,7 @@ const Worker = (props) => {
         return () => {
         document.removeEventListener('mousedown', handleOutsideClick);
         };
-    }, [isDivVisible ])
+    }, [isDivVisible])
 
     return <React.Fragment>
         <div key={user._id} className={styles.user_container}>
