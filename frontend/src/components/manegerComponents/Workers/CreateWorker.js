@@ -6,6 +6,8 @@ import { ManagerContext } from '../ManagerHomePage'
 import { useContext } from 'react';
 import Swal from 'sweetalert2';
 import PageLayout from './/..//..//layout/PageLayout';
+import Creatable from 'react-select/creatable';
+
 
 const CreateWorker = () => {
     
@@ -21,6 +23,40 @@ const CreateWorker = () => {
     //context
     const managerContext = useContext(ManagerContext);
     const managerId = managerContext.getUser();
+
+    const selectStyles = {
+      control: provided => ({
+        ...provided,
+        border: '2px solid rgba(122, 122, 122, 0.25)',
+        borderRadius: '5px',
+        direction: 'rtl',
+        textAlign: 'right',
+        fontFamily: 'Rubik, sans-serif',
+        fontSize: '20px',
+        padding: '0px',
+        width: '275px',
+        zIndex: '500',
+      }),
+      menu: provided => ({
+        ...provided,
+        direction: 'rtl',
+        textAlign: 'right',
+      }),
+      
+    };
+    
+
+    
+    
+          
+    const options = [
+      { value: '', label: 'בחירת תפקיד (לא חובה)' },
+      ...roles.map(role => ({ value: role._id, label: role.name })),
+    ];
+  
+    const handleChange = (selectedOption) => {
+      setRole(selectedOption.value);
+    };
 
     const getRoles = () => {
         const token = localStorage.getItem("token");
@@ -129,10 +165,12 @@ const CreateWorker = () => {
                   autoComplete="current-password"
               />
 
-              <select className={styles.select} onChange={(e) => { setRole(e.target.value) }} defaultValue="">
-                  <option value="" disabled>בחירת תפקיד (לא חובה)</option>
-                  {roles.map(role => { return <option value={role._id} key={role._id}>{role.name}</option> })}
-              </select>
+              <Creatable
+                options={options}
+                onChange={handleChange}
+                defaultValue={options[0]}
+                styles={selectStyles}
+              />
                 
               <div className={styles.btns_div}>
                 <button className={styles.btn} type="button" onClick={handleSubmit}>אישור</button>

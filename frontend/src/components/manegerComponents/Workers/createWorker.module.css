@@ -58,12 +58,13 @@
     border-radius: 5px;
     border: none;
     margin-bottom: 10px;
-    border: 2px solid rgba(91, 91, 91, 0.25);
+    border: 2px solid rgba(122, 122, 122, 0.25);
     width: 260px;
     margin-bottom: 20px;
 }
 
 .btns_div{
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -94,7 +95,7 @@
     font-family: 'Rubik', sans-serif;
     background-color: #c1e1ff;
     color:#2880cc;
-    z-index: 2;
+    /* z-index: 2; */
     margin-bottom: 200px;
 }
 
@@ -120,7 +121,7 @@
     font-family: 'Rubik', sans-serif;
     background-color: rgba(255, 92, 92, 0.76);
     color:rgb(255, 255, 255);
-    z-index: 2;
+    /* z-index: 2; */
 }
 
 .addUser_svg {
