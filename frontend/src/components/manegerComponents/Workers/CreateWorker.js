@@ -42,7 +42,10 @@ const CreateWorker = () => {
         direction: 'rtl',
         textAlign: 'right',
       }),
-      
+      input: provided => ({
+        ...provided,
+        readOnly: 'readonly',
+      }), 
     };
     
 
