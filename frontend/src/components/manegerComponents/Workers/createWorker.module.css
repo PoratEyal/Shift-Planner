@@ -44,6 +44,8 @@
     border: 1.5px solid rgba(91, 91, 91, 0.25);
     width: 272px;
     margin-bottom: 20px;
+    appearance: none;
+    -webkit-appearance:none;
 }
 
 .input{

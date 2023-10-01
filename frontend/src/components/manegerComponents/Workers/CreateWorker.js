@@ -130,7 +130,7 @@ const CreateWorker = () => {
               />
 
               <select className={styles.select} onChange={(e) => { setRole(e.target.value) }} defaultValue="">
-                  <option value="" disabled>תפקיד</option>
+                  <option value="" disabled>בחירת תפקיד (לא חובה)</option>
                   {roles.map(role => { return <option value={role._id} key={role._id}>{role.name}</option> })}
               </select>
                 
