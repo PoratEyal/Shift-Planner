@@ -173,7 +173,7 @@ const CreateWorker = () => {
                 onChange={handleChange}
                 defaultValue={options[0]}
                 styles={selectStyles}
-                inputFocusOnClick={false}
+                isSearchable ={false}
               />
                 
               <div className={styles.btns_div}>
