@@ -27,15 +27,14 @@ const CreateWorker = () => {
     const selectStyles = {
       control: provided => ({
         ...provided,
-        border: '2px solid rgba(122, 122, 122, 0.25)',
-        borderRadius: '5px',
+        border: 'none',
+        borderRadius: '0px',
         direction: 'rtl',
-        textAlign: 'right',
         fontFamily: 'Rubik, sans-serif',
         fontSize: '20px',
-        padding: '0px',
-        width: '275px',
+        width: '265px',
         zIndex: '500',
+        boxShadow: 'none'
       }),
       menu: provided => ({
         ...provided,
@@ -45,12 +44,8 @@ const CreateWorker = () => {
       input: provided => ({
         ...provided,
         readOnly: 'readonly',
-      }), 
+      }),
     };
-    
-
-    
-    
           
     const options = [
       { value: '', label: 'בחירת תפקיד (לא חובה)' },
@@ -80,7 +75,7 @@ const CreateWorker = () => {
     };
 
     useEffect(() => {
-        getRoles();
+      getRoles();
     }, []);
 
     const handleSubmit = (e) => {
@@ -169,6 +164,7 @@ const CreateWorker = () => {
               />
 
               <Creatable
+              className={styles.select}
                 options={options}
                 onChange={handleChange}
                 defaultValue={options[0]}

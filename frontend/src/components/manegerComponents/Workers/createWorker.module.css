@@ -41,9 +41,10 @@
     border-radius: 5px;
     border: none;
     margin-bottom: 10px;
-    border: 2px solid rgba(91, 91, 91, 0.25);
-    width: 272px;
+    border: 2px solid rgba(122, 122, 122, 0.25);
+    width: 275px;
     margin-bottom: 20px;
+    height: 50px;
     appearance: none;
     -webkit-appearance: none;
 }
@@ -61,6 +62,7 @@
     border: 2px solid rgba(122, 122, 122, 0.25);
     width: 260px;
     margin-bottom: 20px;
+    height: 30px;
 }
 
 .btns_div{
@@ -151,7 +153,7 @@
         width: 280px;
     }
     .select{
-        width: 292px;
+        width: 315px;
     }
     .btn{
         width: 143px;
@@ -163,7 +165,7 @@
         margin-left: 165px;
     }
 }
-@media only screen and (min-width: 430px){
+@media only screen and (min-width: 380px){
     .createUser{
         width: 330px;
     }
@@ -171,7 +173,7 @@
         width: 300px;
     }
     .select{
-        width: 312px;
+        width: 315px;
     }
     .btn{
         width: 153px;
