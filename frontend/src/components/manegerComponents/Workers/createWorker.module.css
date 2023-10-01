@@ -32,7 +32,7 @@
     align-items: center;
 }
 
-.select{
+.select {
     direction: rtl;
     text-align: right;
     font-family: 'Rubik', sans-serif;
@@ -41,12 +41,13 @@
     border-radius: 5px;
     border: none;
     margin-bottom: 10px;
-    border: 1.5px solid rgba(91, 91, 91, 0.25);
+    border: 2px solid rgba(91, 91, 91, 0.25);
     width: 272px;
     margin-bottom: 20px;
     appearance: none;
-    -webkit-appearance:none;
+    -webkit-appearance: none;
 }
+
 
 .input{
     direction: rtl;
@@ -57,7 +58,7 @@
     border-radius: 5px;
     border: none;
     margin-bottom: 10px;
-    border: 1.5px solid rgba(91, 91, 91, 0.25);
+    border: 2px solid rgba(91, 91, 91, 0.25);
     width: 260px;
     margin-bottom: 20px;
 }
