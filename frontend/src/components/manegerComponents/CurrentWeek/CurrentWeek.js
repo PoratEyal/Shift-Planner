@@ -168,7 +168,7 @@ const CurrentWeek = () => {
                 • ביצוע הפעולה מוגבל לפעם אחת בשבוע
                 </div>
                 <div>
-                • פעולה זו יכולה לקחת עד כדקה 
+                • פעולה זאת יכולה לקחת כדקה בהתאם למהירות החיבור
                 </div>
             </form>`,
             input: 'number',
@@ -177,7 +177,7 @@ const CurrentWeek = () => {
                 max: workersCount,
                 dir: 'rtl'
             },
-            inputPlaceholder: ` בחירת כמות עובדים בין 1 - ${workersCount}`,
+            inputPlaceholder: ` בחירת כמות עובדים למשמרת בין 1 - ${workersCount}`,
             showCancelButton: true,
             cancelButtonText: 'ביטול',
             confirmButtonColor: '#34a0ff',
