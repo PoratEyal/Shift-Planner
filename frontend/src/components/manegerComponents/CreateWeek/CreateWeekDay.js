@@ -160,7 +160,7 @@ const CreateWeekDay = (props) => {
                     {defShifts.map((shift, index) => {
                         return <option key={index} value={shift._id}>{shift.description}</option>
                     })}
-                    <option value="">משמרת ידנית</option>
+                    <option value="">הוספת משמרת ידנית</option>
                 </select>
             </div>
 

@@ -17,6 +17,7 @@ import CreateWorker from './components/manegerComponents/Workers/CreateWorker';
 import defShifts from './components/manegerComponents/ShiftPage/ShiftPage';
 import CreateShift from './components/manegerComponents/ShiftPage/CreateShift';
 import SettingsPage from './components/manegerComponents/SettingsPage/SettingsPage';
+import Register from '../src/components/publics/Register';
 
 const App = () => {
 
@@ -24,6 +25,7 @@ const App = () => {
       <Routes>
         {/* - - - - - - - -login - - - - - - -  */}
         <Route path="/" element={<Login/>} />
+        <Route path="/register" element={<Register/>} />
 
         {/* - - - - - - - -maneger - - - - - - -  */}
         <Route path='/managerHomePage' element={<ProtectedRoute component={ManagerHomePage} role="admin"/>}></Route>

@@ -5,7 +5,7 @@ import Roles from './Roles';
 import styles from '../publics/login.module.css';
 import { BiSolidShow, BiSolidHide } from "react-icons/bi";
 
-const Login = () => {
+const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [notValid, setNotValid] = useState(false);
@@ -73,8 +73,7 @@ const Login = () => {
           notValid ? <p key={validationKey} className={styles.validation_p}>שם משתמש או סיסמא שגויים</p> : null
         }
 
-        <button className={styles.btn} type="submit">התחברות</button>
-        {/* <button className={styles.register_btn} onClick={() => navigate('/register')}>להרשמה לחצו כאן</button> */}
+        <button className={styles.btn} type="submit">אישור</button>
 
         <div className={styles.blueBack}></div>
 
@@ -86,4 +85,4 @@ const Login = () => {
     
 };
 
-export default Login;
+export default Register;

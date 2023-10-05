@@ -258,7 +258,7 @@ const CurrentWeekWorkers = (props) => {
 
     if (message) {
       Swal.fire({
-        title: `${worker.fullName} שלח/ה הודעה`,
+        title: `יש הודעה מ${worker.fullName}`,
         html: `<form class="${styles.swal2_content}">
                   <p>${message.message}</p>
                 </form>`,
@@ -418,7 +418,7 @@ const CurrentWeekWorkers = (props) => {
                         </div>
 
                         <div className={styles.edit_div_flex}>
-                          <label onClick={() => removeWorker(worker._id)}>מחיקת עובד</label>
+                          <label onClick={() => removeWorker(worker._id)}>הסרת עובד</label>
                           <RiDeleteBin6Line className={styles.icon_edit_select} onClick={() => removeWorker(worker._id)}></RiDeleteBin6Line>
                         </div>
                     </div> : null}

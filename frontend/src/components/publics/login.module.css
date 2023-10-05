@@ -67,6 +67,17 @@
   color: #254aa9;
 }
 
+.register_btn{
+  border: none;
+  color: rgb(24, 24, 24);
+  position: absolute;
+  top: 100px;
+  font-family: 'Rubik', sans-serif;
+  background-color: #254aa900;
+  font-size: 23px;
+  font-weight: 500;
+}
+
 /* inputs - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .password_div{
   display: flex;
@@ -171,7 +182,6 @@
     left: 10px;
   }
 }
-
 
 @media only screen and (min-height: 800px) and (max-width: 470px) {
   .btn{
