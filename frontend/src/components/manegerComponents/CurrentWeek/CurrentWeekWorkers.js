@@ -8,6 +8,7 @@ import { AiOutlineMessage } from "react-icons/ai";
 import messageContext from './messagesContext';
 import { FiMoreHorizontal } from "react-icons/fi";
 import { AiOutlineSync } from "react-icons/ai";
+import { MdWorkOutline } from 'react-icons/md';
 
 const CurrentWeekWorkers = (props) => {
   const [workers] = useState(props.workers);
@@ -32,9 +33,13 @@ const CurrentWeekWorkers = (props) => {
   const selectRef = useRef("");
   const selectreF = useRef("");
 
+  const [roles, setRoles] = useState([]);
+
   const weekMessages = React.useContext(messageContext)
 
   useEffect(() => {
+    getRoles()
+
     if (workers.length == 0) {
       setLoading(false)
     }
@@ -358,6 +363,69 @@ const CurrentWeekWorkers = (props) => {
     return false;
   }
 
+  // get all the roles of the workers
+  const getRoles = () => {
+    const token = localStorage.getItem("token");
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+    };
+    const reqbody = {
+      managerId: props.managerId
+    }
+    axios
+      .post(`${process.env.REACT_APP_URL}/getRoles`, reqbody, config)
+      .then((response) => {
+        setRoles(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  // get swal alert to chose the new role of the worker
+  const changeRole = (worker) => {
+    const roleOptions = roles.reduce((options, role) => {
+      options[role.name] = role.name;
+      return options;
+    }, {});
+    console.log(roleOptions)
+  
+    Swal.fire({
+      title: 'עדכון תפקיד',
+      input: 'select',
+      inputOptions: roleOptions,
+      cancelButtonColor: '#d33',
+      showCancelButton: true,
+      cancelButtonText: 'ביטול',
+      confirmButtonColor: '#34a0ff',
+      confirmButtonText: 'אישור',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const selectedRole = result.value;
+        const updatedUser = {
+          _id: worker._id,
+          fullName: worker.fullName,
+          username: worker.username,
+          password: worker.password,
+          role: selectedRole,
+          job: worker.job,
+        };
+        console.log(updatedUser);
+  
+        axios.put(`${process.env.REACT_APP_URL}/editUser`, updatedUser).then(() => {
+          Swal.fire({
+            title: 'התפקיד עודכן בהצלחה',
+            icon: 'success',
+            confirmButtonColor: '#34a0ff',
+            confirmButtonText: 'סגירה'
+          });
+        }).catch((err) => {
+          console.log(err);
+        });
+      }
+    });
+  };    
+
   // when click on the ... icon - set those two states
   const options = (workerId) => {
     setOpenOptions(workerId);
@@ -417,6 +485,12 @@ const CurrentWeekWorkers = (props) => {
                           <AiOutlineSync className={styles.icon_edit_select} onClick={() => props.addSB(worker._id)}></AiOutlineSync>
                         </div>
 
+                        {worker.role ? 
+                          <div className={styles.edit_div_flex}>
+                            <label onClick={() => changeRole(worker)}>שינוי תפקיד</label>
+                            <MdWorkOutline onClick={() => changeRole(worker)} className={styles.icon_edit_select}></MdWorkOutline>
+                          </div> : null}   
+
                         <div className={styles.edit_div_flex}>
                           <label onClick={() => removeWorker(worker._id)}>הסרת עובד</label>
                           <RiDeleteBin6Line className={styles.icon_edit_select} onClick={() => removeWorker(worker._id)}></RiDeleteBin6Line>
@@ -456,7 +530,13 @@ const CurrentWeekWorkers = (props) => {
                       <div className={styles.edit_div_flex}>
                         <label className={styles.text_edit_select} onClick={() => writeMessage(worker)}>כתיבת הודעה</label>
                         <AiOutlineMessage className={styles.icon_edit_select} onClick={() => writeMessage(worker)}></AiOutlineMessage>
-                      </div>            
+                      </div>
+
+                      {worker.role ? 
+                        <div className={styles.edit_div_flex}>
+                          <label onClick={() => changeRole(worker)}>שינוי תפקיד</label>
+                          <MdWorkOutline onClick={() => changeRole(worker)} className={styles.icon_edit_select}></MdWorkOutline>
+                        </div> : null}            
 
                       <div className={styles.edit_div_flex}>
                         <label className={styles.text_edit_select} onClick={() => delSbworker(worker._id)}>הסרת כוננות</label>

@@ -59,7 +59,6 @@ const Worker = (props) => {
     }
 
     const EditUser = async () => {
-        console.log(selectedRole)  
         const updatedUser = {
             _id: user._id,
             fullName: fullName.current.value,
@@ -131,10 +130,11 @@ const Worker = (props) => {
             <input className={styles.input_edit}  type="password" placeholder='סיסמא' ref={password}/>
 
             <select value={selectedRole} className={styles.select} onChange={(e) => { setRole(e.target.value)}} >
-                  <option value="" disabled>תפקיד</option>
-                  {props.roles.map(role => { return <option value={role._id} key={role._id}>{role.name}</option> })}
-                  <option value={0}>ללא תפקיד</option>
-              </select>
+                <option value="" disabled>תפקיד</option>
+                {props.roles.map(role => { return <option value={role._id} key={role._id}>{role.name}</option> })}
+                <option value={0}>ללא תפקיד</option>
+            </select>
+            
             <div className={styles.btn_div}>
                 <button
                     className={styles.edit_worker_btn}

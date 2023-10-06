@@ -5,9 +5,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { useContext } from 'react';
 import Swal from 'sweetalert2';
-import { RiDeleteBin6Line } from "react-icons/ri";
-import { BiEditAlt } from "react-icons/bi";
-import { FiMoreHorizontal } from "react-icons/fi";
 import { useNavigate } from 'react-router-dom';
 import Worker from './worker';
 
@@ -20,11 +17,13 @@ const Workers = () => {
   const [userDeleted, setUserDelted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [roles, setRoles] = useState([]);
-  const [openOptions, setOpenOptions] = useState(null);
+  const [setOpenOptions] = useState(null);
   const [isDivVisible, setDivVisible] = useState(false);
+
   const divRef = useRef(null);
 
   const managerContext = useContext(ManagerContext);
+
   const getRoles = () => {
     const token = localStorage.getItem("token");
     const config = {
@@ -43,6 +42,7 @@ const Workers = () => {
         console.log(err);
       });
   };
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
