@@ -8,7 +8,10 @@ import { BiSolidShow, BiSolidHide } from "react-icons/bi";
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [fullname, setFullname] = useState("");
+  const [email, setEmail] = useState("");
   const [show, setShow] = useState(true);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,51 +36,44 @@ const Register = () => {
     });
   };
 
-  return <div className={styles.page_container}>
-    <div className={styles.container}>
+  return <div className={styles.container}>
 
     <div className={styles.logo}></div>
 
-    <div className={styles.container_div}>
-      <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit}>
 
-        <div>
-          <input type="text" placeholder='שם משתמש' autoComplete="username" className={styles.input} onChange={(e) => { setUsername(e.target.value) }} />
+      <div>
+        <input type="text" placeholder='שם משתמש' autoComplete="username" className={styles.input} onChange={(e) => { setUsername(e.target.value) }} />
+      </div>
+
+      <div>
+        <input type="email" placeholder='אימייל' autoComplete="username" className={styles.input} onChange={(e) => { setUsername(e.target.value) }} />
+      </div>
+
+      <div className={styles.password_div}>
+        <div className={styles.input_container}>
+          <input id='password' autoComplete="current-password" type={show ? "password" : "text"} placeholder='סיסמה' className={styles.input} onChange={(e) => { setPassword(e.target.value) }} />
+          {password.length > 0 ? (
+            show ? (
+              <BiSolidShow
+                className={styles.show_password}
+                onClick={(e) => setShow(!show)}
+              ></BiSolidShow>
+            ) : (
+              <BiSolidHide
+                className={styles.show_password}
+                onClick={(e) => setShow(!show)}
+              ></BiSolidHide>
+            )
+          ) : null}
         </div>
+      </div>
 
-        <div>
-          <input type="email" placeholder='אימייל' autoComplete="username" className={styles.input} onChange={(e) => { setUsername(e.target.value) }} />
-        </div>
+      <button className={styles.btn} type="submit">הרשמה</button>
 
-        <div className={styles.password_div}>
-          <div className={styles.input_container}>
-            <input id='password' autoComplete="current-password" type={show ? "password" : "text"} placeholder='סיסמה' className={styles.input} onChange={(e) => { setPassword(e.target.value) }} />
-            {password.length > 0 ? (
-              show ? (
-                <BiSolidShow
-                  className={styles.show_password}
-                  onClick={(e) => setShow(!show)}
-                ></BiSolidShow>
-              ) : (
-                <BiSolidHide
-                  className={styles.show_password}
-                  onClick={(e) => setShow(!show)}
-                ></BiSolidHide>
-              )
-            ) : null}
-          </div>
-        </div>
-
-        <button className={styles.btn} type="submit">הרשמה</button>
-
-        <div className={styles.blueBack}></div>
-
-      </form>
-    </div>
+    </form>
 
     </div>
-  </div>
-    
 };
 
 export default Register;
