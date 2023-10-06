@@ -385,7 +385,7 @@ const CurrentWeekWorkers = (props) => {
   // get swal alert to chose the new role of the worker
   const changeRole = (worker) => {
     const roleOptions = roles.reduce((options, role) => {
-      options[role.name] = role.name;
+      options[role._id] = role.name;
       return options;
     }, {});
     console.log(roleOptions)
