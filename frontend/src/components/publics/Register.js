@@ -8,8 +8,6 @@ import { BiSolidShow, BiSolidHide } from "react-icons/bi";
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [notValid, setNotValid] = useState(false);
-  const [validationKey, setValidationKey] = useState(0);
   const [show, setShow] = useState(true);
   const navigate = useNavigate();
 
@@ -30,9 +28,6 @@ const Register = () => {
         localStorage.setItem("user", JSON.stringify(user));
         localStorage.setItem("isAuth", true);
         Roles.checkUserRole(user.job) ? navigate('/managerHomePage') : navigate('/CurrentWeek');
-      } else {
-        setNotValid(true);
-        setValidationKey(prevKey => prevKey + 1);
       }
     }).catch(() => {
     });
@@ -48,6 +43,10 @@ const Register = () => {
 
         <div>
           <input type="text" placeholder='שם משתמש' autoComplete="username" className={styles.input} onChange={(e) => { setUsername(e.target.value) }} />
+        </div>
+
+        <div>
+          <input type="email" placeholder='אימייל' autoComplete="username" className={styles.input} onChange={(e) => { setUsername(e.target.value) }} />
         </div>
 
         <div className={styles.password_div}>
@@ -69,11 +68,7 @@ const Register = () => {
           </div>
         </div>
 
-        {
-          notValid ? <p key={validationKey} className={styles.validation_p}>שם משתמש או סיסמא שגויים</p> : null
-        }
-
-        <button className={styles.btn} type="submit">אישור</button>
+        <button className={styles.btn} type="submit">הרשמה</button>
 
         <div className={styles.blueBack}></div>
 
