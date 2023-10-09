@@ -1,93 +1,110 @@
-.page_container{
-    background-color:#ffffff;
-    width: 100vw;
-    height: 100vh;
-    height: 100dvh;
-  }
+.page_container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../../../public/register_bac.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
   
-  .container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
   
-  .logo{
-    margin-top: 20px;
-    background-image: url('../../../public/fullLogo.png');
-    background-repeat: no-repeat;
-    background-size:cover;
-    width: 370px;
-    height: 125px;
-  }
-  
-  .form {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* buttons - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-  .btn {
-    z-index: 1;
-    padding: 17px;
-    font-size: 1.85rem;
-    font-weight: 600;
-    text-align: center;
-    border-radius: 20px;
-    border: none;
-    background-color: #58b1ff;
-    color: #ffffff;
-    transition: 0.3s;
-    cursor: pointer;
-    width: 330px;
-    font-family: 'Rubik', sans-serif;
-    margin-top: 30px;
-  }
-  .btn:hover {
-    color: #254aa9;
-  }
-  
-  /* inputs - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-  .password_div{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  
-  .show_password{
-    color: rgba(86, 86, 86, 0.663);
-    cursor: pointer;
-    font-size: 30px;
-    position: absolute;
-    top: 15px;
-    left: 10px;
-  }
-  
-  .input{
-    direction: rtl;
-    font-size: 25px;
-    margin-bottom: 30px;
-    padding: 13px;
-    width: 280px;
-    border-radius: 20px;
-    border: 2px solid rgb(205, 205, 205);
-    font-family: 'Rubik', sans-serif;
-  }
-  .input::placeholder{
-    color: #c0c0c0;
-    direction: ltr;
-  }
-  
-  @keyframes slideUpBtn {
-    0% { bottom: -230px; } /* Start position outside of the view */
-    100% { bottom: 0px; } /* Final position at margin-top value */
-  }
-  @keyframes slideUp {
-    0% { top: 600px; } /* Start position outside of the view */
-    100% { top: 400px;} /* Final position at margin-top value */
-  }
+.logo{
+  background-image: url('../../../public/fullLogo.png');
+  background-repeat: no-repeat;
+  background-size:cover;
+  width: 370px;
+  height: 125px;
+}
+
+.form {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* buttons - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.btn {
+  z-index: 1;
+  padding: 17px;
+  font-size: 1.85rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 40px;
+  border: none;
+  background-color: #ffffff;
+  color: #648ef8;
+  transition: 0.3s;
+  cursor: pointer;
+  width: 260px;
+  font-family: 'Rubik', sans-serif;
+  margin-top: 50px;
+  position: absolute;
+  bottom: 35px;
+}
+.btn:hover {
+  color: #254aa9;
+}
+
+/* inputs - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.password_div{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.show_password{
+  color: rgba(86, 86, 86, 0.663);
+  cursor: pointer;
+  font-size: 30px;
+  position: absolute;
+  top: 15px;
+  left: 10px;
+}
+
+.input_label_div{
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: right; 
+  margin-bottom: 12px;
+}
+
+.input{
+  direction: rtl;
+  font-size: 22px;
+  padding: 13px;
+  width: 300px;
+  border-radius: 20px;
+  border: 2px solid rgb(214, 214, 214);
+  font-family: 'Rubik', sans-serif;
+}
+.input::placeholder{
+  color: #cacaca;
+  direction: ltr;
+}
+
+.validation_label{
+  color: rgb(255, 47, 47);
+  font-size: 20px;
+  text-align: right;
+  animation: vibration 0.5s;
+  margin-right: 10px;
+}
+
+@keyframes vibration {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-2px) rotateZ(-2deg); }
+  50% { transform: translateX(2px) rotateZ(2deg); }
+  75% { transform: translateX(-2px) rotateZ(-2deg); }
+  100% { transform: translateX(0); }
+}

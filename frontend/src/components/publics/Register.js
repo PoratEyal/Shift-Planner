@@ -7,9 +7,17 @@ import { BiSolidShow, BiSolidHide } from "react-icons/bi";
 
 const Register = () => {
   const [username, setUsername] = useState("");
+  const [usernameVal, setUsernameVal] = useState(false)
+
   const [password, setPassword] = useState("");
+  const [passwordVal, setPasswordVal] = useState(false)
+
   const [fullname, setFullname] = useState("");
+  const [fullnameVal, setFullnameVal] = useState(false)
+
   const [email, setEmail] = useState("");
+  const [emailVal, setEmailVal] = useState(false)
+
   const [show, setShow] = useState(true);
 
   const navigate = useNavigate();
@@ -24,16 +32,22 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`${process.env.REACT_APP_URL}/login`, { username: username, password: password }).then((response) => {
-      if (response.status === 200) {
-        const user = response.data;
-        localStorage.setItem("token", user.token);
-        localStorage.setItem("user", JSON.stringify(user));
-        localStorage.setItem("isAuth", true);
-        Roles.checkUserRole(user.job) ? navigate('/managerHomePage') : navigate('/CurrentWeek');
-      }
-    }).catch(() => {
-    });
+    if (username.length < 6) {
+      setUsernameVal(true)
+    }
+    if (password.length < 6) {
+      setPasswordVal(true)
+    }
+    if (fullname.length < 6) {
+      setFullnameVal(true)
+    }
+    if (email.length < 6) {
+      setEmailVal(true)
+    }
+    setUsername("");
+    setPassword("");
+    setFullname("");
+    setEmail("");
   };
 
   return <div className={styles.page_container}>
@@ -42,36 +56,43 @@ const Register = () => {
 
         <form className={styles.form} onSubmit={handleSubmit}>
 
-          <div>
+          <div className={styles.input_label_div}>
             <input type="text" placeholder='שם מלא' autoComplete="username" className={styles.input} onChange={(e) => { setUsername(e.target.value) }} />
+            {fullnameVal ? <label className={styles.validation_label}>לפחות תוו אחד</label> : null}
           </div>
 
-          <div>
+          <div className={styles.input_label_div}>
             <input type="email" placeholder='אימייל' autoComplete="username" className={styles.input} onChange={(e) => { setUsername(e.target.value) }} />
+            {emailVal ? <label className={styles.validation_label}>אימייל ולדציה</label> : null}
           </div>
 
-          <div>
+          <div className={styles.input_label_div}>
             <input type="text" placeholder='שם משתמש' autoComplete="username" className={styles.input} onChange={(e) => { setUsername(e.target.value) }} />
+            {usernameVal ? <label className={styles.validation_label}>שם משתמש חייב להיות באנגלית</label> : null}
           </div>
 
-          <div className={styles.password_div}>
-            <div className={styles.input_container}>
-              <input id='password' autoComplete="current-password" type={show ? "password" : "text"} placeholder='סיסמה' className={styles.input} onChange={(e) => { setPassword(e.target.value) }} />
-              {password.length > 0 ? (
-                show ? (
-                  <BiSolidShow
-                    className={styles.show_password}
-                    onClick={(e) => setShow(!show)}
-                  ></BiSolidShow>
-                ) : (
-                  <BiSolidHide
-                    className={styles.show_password}
-                    onClick={(e) => setShow(!show)}
-                  ></BiSolidHide>
-                )
-              ) : null}
+          <div className={styles.input_label_div}>
+            <div className={styles.password_div}>
+              <div className={styles.input_container}>
+                <input id='password' autoComplete="current-password" type={show ? "password" : "text"} placeholder='סיסמה' className={styles.input} onChange={(e) => { setPassword(e.target.value) }} />
+                {password.length > 0 ? (
+                  show ? (
+                    <BiSolidShow
+                      className={styles.show_password}
+                      onClick={(e) => setShow(!show)}
+                    ></BiSolidShow>
+                  ) : (
+                    <BiSolidHide
+                      className={styles.show_password}
+                      onClick={(e) => setShow(!show)}
+                    ></BiSolidHide>
+                  )
+                ) : null}
+              </div>
             </div>
+            {passwordVal ? <label className={styles.validation_label}>סיסמה חייבת להכיל לפחות 5 תווים</label> : null}
           </div>
+          
 
           <button className={styles.btn} type="submit">הרשמה</button>
         </form>
