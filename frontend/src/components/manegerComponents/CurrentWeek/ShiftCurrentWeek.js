@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, {useEffect, useState } from "react";
 import styles from './CurrentWeek.module.css'
 import axios from 'axios';
 import CurrentWeekWorkers from './CurrentWeekWorkers';
@@ -6,7 +6,7 @@ import moment from "moment";
 
 const ShiftCurrentWeek = (props) => {
 
-    const [shift, setShift] = useState(props.shift);
+    const [shift] = useState(props.shift);
     
     const addWorkerShift = (workerId) => {
         const reqBody = {
@@ -71,6 +71,10 @@ const ShiftCurrentWeek = (props) => {
             });
     }
 
+    const updatedRole = () => {
+        window.location.reload(false);
+    }
+
     return <div>
         <div className={styles.shift} >
             <div>
@@ -90,7 +94,8 @@ const ShiftCurrentWeek = (props) => {
                 removeWorkerShift={removeWorkerShift}
                 addWorkerShift={addWorkerShift}
                 workers={shift.workers}
-                availableWorkers={shift.availableWorkers}>
+                availableWorkers={shift.availableWorkers}
+                updatedRole={updatedRole}>
             </CurrentWeekWorkers>
         </div>
     </div>

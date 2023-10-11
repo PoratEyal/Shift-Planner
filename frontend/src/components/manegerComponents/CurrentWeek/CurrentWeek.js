@@ -177,7 +177,7 @@ const CurrentWeek = () => {
                 max: workersCount,
                 dir: 'rtl'
             },
-            inputPlaceholder: ` בחירת כמות עובדים למשמרת בין 1 - ${workersCount}`,
+            inputPlaceholder: `כמות עובדים למשמרת בין 1 - ${workersCount}`,
             showCancelButton: true,
             cancelButtonText: 'ביטול',
             confirmButtonColor: '#34a0ff',

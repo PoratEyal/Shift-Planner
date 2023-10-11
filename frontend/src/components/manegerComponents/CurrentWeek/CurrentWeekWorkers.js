@@ -34,6 +34,7 @@ const CurrentWeekWorkers = (props) => {
   const selectreF = useRef("");
 
   const [roles, setRoles] = useState([]);
+  const [updateRole, setUpdateRole] = useState(false)
 
   const weekMessages = React.useContext(messageContext)
 
@@ -388,7 +389,6 @@ const CurrentWeekWorkers = (props) => {
       options[role._id] = role.name;
       return options;
     }, {});
-    console.log(roleOptions)
   
     Swal.fire({
       title: 'עדכון תפקיד',
@@ -399,26 +399,26 @@ const CurrentWeekWorkers = (props) => {
       cancelButtonText: 'ביטול',
       confirmButtonColor: '#34a0ff',
       confirmButtonText: 'אישור',
-    }).then((result) => {
+      customClass: {
+        input: styles.roleSelect
+      }
+    })
+    .then((result) => {
       if (result.isConfirmed) {
         const selectedRole = result.value;
-        const updatedUser = {
-          _id: worker._id,
-          fullName: worker.fullName,
-          username: worker.username,
-          password: worker.password,
-          role: selectedRole,
-          job: worker.job,
+        const updatedWorker = {
+          ...worker,
+          role: selectedRole
         };
-        console.log(updatedUser);
   
-        axios.put(`${process.env.REACT_APP_URL}/editUser`, updatedUser).then(() => {
+        axios.put(`${process.env.REACT_APP_URL}/editUser`, updatedWorker).then(() => {
           Swal.fire({
             title: 'התפקיד עודכן בהצלחה',
             icon: 'success',
             confirmButtonColor: '#34a0ff',
             confirmButtonText: 'סגירה'
           });
+          props.updatedRole();
         }).catch((err) => {
           console.log(err);
         });

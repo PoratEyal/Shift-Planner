@@ -7,24 +7,6 @@ const mongoose = require('mongoose');
 
 workerRouter.use(bodyParser.json());
 
-// working one !!!!!
-// workerRouter.put('/delWorkerToAvial', (req, res) => {
-//     const body = req.body;
-//     const managerId = body.managerId;
-//     const dayId = body.dayId;
-//     const shiftId = body.shiftId;
-//     const workerId = body.workerId;
-
-//     Week.findOneAndUpdate({ "day._id": dayId, "day.shifts._id": shiftId, "ofManager": managerId },
-//         {
-//             $pull: { "day.$.shifts.$[elem].availableWorkers": workerId }
-//         },
-//         { arrayFilters: [{ "elem._id": shiftId }] }).then(response => {
-//             res.status(200).json(response);
-//         });
-// });
-
-// working one !!!!!
 workerRouter.put('/addWorkerToAvial', (req, res) => {
     const body = req.body;
     const managerId = body.managerId;
@@ -40,6 +22,7 @@ workerRouter.put('/addWorkerToAvial', (req, res) => {
         res.status(200).json(response);
     });
 });
+
 workerRouter.put('/delWorkerToAvial', (req, res) => {
     const body = req.body;
     const managerId = body.managerId;
@@ -55,6 +38,7 @@ workerRouter.put('/delWorkerToAvial', (req, res) => {
             res.status(200).json(response);
         });
 });
+
 workerRouter.put('/addWorkerToWorkrs', (req, res) => {
     const body = req.body;
     const managerId = body.managerId;
@@ -84,6 +68,7 @@ workerRouter.put('/addWorkerToWorkrs', (req, res) => {
             res.status(500).json({ error: "An error occurred while adding the worker shift." });
         });
 });
+
 workerRouter.put('/WorkersToAvail', (req, res) => {
     const body = req.body;
     const managerId = body.managerId;
@@ -114,6 +99,7 @@ workerRouter.put('/WorkersToAvail', (req, res) => {
             res.status(500).json({ error: "An error occurred while removing the worker shift." });
         });
 });
+
 workerRouter.put('/WorkerShiftMessage', (req, res) => {
     const message = req.body.message;
     const startTime = req.body.startTime;
@@ -174,6 +160,7 @@ workerRouter.put('/WorkerShiftMessage', (req, res) => {
 
 
 });
+
 workerRouter.put('/getMessageToWorker', (req, res) => {
     const workerId = req.body.workerId;
     const shiftId = req.body.shiftId;
@@ -213,6 +200,7 @@ workerRouter.put('/getMessageToWorker', (req, res) => {
         res.status(500).json({ message: "Internal server error" });
     });
 });
+
 workerRouter.put('/delWorkerFromSB', (req, res) => {
     const body = req.body;
     const managerId = body.managerId;
@@ -234,6 +222,7 @@ workerRouter.put('/delWorkerFromSB', (req, res) => {
                 });
         });
 });
+
 workerRouter.put('/addWorkerToStandBy', (req, res) => {
     const body = req.body;
     const managerId = body.managerId;
@@ -263,4 +252,5 @@ workerRouter.put('/addWorkerToStandBy', (req, res) => {
             res.status(500).json({ error: "An error occurred while adding the worker shift." });
         });
 });
+
 module.exports = workerRouter

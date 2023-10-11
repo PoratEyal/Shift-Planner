@@ -540,6 +540,16 @@
     direction: rtl;
 }
 
+.roleSelect{
+    border-radius: 10px;
+    border: 2px solid rgb(215, 215, 215);
+    font-family: 'Rubik', sans-serif;
+    font-size: 22px;
+    padding: 2px;
+    text-align: right;
+    direction: rtl;
+}
+
 
 /* - - - - - loading animation - - - - -  */
 
