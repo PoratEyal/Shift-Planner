@@ -55,6 +55,35 @@ userRouter.post('/addUser', async (req, res) => {
     }
 });
 
+// create/POST manager
+userRouter.post('/addManager', async (req, res) => {
+    try {
+        const salt = await bcrypt.genSalt();
+        const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
+        let user = req.body;
+        user.password = hashedPassword;
+        try {
+            const role = await Role.findOne({ _id: user.role });
+            user.role = role._doc;
+        }
+        catch (err) {
+            user.role = undefined
+        }
+
+        const jobRes = await job.findOne({ name: user.job });
+        user.job = jobRes._doc._id;
+
+        const createdUser = await User.create(user);
+
+        res.status(201).json(createdUser);
+    }
+    catch (err) {
+        console.log(err)
+        res.status(404).json({ message: 'An error occurred while processing the request.' });
+    }
+});
+
 // get all workers
 userRouter.post(`/getAllWorkers`, (req, res) => {
     const shiftWorkers = req.body;

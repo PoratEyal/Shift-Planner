@@ -91,7 +91,6 @@ const CreateWorker = () => {
             });
             return;
         }
-        console.log(selectedRole)
         const newUser = {
           fullName: fullName,
           username: username,

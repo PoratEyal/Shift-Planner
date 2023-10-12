@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
       type: role,
       required: false
     },
+    email: {
+      type: String,
+      required: false
+    },
     job:{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'job',

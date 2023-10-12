@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Roles from './Roles';
 import styles from '../publics/register.module.css';
 import { BiSolidShow, BiSolidHide } from "react-icons/bi";
+import Swal from 'sweetalert2';
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -32,22 +33,48 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (username.length < 6) {
+    if (username.length < 2) {
       setUsernameVal(true)
+      setUsername("");
     }
-    if (password.length < 6) {
+    if (password.length < 5) {
       setPasswordVal(true)
+      setPassword("");
     }
-    if (fullname.length < 6) {
-      setFullnameVal(true)
+    if (fullname.length === 0) {
+      setFullnameVal(true)    
+      setFullname("");
     }
     if (email.length < 6) {
       setEmailVal(true)
+      setEmail("");
     }
-    setUsername("");
-    setPassword("");
-    setFullname("");
-    setEmail("");
+    if(username.length > 2 && password.length >= 5 && fullname.length > 0 && email.length > 6){
+      const userRegister = {
+        fullName: fullname,
+        username: username,
+        password: password,
+        role: '64a7d10d0606ff97cf2796dd',
+        email: email,
+        job: 'admin'
+      }
+      console.log(userRegister)
+
+      axios.post(`${process.env.REACT_APP_URL}/addManager`, userRegister)
+          .then(() => {
+            navigate('/')
+          })
+          .catch((error) => {
+            console.log(error);
+            Swal.fire({
+              title: 'שם משתמש תפוס, הכנס שם משתמש אחר',
+              text: "",
+              icon: 'warning',
+              confirmButtonColor: '#34a0ff',
+              confirmButtonText: 'אישור'
+            })
+          });
+    }
   };
 
   return <div className={styles.page_container}>
@@ -57,18 +84,18 @@ const Register = () => {
         <form className={styles.form} onSubmit={handleSubmit}>
 
           <div className={styles.input_label_div}>
-            <input type="text" placeholder='שם מלא' autoComplete="username" className={styles.input} onChange={(e) => { setUsername(e.target.value) }} />
-            {fullnameVal ? <label className={styles.validation_label}>לפחות תוו אחד</label> : null}
+            <input type="text" placeholder='שם מלא' autoComplete="fullname" className={styles.input} onChange={(e) => { setFullname(e.target.value) }} />
+            {fullnameVal ? <label className={styles.validation_fullname}>שם מלא צריך לכלול לפחות תו אחד</label> : null}
           </div>
 
           <div className={styles.input_label_div}>
-            <input type="email" placeholder='אימייל' autoComplete="username" className={styles.input} onChange={(e) => { setUsername(e.target.value) }} />
-            {emailVal ? <label className={styles.validation_label}>אימייל ולדציה</label> : null}
+            <input type="email" placeholder='אימייל' autoComplete="email" className={styles.input} onChange={(e) => { setEmail(e.target.value) }} />
+            {emailVal ? <label className={styles.validation_email}>כתובת האימייל שהוזנה אינה תקינה</label> : null}
           </div>
 
           <div className={styles.input_label_div}>
             <input type="text" placeholder='שם משתמש' autoComplete="username" className={styles.input} onChange={(e) => { setUsername(e.target.value) }} />
-            {usernameVal ? <label className={styles.validation_label}>שם משתמש חייב להיות באנגלית</label> : null}
+            {usernameVal ? <label className={styles.validation_username}>שם המשתמש חייב להיות באנגלית</label> : null}
           </div>
 
           <div className={styles.input_label_div}>
@@ -90,7 +117,7 @@ const Register = () => {
                 ) : null}
               </div>
             </div>
-            {passwordVal ? <label className={styles.validation_label}>סיסמה חייבת להכיל לפחות 5 תווים</label> : null}
+            {passwordVal ? <label className={styles.validation_password}>סיסמה חייבת להכיל לפחות 5 תווים</label> : null}
           </div>
           
 

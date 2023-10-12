@@ -76,7 +76,8 @@
   flex-direction: column;
   justify-content: right;
   align-items: right; 
-  margin-bottom: 12px;
+  margin-bottom: 40px;
+  position: relative;
 }
 
 .input{
@@ -93,18 +94,47 @@
   direction: ltr;
 }
 
-.validation_label{
+.validation_fullname{
   color: rgb(255, 47, 47);
   font-size: 20px;
   text-align: right;
   animation: vibration 0.5s;
-  margin-right: 10px;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+}
+.validation_email{
+  color: rgb(255, 47, 47);
+  font-size: 20px;
+  text-align: right;
+  animation: vibration 0.5s;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+}
+.validation_username{
+  color: rgb(255, 47, 47);
+  font-size: 20px;
+  text-align: right;
+  animation: vibration 0.5s;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+}
+.validation_password{
+  color: rgb(255, 47, 47);
+  font-size: 20px;
+  text-align: right;
+  animation: vibration 0.5s;
+  position: absolute;
+  top: 60px;
+  right: 10px;
 }
 
 @keyframes vibration {
   0% { transform: translateX(0); }
-  25% { transform: translateX(-2px) rotateZ(-2deg); }
-  50% { transform: translateX(2px) rotateZ(2deg); }
-  75% { transform: translateX(-2px) rotateZ(-2deg); }
+  25% { transform: translateX(-1px) rotateZ(-1deg); }
+  50% { transform: translateX(1px) rotateZ(1deg); }
+  75% { transform: translateX(-1px) rotateZ(-1deg); }
   100% { transform: translateX(0); }
 }

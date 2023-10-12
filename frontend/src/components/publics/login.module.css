@@ -154,6 +154,10 @@
   0% { bottom: -230px; } /* Start position outside of the view */
   100% { bottom: 0px; } /* Final position at margin-top value */
 }
+@keyframes slideUpRegisterBtn {
+  0% { bottom: -200px; } /* Start position outside of the view */
+  100% { bottom: 70px; } /* Final position at margin-top value */
+}
 @keyframes slideUp {
   0% { top: 600px; } /* Start position outside of the view */
   100% { top: 400px;} /* Final position at margin-top value */
@@ -191,6 +195,9 @@
     margin-bottom:105px;
     margin-top: 50px;
     animation: slideUpBtn 1s forwards;
+  }
+  .register_div{
+    animation: slideUpRegisterBtn 1s forwards;
   }
   .validation_p{
     margin-top: -40px;
