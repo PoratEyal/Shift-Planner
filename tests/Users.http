@@ -3,8 +3,8 @@ Authorization: Bearer user.token
 Content-Type: application/json
 
 {
-    "fullName":"משתמש בדיקה",
-    "username":"demo",
+    "fullName":"איריס פורת",
+    "username":"iris",
     "password":"12345",
     "role":"64a7d12d0606ff97cf2797bb",
     "job": "admin"
@@ -31,7 +31,7 @@ Content-Type: application/json
 
 
 ###
-DELETE http://localhost:3001/app/deleteUser/649c0e639c641ffe2fd02ebd
+DELETE http://localhost:3001/app/deleteUser/65622aedd9e552aab4fd41e3
 
 Content-Type: application/json
 
