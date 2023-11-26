@@ -3,6 +3,7 @@ import styles from './createWeek.module.css'
 import Swal from 'sweetalert2';
 import moment from "moment";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { TiDeleteOutline } from "react-icons/ti";
 
 const CreateWeekShift = (props) => {
 
@@ -34,7 +35,7 @@ const CreateWeekShift = (props) => {
     return (
       <div className={styles.shift_createWeek}>
           <div>
-              <RiDeleteBin6Line className={styles.btn_delete} onClick={deleteShift}></RiDeleteBin6Line>
+              <TiDeleteOutline className={styles.btn_delete} onClick={deleteShift}></TiDeleteOutline>
           </div>
 
           <div className={styles.shift_description_createWeek}>
