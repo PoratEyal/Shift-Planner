@@ -9,7 +9,6 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
-    background-color: #efeffc;
 }
 
 .container_disabled{
@@ -1153,7 +1152,7 @@
         width: 320px;
     }
     .h2{
-        margin-left: 185px;
+        margin-left: 175px;
     }
     .shift{
         width: 320px;

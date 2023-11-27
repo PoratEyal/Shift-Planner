@@ -3,6 +3,7 @@ import styles from './CurrentWeek.module.css'
 import axios from 'axios';
 import CurrentWeekWorkers from './CurrentWeekWorkers';
 import moment from "moment";
+import { FcClock } from "react-icons/fc";
 
 const ShiftCurrentWeek = (props) => {
 
@@ -79,7 +80,8 @@ const ShiftCurrentWeek = (props) => {
         <div className={styles.shift} >
             <div>
                 <p className={styles.shift_description}>
-                    {shift.description}&nbsp;: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
+                    {shift.description}&nbsp;: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')} 
+                    <FcClock className={styles.clock_icon}></FcClock>
                 </p>
             </div>
 

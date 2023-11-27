@@ -1,7 +1,6 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import styles from '../CreateWeek/createWeek.module.css'
 import axios from 'axios'
-//import ShiftCurrentWeek from './EditShiftCurrentWeek';
 import ShiftCurrentWeek from '../CurrentWeek/ShiftCurrentWeek';
 import moment from "moment";
 
