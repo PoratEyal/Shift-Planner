@@ -18,8 +18,8 @@
   font-family: 'Rubik', sans-serif;
 
   background: rgba(255, 255, 255, 0.51);
-  backdrop-filter: blur(13.9px);
-  -webkit-backdrop-filter: blur(13.9px);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(15.0px);
 }
 
 @keyframes slideInFromLeft {

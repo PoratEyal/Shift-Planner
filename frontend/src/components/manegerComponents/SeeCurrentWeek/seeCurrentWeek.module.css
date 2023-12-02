@@ -99,7 +99,11 @@
     display: flex;
     direction: rtl;
     align-items: center;
-    margin-left: 40px;
+    margin-left: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 260px;
+    max-width: 300px;
 }
 .under_icon{
     margin-right: 10px;
@@ -171,7 +175,6 @@
     direction: rtl;
     display: flex;
     flex-direction: column;
-    /* border-top: 1px solid rgba(101, 101, 101, 0.245); */
     width: 100%;
 }
 
@@ -288,7 +291,11 @@
         margin-left: 150px;
     }
     .shift_description{
-        margin-left: 25px;
+        margin-left: 35px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 270px;
+        max-width: 270px;
     }
 }
 
@@ -303,8 +310,13 @@
         width: 320px;
     }
     .shift_description{
-        margin-left: 40px;
+        margin-left: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 280px;
+        max-width: 280px;
     }
+    
 }
 @media only screen and (min-width: 430px){
     .day_container{
@@ -318,5 +330,9 @@
     }
     .shift_description{
         margin-left: 60px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 290px;
+        max-width: 320px;
     }
 }
