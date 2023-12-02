@@ -6,7 +6,7 @@
     width: 290px;
     padding: 17px;
     margin-top: 85px;
-    background: rgba(255, 255, 255, 0.65);
+    background: rgb(255, 255, 255);
     border-radius: 12px;
     animation: slideInAndFade 0.5s ease-in-out;
     position: relative;
@@ -26,7 +26,7 @@
     padding: 6px;
     border-radius: 5px;
     border: none;
-    border: 2px solid rgba(138, 138, 138, 0.25);
+    border: 2px solid rgba(153, 153, 153, 0.25);
     width: 275px;
     text-align: right;
     direction: rtl;
