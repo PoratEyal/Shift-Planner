@@ -17,7 +17,7 @@
     width: 290px;
     height: 440px;
     padding: 20px;
-    background: rgb(255, 255, 255);
+    background: rgba(255, 255, 255, 0.65);
     border-radius: 12px;
     margin-top: 90px;
     animation: slideInAndFade 0.5s ease-in-out;
@@ -41,7 +41,7 @@
     margin-bottom: 10px;
     margin-top: 10px;
     width: 80%;
-    border: 1px solid rgba(0, 0, 0, 0.25);
+    border: 2px solid rgba(157, 157, 157, 0.25);
     direction: rtl;
     font-family: 'Rubik', sans-serif;
 }

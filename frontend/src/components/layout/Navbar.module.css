@@ -128,7 +128,7 @@
 }
 
 .upper_sidebar_div{
-  background: linear-gradient(#25a1ff, #82c4ff, white 85%);
+  background: linear-gradient(rgb(88, 121, 255), #87c5fc, white 87%);
   border-top-left-radius: 20px;
   width: 100%;
   height: 180px;

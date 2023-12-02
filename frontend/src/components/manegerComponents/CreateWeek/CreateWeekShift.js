@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import styles from './createWeek.module.css'
 import Swal from 'sweetalert2';
 import moment from "moment";
-import { RiDeleteBin6Line } from "react-icons/ri";
 import { TiDeleteOutline } from "react-icons/ti";
 
 const CreateWeekShift = (props) => {

@@ -5,7 +5,7 @@ import { ManagerContext } from '../ManagerHomePage'
 import { useContext } from 'react';
 import Swal from 'sweetalert2';
 import styles from './role.module.css'
-import { RiDeleteBin6Line } from "react-icons/ri";
+import { TiDeleteOutline } from "react-icons/ti";
 
 const Roles = () => {
 
@@ -132,7 +132,7 @@ const Roles = () => {
                 ) : (
                   roles.map(role => (
                     <div className={styles.roles} key={role._id}>
-                      <button onClick={() => deleteRole(role._id)} className={styles.delete_btn}><RiDeleteBin6Line></RiDeleteBin6Line></button>
+                      <button onClick={() => deleteRole(role._id)} className={styles.delete_btn}><TiDeleteOutline></TiDeleteOutline></button>
                       <label className={styles.label}>{role.name}</label>
                     </div>
                     ))

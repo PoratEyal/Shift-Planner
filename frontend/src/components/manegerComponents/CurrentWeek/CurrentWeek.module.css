@@ -161,7 +161,7 @@
     padding: 20px;
     width: 280px;
     margin: 20px;
-    background: rgba(255, 255, 255, 0.966);
+    background: rgba(255, 255, 255, 0.579);
     border-radius: 12px;
     animation: slideInAndFade 0.5s ease-in-out;
 }

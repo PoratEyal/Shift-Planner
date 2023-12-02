@@ -54,20 +54,22 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
     padding: 20px;
     width: 290px;
     margin: 20px;
-    background: rgba(255, 255, 255, 0.966);
-    border-radius: 12px;
+    padding-bottom: 10px;
+    background: rgba(255, 255, 255, 0.579);
+    border-radius: 10px;
     animation: slideInAndFade 0.5s ease-in-out;
 }
 
 .h2{
     font-size: 22px;
-    margin-top: -15px;
-    margin-bottom: 5px;
-    font-weight: 400;
+    margin-top: -10px;
+    margin-bottom: 0px;
+    font-weight: 500;
+    color: #287fcce2;
+    margin-left: 160px;
 }
 
 .no_shifts_messge{
@@ -84,20 +86,24 @@
     width: 300px;
     font-size: 1.2em;
     border: none;
-    border-radius: 10px;
-    margin: 10px;
-    margin-top: 7px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin-bottom: 5px;
-    background-color: rgba(231, 234, 238, 0.571);
+    justify-content: center;
 }
 
 .shift_description{
+    margin-right: 7px;
     font-size: 19px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
+    display: flex;
+    direction: rtl;
+    align-items: center;
+    margin-left: 40px;
+}
+.under_icon{
+    margin-right: 10px;
+    font-size: 23px;
 }
 
  /* - - - - - - - - worker componenet - - - - - - - -  */
@@ -165,7 +171,7 @@
     direction: rtl;
     display: flex;
     flex-direction: column;
-    border-top: 1px solid rgba(101, 101, 101, 0.245);
+    /* border-top: 1px solid rgba(101, 101, 101, 0.245); */
     width: 100%;
 }
 
@@ -277,21 +283,40 @@
 
 
 
-
+@media only screen and (min-width: 300px){
+    .h2{
+        margin-left: 150px;
+    }
+    .shift_description{
+        margin-left: 25px;
+    }
+}
 
 @media only screen and (min-width: 370px){
     .day_container{
         width: 310px;
     }
+    .h2{
+        margin-left: 160px;
+    }
     .shift{
         width: 320px;
+    }
+    .shift_description{
+        margin-left: 40px;
     }
 }
 @media only screen and (min-width: 430px){
     .day_container{
         width: 330px;
     }
+    .h2{
+        margin-left: 175px;
+    }
     .shift{
         width: 340px;
+    }
+    .shift_description{
+        margin-left: 60px;
     }
 }
