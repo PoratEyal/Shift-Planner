@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styles from './currentWeekUser.module.css';
 import WorkersCurrentWeek from "./WorkersCurrentWeek";
 import moment from "moment";
+import { FcPrevious } from "react-icons/fc";
+import { FcExpand } from "react-icons/fc";
 
 const CurrentShiftUser = (props) => {
 
@@ -26,6 +28,7 @@ const CurrentShiftUser = (props) => {
             <div  onClick={() => {setShow(!showWorkers)}}>
             <p  className={styles.shift_name}>
                 {shift.description}&nbsp;: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
+                {showWorkers ? <FcExpand className={styles.under_icon}></FcExpand> : <FcPrevious className={styles.under_icon}></FcPrevious>}
             </p>
             </div>
             {showWorkers ? <WorkersCurrentWeek managerId={props.managerId} standBy={shift.standBy} workers={shift.workers} shiftData={shift.shiftData} endTime={shift.endTime} startTime={shift.startTime}></WorkersCurrentWeek> : null}

@@ -24,6 +24,7 @@
     align-items: center;
     text-align: center;
     padding: 20px;
+    padding-bottom: 5px;
     width: 290px;
     margin: 10px;
     background: rgb(255, 255, 255);
@@ -31,11 +32,20 @@
     animation: slideInAndFade 0.5s ease-in-out;
 }
 
+.h2_div{
+    align-items: center;
+    text-align: right;
+    direction: rtl;
+    width: 100%;
+}
+
 .h2{
-    margin-top: -15px;
-    margin-bottom: 4px;
     font-size: 22px;
-    font-weight: 400;
+    margin-top: -10px;
+    margin-bottom: -2px;
+    font-weight: 500;
+    color: #287fcce2;
+    margin-left: 160px;
 }
 
 .shift{
@@ -43,14 +53,13 @@
     font-size: 1.2em;
     border: none;
     margin-top: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    background-color: rgba(231, 234, 238, 0.571);
 }
 
 .no_shifts_message{
@@ -58,10 +67,6 @@
     margin-top: 4px;
     font-size: 1.3em;
 }
-
-/* .worksHer{
-    border: 2px solid rgb(138, 202, 138);
-} */
 
 .bold_name{
     font-weight: 600;
@@ -176,7 +181,6 @@ transform: scale(1.02);
     grid-template-columns: 1fr 1fr;
     margin-top: 0px;
     width: 100%;
-    border-top: 1px solid rgba(101, 101, 101, 0.245);
 }
     
 .workers_list p {
@@ -210,15 +214,26 @@ transform: scale(1.02);
 
 .shift_name{
     margin: 10px;
-    margin-right: 15px;
+    margin-right: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: right;
+    direction: rtl;
+    margin-left: 50px;
+}
+
+.under_icon{
+    margin-right: 10px;
+    font-size: 23px;
 }
 
 .workers_showList{
     direction: rtl;
     display: flex;
     flex-direction: column;
-    border-top: 1px solid rgba(101, 101, 101, 0.245);
     width: 100%;
+    margin-right: 5px;
 }
 .name{
     text-overflow: ellipsis;
@@ -403,13 +418,27 @@ transform: scale(1.02);
     font-size: 22px;
 }
 
+@media only screen and (min-width: 300px){
+    .h2{
+        margin-left: 140px;
+    }
+    .shift_name{
+        margin-left: 27px;
+    }
+}
 
 @media only screen and (min-width: 370px){
     .day_container{
         width: 310px;
     }
+    .h2{
+        margin-left: 160px;
+    }
     .shift{
         width: 320px;
+    }
+    .shift_name{
+        margin-left: 50px;
     }
     .role_div{
         width: 155px;
@@ -421,6 +450,9 @@ transform: scale(1.02);
     }
     .shift{
         width: 340px;
+    }
+    .shift_name{
+        margin-left: 70px;
     }
     .role_div{
         width: 175px;
