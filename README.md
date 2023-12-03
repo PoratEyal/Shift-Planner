@@ -46,9 +46,11 @@ Note: Only the manager has the ability to create and delete users and roles, cre
 
 If you have any questions or inquiries, feel free to contact Eyal porat at eyal1.porat@gmail.com and Edi Grunseid at edgru99@gmail.com.
 ##
-<img width="806" alt="Screenshot 2023-09-15 155844" src="https://github.com/PoratEyal/Shift-Planner/assets/134833213/2fe1f3ac-b2a7-4cc9-89d0-138cc42459f4">
 
-<img width="1016" alt="Screenshot 2023-09-15 155925" src="https://github.com/PoratEyal/Shift-Planner/assets/134833213/83bb1be7-4130-448a-b42c-d3f191f29118">
+![Screenshot 2023-12-03 135836](https://github.com/PoratEyal/Shift-Planner/assets/134833213/d79f6fc7-f500-47c7-94fe-3abf625db1b9)
+
+
+<img width="806" alt="Screenshot 2023-09-15 155844" src="https://github.com/PoratEyal/Shift-Planner/assets/134833213/2fe1f3ac-b2a7-4cc9-89d0-138cc42459f4">
 
 https://github.com/PoratEyal/Shift-Planner/assets/134833213/73761eb7-3f1a-4e6b-932a-605127f4a98f
 
