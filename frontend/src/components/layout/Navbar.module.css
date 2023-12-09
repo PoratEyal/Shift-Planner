@@ -18,7 +18,7 @@
   font-family: 'Rubik', sans-serif;
 
   background: rgba(255, 255, 255, 0.51);
-  backdrop-filter: blur(9px);
+  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(15.0px);
 }
 
@@ -114,18 +114,18 @@
   display: none;
 }
 
-.blur_back{
+.blur_back {
   position: fixed;
   top: 0;
   left: 0vw;
   width: 100vw;
   height: 100vh;
   animation: opacity 0.5s ease-in-out;
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(4.5px);
-  -webkit-backdrop-filter: blur(7.5px);
+  background: rgba(207, 207, 207, 0.66);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(4px);
 }
+
 
 .upper_sidebar_div{
   background: linear-gradient(rgb(88, 121, 255), #87c5fc, white 87%);
