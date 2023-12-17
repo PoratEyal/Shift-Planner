@@ -53,7 +53,9 @@ const DayCurrentWeek = (props) => {
     return <div>
         <div className={styles.day_container}>
 
-            <h2 className={styles.h2}>{day.name} - {moment(day.date).utc().format('DD.MM')}</h2>
+            <div className={styles.div_h2_day}>
+                <h2 className={styles.h2}>{day.name} - {moment(day.date).utc().format('DD.MM')}</h2>
+            </div>
             {
                 loading ? (
                     <div className={styles['three-body']}>

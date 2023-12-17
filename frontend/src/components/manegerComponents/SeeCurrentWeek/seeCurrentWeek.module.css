@@ -63,13 +63,20 @@
     animation: slideInAndFade 0.5s ease-in-out;
 }
 
+.div_h2_day{
+    display: flex;
+    flex-direction: row;
+    text-align: right;
+    width: 100%;
+    direction: rtl;
+}
+
 .h2{
     font-size: 22px;
     margin-top: -10px;
     margin-bottom: 0px;
     font-weight: 500;
     color: #287fcce2;
-    margin-left: 160px;
 }
 
 .no_shifts_messge{
@@ -287,9 +294,6 @@
 
 
 @media only screen and (min-width: 300px){
-    .h2{
-        margin-left: 150px;
-    }
     .shift_description{
         margin-left: 35px;
         overflow: hidden;
@@ -302,9 +306,6 @@
 @media only screen and (min-width: 370px){
     .day_container{
         width: 310px;
-    }
-    .h2{
-        margin-left: 160px;
     }
     .shift{
         width: 320px;
@@ -321,9 +322,6 @@
 @media only screen and (min-width: 430px){
     .day_container{
         width: 330px;
-    }
-    .h2{
-        margin-left: 175px;
     }
     .shift{
         width: 340px;

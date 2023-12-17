@@ -71,7 +71,9 @@ const SeeDayCurrentWeek = (props) => {
 
     return <div className={`${styles.day_container}`} style={{ margin: '12px' }} id={`day_${day.date}`}>
             
-            <h2 className={styles.h2}>{day.name} - {moment(day.date).utc().format('DD.MM')}</h2>
+            <div className={styles.div_h2_day}>
+                <h2 className={styles.h2}>{day.name} - {moment(day.date).utc().format('DD.MM')}</h2>
+            </div>
             {
                 loading ? (
                     <div className={styles['three-body']}>
