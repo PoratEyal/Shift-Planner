@@ -48,7 +48,7 @@ const CreateWorker = () => {
     };
           
     const options = [
-      { value: '', label: 'בחירת תפקיד (לא חובה)' },
+      { value: '', label: 'אנא בחרו תפקיד' },
       ...roles.map(role => ({ value: role._id, label: role.name })),
     ];
   
@@ -123,6 +123,7 @@ const CreateWorker = () => {
         <div id="create-user" className={styles.createUser}>
 
             <form className={styles.userForm} onSubmit={handleSubmit}>
+              <label className={styles.label}>*שם מלא</label>
               <input
                   className={styles.input}
                   type="text"
@@ -130,11 +131,10 @@ const CreateWorker = () => {
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   required
-                  placeholder='שם מלא'
               />
 
+              <label className={styles.label}>*שם משתמש (באנגלית)</label>
               <input
-                  placeholder='שם משתמש (באנגלית)'
                   className={styles.input}
                   type="text"
                   id="username"
@@ -150,8 +150,8 @@ const CreateWorker = () => {
                   autoComplete="username"
               />
 
+              <label className={styles.label}>*סיסמה בעלת 5 תווים לפחות</label>
               <input
-                  placeholder='סיסמה בעלת 5 תווים לפחות'
                   className={styles.input}
                   type="password"
                   id="password"
@@ -162,6 +162,7 @@ const CreateWorker = () => {
                   autoComplete="current-password"
               />
 
+              <label className={styles.label}>בחירת תפקיד</label>
               <Creatable
               className={styles.select}
                 options={options}
@@ -175,8 +176,6 @@ const CreateWorker = () => {
                 <button className={styles.btn} type="button" onClick={handleSubmit}>אישור</button>
                 <button className={styles.btn_cancel} type="button" onClick={() => navigate('/workers')}>ביטול</button>
               </div>
-
-              <img className={styles.addUser_svg} src="addUser.svg" alt="Icon" />
                 
             </form>
         </div>

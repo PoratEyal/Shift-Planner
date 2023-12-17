@@ -1,17 +1,11 @@
 .createUser{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: 290px;
     padding: 17px;
     margin: 20px;
-    margin-top: 85px;
-    background: rgb(255, 255, 255);
-    border-radius: 12px;
+    margin-top: 70px;
     animation: slideInAndFade 0.5s ease-in-out;
-    position: relative;
-    overflow: hidden;
 }
 
 @keyframes slideInAndFade {
@@ -30,6 +24,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: right;
 }
 
 .select {
@@ -38,17 +33,18 @@
     font-family: 'Rubik', sans-serif;
     font-size: 20px;
     padding: 6px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
     margin-bottom: 10px;
-    border: 2px solid rgba(122, 122, 122, 0.25);
-    width: 275px;
+    border: 2px solid rgba(159, 159, 159, 0.25);
+    background-color: white;
+    width: 325px;
     margin-bottom: 20px;
     height: 50px;
     appearance: none;
     -webkit-appearance: none;
+    margin-top: 5px;
 }
-
 
 .input{
     direction: rtl;
@@ -56,13 +52,24 @@
     font-family: 'Rubik', sans-serif;
     font-size: 20px;
     padding: 6px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
     margin-bottom: 10px;
-    border: 2px solid rgba(122, 122, 122, 0.25);
-    width: 260px;
+    border: 2px solid rgba(159, 159, 159, 0.25);
+    width: 305px;
     margin-bottom: 20px;
     height: 30px;
+    margin-top: 5px;
+}
+
+.label{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    font-size: 18px;
+    font-weight: 400;
+    width: 100%;
+    color: #525252;
 }
 
 .btns_div{
@@ -74,11 +81,11 @@
 }
 
 .btn {
-    margin-right: 10px;
+    margin-right: 20px;
     margin-top: 10px;
     display: flex;
     padding: 0.8rem 2.4rem;
-    font-size: 1.275rem;
+    font-size: 1.3rem;
     line-height: 1.25rem;
     font-weight: 600;
     text-align: center;
@@ -92,13 +99,13 @@
     background-color: #63b6ff;
     cursor: pointer;
     transition: all .6s ease;
-    width: 132px;
+    width: 150px;
     justify-content: center;
     font-family: 'Rubik', sans-serif;
     background-color: #c1e1ff;
     color:#2880cc;
-    /* z-index: 2; */
     margin-bottom: 200px;
+    height: 55px;
 }
 
 .btn_cancel {
@@ -106,7 +113,7 @@
     margin-top: 10px;
     display: flex;
     padding: 0.8rem 2.4rem;
-    font-size: 1.275rem;
+    font-size: 1.3rem;
     line-height: 1.25rem;
     font-weight: 600;
     text-align: center;
@@ -118,7 +125,8 @@
     gap: 0.75rem;
     cursor: pointer;
     transition: all .6s ease;
-    width: 132px;
+    width: 150px;
+    height: 55px;
     justify-content: center;
     font-family: 'Rubik', sans-serif;
     background-color: rgba(255, 92, 92, 0.76);
@@ -126,48 +134,9 @@
     /* z-index: 2; */
 }
 
-.addUser_svg {
-    z-index: 0;
-    position: absolute;
-    bottom: -120px;
-    opacity: 0.9;
-    margin-left: 145px;
-    width: 280px;
-    height: 320px;
-    animation: downToUp 1s ease-in-out;
-}
-@keyframes downToUp {
-    0% {
-        transform: translateY(70px);
-    }
-    100% {
-        transform: translateY(0);
-  }
-}
-
 @media only screen and (min-width: 380px){
     .createUser{
         width: 310px;
-    }
-    .input{
-        width: 280px;
-    }
-    .select{
-        width: 315px;
-    }
-    .btn{
-        width: 143px;
-    }
-    .btn_cancel{
-        width: 143px;
-    }
-    .addUser_svg{
-        margin-left: 165px;
-    }
-}
-@media only screen and (min-width: 380px){
-    .createUser{
-        width: 330px;
     }
     .input{
         width: 300px;
@@ -176,12 +145,26 @@
         width: 315px;
     }
     .btn{
-        width: 153px;
+        width: 143px;
     }
     .btn_cancel{
-        width: 153px;
+        width: 143px;
     }
-    .addUser_svg{
-        margin-left: 185px;
+}
+@media only screen and (min-width: 380px){
+    .createUser{
+        width: 330px;
+    }
+    .input{
+        width: 340px;
+    }
+    .select{
+        width: 355px;
+    }
+    .btn{
+        width: 165px;
+    }
+    .btn_cancel{
+        width: 165px;
     }
 }
