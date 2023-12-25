@@ -1,11 +1,13 @@
 .createUser{
     display: flex;
     flex-direction: column;
-    width: 290px;
+    width: 300px;
     padding: 17px;
     margin: 20px;
-    margin-top: 70px;
+    margin-top: 80px;
     animation: slideInAndFade 0.5s ease-in-out;
+    background-color: white;
+    border-radius: 20px;
 }
 
 @keyframes slideInAndFade {
@@ -25,6 +27,7 @@
     justify-content: center;
     align-items: center;
     text-align: right;
+
 }
 
 .select {
@@ -38,7 +41,7 @@
     margin-bottom: 10px;
     border: 2px solid rgba(159, 159, 159, 0.25);
     background-color: white;
-    width: 325px;
+    width: 290px;
     margin-bottom: 20px;
     height: 50px;
     appearance: none;
@@ -56,7 +59,7 @@
     border: none;
     margin-bottom: 10px;
     border: 2px solid rgba(159, 159, 159, 0.25);
-    width: 305px;
+    width: 270px;
     margin-bottom: 20px;
     height: 30px;
     margin-top: 5px;
@@ -68,7 +71,7 @@
     text-align: right;
     font-size: 18px;
     font-weight: 400;
-    width: 100%;
+    width: 90%;
     color: #525252;
 }
 
@@ -99,17 +102,15 @@
     background-color: #63b6ff;
     cursor: pointer;
     transition: all .6s ease;
-    width: 150px;
+    width: 135px;
     justify-content: center;
     font-family: 'Rubik', sans-serif;
     background-color: #c1e1ff;
     color:#2880cc;
-    margin-bottom: 200px;
     height: 55px;
 }
 
 .btn_cancel {
-    margin-bottom: 200px;
     margin-top: 10px;
     display: flex;
     padding: 0.8rem 2.4rem;
@@ -125,13 +126,12 @@
     gap: 0.75rem;
     cursor: pointer;
     transition: all .6s ease;
-    width: 150px;
+    width: 135px;
     height: 55px;
     justify-content: center;
     font-family: 'Rubik', sans-serif;
     background-color: rgba(255, 92, 92, 0.76);
     color:rgb(255, 255, 255);
-    /* z-index: 2; */
 }
 
 @media only screen and (min-width: 380px){
@@ -139,7 +139,7 @@
         width: 310px;
     }
     .input{
-        width: 300px;
+        width: 280px;
     }
     .select{
         width: 315px;
@@ -156,15 +156,15 @@
         width: 330px;
     }
     .input{
-        width: 340px;
+        width: 300px;
     }
     .select{
-        width: 355px;
+        width: 315px;
     }
     .btn{
-        width: 165px;
+        width: 150px;
     }
     .btn_cancel{
-        width: 165px;
+        width: 150px;
     }
 }
