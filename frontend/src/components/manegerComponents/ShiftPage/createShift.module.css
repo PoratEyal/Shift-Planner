@@ -65,6 +65,7 @@
     font-family: 'Rubik', sans-serif;
 }
 .input_time::before{
+    content: "שעת התחלה";
     color: #9d9d9d;
     direction: rtl;
     text-align: right;
@@ -91,6 +92,7 @@
     height: 25px;
 }
 .input_time2::before{
+    content: "שעת סיום";
     color: #9d9d9d;
     direction: rtl;
     text-align: right;
