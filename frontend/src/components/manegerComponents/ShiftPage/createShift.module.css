@@ -61,6 +61,7 @@
     direction: rtl;
     appearance: none;
     -webkit-appearance:none;
+    height: 25px;
     font-family: 'Rubik', sans-serif;
 }
 .input_time::before{
@@ -70,6 +71,7 @@
     appearance: none;
     -webkit-appearance:none;
     font-family: 'Rubik', sans-serif;
+    height: 25px;
 }
 .input_time2{
     margin: 10px;
@@ -86,6 +88,7 @@
     appearance: none;
     -webkit-appearance:none;
     font-family: 'Rubik', sans-serif;
+    height: 25px;
 }
 .input_time2::before{
     color: #9d9d9d;
@@ -93,6 +96,7 @@
     text-align: right;
     appearance: none;
     -webkit-appearance:none;
+    height: 25px;
     font-family: 'Rubik', sans-serif;
 }
 
