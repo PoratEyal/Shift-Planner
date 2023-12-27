@@ -7,7 +7,7 @@
     padding: 17px;
     margin-top: 85px;
     background: rgb(255, 255, 255);
-    border-radius: 12px;
+    border-radius: 20px;
     animation: slideInAndFade 0.5s ease-in-out;
     position: relative;
     overflow: hidden;
@@ -20,11 +20,22 @@
     align-items: center;
 }
 
+.input_div{
+    direction: rtl;
+    margin-bottom: 10px;
+}
+
+.label{
+    margin-right: 20px;
+    font-size: 18px;
+    color: rgb(103, 103, 103);
+}
+
 .input{
     margin: 10px;
     font-size: 20px;
     padding: 6px;
-    border-radius: 5px;
+    border-radius: 12px;
     border: none;
     border: 2px solid rgba(153, 153, 153, 0.25);
     width: 275px;
@@ -33,14 +44,15 @@
     appearance: none;
     -webkit-appearance:none;
     font-family: 'Rubik', sans-serif;
-    margin-top: 0px;
+    margin-top: 5px;
 }
 
 .input_time{
     margin: 10px;
+    margin-top: 5px;
     font-size: 20px;
     padding: 6px;
-    border-radius: 5px;
+    border-radius:12px;
     border: none;
     border: 2px solid rgba(138, 138, 138, 0.25);
     background-color: white;
@@ -52,7 +64,6 @@
     font-family: 'Rubik', sans-serif;
 }
 .input_time::before{
-    content: 'התחלה';
     color: #9d9d9d;
     direction: rtl;
     text-align: right;
@@ -62,9 +73,10 @@
 }
 .input_time2{
     margin: 10px;
+    margin-top: 5px;
     font-size: 20px;
     padding: 6px;
-    border-radius: 5px;
+    border-radius: 12px;
     border: none;
     background-color: white;
     border: 2px solid rgba(138, 138, 138, 0.25);
@@ -76,7 +88,6 @@
     font-family: 'Rubik', sans-serif;
 }
 .input_time2::before{
-    content: 'סיום';
     color: #9d9d9d;
     direction: rtl;
     text-align: right;
@@ -104,7 +115,7 @@
     text-transform: uppercase;
     vertical-align: middle;
     align-items: center;
-    border-radius: 0.5rem;
+    border-radius: 12px;
     border: none;
     gap: 0.75rem;
     color: white;
@@ -116,12 +127,12 @@
     font-family: 'Rubik', sans-serif;
     background-color: #c1e1ff;
     color:#2880cc;
-    margin-bottom: 150px;
+    margin-bottom: 10px;
     z-index: 1;
 }
 
 .btn_cancel {
-    margin-bottom: 150px;
+    margin-bottom: 10px;
     margin-top: 20px;
     display: flex;
     padding: 0.8rem 2.4rem;
@@ -132,7 +143,7 @@
     text-transform: uppercase;
     vertical-align: middle;
     align-items: center;
-    border-radius: 0.5rem;
+    border-radius: 12px;
     border: none;
     gap: 0.75rem;
     cursor: pointer;
@@ -145,7 +156,7 @@
     z-index: 1;
 }
 
-.shift_svg {
+/* .shift_svg {
     z-index: 0;
     position: absolute;
     bottom: -102px;
@@ -154,7 +165,7 @@
     width: 300px;
     height: 320px;
     animation: downToUp 1.2s ease-in-out;
-}
+} */
 
 @keyframes downToUp {
     0% {

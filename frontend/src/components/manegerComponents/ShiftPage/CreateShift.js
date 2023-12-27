@@ -44,15 +44,18 @@ const CreateShift = () => {
     return <PageLayout text='יצירת משמרת קבועה'>
         <div className={styles.container}>
             <form className={styles.userForm}> 
-                <div>
-                    <input placeholder="שם משמרת" className={styles.input} type="text" ref={name}></input>
+                <div className={styles.input_div}>
+                    <label className={styles.label}>שם משמרת</label>
+                    <input className={styles.input} type="text" ref={name}></input>
                 </div>
 
-                <div>
+                <div className={styles.input_div}>
+                    <label className={styles.label}>שעת התחלת משמרת</label>
                     <input className={styles.input_time} type="time" ref={startTime}></input>
                 </div>
 
-                <div>
+                <div className={styles.input_div}>
+                    <label className={styles.label}>שעת סיום משמרת</label>
                     <input className={styles.input_time2} type="time" ref={endTime}></input>
                 </div>
             </form>
@@ -61,8 +64,6 @@ const CreateShift = () => {
                 <button className={styles.btn} onClick={clickHandle}>אישור</button>
                 <button className={styles.btn_cancel} onClick={() => navigate('/defShifts')}>ביטול</button>
             </div>
-
-            <img className={styles.shift_svg} src="shift.svg" alt="Icon" />
         </div>
     </PageLayout>
 }
