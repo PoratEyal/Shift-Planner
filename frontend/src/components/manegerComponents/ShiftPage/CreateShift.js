@@ -46,7 +46,7 @@ const CreateShift = () => {
             <form className={styles.userForm}> 
                 <div className={styles.input_div}>
                     <label className={styles.label}>שם משמרת</label>
-                    <input className={styles.input} type="text" ref={name}></input>
+                    <input placeholder="משמרת בוקר" className={styles.input} type="text" ref={name}></input>
                 </div>
 
                 <div className={styles.input_div}>
