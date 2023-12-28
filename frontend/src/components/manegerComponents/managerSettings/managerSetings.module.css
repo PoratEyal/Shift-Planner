@@ -36,7 +36,7 @@
     text-align: right;
     font-size: 20px;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 12px;
     border: none;
     margin-bottom: 10px;
     margin-top: 10px;
@@ -64,7 +64,7 @@
     text-transform: uppercase;
     vertical-align: middle;
     align-items: center;
-    border-radius: 0.5rem;
+    border-radius: 12px;
     border:none;
     gap: 0.75rem;
     color: white;

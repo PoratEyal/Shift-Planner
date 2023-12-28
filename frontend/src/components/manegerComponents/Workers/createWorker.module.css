@@ -39,7 +39,7 @@
     border-radius: 10px;
     border: none;
     margin-bottom: 10px;
-    border: 2px solid rgba(159, 159, 159, 0.25);
+    border: 1.5px solid rgba(203, 203, 203, 0.775);
     background-color: white;
     width: 290px;
     margin-bottom: 20px;
@@ -55,10 +55,10 @@
     font-family: 'Rubik', sans-serif;
     font-size: 20px;
     padding: 6px;
-    border-radius: 10px;
+    border-radius: 12px;
     border: none;
     margin-bottom: 10px;
-    border: 2px solid rgba(159, 159, 159, 0.25);
+    border: 1.5px solid rgba(203, 203, 203, 0.775);
     width: 270px;
     margin-bottom: 20px;
     height: 30px;
@@ -98,7 +98,7 @@
     text-transform: uppercase;
     vertical-align: middle;
     align-items: center;
-    border-radius: 0.5rem;
+    border-radius: 12px;
     border: none;
     gap: 0.75rem;
     color: white;
@@ -124,7 +124,7 @@
     text-transform: uppercase;
     vertical-align: middle;
     align-items: center;
-    border-radius: 0.5rem;
+    border-radius: 12px;
     border: none;
     gap: 0.75rem;
     cursor: pointer;
