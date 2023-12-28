@@ -47,8 +47,8 @@
     margin-top: 5px;
     color: black;
 }
-.input::placeholder {
-    color: solid rgba(210, 210, 210, 0.25);
+.input::placeholder{
+    color: rgb(185, 185, 185);
 }
 
 .input_time {
@@ -71,7 +71,7 @@
 
 .input_time::before {
     content: "9:00";
-    color: #9d9d9d;
+    color: rgb(185, 185, 185);
     direction: rtl;
     text-align: right;
     appearance: none;
@@ -101,7 +101,7 @@
 }
 .input_time2::before{
     content: "13:00";
-    color: #9d9d9d;
+    color: rgb(185, 185, 185);
     direction: rtl;
     text-align: right;
     appearance: none;

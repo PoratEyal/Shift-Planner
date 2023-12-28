@@ -64,6 +64,9 @@
     height: 30px;
     margin-top: 5px;
 }
+.input::placeholder{
+    color: rgb(185, 185, 185);
+}
 
 .label{
     display: flex;
