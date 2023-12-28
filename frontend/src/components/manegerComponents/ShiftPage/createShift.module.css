@@ -34,10 +34,10 @@
 .input{
     margin: 10px;
     font-size: 20px;
-    padding: 6px;
+    padding: 8px;
     border-radius: 12px;
     border: none;
-    border: 2px solid rgba(153, 153, 153, 0.25);
+    border: 1px solid rgba(203, 203, 203, 0.775);
     width: 275px;
     text-align: right;
     direction: rtl;
@@ -55,9 +55,9 @@
     margin: 10px;
     margin-top: 5px;
     font-size: 20px;
-    padding: 6px;
+    padding: 8px;
     border-radius: 12px;
-    border: 2px solid rgba(138, 138, 138, 0.25);
+    border: 1px solid rgba(203, 203, 203, 0.775);
     background-color: white;
     width: 275px;
     text-align: right;
@@ -85,11 +85,11 @@
     margin: 10px;
     margin-top: 5px;
     font-size: 20px;
-    padding: 6px;
+    padding: 8px;
     border-radius: 12px;
     border: none;
     background-color: white;
-    border: 2px solid rgba(138, 138, 138, 0.25);
+    border: 1px solid rgba(203, 203, 203, 0.775);
     width: 275px;
     text-align: right;
     direction: rtl;
