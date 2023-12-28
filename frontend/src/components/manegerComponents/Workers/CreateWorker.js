@@ -123,7 +123,7 @@ const CreateWorker = () => {
         <div id="create-user" className={styles.createUser}>
 
             <form className={styles.userForm} onSubmit={handleSubmit}>
-              <label className={styles.label}>שם מלא *</label>
+              <label className={styles.label}>שם מלא</label>
               <input
                   placeholder='אלון מזרחי'
                   className={styles.input}
@@ -134,7 +134,7 @@ const CreateWorker = () => {
                   required
               />
 
-              <label className={styles.label}>שם משתמש (באנגלית) *</label>
+              <label className={styles.label}>שם משתמש (באנגלית)</label>
               <input
                   placeholder='alon'
                   className={styles.input}
@@ -152,7 +152,7 @@ const CreateWorker = () => {
                   autoComplete="username"
               />
 
-              <label className={styles.label}>סיסמה בעלת 5 תווים לפחות *</label>
+              <label className={styles.label}>סיסמה בעלת 5 תווים לפחות</label>
               <input
                   placeholder='12345'
                   className={styles.input}
@@ -165,7 +165,7 @@ const CreateWorker = () => {
                   autoComplete="current-password"
               />
 
-              <label className={styles.label}>בחירת תפקיד</label>
+              <label className={styles.label}>(לא חובה) בחירת תפקיד</label>
               <Creatable
               className={styles.select}
                 options={options}
