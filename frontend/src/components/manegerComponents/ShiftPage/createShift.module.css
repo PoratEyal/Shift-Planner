@@ -47,33 +47,35 @@
     margin-top: 5px;
 }
 
-.input_time{
+.input_time {
     margin: 10px;
     margin-top: 5px;
     font-size: 20px;
     padding: 6px;
-    border-radius:12px;
-    border: none;
+    border-radius: 12px;
     border: 2px solid rgba(138, 138, 138, 0.25);
     background-color: white;
     width: 275px;
     text-align: right;
     direction: rtl;
     appearance: none;
-    -webkit-appearance:none;
+    -webkit-appearance: none;
     height: 25px;
+    line-height: 25px;
     font-family: 'Rubik', sans-serif;
 }
-.input_time::before{
-    content: "שעת התחלה";
+
+.input_time::before {
     color: #9d9d9d;
     direction: rtl;
     text-align: right;
     appearance: none;
-    -webkit-appearance:none;
+    -webkit-appearance: none;
     font-family: 'Rubik', sans-serif;
     height: 25px;
+    line-height: 25px;
 }
+
 .input_time2{
     margin: 10px;
     margin-top: 5px;
@@ -90,15 +92,16 @@
     -webkit-appearance:none;
     font-family: 'Rubik', sans-serif;
     height: 25px;
+    line-height: 25px;
 }
 .input_time2::before{
-    content: "שעת סיום";
     color: #9d9d9d;
     direction: rtl;
     text-align: right;
     appearance: none;
     -webkit-appearance:none;
     height: 25px;
+    line-height: 25px;
     font-family: 'Rubik', sans-serif;
 }
 
