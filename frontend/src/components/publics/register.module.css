@@ -1,33 +1,64 @@
 .page_container {
   width: 100vw;
   height: 100vh;
-  background-image: url('../../../public/register_bac.png');
+  background-image: url('../../../public/registerBack.svg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-}
-  
-.container{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 200px;
+  direction: rtl;
 }
-  
+
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #6c95ff;
+  background-image: linear-gradient(to left bottom, #6c95ff, #80a6ff, #94b7ff, #aac7ff, #c1d7ff, #c3d8ff, #c6d8ff, #c8d9ff, #b9c9ff, #afb9ff, #aca6ff, #ae92ff);
+  border-radius: 40px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+.register_label_container{
+  padding: 50px;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+}
+.register_label{
+  font-size: 80px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  text-align: right;
+  text-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
 .logo{
   background-image: url('../../../public/fullLogo.png');
   background-repeat: no-repeat;
   background-size:cover;
   width: 370px;
   height: 125px;
+  margin-bottom: 15px;
 }
 
 .form {
-  margin-top: 5px;
+  width: 400px;
+  height: 650px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: white;
+  padding: 30px;
+  border-radius: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 /* buttons - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -45,9 +76,8 @@
   cursor: pointer;
   width: 260px;
   font-family: 'Rubik', sans-serif;
-  margin-top: 50px;
-  position: absolute;
-  bottom: 35px;
+  margin-top: 30px;
+  background-color: #cad9ff;
 }
 .btn:hover {
   color: #254aa9;

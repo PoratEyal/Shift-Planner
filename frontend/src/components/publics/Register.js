@@ -78,10 +78,18 @@ const Register = () => {
   };
 
   return <div className={styles.page_container}>
-      <div className={styles.container}>
-        <div className={styles.logo}></div>
+        
 
+
+      <div className={styles.container}>
+        <div className={styles.register_label_container}>
+          <label className={styles.register_label}>
+            הירשמו וצרו לעצמכם סידור עבודה בצורה פשוטה ונוחה
+          </label>
+        </div>
+        
         <form className={styles.form} onSubmit={handleSubmit}>
+          <div className={styles.logo}></div>
 
           <div className={styles.input_label_div}>
             <input type="text" placeholder='שם מלא' autoComplete="fullname" className={styles.input} onChange={(e) => { setFullname(e.target.value) }} />
@@ -119,11 +127,11 @@ const Register = () => {
             </div>
             {passwordVal ? <label className={styles.validation_password}>סיסמה חייבת להכיל לפחות 5 תווים</label> : null}
           </div>
-          
 
-          <button className={styles.btn} type="submit">הרשמה</button>
+          <button className={styles.btn} type="submit">לחצו להרשמה</button>
         </form>
       </div>
+
     </div>
 };
 
