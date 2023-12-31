@@ -47,11 +47,11 @@ Note: Only the manager has the ability to create and delete users and roles, cre
 If you have any questions or inquiries, feel free to contact Eyal porat at eyal1.porat@gmail.com and Edi Grunseid at edgru99@gmail.com.
 
 
-##Pictures
+## Pictures
 ![Screenshot 2023-12-16 001124](https://github.com/PoratEyal/Shift-Planner/assets/134833213/c1b77b46-f43d-497f-944f-47340283e76b)
 ![Screenshot 2023-12-03 135836](https://github.com/PoratEyal/Shift-Planner/assets/134833213/d79f6fc7-f500-47c7-94fe-3abf625db1b9)
 
-##Videos
+## Videos
 https://github.com/PoratEyal/Shift-Planner/assets/134833213/09b52cc0-1126-4c20-b528-532d7fe71f18
 
 ## Automatic assignment to shifts by using Open AI API
