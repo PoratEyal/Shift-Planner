@@ -117,7 +117,7 @@ const ManagerHomePage = () => {
                 <Link className={styles.link} to="/currentWeekShifts" onClick={handleClick}>
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
-                        <img className={styles.icon} src="addWorker.svg" alt="Icon" /> 
+                        <img className={styles.icon4} src="addWorker.svg" alt="Icon" /> 
                         {/* {<FcGoodDecision className={styles.icon2}></FcGoodDecision>} */}
                         </div>
                         <div className={styles.text_div}>שיבוץ עובדים</div>

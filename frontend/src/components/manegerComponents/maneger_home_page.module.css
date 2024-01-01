@@ -28,7 +28,7 @@
   width: 350px;
   transition: 0.3s;
   margin-bottom: 15px;
-  border-radius: 25px;
+  border-radius: 30px;
   font-weight: 400;
   font-family: 'Rubik', sans-serif;
   position: relative;
@@ -47,7 +47,6 @@
   margin-right: -5px;
   font-size: 20px;
   color: #6f6f6f;
-  color: #1f76c2aa;
   font-weight: 450;
 }
 
@@ -73,6 +72,10 @@
   width: 150px;
   height: 160px;
   animation: slideInAndFade 0.3s ease-in-out;
+  background-color: #fb9590;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  width: 180px;
 }
 .icon2{
   position: absolute;
@@ -81,14 +84,33 @@
   width: 135px;
   height: 160px;
   animation: slideInAndFade 0.3s ease-in-out;
+  background-color: #90abfb;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  width: 170px;
 }
 .icon3{
   position: absolute;
   bottom: -35px;
-  left: -15px;
-  width: 140px;
+  left: 0px;
   height: 150px;
   animation: slideInAndFade 0.3s ease-in-out;
+  background-color: #fff1c5e0;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 100px;
+  width: 150px;
+}
+.icon4{
+  position: absolute;
+  bottom: -45px;
+  left: -5px;
+  width: 150px;
+  height: 160px;
+  animation: slideInAndFade 0.3s ease-in-out;
+  background-color: #d24bff6d;
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 100px;
+  width: 180px;
 }
 
 .closed_btn{
