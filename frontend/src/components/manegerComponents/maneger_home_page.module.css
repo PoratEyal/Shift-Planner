@@ -13,7 +13,7 @@
   color: #8c8c8c;
   margin-bottom: 10px;
   margin-left: 200px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .btn{
@@ -47,6 +47,8 @@
   margin-right: -5px;
   font-size: 20px;
   color: #6f6f6f;
+  color: #1f76c2aa;
+  font-weight: 450;
 }
 
 .link{
@@ -88,20 +90,6 @@
   height: 150px;
   animation: slideInAndFade 0.3s ease-in-out;
 }
-
-
-/* .icon1{
-  font-size: 52px;
-  rotate: -20deg;
-  margin-top: -10px;
-  margin-bottom: -10px;
-}
-
-.icon2{
-  font-size: 52px;
-  margin-top: -10px;
-  margin-bottom: -10px;
-} */
 
 .closed_btn{
   font-size: 26px;

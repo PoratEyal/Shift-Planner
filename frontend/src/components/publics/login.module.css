@@ -50,7 +50,7 @@
   z-index: 1;
   margin-top:40px;
   padding: 17px;
-  font-size: 1.85rem;
+  font-size: 1.95rem;
   font-weight: 600;
   text-align: center;
   border-radius: 40px;
@@ -123,12 +123,13 @@
   margin-bottom: 40px;
   padding: 13px;
   width: 300px;
-  border-radius: 10px;
-  border: 2px solid rgba(183, 183, 183, 0.405);
+  border-radius: 25px;
+  border: 3px solid rgba(183, 183, 183, 0.405);
   font-family: 'Rubik', sans-serif;
+  color: rgb(70, 70, 70);
 }
 .input::placeholder{
-  color: #2e2e2e87;
+  color: #2e2e2e7c;
   direction: ltr;
 }
 
