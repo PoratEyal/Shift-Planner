@@ -84,7 +84,7 @@ const Register = () => {
       <div className={styles.container}>
         <div className={styles.register_label_container}>
           <label className={styles.register_label}>
-            הירשמו וצרו לעצמכם סידור עבודה בצורה פשוטה ונוחה
+            הרשמו בחינם ובנו סידור עבודה בצורה פשוטה ומהירה לעסק שלכם 
           </label>
         </div>
         
