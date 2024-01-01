@@ -8,7 +8,7 @@
 }
 
 .week_text{
-  margin-top: -10px;
+  margin-top: 10px;
   font-size: 22px;
   color: #8c8c8c;
   margin-bottom: 10px;
@@ -72,7 +72,7 @@
   width: 150px;
   height: 160px;
   animation: slideInAndFade 0.3s ease-in-out;
-  background-color: #fb9590;
+  background-color: #fb9590e6;
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
   width: 180px;
