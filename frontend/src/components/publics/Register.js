@@ -129,6 +129,11 @@ const Register = () => {
           </div>
 
           <button className={styles.btn} type="submit">לחצו להרשמה</button>
+
+          <div className={styles.login_container}>
+            <label>להתחברות</label>
+            <label onClick={() => navigate('/')} className={styles.login_label}>לחצו כאן</label>
+          </div>
         </form>
       </div>
 

@@ -70,17 +70,17 @@
   text-align: center;
   border-radius: 40px;
   border: none;
-  background-color: #ffffff;
+  background-color: #88aaffc4;
   color: #648ef8;
+  color: white;
   transition: 0.3s;
   cursor: pointer;
   width: 260px;
   font-family: 'Rubik', sans-serif;
   margin-top: 30px;
-  background-color: #cad9ff;
 }
 .btn:hover {
-  color: #254aa9;
+  background-color: #88aaff;
 }
 
 /* inputs - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -115,8 +115,8 @@
   font-size: 22px;
   padding: 13px;
   width: 300px;
-  border-radius: 20px;
-  border: 2px solid rgb(214, 214, 214);
+  border-radius: 25px;
+  border: 2px solid rgba(227, 227, 227, 0.759);
   font-family: 'Rubik', sans-serif;
 }
 .input::placeholder{
@@ -128,7 +128,6 @@
   color: rgb(255, 47, 47);
   font-size: 20px;
   text-align: right;
-  animation: vibration 0.5s;
   position: absolute;
   top: 60px;
   right: 10px;
@@ -137,7 +136,6 @@
   color: rgb(255, 47, 47);
   font-size: 20px;
   text-align: right;
-  animation: vibration 0.5s;
   position: absolute;
   top: 60px;
   right: 10px;
@@ -146,7 +144,6 @@
   color: rgb(255, 47, 47);
   font-size: 20px;
   text-align: right;
-  animation: vibration 0.5s;
   position: absolute;
   top: 60px;
   right: 10px;
@@ -155,16 +152,26 @@
   color: rgb(255, 47, 47);
   font-size: 20px;
   text-align: right;
-  animation: vibration 0.5s;
   position: absolute;
   top: 60px;
   right: 10px;
 }
 
-@keyframes vibration {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-1px) rotateZ(-1deg); }
-  50% { transform: translateX(1px) rotateZ(1deg); }
-  75% { transform: translateX(-1px) rotateZ(-1deg); }
-  100% { transform: translateX(0); }
+.login_container{
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 20px;
+  color: #88aafff3;
+}
+
+.login_label{
+  border-bottom: 2px solid #88aafff3;
+  padding-bottom: 2px;
+}
+.login_label:hover{
+  cursor: pointer;
 }
