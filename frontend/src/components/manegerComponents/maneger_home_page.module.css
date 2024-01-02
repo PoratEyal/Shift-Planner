@@ -24,6 +24,7 @@
   padding: 25px;
   height: 110px;
   background-color: #ffffff;
+  background-color: rgb(242, 242, 242);
   border: none;
   width: 350px;
   transition: 0.3s;
@@ -86,7 +87,7 @@
   animation: slideInAndFade 0.3s ease-in-out;
   background-color: #90abfb;
   border-top-right-radius: 100px;
-  border-bottom-right-radius: 100px;
+  border-bottom-right-radius: 110px;
   width: 170px;
 }
 .icon3{
@@ -105,11 +106,11 @@
   bottom: -45px;
   left: -5px;
   width: 150px;
-  height: 160px;
+  height: 170px;
   animation: slideInAndFade 0.3s ease-in-out;
   background-color: #b564d06d;
-  border-top-right-radius: 80px;
-  border-bottom-right-radius: 100px;
+  border-top-right-radius: 90px;
+  border-bottom-right-radius:130px;
   width: 180px;
 }
 
