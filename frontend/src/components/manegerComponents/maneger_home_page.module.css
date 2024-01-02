@@ -11,7 +11,7 @@
   margin-top: -15px;
   font-size: 22px;
   color: #8c8c8c;
-  color: #1b33796c;
+  color: #00030c96;
   margin-bottom: 10px;
   margin-left: 200px;
   font-weight: 600;
@@ -25,7 +25,7 @@
   padding: 25px;
   height: 110px;
   background-color: #ffffff;
-  background-color: #F2F4FF;
+  background-color: #f2f4ffe2;
   border: none;
   width: 350px;
   transition: 0.3s;
@@ -35,6 +35,7 @@
   font-family: 'Rubik', sans-serif;
   position: relative;
   overflow: hidden;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
   
 }
 .btn:hover{
@@ -49,7 +50,7 @@
 .text_div{
   margin-right: -5px;
   font-size: 20px;
-  color: #6f6f6f;
+  color: #767676;
   font-weight: 400;
 }
 
