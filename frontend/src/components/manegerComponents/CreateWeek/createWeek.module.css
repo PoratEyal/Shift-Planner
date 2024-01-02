@@ -84,7 +84,8 @@
     width: 280px;
     margin: 20px;
     background: rgba(255, 255, 255, 0.579);
-    border-radius: 10px;
+    background-color: #f2f4ffaf;
+    border-radius: 15px;
     animation: slideInAndFade 0.5s ease-in-out;
 
 }
@@ -202,7 +203,7 @@
     height: 40px;
     font-size: 21px;
     font-family: 'Rubik', sans-serif;
-    border-radius: 0.5rem;
+    border-radius: 12px;
     border: 1px solid rgb(181, 181, 181);
     direction: rtl;
     cursor: pointer;
@@ -225,7 +226,7 @@
     height: 50px;
     font-size: 21px;
     font-family: 'Rubik', sans-serif;
-    border-radius: 0.5rem;
+    border-radius: 12px;
     border: 1px solid rgb(181, 181, 181);
     direction: rtl;
     cursor: pointer;
@@ -725,7 +726,7 @@
     text-transform: uppercase;
     vertical-align: middle;
     align-items: center;
-    border-radius: 0.5rem;
+    border-radius: 12px;
     border: none;
     gap: 0.75rem;
     color: white;
@@ -790,7 +791,7 @@
     text-transform: uppercase;
     vertical-align: middle;
     align-items: center;
-    border-radius: 0.5rem;
+    border-radius: 12px;
     border: none;
     gap: 0.75rem;
     color: white;
@@ -822,7 +823,7 @@
     text-transform: uppercase;
     vertical-align: middle;
     align-items: center;
-    border-radius: 0.5rem;
+    border-radius: 12px;
     border: none;
     gap: 0.75rem;
     color: white;
@@ -831,7 +832,7 @@
     width: 300px;
     justify-content: center;
     animation: downToUp 1s ease-in-out;
-    background-color: rgb(60, 204, 41);
+    background-color: rgb(90, 197, 76);
     font-family: 'Rubik', sans-serif;
 }
 

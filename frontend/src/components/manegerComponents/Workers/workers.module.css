@@ -7,7 +7,7 @@
     padding: 12px;
     margin: 20px;
     margin-top: 85px;
-    background: rgba(255, 255, 255, 0.65);
+    background-color: #f2f4ffaf;
     border-radius: 20px;
     animation: slideInAndFade 0.5s ease-in-out;
 }
@@ -33,7 +33,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(231, 234, 238, 0.482);
+    background-color: rgba(255, 255, 255, 0.482);
 }
 .editWorker{
     margin-top: 5px;

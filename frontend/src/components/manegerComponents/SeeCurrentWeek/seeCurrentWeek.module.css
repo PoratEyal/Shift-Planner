@@ -58,8 +58,8 @@
     width: 290px;
     margin: 20px;
     padding-bottom: 10px;
-    background: rgba(255, 255, 255, 0.579);
-    border-radius: 10px;
+    background-color: #f2f4ffaf;
+    border-radius: 15px;
     animation: slideInAndFade 0.5s ease-in-out;
 }
 

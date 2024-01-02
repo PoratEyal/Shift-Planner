@@ -18,6 +18,7 @@
     height: 440px;
     padding: 20px;
     background: rgb(255, 255, 255);
+    background-color: #f2f4ffaf;
     border-radius: 20px;
     margin-top: 90px;
     animation: slideInAndFade 0.5s ease-in-out;
