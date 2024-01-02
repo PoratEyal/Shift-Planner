@@ -11,6 +11,7 @@
   margin-top: -15px;
   font-size: 22px;
   color: #8c8c8c;
+  color: #1b33796c;
   margin-bottom: 10px;
   margin-left: 200px;
   font-weight: 600;
@@ -24,7 +25,7 @@
   padding: 25px;
   height: 110px;
   background-color: #ffffff;
-  background-color: rgb(242, 242, 242);
+  background-color: #F2F4FF;
   border: none;
   width: 350px;
   transition: 0.3s;
@@ -34,6 +35,7 @@
   font-family: 'Rubik', sans-serif;
   position: relative;
   overflow: hidden;
+  
 }
 .btn:hover{
   cursor: pointer;
@@ -70,25 +72,23 @@
   position: absolute;
   bottom: -35px;
   left: -15px;
-  width: 150px;
   height: 160px;
   animation: slideInAndFade 0.3s ease-in-out;
   background-color: #fb9590e6;
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
-  width: 180px;
+  width: 160px;
 }
 .icon2{
   position: absolute;
   bottom: -35px;
   left: -15px;
-  width: 135px;
-  height: 160px;
+  height: 150px;
   animation: slideInAndFade 0.3s ease-in-out;
   background-color: #90abfb;
-  border-top-right-radius: 100px;
-  border-bottom-right-radius: 110px;
-  width: 170px;
+  border-top-right-radius: 70px;
+  border-bottom-right-radius: 90px;
+  width: 160px;
 }
 .icon3{
   position: absolute;
@@ -105,13 +105,12 @@
   position: absolute;
   bottom: -45px;
   left: -5px;
-  width: 150px;
   height: 170px;
   animation: slideInAndFade 0.3s ease-in-out;
   background-color: #b564d06d;
   border-top-right-radius: 90px;
   border-bottom-right-radius:130px;
-  width: 180px;
+  width: 150px;
 }
 
 .closed_btn{
