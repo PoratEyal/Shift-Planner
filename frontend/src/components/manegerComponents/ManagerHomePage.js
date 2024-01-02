@@ -5,10 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import PageLayout from '../layout/PageLayout';
-import { FcPlanner } from "react-icons/fc";
-import { FcGoodDecision } from "react-icons/fc";
-import { FcSurvey } from "react-icons/fc";
-import { FcLeave } from "react-icons/fc";
 
 export const ManagerContext = createContext({
     getUser: () => {
@@ -79,7 +75,6 @@ const ManagerHomePage = () => {
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
                             <img className={styles.icon} src="shifts.svg" alt="Icon" />
-                            {/* {<FcPlanner className={styles.icon1}></FcPlanner>}  */}
                         </div>
                         <div className={styles.text_div}>
                             צפיה בסידור<br></br> העבודה  
