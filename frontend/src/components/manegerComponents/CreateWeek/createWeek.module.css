@@ -84,7 +84,7 @@
     width: 280px;
     margin: 20px;
     background: rgba(255, 255, 255, 0.579);
-    background-color: #f2f4ffaf;
+    background-color: #f2f4ffe4;
     border-radius: 15px;
     animation: slideInAndFade 0.5s ease-in-out;
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
@@ -281,14 +281,12 @@
     font-size: 1.2em;
     border: none;
     border-radius: 10px;
-    background-color: rgba(231, 234, 238, 0.571);
-    margin: 10px;
-    margin-top: 20px;
+    margin-top: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0px;
+    margin-bottom: -10px;
     position: relative;
 }
 
@@ -312,13 +310,12 @@
 }
 
 .input_time_start{
+    border-radius: 12px;
     margin: 10px;
     font-size: 18px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 220px;
+    padding: 8px;
+    border: 2px solid rgba(106, 106, 106, 0.25);
+    width: 270px;
     text-align: right;
     direction: rtl;
     appearance: none;
@@ -339,11 +336,10 @@
 .input_time_end{
     margin: 10px;
     font-size: 18px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 220px;
+    padding: 8px;
+    border-radius: 12px;
+    border: 2px solid rgba(106, 106, 106, 0.25);
+    width: 270px;
     text-align: right;
     direction: rtl;
     appearance: none;
@@ -364,11 +360,10 @@
 .input{
     margin: 10px;
     font-size: 18px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 220px;
+    padding: 8px;
+    border-radius: 12px;
+    border: 2px solid rgba(106, 106, 106, 0.25);
+    width: 270px;
     text-align: right;
     direction: rtl;
     font-family: 'Rubik', sans-serif;
@@ -385,18 +380,18 @@
     text-transform: uppercase;
     vertical-align: middle;
     align-items: center;
-    border-radius: 0.5rem;
+    border-radius: 12px;
     border: none;
     gap: 0.75rem;
     cursor: pointer;
     transition: all .6s ease;
-    width: 110px;
+    width: 130px;
     justify-content: center;
     background-color: #c1e1ff;
     color:#2880cc;
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
-    margin-right: 10px;
+    margin-right:20px;
 }
 .addShift_cancel_btn{
     margin-top: -10px;
@@ -409,12 +404,12 @@
     text-transform: uppercase;
     vertical-align: middle;
     align-items: center;
-    border-radius: 0.5rem;
+    border-radius: 12px;
     border: none;
     gap: 0.75rem;
     cursor: pointer;
     transition: all .6s ease;
-    width: 110px;
+    width: 130px;
     justify-content: center;
     background-color: rgba(255, 92, 92, 0.76);
     color:rgb(255, 255, 255);
@@ -1119,19 +1114,19 @@
         width: 320px;
     }
     .input{
-        width: 250px;
+        width: 290px;
     }
     .input_time_start{
-        width: 250px;
+        width: 290px;
     }
     .input_time_end{
-        width: 250px;
+        width: 290px;
     }
     .addShift_btn{
-        width: 125px;
+        width: 140px;
     }
     .addShift_cancel_btn{
-        width: 125px;
+        width: 140px;
     }
     .edit_div_createWeek button{
         width: 320px;
