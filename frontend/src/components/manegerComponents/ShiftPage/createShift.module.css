@@ -6,7 +6,7 @@
     width: 290px;
     padding: 17px;
     margin-top: 85px;
-    background: rgb(255, 255, 255);
+    background-color: #f2f4ffaf;
     border-radius: 20px;
     animation: slideInAndFade 0.5s ease-in-out;
     position: relative;

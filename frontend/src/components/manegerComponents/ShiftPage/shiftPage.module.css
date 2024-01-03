@@ -5,7 +5,7 @@
     align-items: center;
     width: 315px;
     margin-top: 85px;
-    background: rgba(255, 255, 255, 0.65);
+    background-color: #f2f4ffaf;
     border-radius: 20px;
     padding: 10px;
     animation: slideInAndFade 0.5s ease-in-out;
@@ -24,7 +24,7 @@
     margin-top: 5px;
     padding: 10px;
     margin-bottom: 12px;
-    background-color: rgba(231, 234, 238, 0.482);
+    background-color: rgb(255, 255, 255);
 }
 
 .description{
@@ -147,16 +147,14 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: rgba(231, 234, 238, 0.482);
 }
 
 .input_edit{
     margin: 10px;
     font-size: 18px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    border: 2px solid rgba(138, 138, 138, 0.25);
+    padding: 7px;
+    border-radius: 10px;
+    border: 2px solid rgba(138, 138, 138, 0.187);
     width: 260px;
     text-align: right;
     direction: rtl;
@@ -169,10 +167,9 @@
 .input_time_start{
     margin: 10px;
     font-size: 18px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    border: 2px solid rgba(138, 138, 138, 0.25);
+    padding: 7px;
+    border-radius: 10px;
+    border: 2px solid rgba(138, 138, 138, 0.187);
     width: 260px;
     text-align: right;
     direction: rtl;
@@ -183,10 +180,9 @@
 .input_time_end{
     margin: 10px;
     font-size: 18px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    border: 2px solid rgba(138, 138, 138, 0.25);
+    padding: 7px;
+    border-radius: 10px;
+    border: 2px solid rgba(138, 138, 138, 0.187);
     width: 260px;
     text-align: right;
     direction: rtl;
@@ -215,7 +211,7 @@
     text-transform: uppercase;
     vertical-align: middle;
     align-items: center;
-    border-radius: 0.5rem;
+    border-radius: 12px;
     border: none;
     gap: 0.75rem;
     cursor: pointer;
@@ -238,7 +234,7 @@
     text-transform: uppercase;
     vertical-align: middle;
     align-items: center;
-    border-radius: 0.5rem;
+    border-radius: 12px;
     border: none;
     gap: 0.75rem;
     cursor: pointer;
