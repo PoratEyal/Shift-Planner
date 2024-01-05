@@ -6,9 +6,10 @@
     width: 290px;
     padding: 12px;
     margin-top: 90px;
-    background-color: #f2f4ffe4;
+    background-color: #dde0ef73;
     border-radius: 15px;
     animation: slideInAndFade 0.5s ease-in-out;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 }
 
 @keyframes slideInAndFade {

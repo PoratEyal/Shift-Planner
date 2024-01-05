@@ -15,18 +15,19 @@
     justify-content: center;
     align-items: center;
     width: 290px;
-    height: 440px;
+    height: 450px;
     padding: 20px;
-    background: rgb(255, 255, 255);
-    border-radius: 12px;
     margin-top: 90px;
     animation: slideInAndFade 0.5s ease-in-out;
     position: relative;
     overflow: hidden;
+    background-color: #dde0ef73;
+    border-radius: 20px;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 }
 
 .h2{
-    margin-top: -20px;
+    margin-top: 0px;
     font-size: 1.45em;
     color: #34a0ff;
     font-weight: 500;
@@ -36,17 +37,17 @@
     text-align: right;
     font-size: 20px;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 12px;
+    border: none;
     margin-bottom: 10px;
     margin-top: 10px;
     width: 80%;
-    border: 2px solid rgba(151, 151, 151, 0.25);
+    border: 3px solid rgba(157, 157, 157, 0.25);
     direction: rtl;
     font-family: 'Rubik', sans-serif;
 }
 .input::placeholder {
     font-size: 15px;
-    font-family: 'Rubik', sans-serif;
 }
 
 .emptyInput {
@@ -64,7 +65,7 @@
     text-transform: uppercase;
     vertical-align: middle;
     align-items: center;
-    border-radius: 15px;
+    border-radius: 12px;
     border:none;
     gap: 0.75rem;
     color: white;
@@ -74,7 +75,7 @@
     width: 89%;
     justify-content: center;
     font-family: 'Rubik', sans-serif;
-    margin-bottom: 200px;
+    margin-bottom: 205px;
     z-index: 1;
 }
 .btn:hover {

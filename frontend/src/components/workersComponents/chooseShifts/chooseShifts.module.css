@@ -26,10 +26,11 @@
     padding: 20px;
     width: 290px;
     margin: 12px;
-    margin-bottom: 5px;
-    background: rgb(255, 255, 255);
-    border-radius: 12px;
+    border-radius: 15px;
     animation: slideInAndFade 0.5s ease-in-out;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+    background-color: #f2f4ffe4;
+    margin-bottom: 10px;
 }
 
 @keyframes downToUp {
@@ -534,7 +535,7 @@
 } */
 
 .bold_name{
-    font-weight: 600;
+    font-weight: 550;
     text-overflow: ellipsis;
     max-width: 110px;
     white-space: nowrap;

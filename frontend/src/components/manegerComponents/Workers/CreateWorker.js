@@ -125,7 +125,6 @@ const CreateWorker = () => {
             <form className={styles.userForm} onSubmit={handleSubmit}>
               <label className={styles.label}>שם מלא</label>
               <input
-                  placeholder='אלון מזרחי'
                   className={styles.input}
                   type="text"
                   id="fullName"
@@ -136,7 +135,6 @@ const CreateWorker = () => {
 
               <label className={styles.label}>שם משתמש (באנגלית)</label>
               <input
-                  placeholder='alon'
                   className={styles.input}
                   type="text"
                   id="username"
@@ -154,7 +152,6 @@ const CreateWorker = () => {
 
               <label className={styles.label}>סיסמה בעלת 5 תווים לפחות</label>
               <input
-                  placeholder='12345'
                   className={styles.input}
                   type="password"
                   id="password"

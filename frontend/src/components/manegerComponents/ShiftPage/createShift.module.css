@@ -6,11 +6,12 @@
     width: 290px;
     padding: 17px;
     margin-top: 85px;
-    background-color: #f2f4ffe4;
+    background-color: #dde0ef73;
     border-radius: 20px;
     animation: slideInAndFade 0.5s ease-in-out;
     position: relative;
     overflow: hidden;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 }
 
 .userForm{
