@@ -14,8 +14,17 @@ import { BiEdit } from "react-icons/bi";
 import { BsCardList } from "react-icons/bs";
 import { TbUsersPlus } from "react-icons/tb";
 import { AiOutlineClose } from "react-icons/ai";
-import { AiOutlineSetting } from "react-icons/ai";
 import { BiTime } from "react-icons/bi";
+
+import { FcBusiness } from "react-icons/fc";
+import { FcCalendar } from "react-icons/fc";
+import { FcExport } from "react-icons/fc";
+import { FcSurvey } from "react-icons/fc";
+import { FcAutomatic } from "react-icons/fc";
+import { FcAlarmClock } from "react-icons/fc";
+import { FcLeave } from "react-icons/fc";
+import { FcOvertime } from "react-icons/fc";
+import { FcBusinessman } from "react-icons/fc";
 
 const Navbar = (props) => {
 
@@ -158,7 +167,7 @@ const Navbar = (props) => {
 
               <div className={styles.text_and_icon}>
                 <Link onClick={() => setOpen((prev) => !prev)} to="/SeeCurrentWeekShifts" className={styles.icon_link}>
-                  <AiOutlineSchedule className={styles.icon}></AiOutlineSchedule>
+                  <FcCalendar className={styles.icon}></FcCalendar>
                 </Link>
                 <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/SeeCurrentWeekShifts">
                   צפיה בשבוע הנוכחי
@@ -167,7 +176,7 @@ const Navbar = (props) => {
 
               <div className={styles.text_and_icon}>
                 <Link onClick={() => setOpen((prev) => !prev)} to="/editCurrentWeek" className={styles.icon_link}>
-                  <BiEdit className={styles.icon}></BiEdit>
+                  <FcLeave className={styles.icon}></FcLeave>
                 </Link>
                 <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/editCurrentWeek">
                   עדכון שבוע נוכחי
@@ -178,7 +187,7 @@ const Navbar = (props) => {
               
               <div className={styles.text_and_icon}>
                 <Link onClick={() => setOpen((prev) => !prev)} to="/createNewWeek" className={styles.icon_link}>
-                  <BsCardList className={styles.icon}></BsCardList>
+                <FcOvertime className={styles.icon}></FcOvertime>
                 </Link>
                 <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/createNewWeek">
                      יצירת משמרות לשבוע הבא
@@ -187,7 +196,7 @@ const Navbar = (props) => {
 
               <div className={styles.text_and_icon}>
                 <Link onClick={(e) => { handleWeekVisible(e); setOpen((prev) => !prev); }} className={styles.icon_link}>
-                  <TbUsersPlus className={styles.icon}></TbUsersPlus>
+                  <FcSurvey className={styles.icon}></FcSurvey>
                 </Link>
                 <Link className={styles.links} onClick={(e) => { handleWeekVisible(e); setOpen((prev) => !prev); }}>
                      שיבוץ עובדים לשבוע הבא
@@ -198,7 +207,7 @@ const Navbar = (props) => {
 
               <div className={styles.text_and_icon}>
                 <Link onClick={() => setOpen((prev) => !prev)} to="/workers" className={styles.icon_link}>
-                  <FiUsers className={styles.icon}></FiUsers>
+                  <FcBusinessman className={styles.icon}></FcBusinessman>
                 </Link>
                 <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/workers">
                   עובדים
@@ -207,7 +216,7 @@ const Navbar = (props) => {
 
               <div className={styles.text_and_icon}>
                 <Link onClick={() => setOpen((prev) => !prev)} className={styles.icon_link} to="/roles">
-                  <MdWorkOutline className={styles.icon}></MdWorkOutline>
+                  <FcBusiness className={styles.icon}></FcBusiness>
                 </Link>
                 <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/roles">
                   תפקידים
@@ -216,7 +225,7 @@ const Navbar = (props) => {
 
               <div className={styles.text_and_icon}>
                 <Link onClick={() => setOpen((prev) => !prev)} className={styles.icon_link} to="/defShifts">
-                  <BiTime className={styles.icon}></BiTime>
+                  <FcAlarmClock className={styles.icon}></FcAlarmClock>
                 </Link>
                 <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/defShifts">
                   משמרות
@@ -227,7 +236,7 @@ const Navbar = (props) => {
 
               <div className={styles.text_and_icon}>
                 <Link onClick={() => setOpen((prev) => !prev)} className={styles.icon_link} to="/managerSettings">
-                  <RiLockPasswordLine className={styles.icon}></RiLockPasswordLine>
+                  <FcAutomatic className={styles.icon}></FcAutomatic>
                 </Link>
                 <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/managerSettings">
                   עדכון פרטי משתמש
@@ -246,7 +255,7 @@ const Navbar = (props) => {
               <hr className={styles.line}></hr>
 
               <div className={styles.text_and_icon}>
-                <AiOutlineLogout onClick={signout} className={styles.icon}></AiOutlineLogout>
+                <FcExport onClick={signout} className={styles.icon}></FcExport>
                 <label onClick={signout} className={styles.label}>
                   התנתקות 
                 </label>

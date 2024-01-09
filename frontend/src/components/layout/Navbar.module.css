@@ -104,10 +104,12 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   transition: 0.3s ease-in-out;
 
-/* From https://css.glass */
-background: rgba(255, 255, 255, 0.645);
-backdrop-filter: blur(18.7px);
--webkit-backdrop-filter: blur(18.7px);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(16.7px);
+  -webkit-backdrop-filter: blur(16.7px);
+
 }
 
 .closed_sideBar{
@@ -148,7 +150,7 @@ backdrop-filter: blur(18.7px);
   top: 15px;
   left: 15px;
   color: white;
-  color: #25a1ff;
+  color: rgb(129, 129, 129);
   cursor: pointer;
 }
 
@@ -186,7 +188,7 @@ backdrop-filter: blur(18.7px);
 }
 
 .line{
-  border: 1px solid rgba(202, 202, 202, 0.625);
+  border: 0.5px solid rgba(202, 202, 202, 0.625);
   margin-top: -5px;
 }
 
@@ -194,7 +196,7 @@ backdrop-filter: blur(18.7px);
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
-  color: rgb(145, 145, 145);
+  color: rgb(129, 129, 129);
   background-color: #ffffff00;
   border: none;
   font-family: 'Rubik', sans-serif;
