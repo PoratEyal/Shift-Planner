@@ -122,7 +122,8 @@ const Navbar = (props) => {
     <div className={styles.nav_container}>
       <div className={styles.nav_btn_div}>
         <div onClick={() => setOpen((prev) => !prev)} className={styles.hamburger}>
-          <RxHamburgerMenu></RxHamburgerMenu>
+          {/* <RxHamburgerMenu></RxHamburgerMenu> */}
+          <img src="hamburger.svg" alt="Icon" />
         </div>
         <div className={styles.name}>{props.text}</div>
       </div>
