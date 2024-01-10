@@ -23,7 +23,7 @@
 
 .input_div{
     direction: rtl;
-    margin-bottom: 10px;
+    margin-bottom: 13px;
 }
 
 .label{
@@ -38,7 +38,7 @@
     padding: 8px;
     border-radius: 12px;
     border: none;
-    border: 1px solid rgba(203, 203, 203, 0.775);
+    border: 1px solid rgba(203, 203, 203, 0.498);
     width: 275px;
     text-align: right;
     direction: rtl;
@@ -58,7 +58,7 @@
     font-size: 20px;
     padding: 8px;
     border-radius: 12px;
-    border: 1px solid rgba(203, 203, 203, 0.775);
+    border: 1px solid rgba(203, 203, 203, 0.498);
     background-color: white;
     width: 275px;
     text-align: right;
@@ -90,7 +90,7 @@
     border-radius: 12px;
     border: none;
     background-color: white;
-    border: 1px solid rgba(203, 203, 203, 0.775);
+    border: 1px solid rgba(203, 203, 203, 0.498);
     width: 275px;
     text-align: right;
     direction: rtl;
