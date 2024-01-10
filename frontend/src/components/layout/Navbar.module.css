@@ -98,13 +98,12 @@
   height: 100vh;
   color: #34a0ff;
   animation: slideInFromRightName 0.5s ease-in-out;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   transition: 0.3s ease-in-out;
 
   background: rgba(255, 255, 255, 0.599);
-  border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(14.7px);
   -webkit-backdrop-filter: blur(14.7px);
