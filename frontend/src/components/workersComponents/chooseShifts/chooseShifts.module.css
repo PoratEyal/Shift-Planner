@@ -69,7 +69,7 @@
     width: 310px;
     padding: 15px;
     animation: downToUp 1s ease-in-out;
-    background-color: rgb(60, 204, 41);
+    background-color: rgb(105, 199, 93);
     font-family: 'Rubik', sans-serif;
 }
 
@@ -285,6 +285,19 @@
 .loadingWorkers{
     margin: 15px;
     margin-left: 120px;
+}
+
+
+/* - - - - - - - - - - - when user see the shifts after they published - - - - - - - -  */
+
+.shift_data_published{
+    margin: 12px;
+    display: flex;
+    flex-direction: row;
+    direction: rtl;
+    gap: 10px;
+    width: 300px;
+    text-align: right;
 }
 
 
@@ -725,6 +738,9 @@
     .h2{
         margin-left: 140px;
     }
+    .shift_data_published{
+        width: 285px;
+    }
 }
 
 @media only screen and (min-width: 370px){
@@ -737,6 +753,9 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    .shift_data_published{
+        width: 320px;
     }
     .messege p{
         width: 330px;

@@ -3,6 +3,8 @@ import styles from './chooseShifts.module.css';
 import axios from 'axios';
 import WorkerList from '../CurrentWeek_user/WorkersCurrentWeek';
 import moment from "moment";
+import { FcPrevious } from "react-icons/fc";
+import { FcExpand } from "react-icons/fc";
 
 const UserShift = (props) => {
 
@@ -69,20 +71,43 @@ const UserShift = (props) => {
 
   return <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`}>
       <div onClick={() => {setShow(!showWorkers)}}>
-
-      <p className={styles.shift_data_p}>
-              {shift.description}&nbsp;: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
-      </p>
+        <p className={styles.shift_data_published}>
+          {shift.description}&nbsp;: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
+          {showWorkers ? <FcExpand className={styles.under_icon}></FcExpand> : <FcPrevious className={styles.under_icon}></FcPrevious>}
+        </p>
       </div>
       
       {!props.weekPublished ? (
-        added ? (
-          <button onClick={removeWorkerFromShift} className={styles.remove_btn}>הסרת בקשה למשמרת</button>
-        ) : (
-          <button onClick={addWorkerToShift} className={styles.add_btn}>בקשת שיבוץ למשמרת</button>
-        )
-        ) : ( showWorkers ? <WorkerList managerId={props.managerId} standBy={shift.standBy} workers={shift.workers} shiftData={shift.shiftData} endTime={shift.endTime} startTime={shift.startTime}></WorkerList> : null)
-      }
+        <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`}>
+          <div onClick={() => setShow(!showWorkers)}>
+            <p className={styles.shift_data_p}>
+              {shift.description}&nbsp;: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
+            </p>
+          </div>
+
+          {added ? (
+            <button onClick={removeWorkerFromShift} className={styles.remove_btn}>
+              הסרת בקשה למשמרת
+            </button>
+          ) : (
+            <button onClick={addWorkerToShift} className={styles.add_btn}>
+              בקשת שיבוץ למשמרת
+            </button>
+          )}
+        </div>
+      ) : (
+        showWorkers ? (
+          <WorkerList
+            managerId={props.managerId}
+            standBy={shift.standBy}
+            workers={shift.workers}
+            shiftData={shift.shiftData}
+            endTime={shift.endTime}
+            startTime={shift.startTime}
+          />
+        ) : null
+      )}
+
 
   </div>
 }
