@@ -70,12 +70,14 @@ const UserShift = (props) => {
   }
 
   return <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`}>
-      <div onClick={() => {setShow(!showWorkers)}}>
-        <p className={styles.shift_data_published}>
-          {shift.description}&nbsp;: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
-          {showWorkers ? <FcExpand className={styles.under_icon}></FcExpand> : <FcPrevious className={styles.under_icon}></FcPrevious>}
-        </p>
-      </div>
+      {props.weekPublished && (
+        <div onClick={() => setShow(!showWorkers)}>
+          <p className={styles.shift_data_published}>
+            {shift.description}&nbsp;: {moment(shift.endTime).format('HH:mm')} - {moment(shift.startTime).format('HH:mm')}
+            {showWorkers ? <FcExpand className={styles.under_icon} /> : <FcPrevious className={styles.under_icon} />}
+          </p>
+        </div>
+      )}
       
       {!props.weekPublished ? (
         <div className={`${styles.shift} ${addClass ? styles.worksHer : ''}`}>
