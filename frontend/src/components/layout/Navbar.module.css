@@ -96,7 +96,6 @@
   top: 0;
   width: 290px;
   height: 100vh;
-  background-color: rgb(255, 255, 255);
   color: #34a0ff;
   animation: slideInFromRightName 0.5s ease-in-out;
   border-top-left-radius: 20px;
@@ -107,8 +106,8 @@
   background: rgba(255, 255, 255, 0.599);
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(16.7px);
-  -webkit-backdrop-filter: blur(16.7px);
+  backdrop-filter: blur(14.7px);
+  -webkit-backdrop-filter: blur(14.7px);
 
 }
 
@@ -196,7 +195,7 @@
   font-size: 16px;
   font-weight: 500;
   color: rgb(129, 129, 129);
-  color: #333333ea;
+  color: #333333cb;
   background-color: #ffffff00;
   border: none;
   font-family: 'Rubik', sans-serif;
@@ -212,7 +211,7 @@
   text-decoration: none;
   font-size: 16px;
   color: rgb(145, 145, 145);
-  color: #333333ea;
+  color: #333333cb;
   cursor: pointer;
 }
 
@@ -221,7 +220,7 @@
   margin-right: 5px;
   font-size: 23px;
   color: rgb(145, 145, 145);
-  color: #333333ea;
+  color: #333333cb;
   cursor: pointer;
 }
 
