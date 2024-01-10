@@ -117,21 +117,22 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    direction: rtl;
 }
 
 .btn {
-    margin-right: 20px;
-    margin-top: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
     display: flex;
     padding: 0.8rem 2.4rem;
-    font-size: 1.275rem;
+    font-size: 1.3rem;
     line-height: 1.25rem;
     font-weight: 600;
     text-align: center;
     text-transform: uppercase;
     vertical-align: middle;
     align-items: center;
-    border-radius: 12px;
+    border-radius: 30px;
     border: none;
     gap: 0.75rem;
     color: white;
@@ -141,35 +142,33 @@
     width: 135px;
     justify-content: center;
     font-family: 'Rubik', sans-serif;
-    background-color: #c1e1ff;
-    color:#2880cc;
-    margin-bottom: 10px;
-    z-index: 1;
+    background-color: #004D9F;
+    color:#ffffff;
+    height: 55px;
 }
 
 .btn_cancel {
-    margin-bottom: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     padding: 0.8rem 2.4rem;
-    font-size: 1.275rem;
+    font-size: 1.3rem;
     line-height: 1.25rem;
     font-weight: 600;
     text-align: center;
     text-transform: uppercase;
     vertical-align: middle;
     align-items: center;
-    border-radius: 12px;
-    border: none;
+    border-radius: 30px;
     gap: 0.75rem;
     cursor: pointer;
     transition: all .6s ease;
     width: 135px;
+    height: 55px;
     justify-content: center;
     font-family: 'Rubik', sans-serif;
-    background-color: rgba(255, 92, 92, 0.76);
-    color:rgb(255, 255, 255);
-    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    color:#004D9F;
+    border: 1px solid #004D9F;
 }
 
 /* .shift_svg {

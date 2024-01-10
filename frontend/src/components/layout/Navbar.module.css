@@ -243,3 +243,24 @@
       opacity: 1;
   }
 }
+
+
+/* - - - - - - - - - - - swal - - - - - - - - - - - - - - - - - -  */
+
+.confirm_button_class {
+  background-color: #004d9f;
+  color: #ffffff;
+  border-radius: 30px;
+  font-weight: 500;
+
+  background-color: #d2e9ff;
+  color:#81c4ff;
+}
+
+.cancel_button_class{
+  background-color: rgb(223, 239, 255);
+  color: #004d9f;
+  border: 1px solid #004d9f;
+  border-radius: 30px;
+  font-weight: 500;
+}

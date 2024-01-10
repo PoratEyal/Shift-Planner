@@ -4,7 +4,6 @@ import styles from './Navbar.module.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import { RxHamburgerMenu } from 'react-icons/rx';
 import { FiUsers } from 'react-icons/fi';
 import { RiLockPasswordLine } from 'react-icons/ri';
 import { MdWorkOutline } from 'react-icons/md';
@@ -82,9 +81,13 @@ const Navbar = (props) => {
       icon: 'warning',
       showCancelButton: true,
       cancelButtonText: 'ביטול',
-      confirmButtonColor: '#34a0ff',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#81c4ff',
+      cancelButtonColor: '#004d9f',
       confirmButtonText: 'אישור',
+      customClass: {
+        confirmButton: styles['confirm_button_class'],
+        cancelButton: styles['cancel_button_class']
+      },
     }).then((result) => {
       if (result.isConfirmed) {
         localStorage.clear();
@@ -92,6 +95,7 @@ const Navbar = (props) => {
       }
     });
   };
+  
 
   const handleClickOutside = (e) => {
     if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
@@ -122,7 +126,6 @@ const Navbar = (props) => {
     <div className={styles.nav_container}>
       <div className={styles.nav_btn_div}>
         <div onClick={() => setOpen((prev) => !prev)} className={styles.hamburger}>
-          {/* <RxHamburgerMenu></RxHamburgerMenu> */}
           <img src="hamburger.svg" alt="Icon" />
         </div>
         <div className={styles.name}>{props.text}</div>
