@@ -266,11 +266,9 @@
 }
 
 .shift_data_p{
-    margin: 12px
-}
-.description{
+    margin: 12px;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .workers_showList{
