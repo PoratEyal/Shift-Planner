@@ -268,8 +268,8 @@
 .shift_data_p{
     margin: 12px;
     font-weight: 400;
-    font-size:15px;
-    background-color: #d2e9ff;
+    font-size:19px;
+    margin-top: 15px;
 }
 
 .workers_showList{
