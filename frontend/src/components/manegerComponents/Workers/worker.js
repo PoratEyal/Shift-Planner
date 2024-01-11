@@ -5,6 +5,8 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiMoreHorizontal } from "react-icons/fi";
 import { BiEditAlt } from "react-icons/bi";
 import Swal from 'sweetalert2';
+import { Navigate } from 'react-router-dom';
+import editWorker from './editWorker'
 
 const Worker = (props) => {
 
@@ -13,6 +15,8 @@ const Worker = (props) => {
     const [userDeleted, setUserDelted] = useState(false)
     const [clickEditWorker, setEditWorker] = useState(false);
     const divRef = useRef(null);
+
+    const [showEditWorker, setShowEditWorker] = useState(false);
 
     const user = props.user;
     
@@ -149,6 +153,11 @@ const Worker = (props) => {
                     }}
                 >ביטול
                 </button>
+                {/* <button onClick={() => setShowEditWorker(true)}>מה אומר</button>
+                
+                {showEditWorker && (
+                    <editWorker>user={user} roles={props.roles} key={user._id}</editWorker>
+                )} */}
             </div>
         </div> : null
         }
