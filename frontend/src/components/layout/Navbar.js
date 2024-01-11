@@ -81,8 +81,8 @@ const Navbar = (props) => {
       icon: 'warning',
       showCancelButton: true,
       cancelButtonText: 'ביטול',
-      confirmButtonColor: '#81c4ff',
-      cancelButtonColor: '#004d9f',
+      confirmButtonColor: '#34a0ff',
+      cancelButtonColor: '#d33',
       confirmButtonText: 'אישור',
       customClass: {
         confirmButton: styles['confirm_button_class'],
