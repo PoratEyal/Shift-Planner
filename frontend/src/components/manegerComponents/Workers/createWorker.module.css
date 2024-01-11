@@ -110,9 +110,9 @@
     width: 135px;
     justify-content: center;
     font-family: 'Rubik', sans-serif;
-    background-color: #004D9F;
-    color:#ffffff;
     height: 55px;
+    background-color: #4f97d7a6;
+    color:#ffffff;
 }
 
 .btn_cancel {
@@ -135,8 +135,8 @@
     justify-content: center;
     font-family: 'Rubik', sans-serif;
     background-color: rgb(255, 255, 255);
-    color:#004D9F;
-    border: 1px solid #004D9F;
+    color:#4f98d7ca;
+    border: 1px solid #4f98d7ca;
 }
 
 @media only screen and (min-width: 380px){
