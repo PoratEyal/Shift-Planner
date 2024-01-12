@@ -4,8 +4,8 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const EditWorker = (props) => {
-    const [selectedRole, setRole] = useState("");  // Added missing state for selectedRole
-    const [user, setUser] = useState(props.user);  // Added state for user
+    const [selectedRole, setRole] = useState("");
+    const [user, setUser] = useState(props.user);
 
     // Refs for input fields
     const fullName = useRef(null);
@@ -24,7 +24,7 @@ const EditWorker = (props) => {
 
         try {
             await axios.put(`${process.env.REACT_APP_URL}/editUser`, updatedUser);
-            setRole("");  // Reset selectedRole after successful edit
+            setRole("");
             setUser({ ...user, fullName: updatedUser.fullName, username: updatedUser.username });  // Update user state
             Swal.fire({
                 title: 'העובד עודכן בהצלחה',
@@ -61,7 +61,6 @@ const EditWorker = (props) => {
                     <button
                         className={styles.edit_worker_btn_cancel}
                         onClick={() => {
-                            // Optionally reset the input fields on cancel
                             fullName.current.value = user.fullName;
                             username.current.value = user.username;
                             password.current.value = '';

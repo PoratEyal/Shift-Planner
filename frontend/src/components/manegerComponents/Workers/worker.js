@@ -5,8 +5,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiMoreHorizontal } from "react-icons/fi";
 import { BiEditAlt } from "react-icons/bi";
 import Swal from 'sweetalert2';
-import { Navigate } from 'react-router-dom';
-import editWorker from './editWorker'
+import EditWorker from './editWorker'
 
 const Worker = (props) => {
 
@@ -103,7 +102,7 @@ const Worker = (props) => {
         };
     }, [isDivVisible])
 
-    return <React.Fragment>
+    return <div className={styles.first_container}>
         <div key={user._id} className={styles.user_container}>
             <div>
                 <div className={styles.delete_edit_div}>
@@ -112,8 +111,8 @@ const Worker = (props) => {
                     {openOptions === user._id && isDivVisible ?
                         <div ref={divRef} className={styles.edit_div_options}>
                             <div className={styles.edit_div_flex}>
-                                <label onClick={() => { setEditWorker(!clickEditWorker); setDivVisible(false) }}>עריכת עובד</label>
-                                <BiEditAlt onClick={() => { setEditWorker(!clickEditWorker); setDivVisible(false) }} className={styles.icon_edit_select}></BiEditAlt>
+                                <label onClick={() => { setEditWorker(true); setDivVisible(false) }}>עריכת עובד</label>
+                                <BiEditAlt onClick={() => { setEditWorker(true); setDivVisible(false) }} className={styles.icon_edit_select}></BiEditAlt>
                             </div>
 
                             <div className={styles.edit_div_flex}>
@@ -153,14 +152,14 @@ const Worker = (props) => {
                     }}
                 >ביטול
                 </button>
-                {/* <button onClick={() => setShowEditWorker(true)}>מה אומר</button>
-                
-                {showEditWorker && (
-                    <editWorker>user={user} roles={props.roles} key={user._id}</editWorker>
-                )} */}
             </div>
         </div> : null
         }
-    </React.Fragment>
+
+        {/* {showEditWorker && (
+            <EditWorker user={user} roles={props.roles} key={user._id} />
+        )} */}
+
+    </div>
 }
 export default Worker
