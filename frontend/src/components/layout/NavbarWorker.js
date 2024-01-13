@@ -4,7 +4,6 @@ import styles from './Navbar.module.css';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { RxHamburgerMenu } from 'react-icons/rx';
 import { RiLockPasswordLine } from 'react-icons/ri';
 import { AiOutlineLogout } from 'react-icons/ai';
 import { TbUsersPlus } from "react-icons/tb";
@@ -19,6 +18,7 @@ const NavbarWroker = (props) => {
   const [name, setName] = useState('')
   const [weekVisible, setWeekVisible] = useState(null);
   const [weekPublished, setWeekPublished] = useState(null);
+  const [userGender, setUserGender] = useState(null)
 
   const sidebarRef = useRef(null);
   const blurBack = useRef(null);
@@ -27,6 +27,7 @@ const NavbarWroker = (props) => {
   const getUser = () => {
       const user = localStorage.getItem('user');
       const userData = JSON.parse(user);
+      setUserGender(userData.gender)
       return userData.manager;
   };
 
@@ -132,13 +133,24 @@ const NavbarWroker = (props) => {
         <div className={styles.sideBar} ref={sidebarRef}>
           <div className={styles.upper_sidebar_div}>
             <AiOutlineClose onClick={handleCloseClick} className={styles.close_icon}></AiOutlineClose>
-            <img
-              src="avatar.png"
-              style={{
-                width: "60px",
-                height: "60px",
-              }}
-            />
+            {userGender === 'Famale' ? (
+                <img
+                src="female_avatar.svg"
+                style={{
+                  width: "75px",
+                  height: "80px",
+                }}
+              />
+            ) : (
+              <img
+                src="male_avatar.svg"
+                style={{
+                  width: "75px",
+                  height: "80px",
+                }}
+              />
+            )}
+
             <label className={styles.name_upper_sidebar}>{name}</label>
           </div>
 

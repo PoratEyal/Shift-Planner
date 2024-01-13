@@ -38,6 +38,11 @@ const userSchema = new mongoose.Schema({
       type: Boolean,
       default: false,
       required: false
+    },
+    gender: {
+      type: String,
+      enum: ['Male', 'Female', 'Other'],
+      required: false
     }
   });
 
