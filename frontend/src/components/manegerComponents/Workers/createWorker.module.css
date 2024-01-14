@@ -1,15 +1,16 @@
-.createUser{
+.createUser {
     display: flex;
     flex-direction: column;
     width: 300px;
     padding: 17px;
     margin: 20px;
     margin-top: 80px;
-    animation: slideInAndFade 0.5s ease-in-out;
     background-color: #dde0ef73;
     border-radius: 20px;
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 }
+
+
 
 @keyframes slideInAndFade {
     0% {

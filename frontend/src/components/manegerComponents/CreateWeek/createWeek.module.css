@@ -313,8 +313,9 @@
     border-radius: 12px;
     margin: 10px;
     font-size: 18px;
+    border-radius: 15px;
     padding: 8px;
-    border: 2px solid rgba(106, 106, 106, 0.25);
+    border: 1px solid rgba(203, 203, 203, 0.498);
     width: 270px;
     text-align: right;
     direction: rtl;
@@ -337,8 +338,8 @@
     margin: 10px;
     font-size: 18px;
     padding: 8px;
-    border-radius: 12px;
-    border: 2px solid rgba(106, 106, 106, 0.25);
+    border-radius: 15px;
+    border: 1px solid rgba(203, 203, 203, 0.498);
     width: 270px;
     text-align: right;
     direction: rtl;
@@ -361,8 +362,8 @@
     margin: 10px;
     font-size: 18px;
     padding: 8px;
-    border-radius: 12px;
-    border: 2px solid rgba(106, 106, 106, 0.25);
+    border-radius: 15px;
+    border: 1px solid rgba(203, 203, 203, 0.498);
     width: 270px;
     text-align: right;
     direction: rtl;
@@ -392,6 +393,8 @@
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
     margin-right:20px;
+    height: 55px;
+    border-radius: 30px;
 }
 .addShift_cancel_btn{
     margin-top: -10px;
@@ -404,7 +407,7 @@
     text-transform: uppercase;
     vertical-align: middle;
     align-items: center;
-    border-radius: 12px;
+    border-radius: 30px;
     border: none;
     gap: 0.75rem;
     cursor: pointer;
@@ -415,6 +418,10 @@
     color:rgb(255, 255, 255);
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
+    background-color: rgb(255, 255, 255);
+    color:#2880cc;
+    border: 1px solid #2880cc;
+    height: 55px;
 }
 
 .ai_div{
