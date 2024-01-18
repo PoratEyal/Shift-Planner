@@ -48,8 +48,8 @@ If you have any questions or inquiries, feel free to contact Eyal porat at eyal1
 
 
 ## Pictures
-![Screenshot 2024-01-03 153208](https://github.com/PoratEyal/Shift-Planner/assets/134833213/108a3fdd-ea8e-4ac8-9a0f-203215f9657f)
-![Screenshot 2023-12-16 001124](https://github.com/PoratEyal/Shift-Planner/assets/134833213/c1b77b46-f43d-497f-944f-47340283e76b)
+![Screenshot 2024-01-18 095010](https://github.com/PoratEyal/Shift-Planner/assets/134833213/edf481f3-0f33-49a7-a6ce-261feba00b0b)
+![Screenshot 2024-01-18 094952](https://github.com/PoratEyal/Shift-Planner/assets/134833213/ae4228ff-594d-4c61-a097-389d8b5b292f)
 
 ## Videos
 https://github.com/PoratEyal/Shift-Planner/assets/134833213/09b52cc0-1126-4c20-b528-532d7fe71f18
