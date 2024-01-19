@@ -10,7 +10,7 @@ function CreateWeek() {
       const id = document._id;
       const israelTimezone = 'Asia/Jerusalem'; 
       const currentDateInIsrael = DateTime.now().setZone(israelTimezone);
-
+      console.log(currentDateInIsrael.toLocaleString({ weekday: 'long' }));
       const days = ['ראשון', 'שני', "שלישי", "רביעי", "חמישי", "שישי", "שבת"];
       Week.create({ name: 'NextWeek', visible: false, publishScheduling: false, ofManager: id, usedAi: false, day: [] })
         .then(newWeek => {

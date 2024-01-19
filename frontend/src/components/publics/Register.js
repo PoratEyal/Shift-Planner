@@ -6,6 +6,7 @@ import styles from '../publics/register.module.css';
 import { BiSolidShow, BiSolidHide } from "react-icons/bi";
 import Swal from 'sweetalert2';
 
+
 const Register = () => {
   const [username, setUsername] = useState("");
   const [usernameVal, setUsernameVal] = useState(false)
