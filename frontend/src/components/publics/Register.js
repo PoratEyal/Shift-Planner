@@ -116,7 +116,13 @@ const Register = () => {
           </div>
 
           <div className={styles.input_label_div}>
-            <input type="text" placeholder='שם משתמש' autoComplete="username" className={styles.input} onChange={(e) => handleUsernameChange(e.target.value)} />
+            <input
+              type="text"
+              placeholder='שם משתמש' 
+              autoComplete="username" 
+              className={styles.input} 
+              onChange={(e) => handleUsernameChange(e.target.value)} 
+            />
             {usernameVal ? <label className={styles.validation_username}>שם המשתמש חייב להיות באנגלית</label> : null}
           </div>
 
@@ -143,14 +149,17 @@ const Register = () => {
           </div>
           
           <button className={styles.btn} type="submit">לחצו להרשמה</button>
-          {/* <div className={styles.background_blue}></div> */}
 
-          <div className={styles.login_container}>
+          <div className={styles.login_div}>
             <label>להתחברות</label>
-            <label onClick={() => navigate('/')} className={styles.login_label}>לחצו כאן</label>
+            <label onClick={() => navigate('/')} className={styles.login_btn}>לחצו כאן</label>
           </div>
 
+          <div className={styles.blueBack}></div>
         </form>
+
+
+        
       </div>
     </div>
 };
