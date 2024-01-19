@@ -7,7 +7,7 @@
     "start": " node server.js",
     "devStart": "nodemon server.js"
   },
-  "author": "eyal porat",
+  "author": "Eyal Porat, Edward Grunseid",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.22"

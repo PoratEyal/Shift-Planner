@@ -8,6 +8,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const ObjectId = mongoose.Types.ObjectId;
+const createNewNextWeek = require('../utils/newNextWeek');
+const createNewCurrentWeek = require('../utils/newCurrentWeek');
 
 userRouter.use(bodyParser.json());
 
@@ -74,7 +76,11 @@ userRouter.post('/addManager', async (req, res) => {
         const jobRes = await job.findOne({ name: user.job });
         user.job = jobRes._doc._id;
 
-        const createdUser = await User.create(user);
+        var timesRun = 0;
+        const createdUser = await User.create(user).then(response => {
+            createNewCurrentWeek(response._id)
+            createNewNextWeek(response._id);
+        });
 
         res.status(201).json(createdUser);
     }
