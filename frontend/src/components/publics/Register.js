@@ -33,8 +33,8 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (username.length < 2) {
-      setUsernameVal(true)
+    if (!username || !/^[a-zA-Z0-9]+$/.test(username)) {
+      setUsernameVal(true);
       setUsername("");
     }
     if (password.length < 5) {
@@ -45,11 +45,12 @@ const Register = () => {
       setFullnameVal(true)    
       setFullname("");
     }
-    if (email.length < 6) {
-      setEmailVal(true)
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setEmailVal(true);
       setEmail("");
-    }
-    if(username.length > 2 && password.length >= 5 && fullname.length > 0 && email.length > 6){
+    }  
+
+    if(usernameVal && passwordVal && fullnameVal && emailVal){
       const userRegister = {
         fullName: fullname,
         username: username,
@@ -77,39 +78,51 @@ const Register = () => {
     }
   };
 
+  const handleUsernameChange = (value) => {
+    setUsername(value);
+    setUsernameVal(!/^[a-zA-Z0-9]+$/.test(value));
+  };
+
+  const handlePasswordChange = (value) => {
+    setPassword(value);
+    setPasswordVal(value.length < 5);
+  };
+
+  const handleFullnameChange = (value) => {
+    setFullname(value);
+    setFullnameVal(value.length === 0);
+  };
+
+  const handleEmailChange = (value) => {
+    setEmail(value);
+    setEmailVal(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
+  };
+
   return <div className={styles.page_container}>
-        
-
-
       <div className={styles.container}>
-        <div className={styles.register_label_container}>
-          <label className={styles.register_label}>
-            הרשמו בחינם ובנו סידור עבודה בצורה פשוטה ומהירה לעסק שלכם 
-          </label>
-        </div>
         
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.logo}></div>
 
           <div className={styles.input_label_div}>
-            <input type="text" placeholder='שם מלא' autoComplete="fullname" className={styles.input} onChange={(e) => { setFullname(e.target.value) }} />
+            <input type="text" placeholder='שם מלא' autoComplete="fullname" className={styles.input} onChange={(e) => handleFullnameChange(e.target.value)} />
             {fullnameVal ? <label className={styles.validation_fullname}>שם מלא צריך לכלול לפחות תו אחד</label> : null}
           </div>
 
           <div className={styles.input_label_div}>
-            <input type="email" placeholder='אימייל' autoComplete="email" className={styles.input} onChange={(e) => { setEmail(e.target.value) }} />
+            <input type="email" placeholder='אימייל' autoComplete="email" className={styles.input} onChange={(e) => handleEmailChange(e.target.value)} />
             {emailVal ? <label className={styles.validation_email}>כתובת האימייל שהוזנה אינה תקינה</label> : null}
           </div>
 
           <div className={styles.input_label_div}>
-            <input type="text" placeholder='שם משתמש' autoComplete="username" className={styles.input} onChange={(e) => { setUsername(e.target.value) }} />
+            <input type="text" placeholder='שם משתמש' autoComplete="username" className={styles.input} onChange={(e) => handleUsernameChange(e.target.value)} />
             {usernameVal ? <label className={styles.validation_username}>שם המשתמש חייב להיות באנגלית</label> : null}
           </div>
 
           <div className={styles.input_label_div}>
             <div className={styles.password_div}>
               <div className={styles.input_container}>
-                <input id='password' autoComplete="current-password" type={show ? "password" : "text"} placeholder='סיסמה' className={styles.input} onChange={(e) => { setPassword(e.target.value) }} />
+                <input id='password' autoComplete="current-password" type={show ? "password" : "text"} placeholder='סיסמה' className={styles.input} onChange={(e) => handlePasswordChange(e.target.value)} />
                 {password.length > 0 ? (
                   show ? (
                     <BiSolidShow
@@ -127,16 +140,17 @@ const Register = () => {
             </div>
             {passwordVal ? <label className={styles.validation_password}>סיסמה חייבת להכיל לפחות 5 תווים</label> : null}
           </div>
-
+          
           <button className={styles.btn} type="submit">לחצו להרשמה</button>
+          {/* <div className={styles.background_blue}></div> */}
 
           <div className={styles.login_container}>
             <label>להתחברות</label>
             <label onClick={() => navigate('/')} className={styles.login_label}>לחצו כאן</label>
           </div>
+
         </form>
       </div>
-
     </div>
 };
 

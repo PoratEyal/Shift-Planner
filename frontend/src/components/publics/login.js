@@ -75,10 +75,10 @@ const Login = () => {
 
         <button className={styles.btn} type="submit">התחברות</button>
         
-        {/* <div className={styles.register_div}>
+        <div className={styles.register_div}>
           <label className={styles.register_label}>להרשמה</label>
           <button className={styles.register_btn} onClick={() => navigate('/register')}>לחצו כאן</button>
-        </div> */}
+        </div>
         
 
         <div className={styles.blueBack}></div>

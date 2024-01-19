@@ -1,37 +1,9 @@
-.page_container {
-  width: 100vw;
-  height: 100vh;
-  background-image: url('../../../public/background.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  direction: rtl;
-}
-
 .container{
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-}
-
-.register_label_container{
-  padding: 50px;
-  width: 500px;
-  display: flex;
-  flex-direction: column;
-}
-.register_label{
-  font-size: 80px;
-  font-weight: 700;
-  color: rgb(113, 170, 255);
-  text-align: right;
-  text-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  position: relative;
 }
 
 .logo{
@@ -40,21 +12,14 @@
   background-size:cover;
   width: 370px;
   height: 125px;
-  margin-top: -25px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .form {
-  width: 400px;
-  height: 670px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: white;
-  padding: 30px;
-  border-radius: 40px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 /* buttons - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -67,15 +32,26 @@
   border-radius: 40px;
   border: none;
   background-color: rgb(113, 170, 255);
-  color: white;
+  color: rgb(255, 255, 255);
   transition: 0.3s;
   cursor: pointer;
   width: 260px;
   font-family: 'Rubik', sans-serif;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 .btn:hover {
   background-color: rgb(92, 157, 255);
+}
+
+.background_blue{
+  width: 100%;
+  height: 130px;
+  border: none;
+  background-color: rgb(113, 170, 255);
+  position: absolute;
+  bottom: 0;
+  border-top-right-radius:70px ;
+  border-top-left-radius:70px ;
 }
 
 /* inputs - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -109,7 +85,7 @@
   direction: rtl;
   font-size: 22px;
   padding: 13px;
-  width: 340px;
+  width: 300px;
   border-radius: 25px;
   border: 3px solid rgba(227, 227, 227, 0.759);
   font-family: 'Rubik', sans-serif;
@@ -158,9 +134,11 @@
   gap: 15px;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 7px;
   font-size: 22px;
   color: rgb(113, 170, 255);
+  z-index: 3;
+  direction: rtl;
 }
 
 .login_label{
