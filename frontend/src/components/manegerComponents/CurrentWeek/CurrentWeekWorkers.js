@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useReducer } from 'react';
 import styles from './CurrentWeek.module.css';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { BiTime } from "react-icons/bi";
@@ -10,42 +10,29 @@ import { FiMoreHorizontal } from "react-icons/fi";
 import { AiOutlineSync } from "react-icons/ai";
 import { MdWorkOutline } from 'react-icons/md';
 
-
 const CurrentWeekWorkers = (props) => {
   const [workers] = useState(props.workers);
   const [availableWorkers] = useState(props.availableWorkers);
-
   const [newWorkers, setNewWorkers] = useState([]);
-
   const [availableWorkersArr, setAvailableWorkersArr] = useState([]);
   const [workersArr, setWorkersArr] = useState([]);
-
   const [sbWorkers, setSbWorkers] = useState(props.shift.standBy);
   const [sbWorkersArr, setSbWorkersArr] = useState([]);
-  
   const [updatedWorkers, setUpdatedWorkers] = useState(false);
   const [loading, setLoading] = useState(true);
-
   // select option 
   const [openOptions, setOpenOptions] = useState(null);
   const [isDivVisible, setDivVisible] = useState(false);
   const divRef = useRef(null);
-
   const selectRef = useRef("");
   const selectreF = useRef("");
-
   const [roles, setRoles] = useState([]);
-  const [updateRole, setUpdateRole] = useState(false)
-
   const weekMessages = React.useContext(messageContext)
-
-  useEffect(() => {
-    getRoles()
-
-    if (workers.length == 0) {
-      setLoading(false)
+  
+  const getWorkers = (update) => {
+    if(update){
+      setWorkersArr([]);
     }
-
     workers.map(worker => {
       const reqBody = {
         id: worker
@@ -63,6 +50,31 @@ const CurrentWeekWorkers = (props) => {
           setLoading(false);
         });
     });
+  }
+  useEffect(() => {
+    getRoles()
+
+    if (workers.length == 0) {
+      setLoading(false)
+    }
+    getWorkers(false);
+    //workers.map(worker => {
+      //const reqBody = {
+        //id: worker
+      //}
+      //axios
+        //.post(`${process.env.REACT_APP_URL}/getUserById`, reqBody)
+        //.then(response => {
+          //setLoading(false);
+          //const workerData = response.data;
+          //if (workerData && workerData.fullName && !(sbWorkers.includes(workerData._id))) {
+            //setWorkersArr(prevWorkers => [...prevWorkers, workerData]);
+          //}
+        //})
+        //.catch(error => {
+          //setLoading(false);
+        //});
+    //});
 
     availableWorkers.map(worker => {
       const reqBody = {
@@ -167,7 +179,6 @@ const CurrentWeekWorkers = (props) => {
     i.setHours(selectedHours, selectedMinutes, 0, 0);
     return i;
   }
-
   // get the time that the manager set to the worker.
   // if didnt set - he can update the hours of the worker in the specific shift
   const editHours = async (worker) => {
@@ -247,7 +258,6 @@ const CurrentWeekWorkers = (props) => {
       }
     })
   }
-
   const getWorkerMessage = (id) => {
     if(weekMessages){
       for(let i = 0; i < weekMessages.length; i++){
@@ -257,7 +267,6 @@ const CurrentWeekWorkers = (props) => {
       }}
       return null;
   }
-
   // if the worker sent message will pop alert with the his message
   const seeMessage = async (worker) => {
     let message = null;
@@ -283,7 +292,6 @@ const CurrentWeekWorkers = (props) => {
       });
     }
   };  
-
   // manager write messagwe to the worker
   const writeMessage = async (worker) => {
     let currentMessage = null;
@@ -353,7 +361,6 @@ const CurrentWeekWorkers = (props) => {
       }
       catch (error) {}
   };
-
   // checkes if the worker has a message. if yes return true, else return false
   const hasMessage = (id) => {
     if(weekMessages){
@@ -364,7 +371,6 @@ const CurrentWeekWorkers = (props) => {
     }}
     return false;
   }
-
   // get all the roles of the workers
   const getRoles = () => {
     const token = localStorage.getItem("token");
@@ -383,7 +389,6 @@ const CurrentWeekWorkers = (props) => {
         console.log(err);
       });
   };
-
   // get swal alert to chose the new role of the worker
   const changeRole = (worker) => {
     const roleOptions = roles.reduce((options, role) => {
@@ -407,11 +412,12 @@ const CurrentWeekWorkers = (props) => {
     .then((result) => {
       if (result.isConfirmed) {
         const selectedRole = result.value;
+        console.log(worker);
         const updatedWorker = {
           ...worker,
           role: selectedRole
         };
-  
+        console.log(worker);
         axios.put(`${process.env.REACT_APP_URL}/editUser`, updatedWorker).then(() => {
           Swal.fire({
             title: 'התפקיד עודכן בהצלחה',
@@ -419,7 +425,8 @@ const CurrentWeekWorkers = (props) => {
             confirmButtonColor: '#34a0ff',
             confirmButtonText: 'סגירה'
           });
-          props.updatedRole();
+          getWorkers(true);
+          //props.updatedRole();
         }).catch((err) => {
           console.log(err);
         });
@@ -432,7 +439,6 @@ const CurrentWeekWorkers = (props) => {
     setOpenOptions(workerId);
     setDivVisible(true);
   }
-
   // control on the close and open the option select
   useEffect(() => {
     function handleOutsideClick(event) {
@@ -451,7 +457,6 @@ const CurrentWeekWorkers = (props) => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, [isDivVisible ])
-
   return <React.Fragment>
       {loading ?
         (
