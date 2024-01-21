@@ -7,7 +7,7 @@ import moment from "moment";
 const ShiftCurrentWeek = (props) => {
 
     const [shift] = useState(props.shift);
-    
+
     const addWorkerShift = (workerId) => {
         const reqBody = {
             managerId: props.managerId,
