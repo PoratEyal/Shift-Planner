@@ -3,6 +3,7 @@
   width: 100vw;
   height: 100vh;
   height: 100dvh;
+  border: none !important;
 }
 
 .container{
@@ -32,6 +33,7 @@
   border-top-left-radius: 80px;
   border-top-right-radius: 80px;
   width: 100%;
+  margin-bottom: -20px;
 }
 
 .space_margin{
