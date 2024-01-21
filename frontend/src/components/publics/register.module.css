@@ -117,25 +117,29 @@
   position: absolute;
   color: rgb(242, 65, 65);
   font-family: 'Rubik', sans-serif;
-  margin-top: 40px;
+  margin-top: 45px;
+  font-size: 18px;
 }
 .validation_email{
   position: absolute;
   color: rgb(242, 65, 65);
   font-family: 'Rubik', sans-serif;
-  margin-top: 40px;
+  margin-top: 45px;
+  font-size: 18px;
 }
 .validation_username{
   position: absolute;
   color: rgb(242, 65, 65);
   font-family: 'Rubik', sans-serif;
-  margin-top: 40px;
+  margin-top: 45px;
+  font-size: 18px;
 }
 .validation_password{
   position: absolute;
   color: rgb(242, 65, 65);
   font-family: 'Rubik', sans-serif;
-  margin-top: 40px;
+  margin-top: 45px;
+  font-size: 18px;
 }
   
 
