@@ -134,7 +134,7 @@
   font-size: 18px;
   margin-bottom: 30px;
   padding: 10px;
-  width: 250px;
+  width: 270px;
   border-radius: 25px;
   border: none;
   font-family: 'Rubik', sans-serif;
@@ -185,44 +185,20 @@
   100% { transform: translateY(0); } 
 }
 /* - - - - - - - - - - - - - -  for desktop - - - - - - - - - - - - - -  */
-/* @media only screen and (min-width: 480px) {
+@media only screen and (min-width: 390px) {
   .page_container {
-    background-color: #89baff2b;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .container {
-    background-color: white;
-    margin-top: 70px;
-    overflow: hidden;
-    width: 440px;
+    margin-top: 100px;
     border-radius: 25px;
+  }
+  .container{
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 25px;
   }
-  .btn{
-    margin-top: 20px;
-    animation: slideUpBtn 1s forwards;
+  .form{
+    border-radius: 25px;
+    height: 510px;
   }
-  .login_div {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    direction: rtl;
-    gap: 8px;
-    color: #648ef8;
-    font-family: 'Rubik', sans-serif;
-    background-color: #254aa900;
-    font-size: 20px;
-    font-weight: 500;
-    padding: 0px;
-    margin-bottom: 30px;
-    animation: slideUpRegisterBtn 1s forwards;
-  }
-} */
+}
 
 @media only screen and (min-height: 715px){
   .input{

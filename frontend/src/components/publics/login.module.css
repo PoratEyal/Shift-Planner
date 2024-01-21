@@ -125,9 +125,10 @@
   padding: 13px;
   width: 300px;
   border-radius: 25px;
-  border: 3px solid rgba(183, 183, 183, 0.405);
+  border: none;
   font-family: 'Rubik', sans-serif;
   color: rgb(70, 70, 70);
+  background-color: #F3F3F3;
 }
 .input::placeholder{
   color: #2e2e2e7c;
@@ -168,7 +169,6 @@
 @media only screen and (min-width: 480px) {
   .page_container{
     background-color:#ffffff;
-    background-color: #89baff2b;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -181,7 +181,7 @@
     overflow: hidden;
     position: relative;
     width:420px;
-    border-radius: 15px;
+    border-radius: 30px;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   }
   .blueBack{
