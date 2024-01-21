@@ -106,7 +106,6 @@ const Register = () => {
         
         <form className={styles.form} onSubmit={handleSubmit}>
 
-          {/* <labell className={styles.welcome_label}>ברוכים הבאים ל - shift planner</labell> */}
           <label className={styles.space_margin}></label>
 
           <div className={styles.input_label_div}>
