@@ -88,6 +88,7 @@
   font-weight: 500;
   padding: 0px;
   border-bottom: 2px solid white;
+  cursor: pointer;
 }
 
 .register_label{
@@ -167,6 +168,7 @@
 @media only screen and (min-width: 480px) {
   .page_container{
     background-color:#ffffff;
+    background-color: #89baff2b;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -174,6 +176,7 @@
     align-items: center;
   }
   .container{
+    background-color:#ffffff;
     margin-top: 70px;
     overflow: hidden;
     position: relative;
