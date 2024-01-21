@@ -159,7 +159,7 @@ const Register = () => {
             <label onClick={() => navigate('/')} className={styles.login_btn}>לחצו כאן</label>
           </div>
 
-          {/* <div className={styles.logo}></div> */}
+          <div className={styles.logo}></div>
           
         </form>
 
