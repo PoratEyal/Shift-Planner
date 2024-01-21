@@ -6,7 +6,6 @@ import styles from '../publics/register.module.css';
 import { BiSolidShow, BiSolidHide } from "react-icons/bi";
 import Swal from 'sweetalert2';
 
-
 const Register = () => {
   const [username, setUsername] = useState("");
   const [usernameVal, setUsernameVal] = useState(false)
@@ -101,10 +100,14 @@ const Register = () => {
 
   return <div className={styles.page_container}>
       <div className={styles.container}>
+
+        <img className={styles.password_time_svg} src="circels.svg" />
+        <img className={styles.lock_svg} src="lock.svg" />
         
         <form className={styles.form} onSubmit={handleSubmit}>
-          
-          <div className={styles.logo}></div>
+
+          {/* <labell className={styles.welcome_label}>ברוכים הבאים ל - shift planner</labell> */}
+          <label className={styles.space_margin}></label>
 
           <div className={styles.input_label_div}>
             <input type="text" placeholder='שם מלא' autoComplete="fullname" className={styles.input} onChange={(e) => handleFullnameChange(e.target.value)} />
@@ -155,11 +158,11 @@ const Register = () => {
             <label>להתחברות</label>
             <label onClick={() => navigate('/')} className={styles.login_btn}>לחצו כאן</label>
           </div>
+
+          {/* <div className={styles.logo}></div> */}
           
         </form>
 
-
-        
       </div>
     </div>
 };

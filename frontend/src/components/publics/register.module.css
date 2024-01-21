@@ -5,11 +5,43 @@
   height: 100dvh;
 }
 
+.container{
+  background-color:#5790FF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.lock_svg{
+  margin-top: -150px;
+  margin-right: 40px;
+  height: 180px;
+}
+
 .form {
+  border: none;
+  margin-top: 30px;
+  z-index: 34;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: white;
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
+  width: 100%;
+}
+
+.space_margin{
+  margin-top: 35px;
+}
+
+.welcome_label{
+  margin-top: 30px;
+  direction: rtl;
+  margin-bottom: 20px;
 }
 
 .logo{
@@ -17,17 +49,17 @@
   background-image: url('../../../public/fullLogo.png');
   background-repeat: no-repeat;
   background-size:cover;
-  width: 370px;
-  height: 125px;
-  margin-bottom: 35px;
+  height: 70px;
+  width: 230px;
+  margin-bottom: 20px;
 }
 
 /* buttons - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .btn {
   z-index: 1;
-  margin-top:40px;
-  padding: 17px;
-  font-size: 1.95rem;
+  margin-top: 5px;
+  padding: 10px;
+  font-size: 28px;
   font-weight: 600;
   text-align: center;
   border-radius: 40px;
@@ -35,7 +67,7 @@
   color: #ffffff;
   transition: 0.3s;
   cursor: pointer;
-  width: 260px;
+  width: 280px;
   background-color: #648ef8;
   font-family: 'Rubik', sans-serif;
   margin-bottom: 10px;
@@ -99,15 +131,16 @@
 
 .input{
   direction: rtl;
-  font-size: 26px;
-  margin-bottom: 40px;
-  padding: 13px;
-  width: 300px;
+  font-size: 20px;
+  margin-bottom: 30px;
+  padding: 11px;
+  width: 250px;
   border-radius: 25px;
-  border: 3px solid rgba(183, 183, 183, 0.243);
+  border: none;
   font-family: 'Rubik', sans-serif;
   color: rgb(70, 70, 70);
   position: relative;
+  background-color: #F3F3F3;
 }
 .input::placeholder{
   color: #2e2e2e7c;
@@ -118,28 +151,28 @@
   position: absolute;
   color: rgb(242, 65, 65);
   font-family: 'Rubik', sans-serif;
-  margin-top: 50px;
+  margin-top: 45px;
   font-size: 19px;
 }
 .validation_email{
   position: absolute;
   color: rgb(242, 65, 65);
   font-family: 'Rubik', sans-serif;
-  margin-top: 50px;
+  margin-top: 45px;
   font-size: 19px;
 }
 .validation_username{
   position: absolute;
   color: rgb(242, 65, 65);
   font-family: 'Rubik', sans-serif;
-  margin-top: 50px;
+  margin-top: 45px;
   font-size: 19px;
 }
 .validation_password{
   position: absolute;
   color: rgb(242, 65, 65);
   font-family: 'Rubik', sans-serif;
-  margin-top: 50px;
+  margin-top: 45px;
   font-size: 19px;
 }
 
@@ -152,7 +185,7 @@
   100% { transform: translateY(0); } 
 }
 /* - - - - - - - - - - - - - -  for desktop - - - - - - - - - - - - - -  */
-@media only screen and (min-width: 480px) {
+/* @media only screen and (min-width: 480px) {
   .page_container {
     background-color: #89baff2b;
     width: 100vw;
@@ -189,32 +222,5 @@
     margin-bottom: 30px;
     animation: slideUpRegisterBtn 1s forwards;
   }
-}
+} */
 
-
-@media only screen and (max-width: 383px) {
-  .logo{
-    width: 350px;
-    height: 110px;
-  }
-  .input {
-    width: 280px;
-    font-size: 22px;
-  }
-}
-
-@media only screen and (max-height: 750px) {
-  .logo{
-    width: 350px;
-    height: 110px;
-    margin-bottom: 20px;
-  }
-  .input {
-    width: 280px;
-    font-size: 20px;
-    padding: 10px;
-  }
-  .btn{
-    margin-top: 10px;
-  }
-}
