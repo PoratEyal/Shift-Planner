@@ -103,6 +103,7 @@ const Register = () => {
       <div className={styles.container}>
         
         <form className={styles.form} onSubmit={handleSubmit}>
+          
           <div className={styles.logo}></div>
 
           <div className={styles.input_label_div}>
@@ -154,8 +155,7 @@ const Register = () => {
             <label>להתחברות</label>
             <label onClick={() => navigate('/')} className={styles.login_btn}>לחצו כאן</label>
           </div>
-
-          <div className={styles.blueBack}></div>
+          
         </form>
 
 
