@@ -101,12 +101,8 @@ const Register = () => {
   return <div className={styles.page_container}>
       <div className={styles.container}>
 
-        <img className={styles.password_time_svg} src="circels.svg" />
-        <LazyLoadImage
-          src='lock.svg'
-          className={styles.lock_svg}
-          alt="Lock Icon"
-        />
+        <img className={styles.password_time_svg} src="circle2.svg" />
+        <img className={styles.logo} src="whiteLogo.png" />
         
         <form className={styles.form} onSubmit={handleSubmit}>
 
