@@ -13,6 +13,15 @@
   width: 100%;
 }
 
+.logo{
+  margin-right: 0px;
+  background-image: url('../../../public/fullLogo.png');
+  background-repeat: no-repeat;
+  background-size:cover;
+  position: absolute;
+  top: -5px;
+}
+
 .lock_svg{
   margin-top: -150px;
   margin-right: 40px;
