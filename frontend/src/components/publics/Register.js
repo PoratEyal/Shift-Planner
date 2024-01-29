@@ -101,12 +101,12 @@ const Register = () => {
   return <div className={styles.page_container}>
       <div className={styles.container}>
 
-        <img className={styles.password_time_svg} src="circle2.svg" />
-        <img className={styles.logo} src="whiteLogo.png" />
+        <img className={styles.password_time_svg} src="circels.svg" />
+        <img className={styles.lock} src="lock.svg" />
         
         <form className={styles.form} onSubmit={handleSubmit}>
 
-          <label className={styles.space_margin}>ברוכים הבאים ל shift planner</label>
+          <label className={styles.space_margin}></label>
 
           <div className={styles.input_label_div}>
             <input type="text" placeholder='שם מלא' autoComplete="fullname" className={styles.input} onChange={(e) => handleFullnameChange(e.target.value)} />

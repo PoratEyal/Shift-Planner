@@ -13,11 +13,12 @@
   width: 100%;
 }
 
-.logo{
-  height: 120px;
-  width: 340px;
+.lock{
+  height: 200px;
+  width: 215px;
   position: absolute;
-  top: 0;
+  top: 20px;
+  margin-right: 40px;
 }
 
 .password_time_svg{
@@ -26,26 +27,21 @@
 
 .form {
   border: none;
-  margin-top: 30px;
+  margin-top: 90px;
   z-index: 34;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: white;
-  border-top-left-radius: 80px;
-  border-top-right-radius: 80px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
   width: 100%;
   margin-bottom: -5px;
 }
 
 .space_margin{
   margin-top: 30px;
-  margin-bottom: 30px;
-  direction: rtl;
-  font-size: 20px;
-  color: #4d70c9d1;
-  font-weight: 500;
 }
 
 /* buttons - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -207,10 +203,10 @@
     border-top-left-radius: 75px;
     border-radius: 40px;
   }
-  .logo{
-    top: 110px;
-    width: 350px;
-    height: 130px;
+  .lock{
+    top: 120px;
+    width: 220px;
+    height: 220px;
   }
 }
 
