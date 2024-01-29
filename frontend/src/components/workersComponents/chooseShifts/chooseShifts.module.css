@@ -69,7 +69,7 @@
     width: 310px;
     padding: 15px;
     animation: downToUp 1s ease-in-out;
-    background-color: rgb(105, 199, 93);
+    background-color: rgb(118, 210, 106);
     font-family: 'Rubik', sans-serif;
 }
 
@@ -477,7 +477,7 @@
 
 .btn_chosen{
     margin: 15px;
-    background-color: rgba(31, 181, 17, 0.684);
+    background-color: rgb(118, 210, 106);
     color: white;
     border: none;
     border-radius: 5px;

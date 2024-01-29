@@ -42,7 +42,7 @@
     margin-bottom: 10px;
     margin-top: 10px;
     width: 80%;
-    border: 3px solid rgba(157, 157, 157, 0.25);
+    border: 1px solid rgba(157, 157, 157, 0.25);
     direction: rtl;
     font-family: 'Rubik', sans-serif;
 }
