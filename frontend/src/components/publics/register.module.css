@@ -14,6 +14,15 @@
 }
 
 .logo{
+  margin-right: 0px;
+  background-image: url('../../../public/fullLogo.png');
+  background-repeat: no-repeat;
+  background-size:cover;
+  position: absolute;
+  top: -5px;
+}
+
+.logo{
   height: 110px;
   width: 300px;
   position: absolute;

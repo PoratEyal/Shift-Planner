@@ -47,9 +47,14 @@ Note: Only the manager has the ability to create and delete users and roles, cre
 If you have any questions or inquiries, feel free to contact Eyal porat at eyal1.porat@gmail.com and Edi Grunseid at edgru99@gmail.com.
 
 
-## Pictures
-![Screenshot 2024-01-18 094952](https://github.com/PoratEyal/Shift-Planner/assets/134833213/ae4228ff-594d-4c61-a097-389d8b5b292f)
-![Screenshot 2024-01-18 095010](https://github.com/PoratEyal/Shift-Planner/assets/134833213/edf481f3-0f33-49a7-a6ce-261feba00b0b)
+## User Picture
+![Screenshot 2024-01-28 150910](https://github.com/PoratEyal/Shift-Planner/assets/134833213/80fe1437-5d00-452e-87b0-aa15a4768b65)
+
+## Manager Pictures
+![Screenshot 2024-01-28 151331](https://github.com/PoratEyal/Shift-Planner/assets/134833213/46d17a20-022a-4828-ab0d-86e683d00ade)
+![Screenshot 2024-01-28 151122](https://github.com/PoratEyal/Shift-Planner/assets/134833213/da841964-530d-490b-8c15-dc3bd966a243)
+![Screenshot 2024-01-28 151038](https://github.com/PoratEyal/Shift-Planner/assets/134833213/7bf9fab2-4ed2-4e97-8b8d-4ba60a9f7084)
+![Screenshot 2024-01-28 150833](https://github.com/PoratEyal/Shift-Planner/assets/134833213/a9d03771-c81b-4ce2-9742-92692054a679)
 
 ## Videos
 https://github.com/PoratEyal/Shift-Planner/assets/134833213/09b52cc0-1126-4c20-b528-532d7fe71f18
