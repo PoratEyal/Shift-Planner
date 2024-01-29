@@ -87,7 +87,7 @@ const Register = () => {
     setPassword(value);
     setPasswordVal(value.length < 5);
   };
-
+  
   const handleFullnameChange = (value) => {
     setFullname(value);
     setFullnameVal(value.length === 0);
@@ -106,7 +106,7 @@ const Register = () => {
         
         <form className={styles.form} onSubmit={handleSubmit}>
 
-          <label className={styles.space_margin}></label>
+          <label className={styles.space_margin}>ברוכים הבאים ל shift planner</label>
 
           <div className={styles.input_label_div}>
             <input type="text" placeholder='שם מלא' autoComplete="fullname" className={styles.input} onChange={(e) => handleFullnameChange(e.target.value)} />
