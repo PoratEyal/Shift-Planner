@@ -144,28 +144,28 @@
 
 .validation_fullname{
   position: absolute;
-  color: rgb(242, 65, 65);
+  color: rgba(242, 65, 65, 0.793);
   font-family: 'Rubik', sans-serif;
   margin-top: 45px;
   font-size: 18px;
 }
 .validation_email{
   position: absolute;
-  color: rgb(242, 65, 65);
+  color: rgba(242, 65, 65, 0.793);
   font-family: 'Rubik', sans-serif;
   margin-top: 45px;
   font-size: 18px;
 }
 .validation_username{
   position: absolute;
-  color: rgb(242, 65, 65);
+  color: rgba(242, 65, 65, 0.793);
   font-family: 'Rubik', sans-serif;
   margin-top: 45px;
   font-size: 18px;
 }
 .validation_password{
   position: absolute;
-  color: rgb(242, 65, 65);
+  color: rgba(242, 65, 65, 0.793);
   font-family: 'Rubik', sans-serif;
   margin-top: 45px;
   font-size: 18px;
@@ -188,7 +188,7 @@
 
 @media only screen and (min-width: 450px) {
   .page_container {
-    margin-top: 100px;
+    margin-top: 70px;
     border-radius: 40px;
     width: 100%;
     height: 100%;
@@ -203,10 +203,39 @@
     border-top-left-radius: 75px;
     border-radius: 40px;
   }
+  .space_margin{
+    margin-top: 10px;
+  }
+  .input{
+    padding: 15px;
+    width: 310px;
+
+  }
+  .btn{
+    margin-top: 20px;
+    width: 330px;
+    padding: 20px;
+  }
   .lock{
-    top: 120px;
+    top: 90px;
     width: 220px;
     height: 220px;
+  }
+  .validation_fullname{
+    font-size: 19px;
+    margin-bottom: -4px;
+  }
+  .validation_password{
+    font-size: 19px;
+    margin-bottom: -4px;
+  }
+  .validation_username{
+    font-size: 19px;
+    margin-bottom: -4px;
+  }
+  .validation_email{
+    font-size: 19px;
+    margin-bottom: -4px;
   }
 }
 
