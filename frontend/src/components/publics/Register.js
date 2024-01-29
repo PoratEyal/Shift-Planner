@@ -5,7 +5,6 @@ import Roles from './Roles';
 import styles from '../publics/register.module.css';
 import { BiSolidShow, BiSolidHide } from "react-icons/bi";
 import Swal from 'sweetalert2';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -102,12 +101,8 @@ const Register = () => {
   return <div className={styles.page_container}>
       <div className={styles.container}>
 
-        <img className={styles.password_time_svg} src="circels.svg" />
-        <LazyLoadImage
-          src='lock.svg'
-          className={styles.lock_svg}
-          alt="Lock Icon"
-        />
+        <img className={styles.password_time_svg} src="circle2.svg" />
+        <img className={styles.logo} src="whiteLogo.png" />
         
         <form className={styles.form} onSubmit={handleSubmit}>
 
@@ -162,8 +157,6 @@ const Register = () => {
             <label>להתחברות</label>
             <label onClick={() => navigate('/')} className={styles.login_btn}>לחצו כאן</label>
           </div>
-
-          {/* <div className={styles.logo}></div> */}
           
         </form>
 

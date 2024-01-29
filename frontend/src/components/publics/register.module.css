@@ -13,15 +13,16 @@
   width: 100%;
 }
 
-.lock_svg{
-  margin-top: -150px;
-  margin-right: 40px;
-  height: 180px;
-  animation: vibrationLock 1s cubic-bezier(0.42, 0, 0.58, 1) 1;
+.logo{
+  height: 110px;
+  width: 300px;
+  position: absolute;
+  top: 15px;
 }
 
 .password_time_svg{
   width: 100%;
+  margin-top: -20px;
 }
 
 .form {
@@ -41,16 +42,6 @@
 
 .space_margin{
   margin-top: 30px;
-}
-
-.logo{
-  margin-top: 20px;
-  background-image: url('../../../public/fullLogo.png');
-  background-repeat: no-repeat;
-  background-size:cover;
-  height: 60px;
-  width: 200px;
-  margin-bottom: 10px;
 }
 
 /* buttons - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -192,17 +183,6 @@
   0% { transform: translateY(-300px); }
   100% { transform: translateY(0); } 
 }
-@keyframes vibrationLock {
-  0%, 100% {
-    transform: translateX(0) rotate(0deg);
-  }
-  25%, 75% {
-    transform: translateX(-5px) rotate(-5deg);
-  }
-  50% {
-    transform: translateX(5px) rotate(5deg);
-  }
-}
 
 /* - - - - - - - - - - - - - -  for desktop - - - - - - - - - - - - - -  */
 
@@ -222,6 +202,11 @@
     border-top-right-radius: 75px;
     border-top-left-radius: 75px;
     border-radius: 40px;
+  }
+  .logo{
+    top: 120px;
+    width: 350px;
+    height: 130px;
   }
 }
 
