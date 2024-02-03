@@ -102,7 +102,10 @@ const Register = () => {
       <div className={styles.container}>
 
         <img className={styles.password_time_svg} src="circels.svg" />
-        <img className={styles.lock} src="lock.svg" />
+        <div className={styles.lock}>
+          <img src="lock.svg" />
+        </div>
+
         
         <form className={styles.form} onSubmit={handleSubmit}>
 
