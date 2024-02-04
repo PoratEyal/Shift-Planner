@@ -13,12 +13,13 @@
   width: 100%;
 }
 
-.lock{
+.lock {
   height: 200px;
   width: 215px;
   position: absolute;
   top: 20px;
   margin-right: 40px;
+  background-color: #f0f0f000;
 }
 
 .password_time_svg{
@@ -190,8 +191,8 @@
   .page_container {
     margin-top: 70px;
     border-radius: 40px;
-    width: 100%;
-    height: 100%;
+    width: 420px;
+    height: 700px;
   }
   .container{
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
