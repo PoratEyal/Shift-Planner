@@ -101,9 +101,7 @@ const Register = () => {
   return <div className={styles.page_container}>
       <div className={styles.container}>
 
-        <div className={styles.password_time_svg}>
-          <img className={styles.password_time_svg} src="circels.svg" />
-        </div>
+        <img className={styles.password_time_svg} src="circels.svg" />
 
         <div className={styles.lock}>
           <img src="lock.svg" />
