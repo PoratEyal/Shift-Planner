@@ -104,7 +104,7 @@ const Register = () => {
         <img className={styles.password_time_svg} src="circels.svg" />
 
         <div className={styles.lock}>
-          <img src="locker.gif" />
+          <img src="lock.svg" />
         </div>
 
         
