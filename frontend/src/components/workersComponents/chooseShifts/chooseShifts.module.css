@@ -795,3 +795,67 @@
         width: 320px;
     }
 }
+
+
+
+
+/* - - - - - - - - - - - - - - - expend icon animation - - - - - - - - - - - -  */
+
+/*------ Settings ------*/
+.icon_container {
+    --color: #287fcce2;
+    --size: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    font-size: var(--size);
+    user-select: none;
+    fill: var(--color);
+    margin-right: 15px;
+    margin-bottom: 2px;
+  }
+  
+  .icon_container .chevron_down {
+    position: absolute;
+    animation: keyframes-return .5s;
+  }
+  
+  /* ------ On check event ------ */
+  .icon_container input:checked ~ .chevron_down {
+    animation: keyframes-rotate .5s;
+    transform: rotate(180deg);
+  }
+  
+  /* ------ Hide the default checkbox ------ */
+  .icon_container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* ------ Animation ------ */
+  @keyframes keyframes-rotate {
+    0% {
+      transform: rotate(0deg);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: rotate(-180deg);
+    }
+  }
+  
+  @keyframes keyframes-return {
+    0% {
+      transform: rotate(-180deg);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: rotate(0deg);
+    }
+  }
