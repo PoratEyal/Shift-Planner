@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import styles from './currentWeekUser.module.css';
 import WorkersCurrentWeek from "./WorkersCurrentWeek";
 import moment from "moment";
-import { FcPrevious } from "react-icons/fc";
-import { FcExpand } from "react-icons/fc";
 
 const CurrentShiftUser = (props) => {
 

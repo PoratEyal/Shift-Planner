@@ -1,15 +1,16 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../userSettings/UserSetings.module.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import PageLayoutWorker from './/..//..//layout/PageLayoutWorker';
+import RedAlert from '../../alerts/redAlert/RedAlert';
 import Swal from 'sweetalert2';
 
 const UserSettings = () => {
-
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [validationMessage, setValidationMessage] = useState(false)
   const userData = JSON.parse(localStorage.getItem('user'));
 
   const changeUser = async () => {
@@ -37,7 +38,6 @@ const UserSettings = () => {
       await axios.put(`${process.env.REACT_APP_URL}/editUser`, updatedUser)
         .then(() => {
           setPassword('');
-
           localStorage.clear();
           navigate('/');
         })
@@ -45,52 +45,55 @@ const UserSettings = () => {
           console.error('An error occurred:', error);
         });
     } else {
-      Swal.fire({
-        title: 'יש למלא את כל השדות',
-        text: "",
-        icon: 'warning',
-        confirmButtonColor: '#34a0ff',
-        confirmButtonText: 'סגירה'
-      });
+      setValidationMessage(true);
+      // Set validationMessage back to false after 5 seconds
+      setTimeout(() => {
+        setValidationMessage(false);
+      }, 5000);
       return;
     }
   };
 
-  return <PageLayoutWorker text='עדכון פרטי משתמש'>
-    <div className={styles.container}>
-      <h2 className={styles.h2}>הזינו פרטי משתמש חדשים</h2>
+  return (
+    <PageLayoutWorker text='עדכון פרטי משתמש'>
+      <div className={styles.container}>
+        <h2 className={styles.h2}>הזינו פרטי משתמש חדשים</h2>
 
-      <input
-        className={styles.input}
-        placeholder="שם משתמש באנגלית בלבד"
-        value={username}
-        onChange={(e) => {
-          const inputUsername = e.target.value;
-          const alphanumericRegex = /^[a-zA-Z0-9]*$/;
-          if (alphanumericRegex.test(inputUsername)) {
-            setUsername(inputUsername);
-          }
-        }}
-      />
+        <input
+          className={styles.input}
+          placeholder="שם משתמש באנגלית בלבד"
+          value={username}
+          onChange={(e) => {
+            const inputUsername = e.target.value;
+            const alphanumericRegex = /^[a-zA-Z0-9]*$/;
+            if (alphanumericRegex.test(inputUsername)) {
+              setUsername(inputUsername);
+            }
+          }}
+        />
 
-      <input
-        type='password'
-        className={styles.input}
-        placeholder="סיסמה בעלת 5 תווים לפחות"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        minLength={5}
-        required
-      />
+        <input
+          type='password'
+          className={styles.input}
+          placeholder="סיסמה בעלת 5 תווים לפחות"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          minLength={5}
+          required
+        />
 
-      <button onClick={changeUser} className={styles.btn}>
-        אישור
-      </button>
+        <button onClick={changeUser} className={styles.btn}>
+          אישור
+        </button>
 
-      <img className={styles.password_time_svg} src="password.svg" alt="Icon" />
-    </div>
-  </PageLayoutWorker>
+        <img className={styles.password_time_svg} src="password.svg" alt="Icon" />
+      </div>
 
+      <div className={styles.alert}>
+        {validationMessage && <RedAlert text='יש למלא את כל השדות'></RedAlert>}
+      </div>
+    </PageLayoutWorker>
+  );
 };
 
 export default UserSettings;

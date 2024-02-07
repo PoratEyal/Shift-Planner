@@ -91,6 +91,15 @@ transform: scale(1.02);
     height: 320px;
     animation: downToUp 1.5s ease-in-out;
 }
+
+.alert{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+}
+
 @keyframes downToUp {
     0% {
         transform: translateY(50px);
