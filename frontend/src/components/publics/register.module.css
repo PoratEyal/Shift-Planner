@@ -19,11 +19,31 @@
   position: absolute;
   top: 25px;
   margin-right: 50px;
-  background-color: #f0f0f000;
+  animation: slideLock 1s forwards; 
+}
+
+@keyframes slideLock {
+  0% {
+    top: -200px; /* start position above the screen */
+  }
+  100% {
+    top: 25px; /* final position */
+  }
 }
 
 .password_time_svg{
   width: 100%;
+  animation: slideDownCircle 1.5s forwards;
+}
+@keyframes slideDownCircle {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .form {
@@ -222,7 +242,9 @@
     top: 110px;
     width: 220px;
     height: 220px;
+    animation: none;
   }
+  
   .validation_fullname{
     font-size: 19px;
     margin-bottom: -10px;
