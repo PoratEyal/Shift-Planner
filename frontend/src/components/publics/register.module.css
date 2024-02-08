@@ -39,6 +39,7 @@
   border-top-right-radius: 50px;
   width: 100%;
   margin-bottom: -5px;
+  position: relative;
 }
 
 .space_margin{
@@ -61,7 +62,7 @@
   width: 280px;
   background-color: #648ef8;
   font-family: 'Rubik', sans-serif;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 .btn:hover {
   color: #e3ebff;
@@ -104,7 +105,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .show_password{
@@ -147,29 +148,29 @@
   position: absolute;
   color: rgba(242, 65, 65, 0.793);
   font-family: 'Rubik', sans-serif;
-  margin-top: 45px;
-  font-size: 18px;
+  margin-top: 38px;
+  font-size: 17px;
 }
 .validation_email{
   position: absolute;
   color: rgba(242, 65, 65, 0.793);
   font-family: 'Rubik', sans-serif;
-  margin-top: 45px;
-  font-size: 18px;
+  margin-top: 38px;
+  font-size: 17px;
 }
 .validation_username{
   position: absolute;
   color: rgba(242, 65, 65, 0.793);
   font-family: 'Rubik', sans-serif;
-  margin-top: 45px;
-  font-size: 18px;
+  margin-top: 38px;
+  font-size: 17px;
 }
 .validation_password{
   position: absolute;
   color: rgba(242, 65, 65, 0.793);
   font-family: 'Rubik', sans-serif;
-  margin-top: 45px;
-  font-size: 18px;
+  margin-top: 38px;
+  font-size: 17px;
 }
 
 
@@ -240,7 +241,7 @@
   }
 }
 
-@media only screen and (max-height: 764px) and (min-height: 700px){
+@media only screen and (max-height: 784px) and (min-height: 720px){
   .input{
     font-size: 21px;
     padding: 12px;
@@ -254,7 +255,7 @@
   }
 }
 
-@media only screen and (min-height: 765px) and (max-width: 440px){
+@media only screen and (min-height: 785px) and (max-width: 440px){
   .input{
     margin-bottom: 40px;
     font-size: 22px;
