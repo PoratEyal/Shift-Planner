@@ -225,19 +225,19 @@
   }
   .validation_fullname{
     font-size: 19px;
-    margin-bottom: -4px;
+    margin-bottom: -10px;
   }
   .validation_password{
     font-size: 19px;
-    margin-bottom: -4px;
+    margin-bottom: -10px;
   }
   .validation_username{
     font-size: 19px;
-    margin-bottom: -4px;
+    margin-bottom: -10px;
   }
   .validation_email{
     font-size: 19px;
-    margin-bottom: -4px;
+    margin-bottom: -10px;
   }
 }
 
