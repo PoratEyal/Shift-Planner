@@ -110,11 +110,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     width: 260px;
-    max-width: 300px;
+    max-width: 320px;
 }
 .description_label{
-    margin-right: 25px;
-
+    margin-right: 20px;
 }
 
 .under_icon{
@@ -356,8 +355,7 @@
     font-size: var(--size);
     user-select: none;
     fill: var(--color);
-    margin-right: 25px;
-    margin-bottom: 2px;
+    margin-right: 20px;
   }
   
   .icon_container .chevron_down {

@@ -474,7 +474,6 @@ transform: scale(1.02);
     user-select: none;
     fill: var(--color);
     margin-right: 25px;
-    margin-bottom: 2px;
   }
   
   .icon_container .chevron_down {
