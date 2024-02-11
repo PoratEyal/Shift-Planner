@@ -295,12 +295,15 @@
 
 .shift_data_published{
     margin: 12px;
+    margin-right: 5px;
     display: flex;
     flex-direction: row;
     direction: rtl;
-    gap: 10px;
     width: 300px;
     text-align: right;
+}
+.description_label{
+    margin-right: 25px;
 }
 
 
@@ -803,7 +806,7 @@
 
 /*------ Settings ------*/
 .icon_container {
-    --color: #287fcce2;
+    --color: #287fcc6a;
     --size: 23px;
     display: flex;
     justify-content: center;
@@ -814,7 +817,6 @@
     user-select: none;
     fill: var(--color);
     margin-right: 15px;
-    margin-bottom: 2px;
   }
   
   .icon_container .chevron_down {

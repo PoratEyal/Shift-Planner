@@ -214,12 +214,15 @@ transform: scale(1.02);
 
 .shift_name{
     margin: 10px;
-    margin-right: 0px;
+    margin-right: -10px;
     display: flex;
     flex-direction: row;
     align-items: center;
     text-align: right;
     direction: rtl;
+}
+.description_label{
+    margin-right: 20px;
 }
 
 .under_icon{
@@ -460,7 +463,7 @@ transform: scale(1.02);
 
 /*------ Settings ------*/
 .icon_container {
-    --color: #287fcce2;
+    --color: #287fcc6a;
     --size: 23px;
     display: flex;
     justify-content: center;
