@@ -101,7 +101,6 @@
 }
 
 .shift_description{
-    margin-right: 7px;
     font-size: 19px;
     margin-bottom: 5px;
     display: flex;
@@ -113,6 +112,11 @@
     width: 260px;
     max-width: 300px;
 }
+.description_label{
+    margin-right: 25px;
+
+}
+
 .under_icon{
     margin-right: 10px;
     font-size: 23px;
