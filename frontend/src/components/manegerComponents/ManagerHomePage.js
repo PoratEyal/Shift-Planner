@@ -74,6 +74,7 @@ const ManagerHomePage = () => {
 
                 <Link className={styles.link} to="/SeeCurrentWeekShifts">
                     <button className={styles.btn}>
+                        <div className={styles.color1}></div>
                         <div className={styles.icon_div}>
                             <img className={styles.icon} src="shifts.svg" alt="Icon" />
                         </div>
@@ -85,6 +86,7 @@ const ManagerHomePage = () => {
 
                 <Link className={styles.link} to="/editCurrentWeek">
                     <button className={styles.btn}>
+                    <div className={styles.color2}></div>
                         <div className={styles.icon_div}>
                             <img className={styles.icon2} src="editsvg.svg" alt="Icon" />
                         </div>
@@ -99,9 +101,9 @@ const ManagerHomePage = () => {
 
                 <Link className={styles.link} to="/createNewWeek">
                     <button className={styles.btn}>
+                        <div className={styles.color3}></div>
                         <div className={styles.icon_div}>
                             <img className={styles.icon3} src="create.svg" alt="Icon" />
-                            {/* {<FcSurvey className={styles.icon1}></FcSurvey>} */}
                         </div>
                         <div className={styles.text_div}>
                             יצירת משמרות
@@ -111,9 +113,9 @@ const ManagerHomePage = () => {
 
                 <Link className={styles.link} to="/currentWeekShifts" onClick={handleClick}>
                     <button className={styles.btn}>
+                        <div className={styles.color4}></div>
                         <div className={styles.icon_div}>
-                        <img className={styles.icon4} src="addWorker.svg" alt="Icon" /> 
-                        {/* {<FcGoodDecision className={styles.icon2}></FcGoodDecision>} */}
+                            <img className={styles.icon4} src="addWorker.svg" alt="Icon" /> 
                         </div>
                         <div className={styles.text_div}>שיבוץ עובדים</div>
                     </button>
