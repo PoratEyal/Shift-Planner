@@ -67,6 +67,7 @@ const ManagerHomePage = () => {
 
     return <ManagerContext.Provider value={{getUser}}>
         <PageLayout text={`שלום ${fullname}`} noAnimation={true}>
+            
             <div className={styles.container}>
 
                 <label className={styles.week_text}>שבוע נוכחי</label>
@@ -86,7 +87,6 @@ const ManagerHomePage = () => {
                     <button className={styles.btn}>
                         <div className={styles.icon_div}>
                             <img className={styles.icon2} src="editsvg.svg" alt="Icon" />
-                            {/* {<FcLeave className={styles.icon2}></FcLeave>}  */}
                         </div>
                         <div className={styles.text_div}>
                             עדכון סידור <br></br>העבודה  
