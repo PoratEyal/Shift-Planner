@@ -50,7 +50,7 @@ const Register = () => {
       setEmail("");
     }  
 
-    if(usernameVal && passwordVal && fullnameVal && emailVal){
+    if(!usernameVal && !passwordVal && !fullnameVal && !emailVal){
       const userRegister = {
         fullName: fullname,
         username: username,
@@ -87,15 +87,15 @@ const Register = () => {
     setPassword(value);
     setPasswordVal(value.length < 5);
   };
-  
-  const handleFullnameChange = (value) => {
-    setFullname(value);
-    setFullnameVal(value.length === 0);
-  };
 
   const handleEmailChange = (value) => {
     setEmail(value);
     setEmailVal(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
+  };
+
+  const handleFullnameChange = (value) => {
+    setFullname(value);
+    setFullnameVal(value.length === 0);
   };
 
   return <div className={styles.page_container}>
@@ -108,7 +108,7 @@ const Register = () => {
         </div>
 
         
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
 
           <label className={styles.space_margin}></label>
 
