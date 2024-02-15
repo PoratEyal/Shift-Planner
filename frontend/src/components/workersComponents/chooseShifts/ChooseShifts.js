@@ -35,7 +35,7 @@ const ChooseShifts = () => {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setShowMessage(false);
-        }, 7000);
+        }, 12000);
         return () => clearTimeout(timeout); // Clear the timeout on component unmount
     }, []);
 

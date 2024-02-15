@@ -3,8 +3,6 @@ import styles from './chooseShifts.module.css';
 import axios from 'axios';
 import WorkerList from '../CurrentWeek_user/WorkersCurrentWeek';
 import moment from "moment";
-import { FcPrevious } from "react-icons/fc";
-import { FcExpand } from "react-icons/fc";
 
 const UserShift = (props) => {
 

@@ -287,20 +287,9 @@
     direction: rtl;
     display: flex;
     flex-direction: column;
-    border-top: 1px solid rgba(101, 101, 101, 0.245);
     width: 100%;
     overflow: hidden;
 }
-.workers_showList p{
-    margin: 8px;
-    margin-right: 15px;
-}
-
-.loadingWorkers{
-    margin: 15px;
-    margin-left: 120px;
-}
-
 
 /* - - - - - - - - - - - when user see the shifts after they published - - - - - - - -  */
 
@@ -315,13 +304,6 @@
 }
 .description_label{
     margin-right: 25px;
-}
-
-.workers_list_delete{
-    border-top: 1px solid rgba(101, 101, 101, 0.245);
-    width: 100%;
-    display: flex;
-    flex-direction: column;
 }
 
 .all_data_div{
@@ -382,19 +364,6 @@
     border: none;
     border-radius: 5px;
     padding: 9px;
-}
-
-.btn_chosen{
-    margin: 15px;
-    background-color: rgb(118, 210, 106);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 9px;
-}
-
-.loadingWorkers_manger_page{
-    margin: 15px;
 }
 
 .publish_div{
@@ -530,24 +499,32 @@
 }
 
  /* - - - - - - loading animation - - - - - - - - -  */
+
+ .animation_container{
+    width: 300px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    background-color: #84D65A; 
+ }
+
  .three-body {
     --uib-size: 35px;
     --uib-speed: 0.8s;
     --uib-color: var(--main-color);
-    margin-left: 50%;
     display: inline-block;
     height: var(--uib-size);
     width: var(--uib-size);
     animation: spin78236 calc(var(--uib-speed) * 2.5) infinite linear;
-   }
-   
-   .three-body__dot {
+}
+
+.three-body__dot {
     position: absolute;
     height: 100%;
     width: 30%;
-   }
-   
-   .three-body__dot:after {
+}
+
+.three-body__dot:after {
     content: '';
     position: absolute;
     height: 0%;
@@ -555,83 +532,83 @@
     padding-bottom: 100%;
     background-color: var(--uib-color);
     border-radius: 50%;
-   }
-   
-   .three-body__dot:nth-child(1) {
+}
+
+.three-body__dot:nth-child(1) {
     bottom: 5%;
     left: 0;
     transform: rotate(60deg);
     transform-origin: 50% 85%;
-   }
-   
-   .three-body__dot:nth-child(1)::after {
+}
+
+.three-body__dot:nth-child(1)::after {
     bottom: 0;
     left: 0;
     animation: wobble1 var(--uib-speed) infinite ease-in-out;
     animation-delay: calc(var(--uib-speed) * -0.3);
-   }
-   
-   .three-body__dot:nth-child(2) {
+}
+
+.three-body__dot:nth-child(2) {
     bottom: 5%;
     right: 0;
     transform: rotate(-60deg);
     transform-origin: 50% 85%;
-   }
-   
-   .three-body__dot:nth-child(2)::after {
+}
+
+.three-body__dot:nth-child(2)::after {
     bottom: 0;
     left: 0;
-    animation: wobble1 var(--uib-speed) infinite
-       calc(var(--uib-speed) * -0.15) ease-in-out;
-   }
-   
-   .three-body__dot:nth-child(3) {
+    animation: wobble1 var(--uib-speed) infinite calc(var(--uib-speed) * -0.15) ease-in-out;
+}
+
+.three-body__dot:nth-child(3) {
     bottom: -5%;
     left: 0;
     transform: translateX(116.666%);
-   }
-   
-   .three-body__dot:nth-child(3)::after {
+}
+
+.three-body__dot:nth-child(3)::after {
     top: 0;
     left: 0;
     animation: wobble2 var(--uib-speed) infinite ease-in-out;
-   }
-   
-   @keyframes spin78236 {
+}
+
+@keyframes spin78236 {
     0% {
-     transform: rotate(0deg);
+        transform: rotate(0deg);
     }
-   
+
     100% {
-     transform: rotate(360deg);
-    }
-   }
-   
-   @keyframes wobble1 {
-    0%,
-     100% {
-     transform: translateY(0%) scale(1);
-     opacity: 1;
-    }
-   
-    50% {
-     transform: translateY(-66%) scale(0.65);
-     opacity: 0.8;
-    }
-   }
-   
-   @keyframes wobble2 {
-    0%,
-     100% {
-     transform: translateY(0%) scale(1);
-     opacity: 1;
-    }
-   
-    50% {
-     transform: translateY(66%) scale(0.65);
-     opacity: 0.8;
+        transform: rotate(360deg);
     }
 }
+
+@keyframes wobble1 {
+    0%,
+    100% {
+        transform: translateY(0%) scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-66%) scale(0.65);
+        opacity: 0.8;
+    }
+}
+
+@keyframes wobble2 {
+    0%,
+    100% {
+        transform: translateY(0%) scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(66%) scale(0.65);
+        opacity: 0.8;
+    }
+}
+
 
 .swal2_title{
     font-size: 28px;
@@ -675,7 +652,7 @@
         margin-left: 10px;
     }
     .workers_showList{
-        width: 300px;
+        width: 320px;
     }
 }
 @media only screen and (min-width: 430px){
@@ -696,7 +673,7 @@
         margin-left: 10px;
     }
     .workers_showList{
-        width: 320px;
+        width: 330px;
     }
 }
 

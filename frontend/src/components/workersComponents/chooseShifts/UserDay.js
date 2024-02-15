@@ -3,6 +3,7 @@ import styles from './chooseShifts.module.css'
 import axios from 'axios'
 import UserShift from './UserShift';
 import moment from "moment";
+import  LoadingAnimation from '../../loadingAnimation/loadingAnimation'
 
 const UserDay = (props) => {
 
@@ -61,13 +62,9 @@ const UserDay = (props) => {
             </div>
 
             { 
-                loading ? (
-                    <div className={styles['three-body']}>
-                        <div className={styles['three-body__dot']}></div>
-                        <div className={styles['three-body__dot']}></div>
-                        <div className={styles['three-body__dot']}></div>
-                    </div>
-                ) : (
+                loading ? 
+                    <LoadingAnimation></LoadingAnimation>
+                : (
                 dayShifts?.length === 0 ? (
                     <div className={styles.no_shifts_message}>אין משמרות ליום זה</div>
                 ) : (    
