@@ -10,6 +10,7 @@ import messageContext from './messagesContext';
 import { FcAdvertising } from "react-icons/fc";
 import { FcInspection } from "react-icons/fc";
 import PageLayout from './/..//..//layout/PageLayout';
+import { FcApproval } from "react-icons/fc";
 
 const CurrentWeek = () => {
 
@@ -328,8 +329,8 @@ const CurrentWeek = () => {
                 {weekPublished === true ?
                     <div className={styles.published_div}>
                     <button visible='false'>
-                        <FcInspection className={styles.icon_publishd}></FcInspection>
-                        <label>השבוע פורסם</label>
+                        <FcApproval className={styles.icon_publishd}></FcApproval>
+                        <label>השבוע פורסם בהצלחה</label>
                     </button>
                 </div> : null}
 
