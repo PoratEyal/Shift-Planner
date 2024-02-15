@@ -3,6 +3,7 @@ import styles from '../CreateWeek/createWeek.module.css'
 import axios from 'axios'
 import ShiftCurrentWeek from '../CurrentWeek/ShiftCurrentWeek';
 import moment from "moment";
+import LoadingAnimation from '../../loadingAnimation/loadingAnimation'
 
 const EditDayCurrentWeek = (props) => {
 
@@ -76,13 +77,10 @@ const EditDayCurrentWeek = (props) => {
 
             <h2 className={styles.h2}>{day.name} - {moment(day.date).utc().format('DD.MM')}</h2>
             {
-                loading ? (
-                    <div className={styles['three-body']}>
-                        <div className={styles['three-body__dot']}></div>
-                        <div className={styles['three-body__dot']}></div>
-                        <div className={styles['three-body__dot']}></div>
-                    </div>
-                ) : (
+                loading ? 
+                <LoadingAnimation></LoadingAnimation>
+                 : 
+                (
                     (dayShifts?.length ?? 0) === 0 ? (
                         <div className={styles.no_shifts_messge}>אין משמרות ליום זה</div>
                       ) : (

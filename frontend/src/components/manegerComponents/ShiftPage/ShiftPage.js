@@ -5,6 +5,7 @@ import PageLayout from './/..//..//layout/PageLayout';
 import { useNavigate } from 'react-router-dom';
 import DefaultShift from "./DefaultShift";
 import Swal from 'sweetalert2';
+import LoadingAnimation from '../../loadingAnimation/loadingAnimation'
 
 const SettingsPage = (props) => {
 
@@ -80,13 +81,10 @@ const SettingsPage = (props) => {
 
     return <PageLayout text='משמרות'>
         <div className={styles.container}>
-            {!loading ? (
-            <div className={styles['three-body']}>
-                <div className={styles['three-body__dot']}></div>
-                <div className={styles['three-body__dot']}></div>
-                <div className={styles['three-body__dot']}></div>
-            </div>
-            ) : ( noShifts ? (
+            {!loading ? 
+                <LoadingAnimation></LoadingAnimation>
+            : 
+            ( noShifts ? (
                 <div className={styles.noShifts_div}>לא קיימות משמרות</div>
             ) : (
             <>

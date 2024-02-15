@@ -3,6 +3,7 @@ import styles from '../CreateWeek/createWeek.module.css'
 import axios from 'axios'
 import Shift from './CreateWeekShift';
 import moment from 'moment';
+import LoadingAnimation from '../../loadingAnimation/loadingAnimation';
 
 const CreateWeekDay = (props) => {
 
@@ -129,16 +130,13 @@ const CreateWeekDay = (props) => {
 
     return <div>
         <div className={styles.day_container}>
+            
             <h2 className={styles.h2}>{day.name} - {moment(day.date).utc().format('DD.MM')}</h2>
-            {
-                loading ? (
-                    <div className={styles['three-body']}>
-                        <div className={styles['three-body__dot']}></div>
-                        <div className={styles['three-body__dot']}></div>
-                        <div className={styles['three-body__dot']}></div>
-                    </div>
-                ) : (
-                    dayShifts.map((shift) => { return shift ? <Shift deleteShift={deleteShift} shift={shift} key={shift._id} managerId={props.managerId}></Shift> : null }))
+            
+            {loading ? 
+                <LoadingAnimation></LoadingAnimation>
+            : 
+                (dayShifts.map((shift) => { return shift ? <Shift deleteShift={deleteShift} shift={shift} key={shift._id} managerId={props.managerId}></Shift> : null }))
             }
 
             <div className={styles.specific_shift_div}>  

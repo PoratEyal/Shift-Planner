@@ -7,6 +7,7 @@ import { useContext } from 'react';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import Worker from './worker';
+import LoadingAnimation from '../../loadingAnimation/loadingAnimation';
 
 const Workers = () => {
 
@@ -141,13 +142,10 @@ const Workers = () => {
   return (
     <PageLayout text='עובדים'>
       <div className={styles.container}>
-        {!loading ? (
-          <div className={styles['three-body']}>
-            <div className={styles['three-body__dot']}></div>
-            <div className={styles['three-body__dot']}></div>
-            <div className={styles['three-body__dot']}></div>
-          </div>
-        ) : (
+        {!loading ? 
+        <LoadingAnimation></LoadingAnimation>
+        : 
+        (
           noWorkers ? (
             <div className={styles.noWorkers_div}>לא קיימים עובדים</div>
           ) : (

@@ -4,6 +4,7 @@ import axios from 'axios'
 import ShiftCurrentWeek from './SeeShiftCurrentWeek'
 import { ManagerContext } from '../ManagerHomePage'
 import moment from "moment";
+import LoadingAnimation from '../../loadingAnimation/loadingAnimation'
 
 const SeeDayCurrentWeek = (props) => {
 
@@ -75,17 +76,14 @@ const SeeDayCurrentWeek = (props) => {
                 <h2 className={styles.h2}>{day.name} - {moment(day.date).utc().format('DD.MM')}</h2>
             </div>
             {
-                loading ? (
-                    <div className={styles['three-body']}>
-                        <div className={styles['three-body__dot']}></div>
-                        <div className={styles['three-body__dot']}></div>
-                        <div className={styles['three-body__dot']}></div>
-                    </div>
+        loading ? 
+            <LoadingAnimation></LoadingAnimation>
+        : 
+        (
+            dayShifts?.length ?? 0) === 0 ? (
+                <div className={styles.no_shifts_messge}>אין משמרות ליום זה </div>
                 ) : (
-                    dayShifts?.length ?? 0) === 0 ? (
-                        <div className={styles.no_shifts_messge}>אין משמרות ליום זה </div>
-                      ) : (
-                    dayShifts.map((shift) => {return shift ? <ShiftCurrentWeek openShift={moment(day.date).utc().format('YYYY-MM-DD') === moment().utc().format('YYYY-MM-DD')} managerId={props.managerId} getShifts={updateShifts} shift={shift} dayId={day._id} key={shift._id} setDay={setDay}></ShiftCurrentWeek> : null }))
+            dayShifts.map((shift) => {return shift ? <ShiftCurrentWeek openShift={moment(day.date).utc().format('YYYY-MM-DD') === moment().utc().format('YYYY-MM-DD')} managerId={props.managerId} getShifts={updateShifts} shift={shift} dayId={day._id} key={shift._id} setDay={setDay}></ShiftCurrentWeek> : null }))
             }
     </div>
 }

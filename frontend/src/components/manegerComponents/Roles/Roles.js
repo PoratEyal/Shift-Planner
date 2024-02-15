@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import Swal from 'sweetalert2';
 import styles from './role.module.css'
 import { TiDeleteOutline } from "react-icons/ti";
+import LoadingAnimation from '../../loadingAnimation/loadingAnimation'
 
 const Roles = () => {
 
@@ -121,13 +122,10 @@ const Roles = () => {
     return <PageLayout text='תפקידים'>
         <div className={styles.all_roles_div}>
             <div className={styles.container}>
-                {!loading ? (
-                    <div className={styles['three-body']}>
-                    <div className={styles['three-body__dot']}></div>
-                    <div className={styles['three-body__dot']}></div>
-                    <div className={styles['three-body__dot']}></div>
-                    </div>
-                ) : noRoles ? (
+                {!loading ? 
+                  <LoadingAnimation></LoadingAnimation>
+                : 
+                noRoles ? (
                   <div className={styles.noRoles_div}>לא קיימים תפקידים</div>
                 ) : (
                   roles.map(role => (

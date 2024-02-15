@@ -5,6 +5,7 @@ import styles from './seeCurrentWeek.module.css';
 import { BiTime } from "react-icons/bi";
 import { AiOutlineMessage } from "react-icons/ai";
 import Swal from 'sweetalert2';
+import LoadingAnimation from '../../loadingAnimation/loadingAnimation'
 
 const SeeWorkersCurrentWeek = (props) => {
 
@@ -188,13 +189,9 @@ const SeeWorkersCurrentWeek = (props) => {
 
   return <React.Fragment>
     {loading ?
-      (
-        <div className={styles['three-body']}>
-          <div className={styles['three-body__dot']}></div>
-          <div className={styles['three-body__dot']}></div>
-          <div className={styles['three-body__dot']}></div>
-        </div>
-      ) : (
+        <LoadingAnimation></LoadingAnimation>
+      : 
+        (
         <div className={styles.workers_showList}>
           {getWorkers()}
           {getSB()}

@@ -9,6 +9,7 @@ import messageContext from './messagesContext';
 import { FiMoreHorizontal } from "react-icons/fi";
 import { AiOutlineSync } from "react-icons/ai";
 import { MdWorkOutline } from 'react-icons/md';
+import LoadingAnimation from '../../loadingAnimation/loadingAnimation';
 
 const CurrentWeekWorkers = (props) => {
   const [workers] = useState(props.workers);
@@ -458,14 +459,10 @@ const CurrentWeekWorkers = (props) => {
     };
   }, [isDivVisible ])
   return <React.Fragment>
+    
       {loading ?
-        (
-          <div className={styles['three-body']}>
-            <div className={styles['three-body__dot']}></div>
-            <div className={styles['three-body__dot']}></div>
-            <div className={styles['three-body__dot']}></div>
-          </div>
-        ) : (
+        <LoadingAnimation></LoadingAnimation>
+      : (
           <div className={styles.workers_list_delete}>
             {workersArr.map((worker, index) => (
               <div key={index} className={styles.nameAndDelete}>
