@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './chooseShifts.module.css';
 import Swal from 'sweetalert2';
 import { FcSynchronize } from "react-icons/fc";
@@ -200,21 +200,21 @@ const WorkerList = (props) => {
     return dateTime
   }
 
-  return <div>
+  return <React.Fragment>
     {loading ? 
       (
-        <div className={styles['three-body']}>
+          <div className={styles['three-body']}>
             <div className={styles['three-body__dot']}></div>
             <div className={styles['three-body__dot']}></div>
             <div className={styles['three-body__dot']}></div>
-        </div>
+          </div>
       ) : (
         <div className={styles.workers_showList}>
             {getWorkers()}
             {getSB()}
         </div>
     )}
-  </div>
+  </React.Fragment>
 }
 
 export default WorkerList;

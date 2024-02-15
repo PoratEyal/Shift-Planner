@@ -53,24 +53,31 @@
 }
 
 .messege p{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin-bottom: 0px;
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 13px;
+    border-radius: 8px;
     text-align: center;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     border: none;
-    color: white;
+    color: #2B641E;
     cursor: pointer;
     width: 310px;
     padding: 15px;
     animation: downToUp 1s ease-in-out;
-    background-color: rgb(118, 210, 106);
-    font-family: 'Rubik', sans-serif;
+    background-color: #EDFBD8;
+    border: 1px solid #84D65A;
+    box-shadow: 0px 0px 5px -3px #111;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+.message_icon{
+    font-size: 23px;
+    margin-left: 10px;
 }
 
 .h2_div{
@@ -96,6 +103,10 @@
     margin: 10px;
     margin-bottom: -5px;
     margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .no_shifts_message{
@@ -306,111 +317,6 @@
     margin-right: 25px;
 }
 
-
-.three-body {
-    --uib-size: 35px;
-    --uib-speed: 0.8s;
-    --uib-color: #34a0ff;
-    position: relative;
-    display: inline-block;
-    height: var(--uib-size);
-    width: var(--uib-size);
-    animation: spin78236 calc(var(--uib-speed) * 2.5) infinite linear;
-   }
-   
-   .three-body__dot {
-    position: absolute;
-    height: 100%;
-    width: 30%;
-   }
-   
-   .three-body__dot:after {
-    content: '';
-    position: absolute;
-    height: 0%;
-    width: 100%;
-    padding-bottom: 100%;
-    background-color: var(--uib-color);
-    border-radius: 50%;
-   }
-   
-   .three-body__dot:nth-child(1) {
-    bottom: 5%;
-    left: 0;
-    transform: rotate(60deg);
-    transform-origin: 50% 85%;
-   }
-   
-   .three-body__dot:nth-child(1)::after {
-    bottom: 0;
-    left: 0;
-    animation: wobble1 var(--uib-speed) infinite ease-in-out;
-    animation-delay: calc(var(--uib-speed) * -0.3);
-   }
-   
-   .three-body__dot:nth-child(2) {
-    bottom: 5%;
-    right: 0;
-    transform: rotate(-60deg);
-    transform-origin: 50% 85%;
-   }
-   
-   .three-body__dot:nth-child(2)::after {
-    bottom: 0;
-    left: 0;
-    animation: wobble1 var(--uib-speed) infinite
-       calc(var(--uib-speed) * -0.15) ease-in-out;
-   }
-   
-   .three-body__dot:nth-child(3) {
-    bottom: -5%;
-    left: 0;
-    transform: translateX(116.666%);
-   }
-   
-   .three-body__dot:nth-child(3)::after {
-    top: 0;
-    left: 0;
-    animation: wobble2 var(--uib-speed) infinite ease-in-out;
-   }
-   
-   @keyframes spin78236 {
-    0% {
-     transform: rotate(0deg);
-    }
-   
-    100% {
-     transform: rotate(360deg);
-    }
-   }
-   
-   @keyframes wobble1 {
-    0%,
-     100% {
-     transform: translateY(0%) scale(1);
-     opacity: 1;
-    }
-   
-    50% {
-     transform: translateY(-66%) scale(0.65);
-     opacity: 0.8;
-    }
-   }
-   
-   @keyframes wobble2 {
-    0%,
-     100% {
-     transform: translateY(0%) scale(1);
-     opacity: 1;
-    }
-   
-    50% {
-     transform: translateY(66%) scale(0.65);
-     opacity: 0.8;
-    }
-   }
-
-
 .workers_list_delete{
     border-top: 1px solid rgba(101, 101, 101, 0.245);
     width: 100%;
@@ -549,10 +455,6 @@
     justify-content: center;
 }
 
-/* .worksHer{
-    border: 2px solid rgb(138, 202, 138);
-} */
-
 .bold_name{
     font-weight: 550;
     text-overflow: ellipsis;
@@ -628,12 +530,11 @@
 }
 
  /* - - - - - - loading animation - - - - - - - - -  */
-
  .three-body {
     --uib-size: 35px;
     --uib-speed: 0.8s;
     --uib-color: var(--main-color);
-    position: relative;
+    margin-left: 50%;
     display: inline-block;
     height: var(--uib-size);
     width: var(--uib-size);
@@ -765,7 +666,7 @@
     }
     .messege p{
         width: 330px;
-        font-size: 17px;
+        font-size: 15px;
     }
     .remove_btn{
         margin-left: 10px;
@@ -786,7 +687,7 @@
     }
     .messege p{
         width: 360px;
-        font-size: 19px;
+        font-size: 16px;
     }
     .remove_btn{
         margin-left: 10px;

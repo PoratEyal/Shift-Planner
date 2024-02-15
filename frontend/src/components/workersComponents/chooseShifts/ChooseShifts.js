@@ -6,12 +6,14 @@ import { UserContext } from '../CurrentWeek_user/CurrentWeekUser'
 import { useContext } from 'react';
 import Swal from 'sweetalert2';
 import PageLayoutWorker from './/..//..//layout/PageLayoutWorker';
+import { FcApproval } from "react-icons/fc";
 
 const ChooseShifts = () => {
 
     const [week, setWeek] = useState(null);
     const [weekPublished, setWeekPublished] = useState(null)
     const [mesageSent, setMesageSent] = useState(false)
+    const [showMessage, setShowMessage] = useState(true);
 
     const userContext = useContext(UserContext);
     const managerId = userContext.getUser();
@@ -29,6 +31,13 @@ const ChooseShifts = () => {
     useEffect(() => {
         getDays();
     }, [weekPublished]);
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setShowMessage(false);
+        }, 7000);
+        return () => clearTimeout(timeout); // Clear the timeout on component unmount
+    }, []);
 
     const sendMessage = async () => {
         try {
@@ -86,9 +95,9 @@ const ChooseShifts = () => {
         <div 
         style={weekPublished ? {marginBottom: '80px'} : null} className={styles.container}>
             
-            {weekPublished === true ?
+            {showMessage && weekPublished === true ?
             <div className={styles.messege}>
-                <p>המשמרות פורסמו, אלו המשמרות לשבוע הבא</p>   
+                <p><FcApproval className={styles.message_icon}></FcApproval> המשמרות פורסמו, אלו המשמרות לשבוע הבא</p>   
             </div>
             : null}
 
