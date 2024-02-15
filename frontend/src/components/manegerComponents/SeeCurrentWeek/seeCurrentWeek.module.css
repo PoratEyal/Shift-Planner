@@ -106,14 +106,9 @@
     display: flex;
     direction: rtl;
     align-items: center;
-    margin-left: 50px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 260px;
-    max-width: 320px;
 }
 .description_label{
-    margin-right: 20px;
+
 }
 
 .under_icon{
@@ -297,15 +292,28 @@
 
 
 
-@media only screen and (min-width: 300px){
-    .shift_description{
-        margin-left: 35px;
+   @media only screen and (min-width: 300px){
+    .shift_description {
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+        align-items: center;
+        text-align: right;
         overflow: hidden;
         text-overflow: ellipsis;
-        width: 270px;
-        max-width: 270px;
+        width: 310px;
+        max-width: 310px;
+        white-space: nowrap;
+    }
+    .description_label {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 260px;
+        max-width: 260px;
+        margin-right: 20px;
     }
 }
+
 
 @media only screen and (min-width: 370px){
     .day_container{
@@ -314,12 +322,24 @@
     .shift{
         width: 320px;
     }
-    .shift_description{
-        margin-left: 50px;
+    .shift_description {
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+        align-items: center;
+        text-align: right;
         overflow: hidden;
         text-overflow: ellipsis;
-        width: 280px;
-        max-width: 280px;
+        width: 330px;
+        max-width: 330px;
+        white-space: nowrap;
+    }
+    .description_label {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 285px;
+        max-width: 285px;
+        margin-right: 20px;
     }
     
 }
@@ -330,12 +350,24 @@
     .shift{
         width: 340px;
     }
-    .shift_description{
-        margin-left: 60px;
+    .shift_description {
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+        align-items: center;
+        text-align: right;
         overflow: hidden;
         text-overflow: ellipsis;
-        width: 290px;
-        max-width: 320px;
+        width: 350px;
+        max-width: 350px;
+        white-space: nowrap;
+    }
+    .description_label {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 310px;
+        max-width: 310px;
+        margin-right: 20px;
     }
 }
 
