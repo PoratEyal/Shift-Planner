@@ -93,7 +93,7 @@
   margin-bottom: 10px;
 }
 .btn:hover {
-  color: #e3ebff;
+  cursor: pointer;
 }
 
 .login_div{
@@ -295,7 +295,6 @@
   .lock{
     width: 220px;
     height: 220px;
-    animation: none;
   }
   .input{
     font-size: 21px;
