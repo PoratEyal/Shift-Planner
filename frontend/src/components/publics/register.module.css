@@ -6,11 +6,14 @@
 
 .container{
   background-color:#5790FF;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 100%;
+  min-height: 90vh;
 }
 
 .lock {
@@ -27,12 +30,14 @@
     top: -200px; /* start position above the screen */
   }
   100% {
-    top: 25px; /* final position */
+    top: 0px; /* final position */
   }
 }
 
 .password_time_svg{
   width: 100%;
+  position: absolute;
+  top: 0;
   animation: slideDownCircle 1.5s forwards;
 }
 @keyframes slideDownCircle {
@@ -54,12 +59,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: #fff;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
   width: 100%;
   margin-bottom: -5px;
-  position: relative;
+  height: 100%;
+  max-height: 460px;
+  position: fixed;
+  bottom: 0;
 }
 
 .space_margin{
@@ -212,18 +220,20 @@
   .page_container {
     margin-top: 70px;
     border-radius: 40px;
-    width: 420px;
-    height: 700px;
+    width: 440px;
   }
   .container{
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     border-radius: 40px;
+    height: 770px;
+    min-height: 0px;
   }
   .form{
-    height: 510px;
-    border-top-right-radius: 75px;
-    border-top-left-radius: 75px;
     border-radius: 40px;
+    position: relative;
+    position: absolute;
+    bottom: 0px;
+    max-height: 530px;
   }
   .space_margin{
     margin-top: 10px;
@@ -231,7 +241,6 @@
   .input{
     padding: 15px;
     width: 310px;
-
   }
   .btn{
     margin-top: 20px;
@@ -239,7 +248,6 @@
     padding: 20px;
   }
   .lock{
-    top: 110px;
     width: 220px;
     height: 220px;
     animation: none;
@@ -263,7 +271,10 @@
   }
 }
 
-@media only screen and (max-height: 784px) and (min-height: 720px){
+@media only screen and (min-height: 720px) and (max-height: 760px){
+  .form{
+    max-height: 500px;
+  }
   .input{
     font-size: 21px;
     padding: 12px;
@@ -277,14 +288,24 @@
   }
 }
 
-@media only screen and (min-height: 785px) and (max-width: 440px){
+@media only screen and (min-height: 761px){
+  .form{
+    max-height: 530px;
+  }
+  .lock{
+    width: 220px;
+    height: 220px;
+    animation: none;
+  }
   .input{
-    margin-bottom: 40px;
-    font-size: 22px;
+    font-size: 21px;
     padding: 12px;
   }
   .btn{
-    margin-top: 30px;
+    margin-top: 25px;
     padding: 15px;
+  }
+  .show_password{
+    top: 11px;
   }
 }
