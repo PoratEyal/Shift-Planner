@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import Roles from './Roles';
 import styles from '../publics/register.module.css';
 import { BiSolidShow, BiSolidHide } from "react-icons/bi";
-import Swal from 'sweetalert2';
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [usernameVal, setUsernameVal] = useState(false)
+  const [usernameCatch,setUsernameCatch] = useState(false)
 
   const [password, setPassword] = useState("");
   const [passwordVal, setPasswordVal] = useState(false)
@@ -50,7 +50,7 @@ const Register = () => {
       setEmail("");
     }  
 
-    if(!usernameVal && !passwordVal && !fullnameVal && !emailVal){
+    if(username.length > 0  && !usernameVal && !passwordVal && !fullnameVal && !emailVal){
       const userRegister = {
         fullName: fullname,
         username: username,
@@ -67,20 +67,19 @@ const Register = () => {
           })
           .catch((error) => {
             console.log(error);
-            Swal.fire({
-              title: 'שם משתמש תפוס, הכנס שם משתמש אחר',
-              text: "",
-              icon: 'warning',
-              confirmButtonColor: '#34a0ff',
-              confirmButtonText: 'אישור'
-            })
+            setUsernameCatch(true)
           });
     }
   };
 
   const handleUsernameChange = (value) => {
     setUsername(value);
+    
     setUsernameVal(!/^[a-zA-Z0-9]+$/.test(value));
+
+    if(value.length > 0){
+      setUsernameCatch(false)
+    }
   };
 
   const handlePasswordChange = (value) => {
@@ -131,6 +130,7 @@ const Register = () => {
               onChange={(e) => handleUsernameChange(e.target.value)} 
             />
             {usernameVal ? <label className={styles.validation_username}>שם המשתמש חייב להיות באנגלית</label> : null}
+            {usernameCatch ? <label className={styles.validation_username}>שם המשתמש תפוס</label> : null}
           </div>
 
           <div className={styles.input_label_div}>
