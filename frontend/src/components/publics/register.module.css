@@ -280,11 +280,14 @@
     padding: 12px;
   }
   .btn{
-    margin-top: 15px;
+    margin-top: 5px;
     padding: 15px;
   }
   .show_password{
     top: 11px;
+  }
+  .space_margin{
+    margin-top: 0px;
   }
 }
 
@@ -301,10 +304,13 @@
     padding: 12px;
   }
   .btn{
-    margin-top: 25px;
+    margin-top: 15px;
     padding: 15px;
   }
   .show_password{
     top: 11px;
+  }
+  .space_margin{
+    margin-top: 5px;
   }
 }
