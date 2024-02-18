@@ -48,13 +48,13 @@ If you have any questions or inquiries, feel free to contact Eyal porat at eyal1
 
 
 ## User Picture
-![Screenshot 2024-01-28 150910](https://github.com/PoratEyal/Shift-Planner/assets/134833213/80fe1437-5d00-452e-87b0-aa15a4768b65)
+![Screenshot 2024-02-17 180002](https://github.com/PoratEyal/Shift-Planner/assets/134833213/0ce2299a-1259-4699-bb2a-f69079382d74)
 
 ## Manager Pictures
-![Screenshot 2024-01-28 151331](https://github.com/PoratEyal/Shift-Planner/assets/134833213/46d17a20-022a-4828-ab0d-86e683d00ade)
-![Screenshot 2024-01-28 151122](https://github.com/PoratEyal/Shift-Planner/assets/134833213/da841964-530d-490b-8c15-dc3bd966a243)
-![Screenshot 2024-01-28 151038](https://github.com/PoratEyal/Shift-Planner/assets/134833213/7bf9fab2-4ed2-4e97-8b8d-4ba60a9f7084)
-![Screenshot 2024-01-28 150833](https://github.com/PoratEyal/Shift-Planner/assets/134833213/a9d03771-c81b-4ce2-9742-92692054a679)
+![Screenshot 2024-02-17 180211](https://github.com/PoratEyal/Shift-Planner/assets/134833213/d9b1e4ec-18ab-4e40-8d35-b5f7c61c71d3)
+![Screenshot 2024-02-17 180224](https://github.com/PoratEyal/Shift-Planner/assets/134833213/cf1e2e87-8c08-439c-84c7-fa2341cba84b)
+![Screenshot 2024-02-17 180049](https://github.com/PoratEyal/Shift-Planner/assets/134833213/8e622cb7-1863-4494-ad22-6b809594046b)
+![Screenshot 2024-02-17 175609](https://github.com/PoratEyal/Shift-Planner/assets/134833213/e8c3d494-27a1-47d0-8b86-e9010adaf48d)
 
 ## Videos
 https://github.com/PoratEyal/Shift-Planner/assets/134833213/09b52cc0-1126-4c20-b528-532d7fe71f18
