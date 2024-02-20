@@ -76,7 +76,8 @@ const ManagerHomePage = () => {
                     <button className={styles.btn}>
                         <div className={styles.color1}></div>
                         <div className={styles.icon_div}>
-                            <img className={styles.icon} src="shifts.svg" alt="Icon" />
+                            {/* <img className={styles.icon} src="shifts.svg" alt="Icon" /> */}
+                            <img className={styles.icon2} src="create.png" alt="Icon" />
                         </div>
                         <div className={styles.text_div}>
                             צפיה בסידור<br></br> העבודה  
@@ -104,7 +105,8 @@ const ManagerHomePage = () => {
                     <button className={styles.btn}>
                         <div className={styles.color3}></div>
                         <div className={styles.icon_div}>
-                            <img className={styles.icon3} src="create.svg" alt="Icon" />
+                            {/* <img className={styles.icon3} src="create.svg" alt="Icon" /> */}
+                            <img className={styles.icon3} src="plus.png" alt="Icon" />
                         </div>
                         <div className={styles.text_div}>
                             יצירת משמרות

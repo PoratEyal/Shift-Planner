@@ -76,21 +76,25 @@
 }
 
 .icon{
-  position: absolute;
+  /* position: absolute;
   animation: slideInAndFade 0.3s ease-in-out;
   width: 170px;
   left: 0px;
   bottom: -35px;
-  height: 160px;
+  height: 160px; */
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 30px;
 }
 .color1{
-  position: absolute;
+  /* position: absolute;
   background-color: #f6917b52;
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
   left: 0;
   width: 175px;
-  height: 140%;
+  height: 140%; */
 }
 
 .icon2{
@@ -100,10 +104,10 @@
   height: 150px;
   animation: slideInAndFade 0.3s ease-in-out;
   width: 160px; */
-  width: 150px;
-  height: 150px;
+  width: 80px;
+  height: 80px;
   position: absolute;
-  left: -20px;
+  left: 30px;
 }
 .color2{
   /* position: absolute;
@@ -116,21 +120,25 @@
 }
 
 .icon3{
-  position: absolute;
+  /* position: absolute;
   bottom: -35px;
   left: 0px;
   height: 150px;
   animation: slideInAndFade 0.3s ease-in-out;
-  width: 150px;
+  width: 150px; */
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 30px;
 }
 .color3{
-  position: absolute;
+  /* position: absolute;
   background-color: #fff1c599;
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
   left: 0;
   width: 175px;
-  height: 140%;
+  height: 140%; */
 }
 
 .icon4{
