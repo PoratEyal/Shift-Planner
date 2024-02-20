@@ -94,21 +94,25 @@
 }
 
 .icon2{
-  position: absolute;
+  /* position: absolute;
   bottom: -35px;
   left: -15px;
   height: 150px;
   animation: slideInAndFade 0.3s ease-in-out;
-  width: 160px;
+  width: 160px; */
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: -20px;
 }
 .color2{
-  position: absolute;
+  /* position: absolute;
   background-color: #90abfb82;
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
   left: 0;
   width: 175px;
-  height: 140%;
+  height: 140%; */
 }
 
 .icon3{
@@ -130,20 +134,24 @@
 }
 
 .icon4{
-  position: absolute;
+  /* position: absolute;
   bottom: -20px;
   left: -10px;
   animation: slideInAndFade 0.3s ease-in-out;
-  width: 165px;
+  width: 165px; */
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 30px;
 }
 .color4{
-  position: absolute;
+  /* position: absolute;
   background-color: #9568e246;
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
   left: 0;
   width: 175px;
-  height: 140%;
+  height: 140%; */
 }
 
 .closed_btn{
