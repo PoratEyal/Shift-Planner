@@ -5,7 +5,6 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiMoreHorizontal } from "react-icons/fi";
 import { BiEditAlt } from "react-icons/bi";
 import Swal from 'sweetalert2';
-import EditWorker from './editWorker'
 
 const Worker = (props) => {
 
@@ -14,8 +13,6 @@ const Worker = (props) => {
     const [userDeleted, setUserDelted] = useState(false)
     const [clickEditWorker, setEditWorker] = useState(false);
     const divRef = useRef(null);
-
-    const [showEditWorker, setShowEditWorker] = useState(false);
 
     const user = props.user;
     
@@ -103,7 +100,7 @@ const Worker = (props) => {
     }, [isDivVisible])
 
     return <div className={styles.first_container}>
-        <div key={user._id} className={styles.user_container}>
+        <div key={user._id} className={styles.user_container} onClick={() => setEditWorker(!clickEditWorker)}>
             <div>
                 <div className={styles.delete_edit_div}>
                     <FiMoreHorizontal className={styles.icon} onClick={() => options(user._id)}></FiMoreHorizontal>

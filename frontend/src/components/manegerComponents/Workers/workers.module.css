@@ -15,6 +15,7 @@
     padding: 12px;
     margin: 20px;
     margin-top: 85px;
+    margin-bottom: 80px;
     background-color: #dde0ef73;
     border-radius: 20px;
     animation: slideInAndFade 0.5s ease-in-out;
@@ -42,7 +43,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255); 
 }
 .editWorker{
     margin-top: 5px;

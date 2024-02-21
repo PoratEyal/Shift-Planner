@@ -36,7 +36,6 @@ const Workers = () => {
     axios
       .post(`${process.env.REACT_APP_URL}/getRoles`, reqbody, config)
       .then((response) => {
-        console.log(response.data)
         setRoles(response.data);
       })
       .catch((err) => {
@@ -62,7 +61,7 @@ const Workers = () => {
 
     fetchData();
     getRoles();
-  }, []);
+  }, [userDeleted]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -79,7 +78,7 @@ const Workers = () => {
     };
 
     fetchData();
-  }, [userDeleted]);
+  }, []);
 
   // control on the close and open the option select
   useEffect(() => {
@@ -117,6 +116,7 @@ const Workers = () => {
       confirmButtonText: 'אישור'
     }).then(async (result) => {
       if (result.isConfirmed) {
+        setUserDelted(true)
         Swal.fire({
           title: 'המשתמש נמחק',
           icon: 'success',
