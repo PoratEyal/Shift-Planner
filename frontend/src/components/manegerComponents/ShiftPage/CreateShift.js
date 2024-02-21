@@ -12,13 +12,15 @@ const CreateShift = () => {
     let name = useRef();
     let startTime = useRef();
     let endTime = useRef();
+    let amountOfWorkers = useRef();
 
     const clickHandle = async () => {
         const nameValue = name.current.value;
         const startTimeValue = startTime.current.value;
         const endTimeValue = endTime.current.value;
+        const amountOfWorkersValue = amountOfWorkers.current.value;
 
-        if (!nameValue || !startTimeValue || !endTimeValue) {
+        if (!nameValue || !startTimeValue || !endTimeValue || !amountOfWorkersValue) {
             Swal.fire({
                 title: 'יש למלא את כל השדות',
                 text: "",
@@ -34,8 +36,10 @@ const CreateShift = () => {
                 managerId: user._id,
                 name: nameValue,
                 startTime: startTimeValue,
-                endTime: endTimeValue
+                endTime: endTimeValue,
+                amountOfWorkers: amountOfWorkersValue
             }
+            console.log(reqBody)
             await axios.put(`${process.env.REACT_APP_URL}/addNewShift`, reqBody)
             navigate('/defShifts')
         }
@@ -57,6 +61,11 @@ const CreateShift = () => {
                 <div className={styles.input_div}>
                     <label className={styles.label}>שעת סיום משמרת</label>
                     <input className={styles.input_time2} type="time" ref={endTime}></input>
+                </div>
+
+                <div className={styles.input_div}>
+                    <label className={styles.label}>כמות עובדים במשמרת</label>
+                    <input className={styles.input_time} type="number" ref={amountOfWorkers}></input>
                 </div>
             </form>
 

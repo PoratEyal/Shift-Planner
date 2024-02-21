@@ -3,7 +3,8 @@ const Week = require('../models/week');
 const Day = require('../models/day');
 const User = require('../models/user');
 const { response } = require('express');
-const { DateTime } = require('luxon')
+const { DateTime } = require('luxon');
+
 function CreateWeek() {
   User.find({ manager: { $exists: false } }).exec().then(documents => {
     documents.forEach(document => {

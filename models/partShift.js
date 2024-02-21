@@ -15,6 +15,9 @@ const ShiftData = new mongoose.Schema({
     },
     end:{
         type: Date
+    },
+    amountOfWorkers:{
+        type: Number
     }
 });
 const shiftData = mongoose.model('shiftData', ShiftData);
