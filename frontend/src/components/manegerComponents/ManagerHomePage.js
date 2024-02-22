@@ -66,62 +66,57 @@ const ManagerHomePage = () => {
       };
 
     return <ManagerContext.Provider value={{getUser}}>
-        <PageLayout text={`שלום ${fullname}`} noAnimation={true}>
+        <PageLayout text={`ברוך שובך, ${fullname}`} noAnimation={true}>
             
             <div className={styles.container}>
 
-                <label className={styles.week_text}>שבוע נוכחי</label>
+                <div className={styles.currentWeek_container}>
+                    
+                    <div className={styles.week_text_1}>
+                        <label>שבוע נוכחי</label>
+                    </div>
 
-                <Link className={styles.link} to="/SeeCurrentWeekShifts">
-                    <button className={styles.btn}>
-                        <div className={styles.color1}></div>
-                        <div className={styles.icon_div}>
-                            {/* <img className={styles.icon} src="shifts.svg" alt="Icon" /> */}
-                            <img className={styles.icon2} src="create.png" alt="Icon" />
-                        </div>
-                        <div className={styles.text_div}>
-                            צפיה בסידור<br></br> העבודה  
-                        </div>
-                    </button>
-                </Link>
+                    <Link className={styles.link} to="/SeeCurrentWeekShifts">
+                        <button className={styles.btnUp}>
+                            <img src="/seeIcon.svg" alt="image" />  
+                            <div className={styles.text_div}>  
+                                צפיה בסידור העבודה  
+                            </div>
+                        </button>
+                    </Link>
 
-                <Link className={styles.link} to="/editCurrentWeek">
-                    <button className={styles.btn}>
-                    <div className={styles.color2}></div>
-                        <div className={styles.icon_div}>
-                            {/* <img className={styles.icon2} src="editsvg.svg" alt="Icon" /> */}
-                            <img className={styles.icon2} src="reload.png" alt="Icon" />
-                        </div>
-                        <div className={styles.text_div}>
-                            עדכון סידור <br></br>העבודה  
-                        </div>
-                    </button>
-                </Link>
+                    <Link className={styles.link} to="/editCurrentWeek">
+                        <button className={styles.btn}>
+                            <img className={styles.icon2} src="/updateIcon.svg" alt="image" />  
+                            <div className={styles.text_div}>  
+                                עדכון סידור העבודה
+                            </div>
+                        </button>
+                    </Link>
+                </div>
+                
 
-                <div className={styles.spacer}></div>
-                <label className={styles.week_text}>שבוע הבא</label>
+                <div className={styles.currentWeek_container}>
+                    <div className={styles.week_text_2}>
+                        <label>שבוע הבא</label>
+                    </div>
+                </div>
 
                 <Link className={styles.link} to="/createNewWeek">
-                    <button className={styles.btn}>
-                        <div className={styles.color3}></div>
-                        <div className={styles.icon_div}>
-                            {/* <img className={styles.icon3} src="create.svg" alt="Icon" /> */}
-                            <img className={styles.icon3} src="plus.png" alt="Icon" />
-                        </div>
-                        <div className={styles.text_div}>
+                    <button className={styles.btnUp}>
+                        <img className={styles.icon2} src="/createIcon.svg" alt="image" />  
+                        <div className={styles.text_div}>  
                             יצירת משמרות
                         </div>
                     </button>
                 </Link> 
 
                 <Link className={styles.link} to="/currentWeekShifts" onClick={handleClick}>
-                    <button className={styles.btn}>
-                        <div className={styles.color4}></div>
-                        <div className={styles.icon_div}>
-                            {/* <img className={styles.icon4} src="addWorker.svg" alt="Icon" />  */}
-                            <img className={styles.icon4} src="calendar.png" alt="Icon" /> 
+                <button className={styles.btn}>
+                        <img className={styles.icon2} src="/schduleIcon.svg" alt="image" />  
+                        <div className={styles.text_div}>  
+                            שיבוץ עובדים
                         </div>
-                        <div className={styles.text_div}>שיבוץ עובדים</div>
                     </button>
                 </Link>
 
