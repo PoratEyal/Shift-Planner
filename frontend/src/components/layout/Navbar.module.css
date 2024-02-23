@@ -192,8 +192,7 @@
 .links{
   text-decoration: none;
   font-size: 16px;
-  font-weight: 500;
-  color: rgb(129, 129, 129);
+  font-weight: 400;
   color: #333333cb;
   background-color: #ffffff00;
   border: none;
@@ -212,14 +211,14 @@
   color: rgb(145, 145, 145);
   color: #333333cb;
   cursor: pointer;
+  font-weight: 400;
 }
 
 .icon{
   margin-left: 18px;
   margin-right: 5px;
   font-size: 23px;
-  color: rgb(145, 145, 145);
-  color: #333333cb;
+  color: #333333a1;
   cursor: pointer;
 }
 

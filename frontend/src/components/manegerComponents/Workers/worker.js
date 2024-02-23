@@ -100,7 +100,7 @@ const Worker = (props) => {
     }, [isDivVisible])
 
     return <div className={styles.first_container}>
-        <div key={user._id} className={styles.user_container} onClick={() => setEditWorker(!clickEditWorker)}>
+        <div key={user._id} className={styles.user_container}>
             <div>
                 <div className={styles.delete_edit_div}>
                     <FiMoreHorizontal className={styles.icon} onClick={() => options(user._id)}></FiMoreHorizontal>
