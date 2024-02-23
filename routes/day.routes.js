@@ -14,6 +14,7 @@ dayRouter.put('/addShiftToDay', (req, res) => {
     const body = req.body;
     const dayId = body.dayId;
     const shift = body.newShift;
+    
     Week.findOneAndUpdate(
         { "day._id": dayId, ofManager: managerId },
         { $push: { "day.$.shifts": shift } },
@@ -62,7 +63,6 @@ dayRouter.put('/updateShiftsOfWeek', async (req, res) => {
     }
     
 })
-
 
 // working
 // get all the shifts from specific day - get dayId and managerId

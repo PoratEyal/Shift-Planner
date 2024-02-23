@@ -38,7 +38,7 @@ const CurrentWeek = () => {
 
             setPromentToAi
                 (`Data of all the week: ${JSON.stringify(week)}
-            Return me json with all the shiftsId, workers and availableWorkers fields.
+            Return me json with all the shiftsId, workers, amountOfWorkers and availableWorkers fields.
             • Do not write any explanation before or after the Json
             • Double check that you provided all the shiftsId that include into the data of the week.
             example to how your answer should look:
@@ -172,23 +172,11 @@ const CurrentWeek = () => {
                 • פעולה זאת יכולה לקחת כדקה בהתאם למהירות החיבור
                 </div>
             </form>`,
-            input: 'number',
-            inputAttributes: {
-                min: 1,
-                max: workersCount,
-                dir: 'rtl'
-            },
-            inputPlaceholder: `כמות עובדים למשמרת בין 1 - ${workersCount}`,
             showCancelButton: true,
             cancelButtonText: 'ביטול',
             confirmButtonColor: '#34a0ff',
             cancelButtonColor: '#d33',
             confirmButtonText: 'אישור',
-            inputValidator: (value) => {
-                if (!value || value < 1 || value > workersCount) {
-                    return 'אנא הזינו מספר עובדים בין 1 ל- ' + workersCount;
-                }
-            },
             customClass: {
                 popup: styles.swal2_popup,
                 content: styles.AI_content
@@ -219,35 +207,19 @@ const CurrentWeek = () => {
             );
             console.log(`response 1 - ${response.data}`);
 
-            // Send the second message to AI
-            const response2 = await axios.post(
-                `${process.env.REACT_APP_URL}/sendMessegeAPI`,
-                {
-                    messages: [
-                        { role: 'system', content: 'You are a helpful assistant.' },
-                        {
-                            role: 'user',
-                            content:
-                                `Data: 
-                        ${response.data}
-                        Move all existing availableWorkers IDs to workers field.
-                        Double check that you moved all the availableWorkers IDs from the availableWorkers array to the workers array.
-                        Do not display the "availableWorkers" field in the retured Json.
-                        Do not write any explanation before or after the Json`},
-                    ],
-                }
-            );
-            console.log(`response 2 - ${response2.data}`);
-
             // prompt for the seconed message to the api
             const finelMessage =
-                `Data: ${response.data}.
+                `Data: 
+                ${response.data}
+                look at the number of the amountOfWorkers field and Move this nimber of availableWorkers IDs (If there is) to workers field.
+
                 AllWorkersArray: ${JSON.stringify(workers)}.
-                Add the workers id from AllWorkersArray to the workers array in the shifts based on those rules:
-                • Workers array should contain ${numberOfWorkers} workers. not more and not less.
+                If you didnt get the amountOfWorkers number of the shift from the availableWorkers Add the workers id from AllWorkersArray to the workers array in the shifts based on those rules:
+                
+                • Workers array should contain the specific amountOfWorkers of the shift. not more and not less.
                 • Use all the worker ids from AllWorkersArray more then once in the json.
                 • Try to add ids from AllWorkersArray in the json equally.
-                • Avoid repeating the same worker ID within the same workers array.
+                • Avoid repeating the same worker ID within the same workers array!
 
                 Return me this json data
                 Do not write any explanation before or after the Json`;

@@ -14,9 +14,6 @@ const ShiftData = new mongoose.Schema({
     },
     end:{
         type: Date
-    },
-    amountOfWorkers:{
-        type: Number
     }
 });
 

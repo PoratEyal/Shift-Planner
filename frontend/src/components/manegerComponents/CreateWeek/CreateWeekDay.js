@@ -73,26 +73,27 @@ const CreateWeekDay = (props) => {
     }
 
     const addDefShift = (shiftId) => {
-         try {
+        try {
             const shift = props.defShifts.find(shift => String(shift._id) === shiftId)
-        console.log();
-        const newShift = {
-            description: shift.description,
-            startTime: moment(moment(shift.startTime).utc().format('HH:mm'), 'HH:mm'),
-            endTime: moment(moment(shift.endTime).utc().format('HH:mm'), 'HH:mm'),
-            workers: []
-        };
-        const reqBody = {
-            managerId: props.managerId,
-            newShift: newShift,
-            dayId: day._id
-        }
-       
+            const newShift = {
+                description: shift.description,
+                startTime: moment(moment(shift.startTime).utc().format('HH:mm'), 'HH:mm'),
+                endTime: moment(moment(shift.endTime).utc().format('HH:mm'), 'HH:mm'),
+                amountOfWorkers: shift.amountOfWorkers,
+                workers: []
+            };
+
+            const reqBody = {
+                managerId: props.managerId,
+                newShift: newShift,
+                dayId: day._id
+            }
 
             axios.put(`${process.env.REACT_APP_URL}/addShiftToDay`, reqBody)
                 .then((response) => {
                     const updatedDay = response.data.day.find(d => d._id === day._id);
                     setDay(updatedDay);
+                    console.log(response.data.day);
                 });
         } catch (error) {
             console.log(error.message);

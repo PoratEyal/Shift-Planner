@@ -13,6 +13,10 @@ const shiftSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
+  amountOfWorkers: {
+    type: Number,
+    required: true
+  },
   workers: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
@@ -25,11 +29,7 @@ const shiftSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   }],
-  shiftData: [ShiftData.schema],
-  amountOfWorkers: {
-    type: Number,
-  }
-
+  shiftData: [ShiftData.schema]
 });
 
 // Create the shift model
