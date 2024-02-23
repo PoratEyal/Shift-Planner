@@ -149,7 +149,7 @@ const Navbar = (props) => {
             <AiOutlineClose onClick={handleCloseClick} className={styles.close_icon}></AiOutlineClose>
             {userGender === 'Famale' ? (
                 <img
-                src="female_avatar.png"
+                src="female.png"
                 style={{
                   width: "75px",
                   height: "80px",

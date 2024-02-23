@@ -20,6 +20,7 @@ const ManagerHomePage = () => {
     let data = {};
     const [fullname, setName] = useState("");
     const [weekVisible, setWeekVisible] = useState(false);
+    const [weekPublishd, setWeekPublishd] = useState(false);
     const [loading, setLoading] = useState(true);
 
     // get user from the local storage and return the user ID
@@ -46,6 +47,7 @@ const ManagerHomePage = () => {
         axios.post(`${process.env.REACT_APP_URL}/getNextWeek`, reqBody)
         .then((response) => {
             setWeekVisible(response.data.visible);
+            setWeekPublishd(response.data.publishScheduling)
             setLoading(false);
         }).catch(err=> {
             console.log(err)
@@ -63,10 +65,18 @@ const ManagerHomePage = () => {
             confirmButtonText: 'סגור'
           });          
         }
-      };
+    };
+
+    const btnBackgroundColor = {
+        backgroundColor: weekVisible ? '#EDFFF1' : '#FBF3F3'
+    };
+
+    const btnBackgroundColor2 = {
+        backgroundColor: weekPublishd ? '#EDFFF1' : '#FBF3F3'
+    };
 
     return <ManagerContext.Provider value={{getUser}}>
-        <PageLayout text={`ברוך שובך, ${fullname}`} noAnimation={true}>
+        <PageLayout className={styles.navbar} text={`ברוך שובך, ${fullname}`} noAnimation={true}>
             
             <div className={styles.container}>
 
@@ -108,7 +118,7 @@ const ManagerHomePage = () => {
                 </div>
 
                 <Link className={styles.link} to="/createNewWeek">
-                    <button className={styles.btnUp}>
+                    <button className={styles.btn3} style={btnBackgroundColor}>
                         <img className={styles.icon2} src="/homepageIcons/clockIcon.svg" alt="image" />  
                         <div className={styles.text_div}>  
                             יצירת משמרות
@@ -116,8 +126,8 @@ const ManagerHomePage = () => {
                     </button>
                 </Link> 
 
-                <Link className={styles.link} to="/currentWeekShifts" onClick={handleClick}>
-                <button className={styles.btn}>
+                <Link className={styles.link} onClick={handleClick} to="/currentWeekShifts">
+                    <button className={styles.btn4} style={btnBackgroundColor2}>
                         <img className={styles.icon2} src="/homepageIcons/addWrokers.svg" alt="image" />  
                         <div className={styles.text_div}>  
                             שיבוץ עובדים

@@ -97,7 +97,7 @@ const CreateWeek = () => {
             <div className={styles.published_div}>
                 <button visible='false'>
                     <FcApproval className={styles.icon_publishd}></FcApproval>
-                    <label>המשמרות פורסמו בהצלחה</label>
+                    <label>המשמרות פורסמו</label>
                 </button>
             </div> : null}
 

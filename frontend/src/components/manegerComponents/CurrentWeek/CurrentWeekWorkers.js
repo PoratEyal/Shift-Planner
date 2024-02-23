@@ -52,6 +52,7 @@ const CurrentWeekWorkers = (props) => {
         });
     });
   }
+
   useEffect(() => {
     getRoles()
 
@@ -59,23 +60,6 @@ const CurrentWeekWorkers = (props) => {
       setLoading(false)
     }
     getWorkers(false);
-    //workers.map(worker => {
-      //const reqBody = {
-        //id: worker
-      //}
-      //axios
-        //.post(`${process.env.REACT_APP_URL}/getUserById`, reqBody)
-        //.then(response => {
-          //setLoading(false);
-          //const workerData = response.data;
-          //if (workerData && workerData.fullName && !(sbWorkers.includes(workerData._id))) {
-            //setWorkersArr(prevWorkers => [...prevWorkers, workerData]);
-          //}
-        //})
-        //.catch(error => {
-          //setLoading(false);
-        //});
-    //});
 
     availableWorkers.map(worker => {
       const reqBody = {
@@ -180,6 +164,7 @@ const CurrentWeekWorkers = (props) => {
     i.setHours(selectedHours, selectedMinutes, 0, 0);
     return i;
   }
+
   // get the time that the manager set to the worker.
   // if didnt set - he can update the hours of the worker in the specific shift
   const editHours = async (worker) => {
@@ -259,6 +244,7 @@ const CurrentWeekWorkers = (props) => {
       }
     })
   }
+
   const getWorkerMessage = (id) => {
     if(weekMessages){
       for(let i = 0; i < weekMessages.length; i++){
@@ -268,6 +254,7 @@ const CurrentWeekWorkers = (props) => {
       }}
       return null;
   }
+
   // if the worker sent message will pop alert with the his message
   const seeMessage = async (worker) => {
     let message = null;
@@ -292,7 +279,8 @@ const CurrentWeekWorkers = (props) => {
         }
       });
     }
-  };  
+  }; 
+
   // manager write messagwe to the worker
   const writeMessage = async (worker) => {
     let currentMessage = null;
@@ -362,6 +350,7 @@ const CurrentWeekWorkers = (props) => {
       }
       catch (error) {}
   };
+
   // checkes if the worker has a message. if yes return true, else return false
   const hasMessage = (id) => {
     if(weekMessages){
@@ -372,6 +361,7 @@ const CurrentWeekWorkers = (props) => {
     }}
     return false;
   }
+
   // get all the roles of the workers
   const getRoles = () => {
     const token = localStorage.getItem("token");
@@ -390,6 +380,7 @@ const CurrentWeekWorkers = (props) => {
         console.log(err);
       });
   };
+
   // get swal alert to chose the new role of the worker
   const changeRole = (worker) => {
     const roleOptions = roles.reduce((options, role) => {
@@ -440,6 +431,7 @@ const CurrentWeekWorkers = (props) => {
     setOpenOptions(workerId);
     setDivVisible(true);
   }
+
   // control on the close and open the option select
   useEffect(() => {
     function handleOutsideClick(event) {
@@ -458,6 +450,8 @@ const CurrentWeekWorkers = (props) => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, [isDivVisible ])
+
+
   return <React.Fragment>
     
       {loading ?
