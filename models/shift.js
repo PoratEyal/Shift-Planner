@@ -25,7 +25,10 @@ const shiftSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   }],
-  shiftData: [ShiftData.schema]
+  shiftData: [ShiftData.schema],
+  amountOfWorkers: {
+    type: Number,
+  }
 
 });
 

@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Shift = require('./shift');
 const User = require("./user")
 
 const ShiftData = new mongoose.Schema({
@@ -20,5 +19,6 @@ const ShiftData = new mongoose.Schema({
         type: Number
     }
 });
+
 const shiftData = mongoose.model('shiftData', ShiftData);
 module.exports = shiftData

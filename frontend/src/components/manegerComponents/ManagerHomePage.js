@@ -118,7 +118,7 @@ const ManagerHomePage = () => {
                 </div>
 
                 <Link className={styles.link} to="/createNewWeek">
-                    <button className={styles.btn3} style={btnBackgroundColor}>
+                    <button className={styles.btn3}>
                         <img className={styles.icon2} src="/homepageIcons/clockIcon.svg" alt="image" />  
                         <div className={styles.text_div}>  
                             יצירת משמרות
@@ -127,7 +127,7 @@ const ManagerHomePage = () => {
                 </Link> 
 
                 <Link className={styles.link} onClick={handleClick} to="/currentWeekShifts">
-                    <button className={styles.btn4} style={btnBackgroundColor2}>
+                    <button className={styles.btn4}>
                         <img className={styles.icon2} src="/homepageIcons/addWrokers.svg" alt="image" />  
                         <div className={styles.text_div}>  
                             שיבוץ עובדים

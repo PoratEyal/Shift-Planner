@@ -19,6 +19,7 @@ const DefaultShift = (props) => {
     let name = useRef();
     let startTime = useRef();
     let endTime = useRef();
+    let numberOfWorkers = useRef();
 
     const saveHandler = async () => {
         const user = JSON.parse(localStorage.getItem('user'));
@@ -27,7 +28,8 @@ const DefaultShift = (props) => {
             shiftId: shift._id,
             name: name.current.value,
             startTime: startTime.current.value,
-            endTime: endTime.current.value
+            endTime: endTime.current.value,
+            numberOfWorkers: numberOfWorkers.current.value
         }
         const response = await axios.put(`${process.env.REACT_APP_URL}/changeShift`, reqBody);
         if(response.data){
@@ -94,9 +96,11 @@ const DefaultShift = (props) => {
 
         {clickAddShift && (
             <div className={styles.editShift}>
-                <input className={styles.input_edit} defaultValue={shift.description} type="text" placeholder="שם משמרת" ref={name} />
+                <input className={styles.input_edit} defaultValue={shift.description} type="text" ref={name} />
                 <input className={styles.input_time_start} defaultValue={moment(shift.startTime).utc().format('HH:mm')} type="time" ref={startTime} />
                 <input className={styles.input_time_end} defaultValue={moment(shift.endTime).utc().format('HH:mm')} type="time" ref={endTime} />
+                <input className={styles.input_time_start} defaultValue={shift.amountOfWorkers} type="number" ref={numberOfWorkers} />
+                
                 <div className={styles.btn_div}>
                     <button
                         className={styles.edit_shift_btn}
@@ -106,6 +110,7 @@ const DefaultShift = (props) => {
                         }}
                     >אישור
                     </button>
+
                     <button
                         className={styles.edit_shift_btn_cancel}
                         onClick={() => {
@@ -114,6 +119,7 @@ const DefaultShift = (props) => {
                     >ביטול
                     </button>
                 </div>
+
             </div>
         )}
     </React.Fragment>

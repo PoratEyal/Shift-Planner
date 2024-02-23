@@ -59,6 +59,7 @@ DSRouter.put('/changeShift', async (req, res) => {
         shift.description = reqBody.name;
         shift.startTime = st;
         shift.endTime = et;
+        shift.amountOfWorkers = reqBody.numberOfWorkers;
         await response.save();
         res.status(200).send(shift);
     } else {
