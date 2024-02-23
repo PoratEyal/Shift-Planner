@@ -18,6 +18,16 @@
   text-decoration: none;
 }
 
+.week_title_container{
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: end;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
 .btnUp{
   display: flex;
   flex-direction: row;
@@ -39,7 +49,6 @@
 }
 .btnUp:hover{
   cursor: pointer;
-  transform: scale(1.02);
 }
 
 .btn{
@@ -61,7 +70,6 @@
 }
 .btn:hover{
   cursor: pointer;
-  transform: scale(1.02);
 }
 
 .text_div{
@@ -80,7 +88,6 @@
   border-top-right-radius: 24px;
   width: 134px;
   height: 20px;
-  margin-left: 190px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -117,8 +124,6 @@
   border-top-right-radius: 24px;
   width: 134px;
   height: 20px;
-  margin-left: 190px;
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -151,6 +156,7 @@
     height:120px;
   }
 }
+
 @media only screen and (min-width: 0px) and (max-width: 329.9px) {
   .btn{
     width: 270px;
@@ -158,27 +164,21 @@
   .btnUp{
     width: 270px;
   }
-  .week_text_1{
-    margin-right: 73px;
-  }
-  .week_text_2{
-    margin-right: 73px;
+  .week_title_container{
+    width: 265px;
   }
 }
 @media only screen and (min-width: 330px) and (max-width: 369px) {
   .btn{
-    width: 320px;
+    width: 315px;
     font-size: 18px;
   }
   .btnUp{
-    width: 320px;
+    width: 315px;
     font-size: 18px;
   }
-  .week_text_1{
-    margin-right: 23px;
-  }
-  .week_text_2{
-    margin-right: 23px;
+  .week_title_container{
+    width: 310px;
   }
 }
 @media only screen and (min-width: 370px) and (max-width: 399.9px) {
@@ -188,11 +188,8 @@
   .btnUp{
     width: 340px;
   }
-  .week_text_1{
-    margin-right: 3px;
-  }
-  .week_text_2{
-    margin-right: 3px;
+  .week_title_container{
+    width: 335px;
   }
 }
 @media only screen and (min-width: 400px) and (max-width: 510px) {
@@ -204,11 +201,8 @@
     width: 360px;
     font-size: 18px;
   }
-  .week_text_1{
-    margin-left: 206px;
-  }
-  .week_text_2{
-    margin-left: 206px;
+  .week_title_container{
+    width: 355px;
   }
 }
 @media only screen and (min-width: 511px) {
@@ -220,10 +214,7 @@
     width: 360px;
     font-size: 18px;
   }
-  .week_text_1{
-    margin-left: 206px;
-  }
-  .week_text_2{
-    margin-left: 206px;
+  .week_title_container{
+    width: 355px;
   }
 }

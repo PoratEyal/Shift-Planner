@@ -72,8 +72,10 @@ const ManagerHomePage = () => {
 
                 <div className={styles.currentWeek_container}>
                     
-                    <div className={styles.week_text_1}>
-                        <label>שבוע נוכחי</label>
+                    <div className={styles.week_title_container}>
+                        <div className={styles.week_text_1}>
+                            <label>שבוע נוכחי</label>
+                        </div>
                     </div>
 
                     <Link className={styles.link} to="/SeeCurrentWeekShifts">
@@ -97,9 +99,12 @@ const ManagerHomePage = () => {
                 
 
                 <div className={styles.currentWeek_container}>
-                    <div className={styles.week_text_2}>
-                        <label>שבוע הבא</label>
+                    <div className={styles.week_title_container}>
+                        <div className={styles.week_text_2}>
+                            <label>שבוע הבא</label>
+                        </div>
                     </div>
+
                 </div>
 
                 <Link className={styles.link} to="/createNewWeek">
