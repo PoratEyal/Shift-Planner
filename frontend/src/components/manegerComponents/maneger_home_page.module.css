@@ -24,7 +24,6 @@
   flex-direction: column;
   justify-content: right;
   align-items: end;
-  margin-top: 20px;
   margin-left: 5px;
 }
 
@@ -128,6 +127,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
 }
 
 .week_text_2 label{
@@ -154,6 +154,14 @@
   }
   .btnUp{
     height:120px;
+  }
+}
+@media only screen and (max-height: 655px) {
+  .btn{
+      height:100px;
+  }
+  .btnUp{
+    height:100px;
   }
 }
 

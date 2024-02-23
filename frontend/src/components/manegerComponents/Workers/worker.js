@@ -120,7 +120,10 @@ const Worker = (props) => {
                 </div>
             </div>
             <div>
-                <p className={styles.p}>{user.fullName}</p>
+                <p className={styles.p}>
+                    {user.fullName} -&nbsp;
+                    {user.role ? user.role.name : "ללא תפקיד" }
+                </p>
             </div>
         </div>
         {
