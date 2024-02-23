@@ -80,7 +80,7 @@ const ManagerHomePage = () => {
 
                     <Link className={styles.link} to="/SeeCurrentWeekShifts">
                         <button className={styles.btnUp}>
-                            <img src="/seeIcon.svg" alt="image" />  
+                            <img src="homepageIcons/seeIcon.svg" alt="image" />  
                             <div className={styles.text_div}>  
                                 צפיה בסידור העבודה  
                             </div>
@@ -89,7 +89,7 @@ const ManagerHomePage = () => {
 
                     <Link className={styles.link} to="/editCurrentWeek">
                         <button className={styles.btn}>
-                            <img className={styles.icon2} src="/updateIcon.svg" alt="image" />  
+                            <img className={styles.icon2} src="homepageIcons/updateIcon.svg" alt="image" />  
                             <div className={styles.text_div}>  
                                 עדכון סידור העבודה
                             </div>
@@ -109,7 +109,7 @@ const ManagerHomePage = () => {
 
                 <Link className={styles.link} to="/createNewWeek">
                     <button className={styles.btnUp}>
-                        <img className={styles.icon2} src="/createIcon.svg" alt="image" />  
+                        <img className={styles.icon2} src="/homepageIcons/clockIcon.svg" alt="image" />  
                         <div className={styles.text_div}>  
                             יצירת משמרות
                         </div>
@@ -118,7 +118,7 @@ const ManagerHomePage = () => {
 
                 <Link className={styles.link} to="/currentWeekShifts" onClick={handleClick}>
                 <button className={styles.btn}>
-                        <img className={styles.icon2} src="/schduleIcon.svg" alt="image" />  
+                        <img className={styles.icon2} src="/homepageIcons/addWrokers.svg" alt="image" />  
                         <div className={styles.text_div}>  
                             שיבוץ עובדים
                         </div>
