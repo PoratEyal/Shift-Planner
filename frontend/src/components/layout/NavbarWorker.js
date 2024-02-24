@@ -135,7 +135,7 @@ const NavbarWroker = (props) => {
             <AiOutlineClose onClick={handleCloseClick} className={styles.close_icon}></AiOutlineClose>
             {userGender === 'Famale' ? (
                 <img
-                src="female_avatar.svg"
+                src="female.png"
                 style={{
                   width: "75px",
                   height: "80px",
@@ -143,14 +143,13 @@ const NavbarWroker = (props) => {
               />
             ) : (
               <img
-                src="male_avatar.svg"
+                src="male_avatar.png"
                 style={{
                   width: "75px",
                   height: "80px",
                 }}
               />
             )}
-
             <label className={styles.name_upper_sidebar}>{name}</label>
           </div>
 
