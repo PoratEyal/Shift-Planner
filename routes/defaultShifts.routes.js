@@ -82,6 +82,7 @@ DSRouter.put('/addNewShift', async (req, res) => {
         amountOfWorkers: Number(rewBody.amountOfWorkers)
     });
     const response = await defShifts.findOne({ ofManager: rewBody.managerId });
+    console.log(response.shifts);
     if (response.shifts.length < response.maxAmount) {
         response.shifts.push(shift);
         response.save().then(() => {
