@@ -19,7 +19,7 @@ const CreateShift = () => {
         const startTimeValue = startTime.current.value;
         const endTimeValue = endTime.current.value;
         const amountOfWorkersValue = amountOfWorkers.current.value;
-
+        
         if (!nameValue || !startTimeValue || !endTimeValue || !amountOfWorkersValue) {
             Swal.fire({
                 title: 'יש למלא את כל השדות',
