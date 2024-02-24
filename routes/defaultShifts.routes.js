@@ -69,6 +69,7 @@ DSRouter.put('/changeShift', async (req, res) => {
 })
 DSRouter.put('/addNewShift', async (req, res) => {
     rewBody = req.body;
+    console.log(rewBody);
     const st = new Date(`1970-01-01T${rewBody.startTime}:00Z`);
     const et = new Date(`1970-01-01T${rewBody.endTime}:00Z`);
     const shift = new Shift({
