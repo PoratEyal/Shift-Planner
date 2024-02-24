@@ -49,7 +49,7 @@ app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     next();
   });
-app.use('/app', routeDefShifts);
+
 app.use('/app', routeDay);
 app.use('/app', routeJob);
 app.use('/app', routeRole);
@@ -59,6 +59,7 @@ app.use('/app', routeWeek);
 app.use('/app', routeWorker);
 app.use('/app', routeGPT);
 app.use('/app', routeMessage);
+app.use('/app', routeDefShifts);
 
 app.listen(process.env.PORT || 3001, () => console.log("server is runing..."));
 
