@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import PageLayout from '../layout/PageLayout';
+import { FcApproval } from "react-icons/fc";
 
 export const ManagerContext = createContext({
     getUser: () => {
@@ -90,7 +91,7 @@ const ManagerHomePage = () => {
 
                     <Link className={styles.link} to="/SeeCurrentWeekShifts">
                         <button className={styles.btnUp}>
-                            <img src="homepageIcons/seeIcon.svg" alt="image" />  
+                            <img className={styles.icon1} src="homepageIcons/seeIcon.svg" alt="image" />  
                             <div className={styles.text_div}>  
                                 צפיה בסידור העבודה  
                             </div>
@@ -119,18 +120,21 @@ const ManagerHomePage = () => {
 
                 <Link className={styles.link} to="/createNewWeek">
                     <button className={styles.btn3}>
-                        <img className={styles.icon2} src="/homepageIcons/clockIcon.svg" alt="image" />  
+                        <img className={styles.icon3} src="/homepageIcons/clockIcon.svg" alt="image" />  
                         <div className={styles.text_div}>  
-                            יצירת משמרות
+                        {weekVisible && <FcApproval className={styles.finished_icon}></FcApproval>}
+                            <label>יצירת משמרות</label>
                         </div>
                     </button>
                 </Link> 
 
                 <Link className={styles.link} onClick={handleClick} to="/currentWeekShifts">
                     <button className={styles.btn4}>
-                        <img className={styles.icon2} src="/homepageIcons/addWrokers.svg" alt="image" />  
-                        <div className={styles.text_div}>  
-                            שיבוץ עובדים
+                        <img className={styles.icon4} src="/homepageIcons/addWrokers.svg" alt="image" />  
+                        <div className={styles.text_div}> 
+                            {weekPublishd && <FcApproval className={styles.finished_icon}></FcApproval>}
+                            <label>שיבוץ עובדים</label>
+
                         </div>
                     </button>
                 </Link>

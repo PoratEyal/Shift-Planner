@@ -121,8 +121,8 @@ const Worker = (props) => {
             </div>
             <div>
                 <p className={styles.p}>
-                    {user.fullName} -&nbsp;
-                    {user.role ? user.role.name : "ללא תפקיד" }
+                    <label>{user.fullName}</label>
+                    <label className={styles.role}>- {user.role ? user.role.name : "ללא תפקיד" }</label>
                 </p>
             </div>
         </div>

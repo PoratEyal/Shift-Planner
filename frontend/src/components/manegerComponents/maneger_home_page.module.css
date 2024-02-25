@@ -76,6 +76,15 @@
   font-size: 18px;
   color: #565656;
   font-weight: 400;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.finished_icon{
+  font-size: 22px;
+  animation: slideInAndFade 0.5s ease-in-out;
 }
 
 .week_text_1{
@@ -96,11 +105,21 @@
 
 .week_text_1 label{
   z-index: 2;
-  animation: textScale 1s forwards;
 }
 
+.icon1{
+  animation: textScale 0.4s forwards;
+}
 .icon2{
   margin-left: 10px;
+  animation: textScale 0.6s forwards;
+}
+.icon3{
+  margin-left: 10px;
+  animation: textScale 0.8s forwards;
+}
+.icon4{
+  animation: textScale 1s forwards;
 }
 
 /* - - - - - - - - - - - - - - - - - - -  buttons create - - - - - - - - - -  */
@@ -124,7 +143,6 @@
 
 .week_text_2 label{
   z-index: 2;
-  animation: textScale 1s forwards;
 }
 
 .btn3{
@@ -204,6 +222,17 @@
   }
 }
 
+@keyframes rotateImage {
+  0% {
+      transform: rotate(50deg);
+  }
+  100% {
+    transform: rotate(-50deg);
+}
+  100% {
+      transform: rotate(0deg);
+  }
+}
 
 
 /* - - - - - - - - - - media queries - - - - - - -  - - - -  */

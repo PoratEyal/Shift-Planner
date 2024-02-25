@@ -231,6 +231,15 @@
 .p{
     font-size: 18px;
     margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    direction: rtl;
+    gap: 4px;
+}
+.role{
+    color: rgb(125, 125, 125);
 }
 
 @keyframes downToUp {
