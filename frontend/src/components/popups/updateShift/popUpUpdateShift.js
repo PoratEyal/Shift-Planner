@@ -3,6 +3,7 @@ import moment from 'moment';
 import styles from './popUpUpdateShift.module.css';
 import axios from "axios";
 import Swal from 'sweetalert2';
+import { AiOutlineClose } from "react-icons/ai";
 
 const PopUpEditShift = (props) => {
 
@@ -10,6 +11,7 @@ const PopUpEditShift = (props) => {
     const [startTime, setStartTime] = useState(moment(props.startTime).utc().format('HH:mm'));
     const [endTime, setEndTime] = useState(moment(props.endTime).utc().format('HH:mm'));
     const [amountOfWorkers, setAmountOfWorkers] = useState(props.amountOfWorkers);
+    const [isOpen, setIsOpen] = useState(true); // State to manage visibility
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -33,10 +35,20 @@ const PopUpEditShift = (props) => {
         }
     }
 
+    const handleClose = () => {
+        props.onClose(); // Set isOpen to false to close the component
+    }
+
+    if (!isOpen) {
+        return null; // If isOpen is false, don't render anything
+    }
+
     return (
         <div className={styles.editShift}>
-            <form onSubmit={handleSubmit}>
 
+            <AiOutlineClose className={styles.close_icon} onClick={handleClose}></AiOutlineClose>
+
+            <form onSubmit={handleSubmit}>
                 <div className={styles.input_div}>
                     <label>שם המשמרת</label>
                     <input

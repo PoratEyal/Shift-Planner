@@ -4,15 +4,21 @@ import styles from "./shiftPage.module.css";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { BiEditAlt } from "react-icons/bi";
 import { FiMoreHorizontal } from "react-icons/fi";
-import PopUpEditShift from "../../popups/popUpUpdateShift";
+import PopUpEditShift from "../../popups/updateShift/popUpUpdateShift";
 
 const DefaultShift = (props) => {
+
   const [shift, setShift] = useState(props.shift);
   const [clickAddShift, setClickAddShift] = useState(false);
   const [openOptions, setOpenOptions] = useState(null);
   const [isDivVisible, setDivVisible] = useState(false);
+  const [isBackdropVisible, setIsBackdropVisible] = useState(false);
   const divRef = useRef(null);
   const user = JSON.parse(localStorage.getItem("user"));
+
+  const toggleBackdrop = () => {
+    setIsBackdropVisible(!isBackdropVisible);
+};
 
   // control on the close and open the option select
   useEffect(() => {
@@ -21,7 +27,7 @@ const DefaultShift = (props) => {
     function handleOutsideClick(event) {
       if (divRef.current && !divRef.current.contains(event.target)) {
         setDivVisible(false);
-        setClickAddShift(false); // Close the PopUpEditShift component
+        setClickAddShift(false); // Close the PopUpEditShift component and remove backdrop class
       }
     }
 
@@ -100,7 +106,7 @@ const DefaultShift = (props) => {
 
       {clickAddShift && (
         <React.Fragment>
-          <div className={styles.backdrop} onClick={() => setClickAddShift(false)}></div>
+          <div className={`${styles.backdrop} ${isBackdropVisible ? styles.visible : ''}`} onClick={() => {setClickAddShift(false); toggleBackdrop();}}></div>
           <PopUpEditShift
             userId={user._id}
             shiftId={shift._id}
@@ -108,10 +114,12 @@ const DefaultShift = (props) => {
             startTime={shift.startTime}
             endTime={shift.endTime}
             amountOfWorkers={shift.amountOfWorkers}
+            onClose={() => {setClickAddShift(false); toggleBackdrop();}}
           ></PopUpEditShift>
         </React.Fragment>
       )}
     </React.Fragment>
   );
 };
+
 export default DefaultShift;

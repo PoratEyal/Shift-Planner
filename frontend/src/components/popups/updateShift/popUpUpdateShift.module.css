@@ -1,5 +1,6 @@
-.editShift{
-    width: 80%;
+.editShift {
+    /* Your existing styles */
+    width: 88%;
     font-size: 1.2em;
     border: none;
     border-radius: 20px;
@@ -8,14 +9,29 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 25px;
-    border-radius: 20px;
+    border-radius: 32px;
     position: absolute;
-    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
     background-color: #ffffff;
     z-index: 2;
-    margin-top: 50%;
+    margin-top: -100%;
     z-index: 999; 
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        margin-bottom: 250%; /* Start off the screen */
+    }
+    100% {
+        margin-top: 50%; /* End at its final position */
+    }
+}
+
+.close_icon{
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
 
 .editShift form{
@@ -23,6 +39,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
+    margin-top: 50px;
 }
 
 .input_div{
@@ -33,16 +51,16 @@
 .input_div label{
     margin-right: 10px;
     margin-bottom: 5px;
-    color: rgb(86, 86, 86);
+    color: rgba(86, 86, 86, 0.881);
 }
 
 .input_edit{
     direction: rtl;
     font-size: 19px;
     margin-bottom: 30px;
-    padding: 10px;
-    width: 270px;
-    border-radius: 25px;
+    padding: 13px;
+    width: 250px;
+    border-radius: 15px;
     border: none;
     font-family: 'Rubik', sans-serif;
     color: rgb(70, 70, 70);
@@ -57,9 +75,9 @@
     direction: rtl;
     font-size: 19px;
     margin-bottom: 30px;
-    padding: 10px;
-    width: 270px;
-    border-radius: 25px;
+    padding: 13px;
+    width: 250px;
+    border-radius: 15px;
     border: none;
     font-family: 'Rubik', sans-serif;
     color: rgb(70, 70, 70);
@@ -73,9 +91,9 @@
     direction: rtl;
     font-size: 19px;
     margin-bottom: 30px;
-    padding: 10px;
-    width: 270px;
-    border-radius: 25px;
+    padding: 13px;
+    width: 250px;
+    border-radius: 15px;
     border: none;
     font-family: 'Rubik', sans-serif;
     color: rgb(70, 70, 70);
@@ -108,7 +126,7 @@
     gap: 0.75rem;
     cursor: pointer;
     transition: all .6s ease;
-    width: 290px;
+    width: 280px;
     justify-content: center;
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
