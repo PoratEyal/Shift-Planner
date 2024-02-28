@@ -1,0 +1,118 @@
+.editShift{
+    width: 80%;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    border-radius: 20px;
+    position: absolute;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+    background-color: #ffffff;
+    z-index: 2;
+    margin-top: 50%;
+    z-index: 999; 
+}
+
+.editShift form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input_div{
+    display: flex;
+    flex-direction: column;
+    direction: rtl;
+}
+.input_div label{
+    margin-right: 10px;
+    margin-bottom: 5px;
+    color: rgb(86, 86, 86);
+}
+
+.input_edit{
+    direction: rtl;
+    font-size: 19px;
+    margin-bottom: 30px;
+    padding: 10px;
+    width: 270px;
+    border-radius: 25px;
+    border: none;
+    font-family: 'Rubik', sans-serif;
+    color: rgb(70, 70, 70);
+    position: relative;
+    background-color: #F3F3F3;
+}
+
+.input_time_start{
+    text-align: right;
+    appearance: none;
+    -webkit-appearance:none;
+    direction: rtl;
+    font-size: 19px;
+    margin-bottom: 30px;
+    padding: 10px;
+    width: 270px;
+    border-radius: 25px;
+    border: none;
+    font-family: 'Rubik', sans-serif;
+    color: rgb(70, 70, 70);
+    position: relative;
+    background-color: #F3F3F3;
+}
+.input_time_end{
+    text-align: right;
+    appearance: none;
+    -webkit-appearance:none;
+    direction: rtl;
+    font-size: 19px;
+    margin-bottom: 30px;
+    padding: 10px;
+    width: 270px;
+    border-radius: 25px;
+    border: none;
+    font-family: 'Rubik', sans-serif;
+    color: rgb(70, 70, 70);
+    position: relative;
+    background-color: #F3F3F3;
+}
+
+.btn_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: -15px;
+    direction: rtl;
+}
+.edit_shift_btn{
+    margin-top: -10px;
+    margin-bottom: 15px;
+    display: flex;
+    padding: 0.8rem 2.4rem;
+    font-size: 1.375rem;
+    line-height: 1.45rem;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 50px;
+    border: none;
+    gap: 0.75rem;
+    cursor: pointer;
+    transition: all .6s ease;
+    width: 290px;
+    justify-content: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    height: 60px;
+    background-color: #648ef8;
+    color:#ffffff;
+}
