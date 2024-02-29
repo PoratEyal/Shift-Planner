@@ -11,7 +11,7 @@ const PopUpEditShift = (props) => {
     const [startTime, setStartTime] = useState(moment(props.startTime).utc().format('HH:mm'));
     const [endTime, setEndTime] = useState(moment(props.endTime).utc().format('HH:mm'));
     const [amountOfWorkers, setAmountOfWorkers] = useState(props.amountOfWorkers);
-    const [isOpen, setIsOpen] = useState(true); // State to manage visibility
+    const [isOpen, setIsOpen] = useState(true);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -26,6 +26,8 @@ const PopUpEditShift = (props) => {
         }
         const response = await axios.put(`${process.env.REACT_APP_URL}/changeShift`, reqBody);
         if(response.data){
+            setIsOpen(false);
+            props.onClose();
             Swal.fire({
                 title: 'המשמרת עודכנה',
                 icon: 'success',
