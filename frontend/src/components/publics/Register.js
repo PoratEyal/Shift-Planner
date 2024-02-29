@@ -96,7 +96,7 @@ const Register = () => {
         
         <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
 
-          <label className={styles.space_margin}></label>
+          <div className={styles.logo}></div>
 
           <div className={styles.input_label_div}>
             <input type="text" placeholder='שם מלא' autoComplete="fullname" className={styles.input} onChange={(e) => handleFullnameChange(e.target.value)} />

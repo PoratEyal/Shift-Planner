@@ -14,6 +14,7 @@
   width: 100%;
   height: 100%;
   min-height: 90vh;
+  overflow: hidden;
 }
 
 .lock {
@@ -51,6 +52,17 @@
   }
 }
 
+.logo{
+  margin-left: 10px;
+  margin-top: -20px;
+  background-image: url('../../../public/fullLogo.png');
+  background-repeat: no-repeat;
+  background-size:cover;
+  width: 200px;
+  height: 65px;
+  margin-bottom: 20px;
+}
+
 .form {
   border: none;
   margin-top: 90px;
@@ -70,10 +82,6 @@
   bottom: 0;
 }
 
-.space_margin{
-  margin-top: 20px;
-}
-
 /* buttons - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 .btn {
@@ -91,6 +99,7 @@
   background-color: #648ef8;
   font-family: 'Rubik', sans-serif;
   margin-bottom: 10px;
+  margin-top: 20px;
 }
 .btn:hover {
   cursor: pointer;
