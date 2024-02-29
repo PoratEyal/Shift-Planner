@@ -6,7 +6,7 @@ import styles from '../publics/login.module.css';
 import { BiSolidShow, BiSolidHide } from "react-icons/bi";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [notValid, setNotValid] = useState(false);
   const [validationKey, setValidationKey] = useState(0);
@@ -23,7 +23,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`${process.env.REACT_APP_URL}/login`, { username: username, password: password }).then((response) => {
+    axios.post(`${process.env.REACT_APP_URL}/login`, { email: email, password: password }).then((response) => {
       if (response.status === 200) {
         const user = response.data;
         localStorage.setItem("token", user.token);
@@ -47,7 +47,7 @@ const Login = () => {
       <form className={styles.form} onSubmit={handleSubmit}>
 
         <div>
-          <input type="text" placeholder='שם משתמש' autoComplete="username" className={styles.input} onChange={(e) => { setUsername(e.target.value) }} />
+          <input type="text" placeholder='שם משתמש' autoComplete="email" className={styles.input} onChange={(e) => { setEmail(e.target.value) }} />
         </div>
 
         <div className={styles.password_div}>

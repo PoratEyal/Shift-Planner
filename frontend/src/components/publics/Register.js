@@ -7,10 +7,6 @@ import { BiSolidShow, BiSolidHide } from "react-icons/bi";
 import CheckPassword from '.././popups/checkPassword/checkPassword'
 
 const Register = () => {
-  const [username, setUsername] = useState("");
-  const [usernameVal, setUsernameVal] = useState(false)
-  const [usernameCatch,setUsernameCatch] = useState(false)
-
   const [password, setPassword] = useState("");
   const [passwordVal, setPasswordVal] = useState(false)
 
@@ -36,10 +32,6 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!username || !/^[a-zA-Z0-9]+$/.test(username)) {
-      setUsernameVal(true);
-      setUsername("");
-    }
     if (password.length < 5) {
       setPasswordVal(true)
       setPassword("");
@@ -53,42 +45,29 @@ const Register = () => {
       setEmail("");
     }  
 
-    if(username.length > 0  && !usernameVal && !passwordVal && !fullnameVal && !emailVal){
+    if( !passwordVal && !fullnameVal && !emailVal){
       const userRegister = {
         fullName: fullname,
-        username: username,
         password: password,
         role: '64a7d10d0606ff97cf2796dd',
         email: email,
         job: 'admin'
       }
-      console.log(userRegister)
 
       axios.post(`${process.env.REACT_APP_URL}/addManager`, userRegister)
           .then(() => {
-            navigate('/')
+            openCodeOTP(e)
           })
           .catch((error) => {
             console.log(error);
-            setUsernameCatch(true)
           });
     }
   };
 
   const openCodeOTP = (e) => {
     e.preventDefault()
-    setOpenPopUp(true)
+     setOpenPopUp(true)
   }
-
-  const handleUsernameChange = (value) => {
-    setUsername(value);
-    
-    setUsernameVal(!/^[a-zA-Z0-9]+$/.test(value));
-
-    if(value.length > 0){
-      setUsernameCatch(false)
-    }
-  };
 
   const handlePasswordChange = (value) => {
     setPassword(value);
@@ -115,7 +94,7 @@ const Register = () => {
         </div>
 
         
-        <form className={styles.form} onSubmit={(e) => openCodeOTP(e)}>
+        <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
 
           <label className={styles.space_margin}></label>
 
@@ -127,18 +106,6 @@ const Register = () => {
           <div className={styles.input_label_div}>
             <input type="email" placeholder='אימייל' autoComplete="email" className={styles.input} onChange={(e) => handleEmailChange(e.target.value)} />
             {emailVal ? <label className={styles.validation_email}>כתובת האימייל שהוזנה אינה תקינה</label> : null}
-          </div>
-
-          <div className={styles.input_label_div}>
-            <input
-              type="text"
-              placeholder='שם משתמש' 
-              autoComplete="username" 
-              className={styles.input} 
-              onChange={(e) => handleUsernameChange(e.target.value)} 
-            />
-            {usernameVal ? <label className={styles.validation_username}>שם המשתמש חייב להיות באנגלית</label> : null}
-            {usernameCatch ? <label className={styles.validation_username}>שם המשתמש תפוס</label> : null}
           </div>
 
           <div className={styles.input_label_div}>
@@ -174,7 +141,7 @@ const Register = () => {
 
       </div>
 
-      {openPopUp && <CheckPassword className={styles.popUp}></CheckPassword>}
+      {openPopUp && <CheckPassword className={styles.popUp} userEmail={email}></CheckPassword>}
     
     </div>
 };

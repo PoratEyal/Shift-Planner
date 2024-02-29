@@ -10,6 +10,24 @@ const jwt = require('jsonwebtoken');
 const ObjectId = mongoose.Types.ObjectId;
 const createNewNextWeek = require('../utils/newNextWeek');
 const createNewCurrentWeek = require('../utils/newCurrentWeek');
+const nodemailer = require("nodemailer");
+const otpGenerator = require('otp-generator');
+
+generateOTP = () => {
+    const OTP = otpGenerator.generate(4, {upperCaseAlphabets: false, lowerCaseAlphabets: false, specialChars: false});
+    return OTP
+}
+const transporter = nodemailer.createTransport({
+    service: "Gmail",
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: {
+        user: "shiftplannerapp@gmail.com",
+        pass: "nqyu rpca wazc uyoh",
+    },
+})
+
 
 userRouter.use(bodyParser.json());
 
@@ -27,7 +45,24 @@ userRouter.put('/workersCountOfManager', async (req, res) => {
     }
 });
 
+userRouter.post('/checkOTP', async (req, res) => {
+    console.log(req.body);
+    await User.findOne({ email: `${req.body.email}` }).then(user => {
+        
+        console.log(user);
+        if(user.otp === req.body.otp){
+            console.log("passed");
+            user.active = true;
+            user.save();
+            res.status(200).json({passed: true});
+            return;
+        }
+        else{
+            res.status(201).json({passed: false});
+        }
+    });
 
+})
 // create/POST user
 userRouter.post('/addUser', async (req, res) => {
     try {
@@ -60,11 +95,27 @@ userRouter.post('/addUser', async (req, res) => {
 // create/POST manager
 userRouter.post('/addManager', async (req, res) => {
     try {
+        const otpGenerated = generateOTP();
+        const mailOptions = {
+            from: "shiftplannerapp@gmail.com",
+            to: `${req.body.email}`,
+            subject: "Thank you for signing up to ShiftPlanner!",
+            text: `please enter the following OTP to finish your signup. OTP: ${otpGenerated}`,
+          };
+          transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+              console.error("Error sending email: ", error);
+            } else {
+              console.log("Email sent: ", info.response);
+            }
+          });
+
         const salt = await bcrypt.genSalt();
         const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
         let user = req.body;
         user.password = hashedPassword;
+        user.otp = otpGenerated
         try {
             const role = await Role.findOne({ _id: user.role });
             user.role = role._doc;
@@ -76,7 +127,6 @@ userRouter.post('/addManager', async (req, res) => {
         const jobRes = await job.findOne({ name: user.job });
         user.job = jobRes._doc._id;
 
-        var timesRun = 0;
         const createdUser = await User.create(user).then(response => {
             createNewCurrentWeek(response._id)
             createNewNextWeek(response._id);
@@ -168,7 +218,12 @@ userRouter.get('/GetUserRole', authenticateToken, (req, res) => {
 
 //login
 userRouter.post('/login', async (req, res) => {
-    await User.findOne({ username: `${req.body.username}` }).then(user => {
+
+    await User.findOne({ email: `${req.body.email}` }).then(user => {
+        if(user.active === false){
+            res.status(201).json({ error: 'Unauthorized' });
+            return;
+        }
         bcrypt.compare(req.body.password, user.password).then((result) => {
             if (result === true) {
                 const accessToken = jwt.sign(user.toJSON(), process.env.ACCESS_TOKEN_SECRET);
