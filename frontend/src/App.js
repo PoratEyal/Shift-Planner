@@ -18,6 +18,7 @@ import defShifts from './components/manegerComponents/ShiftPage/ShiftPage';
 import CreateShift from './components/manegerComponents/ShiftPage/CreateShift';
 import SettingsPage from './components/manegerComponents/SettingsPage/SettingsPage';
 import Register from '../src/components/publics/Register';
+import Otp from '../src/components/publics/OTP/otp'
 
 const App = () => {
 
@@ -26,6 +27,7 @@ const App = () => {
         {/* - - - - - - - -login - - - - - - -  */}
         <Route path="/" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
+        <Route path="/otp" element={<Otp/>} />
 
         {/* - - - - - - - -maneger - - - - - - -  */}
         <Route path='/managerHomePage' element={<ProtectedRoute component={ManagerHomePage} role="admin"/>}></Route>

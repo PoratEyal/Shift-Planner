@@ -11,6 +11,7 @@ const CheckPassword = (props) => {
     const otp_input4 = useRef(null);
 
     console.log(props.userEmail);
+
     const handleSubmit = (e)=>{
         e.preventDefault();
         const checkOTPof = {
@@ -24,6 +25,7 @@ const CheckPassword = (props) => {
             }
         })    
     }
+    
     return <form className={styles.otpForm} onSubmit={(e) => handleSubmit(e)}>
         
         <span className={styles.mainHeading}>הזנת קוד</span>

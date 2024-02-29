@@ -66,7 +66,7 @@ const Register = () => {
 
   const openCodeOTP = (e) => {
     e.preventDefault()
-     setOpenPopUp(true)
+    setOpenPopUp(true)
   }
 
   const handlePasswordChange = (value) => {
@@ -134,7 +134,7 @@ const Register = () => {
 
           <div className={styles.login_div}>
             <label>להתחברות</label>
-            <label onClick={() => navigate('/')} className={styles.login_btn}>לחצו כאן</label>
+            <label onClick={() => navigate('/otp')} className={styles.login_btn}>לחצו כאן</label>
           </div>
           
         </form>

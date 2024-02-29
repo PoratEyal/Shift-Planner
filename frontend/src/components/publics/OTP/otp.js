@@ -12,6 +12,7 @@ const Otp = (props) => {
     const otp_input4 = useRef(null);
 
     console.log(props.userEmail);
+
     const handleSubmit = (e)=>{
         e.preventDefault();
         const checkOTPof = {
@@ -25,23 +26,32 @@ const Otp = (props) => {
             }
         })    
     }
-    return <form onSubmit={(e) => handleSubmit(e)}>
-        
-        <span>הזנת קוד</span>
-        <p>שלחנו קוד לאימייל שלך</p>
 
-        <div>
-            <input required maxLength="1" type="text" id="otp-input1" ref={otp_input1} />
-            <input required maxLength="1" type="text" id="otp-input2" ref={otp_input2}/>
-            <input required maxLength="1" type="text" id="otp-input3" ref={otp_input3}/>
-            <input required maxLength="1" type="text" id="otp-input4" ref={otp_input4}/>
+
+    return <form className={styles.container} onSubmit={(e) => handleSubmit(e)}>
+
+        <div className={styles.upper_text}>
+            <span className={styles.span_title}>הזנת קוד</span>
+            <p className={styles.under_title}>שלחנו קוד לאימייל שלך</p>
         </div>
 
-        <button type="submit">שליחה</button>
 
-        <button>×</button>
+        <div className={styles.middle_div}>
+            <div className={styles.input_div}>
+                <input className={styles.input} required maxLength="1" type="text" id="otp-input1" ref={otp_input1} />
+                <input className={styles.input} required maxLength="1" type="text" id="otp-input2" ref={otp_input2}/>
+                <input className={styles.input} required maxLength="1" type="text" id="otp-input3" ref={otp_input3}/>
+                <input className={styles.input} required maxLength="1" type="text" id="otp-input4" ref={otp_input4}/>
+            </div>
+            <button className={styles.btn} type="submit">שליחה</button> 
+        </div>
 
-        <p>אופס, לא קיבלתם קוד?<button>שליחת קוד נוסף</button></p>
+
+
+        <div className={styles.another_code}>
+            <label>אופס, לא קיבלתם קוד?</label>
+            <button className={styles.btn_again}>שליחת קוד נוסף</button>
+        </div>
             
     </form>;
 }
