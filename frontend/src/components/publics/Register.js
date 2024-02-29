@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Roles from './Roles';
 import styles from '../publics/register.module.css';
 import { BiSolidShow, BiSolidHide } from "react-icons/bi";
+import CheckPassword from '.././popups/checkPassword/checkPassword'
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -20,6 +21,8 @@ const Register = () => {
   const [emailVal, setEmailVal] = useState(false)
 
   const [show, setShow] = useState(true);
+
+  const [openPopUp, setOpenPopUp] = useState(false)
 
   const navigate = useNavigate();
 
@@ -72,6 +75,11 @@ const Register = () => {
     }
   };
 
+  const openCodeOTP = (e) => {
+    e.preventDefault()
+    setOpenPopUp(true)
+  }
+
   const handleUsernameChange = (value) => {
     setUsername(value);
     
@@ -107,7 +115,7 @@ const Register = () => {
         </div>
 
         
-        <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
+        <form className={styles.form} onSubmit={(e) => openCodeOTP(e)}>
 
           <label className={styles.space_margin}></label>
 
@@ -165,6 +173,9 @@ const Register = () => {
         </form>
 
       </div>
+
+      {openPopUp && <CheckPassword className={styles.popUp}></CheckPassword>}
+    
     </div>
 };
 
