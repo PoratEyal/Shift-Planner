@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import Roles from './Roles';
 import styles from '../publics/register.module.css';
 import { BiSolidShow, BiSolidHide } from "react-icons/bi";
-import CheckPassword from '.././popups/checkPassword/checkPassword'
+import CheckPassword from '.././popups/checkPassword/checkPassword';
+import Otp from '../publics/OTP/otp'
 
 const Register = () => {
   const [password, setPassword] = useState("");
@@ -84,30 +85,36 @@ const Register = () => {
     setFullnameVal(value.length === 0);
   };
 
-  return <div className={styles.page_container}>
+  {openPopUp ? (
+    <Otp
+      userEmail={email}
+      name={fullname}
+    />
+  ) : (
+    <div className={styles.page_container}>
       <div className={styles.container}>
-
+  
         <img className={styles.password_time_svg} src="circels.svg" />
-
+  
         <div className={styles.lock}>
           <img src="lock.svg" />
         </div>
-
+  
         
-        <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
-
+        <form className={styles.form} onSubmit={(e) => openCodeOTP(e)}>
+  
           <div className={styles.logo}></div>
-
+  
           <div className={styles.input_label_div}>
             <input type="text" placeholder='שם מלא' autoComplete="fullname" className={styles.input} onChange={(e) => handleFullnameChange(e.target.value)} />
             {fullnameVal ? <label className={styles.validation_fullname}>שם מלא צריך לכלול לפחות תו אחד</label> : null}
           </div>
-
+  
           <div className={styles.input_label_div}>
             <input type="email" placeholder='אימייל' autoComplete="email" className={styles.input} onChange={(e) => handleEmailChange(e.target.value)} />
             {emailVal ? <label className={styles.validation_email}>כתובת האימייל שהוזנה אינה תקינה</label> : null}
           </div>
-
+  
           <div className={styles.input_label_div}>
             <div className={styles.password_div}>
               <div className={styles.input_container}>
@@ -131,19 +138,18 @@ const Register = () => {
           </div>
           
           <button className={styles.btn} type="submit">לחצו להרשמה</button>
-
+  
           <div className={styles.login_div}>
             <label>להתחברות</label>
             <label onClick={() => navigate('/')} className={styles.login_btn}>לחצו כאן</label>
           </div>
           
         </form>
-
+  
       </div>
-
-      {openPopUp && <CheckPassword className={styles.popUp} userEmail={email} name={fullname}></CheckPassword>}
-    
     </div>
-};
+  )}
+  
+}
 
 export default Register;
