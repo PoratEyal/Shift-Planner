@@ -96,10 +96,11 @@
     align-items: center;
     gap: 15px;
     margin-bottom: 30px;
+    width: 330px;
 }
 
 .input {
-    width: 65px;
+    width: 25%;
     height: 65px;
     border-radius: 20px;
     border: none;
