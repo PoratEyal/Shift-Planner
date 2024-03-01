@@ -85,70 +85,76 @@ const Register = () => {
     setFullnameVal(value.length === 0);
   };
 
-  {openPopUp ? (
-    <Otp
-      userEmail={email}
-      name={fullname}
-    />
-  ) : (
-    <div className={styles.page_container}>
-      <div className={styles.container}>
+  return (
+    <>
+      {openPopUp ? (
+        <Otp
+          className={styles.code_component}
+          userEmail={email}
+          name={fullname}
+          setOpenPopUp={setOpenPopUp}
+        />
+      ) : (
+        <div className={styles.page_container}>
+          <div className={styles.container}>
   
-        <img className={styles.password_time_svg} src="circels.svg" />
+            <img className={styles.password_time_svg} src="circels.svg" />
   
-        <div className={styles.lock}>
-          <img src="lock.svg" />
-        </div>
-  
-        
-        <form className={styles.form} onSubmit={(e) => openCodeOTP(e)}>
-  
-          <div className={styles.logo}></div>
-  
-          <div className={styles.input_label_div}>
-            <input type="text" placeholder='שם מלא' autoComplete="fullname" className={styles.input} onChange={(e) => handleFullnameChange(e.target.value)} />
-            {fullnameVal ? <label className={styles.validation_fullname}>שם מלא צריך לכלול לפחות תו אחד</label> : null}
-          </div>
-  
-          <div className={styles.input_label_div}>
-            <input type="email" placeholder='אימייל' autoComplete="email" className={styles.input} onChange={(e) => handleEmailChange(e.target.value)} />
-            {emailVal ? <label className={styles.validation_email}>כתובת האימייל שהוזנה אינה תקינה</label> : null}
-          </div>
-  
-          <div className={styles.input_label_div}>
-            <div className={styles.password_div}>
-              <div className={styles.input_container}>
-                <input id='password' autoComplete="current-password" type={show ? "password" : "text"} placeholder='סיסמה' className={styles.input} onChange={(e) => handlePasswordChange(e.target.value)} />
-                {password.length > 0 ? (
-                  show ? (
-                    <BiSolidShow
-                      className={styles.show_password}
-                      onClick={(e) => setShow(!show)}
-                    ></BiSolidShow>
-                  ) : (
-                    <BiSolidHide
-                      className={styles.show_password}
-                      onClick={(e) => setShow(!show)}
-                    ></BiSolidHide>
-                  )
-                ) : null}
-              </div>
+            <div className={styles.lock}>
+              <img src="lock.svg" />
             </div>
-            {passwordVal ? <label className={styles.validation_password}>סיסמה חייבת להכיל לפחות 5 תווים</label> : null}
-          </div>
-          
-          <button className={styles.btn} type="submit">לחצו להרשמה</button>
   
-          <div className={styles.login_div}>
-            <label>להתחברות</label>
-            <label onClick={() => navigate('/')} className={styles.login_btn}>לחצו כאן</label>
-          </div>
-          
-        </form>
+            
+            <form className={styles.form} onSubmit={(e) => openCodeOTP(e)}>
   
-      </div>
-    </div>
-  )}
+              <div className={styles.logo}></div>
+  
+              <div className={styles.input_label_div}>
+                <input type="text" placeholder='שם מלא' autoComplete="fullname" className={styles.input} onChange={(e) => handleFullnameChange(e.target.value)} />
+                {fullnameVal ? <label className={styles.validation_fullname}>שם מלא צריך לכלול לפחות תו אחד</label> : null}
+              </div>
+  
+              <div className={styles.input_label_div}>
+                <input type="email" placeholder='אימייל' autoComplete="email" className={styles.input} onChange={(e) => handleEmailChange(e.target.value)} />
+                {emailVal ? <label className={styles.validation_email}>כתובת האימייל שהוזנה אינה תקינה</label> : null}
+              </div>
+  
+              <div className={styles.input_label_div}>
+                <div className={styles.password_div}>
+                  <div className={styles.input_container}>
+                    <input id='password' autoComplete="current-password" type={show ? "password" : "text"} placeholder='סיסמה' className={styles.input} onChange={(e) => handlePasswordChange(e.target.value)} />
+                    {password.length > 0 ? (
+                      show ? (
+                        <BiSolidShow
+                          className={styles.show_password}
+                          onClick={(e) => setShow(!show)}
+                        ></BiSolidShow>
+                      ) : (
+                        <BiSolidHide
+                          className={styles.show_password}
+                          onClick={(e) => setShow(!show)}
+                        ></BiSolidHide>
+                      )
+                    ) : null}
+                  </div>
+                </div>
+                {passwordVal ? <label className={styles.validation_password}>סיסמה חייבת להכיל לפחות 5 תווים</label> : null}
+              </div>
+              
+              <button className={styles.btn} type="submit">לחצו להרשמה</button>
+  
+              <div className={styles.login_div}>
+                <label>להתחברות</label>
+                <label onClick={() => navigate('/')} className={styles.login_btn}>לחצו כאן</label>
+              </div>
+              
+            </form>
+  
+          </div>
+        </div>
+      )}
+    </>
+  );
   
 }
 

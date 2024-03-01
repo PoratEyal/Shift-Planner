@@ -32,7 +32,7 @@ const Otp = (props) => {
 
     return <form className={styles.container} onSubmit={(e) => handleSubmit(e)}>
         
-        <IoArrowBack onClick={() => {navigate('/register')}} className={styles.backIcon}></IoArrowBack>
+        <IoArrowBack onClick={() => props.setOpenPopUp(false)} className={styles.backIcon}></IoArrowBack>
 
         <div className={styles.upper_text}>
 
