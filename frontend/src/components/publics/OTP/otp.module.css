@@ -118,7 +118,6 @@
     box-shadow: rgba(8, 53, 105, 0.3) 0px 0px 0px 3px;
 }
 .input:hover {
-    background-color: #F3F3F3;
 }
 .input:focus {
     outline: none;
