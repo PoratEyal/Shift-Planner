@@ -95,6 +95,7 @@ userRouter.post('/addUser', async (req, res) => {
 // create/POST manager
 userRouter.post('/addManager', async (req, res) => {
     try {
+        console.log(req.body);
         const otpGenerated = generateOTP();
         const mailOptions = {
             from: "shiftplannerapp@gmail.com",
