@@ -12,12 +12,12 @@
 .backIcon {
     border: 1px solid white;
     border-radius: 150px;
-    padding: 7px;
+    padding: 9px;
     color: white;
     position: absolute;
     left: 18px;
     top: 18px;
-    font-size: 24px;
+    font-size: 28px;
     transition: padding 0.3s, font-size 0.3s;
 }
 
@@ -97,10 +97,11 @@
     gap: 15px;
     margin-bottom: 30px;
     width: 330px;
+    height: 65px;
 }
 
 .input {
-    width: 25%;
+    width: 65px;
     height: 65px;
     border-radius: 20px;
     border: none;
