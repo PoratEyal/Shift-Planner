@@ -104,7 +104,7 @@ const Register = () => {
             </div>
   
             
-            <form className={styles.form} onSubmit={(e) => openCodeOTP(e)}>
+            <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
   
               <div className={styles.logo}></div>
   
