@@ -12,18 +12,18 @@
 .backIcon {
     border: 1px solid white;
     border-radius: 150px;
-    padding: 5px;
+    padding: 7px;
     color: white;
     position: absolute;
     left: 18px;
     top: 18px;
-    font-size: 22px;
+    font-size: 24px;
     transition: padding 0.3s, font-size 0.3s;
 }
 
 .backIcon:hover {
-    padding: 7px;
-    font-size: 24px;
+    padding: 8px;
+    font-size: 26px;
 }
 
 
