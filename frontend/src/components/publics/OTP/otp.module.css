@@ -9,21 +9,70 @@
     font-family: 'Rubik', sans-serif;
 }
 
-.upper_text{
+.backIcon {
+    border: 1px solid white;
+    border-radius: 150px;
+    padding: 5px;
+    color: white;
     position: absolute;
-    top: 10px;
+    left: 18px;
+    top: 18px;
+    font-size: 22px;
+    transition: padding 0.3s, font-size 0.3s;
+}
+
+.backIcon:hover {
+    padding: 7px;
+    font-size: 24px;
+}
+
+
+.upper_text {
+    position: absolute;
+    top: -100px; /* Initial position off the top of the page */
+    right: 35px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: right;
+    text-align: right;
+    animation: slideFromTop 1s ease forwards; /* Apply animation */
 }
 
-.span_title{
+@keyframes slideFromTop {
+    from {
+        top: -200px; /* Starting position off the top of the page */
+    }
+    to {
+        top: 10px; /* Final position */
+    }
+}
+
+
+.title_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: right;
+    text-align: right;
+    gap: 10px;
     margin-top: 50px;
+    margin-left: 30px;
+}
+
+.lock_icon {
+    font-size: 50px;
+    margin-bottom: 4px;
+    transform: rotate(-20deg);
+}
+
+
+.span_title{
     color: white;
     font-weight: 600;
     font-size: 40px;
     font-family: 'Rubik', sans-serif;
+    text-align: right;
 }
 
 .under_title{
@@ -49,7 +98,7 @@
     margin-bottom: 30px;
 }
 
-.input{
+.input {
     width: 65px;
     height: 65px;
     border-radius: 20px;
@@ -61,10 +110,17 @@
     justify-content: center;
     font-size: 30px;
     text-align: center;
+    outline: none;
+    color: rgb(78, 78, 78);
+    font-weight: 500;
 }
-input:hover{
+.input:hover {
     background-color: #F3F3F3;
 }
+.input:focus {
+    outline: none;
+}
+
 
 .another_code{
     margin-top: 15px;
@@ -73,7 +129,7 @@ input:hover{
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: 50px;
+    bottom: 35px;
 }
 .btn{
     background-color: white;
@@ -85,7 +141,7 @@ input:hover{
     font-family: 'Rubik', sans-serif;
     padding: 15px;
     border-radius: 35px;
-    margin-bottom: 40px;
+    margin-bottom: 15px;
 }
 .another_code label{
     color: white;

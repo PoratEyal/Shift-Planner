@@ -141,7 +141,7 @@ const Register = () => {
 
       </div>
 
-      {openPopUp && <CheckPassword className={styles.popUp} userEmail={email}></CheckPassword>}
+      {openPopUp && <CheckPassword className={styles.popUp} userEmail={email} name={fullname}></CheckPassword>}
     
     </div>
 };
