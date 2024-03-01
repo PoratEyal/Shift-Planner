@@ -27,7 +27,6 @@ const Otp = (props) => {
         })    
     }
 
-
     return <form className={styles.container} onSubmit={(e) => handleSubmit(e)}>
 
         <div className={styles.upper_text}>
@@ -45,8 +44,6 @@ const Otp = (props) => {
             </div>
             <button className={styles.btn} type="submit">שליחה</button> 
         </div>
-
-
 
         <div className={styles.another_code}>
             <label>אופס, לא קיבלתם קוד?</label>
