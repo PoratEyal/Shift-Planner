@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import Roles from './Roles';
 import styles from '../publics/register.module.css';
 import { BiSolidShow, BiSolidHide } from "react-icons/bi";
-import CheckPassword from '.././popups/checkPassword/checkPassword';
 import Otp from '../publics/OTP/otp'
 
 const Register = () => {
@@ -105,7 +104,7 @@ const Register = () => {
             </div>
   
             
-            <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
+            <form className={styles.form} onSubmit={(e) => openCodeOTP(e)}>
   
               <div className={styles.logo}></div>
   

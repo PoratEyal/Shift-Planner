@@ -29,14 +29,14 @@
 
 .upper_text {
     position: absolute;
-    top: -100px; /* Initial position off the top of the page */
+    top: -100px;
     right: 35px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: right;
     text-align: right;
-    animation: slideFromTop 1s ease forwards; /* Apply animation */
+    animation: slideFromTop 1s ease forwards;
 }
 
 @keyframes slideFromTop {
@@ -49,15 +49,13 @@
 }
 
 
-.title_div{
+.title_div {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: right;
-    text-align: right;
+    justify-content: flex-end; /* Changed to align items to the right */
+    align-items: center; /* Adjusted alignment */
     gap: 10px;
     margin-top: 50px;
-    margin-left: 30px;
 }
 
 .lock_icon {
@@ -66,8 +64,7 @@
     transform: rotate(-20deg);
 }
 
-
-.span_title{
+.span_title {
     color: white;
     font-weight: 600;
     font-size: 40px;
@@ -75,46 +72,51 @@
     text-align: right;
 }
 
-.under_title{
+.under_title {
     color: white;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 19px;
     font-family: 'Rubik', sans-serif;
     margin-top: 5px;
+    text-align: right; /* Ensure text is aligned to the right */
 }
+
 
 .middle_div{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 92%;
+    position: absolute;
+    top: 40%;
 }
 .input_div{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 30px;
-    width: 330px;
-    height: 65px;
+    gap: 12px;
 }
 
 .input {
     width: 65px;
     height: 65px;
-    border-radius: 20px;
+    border-radius: 18px;
     border: none;
     background-color: rgb(255, 255, 255);
     font-family: 'Rubik', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+    font-size: 34px;
     text-align: center;
     outline: none;
     color: rgb(78, 78, 78);
     font-weight: 500;
+    color: #648ef8;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(8, 53, 105, 0.3) 0px 0px 0px 3px;
 }
 .input:hover {
     background-color: #F3F3F3;

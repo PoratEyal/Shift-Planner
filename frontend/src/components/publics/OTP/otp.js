@@ -35,13 +35,14 @@ const Otp = (props) => {
         <IoArrowBack onClick={() => props.setOpenPopUp(false)} className={styles.backIcon}></IoArrowBack>
 
         <div className={styles.upper_text}>
-
+            
             <div className={styles.title_div}>
                 <FcLock className={styles.lock_icon}></FcLock>
                 <span className={styles.span_title}>הזנת קוד</span>
             </div>
 
             <p className={styles.under_title}>אהלן {props.name}, שלחנו קוד לאימייל שלך</p>
+        
         </div>
 
 
