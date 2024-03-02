@@ -274,7 +274,7 @@ userRouter.put('/editUser', async (req, res) => {
             }
             catch (err) { console.log(err) }
             user.fullName = updatedUser.fullName
-            //user.username = updatedUser.username
+            user.email = updatedUser.email
         }
         else {
             try {
@@ -287,7 +287,7 @@ userRouter.put('/editUser', async (req, res) => {
             }
             catch (err) { console.log(err) }
             user.fullName = updatedUser.fullName
-            //user.username = updatedUser.username
+            user.email = updatedUser.email
         }
         await user.save();
         res.status(202).json(user);
