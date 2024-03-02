@@ -1,26 +1,25 @@
-import styles from './createWorker.module.css'
+import styles from './createWorker.module.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { ManagerContext } from '../ManagerHomePage' 
+import { ManagerContext } from '../ManagerHomePage'; 
 import { useContext } from 'react';
 import Swal from 'sweetalert2';
-import PageLayout from './/..//..//layout/PageLayout';
+import PageLayout from '../../layout/PageLayout';
 import Creatable from 'react-select/creatable';
-
 
 const CreateWorker = () => {
     
     const navigate = useNavigate();
 
     const [fullName, setFullName] = useState('');
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState(''); // Changed from username
     const [password, setPassword] = useState('');
     const [userAdded, setUserAdded] = useState(false);
     const [selectedRole, setRole] = useState("");
     const [roles, setRoles] = useState([]);
 
-    //context
+    // Context
     const managerContext = useContext(ManagerContext);
     const managerId = managerContext.getUser();
 
@@ -81,7 +80,7 @@ const CreateWorker = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!fullName || !username || !password || !managerId) {
+        if (!fullName || !email || !password || !managerId) {
             Swal.fire({
               title: 'יש למלא את כל השדות (תפקיד לא חובה)',
               text: "",
@@ -93,7 +92,7 @@ const CreateWorker = () => {
         }
         const newUser = {
           fullName: fullName,
-          username: username,
+          email: email, // Changed from username
           password: password,
           role: selectedRole,
           manager: managerId,
@@ -103,14 +102,14 @@ const CreateWorker = () => {
           .then(() => {
             setUserAdded(true);
             setFullName('');
-            setUsername('');
+            setEmail('');
             setPassword('');
             navigate('/workers')
           })
           .catch((error) => {
             console.log(error);
             Swal.fire({
-              title: 'שם משתמש תפוס, הכנס שם משתמש אחר',
+              title: 'כתובת האימייל תפוסה, הכנס כתובת אימייל אחרת',
               text: "",
               icon: 'warning',
               confirmButtonColor: '#34a0ff',
@@ -133,21 +132,15 @@ const CreateWorker = () => {
                   required
               />
 
-              <label className={styles.label}>שם משתמש (באנגלית)</label>
+              <label className={styles.label}>כתובת אימייל</label>
               <input
                   className={styles.input}
-                  type="text"
-                  id="username"
-                  value={username}
-                  onChange={(e) => {
-                  const inputUsername = e.target.value;
-                  const alphanumericRegex = /^[a-zA-Z0-9]*$/;
-                  if (alphanumericRegex.test(inputUsername)) {
-                      setUsername(inputUsername);
-                  }
-                  }}
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
-                  autoComplete="username"
+                  autoComplete="email"
               />
 
               <label className={styles.label}>סיסמה בעלת 5 תווים לפחות</label>
@@ -159,7 +152,7 @@ const CreateWorker = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   minLength={5}
-                  autoComplete="current-password"
+                  autoComplete="new-password"
               />
 
               <label className={styles.label}>(לא חובה) בחירת תפקיד</label>
