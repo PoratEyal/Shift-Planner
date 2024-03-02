@@ -40,7 +40,7 @@ const Register = () => {
       setFullnameVal(true)    
       setFullname("");
     }
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@.]+$/.test(email)) {
       setEmailVal(true);
       setEmail("");
     }  
@@ -76,7 +76,7 @@ const Register = () => {
 
   const handleEmailChange = (value) => {
     setEmail(value);
-    setEmailVal(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
+    setEmailVal(!/^[^\s@]+@[^\s@]+\.[^\s@.]+$/.test(value));
   };
 
   const handleFullnameChange = (value) => {
