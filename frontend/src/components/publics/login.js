@@ -47,7 +47,7 @@ const Login = () => {
       <form className={styles.form} onSubmit={handleSubmit}>
 
         <div>
-          <input type="text" placeholder='שם משתמש' autoComplete="email" className={styles.input} onChange={(e) => { setEmail(e.target.value) }} />
+          <input type="email" placeholder='אימייל' autoComplete="email" className={styles.input_email} onChange={(e) => { setEmail(e.target.value) }} />
         </div>
 
         <div className={styles.password_div}>

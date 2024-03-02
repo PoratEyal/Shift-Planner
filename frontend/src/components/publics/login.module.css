@@ -118,6 +118,23 @@
   left: 10px;
 }
 
+.input_email{
+  font-size: 26px;
+  margin-bottom: 40px;
+  padding: 13px;
+  width: 300px;
+  border-radius: 25px;
+  border: none;
+  font-family: 'Rubik', sans-serif;
+  color: rgb(70, 70, 70);
+  background-color: #F3F3F3;
+  text-align: left;
+}
+.input_email::placeholder{
+  color: #2e2e2e7c;
+  text-align: right;
+}
+
 .input{
   direction: rtl;
   font-size: 26px;
