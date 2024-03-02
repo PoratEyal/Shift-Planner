@@ -114,7 +114,7 @@ const Register = () => {
               </div>
   
               <div className={styles.input_label_div}>
-                <input type="email" placeholder='אימייל' autoComplete="email" className={styles.input} onChange={(e) => handleEmailChange(e.target.value)} />
+                <input type="email" placeholder='אימייל' autoComplete="email" className={styles.input_email} onChange={(e) => handleEmailChange(e.target.value)} />
                 {emailVal ? <label className={styles.validation_email}>כתובת האימייל שהוזנה אינה תקינה</label> : null}
               </div>
   
