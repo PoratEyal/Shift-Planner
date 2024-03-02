@@ -178,6 +178,9 @@
   color: #2e2e2e7c;
   direction: ltr;
 }
+.input:focus{
+  outline: none;
+}
 
 .input_email{
   direction: rtl;
@@ -197,6 +200,9 @@
   color: #2e2e2e7c;
   direction: ltr;
   text-align: right;
+}
+.input_email:focus{
+  outline: none;
 }
 
 /* - - - - - - - - - - - - - -  validations - - - - - - - - - - - - - -  */
@@ -271,6 +277,10 @@
     padding: 15px;
     width: 310px;
   }
+  .input_email{
+    padding: 15px;
+    width: 310px;
+  }
   .btn{
     margin-top: 20px;
     width: 330px;
@@ -308,6 +318,10 @@
     font-size: 21px;
     padding: 12px;
   }
+  .input_email{
+    font-size: 21px;
+    padding: 12px;
+  }
   .btn{
     margin-top: 5px;
     padding: 15px;
@@ -329,6 +343,10 @@
     height: 220px;
   }
   .input{
+    font-size: 21px;
+    padding: 12px;
+  }
+  .input_email{
     font-size: 21px;
     padding: 12px;
   }
