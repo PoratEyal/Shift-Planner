@@ -95,6 +95,7 @@ const CreateWorker = () => {
           email: email, // Changed from username
           password: password,
           role: selectedRole,
+          active: true,
           manager: managerId,
           job: "user"
         }
