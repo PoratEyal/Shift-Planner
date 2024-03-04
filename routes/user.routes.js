@@ -101,8 +101,13 @@ userRouter.post('/addManager', async (req, res) => {
             from: "shiftplannerapp@gmail.com",
             to: `${req.body.email}`,
             subject: "Thank you for signing up to ShiftPlanner!",
-            text: `please enter the following OTP to finish your signup.
-            Your code is: ${otpGenerated}`,
+            html: `<p>please enter the following code to finish your signup.
+            Your code is: ${otpGenerated}<p/><img src="cid:logo"/>`,
+            attachments: [{
+                filename: 'shiftplannerlogo.png',
+                path: 'shiftplannerlogo.png',
+                cid: 'logo'
+            }]
           };
           transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
