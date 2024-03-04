@@ -42,14 +42,13 @@ const Roles = () => {
           try {
             await axios.post(`${process.env.REACT_APP_URL}/addRole`, newRole)
               .then(response => {
+                getRoles();
                 Swal.fire({
                   title: 'התפקיד נוסף בהצלחה',
                   confirmButtonColor: '#34a0ff',
                   confirmButtonText: 'סגירה',
                   icon: 'success'
                 });
-                //setRoles(prevRoles => [...prevRoles, response.data]);
-                getRoles();
               })
               .catch(error => {
                 console.log(error.response.data.error);

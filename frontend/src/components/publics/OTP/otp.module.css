@@ -114,8 +114,6 @@
     color: rgb(78, 78, 78);
     font-weight: 500;
     color: #648ef8;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    box-shadow: rgba(8, 53, 105, 0.3) 0px 0px 0px 3px;
 }
 .input:hover {
 }
@@ -162,3 +160,27 @@
     border: none;
     font-family: 'Rubik', sans-serif;
 }
+
+@media only screen and (min-width: 480px) {
+    .container{
+        height: 700px;
+        width: 490px;
+        border-radius: 30px;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        position: relative;
+        margin-top: 70px;
+    }
+    .input{
+        width: 60px;
+        height: 60px;
+    }
+    .upper_text{
+        position: absolute;
+        right: 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: right;
+        text-align: right;
+    }
+  }
