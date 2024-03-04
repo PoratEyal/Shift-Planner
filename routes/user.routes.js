@@ -101,7 +101,8 @@ userRouter.post('/addManager', async (req, res) => {
             from: "shiftplannerapp@gmail.com",
             to: `${req.body.email}`,
             subject: "Thank you for signing up to ShiftPlanner!",
-            text: `please enter the following OTP to finish your signup. OTP: ${otpGenerated}`,
+            text: `please enter the following OTP to finish your signup.
+            Your code is: ${otpGenerated}`,
           };
           transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
