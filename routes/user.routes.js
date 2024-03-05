@@ -92,6 +92,33 @@ userRouter.post('/addUser', async (req, res) => {
     }
 });
 
+userRouter.post('/otpAgain', async (req, res) => {
+    await User.findOne({ email: `${req.body.email}` }).then(user => {
+        
+        const mailOptions = {
+            from: "shiftplannerapp@gmail.com",
+            to: `${req.body.email}`,
+            subject: "Thank you for signing up to ShiftPlanner!",
+            html: `<p>please enter the following code to finish your signup.
+            Your code is: ${user.otp}<p/><img src="cid:logo"/>`,
+            attachments: [{
+                filename: 'shiftplannerlogo.png',
+                path: 'shiftplannerlogo.png',
+                cid: 'logo'
+            }]
+          };
+          transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                res.status(201).json({message: `error: ${error}`})
+              console.error("Error sending email: ", error);
+            } else {
+                res.status(200).json({message: 'email sent'})
+              console.log("Email sent: ", info.response);
+            }
+          });
+    });
+})
+
 // create/POST manager
 userRouter.post('/addManager', async (req, res) => {
     try {

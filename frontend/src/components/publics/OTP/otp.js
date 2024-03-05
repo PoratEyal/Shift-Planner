@@ -29,7 +29,14 @@ const Otp = (props) => {
             }
         })    
     }
-
+    const sendOTPagain = () => {
+        const email = {
+            email: props.userEmail
+        }
+        axios.post(`${process.env.REACT_APP_URL}/otpAgain`, email).then((response) => {
+            console.log(response);
+        })
+    }
     // Function to focus on the next input field
     const focusNextInput = (currentInput, nextInput) => {
         if (currentInput.current.value.length === 1) {
@@ -55,17 +62,17 @@ const Otp = (props) => {
 
         <div className={styles.middle_div}>
             <div className={styles.input_div}>
-                <input className={styles.input} required maxLength="1" type="text" id="otp-input1" ref={otp_input1} onInput={() => focusNextInput(otp_input1, otp_input2)} />
-                <input className={styles.input} required maxLength="1" type="text" id="otp-input2" ref={otp_input2} onInput={() => focusNextInput(otp_input2, otp_input3)} />
-                <input className={styles.input} required maxLength="1" type="text" id="otp-input3" ref={otp_input3} onInput={() => focusNextInput(otp_input3, otp_input4)} />
-                <input className={styles.input} required maxLength="1" type="text" id="otp-input4" ref={otp_input4} />
+                <input className={styles.input}  maxLength="1" type="text" id="otp-input1" ref={otp_input1} onInput={() => focusNextInput(otp_input1, otp_input2)} />
+                <input className={styles.input}  maxLength="1" type="text" id="otp-input2" ref={otp_input2} onInput={() => focusNextInput(otp_input2, otp_input3)} />
+                <input className={styles.input}  maxLength="1" type="text" id="otp-input3" ref={otp_input3} onInput={() => focusNextInput(otp_input3, otp_input4)} />
+                <input className={styles.input}  maxLength="1" type="text" id="otp-input4" ref={otp_input4} />
             </div>
         </div>
 
         <div className={styles.another_code}>
             <button className={styles.btn} type="submit">שליחה</button> 
             <label>אופס, לא קיבלתם קוד?</label>
-            <button className={styles.btn_again}>שליחת קוד נוסף</button>
+            <button className={styles.btn_again} onClick={sendOTPagain}>שליחת קוד נוסף</button>
         </div>
             
     </form>;
