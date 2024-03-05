@@ -5,7 +5,8 @@ import PageLayout from './/..//..//layout/PageLayout';
 import { useNavigate } from 'react-router-dom';
 import DefaultShift from "./DefaultShift";
 import Swal from 'sweetalert2';
-import LoadingAnimation from '../../loadingAnimation/loadingAnimation'
+import LoadingAnimation from '../../loadingAnimation/loadingAnimation';
+import PopUpAddShift from '../../popups/addShift/addShift'
 
 const SettingsPage = (props) => {
 
