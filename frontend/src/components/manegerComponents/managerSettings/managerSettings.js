@@ -57,20 +57,7 @@ const ManagerSettings = () => {
 
   return <PageLayout text='עדכון פרטי משתמש'>
       <div className={styles.container}>
-        <h2 className={styles.h2}>הזינו פרטי משתמש חדשים</h2>
-
-        <input
-          className={styles.input}
-          placeholder="שם משתמש באנגלית בלבד"
-          value={username}
-          onChange={(e) => {
-            const inputUsername = e.target.value;
-            const alphanumericRegex = /^[a-zA-Z0-9]*$/;
-            if (alphanumericRegex.test(inputUsername)) {
-              setUsername(inputUsername);
-            }
-          }}
-        />
+        <h2 className={styles.h2}>הזינו סיסמה חדשה</h2>
 
         <input
         type="password"
