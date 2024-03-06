@@ -109,7 +109,7 @@ const PopUpAddWorker = (props) => {
                 </div>
 
                 <div className={styles.input_div}>
-                    <label>(לא חובה) בחירת תפקיד</label>
+                    <label>בחירת תפקיד (לא חובה)</label>
                     <select className={styles.select_workers_role} value={selectedRole} onChange={(e) => { setRole(e.target.value) }} >
                         <option value="" disabled>תפקיד</option>
                         {props.roles.map(role => { return <option value={role._id} key={role._id}>{role.name}</option> })}
