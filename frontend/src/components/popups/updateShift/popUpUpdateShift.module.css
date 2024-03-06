@@ -13,7 +13,6 @@
     background-color: #ffffff;
     z-index: 999; 
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    animation: slideInAndFade 0.2s ease-in-out;
 }
 
 .close_icon{
@@ -49,6 +48,7 @@
     margin-bottom: 15px;
     padding: 13px;
     width: 250px;
+    height: 20px;
     border-radius: 15px;
     border: none;
     font-family: 'Rubik', sans-serif;
@@ -66,6 +66,7 @@
     margin-bottom: 15px;
     padding: 13px;
     width: 250px;
+    height: 20px;
     border-radius: 15px;
     border: none;
     font-family: 'Rubik', sans-serif;
@@ -82,6 +83,7 @@
     margin-bottom: 15px;
     padding: 13px;
     width: 250px;
+    height: 20px;
     border-radius: 15px;
     border: none;
     font-family: 'Rubik', sans-serif;
