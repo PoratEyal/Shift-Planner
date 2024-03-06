@@ -8,12 +8,13 @@ import Swal from 'sweetalert2';
 
 const UserSettings = () => {
   const navigate = useNavigate();
+  const [passwordAgain, setPasswordAgain] = useState('');
   const [password, setPassword] = useState('');
   const [validationMessage, setValidationMessage] = useState(false)
   const userData = JSON.parse(localStorage.getItem('user'));
 
   const changeUser = async () => {
-    if (password.trim() !== '') {
+    if (passwordAgain.trim() !== '' && password.trim() !== '') {
       if (password.length < 5) {
         Swal.fire({
           title: 'יש למלא סיסמה גדולה מחמישה תווים',
@@ -57,9 +58,19 @@ const UserSettings = () => {
         <input
           type='password'
           className={styles.input}
-          placeholder="סיסמה בעלת 5 תווים לפחות"
+          placeholder="סיסמה חדשה"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          minLength={5}
+          required
+        />
+
+        <input
+          type="password"
+          className={styles.input}
+          placeholder="אישור סיסמה חדשה"
+          value={passwordAgain}
+          onChange={(e) => setPasswordAgain(e.target.value)}
           minLength={5}
           required
         />

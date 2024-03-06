@@ -156,10 +156,6 @@ const Worker = (props) => {
         </div> : null
         }
 
-        {/* {showEditWorker && (
-            <EditWorker user={user} roles={props.roles} key={user._id} />
-        )} */}
-
     </div>
 }
 export default Worker

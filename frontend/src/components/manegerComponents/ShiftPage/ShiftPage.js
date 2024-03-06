@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from './shiftPage.module.css';
 import PageLayout from './/..//..//layout/PageLayout';
@@ -16,6 +16,13 @@ const SettingsPage = (props) => {
     const [noShifts, setNoShifts] = useState(false);
     const [loading, setLoading] = useState(false);
     const [limitShifts, setLimitShifts] = useState(false);
+
+    const [isBackdropVisible, setIsBackdropVisible] = useState(false);
+    const [clickAddShift, setClickAddShift] = useState(false);
+
+    const toggleBackdrop = () => {
+        setIsBackdropVisible(!isBackdropVisible);
+    };
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
@@ -102,10 +109,19 @@ const SettingsPage = (props) => {
                 : null}
             </>
             ))}
+
+            {clickAddShift && (
+                <React.Fragment>
+                    <div className={`${styles.backdrop} ${isBackdropVisible ? styles.visible : ''}`} onClick={() => {setClickAddShift(false); toggleBackdrop();}}></div>
+                    <PopUpAddShift
+                        onClose={() => {setClickAddShift(false); toggleBackdrop();}}
+                    ></PopUpAddShift>
+                </React.Fragment>
+            )}
         </div>
 
         <img
-            onClick={createShiftHandler}
+            onClick={() => setClickAddShift(true)}
             src='addRole.png'
             className={styles.addShift_btn}
             alt='Add Shift'

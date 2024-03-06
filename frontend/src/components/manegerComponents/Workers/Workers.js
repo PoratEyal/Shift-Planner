@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import Worker from './worker';
 import LoadingAnimation from '../../loadingAnimation/loadingAnimation';
+import PopUpAddWorker from '../../popups/addWorker/popUpAddWorker';
 
 const Workers = () => {
 
@@ -21,9 +22,16 @@ const Workers = () => {
   const [setOpenOptions] = useState(null);
   const [isDivVisible, setDivVisible] = useState(false);
 
+  const [isBackdropVisible, setIsBackdropVisible] = useState(false);
+  const [clickAddShift, setClickAddShift] = useState(false);
+
   const divRef = useRef(null);
 
   const managerContext = useContext(ManagerContext);
+
+  const toggleBackdrop = () => {
+    setIsBackdropVisible(!isBackdropVisible);
+  };  
 
   const getRoles = () => {
     const token = localStorage.getItem("token");
@@ -156,8 +164,25 @@ const Workers = () => {
             ))
           )
         )}
+
+        {clickAddShift && (
+            <React.Fragment>
+                <div className={`${styles.backdrop} ${isBackdropVisible ? styles.visible : ''}`} onClick={() => {setClickAddShift(false); toggleBackdrop();}}></div>
+                <PopUpAddWorker
+                    onClose={() => {setClickAddShift(false); toggleBackdrop();}}
+                    roles={roles}
+                ></PopUpAddWorker>
+            </React.Fragment>
+        )}
+
       </div>
-      <img onClick={() => navigate('/createWorker')} src='addUser.png' className={styles.addUser_btn} />
+
+      <img
+        onClick={() => setClickAddShift(true)}
+        src='addUser.png'
+        className={styles.addUser_btn}
+      />
+      
     </PageLayout>
   );
 }
