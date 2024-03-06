@@ -5,21 +5,23 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiMoreHorizontal } from "react-icons/fi";
 import { BiEditAlt } from "react-icons/bi";
 import Swal from 'sweetalert2';
+import PopUpEditWorker from '../../popups/editWorker/popUpEditWorker'
 
 const Worker = (props) => {
 
     const [isDivVisible, setDivVisible] = useState(false);
     const [openOptions, setOpenOptions] = useState(null);
     const [userDeleted, setUserDelted] = useState(false)
-    const [clickEditWorker, setEditWorker] = useState(false);
     const divRef = useRef(null);
 
     const user = props.user;
     
-    let fullName = useRef(user.fullName);
-    let username = useRef(user.username);
-    let password = useRef("");
-    const [selectedRole, setRole] = useState(user.role ? user.role._id : 0);
+    const [isBackdropVisible, setIsBackdropVisible] = useState(false);
+    const [clickAddShift, setClickAddShift] = useState(false);
+
+    const toggleBackdrop = () => {
+        setIsBackdropVisible(!isBackdropVisible);
+    };  
 
     const options = (shiftId) => {
         setOpenOptions(shiftId);
@@ -58,28 +60,6 @@ const Worker = (props) => {
         });
     }
 
-    const EditUser = async () => {
-        const updatedUser = {
-            _id: user._id,
-            fullName: fullName.current.value,
-            username: username.current.value,
-            password: password.current.value,
-            role: selectedRole,
-            job: user.job,
-          };
-        await axios.put(`${process.env.REACT_APP_URL}/editUser`, updatedUser).then(() => {
-            setEditWorker(!clickEditWorker)
-            Swal.fire({
-                title: 'העובד עודכן בהצלחה',
-                icon: 'success',
-                confirmButtonColor: '#34a0ff',
-                confirmButtonText: 'סגירה'
-            });
-        }).catch((err) => {
-            console.log(err);
-        })
-    }
-
     // control on the close and open the option select
     useEffect(() => {
         function handleOutsideClick(event) {
@@ -108,8 +88,8 @@ const Worker = (props) => {
                     {openOptions === user._id && isDivVisible ?
                         <div ref={divRef} className={styles.edit_div_options}>
                             <div className={styles.edit_div_flex}>
-                                <label onClick={() => { setEditWorker(true); setDivVisible(false) }}>עריכת עובד</label>
-                                <BiEditAlt onClick={() => { setEditWorker(true); setDivVisible(false) }} className={styles.icon_edit_select}></BiEditAlt>
+                                <label onClick={() => { setClickAddShift(true); setDivVisible(false) }}>עריכת עובד</label>
+                                <BiEditAlt onClick={() => { setClickAddShift(true); setDivVisible(false) }} className={styles.icon_edit_select}></BiEditAlt>
                             </div>
 
                             <div className={styles.edit_div_flex}>
@@ -126,34 +106,16 @@ const Worker = (props) => {
                 </p>
             </div>
         </div>
-        {
-            clickEditWorker ? <div className={styles.editWorker}>
-            <input className={styles.input_edit} defaultValue={user.fullName} type="text" placeholder="שם מלא" ref={fullName}/>
-            <input className={styles.input_edit} defaultValue={user.username} type="text" placeholder='שם משתמש' ref={username}/>
-            <input className={styles.input_edit}  type="password" placeholder='סיסמא' ref={password}/>
 
-            <select value={selectedRole} className={styles.select} onChange={(e) => { setRole(e.target.value)}} >
-                <option value="" disabled>תפקיד</option>
-                {props.roles.map(role => { return <option value={role._id} key={role._id}>{role.name}</option> })}
-                <option value={0}>ללא תפקיד</option>
-            </select>
-            
-            <div className={styles.btn_div}>
-                <button
-                    className={styles.edit_worker_btn}
-                    onClick={() => {
-                        EditUser();
-                    }}
-                >אישור
-                </button>
-                <button
-                    className={styles.edit_worker_btn_cancel}
-                    onClick={() => {setEditWorker(!clickEditWorker)
-                    }}
-                >ביטול
-                </button>
-            </div>
-        </div> : null
+        {clickAddShift &&
+            <React.Fragment>
+                <div className={`${styles.backdrop} ${isBackdropVisible ? styles.visible : ''}`} onClick={() => {setClickAddShift(false); toggleBackdrop();}}></div>
+                <PopUpEditWorker
+                    onClose={() => {setClickAddShift(false); toggleBackdrop();}}
+                    roles={props.roles}
+                    user={user}
+                ></PopUpEditWorker>
+            </React.Fragment>
         }
 
     </div>
