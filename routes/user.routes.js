@@ -97,6 +97,7 @@ userRouter.post('/otpAgain', async (req, res) => {
         
         const mailOptions = {
             from: "shiftplannerapp@gmail.com",
+            replyTo: 'noreply.shiftplannerapp@gmail.com',
             to: `${req.body.email}`,
             subject: "Thank you for signing up to ShiftPlanner!",
             html: `<p>please enter the following code to finish your signup.
@@ -321,6 +322,25 @@ userRouter.put('/editUser', async (req, res) => {
             catch (err) { console.log(err) }
             user.fullName = updatedUser.fullName
             user.email = updatedUser.email
+        }
+        await user.save();
+        res.status(202).json(user);
+    }
+    catch (err) {
+        console.log(err)
+        res.status(404).json({ error: err.message });
+    }
+});
+
+//change password
+userRouter.put('/changePassword', async (req, res) => {
+    try {
+        console.log("in change password");
+        let updatedUser = req.body;
+        let user = await User.findOne({ _id: updatedUser._id });
+        if (!!updatedUser.password) {
+            const salt = await bcrypt.genSalt();
+            user.password = await bcrypt.hash(updatedUser.password, salt);
         }
         await user.save();
         res.status(202).json(user);

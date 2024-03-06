@@ -8,13 +8,12 @@ import Swal from 'sweetalert2';
 
 const UserSettings = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [validationMessage, setValidationMessage] = useState(false)
   const userData = JSON.parse(localStorage.getItem('user'));
 
   const changeUser = async () => {
-    if (username.trim() !== '' && password.trim() !== '') {
+    if (password.trim() !== '') {
       if (password.length < 5) {
         Swal.fire({
           title: 'יש למלא סיסמה גדולה מחמישה תווים',
@@ -28,14 +27,10 @@ const UserSettings = () => {
 
       const updatedUser = {
         _id: userData._id,
-        fullName: userData.fullName,
-        username: username,
         password: password,
-        role: userData.role,
-        job: userData.job,
       };
 
-      await axios.put(`${process.env.REACT_APP_URL}/editUser`, updatedUser)
+      await axios.put(`${process.env.REACT_APP_URL}/changePassword`, updatedUser)
         .then(() => {
           setPassword('');
           localStorage.clear();
