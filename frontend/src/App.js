@@ -13,7 +13,6 @@ import ProtectedRoute from './components/ProtectedRoute';
 import EditCurrentWeek from './components/manegerComponents/EditCurrentWeek/EditCurrentWeek';
 import Roles from './components/manegerComponents/Roles/Roles';
 import Workers from './components/manegerComponents/Workers/Workers';
-import CreateWorker from './components/manegerComponents/Workers/CreateWorker';
 import defShifts from './components/manegerComponents/ShiftPage/ShiftPage';
 import CreateShift from './components/manegerComponents/ShiftPage/CreateShift';
 import SettingsPage from './components/manegerComponents/SettingsPage/SettingsPage';
@@ -38,7 +37,6 @@ const App = () => {
         <Route path='/editCurrentWeek' element={<ProtectedRoute component={EditCurrentWeek} role="admin"/>}/>
         <Route path='/roles' element={<ProtectedRoute component={Roles} role="admin"/>}/>
         <Route path='/workers' element={<ProtectedRoute component={Workers} role="admin"/>}/>
-        <Route path='/createWorker' element={<ProtectedRoute component={CreateWorker} role="admin"/>}/>
         <Route path='/defShifts' element={<ProtectedRoute component={defShifts} role="admin"/>}></Route>
         <Route path='/createShift' element={<ProtectedRoute component={CreateShift} role="admin"/>}></Route>
         <Route path='/settingsPage' element={<ProtectedRoute component={SettingsPage} role="admin"/>}></Route>
