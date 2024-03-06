@@ -19,6 +19,7 @@
     position: absolute;
     top: 20px;
     left: 20px;
+    cursor: pointer;
 }
 
 .editShift form{
@@ -40,6 +41,7 @@
     margin-right: 10px;
     margin-bottom: 5px;
     color: rgba(86, 86, 86, 0.881);
+    direction: rtl;
 }
 
 .input_edit{
@@ -155,5 +157,11 @@
     100% {
         transform: translateX(0);
         opacity: 1;
+    }
+}
+
+@media only screen and (min-width: 450px){
+    .editShift{
+        width: 370px;
     }
 }
