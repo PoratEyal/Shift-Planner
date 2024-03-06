@@ -26,14 +26,10 @@ const ManagerSettings = () => {
 
       const updatedUser = {
         _id: userData._id,
-        fullName: userData.fullName,
-        username: userData.username,
-        password: password,
-        role: userData.role,
-        job: userData.job,
+        password: password
       };
 
-      await axios.put(`${process.env.REACT_APP_URL}/editUser`, updatedUser)
+      await axios.put(`${process.env.REACT_APP_URL}/changePassword`, updatedUser)
         .then(() => {
           setPassword('');
 
