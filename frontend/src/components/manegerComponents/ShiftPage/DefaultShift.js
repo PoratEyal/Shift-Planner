@@ -18,7 +18,7 @@ const DefaultShift = (props) => {
 
   const toggleBackdrop = () => {
     setIsBackdropVisible(!isBackdropVisible);
-};
+  };
 
   // control on the close and open the option select
   useEffect(() => {
