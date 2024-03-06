@@ -15,7 +15,7 @@
     justify-content: center;
     align-items: center;
     width: 290px;
-    height: 380px;
+    height: 440px;
     padding: 20px;
     margin-top: 90px;
     animation: slideInAndFade 0.5s ease-in-out;
@@ -45,6 +45,7 @@
     border: none;
     direction: rtl;
     font-family: 'Rubik', sans-serif;
+    border: 1px solid rgba(206, 206, 206, 0.452);
 }
 .input::placeholder {
     font-size: 15px;
