@@ -335,7 +335,6 @@ userRouter.put('/editUser', async (req, res) => {
 //change password
 userRouter.put('/changePassword', async (req, res) => {
     try {
-        console.log("in change password");
         let updatedUser = req.body;
         let user = await User.findOne({ _id: updatedUser._id });
         if (!!updatedUser.password) {
