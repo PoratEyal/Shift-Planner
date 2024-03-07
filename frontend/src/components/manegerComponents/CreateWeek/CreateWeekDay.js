@@ -100,7 +100,6 @@ const CreateWeekDay = (props) => {
                 .then((response) => {
                     const updatedDay = response.data.day.find(d => d._id === day._id);
                     setDay(updatedDay);
-                    console.log(response.data.day);
                 });
         } catch (error) {
             console.log(error.message);

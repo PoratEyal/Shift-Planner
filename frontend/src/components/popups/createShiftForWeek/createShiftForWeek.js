@@ -42,13 +42,13 @@ const CreateShiftForWeek = (props) => {
             workers: [],
             amountOfWorkers: amountOfWorkersValue
         };
-        console.log(newShift);
+
         const reqBody = {
             managerId: props.managerId,
             newShift: newShift,
             dayId: props.dayId
         }
-        console.log(reqBody);
+
         try {
             axios.put(`${process.env.REACT_APP_URL}/addShiftToDay`, reqBody).then((response) => {
                 const updatedDay = response.data.day.find(d => d._id === props.dayId);
