@@ -4,6 +4,7 @@ import axios from 'axios'
 import Shift from './CreateWeekShift';
 import moment from 'moment';
 import LoadingAnimation from '../../loadingAnimation/loadingAnimation';
+import PopUpCreateShift from '../../popups/createShiftForWeek/createShiftForWeek'
 
 const CreateWeekDay = (props) => {
 
@@ -14,9 +15,15 @@ const CreateWeekDay = (props) => {
     const [shiftName, setShiftName] = useState('')
     const [shiftStartTime, SetshiftStartTime] = useState('')
     const [shiftEndTime, SetshiftEndTime] = useState('')
-    const [clickAddShift, setClickAddShift] = useState(false)
     const defShifts = props.defShifts;
     const selectRef = useRef(null);
+
+    const [isBackdropVisible, setIsBackdropVisible] = useState(false);
+    const [clickAddShift, setClickAddShift] = useState(false);
+
+    const toggleBackdrop = () => {
+        setIsBackdropVisible(!isBackdropVisible);
+    };
 
     // get the sifts of the day
     const getShifts = () => {
@@ -100,34 +107,9 @@ const CreateWeekDay = (props) => {
         }
     }
 
-    // create shift and added the _id of it to day
-    const addShift = () => {
-        if (!shiftName || !shiftStartTime || !shiftEndTime) {
-            return;
-        }
-
-        const newShift = {
-            description: shiftName,
-            startTime: moment(shiftStartTime, 'HH:mm'),
-            endTime: moment(shiftEndTime, 'HH:mm'),
-            workers: []
-        };
-
-        const reqBody = {
-            managerId: props.managerId,
-            newShift: newShift,
-            dayId: day._id
-        }
-        try {
-
-            axios.put(`${process.env.REACT_APP_URL}/addShiftToDay`, reqBody).then((response) => {
-                const updatedDay = response.data.day.find(d => d._id === day._id);
-                setDay(updatedDay);
-            });
-        } catch (error) {
-            console.log(error.message);
-        }
-    }
+    const updateDay = (updatedDay) => {
+        setDay(updatedDay);
+    };
 
     return <div>
         <div className={styles.day_container}>
@@ -164,31 +146,15 @@ const CreateWeekDay = (props) => {
             </div>
 
             {clickAddShift && (
-                <div className={styles.addShift}>
-                    <input onChange={(e) => setShiftName(e.target.value)} value={shiftName} className={styles.input} type="text" placeholder="שם משמרת" />
-                    <input onChange={(e) => SetshiftStartTime(e.target.value)} value={shiftStartTime} className={styles.input_time_start} type="time" />
-                    <input onChange={(e) => SetshiftEndTime(e.target.value)} value={shiftEndTime} className={styles.input_time_end} type="time" />
-                    <br></br>
-                    <div className={styles.addShift_div}>
-                        <button
-                            className={styles.addShift_btn}
-                            onClick={() => {
-                                addShift()
-                                setClickAddShift(!clickAddShift)
-                            }}
-                        >הוספה
-                        </button>
-                        <button
-                            className={styles.addShift_cancel_btn}
-                            onClick={() => {
-                                addShift()
-                                setClickAddShift(!clickAddShift)
-                            }}
-                        >ביטול
-                        </button>
-                    </div>
-
-                </div>
+                <React.Fragment>
+                    <div className={`${styles.backdrop} ${isBackdropVisible ? styles.visible : ''}`} onClick={() => {setClickAddShift(false); toggleBackdrop();}}></div>
+                    <PopUpCreateShift
+                        managerId={props.managerId}
+                        dayId={day._id}
+                        updateDay={updateDay}
+                        onClose={() => {setClickAddShift(false); toggleBackdrop();}}
+                    />
+                </React.Fragment>
             )}
 
         </div>

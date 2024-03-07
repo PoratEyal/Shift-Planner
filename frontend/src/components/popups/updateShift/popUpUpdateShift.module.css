@@ -45,6 +45,7 @@
     margin-bottom: 5px;
     color: rgba(86, 86, 86, 0.881);
     direction: rtl;
+    text-align: right;
 }
 
 .input_edit{
