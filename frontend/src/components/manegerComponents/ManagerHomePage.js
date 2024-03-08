@@ -77,7 +77,7 @@ const ManagerHomePage = () => {
     };
 
     return <ManagerContext.Provider value={{getUser}}>
-        <PageLayout className={styles.navbar} text={`ברוך הבא, ${fullname}`} noAnimation={true}>
+        <PageLayout className={styles.navbar} text={`שלום, ${fullname}`} noAnimation={true}>
             
             <div className={styles.container}>
 
