@@ -55,7 +55,7 @@ const Otp = (props) => {
                 <span className={styles.span_title}>הזנת קוד</span>
             </div>
 
-            <p className={styles.under_title}>אהלן {props.name}, שלחנו קוד לאימייל שלך</p>
+            <p className={styles.under_title}>שלום {props.name}, שלחנו קוד לאימייל שלך</p>
         
         </div>
 

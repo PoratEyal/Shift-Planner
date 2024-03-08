@@ -211,20 +211,20 @@ const Navbar = (props) => {
               <hr className={styles.line}></hr>
 
               <div className={styles.text_and_icon}>
-                <Link onClick={() => setOpen((prev) => !prev)} to="/workers" className={styles.icon_link}>
-                  <FiUsers className={styles.icon}></FiUsers>
-                </Link>
-                <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/workers">
-                  עובדים
-                </Link>
-              </div>
-
-              <div className={styles.text_and_icon}>
                 <Link onClick={() => setOpen((prev) => !prev)} className={styles.icon_link} to="/roles">
                   <MdWorkOutline className={styles.icon}></MdWorkOutline>
                 </Link>
                 <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/roles">
                   תפקידים
+                </Link>
+              </div>
+
+              <div className={styles.text_and_icon}>
+                <Link onClick={() => setOpen((prev) => !prev)} to="/workers" className={styles.icon_link}>
+                  <FiUsers className={styles.icon}></FiUsers>
+                </Link>
+                <Link onClick={() => setOpen((prev) => !prev)} className={styles.links} to="/workers">
+                  עובדים
                 </Link>
               </div>
 
