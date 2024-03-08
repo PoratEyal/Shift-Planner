@@ -18,8 +18,8 @@
   background-image: url('../../../public/fullLogo.png');
   background-repeat: no-repeat;
   background-size:cover;
-  width: 370px;
-  height: 125px;
+  width: 340px;
+  height: 100px;
 }
 
 .container_div {
@@ -250,7 +250,10 @@
 }
 @media only screen and (max-width: 365px) {
   .input{
-    width: 245px;
+    width: 260px;
+  }
+  .input_email{
+    width: 260px;
   }
   .logo{
     margin-top: 60px;
