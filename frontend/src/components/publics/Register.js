@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import Roles from './Roles';
 import styles from '../publics/register.module.css';
 import { BiSolidShow, BiSolidHide } from "react-icons/bi";
-import Otp from '../publics/OTP/otp'
+import Otp from '../publics/OTP/otp';
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const Register = () => {
   const [password, setPassword] = useState("");
@@ -15,6 +16,8 @@ const Register = () => {
 
   const [email, setEmail] = useState("");
   const [emailVal, setEmailVal] = useState(false)
+
+  const [loading, setLoading] = useState(false)
 
   const [show, setShow] = useState(true);
 
@@ -33,36 +36,39 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password.length < 5) {
-      setPasswordVal(true)
+      setPasswordVal(true);
       setPassword("");
     }
     if (fullname.length === 0) {
-      setFullnameVal(true)    
+      setFullnameVal(true);    
       setFullname("");
     }
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@.]+$/.test(email)) {
       setEmailVal(true);
       setEmail("");
     }  
-
-    if( !passwordVal && !fullnameVal && !emailVal){
+  
+    if (!passwordVal && !fullnameVal && !emailVal) {
       const userRegister = {
         fullName: fullname,
         password: password,
         role: '64a7d10d0606ff97cf2796dd',
         email: email,
         job: 'admin'
-      }
-
+      };
+  
       axios.post(`${process.env.REACT_APP_URL}/addManager`, userRegister)
-          .then(() => {
-            openCodeOTP(e)
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        .then(() => {
+          setLoading(true);
+          console.log(loading);
+          openCodeOTP(e);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   };
+  
 
   const openCodeOTP = (e) => {
     e.preventDefault()
@@ -140,8 +146,14 @@ const Register = () => {
                 {passwordVal ? <label className={styles.validation_password}>סיסמה חייבת להכיל לפחות 5 תווים</label> : null}
               </div>
               
-              <button className={styles.btn} type="submit">לחצו להרשמה</button>
-  
+              <button className={styles.btn} type="submit">
+                {!loading ? 
+                  <label>לחצו להרשמה</label>
+                :
+                  <AiOutlineLoading3Quarters className={styles.loading_icon}></AiOutlineLoading3Quarters>
+                }
+              </button>
+
               <div className={styles.login_div}>
                 <label>להתחברות</label>
                 <label onClick={() => navigate('/')} className={styles.login_btn}>לחצו כאן</label>
