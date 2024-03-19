@@ -181,14 +181,14 @@ const CurrentWeek = () => {
         })
         .then((result) => {
             if (result.isConfirmed) {
-                sendMessage(result.value);
+                sendMessage();
             }
-        });      
+        });     
     }
 
     // send a prompt to the gpt api and return workers
     // refresh the page
-    const sendMessage = async (numberOfWorkers) => {
+    const sendMessage = async () => {
         setLoadingAi(true);
         console.log(promentToAi)
         try {
