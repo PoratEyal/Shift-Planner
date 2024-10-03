@@ -57,9 +57,6 @@ If you have any questions or inquiries, feel free to contact Eyal porat at eyal1
 ![Screenshot 2024-03-08 151152](https://github.com/PoratEyal/Shift-Planner/assets/134833213/ce64d5b4-a80a-42ef-adf5-38641ac7cb26)
 ![Screenshot 2024-03-08 151140](https://github.com/PoratEyal/Shift-Planner/assets/134833213/c4f0aba8-953e-4927-b14c-7456853f07c7)
 
-## Videos
-https://github.com/PoratEyal/Shift-Planner/assets/134833213/09b52cc0-1126-4c20-b528-532d7fe71f18
-
 ## Automatic assignment to shifts by using Open AI API
 https://github.com/PoratEyal/Shift-Planner/assets/134833213/9e8fbe50-c39a-4d83-9baa-d7891be92d41
 
